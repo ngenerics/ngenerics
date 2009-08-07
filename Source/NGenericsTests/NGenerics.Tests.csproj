@@ -1,0 +1,246 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EB755C88-21F2-41BC-B1C4-7C3392D1AA53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NGenerics.Tests</RootNamespace>
+    <AssemblyName>NGenerics.Tests</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>NGenerics.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.4.1.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Nunit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.3.0.906, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Rhino.Mocks\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithms\Graph\DjikstraTest.cs" />
+    <Compile Include="Algorithms\Graph\KruskalTest.cs" />
+    <Compile Include="Algorithms\Graph\PrimTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Algorithms\Math\EuclidTest.cs" />
+    <Compile Include="Algorithms\Math\FibonacciTest.cs" />
+    <Compile Include="Algorithms\Math\HypotenuseTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Algorithms\Math\LeastCommonMultipleTest.cs" />
+    <Compile Include="Comparers\AssociationKeyComparerTest.cs" />
+    <Compile Include="Comparers\ComparisonComparerTest.cs" />
+    <Compile Include="Comparers\EdgeWeightComparerTest.cs" />
+    <Compile Include="Comparers\KeyValuePairComparerTests.cs" />
+    <Compile Include="Comparers\ReverseComparerTest.cs" />
+    <Compile Include="DataStructures\General\DictionaryBaseTests.cs" />
+    <Compile Include="DataStructures\General\EdgeTest.cs" />
+    <Compile Include="DataStructures\General\HeapTest.cs" />
+    <Compile Include="DataStructures\General\VertexTest.cs" />
+    <Compile Include="DataStructures\Mathematical\CholeskyDecompositionTest.cs" />
+    <Compile Include="DataStructures\Mathematical\LUDecompositionTest.cs" />
+    <Compile Include="DataStructures\Mathematical\QRDecompositionTests.cs" />
+    <Compile Include="DataStructures\Mathematical\Vector2DTest.cs" />
+    <Compile Include="DataStructures\Mathematical\Vector2DTest.Operators.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\Vector3DTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\Vector3DTest.Operators.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\VectorBaseTest.cs" />
+    <Compile Include="DataStructures\Mathematical\VectorBaseTestObject.cs" />
+    <Compile Include="DataStructures\Mathematical\VectorNTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\VectorNTest.Operators.cs" />
+    <Compile Include="DataStructures\Queues\PriorityQueueTest.cs" />
+    <Compile Include="Extensions\ListExtensionsTest.cs" />
+    <Compile Include="Extensions\DoubleExtensionsTest.cs" />
+    <Compile Include="Extensions\EnumerableExtensionsTest.cs" />
+    <Compile Include="Extensions\ObjectExtensionsTests.cs" />
+    <Compile Include="Infrastructure\SilverLightTests.cs" />
+    <Compile Include="Patterns\Conversion\ConverterExtensionsTests.cs" />
+    <Compile Include="Patterns\Specification\AbstractSpecificationTests.cs" />
+    <Compile Include="Patterns\Specification\CompositeSpecificationTests.cs" />
+    <Compile Include="Patterns\Specification\NotSpecificationTests.cs" />
+    <Compile Include="Patterns\Specification\OrSpecificationTests.cs" />
+    <Compile Include="Patterns\Specification\AndSpecificationTests.cs" />
+    <Compile Include="Patterns\Specification\PredicateSpecificationTests.cs" />
+    <Compile Include="Patterns\Specification\XorSpecificationTests.cs" />
+    <Compile Include="Sorting\SorterExtensionsTests.cs" />
+    <Compile Include="SupportPrograms\ProjectSynchronizer\Parsing\VS2008ProjectParserTests.cs" />
+    <Compile Include="SupportPrograms\ProjectSynchronizer\Parsing\VS2008SynchronizerTests.cs" />
+    <Compile Include="TestObjects\NonComparableTClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Queues\CircularQueueTest.cs" />
+    <Compile Include="DataStructures\General\AssociationTest.cs" />
+    <Compile Include="DataStructures\General\BagTest.cs" />
+    <Compile Include="DataStructures\Trees\BinarySearchTreeTest.cs" />
+    <Compile Include="DataStructures\Trees\BinaryTreeTest.cs" />
+    <Compile Include="DataStructures\Mathematical\ComplexNumberTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Queues\DequeTest.cs" />
+    <Compile Include="TestObjects\DummyComparer.cs" />
+    <Compile Include="DataStructures\Trees\GeneralTreeTest.cs" />
+    <Compile Include="DataStructures\General\GraphTest.cs" />
+    <Compile Include="DataStructures\General\HashListTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\ListTest.cs" />
+    <Compile Include="DataStructures\Mathematical\MatrixTest.cs" />
+    <Compile Include="DataStructures\General\MaxHeapTest.cs" />
+    <Compile Include="DataStructures\Queues\MaxPriorityQueueHeapTest.cs" />
+    <Compile Include="DataStructures\General\MinHeapTest.cs" />
+    <Compile Include="DataStructures\Queues\MinPriorityQueueHeapTest.cs" />
+    <Compile Include="DataStructures\General\ObjectMatrixTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Trees\RedBlackTreeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\SetTest.cs" />
+    <Compile Include="DataStructures\General\SingletonTest.cs" />
+    <Compile Include="DataStructures\General\SkipListTest.cs" />
+    <Compile Include="DataStructures\General\SortedListTest.cs" />
+    <Compile Include="DataStructures\Trees\SplayTreeTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sorting\TestSort.cs" />
+    <Compile Include="TestObjects\TestFiles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestFiles.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Threading\BackgroundWorkerTest.cs" />
+    <Compile Include="Util\CompletedTrackingVisitor.cs" />
+    <Compile Include="Util\GeneralTreeComparer.cs" />
+    <Compile Include="Util\GuardTest.cs" />
+    <Compile Include="Util\IntComparer.cs" />
+    <Compile Include="Util\SerializeUtil.cs" />
+    <Compile Include="Util\SimpleClass.cs" />
+    <Compile Include="Patterns\Visitor\ActionVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\ComparableFindingVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\GeneralVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\KeyTrackingVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\OrderedVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\ValueTrackingVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\VisitorExtensionsTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGenerics\NGenerics.csproj">
+      <Project>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</Project>
+      <Name>NGenerics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SupportPrograms\ProjectSynchronizer.Core\ProjectSynchronizer.Core.csproj">
+      <Project>{7BFEA8A8-1431-4BF5-A2E8-A18564CB9D53}</Project>
+      <Name>ProjectSynchronizer.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NGenerics.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TestObjects\TestFiles.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TestFiles.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestObjects\Artifacts\SampleProjects\NGenerics.csproj" />
+    <Content Include="TestObjects\Artifacts\SampleProjects\NGenerics.Silverlight.csproj" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Notes="&lt;Notes Project=&quot;eb755c88-21f2-41bc-b1c4-7c3392d1aa53&quot; xmlns=&quot;clr-namespace:StickyNotes.Model;assembly=StickyNotes&quot;&gt;&lt;Notes.StickyNotes&gt;&lt;Note FilePath=&quot;&quot; Content=&quot;&quot; Date=&quot;2008-09-11T04:20:56.25+02:00&quot; /&gt;&lt;/Notes.StickyNotes&gt;&lt;/Notes&gt;" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

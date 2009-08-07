@@ -1,0 +1,237 @@
+1.4
+---
+	- Removed Stuff:
+		- All code related to IVisitable
+
+1.3
+---
+	- Added Stuff:
+		- Complex Number
+		- Circular Queue
+		- Radix Sorter
+		- SplayTree
+		- BaseBinarySearchTree, base class for SplayTree and BinarySearchTree
+		- Kruskal's algorithm - thanks to Brandon Turner (turnerb7@msu.edu)
+		
+		- Added additional methods on Priority Queue :
+		  - Remove(T item)
+		  - Remove(T item, out int priority)
+		  - Dequeue(out int priority)
+		  - RemoveItemsWithPriority(int priority)
+		  - GetPriorityGroup(int priority)
+		  - AddPriorityGroup(IList<T> items, int priority)
+		  
+		- Added Hypotenuse to Math algorithms		
+		  
+		- Added the following to the Matrix related classes :
+			- IMatrix :
+				- DeleteRow
+				- DeleteColumn				
+			- ObjectMatrix :
+				- DeleteRow
+				- DeleteColumn		
+			- IMathematicalMatrix :
+				- Changed Invert to Inverse
+				- MultiplyRow
+				- MultiplyColumn
+				- Minor
+				- Adjoint
+				- Concatenate		
+			- Matrix
+				- Minor
+				- Adjoint
+				- Inverse
+				- Concatenate
+				- MultiplyColumn
+				- MultiplyRow
+				- Determinant
+				- Diagonal
+			  - Identity
+			  - Solve	
+			  - Trace			
+			  - FrobeniusNorm 
+			  - InfinityNorm
+			  - OneNorm	
+		- Added the following Vector related classes
+			  -IVector
+			  -Vector2D
+			  -Vector3D
+			  -VectorBase
+			  -VectorN
+			
+		- Added Matrix decompositions :
+		    - LUDecomposition
+		    - QRDecomposition	
+		  
+		- New methods on Graph :
+		    - TopologicalSort  -> Thanks to David Larson for contributing.
+        - TopologicalSortTraversal
+        - IsCyclic
+	
+	- Changed Stuff:	  
+		- Edges and Vertices in a Graph are now stored in a Dictionary, in order to speed up lookups.
+		- Changed Edges and Vertices properties on Graph<T> to return an ICollection object, replacing the Enumerator.
+		- Changed IncidentEdges and EmanatingEdges on Vertex<T> to return an IList<Vertex<T>> in the form of a 
+		  ReadOnlyCollection<Vertex<T>>.
+		- Removed IncidentEdgesCount property on Vertex<T> - count can be obtained by using the IncidentEdges property.
+		- Namespace changes for most of the data structures to avoid having them all bundled into one namespace.
+		- Matrix moved to a 1-dimensional array implementation.
+		- Couple of things fixed for compiling on Mono.
+		- Added STRICT_VALIDATION compilation flag - not used at the moment, but I'm sure we'll find places.
+		- Removed some of the index checks where the underlying data structure would perform the same check.
+		- Fixed leaky abstraction in Matrix.
+		- Added Serializability (and unit tests) on all data structures except ReadOnlyPropertyCollection.
+		- Added SuppressMessage to (and fixed some) FxCop code violations.  Code Analysis can now be performed
+		  without being scared of the nasty backlog of messages.
+		- Update unit tests for more coverage.
+		- Code cleanup :		
+			- Fix spelling errors.
+			- Remove redundant code.
+			- Changed GetEnumerator() and MoveNext() calls to foreach loops where applicable.
+			- Deleted the EqualityFindingVisitor since it was unused.		
+		- Added NAnt build file that supports targets for both Mono 2.0 and .NET 2.0.	
+		- NGenerics now compiles and unit tests succeed on Mono.  Differences between the Mono and NGenerics 
+		  implementation is explained in the "ReadMe.txt" file.
+		- Documentation
+		- ReadOnlyPropertyList makes a copy of the IList<T> that is passed in on construction
+		- HeapType would be moved from NGenerics.Enumerations to NGenerics 
+		- PriorityQueueType would be moved from NGenerics.Enumerations to NGenerics.DataStructures.Queues
+		- Values in PriorityQueueType and HeapType renamed to Minimum and Maximum
+		- Change the namespace of internal enumerations.
+		- Add DictionaryBase<TKey, TValue>. base class for VisitableHashtable
+		- Added ISearchTree interface for RedBlackTree, BinarySearchTree, and SplayTree.
+		- RedBlackTree's Minimum and Maximum properties now return a KeyValuePair instead of just the key in order to conform to the ISearchTree interface.
+		- Create a params version of HashList.Add
+		- Added Setter for property Data on GeneralTree.
+		- Added DepthFirstTraversal to BinarySearchTreeBase - which will in turn add it to BinarySearchTree, and SplayTree.
+		- Renamed all instances of "Min" and "Max" to "Minimum" and "Maximum". For consistency. 
+		- Default Priority can now be changed in Priority Queue via a property.
+		- Performance improvements in ObjectMatrix and Matrix
+		- The following now throw a KeyNotFoundException if the key supplied is not found
+		  SkipList.Item, BinarySearchTree.Item, RedBlackTree.Item, SplayTree.Item
+		- Provide xml documentation for all exceptions.
+		- Fixed a nasty bug in ObjectMatrix.GetColumn
+		- Added Capacity property for PascalSet, and changed IsFull to actually return whether the set is full or not.
+		- Removed EdgeCount and VertexCount properties from Graph.  These values can be accessed through the Edge and Vertex collections respectively.
+		- Made IsWeaklyConnected() and IsStronglyConnected() methods instead of properties,
+		  according to the Microsoft Design Guidelines (properties should not take a long time to run).
+		- Fixed bug in SkipList where items on level 0 might not be removed under certain conditions.
+		- Priority Queue is now FIFO instead of LIFO
+		- Algorithms.Math and Algorithms.Graph changed to Algorithms.MathAlgorithms and Algorithms.GraphAlgorithms to avoid class name clashes.
+		
+	
+	
+1.2
+---
+	- Added Stuff:
+		- ObjectMatrix
+		- HashList
+		- RedBlackTree
+		- Prim's Minimal Spanning Tree Algorithm
+		- ReadOnlyPropertyList
+		
+	- Changed Stuff :
+		- Graph's AddVertex(T item) and AddEdge(Vertex<T> v1, Vertex<T> v2) now return the newly created vertex and
+		  edge, respectively.			
+		- Extracted Interfaces IMathematicalMatrix and IMatrix for Matrix type structures
+		- Added ToKeyValuePair() Method on Association class.
+		- Converted the BinarySearchTree<T> to BinarySearchTree<TKey, TValue> :  It now implements
+		  the IVisitableDictionary<TKey, TValue> interface. 
+		- VisitableList<T> and GeneralTree<T> now implements ISortable<T> and ISortable<GeneralTree<T>> respectively.
+		- Methods added to the ISorter<T> and ISortable<T> interfaces to allow sorting with a Comparison<T> delegate.		
+		- InterchangeRows, InterchangeColumns, GetRow, GetColumn, AddColumn, AddRow  added on IMatrix, Matrix and ObjectMatrix		
+		- Added Parent property to GeneralTree<T> so bottom-up paths can be found.
+		- Added Ancestors property to GeneralTree<T> to find any ancestors of the current node up in the tree.
+	  
+1.1
+---
+	- In an effort to take this project one step further, DataStructures.NET has received a bit of a face-lift, and is 
+	  now dubbed NGenerics.  The project page can be found at http://www.codeplex.com/NGenerics. The latest source can
+	  be found on the project page, but it will be periodically updated at Code Project.
+	  
+	  As such, major changes have been made :
+		- The default namespace has been changed to NGenerics.
+		- The strong name key for signing the assembly has been changed and is no longer distributed with the library.
+		  This means that if you want to compile NGenerics from source, you need to provide your own key 
+		  (or turn off signing for the assembly).
+		  
+	  Hopefully this will be the last major change - things should settle down now...
+	  
+	- Added Stuff :
+		- DataStructures :
+			- BinarySearchTree
+		- Algorithms :
+			- Euclid's Algorithm
+			
+	- Changed Stuff :
+		- Added FindNode method to BinaryTree, GeneralTree and the ITree<T> interface.
+		- Changed the IsSymmetric method of the Matrix to not make a transposition of the current matrix.
+		- Extracted interface for Matrix : IMatrix
+		- Added Methods/Properties to Matrix :
+			- IsSquare
+			- GetSubMatrix
+			- Clone (Matrix now implements IClonable)
+
+1.0 Release
+-----------
+	- Fixed :
+		- Spelling mistake : BreathFirstSearch on GeneralTree and BinaryTree instead of BreadthFirstSearch.		
+		
+	- Added Stuff :
+		- Sorters :
+			- CombSorter
+			- CocktailSorter
+			- OddEvenTransportSorter 
+			- ShakerSorter		
+		- DataStructures :
+			- SkipList
+		- Algorithms :
+			- Dijkstra's shortest path algorithm
+	
+	- Changed Stuff :
+		- Changed PriorityQueue to take a PriorityQueueType parameter on 
+		  construction, to specify whether it's a min priority queue or
+	      a max priority queue.
+	    - Split the IVisitable portion from the IVisitableCollection interface,
+	      and introduced the IVisitableDictionary interface.	 
+	    - Added a Weight field on the Vertex<T> class to accommodate vertex-weighted graphs.
+	
+
+1.0 Beta 2
+----------
+	- Graph data structure added.
+	- Modified Singleton to have an internal setter for testing purposes,
+	  as per M.Holmgren's  suggestion.
+	- Heap now takes a HeapType parameter at construction to specify whether
+	  it's a MinHeap or a MaxHeap.
+	- Priority Queue is now implemented using a MaxHeap instead of a SortedList,
+	  thanks to a suggestion by CastorTiu.
+	- Removed the abstract VisitableCollection class.  All data structures now
+	  implement the IVisitableCollection interface instead of inheriting from
+	  the abstract VisitableCollection class.  While this does force the 
+	  implementation  a couple of mundane methods multiple times, I feel that 
+	  the interface is a much cleaner approach, since I can now "hide" methods 
+	  through explicit implementation instead of just throwing a 
+	  NotSupportedException.
+	- SortedList now implements IList<T>.
+	- Removed Visitor abstract class - all visitors now implement the IVisitor<T>
+	  interface and the Accept method on the IVisitableCollection<T> interface
+	  now takes a IVisitor<T> parameter.
+	- Extracted interfaces for the following data structures :
+		- IDeque for the Deque class.
+		- IBag for the Bag class.
+		- ISet for the PascalSet class.
+		- IStack for the VisitableStack class.
+		- ITree interface for the BinaryTree and GeneralTree classes.
+		- IHeap interface for the Heap class.
+		
+	- Added Sorters :
+		- ShellSorter
+		- QuickSorter
+		- BucketSorter
+	
+
+1.0 Beta 1
+----------
+
+Initial Release

@@ -1,0 +1,91 @@
+/*  
+ Copyright 2009 The NGenerics Team
+ (http://www.codeplex.com/NGenerics/Wiki/View.aspx?title=Team)
+
+ This program is licensed under the Microsoft Permissive License (Ms-PL).  You should 
+ have received a copy of the license along with the source code.  If not, an online copy
+ of the license can be found at http://www.codeplex.com/NGenerics/Project/License.aspx.
+*/
+
+
+#if (!SILVERLIGHT)
+using System;
+#endif
+using System.Collections.Specialized;
+using System.Diagnostics.CodeAnalysis;
+using NGenerics.DataStructures.Queues;
+
+namespace NGenerics.UI.DataStructures.Queues
+{
+    /// <summary>
+    /// Represents a dynamic data <see cref="Deque{T}"/> that provides notifications when items get added, removed, or when the whole list is refreshed.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements in the <see cref="ObservableDeque{T}"/>.</typeparam>
+#if (!SILVERLIGHT)
+    [Serializable]
+#endif
+    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
+    [SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
+	public partial class ObservableDeque<T> : Deque<T>
+	{
+
+		/// <inheritdoc />
+		protected override T DequeueHeadItem()
+		{
+			CheckReentrancy();
+			var item = base.DequeueHeadItem();
+			OnPropertyChanged("Count", "IsEmpty","Head", "Tail");
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, -1));
+			return item;
+		}
+
+
+        /// <summary>
+        /// Dequeues the tail item.
+        /// </summary>
+        /// <returns>The item that was dequeued.</returns>
+        /// <remarks>
+        /// 	<b>Notes to Inheritors: </b>
+        /// Derived classes can override this method to change the behavior of the DequeueTail method.
+        /// </remarks>
+		protected override T DequeueTailItem()
+		{
+			CheckReentrancy();
+			var item = base.DequeueHeadItem();
+			OnPropertyChanged("Count", "IsEmpty", "Head", "Tail");
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, -1));
+			return item;
+		}
+
+
+		/// <inheritdoc />
+		protected override void EnqueueTailItem(T item)
+		{
+			CheckReentrancy();
+			base.EnqueueHeadItem(item);
+			OnPropertyChanged("Count", "IsEmpty", "Head", "Tail");
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, -1));
+		}
+
+
+		/// <inheritdoc />
+		protected override void EnqueueHeadItem(T item)
+		{
+			CheckReentrancy();
+			base.EnqueueHeadItem(item);
+			OnPropertyChanged("Count", "IsEmpty", "Head", "Tail");
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, -1));
+		}
+
+
+		/// <inheritdoc />
+		protected override void ClearItems()
+		{
+			CheckReentrancy();
+			base.ClearItems();
+			OnPropertyChanged("Count", "IsEmpty", "Head", "Tail");
+			OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+		}
+
+	}
+}

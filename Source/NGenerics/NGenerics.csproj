@@ -1,0 +1,256 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NGenerics</RootNamespace>
+    <AssemblyName>NGenerics</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>NGenerics.snk</AssemblyOriginatorKeyFile>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <DelaySign>false</DelaySign>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;STRICT_VALIDATION</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <DocumentationFile>bin\Debug\NGenerics.xml</DocumentationFile>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <NoWarn>
+    </NoWarn>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;STRICT_VALIDATION</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\NGenerics.xml</DocumentationFile>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRules>-Microsoft.Design#CA1020;-Microsoft.Design#CA1000;-Microsoft.Design#CA1006;-Microsoft.Design#CA1023;-Microsoft.Design#CA1013;-Microsoft.Design#CA1036;-Microsoft.Design#CA1024;-Microsoft.Naming#CA1710;-Microsoft.Naming#CA1711;-Microsoft.Performance#CA1814;-Microsoft.Usage#CA2225</CodeAnalysisRules>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithms\GraphAlgorithms.cs" />
+    <Compile Include="Algorithms\MathAlgorithms.cs" />
+    <Compile Include="Algorithms\VertexInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\AssociationKeyComparer.cs" />
+    <Compile Include="Comparers\ComparisonComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\EdgeWeightComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\IAssociationKeyComparer.cs" />
+    <Compile Include="Comparers\KeyValuePairComparer.cs" />
+    <Compile Include="Comparers\ReverseComparer.cs" />
+    <Compile Include="DataStructures\General\Association.cs" />
+    <Compile Include="DataStructures\General\Bag.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataStructures\General\DictionaryBase.cs" />
+    <Compile Include="DataStructures\General\ListBase.cs" />
+    <Compile Include="DataStructures\Mathematical\CholeskyDecomposition.cs" />
+    <Compile Include="DataStructures\Mathematical\ComplexNumber.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\IDecomposition.cs" />
+    <Compile Include="DataStructures\Mathematical\IMathematicalMatrix.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\IVector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\LUDecomposition.cs" />
+    <Compile Include="DataStructures\Mathematical\Matrix.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\QRDecomposition.cs" />
+    <Compile Include="DataStructures\Mathematical\TriangularMatrixType.cs" />
+    <Compile Include="DataStructures\Mathematical\Vector2D.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\Vector2D.Operators.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\Vector3D.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\Vector3D.Operators.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\VectorBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\VectorBase.Operators.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\VectorN.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\Mathematical\VectorN.Operators.cs" />
+    <Compile Include="DataStructures\Queues\ClassicPriorityQueue.cs" />
+    <Compile Include="DataStructures\Trees\BinarySearchTreeBase.cs" />
+    <Compile Include="DataStructures\Trees\ISearchTreeDictionary.cs" />
+    <Compile Include="DataStructures\Trees\BinarySearchTreeDictionaryBase.cs" />
+    <Compile Include="DataStructures\Trees\BinarySearchTree.cs" />
+    <Compile Include="DataStructures\Trees\BinaryTree.cs" />
+    <Compile Include="DataStructures\Queues\CircularQueue.cs" />
+    <Compile Include="DataStructures\Queues\Deque.cs" />
+    <Compile Include="DataStructures\General\Edge.cs" />
+    <Compile Include="DataStructures\Trees\GeneralTree.cs" />
+    <Compile Include="DataStructures\General\Graph.cs" />
+    <Compile Include="DataStructures\General\HashList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\Heap.cs" />
+    <Compile Include="DataStructures\General\IBag.cs" />
+    <Compile Include="DataStructures\Queues\IDeque.cs" />
+    <Compile Include="DataStructures\General\IHeap.cs" />
+    <Compile Include="DataStructures\General\IMatrix.cs" />
+    <Compile Include="DataStructures\Queues\IQueue.cs" />
+    <Compile Include="DataStructures\General\ISet.cs" />
+    <Compile Include="DataStructures\Trees\ISearchTree.cs" />
+    <Compile Include="DataStructures\Trees\ITree.cs" />
+    <Compile Include="DataStructures\General\ObjectMatrix.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\PascalSet.cs" />
+    <Compile Include="DataStructures\Queues\PriorityQueue.cs" />
+    <Compile Include="DataStructures\Trees\RedBlackTree.cs" />
+    <Compile Include="DataStructures\Trees\RedBlackTreeDictionary.cs" />
+    <Compile Include="DataStructures\Trees\RedBlackTreeList.cs" />
+    <Compile Include="DataStructures\General\Singleton.cs" />
+    <Compile Include="DataStructures\General\SkipList.cs" />
+    <Compile Include="DataStructures\General\SkipListNode.cs" />
+    <Compile Include="DataStructures\General\SortedList.cs" />
+    <Compile Include="DataStructures\General\Vertex.cs" />
+    <Compile Include="DataStructures\Trees\RedBlackTreeNode.cs" />
+    <Compile Include="DataStructures\Trees\SplayTree.cs" />
+    <Compile Include="DataStructures\General\HeapType.cs" />
+    <Compile Include="DataStructures\Trees\NodeColor.cs" />
+    <Compile Include="DataStructures\Queues\PriorityQueueType.cs" />
+    <Compile Include="Extensions\DoubleExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Patterns\Conversion\ConverterExtensions.cs" />
+    <Compile Include="Patterns\Conversion\IBidirectionalConverter.cs" />
+    <Compile Include="Patterns\Conversion\IConverter.cs" />
+    <Compile Include="Patterns\Specification\AbstractSpecification.cs" />
+    <Compile Include="Patterns\Specification\AndSpecification.cs" />
+    <Compile Include="Patterns\Specification\CompositeSpecification.cs" />
+    <Compile Include="Patterns\Specification\ISpecification.cs" />
+    <Compile Include="Patterns\Specification\NotSpecification.cs" />
+    <Compile Include="Patterns\Specification\OrSpecification.cs" />
+    <Compile Include="Patterns\Specification\PredicateSpecification.cs" />
+    <Compile Include="Patterns\Specification\XorSpecification.cs" />
+    <Compile Include="Sorting\SorterExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sorting\BubbleSorter.cs" />
+    <Compile Include="Sorting\BucketSorter.cs" />
+    <Compile Include="Sorting\CocktailSorter.cs" />
+    <Compile Include="Sorting\CombSorter.cs" />
+    <Compile Include="Sorting\ComparisonSorter.cs" />
+    <Compile Include="Sorting\GnomeSorter.cs" />
+    <Compile Include="Sorting\HeapSorter.cs" />
+    <Compile Include="Sorting\IComparisonSorter.cs" />
+    <Compile Include="Sorting\InsertionSorter.cs" />
+    <Compile Include="Sorting\ISortable.cs" />
+    <Compile Include="Sorting\ISorter.cs" />
+    <Compile Include="Sorting\MergeSorter.cs" />
+    <Compile Include="Sorting\OddEvenTransportSorter.cs" />
+    <Compile Include="Sorting\QuickSorter.cs" />
+    <Compile Include="Sorting\RadixSorter.cs" />
+    <Compile Include="Sorting\SelectionSorter.cs" />
+    <Compile Include="Sorting\ShakerSorter.cs" />
+    <Compile Include="Sorting\ShellSorter.cs" />
+    <Compile Include="Sorting\Sorter.cs" />
+    <Compile Include="Sorting\SortOrder.cs" />
+    <Compile Include="Threading\AsyncCompletedEventArgs.cs" />
+    <Compile Include="Threading\BackgroundWorker.cs" />
+    <Compile Include="Threading\DoWorkEventArgs.cs" />
+    <Compile Include="Threading\ProgressChangedEventArgs.cs" />
+    <Compile Include="Threading\RunWorkerCompletedEventArgs.cs" />
+    <Compile Include="Util\Guard.cs" />
+    <Compile Include="Util\Swapper.cs" />
+    <Compile Include="Patterns\Visitor\ComparableFindingVisitor.cs" />
+    <Compile Include="Patterns\Visitor\ActionVisitor.cs" />
+    <Compile Include="Patterns\Visitor\CountingVisitor.cs" />
+    <Compile Include="Patterns\Visitor\DummyVisitor.cs" />
+    <Compile Include="Patterns\Visitor\GeneralVisitor.cs" />
+    <Compile Include="Patterns\Visitor\IFindingVisitor.cs" />
+    <Compile Include="Patterns\Visitor\InOrderVisitor.cs" />
+    <Compile Include="Patterns\Visitor\IVisitor.cs" />
+    <Compile Include="Patterns\Visitor\KeyTrackingVisitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Patterns\Visitor\OrderedVisitor.cs" />
+    <Compile Include="Patterns\Visitor\PostOrderVisitor.cs" />
+    <Compile Include="Patterns\Visitor\PreOrderVisitor.cs" />
+    <Compile Include="Patterns\Visitor\SumVisitor.cs" />
+    <Compile Include="Patterns\Visitor\TrackingVisitor.cs" />
+    <Compile Include="Patterns\Visitor\ValueTrackingVisitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Patterns\Visitor\VisitorExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagrams\Bag.cd" />
+    <None Include="Diagrams\Graphs.cd" />
+    <None Include="Diagrams\Heap.cd" />
+    <None Include="Diagrams\Lists.cd" />
+    <None Include="Diagrams\Matix.cd" />
+    <None Include="Diagrams\Queues.cd" />
+    <None Include="Diagrams\Trees.cd" />
+    <None Include="Diagrams\Vectors.cd" />
+    <None Include="NGenerics.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Notes="&lt;Notes Project=&quot;e9627a13-b84f-4c54-bc1e-acc0b2e86e13&quot; xmlns=&quot;clr-namespace:StickyNotes.Model;assembly=StickyNotes&quot;&gt;&lt;Notes.StickyNotes&gt;&lt;Note FilePath=&quot;&quot; Content=&quot;&quot; Date=&quot;2008-09-07T09:57:09.296875+02:00&quot; /&gt;&lt;/Notes.StickyNotes&gt;&lt;/Notes&gt;" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

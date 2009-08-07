@@ -1,0 +1,165 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CB746113-D391-47A8-BBE4-71C8C39E0B45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExampleLibraryCSharp</RootNamespace>
+    <AssemblyName>ExampleLibraryCSharp</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.4.1.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Nunit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithms\MathExample.cs" />
+    <Compile Include="DataStructures\General\AssociationExamples.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\BagExamples.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\DictionaryBaseExamples.cs" />
+    <Compile Include="DataStructures\General\EdgeExamples.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\GraphExamples.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\HashListExamples.cs" />
+    <Compile Include="DataStructures\General\HeapExamples.cs" />
+    <Compile Include="DataStructures\General\ObjectMatrixExamples.cs" />
+    <Compile Include="DataStructures\General\PascalSetExamples.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\SingletonExamples.cs" />
+    <Compile Include="DataStructures\General\SkipListExamples.cs" />
+    <Compile Include="DataStructures\General\SortedListExamples.cs" />
+    <Compile Include="DataStructures\General\VertexExamples.cs" />
+    <Compile Include="DataStructures\Mathematical\ComplexNumberExamples.cs" />
+    <Compile Include="DataStructures\Mathematical\MatrixExamples.cs" />
+    <Compile Include="DataStructures\Mathematical\Vector2DExamples.cs" />
+    <Compile Include="DataStructures\Mathematical\Vector2DExamples.Operators.cs" />
+    <Compile Include="DataStructures\Mathematical\Vector3DExamples.cs" />
+    <Compile Include="DataStructures\Mathematical\Vector3DExamples.Operators.cs" />
+    <Compile Include="DataStructures\Mathematical\VectorNExamples.cs" />
+    <Compile Include="DataStructures\Mathematical\VectorNExamples.Operators.cs" />
+    <Compile Include="DataStructures\Queues\CircularQueueExamples.cs" />
+    <Compile Include="DataStructures\Queues\DequeExamples.cs" />
+    <Compile Include="DataStructures\Queues\PriorityQueueExamples.cs" />
+    <Compile Include="DataStructures\Trees\BinarySearchTreeBaseExamples.cs" />
+    <Compile Include="DataStructures\Trees\RedBlackTreeExamples.cs" />
+    <Compile Include="Extensions\DoubleExtensionsExamples.cs" />
+    <Compile Include="Extensions\IEnumerableExtensionsExamples.cs" />
+    <Compile Include="Extensions\ObjectExtensionsExamples.cs" />
+    <Compile Include="Patterns\Conversion\ConverterExtensionsExamples.cs" />
+    <Compile Include="Patterns\Specification\AbstractSpecificationExamples.cs" />
+    <Compile Include="Patterns\Specification\AndSpecificationExamples.cs" />
+    <Compile Include="Patterns\Specification\NotSpecificationExamples.cs" />
+    <Compile Include="Patterns\Specification\OrSpecificationExamples.cs" />
+    <Compile Include="Patterns\Specification\PredicateSpecificationExamples.cs" />
+    <Compile Include="Patterns\Specification\XorSpecificationExamples.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sorting\BubbleSorterExamples.cs" />
+    <Compile Include="Sorting\BucketSorterExamples.cs" />
+    <Compile Include="Sorting\CocktailSorterExamples.cs" />
+    <Compile Include="Sorting\CombSorterExamples.cs" />
+    <Compile Include="Sorting\GnomeSorterExamples.cs" />
+    <Compile Include="Sorting\HeapSorterExamples.cs" />
+    <Compile Include="Sorting\InsertionSorterExamples.cs" />
+    <Compile Include="Sorting\MergeSorterExamples.cs" />
+    <Compile Include="Sorting\OddEvenTransportSorterExamples.cs" />
+    <Compile Include="Sorting\QuickSorterExamples.cs" />
+    <Compile Include="Sorting\RadixSorterExamples.cs" />
+    <Compile Include="Sorting\SelectionSorterExamples.cs" />
+    <Compile Include="Sorting\ShakerSorterExamples.cs" />
+    <Compile Include="Sorting\ShellSorterExamples.cs" />
+    <Compile Include="Sorting\SorterExamples.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\NGenerics\NGenerics.csproj">
+      <Project>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</Project>
+      <Name>NGenerics</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

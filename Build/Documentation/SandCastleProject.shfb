@@ -1,0 +1,71 @@
+﻿<project schemaVersion="1.6.0.7">
+    <assemblies>
+        <assembly assemblyPath="..\..\Source\NGenerics\bin\Release\NGenerics.dll" xmlCommentsPath="..\..\Source\NGenerics\bin\Release\NGenerics.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\..\Source\NGenerics.UI\bin\Release\NGenerics.UI.dll" xmlCommentsPath="..\..\Source\NGenerics.UI\bin\Release\NGenerics.UI.xml" commentsOnly="False" />
+    </assemblies>
+    <namespaceSummaries>
+        <namespaceSummaryItem name="" isDocumented="False" />
+        <namespaceSummaryItem name="NGenerics.Algorithms" isDocumented="True">&lt;b&gt;The root namespace for Algorithms.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.Comparers" isDocumented="True">&lt;b&gt;Comparer Implementations.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.DataStructures" isDocumented="True">&lt;b&gt;Data Structures.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.DataStructures.General" isDocumented="True">&lt;b&gt;General Data Structures&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.DataStructures.Mathematical" isDocumented="True">&lt;b&gt;Mathematical Data Structures.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.DataStructures.Queues" isDocumented="True">&lt;b&gt;Data Structures based on queues.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.DataStructures.Trees" isDocumented="True">&lt;b&gt;Data Structures based on trees.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.Enumerations" isDocumented="True">&lt;b&gt;Enumerations.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.Extensions" isDocumented="True">&lt;b&gt;Various Extension Methods.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.Misc" isDocumented="False" />
+        <namespaceSummaryItem name="NGenerics.Sorting" isDocumented="True">&lt;b&gt;Sorting algorithms&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.UI.DataStructures.General" isDocumented="True">&lt;b&gt;General Observable Data Structures.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.UI.DataStructures.Queues" isDocumented="True">&lt;b&gt;Observable Data Structures based on queues.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.UI.DataStructures.Trees" isDocumented="True">&lt;b&gt;Observable Data Structures based on trees.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.Util" isDocumented="True">&lt;b&gt;Utility classes.&lt;/b&gt;</namespaceSummaryItem>
+        <namespaceSummaryItem name="NGenerics.Visitors" isDocumented="True">&lt;b&gt;Visitors.&lt;/b&gt;</namespaceSummaryItem>
+    </namespaceSummaries>
+    <additionalContent contentSiteMap="" topicFileTransform="">
+        <contentItem sourcePath=".\Images\NGenericsSmall.jpg" destPath="Images\" excludeItems="False" />
+    </additionalContent>
+    <ProjectSummary>&lt;img src="../Images/NgenericsSmall.jpg"/&gt;
+&lt;br/&gt;A class library containing data structure and algorithms not currently present in the standard .NET framework.  For help and support, please see the NGenerics project site (&lt;a href="www.codeplex.com/NGenerics"&gt;www.codeplex.com/NGenerics&lt;/a&gt;) or pop a mail to &lt;a href="mailto:ngenerics@gmail.com"&gt;ngenerics@gmail.com&lt;/a&gt;.
+</ProjectSummary>
+    <MissingTags>Parameter, AutoDocumentCtors, TypeParameter</MissingTags>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected</VisibleItems>
+    <HtmlHelp1xCompilerPath path="" />
+    <HtmlHelp2xCompilerPath path="" />
+    <OutputPath>.\Help\</OutputPath>
+    <SandcastlePath path="C:\Program Files\Sandcastle\" />
+    <WorkingPath path="" />
+    <CleanIntermediates>True</CleanIntermediates>
+    <KeepLogFile>True</KeepLogFile>
+    <BuildLogFile path="" />
+    <HelpFileFormat>HtmlHelp1x</HelpFileFormat>
+    <CppCommentsFixup>False</CppCommentsFixup>
+    <FrameworkVersion>3.5</FrameworkVersion>
+    <IndentHtml>False</IndentHtml>
+    <Preliminary>False</Preliminary>
+    <RootNamespaceContainer>True</RootNamespaceContainer>
+    <RootNamespaceTitle>Reference</RootNamespaceTitle>
+    <HelpTitle>NGenerics</HelpTitle>
+    <HtmlHelpName>NGenerics Reference</HtmlHelpName>
+    <Language>en-US</Language>
+    <CopyrightHref>http://www.codeplex.com/NGenerics/Project/License.aspx</CopyrightHref>
+    <CopyrightText>Copyright (c) 2008 The NGenerics Team</CopyrightText>
+    <FeedbackEMailAddress>NGenerics@gmail.com</FeedbackEMailAddress>
+    <FeedbackEMailLinkText />
+    <HeaderText>NGenerics</HeaderText>
+    <FooterText />
+    <ProjectLinkType>Local</ProjectLinkType>
+    <SdkLinkType>None</SdkLinkType>
+    <SdkLinkTarget>Blank</SdkLinkTarget>
+    <PresentationStyle>Prototype</PresentationStyle>
+    <NamingMethod>Guid</NamingMethod>
+    <SyntaxFilters>Standard</SyntaxFilters>
+    <ShowFeedbackControl>False</ShowFeedbackControl>
+    <BinaryTOC>True</BinaryTOC>
+    <IncludeFavorites>False</IncludeFavorites>
+    <CollectionTocStyle>Hierarchical</CollectionTocStyle>
+    <IncludeStopWordList>True</IncludeStopWordList>
+    <PlugInNamespaces>ms.vsipcc+, ms.vsexpresscc+</PlugInNamespaces>
+    <HelpFileVersion>1.0.0.0</HelpFileVersion>
+    <ContentPlacement>AboveNamespaces</ContentPlacement>
+</project>

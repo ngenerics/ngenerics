@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{01087986-50AD-49AF-ADF7-A3CE3FCF6353}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ExampleLibraryVB</RootNamespace>
+    <AssemblyName>ExampleLibraryVB</AssemblyName>
+    <MyType>Windows</MyType>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <OptionStrict>On</OptionStrict>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ExampleLibraryVB.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ExampleLibraryVB.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.4.1.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Nunit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithms\MathExample.vb" />
+    <Compile Include="DataStructures\General\AssociationExamples.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\BagExamples.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\DictionaryBaseExamples.vb" />
+    <Compile Include="DataStructures\General\EdgeExamples.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\GraphExamples.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataStructures\General\HashListExamples.vb" />
+    <Compile Include="DataStructures\General\HeapExamples.vb" />
+    <Compile Include="DataStructures\General\ObjectMatrixExamples.vb" />
+    <Compile Include="DataStructures\General\PascalSetExamples.vb" />
+    <Compile Include="DataStructures\General\SingletonExamples.vb" />
+    <Compile Include="DataStructures\General\SkipListExamples.vb" />
+    <Compile Include="DataStructures\General\SortedListExamples.vb" />
+    <Compile Include="DataStructures\General\VertexExamples.vb" />
+    <Compile Include="DataStructures\Mathematical\ComplexNumberExamples.vb" />
+    <Compile Include="DataStructures\Mathematical\MatrixExamples.vb" />
+    <Compile Include="DataStructures\Mathematical\Vector2DExamples.vb" />
+    <Compile Include="DataStructures\Mathematical\Vector2DExamples.Operators.vb" />
+    <Compile Include="DataStructures\Mathematical\Vector3DExamples.vb" />
+    <Compile Include="DataStructures\Mathematical\Vector3DExamples.Operators.vb" />
+    <Compile Include="DataStructures\Mathematical\VectorNExamples.vb" />
+    <Compile Include="DataStructures\Mathematical\VectorNExamples.Operators.vb" />
+    <Compile Include="DataStructures\Queues\CircularQueueExamples.vb" />
+    <Compile Include="DataStructures\Queues\DequeExamples.vb" />
+    <Compile Include="DataStructures\Queues\PriorityQueueExamples.vb" />
+    <Compile Include="DataStructures\Trees\BinarySearchTreeBaseExamples.vb" />
+    <Compile Include="DataStructures\Trees\RedBlackTreeExamples.vb" />
+    <Compile Include="Extensions\DoubleExtensionsExamples.vb" />
+    <Compile Include="Extensions\IEnumerableExtensionsExamples.vb" />
+    <Compile Include="Extensions\ObjectExtensionsExamples.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Patterns\Conversion\ConverterExtensionsExamples.vb" />
+    <Compile Include="Patterns\Specification\AbstractSpecificationExamples.vb" />
+    <Compile Include="Patterns\Specification\AndSpecificationExamples.vb" />
+    <Compile Include="Patterns\Specification\NotSpecificationExamples.vb" />
+    <Compile Include="Patterns\Specification\OrSpecificationExamples.vb" />
+    <Compile Include="Patterns\Specification\PredicateSpecificationExamples.vb" />
+    <Compile Include="Patterns\Specification\XorSpecificationExamples.vb" />
+    <Compile Include="Sorting\BubbleSorterExamples.vb" />
+    <Compile Include="Sorting\BucketSorterExamples.vb" />
+    <Compile Include="Sorting\CocktailSorterExamples.vb" />
+    <Compile Include="Sorting\CombSorterExamples.vb" />
+    <Compile Include="Sorting\GnomeSorterExamples.vb" />
+    <Compile Include="Sorting\HeapSorterExamples.vb" />
+    <Compile Include="Sorting\InsertionSorterExamples.vb" />
+    <Compile Include="Sorting\MergeSorterExamples.vb" />
+    <Compile Include="Sorting\OddEvenTransportSorterExamples.vb" />
+    <Compile Include="Sorting\QuickSorterExamples.vb" />
+    <Compile Include="Sorting\RadixSorterExamples.vb" />
+    <Compile Include="Sorting\SelectionSorterExamples.vb" />
+    <Compile Include="Sorting\ShakerSorterExamples.vb" />
+    <Compile Include="Sorting\ShellSorterExamples.vb" />
+    <Compile Include="Sorting\SorterExamples.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\NGenerics\NGenerics.csproj">
+      <Project>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</Project>
+      <Name>NGenerics</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

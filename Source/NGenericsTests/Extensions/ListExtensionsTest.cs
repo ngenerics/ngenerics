@@ -1,0 +1,190 @@
+/*  
+ Copyright 2009 The NGenerics Team
+ (http://www.codeplex.com/NGenerics/Wiki/View.aspx?title=Team)
+
+ This program is licensed under the Microsoft Permissive License (Ms-PL).  You should 
+ have received a copy of the license along with the source code.  If not, an online copy
+ of the license can be found at http://www.codeplex.com/NGenerics/Project/License.aspx.
+*/
+
+using System;
+using System.Collections.Generic;
+using NGenerics.Extensions;
+using NUnit.Framework;
+
+namespace NGenerics.Tests.Extensions
+{
+    [TestFixture]
+    public class ListExtensionsTests
+    {
+        [TestFixture]
+        public class AddRange
+        {
+            [Test]
+            public void Simple()
+            {
+                IList<int> iList1 = new List<int> { 1, 2, 3, 4 };
+                IList<int> iList2 = new List<int> { 5, 6};
+
+                iList1.AddRange(iList2);
+
+                Assert.AreEqual(6, iList1.Count);
+            }
+        }
+
+        [TestFixture]
+        public class GetRange
+        {
+            [Test]
+            public void Simple1()
+            {
+            	var list= new List<int> { 1, 2, 3, 4, 7, 8 };;
+            	IList<int> iList = list;
+
+            	var listRange = list.GetRange(0, 2);
+				var iListRange = iList.GetRange(0, 2);
+				AssertListsAreTheSame(listRange, iListRange);
+            }
+
+            [Test]
+            public void Simple2()
+            {
+            	var list= new List<int> { 1, 2, 3, 4, 7, 8 };;
+            	IList<int> iList = list;
+
+            	var listRange = list.GetRange(2, 3);
+				var iListRange = iList.GetRange(2, 3);
+				AssertListsAreTheSame(listRange, iListRange);
+            }
+
+        	private static void AssertListsAreTheSame(IList<int> list1, IList<int> list2)
+        	{
+        		Assert.AreEqual(list1.Count, list2.Count);
+        		for (var index = 0; index < list1.Count; index++)
+        		{
+        			Assert.AreEqual(list1[index], list2[index]);
+        		}
+        	}
+
+        }
+
+        [TestFixture]
+        public class Sort
+        {
+            [Test]
+            public void Simple()
+            {
+                IList<int> list = new List<int> { 3, 2, 1, 4 };
+                list.Sort();
+                Assert.AreEqual(list[0], 1);
+                Assert.AreEqual(list[1], 2);
+                Assert.AreEqual(list[2], 3);
+                Assert.AreEqual(list[3], 4);
+            }
+            [Test]
+            public void SimpleComparision()
+            {
+                IList<int> list = new List<int> { 3, 2, 1, 4 };
+                list.Sort(new Comparison<int>((x, y) => y.CompareTo(x)));
+                Assert.AreEqual(list[0], 4);
+                Assert.AreEqual(list[1], 3);
+                Assert.AreEqual(list[2], 2);
+                Assert.AreEqual(list[3], 1);
+            }
+            [Test]
+            public void SimpleComparer()
+            {
+                IList<string> list = new List<string> { "3", "2", "1", "4" };
+                list.Sort(StringComparer.Ordinal);
+                Assert.AreEqual(list[0], "1");
+                Assert.AreEqual(list[1], "2");
+                Assert.AreEqual(list[2], "3");
+                Assert.AreEqual(list[3], "4");
+            }
+        }
+
+		[TestFixture]
+        public class Remove
+        {
+            [Test]
+            public void RemoveSingular()
+            {
+                IList<int> iList = new List<int>{1,2,3,4};
+
+                var iListRemovedCount = iList.RemoveAll(Match3);
+
+                Assert.AreEqual(1, iListRemovedCount);
+                EnsureListsAreTheSame(new List<int> { 1, 2,  4 }, iList);
+            }
+
+            [Test]
+            public void RemoveMultiple()
+            {
+                IList<int> iList = new List<int>{1,2,3,4,3};
+
+                var iListRemovedCount = iList.RemoveAll(Match3);
+
+                Assert.AreEqual(2, iListRemovedCount);
+                EnsureListsAreTheSame(new List<int>{1,2,4}, iList);
+            }
+            [Test]
+            public void RemoveFirst()
+            {   
+                IList<int> iList = new List<int> { 3, 2, 4, 2 };
+
+                var iListRemovedCount = iList.RemoveAll(Match3);
+
+                Assert.AreEqual(1, iListRemovedCount);
+                EnsureListsAreTheSame(new List<int> {  2, 4, 2 }, iList);
+            }
+            [Test]
+            public void RemoveLast()
+            {
+                IList<int> iList = new List<int> {1, 2,4, 3};
+
+                var iListRemovedCount = iList.RemoveAll(Match3);
+
+                Assert.AreEqual(1, iListRemovedCount);
+                EnsureListsAreTheSame(new List<int> { 1, 2, 4 }, iList);
+            }
+            [Test]
+            public void RemoveAll()
+            {
+                IList<int> iList = new List<int> {3, 3,3,3};
+
+                var iListRemovedCount = iList.RemoveAll(Match3);
+
+                Assert.AreEqual(4, iListRemovedCount);
+                Assert.AreEqual(0, iList.Count);
+
+            }
+            [Test]
+            public void RemoveNone()
+            {
+                IList<int> iList = new List<int> {1, 1,1, 1};
+
+                var iListRemovedCount = iList.RemoveAll(Match3);
+
+                Assert.AreEqual(0, iListRemovedCount);
+                EnsureListsAreTheSame(new List<int> { 1,1,1,1 }, iList);
+            }
+
+            private static void EnsureListsAreTheSame(IList<int> list1, IList<int> list2)
+            {
+                Assert.AreEqual(list1.Count, list2.Count);
+                for (var index = 0; index < list2.Count; index++)
+                {
+                    var iListItem = list2[index];
+                    var listItem = list1[index];
+                    Assert.AreEqual(iListItem,listItem);
+                }
+            }
+
+            private static bool Match3(int obj)
+            {
+                return obj == 3;
+            }
+        }
+
+    }
+}

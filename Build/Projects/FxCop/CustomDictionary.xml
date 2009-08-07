@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Dictionary>
+  <Words>
+    <Recognized>
+      <Word>Visitable</Word>
+      <Word>Deque</Word>
+      <Word>Prims</Word>
+      <Word>Dijkstras</Word>
+      <Word>Kruskals</Word>
+      <Word>Util</Word>
+      <Word>Adjoint</Word>
+      <Word>Frobenius</Word>
+      <Word>Sortable</Word>
+      <Word>Cholesky</Word>
+    </Recognized>
+  </Words>
+</Dictionary>
