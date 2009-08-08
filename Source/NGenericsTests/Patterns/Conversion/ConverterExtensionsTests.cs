@@ -2,12 +2,12 @@
 using System.Linq;
 using NGenerics.Patterns.Conversion;
 /*  
- Copyright 2009 The NGenerics Team
- (http://www.codeplex.com/NGenerics/Wiki/View.aspx?title=Team)
+  Copyright 2007-2009 The NGenerics Team
+ (http://code.google.com/p/ngenerics/wiki/Team)
 
- This program is licensed under the Microsoft Permissive License (Ms-PL).  You should 
+ This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
  have received a copy of the license along with the source code.  If not, an online copy
- of the license can be found at http://www.codeplex.com/NGenerics/Project/License.aspx.
+ of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
 using NUnit.Framework;
