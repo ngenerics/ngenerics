@@ -1,7 +1,4 @@
-﻿Imports NUnit.Framework
-Imports NGenerics.Patterns.Specification
-
-'  
+﻿'  
 ' Copyright 2007-2009 The NGenerics Team
 ' (http://code.google.com/p/ngenerics/wiki/Team)
 '
@@ -10,9 +7,13 @@ Imports NGenerics.Patterns.Specification
 ' of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 '
 
+Imports NGenerics.Patterns.Specification
+Imports NUnit.Framework
+
 
 <TestFixture()> _
 Public Class AndSpecificationExamples
+
 #Region "IsSatisfiedBy"
 
   Public Class Person
@@ -63,5 +64,6 @@ Public Class AndSpecificationExamples
   End Sub
 
 #End Region
+
 End Class
 

@@ -121,6 +121,7 @@
     <Compile Include="Extensions\DoubleExtensionsTest.cs" />
     <Compile Include="Extensions\EnumerableExtensionsTest.cs" />
     <Compile Include="Extensions\ObjectExtensionsTests.cs" />
+    <Compile Include="Infrastructure\CodeFormat.cs" />
     <Compile Include="Infrastructure\SilverLightTests.cs" />
     <Compile Include="Patterns\Conversion\ConverterExtensionsTests.cs" />
     <Compile Include="Patterns\Specification\AbstractSpecificationTests.cs" />
