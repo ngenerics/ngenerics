@@ -79,8 +79,7 @@
 	
 	<if test="${build.silverlight=='true'}">	
 		<!-- Compile NGenerics For SilverLight -->
-		<property name="project.ngenerics.assemblies.location" value="..\Source\NGenerics\bin\SilverlightRelease"/>    
-
+		
     <delete>
 	      <fileset basedir="${project.ngenerics.assemblies.location}">
 	        <include name="*" />
@@ -90,14 +89,7 @@
 		
 		<property name="solution.build.name" value="NGenericsSilverLight.sln"/>
 		<property name="build.constants" value="SILVERLIGHT" />
-	  <call target="build-ngenerics" />
-
-    <!-- Copy the UI assemblies to the release directory-->    
-    <copy todir="{project.ngenerics.assemblies.location}">
-      <fileset basedir="..\Source\NGenerics.UI\bin\SilverlightRelease">
-        <include name="NGenerics.UI.Silverlight.dll" />
-      </fileset>
-    </copy>
+	  <call target="build-ngenerics" />    
 		        
 		<!-- Build a release package For SilverLight -->
 	    <if test="${build.release=='true'}">
