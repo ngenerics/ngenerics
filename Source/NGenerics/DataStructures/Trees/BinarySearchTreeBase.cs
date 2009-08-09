@@ -42,6 +42,7 @@ namespace NGenerics.DataStructures.Trees
         /// <summary>
         /// A custom comparison between some search value and the type of item that is kept in the tree.
         /// </summary>
+        /// <typeparam name="TSearch">The type of the search.</typeparam>
         protected delegate int CustomComparison<TSearch>(TSearch value, T item);
 
         #endregion
