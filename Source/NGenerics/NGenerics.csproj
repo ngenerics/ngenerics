@@ -203,6 +203,7 @@
     <Compile Include="Sorting\SortOrder.cs" />
     <Compile Include="Threading\AsyncCompletedEventArgs.cs" />
     <Compile Include="Threading\BackgroundWorker.cs" />
+    <Compile Include="Threading\CancelEventArgs.cs" />
     <Compile Include="Threading\DoWorkEventArgs.cs" />
     <Compile Include="Threading\ProgressChangedEventArgs.cs" />
     <Compile Include="Threading\RunWorkerCompletedEventArgs.cs" />

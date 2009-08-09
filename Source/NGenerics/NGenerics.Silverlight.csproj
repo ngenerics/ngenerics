@@ -179,6 +179,7 @@
     <Compile Include="DataStructures\Trees\RedBlackTreeDictionary.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeDictionaryBase.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Threading\CancelEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagrams\Bag.cd" />
