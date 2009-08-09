@@ -76,6 +76,12 @@
     <Compile Include="DataStructures\Trees\ObservableSplayTree.Notification.cs" />
     <Compile Include="SimpleMonitor.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGenerics\NGenerics.Silverlight.csproj">
+      <Project>{8B02FFCD-07F4-4082-904A-A2A2EBD2A06D}</Project>
+      <Name>NGenerics.Silverlight</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight\v2.0\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
