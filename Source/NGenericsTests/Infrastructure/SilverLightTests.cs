@@ -39,5 +39,25 @@ namespace NGenerics.Tests.Infrastructure {
                 }
             }
         }
+
+
+        [Test]
+        public void All_NGenerics_UI_Files_Should_Be_In_SilverLight_Build_And_All_SilverLight_UI_Files_Must_Exist() {
+            var parser = new VS2008ProjectParser();
+
+            var ngenericsCompilationItems = parser.FindCompilationItems(@"..\..\..\NGenerics.UI\NGenerics.UI.csproj");
+            var silverlightCompilationItems = parser.FindCompilationItems(@"..\..\..\NGenerics.UI\NGenerics.UI.SilverLight.csproj");
+
+            for (var i = 0; i < ngenericsCompilationItems.Count; i++) {
+                Assert.IsTrue(silverlightCompilationItems.Contains(ngenericsCompilationItems[i]), "File " + ngenericsCompilationItems[i] + " not found in SilverLight build.");
+            }
+
+            for (var i = 0; i < silverlightCompilationItems.Count; i++) {
+                if (!ngenericsCompilationItems.Contains(silverlightCompilationItems[i])) {
+                    var path = Path.Combine(@"..\..\..\NGenerics.UI", silverlightCompilationItems[i]);
+                    Assert.IsTrue(File.Exists(path), path + " does not exist");
+                }
+            }
+        }
     }
 }
