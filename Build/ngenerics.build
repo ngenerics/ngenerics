@@ -114,6 +114,19 @@
   </target>
   
    <target name="build-ci" description="Build Procedure for CI purposes">
+         
+     <delete>
+       <fileset basedir="..\Source\NGenerics\bin\Release">
+         <include name="*" />
+       </fileset>
+     </delete>
+
+     <delete>
+       <fileset basedir="..\Source\NGenerics.UI\bin\Release">
+         <include name="*" />
+       </fileset>
+     </delete>
+
      <property name="build.release" value="true" />
      <property name="build.source" value="false" />
      <property name="build.report" value="false" />
@@ -208,7 +221,7 @@
         <include name="${project.release.source.dir}/**/*" />
       </fileset>
     </delete>
-
+    
     <delete dir="${project.release.source.dir}"/>
     <delete dir="${project.release.dir}"/>
   </target>
