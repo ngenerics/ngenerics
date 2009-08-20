@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <project name="NGenerics" default="build" basedir=".">
-	<description>NGenerics Build File.</description>
-  
+  <description>NGenerics Build File.</description>
+
   <!-- NAnt Configuration -->
   <property name="nant.settings.currentframework" value="net-3.5"/>
-  
+
   <!-- Behavioural Properties -->
   <property name="debug" value="false" overwrite="false" />
   <property name="build.release" value="true"/>
@@ -14,128 +14,131 @@
   <property name="build.documentation" value="false" />
   <property name="build.rununittests" value="true" />
   <property name="build.constants" value="STRICT_VALIDATION" />
-  
-  <!-- Directories -->  
+
+  <!-- Directories -->
   <property name="project.build.dir" value="${project::get-base-directory()}"/>
   <property name="project.source.ngenerics.dir" value="..\Source"/>
   <property name="project.tests.ngenerics.dir" value="..\Source\NGenericsTests"/>
-  <property name="project.tests.ngenerics.assembly" value="..\Source\NGenericsTests\bin\Release\NGenerics.Tests.dll"/>  
+  <property name="project.tests.ngenerics.assembly" value="..\Source\NGenericsTests\bin\Release\NGenerics.Tests.dll"/>
   <property name="project.tests.ngenerics.ui.dir" value="..\Source\NGenerics.UI.Test"/>
-  <property name="project.tests.ngenerics.ui.assembly" value="..\Source\NGenerics.UI.Test\bin\Release\NGenerics.UI.Test.dll"/>  
-  <property name="project.ngenerics.ui.assembly" value="..\Source\NGenerics.UI\bin\Release\NGenerics.UI.dll"/>  
+  <property name="project.tests.ngenerics.ui.assembly" value="..\Source\NGenerics.UI.Test\bin\Release\NGenerics.UI.Test.dll"/>
+  <property name="project.ngenerics.ui.assembly" value="..\Source\NGenerics.UI\bin\Release\NGenerics.UI.dll"/>
   <property name="project.ngenerics.assembly" value="..\Source\NGenerics\bin\Release\NGenerics.dll"/>
   <property name="project.ngenerics.assemblies.location" value="..\Source\NGenerics.UI\bin\Release"/>
   <property name="project.examples.csharp.assembly" value="..\Source\Examples\ExampleLibraryCSharp\bin\Release\ExampleLibraryCSharp.dll"/>
   <property name="project.examples.vb.assembly" value="..\Source\Examples\ExampleLibraryVB\bin\Release\ExampleLibraryVB.dll"/>
 
-  
+
   <property name="project.dependencies.dir" value="..\Source\Dependencies"/>
   <property name="project.release.dir" value="Release"/>
   <property name="project.release.source.dir" value="Release\Source"/>
   <property name="project.report.dir" value="Reports"/>
   <property name="project.report.html.dir" value="Reports\Html"/>
   <property name="project.report.xml.dir" value="Reports\Xml"/>
-    
+
   <!-- Build Customization -->
-  <property name="solution.build.name" value="NGenerics.sln"/>  
-  <property name="solution.build.binaries.name" value="NGenerics - Binaries.zip"/>  
-  
-   
-  
+  <property name="solution.build.name" value="NGenerics.sln"/>
+  <property name="solution.build.binaries.name" value="NGenerics - Binaries.zip"/>
+
+
+
   <!-- Tools -->
   <property name="msbuild.exe" value="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe"/>
-  <property name="sfhb.exe" value="Tools\\SFHB\SandcastleBuilderConsole.exe"/>  
   <property name="ncover.exe" value="Tools\NCover\NCover.Console.exe"/>
   <property name="nunit.exe" value="Tools\NUnit\nunit-console.exe"/>
-      
+
   <target name="build-conditional" description="Build Procedure for the whole of NGenerics">
     <loadtasks assembly="Tools\Nant\NAnt.NUnit2ReportTasks.dll" />
 
-    <!-- Compile NGenerics -->		
-	<property name="solution.build.name" value="NGenerics.sln"/>		
-	<property name="build.constants" value="STRICT_VALIDATION" />
+    <!-- Compile NGenerics -->
+    <property name="solution.build.name" value="NGenerics.sln"/>
+    <property name="build.constants" value="STRICT_VALIDATION" />
     <call target="build-ngenerics" />
-	
-	<!-- Initialize all the directories for release mode -->
+
+    <!-- Initialize all the directories for release mode -->
     <call target="init-release"/>
-	
-	<!-- Run the unit tests -->
-	<if test="${build.rununittests=='true'}">
+
+    <!-- Run the unit tests -->
+    <if test="${build.rununittests=='true'}">
       <!-- Run Unit Tests -->
       <call target="run-unit-tests" />
     </if>
-			
-	<!-- Run reports on the NGenerics assemblies -->
+
+    <!-- Run reports on the NGenerics assemblies -->
     <if test="${build.report=='true'}">
-      <call target="build-reports"/>      
-    </if>	
-	
-		
+      <call target="build-reports"/>
+    </if>
+
+
     <!-- Build a release package -->
     <if test="${build.release=='true'}">
-	  <property name="solution.build.binaries.name" value="NGenerics - Binaries.zip"/> 
-      <call target="create-release" />      
+      <property name="fileMatch" value=""/>
+      <property name="fileExclude" value="*Silverlight*"/>
+      <property name="solution.build.binaries.name" value="NGenerics - Binaries.zip"/>
+      <call target="create-release" />
     </if>
-	
-	<if test="${build.silverlight=='true'}">	
-		<!-- Compile NGenerics For SilverLight -->
-		
-    <delete>
-	      <fileset basedir="${project.ngenerics.assemblies.location}">
-	        <include name="*" />
-	      </fileset>
-	    </delete>
-		
-		
-		<property name="solution.build.name" value="NGenericsSilverLight.sln"/>
-		<property name="build.constants" value="SILVERLIGHT" />
-	  <call target="build-ngenerics" />    
-		        
-		<!-- Build a release package For SilverLight -->
-	    <if test="${build.release=='true'}">
-		  <property name="solution.build.binaries.name" value="NGenerics - SilverLight Binaries.zip"/> 
-	      <call target="create-release" />      
-	    </if>		
-	</if>
-  </target> 
+
+    <if test="${build.silverlight=='true'}">
+      <!-- Compile NGenerics For Silverlight -->
+
+      <delete>
+        <fileset basedir="${project.ngenerics.assemblies.location}">
+          <include name="*" />
+        </fileset>
+      </delete>
+
+
+      <property name="solution.build.name" value="NGenericsSilverlight.sln"/>
+      <property name="build.constants" value="SILVERLIGHT" />
+      <call target="build-ngenerics" />
+
+      <!-- Build a release package For Silverlight -->
+      <if test="${build.release=='true'}">
+        <property name="solution.build.binaries.name" value="NGenerics - Silverlight Binaries.zip"/>
+        <property name="fileMatch" value="Silverlight"/>
+        <property name="fileExclude" value="DummyValue"/>
+        <call target="create-release" />
+      </if>
+    </if>
+  </target>
 
   <target name="build" description="Short Build Procedure for NGenerics.">
-    
-	<property name="solution.build.name" value="NGenerics.sln"/>    
-	<property name="build.release" value="true" />	
+
+    <property name="solution.build.name" value="NGenerics.sln"/>
+    <property name="build.release" value="true" />
     <property name="build.source" value="false" />
     <property name="build.report" value="false" />
     <property name="build.documentation" value="false" />
     <property name="build.rununittests" value="true" />
-	<property name="build.silverlight" value="false"/>
+    <property name="build.silverlight" value="false"/>
 
     <!-- Compile NGenerics -->
     <call target="build-conditional" />
   </target>
-  
-   <target name="build-ci" description="Build Procedure for CI purposes">
-         
-     <delete>
-       <fileset basedir="..\Source\NGenerics\bin\Release">
-         <include name="*" />
-       </fileset>
-     </delete>
 
-     <delete>
-       <fileset basedir="..\Source\NGenerics.UI\bin\Release">
-         <include name="*" />
-       </fileset>
-     </delete>
+  <target name="build-ci" description="Build Procedure for CI purposes">
 
-     <property name="build.release" value="true" />
-     <property name="build.source" value="false" />
-     <property name="build.report" value="false" />
-     <property name="build.documentation" value="false" />
-     <property name="build.rununittests" value="true" />
-	   <property name="build.silverlight" value="true"/>
+    <delete>
+      <fileset basedir="..\Source\NGenerics\bin\Release">
+        <include name="*" />
+      </fileset>
+    </delete>
 
-     <!-- Compile NGenerics -->
-	 <call target="build-conditional" />
+    <delete>
+      <fileset basedir="..\Source\NGenerics.UI\bin\Release">
+        <include name="*" />
+      </fileset>
+    </delete>
+
+    <property name="build.release" value="true" />
+    <property name="build.source" value="false" />
+    <property name="build.report" value="false" />
+    <property name="build.documentation" value="false" />
+    <property name="build.rununittests" value="true" />
+    <property name="build.silverlight" value="true"/>
+
+    <!-- Compile NGenerics -->
+    <call target="build-conditional" />
   </target>
 
   <target name="build-release" description="Build Procedure for Release Versions Of NGenerics">
@@ -144,16 +147,16 @@
     <property name="build.report" value="false" />
     <property name="build.documentation" value="true" />
     <property name="build.rununittests" value="true" />
-	<property name="build.silverlight" value="true"/>
+    <property name="build.silverlight" value="true"/>
 
     <!-- Compile NGenerics -->
     <call target="build-conditional" />
   </target>
-    
-	<target name="build-ngenerics" description="Builds the binary releasee.">    
-		<echo message="*"/>
-		<echo message="* Building NGenerics..."/>
-		<echo message="*"/>
+
+  <target name="build-ngenerics" description="Builds the binary releasee.">
+    <echo message="*"/>
+    <echo message="* Building NGenerics..."/>
+    <echo message="*"/>
 
     <exec program="${msbuild.exe}">
       <arg value="${path::combine(project.source.ngenerics.dir, solution.build.name)}" />
@@ -174,7 +177,7 @@
     <call target="create-report-output-directories" />
   </target>
 
-  <target name="create-release" description="Build the release files for NGenerics.">    
+  <target name="create-release" description="Build the release files for NGenerics.">
 
     <!-- Package the binaries -->
     <call target="package-binaries"/>
@@ -197,16 +200,25 @@
     <echo message="*"/>
 
     <!-- Execute SandCastle Help File Builder to build the CHM -->
-    <exec program="${sfhb.exe}">
-      <arg value="Documentation\SandCastleProject.shfb" />
+    <exec program="${msbuild.exe}">
+      <arg value="Documentation\SandCastleProject.shfbproj" />
+    </exec>
+    <exec program="${msbuild.exe}">
+      <arg value="Documentation\SandCastleProjectSilverlight.shfbproj" />
     </exec>
 
     <!-- Zip the file to the release directory-->
     <zip zipfile="${project.release.dir}\Documentation.zip" ziplevel="9">
       <fileset basedir="Documentation\Help">
-        <include name="*.chm" />
+        <include name="NGenericsReference.chm" />
       </fileset>
     </zip>
+    <zip zipfile="${project.release.dir}\DocumentationSilverlight.zip" ziplevel="9">
+      <fileset basedir="Documentation\Help">
+        <include name="NGenericsSilverlightReference.chm" />
+      </fileset>
+    </zip>
+
   </target>
 
   <target name="clean-release" description="Remove all generated release files.">
@@ -221,7 +233,7 @@
         <include name="${project.release.source.dir}/**/*" />
       </fileset>
     </delete>
-    
+
     <delete dir="${project.release.source.dir}"/>
     <delete dir="${project.release.dir}"/>
   </target>
@@ -237,9 +249,10 @@
 
     <zip zipfile="${project.release.dir}\${solution.build.binaries.name}" ziplevel="9">
       <fileset basedir="${project.ngenerics.assemblies.location}">
-        <include name="*.dll" />
-        <include name="*.pdb" />
-        <include name="*.xml" />
+        <include name="*${fileMatch}.dll" />
+        <include name="*${fileMatch}.pdb" />
+        <include name="*${fileMatch}.xml" />
+        <exclude name="${fileExclude}" />
       </fileset>
     </zip>
 
@@ -336,6 +349,8 @@
     </foreach>
 
     <delete dir="${project.release.dir}\Source\_ReSharper.NGenerics"/>
+    <delete dir="${project.release.dir}\Source\_ReSharper.NGenericsCore"/>
+    <delete dir="${project.release.dir}\Source\_ReSharper.NGenericsSilverlight"/>
     <delete dir="${project.release.dir}\Source\SolutionFiles\Build\Tools"/>
 
 
@@ -367,11 +382,11 @@
       <arg value="${path::combine(project.source.ngenerics.dir, 'NGenerics.sln')}" />
       <arg value="/t:Rebuild"/>
       <arg value="/p:Configuration=Debug"/>
-	  <arg value="/p:DefineConstants=&quot;${build.constants}&quot;"/>
+      <arg value="/p:DefineConstants=&quot;${build.constants}&quot;"/>
     </exec>
   </target>
 
-  <target name="build-reports" description="Build the NGenerics reports.">    
+  <target name="build-reports" description="Build the NGenerics reports.">
 
     <!-- Run NCover -->
     <!-- <call target="run-ncover" /> -->

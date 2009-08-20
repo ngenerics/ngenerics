@@ -1,0 +1,89 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <!-- The configuration and platform will be used to determine which
+         assemblies to include from solution and project documentation
+         sources -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{bcf5bfce-5d3b-4e5a-9cee-750f3cdec64c}</ProjectGuid>
+    <SHFBSchemaVersion>1.8.0.0</SHFBSchemaVersion>
+    <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual
+         Studio adds them anyway -->
+    <AssemblyName>Documentation</AssemblyName>
+    <RootNamespace>Documentation</RootNamespace>
+    <Name>Documentation</Name>
+    <!-- SHFB properties -->
+    <OutputPath>.\Help\</OutputPath>
+    <HtmlHelpName>NGenericsReference</HtmlHelpName>
+    <ProjectSummary>&amp;lt%3bimg src=&amp;quot%3b../Images/NgenericsSmall.jpg&amp;quot%3b/&amp;gt%3b
+&amp;lt%3bbr/&amp;gt%3bA class library containing data structure and algorithms not currently present in the standard .NET framework.  For help and support, please see the NGenerics project site %28&amp;lt%3ba href=&amp;quot%3bwww.codeplex.com/NGenerics&amp;quot%3b&amp;gt%3bwww.codeplex.com/NGenerics&amp;lt%3b/a&amp;gt%3b%29 or pop a mail to &amp;lt%3ba href=&amp;quot%3bmailto:ngenerics%40gmail.com&amp;quot%3b&amp;gt%3bngenerics%40gmail.com&amp;lt%3b/a&amp;gt%3b.
+</ProjectSummary>
+    <MissingTags>Parameter, AutoDocumentCtors, TypeParameter</MissingTags>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected</VisibleItems>
+    <HtmlHelp1xCompilerPath>
+    </HtmlHelp1xCompilerPath>
+    <HtmlHelp2xCompilerPath>
+    </HtmlHelp2xCompilerPath>
+    <SandcastlePath>
+    </SandcastlePath>
+    <WorkingPath>
+    </WorkingPath>
+    <BuildLogFile>
+    </BuildLogFile>
+    <FrameworkVersion>3.5</FrameworkVersion>
+    <RootNamespaceContainer>True</RootNamespaceContainer>
+    <RootNamespaceTitle>Reference</RootNamespaceTitle>
+    <HelpTitle>NGenerics</HelpTitle>
+    <CopyrightHref>http://www.gnu.org/licenses/lgpl.html</CopyrightHref>
+    <CopyrightText>Copyright %28c%29 2009 The NGenerics Team</CopyrightText>
+    <FeedbackEMailAddress>ngenerics-users%40googlegroups.com</FeedbackEMailAddress>
+    <HeaderText>NGenerics</HeaderText>
+    <SdkLinkType>None</SdkLinkType>
+    <PresentationStyle>Prototype</PresentationStyle>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="..\..\Source\NGenerics\bin\Release\NGenerics.dll" />
+      <DocumentationSource sourceFile="..\..\Source\NGenerics.UI\bin\Release\NGenerics.UI.dll" />
+      <DocumentationSource sourceFile="..\..\Source\NGenerics.UI\bin\Release\NGenerics.UI.xml" />
+      <DocumentationSource sourceFile="..\..\Source\NGenerics\bin\Release\NGenerics.xml" />
+    </DocumentationSources>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="(global)" isDocumented="False" xmlns="" />
+      <NamespaceSummaryItem name="NGenerics.Algorithms" isDocumented="True" xmlns="">&lt;b&gt;The root namespace for Algorithms.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.Comparers" isDocumented="True" xmlns="">&lt;b&gt;Comparer Implementations.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.DataStructures" isDocumented="True" xmlns="">&lt;b&gt;Data Structures.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.DataStructures.General" isDocumented="True" xmlns="">&lt;b&gt;General Data Structures&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.DataStructures.Mathematical" isDocumented="True" xmlns="">&lt;b&gt;Mathematical Data Structures.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.DataStructures.Queues" isDocumented="True" xmlns="">&lt;b&gt;Data Structures based on queues.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.DataStructures.Trees" isDocumented="True" xmlns="">&lt;b&gt;Data Structures based on trees.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.Enumerations" isDocumented="True" xmlns="">&lt;b&gt;Enumerations.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.Extensions" isDocumented="True" xmlns="">&lt;b&gt;Various Extension Methods.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.Misc" isDocumented="False" xmlns="" />
+      <NamespaceSummaryItem name="NGenerics.Sorting" isDocumented="True" xmlns="">&lt;b&gt;Sorting algorithms&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.UI.DataStructures.General" isDocumented="True" xmlns="">&lt;b&gt;General Observable Data Structures.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.UI.DataStructures.Queues" isDocumented="True" xmlns="">&lt;b&gt;Observable Data Structures based on queues.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.UI.DataStructures.Trees" isDocumented="True" xmlns="">&lt;b&gt;Observable Data Structures based on trees.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.Util" isDocumented="True" xmlns="">&lt;b&gt;Utility classes.&lt;/b&gt;</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NGenerics.Visitors" isDocumented="True" xmlns="">&lt;b&gt;Visitors.&lt;/b&gt;</NamespaceSummaryItem>
+    </NamespaceSummaries>
+  </PropertyGroup>
+  <!-- There are no properties for these two groups but they need to appear in
+       order for Visual Studio to perform the build. -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <ItemGroup>
+    <SiteMap Include="map.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Home.htm" />
+    <Content Include="Images\NGenericsSmall.jpg" />
+  </ItemGroup>
+  <!-- Import the SHFB build targets -->
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
+</Project>

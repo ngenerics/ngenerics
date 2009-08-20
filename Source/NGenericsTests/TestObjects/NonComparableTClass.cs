@@ -12,7 +12,9 @@ using System;
 
 namespace NGenerics.Tests.TestObjects
 {
+#if (!SILVERLIGHT)
     [Serializable]
+#endif
     public class NonComparableTClass : IComparable
     {
         private readonly int number;
