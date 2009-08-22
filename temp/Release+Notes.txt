@@ -42,3 +42,4 @@ Changes from 1.3 Release include :
 	- Lots of internal housekeeping and refactoring to up the quality of the code base.
         - More documentation.
         - Upgrade to Sandcastle Help File Builder 1.8.0.2 Beta.
+        - Code Coverage is now at 96%.
