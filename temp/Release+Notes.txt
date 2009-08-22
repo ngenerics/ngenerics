@@ -3,8 +3,9 @@ Release 1.4 Beta
 
 Project Related Notes :
 
-	- NGenerics has moved to Google Code : http://code.google.com/p/ngenerics/.
-	- Thanks to the CodeBetter guys and JetBrains, NGenerics is hosted on the CodeBetter TeamCity CI server (http://teamcity.codebetter.com/).  Builds form the latest source can be found there.
+    - NGenerics has moved to Google Code : http://code.google.com/p/ngenerics/.
+    - Thanks to the CodeBetter guys and JetBrains, NGenerics is hosted on the CodeBetter TeamCity CI server (http://teamcity.codebetter.com/). Builds form the latest source can be found there.
+    - Changed license to GNU Lesser General Public License (LGPL).
 
 
 
@@ -35,9 +36,9 @@ Changes from 1.3 Release include :
 	- The previous version of the priority queue that accepts integers as keys has been renamed to ClassicPriorityQueue. (* breaking change *)
 	
     * Bug Fixes :
-	-  Collection Add raised in ObservableHashList instead of Remove on RemoveItem
+	- Collection Add raised in ObservableHashList instead of Remove on RemoveItem
 	
     * Misc
 	- Lots of internal housekeeping and refactoring to up the quality of the code base.
-        - More documentation
-        - Upgrade to Sandcastle Help File Builder 1.8.0.2 Beta
+        - More documentation.
+        - Upgrade to Sandcastle Help File Builder 1.8.0.2 Beta.
