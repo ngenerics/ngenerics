@@ -8,6 +8,7 @@
 */
 #if (!SILVERLIGHT)
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -90,6 +91,17 @@ namespace NGenerics.Extensions
                 memStream.Position = 0;
                 return (T)formatter.Deserialize(memStream);
             }
+        }
+
+        /// <summary>
+        /// Wraps an object in an <see cref="List{T}"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of object to wrap.</typeparam>
+        /// <param name="obj">The object to wrap.</param>
+        /// <returns>A new <see cref="List{T}"/> containing the object.</returns>
+        public static List<T> ToList<T>(this T obj)
+        {
+            return new List<T>{obj};
         }
     }
 }
