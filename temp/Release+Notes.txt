@@ -1,4 +1,4 @@
-Release 1.4 Beta
+Release 1.4.1 Beta
 ----------------
 
 Project Related Notes :
@@ -9,36 +9,36 @@ Project Related Notes :
 
 
 
-Changes from 1.3 Release include :
+Changes:
      
-    * New Platforms :
+    - New Platforms :
 	- NGenerics now has a Silverlight version in this release.  The assemblies have been compiled against Silverlight 3.
 	
-    * New data structures :
+    - New data structures :
         - Single-Valued (i.e) not KeyValuePair version of the RedBlackTree.
         - A generic version of the priority queue that can have a key implementing IComparable, or any object with an IComparer instance. 
 		
-    * New Patterns :
+    - New Patterns :
 	- Added the Converted pattern under NGenerics.Patterns.Conversion.
 	- Added the Specification pattern under NGenerics.Patterns.Specification.
 		
-    * New Extension Methods :
+    - New Extension Methods :
 	- ConvertTo, Serialize, Deserialize, and DeepCopy extension on Object
 	- ForEach extension on IEnumerable<T>
 	- IsSimiliar extensions on double
 	- Missing list extensions in Silverlight
 	
-    * Changes to existing data structures :
+    - Changes to existing data structures :
 	- Added construction mechanism to Singleton - the Singleton value can now be lazy-instantiated.
 	- Removed the IVisitable interface and added extension methods for applying a visitor over any instance of IEnumerable<T>. (* breaking change *)
 	- Moved visitor-related classes to NGenerics.Patterns.Visitor (* breaking change *)
 	- Added FindNode method to GeneralTree.
 	- The previous version of the priority queue that accepts integers as keys has been renamed to ClassicPriorityQueue. (* breaking change *)
 	
-    * Bug Fixes :
+    - Bug Fixes :
 	- Collection Add raised in ObservableHashList instead of Remove on RemoveItem
 	
-    * Misc
+    - Misc
 	- Lots of internal housekeeping and refactoring to up the quality of the code base.
         - More documentation.
         - Upgrade to Sandcastle Help File Builder 1.8.0.2 Beta.
