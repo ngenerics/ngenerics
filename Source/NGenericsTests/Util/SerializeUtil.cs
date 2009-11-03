@@ -15,22 +15,24 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace NGenerics.Tests.Util
 {
     public static class SerializeUtil
-    {        
+    {
         /// <summary>
         /// Serializes the object, then deserialize the object and returns the result.
         /// </summary>
         /// <param name="obj">The object to serializer / deserialize.</param>
         public static T BinarySerializeDeserialize<T>(T obj)
-        {                                                
+        {
             using (var ms = new MemoryStream())
             {
                 IFormatter formatter = new BinaryFormatter();
                 formatter.Serialize(ms, obj);
 
-                using (var readStream = new MemoryStream(ms.ToArray()))
-                {
-                    return (T) formatter.Deserialize(readStream);
-                }
+                ms.Position = 0;
+                return (T)formatter.Deserialize(ms);
+                //using (var readStream = new MemoryStream(ms.ToArray()))
+                //{
+                //    return (T) formatter.Deserialize(readStream);
+                //}
             }
         }
     }

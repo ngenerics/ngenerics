@@ -16,8 +16,9 @@ using System.Collections.Generic;
 namespace NGenerics.DataStructures.General
 {
     /// <summary>
-	/// The Association performs the same function as a <see cref="KeyValuePair{TKey,TValue}"/>, but allows the Key and
+	/// The Association performs the same function as a <see cref="KeyValuePair{TKey,TValue}"/>, but allows the 
     /// Value members to be written to.
+    /// It is serializable and implemented as class, whereas KeyValuePair is struct.
     /// </summary>
     /// <typeparam name="TKey">The type of the key for the association.</typeparam>
     /// <typeparam name="TValue">The type of the value for the association.</typeparam>
@@ -124,6 +125,24 @@ namespace NGenerics.DataStructures.General
             return string.Format("{0} : {1}", Key, Value);
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            if (Object.ReferenceEquals(obj, this))
+                return true;
+            if (!(obj is Association<TKey, TValue>))
+                return false;
+            var that = (Association<TKey, TValue>)obj;
+            return
+                this.Key.Equals(that.Key) &&
+                this.Value.Equals(that.Value);
+        }
+
+        public override int GetHashCode()
+        {
+            return (Key.Equals(default(TKey)) ? 0 : Key.GetHashCode()) + (Value.Equals(default(TValue)) ? 0 : Value.GetHashCode()) * 37;
+        }
         #endregion
     }
 }

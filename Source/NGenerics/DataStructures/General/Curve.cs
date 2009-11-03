@@ -34,7 +34,7 @@ namespace NGenerics.DataStructures.General
         ICollection<Association<TKey, TValue>>,
         IList
         where TKey : IComparable
-        //where TKey : struct
+    //where TKey : struct
     {
         #region Globals
 
@@ -128,6 +128,15 @@ namespace NGenerics.DataStructures.General
             get { return comparerToUse; }
         }
 
+        /// <summary>
+        /// Gets or sets the total number of elements the internal data structure can hold without resizing.
+        /// </summary>
+        public int Capacity
+        {
+            get { return data.Capacity; }
+            set { data.Capacity = value; }
+        }
+
         /// <inheritdoc />  
         /// <example>
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
@@ -138,6 +147,11 @@ namespace NGenerics.DataStructures.General
             get { return Count == 0; }
         }
 
+        /// <summary>
+        /// Get the value indexed by key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public TValue GetValue(TKey key)
         {
             var index = IndexOf(key);
@@ -164,13 +178,17 @@ namespace NGenerics.DataStructures.General
                 if (index < 0)
                 {
                     throw new ArgumentOutOfRangeException();
-                   
+
                 }
                 return this[index];
             }
             set
             {
-                AddSetItem(value);
+                var a = this[key];
+                if (a.Key.Equals(value.Key))
+                    a.Value = value.Value;
+                else
+                    throw new ArgumentException();
             }
         }
 
@@ -181,7 +199,7 @@ namespace NGenerics.DataStructures.General
             get
             {
                 var values = new TKey[Count];
-                for (int i = 0; i < Count; i++)
+                for (var i = 0; i < Count; i++)
                 {
                     values[i] = data[i].Key;
                 }
@@ -195,7 +213,7 @@ namespace NGenerics.DataStructures.General
         {
             get
             {
-                var values=new  TValue[Count];
+                var values = new TValue[Count];
                 for (int i = 0; i < Count; i++)
                 {
                     values[i] = data[i].Value;
@@ -216,7 +234,23 @@ namespace NGenerics.DataStructures.General
 
         void IList.Remove(object value)
         {
-                Remove((Association<TKey, TValue>) value);
+            if (value is Association<TKey, TValue>)
+                Remove((Association<TKey, TValue>)value);
+            else
+                if (value is KeyValuePair<TKey, TValue>)
+                {
+                    var val = (KeyValuePair<TKey, TValue>)value;
+                    int i = IndexOf(val.Key);
+                    if (i < 0)
+                        return;
+                    if (this[i].Value.Equals(val.Value))
+                        RemoveAt(i);
+                }
+                else if (value is TKey)
+                    Remove((TKey)value);
+                else
+                    throw new ArgumentException();
+
         }
 
         object IList.this[int index]
@@ -228,7 +262,7 @@ namespace NGenerics.DataStructures.General
 
         void ICollection.CopyTo(Array array, int arrayIndex)
         {
-            data.ToArray().CopyTo(array,arrayIndex);
+            data.ToArray().CopyTo(array, arrayIndex);
         }
 
         public object SyncRoot
@@ -238,22 +272,22 @@ namespace NGenerics.DataStructures.General
 
         public bool IsSynchronized
         {
-            get { return false;  }
+            get { return false; }
         }
 
         int IList.Add(object value)
         {
-                return AddSetItem((Association<TKey, TValue>)value);
+            return AddSetItem((Association<TKey, TValue>)value);
         }
 
         bool IList.Contains(object value)
         {
-                return Contains((Association<TKey, TValue>)value);
+            return Contains((Association<TKey, TValue>)value);
         }
 
         int IList.IndexOf(object value)
         {
-                return IndexOf((Association<TKey, TValue>)value);
+            return IndexOf((Association<TKey, TValue>)value);
         }
 
         void IList.Insert(int index, object value)
@@ -278,6 +312,7 @@ namespace NGenerics.DataStructures.General
         public Association<TKey, TValue> this[int index]
         {
             get { return data[index]; }
+            set { data[index] = value; }
         }
 
         #endregion
@@ -323,17 +358,18 @@ namespace NGenerics.DataStructures.General
                 return 0;
             }
 
-                var index = data.BinarySearch(item, comparerToUse);
+            var index = data.BinarySearch(item, comparerToUse);
 
-                // Item was not found
-                if (index < 0)
-                {   index=~index;
-                    data.Insert(index, item);
-                }
-                else data[index] = item;
-                
-                
-                return index;
+            // Item was not found
+            if (index < 0)
+            {
+                index = ~index;
+                data.Insert(index, item);
+            }
+            else data[index] = item;
+
+
+            return index;
 
         }
 
@@ -351,6 +387,17 @@ namespace NGenerics.DataStructures.General
         public bool Contains(Association<TKey, TValue> item)
         {
             return data.Contains(item);
+        }
+
+        /// <summary>
+        /// Check if the collection contains (key,value) pair
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public bool Contains(TKey key, TValue value)
+        {
+            return data.Exists(a => a.Key.Equals(key) && a.Value.Equals(value));
         }
 
         /// <inheritdoc />  
@@ -415,7 +462,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public int IndexOf(Association<TKey, TValue> item)
         {
-            return data.IndexOf(item);
+            return data.BinarySearch(item, comparerToUse);
         }
 
         /// <inheritdoc />  
@@ -476,8 +523,8 @@ namespace NGenerics.DataStructures.General
                 return false;
             }
 
-                RemoveAt(index);
-                return true;
+            RemoveAt(index);
+            return true;
 
         }
 
@@ -503,7 +550,7 @@ namespace NGenerics.DataStructures.General
 
         protected int IndexOf(TKey key)
         {
-            return data.BinarySearch(GetDefaultAssociationForKey(key), comparerToUse);
+            return IndexOf(GetDefaultAssociationForKey(key));
         }
     }
 }

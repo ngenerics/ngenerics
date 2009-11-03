@@ -9,6 +9,7 @@
 
 
 using NGenerics.DataStructures.General;
+using NGenerics.Extensions;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
@@ -28,6 +29,17 @@ namespace NGenerics.Tests.DataStructures.General
 
                 Assert.AreEqual(assoc.Key, 5);
                 Assert.AreEqual(assoc.Value, "aa");
+
+            }
+            [Test]
+            public void Equality()
+            {
+                var assoc = new Association<int, string>(5, "aa");
+                var assoc2 = new Association<int, string>(5, "aa");
+                Assert.AreEqual(assoc.Key, assoc2.Key);
+                Assert.AreEqual(assoc.Key, assoc2.Key);
+                Assert.AreEqual(assoc, assoc2);
+
             }
 
         }
@@ -82,6 +94,17 @@ namespace NGenerics.Tests.DataStructures.General
                 Assert.AreNotEqual(assoc, newAssoc);
             }
 
+            [Test]
+            public void XmlSimple()
+            {
+                var assoc = new Association<int, string>(5, "aa");
+                string s = assoc.Serialize();
+                var newAssoc = ObjectExtensions.Deserialize<Association<int, string>>(s);
+
+                Assert.AreEqual(assoc.Key, newAssoc.Key);
+                Assert.AreEqual(assoc.Value, newAssoc.Value);
+                Assert.AreEqual(assoc, newAssoc);
+            }
         }
     }
 }

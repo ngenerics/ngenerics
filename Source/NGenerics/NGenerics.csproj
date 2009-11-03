@@ -82,6 +82,7 @@
     <Compile Include="DataStructures\General\Association.cs" />
     <Compile Include="DataStructures\General\Bag.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="DataStructures\General\Curve.cs" />
     <Compile Include="DataStructures\General\DictionaryBase.cs" />
     <Compile Include="DataStructures\General\ListBase.cs" />
     <Compile Include="DataStructures\Mathematical\CholeskyDecomposition.cs" />
