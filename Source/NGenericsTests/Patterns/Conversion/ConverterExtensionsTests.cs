@@ -25,7 +25,7 @@ namespace NGenerics.Tests.Patterns.Conversion
             public void Converter_Should_Convert_All_Items()
             {
                 var mocks = new MockRepository();
-                var converter = mocks.CreateMock<IConverter<int, string>>();
+                var converter = mocks.StrictMock<IConverter<int, string>>();
 
                 Expect.Call(converter.Convert(5)).Return("5");
                 Expect.Call(converter.Convert(3)).Return("3");
@@ -47,7 +47,7 @@ namespace NGenerics.Tests.Patterns.Conversion
             public void Enumerable_Should_Convert_All_Items_With_Specified_Converter()
             {
                 var mocks = new MockRepository();
-                var converter = mocks.CreateMock<IConverter<int, string>>();
+                var converter = mocks.StrictMock<IConverter<int, string>>();
 
                 Expect.Call(converter.Convert(5)).Return("5");
                 Expect.Call(converter.Convert(3)).Return("3");
@@ -69,13 +69,13 @@ namespace NGenerics.Tests.Patterns.Conversion
             public void BidirectionalConverter_Should_Convert_All_Items()
             {
                 var mocks = new MockRepository();
-                var converter1 = mocks.CreateMock<IBidirectionalConverter<int, string>>();
+                var converter1 = mocks.StrictMock<IBidirectionalConverter<int, string>>();
 
                 Expect.Call(converter1.Convert(5)).Return("5");
                 Expect.Call(converter1.Convert(3)).Return("3");
                 Expect.Call(converter1.Convert(7)).Return("7");
 
-                var converter2 = mocks.CreateMock<IBidirectionalConverter<string, int>>();
+                var converter2 = mocks.StrictMock<IBidirectionalConverter<string, int>>();
 
                 Expect.Call(converter2.Convert("5")).Return(5);
                 Expect.Call(converter2.Convert("3")).Return(3);
@@ -106,13 +106,13 @@ namespace NGenerics.Tests.Patterns.Conversion
             public void Enumerable_Should_Convert_All_Items_With_Specified_BidirectionalConverter()
             {
                 var mocks = new MockRepository();
-                var converter1 = mocks.CreateMock<IBidirectionalConverter<int, string>>();
+                var converter1 = mocks.StrictMock<IBidirectionalConverter<int, string>>();
 
                 Expect.Call(converter1.Convert(5)).Return("5");
                 Expect.Call(converter1.Convert(3)).Return("3");
                 Expect.Call(converter1.Convert(7)).Return("7");
 
-                var converter2 = mocks.CreateMock<IBidirectionalConverter<string, int>>();
+                var converter2 = mocks.StrictMock<IBidirectionalConverter<string, int>>();
 
                 Expect.Call(converter2.Convert("5")).Return(5);
                 Expect.Call(converter2.Convert("3")).Return(3);

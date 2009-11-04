@@ -26,7 +26,7 @@ namespace NGenerics.Tests.Sorting
             public void Simple_Sort()
             {
                 var mocks = new MockRepository();
-                var sorter = mocks.CreateMock<ISorter<int>>();
+                var sorter = mocks.StrictMock<ISorter<int>>();
                 
                 var list = GetTestList();
                 sorter.Sort(list);
@@ -42,7 +42,7 @@ namespace NGenerics.Tests.Sorting
             public void Sort_With_Order()
             {
                 var mocks = new MockRepository();
-                var sorter = mocks.CreateMock<ISorter<int>>();
+                var sorter = mocks.StrictMock<ISorter<int>>();
 
                 var list = GetTestList();
                 sorter.Sort(list, SortOrder.Ascending);

@@ -283,7 +283,7 @@ namespace NGenerics.Tests.DataStructures.General
             public void Construction_Delegate_Should_Only_Be_Called_Once()
             {
                 var mocks = new MockRepository();
-                var factory = mocks.CreateMock<ISimpleFactory<int>>();
+                var factory = mocks.StrictMock<ISimpleFactory<int>>();
                 Expect.Call(factory.Construct()).Return(43);
 
                 mocks.ReplayAll();

@@ -48,7 +48,7 @@ namespace NGenerics.Tests.Patterns.Visitor
                 var list = GetTestList();
 
                 var mockRepository = new MockRepository();
-                var trackingList = mockRepository.CreateMock<IList<int>>();
+                var trackingList = mockRepository.StrictMock<IList<int>>();
                                 
                 // All items should be visited...
                 trackingList.Add(1);
@@ -77,7 +77,7 @@ namespace NGenerics.Tests.Patterns.Visitor
                 var list = GetTestList();
 
                 var mockRepository = new MockRepository();
-                var trackingList = mockRepository.CreateMock<IList<int>>();
+                var trackingList = mockRepository.StrictMock<IList<int>>();
                 
                 // Only the first item should be visited.
                 trackingList.Add(1);
@@ -102,7 +102,7 @@ namespace NGenerics.Tests.Patterns.Visitor
                 var visitableList = GetTestList();
 
                 var mockRepository = new MockRepository();
-                var trackingList = mockRepository.CreateMock<IList<int>>();
+                var trackingList = mockRepository.StrictMock<IList<int>>();
                                 
                 // No items should be visited.
 

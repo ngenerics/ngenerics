@@ -12,18 +12,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using NGenerics.Comparers;
-using NGenerics.Util;
 
 namespace NGenerics.DataStructures.General
 {
     /// <summary>
     /// An implementation of a Dictionary like structure implemented with IList interface instead.
-    /// Rather than KeyvaluePair this structure uses Association<Key,Value> for added flexibility.
+    /// Rather than KeyvaluePair this structure uses <see cref="Association{Key,Value} "/> for added flexibility.
     /// Another benefit that this structure can be XMLSerialized in contrast to Dictionary.
-    /// 
     /// Typical application would be for storing chart curve points, hence the name.
     /// </summary>
-    /// <typeparam name="T">The type of elements in the sorted list.</typeparam>
+    /// <typeparam name="TKey">The type of the key.</typeparam>
+    /// <typeparam name="TValue">The type of the value.</typeparam>
 #if (!SILVERLIGHT)
     [Serializable]
 #endif
@@ -31,7 +30,6 @@ namespace NGenerics.DataStructures.General
     [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
     public class Curve<TKey, TValue> :
         IList<Association<TKey, TValue>>,
-        ICollection<Association<TKey, TValue>>,
         IList
         where TKey : IComparable
     //where TKey : struct
@@ -138,10 +136,6 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <inheritdoc />  
-        /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="IsEmpty" lang="vbnet" title="The following example shows how to use the IsEmpty property."/>
-        /// </example>
         public bool IsEmpty
         {
             get { return Count == 0; }
@@ -164,10 +158,11 @@ namespace NGenerics.DataStructures.General
         }
 
 
-        ///<summary>
-        ///</summary>
-        ///<param name="key"></param>
-        ///<exception cref="ArgumentOutOfRangeException"></exception>
+        /// <summary>
+        /// Gets or sets the <see cref="NGenerics.DataStructures.General.Association&lt;TKey,TValue&gt;"/> with the specified key.
+        /// </summary>
+        /// <value></value>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public Association<TKey, TValue> this[TKey key]
         {
             get
@@ -192,8 +187,10 @@ namespace NGenerics.DataStructures.General
             }
         }
 
-        ///<summary>
-        ///</summary>
+        /// <summary>
+        /// Gets the keys.
+        /// </summary>
+        /// <value>The keys.</value>
         public TKey[] Keys
         {
             get
@@ -207,8 +204,10 @@ namespace NGenerics.DataStructures.General
             }
         }
 
-        ///<summary>
-        ///</summary>
+        /// <summary>
+        /// Gets the values.
+        /// </summary>
+        /// <value>The values.</value>
         public TValue[] Values
         {
             get
@@ -222,16 +221,13 @@ namespace NGenerics.DataStructures.General
             }
         }
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        //public List<Association<TKey, TValue>> Data
-        //{
-        //    get { return data; }
-        //}
-
         #region IList Members
 
+        /// <summary>
+        /// Removes the first occurrence of a specific object from the <see cref="T:System.Collections.IList"/>.
+        /// </summary>
+        /// <param name="value">The <see cref="T:System.Object"/> to remove from the <see cref="T:System.Collections.IList"/>.</param>
+        /// <exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.IList"/> is read-only.-or- The <see cref="T:System.Collections.IList"/> has a fixed size. </exception>
         void IList.Remove(object value)
         {
             if (value is Association<TKey, TValue>)
@@ -253,6 +249,10 @@ namespace NGenerics.DataStructures.General
 
         }
 
+        /// <summary>
+        /// Gets or sets the <see cref="System.Object"/> at the specified index.
+        /// </summary>
+        /// <value></value>
         object IList.this[int index]
         {
             get { return this[index]; }
@@ -265,36 +265,83 @@ namespace NGenerics.DataStructures.General
             data.ToArray().CopyTo(array, arrayIndex);
         }
 
+        /// <summary>
+        /// Gets an object that can be used to synchronize access to the <see cref="T:System.Collections.ICollection"/>.
+        /// </summary>
+        /// <value></value>
+        /// <returns>An object that can be used to synchronize access to the <see cref="T:System.Collections.ICollection"/>.</returns>
         public object SyncRoot
         {
             get { return data; }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether access to the <see cref="T:System.Collections.ICollection"/> is synchronized (thread safe).
+        /// </summary>
+        /// <value></value>
+        /// <returns>true if access to the <see cref="T:System.Collections.ICollection"/> is synchronized (thread safe); otherwise, false.</returns>
         public bool IsSynchronized
         {
             get { return false; }
         }
 
+        /// <summary>
+        /// Adds an item to the <see cref="T:System.Collections.IList"/>.
+        /// </summary>
+        /// <param name="value">The <see cref="T:System.Object"/> to add to the <see cref="T:System.Collections.IList"/>.</param>
+        /// <returns>
+        /// The position into which the new element was inserted.
+        /// </returns>
+        /// <exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.IList"/> is read-only.-or- The <see cref="T:System.Collections.IList"/> has a fixed size. </exception>
         int IList.Add(object value)
         {
             return AddSetItem((Association<TKey, TValue>)value);
         }
 
+        /// <summary>
+        /// Determines whether the <see cref="T:System.Collections.IList"/> contains a specific value.
+        /// </summary>
+        /// <param name="value">The <see cref="T:System.Object"/> to locate in the <see cref="T:System.Collections.IList"/>.</param>
+        /// <returns>
+        /// true if the <see cref="T:System.Object"/> is found in the <see cref="T:System.Collections.IList"/>; otherwise, false.
+        /// </returns>
         bool IList.Contains(object value)
         {
             return Contains((Association<TKey, TValue>)value);
         }
 
+        /// <summary>
+        /// Determines the index of a specific item in the <see cref="T:System.Collections.IList"/>.
+        /// </summary>
+        /// <param name="value">The <see cref="T:System.Object"/> to locate in the <see cref="T:System.Collections.IList"/>.</param>
+        /// <returns>
+        /// The index of <paramref name="value"/> if found in the list; otherwise, -1.
+        /// </returns>
         int IList.IndexOf(object value)
         {
             return IndexOf((Association<TKey, TValue>)value);
         }
 
+        /// <summary>
+        /// Inserts an item to the <see cref="T:System.Collections.IList"/> at the specified index.
+        /// </summary>
+        /// <param name="index">The zero-based index at which <paramref name="value"/> should be inserted.</param>
+        /// <param name="value">The <see cref="T:System.Object"/> to insert into the <see cref="T:System.Collections.IList"/>.</param>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// 	<paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.IList"/>. </exception>
+        /// <exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.IList"/> is read-only.-or- The <see cref="T:System.Collections.IList"/> has a fixed size. </exception>
+        /// <exception cref="T:System.NullReferenceException">
+        /// 	<paramref name="value"/> is null reference in the <see cref="T:System.Collections.IList"/>.</exception>
         void IList.Insert(int index, object value)
         {
             throw new NotSupportedException();
         }
 
+        /// <summary>
+        /// Gets a value indicating whether the <see cref="T:System.Collections.IList"/> has a fixed size.
+        /// </summary>
+        /// <value></value>
+        /// <returns>true if the <see cref="T:System.Collections.IList"/> has a fixed size; otherwise, false.</returns>
         public bool IsFixedSize
         {
             get { return false; }
@@ -484,35 +531,45 @@ namespace NGenerics.DataStructures.General
 
         #endregion
 
+        /// <summary>
+        /// Gets the key for item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>The key for the specified association.</returns>
         protected TKey GetKeyForItem(Association<TKey, TValue> item)
         {
             return item.Key;
         }
 
 
-        ///<summary>
-        ///</summary>
-        ///<param name="key"></param>
-        ///<returns></returns>
+        /// <summary>
+        /// Determines whether the collection contains the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns>
+        /// 	<c>true</c> if the collection contains the key; otherwise, <c>false</c>.
+        /// </returns>
         public bool ContainsKey(TKey key)
         {
             return IndexOf(key) >= 0;
         }
 
 
-        ///<summary>
-        ///</summary>
-        ///<param name="key"></param>
-        ///<param name="value"></param>
+        /// <summary>
+        /// Adds the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
         public void Add(TKey key, TValue value)
         {
             Add(new Association<TKey, TValue>(key, value));
         }
 
-        ///<summary>
-        ///</summary>
-        ///<param name="key"></param>
-        ///<returns></returns>
+        /// <summary>
+        /// Removes the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         public bool Remove(TKey key)
         {
             var index = IndexOf(key);
@@ -528,11 +585,12 @@ namespace NGenerics.DataStructures.General
 
         }
 
-        ///<summary>
-        ///</summary>
-        ///<param name="key"></param>
-        ///<param name="value"></param>
-        ///<returns></returns>
+        /// <summary>
+        /// Tries to the get the value tied to the specified key.
+        /// </summary>
+        /// <param name="key">The key to look for.</param>
+        /// <param name="value">The value.</param>
+        /// <returns>An indication of whether the item was found.</returns>
         public bool TryGetValue(TKey key, out TValue value)
         {
             var index = IndexOf(key);
@@ -543,11 +601,21 @@ namespace NGenerics.DataStructures.General
             return res;
         }
 
+        /// <summary>
+        /// Gets the default association for the key.
+        /// </summary>
+        /// <param name="key">The key to get the default association for.</param>
+        /// <returns>An association with a default value and the given key.</returns>
         protected Association<TKey, TValue> GetDefaultAssociationForKey(TKey key)
         {
             return new Association<TKey, TValue>(key, default(TValue));
         }
 
+        /// <summary>
+        /// Gets the index of the specified key.
+        /// </summary>
+        /// <param name="key">The key to look for.</param>
+        /// <returns>The index of the specified key.</returns>
         protected int IndexOf(TKey key)
         {
             return IndexOf(GetDefaultAssociationForKey(key));

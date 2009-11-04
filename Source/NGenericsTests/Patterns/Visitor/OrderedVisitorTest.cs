@@ -46,7 +46,7 @@ namespace NGenerics.Tests.Patterns.Visitor
             public void InnerVisitorShouldBeCalledOnEachVisi_Method()
             {
                 var mockRepository = new MockRepository();
-                var innerVisitor = mockRepository.CreateMock<IVisitor<int>>();
+                var innerVisitor = mockRepository.StrictMock<IVisitor<int>>();
 
                 var orderedVisitor = new OrderedVisitor<int>(innerVisitor);
 

@@ -54,8 +54,8 @@ namespace NGenerics.Tests.Patterns.Specification
             public void Xor_Should_Return_True_Only_If_Both_Specifications_Return_Different_Values()
             {
                 var mocks = new MockRepository();
-                var s1 = mocks.CreateMock<ISpecification<int>>();
-                var s2 = mocks.CreateMock<ISpecification<int>>();
+                var s1 = mocks.StrictMock<ISpecification<int>>();
+                var s2 = mocks.StrictMock<ISpecification<int>>();
 
                 // 1st call
                 Expect.Call(s1.IsSatisfiedBy(5)).Return(true);

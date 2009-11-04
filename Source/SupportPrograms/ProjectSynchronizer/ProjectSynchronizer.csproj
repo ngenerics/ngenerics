@@ -47,17 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Parsing\IProjectParser.cs" />
+    <Compile Include="Core\Parsing\ISynchronizer.cs" />
+    <Compile Include="Core\Parsing\VS2008ProjectParser.cs" />
+    <Compile Include="Core\Parsing\VS2008Synchronizer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ProjectSynchonizer.snk" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProjectSynchronizer.Core\ProjectSynchronizer.Core.csproj">
-      <Project>{7BFEA8A8-1431-4BF5-A2E8-A18564CB9D53}</Project>
-      <Name>ProjectSynchronizer.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

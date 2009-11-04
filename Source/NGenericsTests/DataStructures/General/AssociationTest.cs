@@ -1,5 +1,5 @@
 /*  
-  Copyright 2007-2009 The NGenerics Team
+ Copyright 2007-2009 The NGenerics Team
  (http://code.google.com/p/ngenerics/wiki/Team)
 
  This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
@@ -91,7 +91,7 @@ namespace NGenerics.Tests.DataStructures.General
 
                 Assert.AreEqual(assoc.Key, newAssoc.Key);
                 Assert.AreEqual(assoc.Value, newAssoc.Value);
-                Assert.AreNotEqual(assoc, newAssoc);
+                Assert.AreNotSame(assoc, newAssoc);
             }
 
             [Test]

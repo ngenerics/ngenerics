@@ -25,7 +25,7 @@ namespace NGenerics.Tests.Patterns.Visitor
             public void Simple()
             {
                 var mocks = new MockRepository();
-                var visitor = mocks.CreateMock<IVisitor<int>>();
+                var visitor = mocks.StrictMock<IVisitor<int>>();
 
                 Expect.Call(visitor.HasCompleted).Return(false);
                 visitor.Visit(1);
@@ -51,7 +51,7 @@ namespace NGenerics.Tests.Patterns.Visitor
             public void Stopping_Visitor()
             {
                 var mocks = new MockRepository();
-                var visitor = mocks.CreateMock<IVisitor<int>>();
+                var visitor = mocks.StrictMock<IVisitor<int>>();
 
                 Expect.Call(visitor.HasCompleted).Return(false);
                 visitor.Visit(1);

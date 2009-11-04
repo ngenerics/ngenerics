@@ -197,9 +197,9 @@
       <Project>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</Project>
       <Name>NGenerics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SupportPrograms\ProjectSynchronizer.Core\ProjectSynchronizer.Core.csproj">
-      <Project>{7BFEA8A8-1431-4BF5-A2E8-A18564CB9D53}</Project>
-      <Name>ProjectSynchronizer.Core</Name>
+    <ProjectReference Include="..\SupportPrograms\ProjectSynchronizer\ProjectSynchronizer.csproj">
+      <Project>{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}</Project>
+      <Name>ProjectSynchronizer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

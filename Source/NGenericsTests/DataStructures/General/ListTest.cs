@@ -67,7 +67,7 @@ namespace NGenerics.Tests.DataStructures.General
             public void SimpleEnsureInsertItemCall()
             {
                 var mockRepository = new MockRepository();
-                var listBase = mockRepository.CreateMock<Add>();
+                var listBase = mockRepository.StrictMock<Add>();
                 listBase.InsertItem(0, 5);
                 mockRepository.ReplayAll();
                 listBase.Add(5);
@@ -78,7 +78,7 @@ namespace NGenerics.Tests.DataStructures.General
             public void InterfaceEnsureInsertItemCall()
             {
                 var mockRepository = new MockRepository();
-                var listBase = mockRepository.CreateMock<Add>();
+                var listBase = mockRepository.StrictMock<Add>();
                 listBase.InsertItem(0, 5);
                 mockRepository.ReplayAll();
                 ((IList)listBase).Add(5);
@@ -254,7 +254,7 @@ namespace NGenerics.Tests.DataStructures.General
             {
                 var collection = new[] { 3 };
                 var mockRepository = new MockRepository();
-                var listBase = mockRepository.CreateMock<AddRange>();
+                var listBase = mockRepository.StrictMock<AddRange>();
                 listBase.AddRangeItems(collection);
                 mockRepository.ReplayAll();
                 listBase.AddRange(collection);
@@ -291,7 +291,7 @@ namespace NGenerics.Tests.DataStructures.General
             public void EnsureInsertItemCall()
             {
                 var mockRepository = new MockRepository();
-                var listBase = mockRepository.CreateMock<Insert>();
+                var listBase = mockRepository.StrictMock<Insert>();
                 listBase.InsertItem(0, 5);
                 mockRepository.ReplayAll();
                 listBase.Insert(0, 5);
@@ -302,7 +302,7 @@ namespace NGenerics.Tests.DataStructures.General
             public void InterfaceEnsureInsertItemCall()
             {
                 var mockRepository = new MockRepository();
-                var listBase = mockRepository.CreateMock<Insert>();
+                var listBase = mockRepository.StrictMock<Insert>();
                 listBase.InsertItem(0, 5);
                 mockRepository.ReplayAll();
                 ((IList)listBase).Insert(0,5);

@@ -32,7 +32,7 @@ namespace NGenerics.Tests.Patterns.Visitor
                 var mockRepository = new MockRepository();
 
                 // Just looking for an interface with a method that matches Action<T> - temporarily settled on list.
-                var recorder = mockRepository.CreateMock<IList<int>>();
+                var recorder = mockRepository.StrictMock<IList<int>>();
                 recorder.Add(1);
                 recorder.Add(2);
                 recorder.Add(-3);

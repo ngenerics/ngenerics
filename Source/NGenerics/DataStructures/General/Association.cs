@@ -125,24 +125,27 @@ namespace NGenerics.DataStructures.General
             return string.Format("{0} : {1}", Key, Value);
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null)
                 return false;
-            if (Object.ReferenceEquals(obj, this))
+            if (ReferenceEquals(obj, this))
                 return true;
             if (!(obj is Association<TKey, TValue>))
                 return false;
             var that = (Association<TKey, TValue>)obj;
             return
-                this.Key.Equals(that.Key) &&
-                this.Value.Equals(that.Value);
+                Key.Equals(that.Key) &&
+                Value.Equals(that.Value);
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
-            return (Key.Equals(default(TKey)) ? 0 : Key.GetHashCode()) + (Value.Equals(default(TValue)) ? 0 : Value.GetHashCode()) * 37;
+            return (Equals(Key, default(TKey)) ? 0 : Key.GetHashCode()) + (Equals(Value, default(TValue)) ? 0 : Value.GetHashCode()) * 37;
         }
+
         #endregion
     }
 }

@@ -54,8 +54,8 @@ namespace NGenerics.Tests.Patterns.Specification
             public void Or_Should_Return_True_If_One_Is_True()
             {
                 var mocks = new MockRepository();
-                var s1 = mocks.CreateMock<ISpecification<int>>();
-                var s2 = mocks.CreateMock<ISpecification<int>>();
+                var s1 = mocks.StrictMock<ISpecification<int>>();
+                var s2 = mocks.StrictMock<ISpecification<int>>();
 
                 // 1st call
                 Expect.Call(s1.IsSatisfiedBy(5)).Return(true);
@@ -78,8 +78,8 @@ namespace NGenerics.Tests.Patterns.Specification
             public void Or_Should_Return_True_If_Both_Are_False()
             {
                 var mocks = new MockRepository();
-                var s1 = mocks.CreateMock<ISpecification<int>>();
-                var s2 = mocks.CreateMock<ISpecification<int>>();
+                var s1 = mocks.StrictMock<ISpecification<int>>();
+                var s2 = mocks.StrictMock<ISpecification<int>>();
 
                 Expect.Call(s1.IsSatisfiedBy(5)).Return(false);
                 Expect.Call(s2.IsSatisfiedBy(5)).Return(false);

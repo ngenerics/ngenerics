@@ -37,8 +37,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SupportPrograms", "SupportP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectSynchronizer", "SupportPrograms\ProjectSynchronizer\ProjectSynchronizer.csproj", "{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectSynchronizer.Core", "SupportPrograms\ProjectSynchronizer.Core\ProjectSynchronizer.Core.csproj", "{7BFEA8A8-1431-4BF5-A2E8-A18564CB9D53}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,10 +71,6 @@ Global
 		{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BFEA8A8-1431-4BF5-A2E8-A18564CB9D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BFEA8A8-1431-4BF5-A2E8-A18564CB9D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BFEA8A8-1431-4BF5-A2E8-A18564CB9D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BFEA8A8-1431-4BF5-A2E8-A18564CB9D53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +85,5 @@ Global
 		{D220ABAC-E44D-4AB5-B980-C6D75B63DFA1} = {1BD15AEE-67E3-44CF-8FEF-5D2B170720F4}
 		{EB755C88-21F2-41BC-B1C4-7C3392D1AA53} = {1BD15AEE-67E3-44CF-8FEF-5D2B170720F4}
 		{6E7A7679-7F1E-4165-88D8-5E4593CA34A6} = {678FE67E-55D1-4AE4-ADCD-45557F3D628C}
-		{7BFEA8A8-1431-4BF5-A2E8-A18564CB9D53} = {678FE67E-55D1-4AE4-ADCD-45557F3D628C}
 	EndGlobalSection
 EndGlobal

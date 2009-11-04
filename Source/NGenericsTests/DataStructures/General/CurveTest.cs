@@ -1,12 +1,16 @@
-using System;
+/*  
+ Copyright 2007-2009 The NGenerics Team
+ (http://code.google.com/p/ngenerics/wiki/Team)
+
+ This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
+ have received a copy of the license along with the source code.  If not, an online copy
+ of the license can be found at http://www.gnu.org/copyleft/lesser.html.
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using NGenerics.DataStructures.General;
-using NGenerics.Extensions;
-using NGenerics.Patterns.Visitor;
-using NGenerics.Tests.Util;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.DataStructures.General
 {
@@ -279,7 +283,7 @@ namespace NGenerics.Tests.DataStructures.General
         //    {
         //        var collection = new[] { 3 };
         //        var mockRepository = new MockRepository();
-        //        var curve = mockRepository.CreateMock<AddRange>();
+        //        var curve = mockRepository.StrictMock<AddRange>();
         //        curve.AddRangeItems(collection);
         //        mockRepository.ReplayAll();
         //        curve.AddRange(collection);
@@ -316,7 +320,7 @@ namespace NGenerics.Tests.DataStructures.General
         //    public void EnsureInsertItemCall()
         //    {
         //        var mockRepository = new MockRepository();
-        //        var curve = mockRepository.CreateMock<Insert>();
+        //        var curve = mockRepository.StrictMock<Insert>();
         //        curve.InsertItem(0, 5);
         //        mockRepository.ReplayAll();
         //        curve.Insert(0, 5);
@@ -327,7 +331,7 @@ namespace NGenerics.Tests.DataStructures.General
         //    public void InterfaceEnsureInsertItemCall()
         //    {
         //        var mockRepository = new MockRepository();
-        //        var curve = mockRepository.CreateMock<Insert>();
+        //        var curve = mockRepository.StrictMock<Insert>();
         //        curve.InsertItem(0, 5);
         //        mockRepository.ReplayAll();
         //        ((IList)curve).Insert(0, 5);

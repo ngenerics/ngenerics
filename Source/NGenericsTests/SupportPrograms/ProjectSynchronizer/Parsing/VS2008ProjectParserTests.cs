@@ -8,10 +8,10 @@
 */
 
 using System.Collections.Generic;
-using NUnit.Framework;
-using ProjectSynchronizer.Core.Parsing;
 using System.IO;
 using NGenerics.Tests.TestObjects;
+using NUnit.Framework;
+using ProjectSynchronizer.Core.Parsing;
 
 namespace NGenerics.Tests.SupportPrograms.ProjectSynchronizer.Parsing {
     

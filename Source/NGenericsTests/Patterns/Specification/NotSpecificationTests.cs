@@ -37,7 +37,7 @@ namespace NGenerics.Tests.Patterns.Specification
             public void Not_Should_Reverse_SatisfiedBy_Value()
             {
                 var mocks = new MockRepository();
-                var s = mocks.CreateMock<ISpecification<int>>();
+                var s = mocks.StrictMock<ISpecification<int>>();
 
                 Expect.Call(s.IsSatisfiedBy(5)).Return(true);
                 Expect.Call(s.IsSatisfiedBy(6)).Return(false);
