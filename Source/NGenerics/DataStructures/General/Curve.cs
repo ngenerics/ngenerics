@@ -32,7 +32,6 @@ namespace NGenerics.DataStructures.General
         IList<Association<TKey, TValue>>,
         IList
         where TKey : IComparable
-    //where TKey : struct
     {
         #region Globals
 
@@ -444,7 +443,7 @@ namespace NGenerics.DataStructures.General
         /// <returns></returns>
         public bool Contains(TKey key, TValue value)
         {
-            return data.Exists(a => a.Key.Equals(key) && a.Value.Equals(value));
+            return data.Contains(new Association<TKey,TValue>(key, value));
         }
 
         /// <inheritdoc />  

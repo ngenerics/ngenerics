@@ -26,7 +26,6 @@ namespace NGenerics.Tests.Infrastructure
                 @"..\..\..\NGenerics.UI",
                 @"..\..\..\NGenericsTests",
                 @"..\..\..\SupportPrograms\ProjectSynchronizer",
-                @"..\..\..\SupportPrograms\ProjectSynchronizer.Core",
                 @"..\..\..\Examples\ExampleLibraryCSharp",
                 @"..\..\..\Examples\ExampleLibraryVB"
                 );
