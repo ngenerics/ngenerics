@@ -13,29 +13,29 @@ using NGenerics.Tests.Util;
 using NGenerics.UI.DataStructures.Trees;
 using NUnit.Framework;
 
-namespace NGenerics.UI.Test.DataStructures.Trees
+namespace NGenerics.Tests.UI.DataStructures.Trees
 {
     [TestFixture]
     public class ObservableGeneralTreeTest
     {
 
 
-		[TestFixture]
-		public class Contruction
-		{
+        [TestFixture]
+        public class Contruction
+        {
 
-			[Test]
-			public void Serialization()
-			{
-				var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableGeneralTree<int>(4));
-				ObservableCollectionTester.CheckMonitor(deserialize);
-			}
-			[Test]
-			public void Monitor1()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservableGeneralTree<int>(4));
-			}
-		}
+            [Test]
+            public void Serialization()
+            {
+                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableGeneralTree<int>(4));
+                ObservableCollectionTester.CheckMonitor(deserialize);
+            }
+            [Test]
+            public void Monitor1()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservableGeneralTree<int>(4));
+            }
+        }
 			
         [TestFixture]
         public class Add
@@ -63,9 +63,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var generalTree = new ObservableGeneralTree<string>("root")
-                                                                                  {
-                                                                                      "foo"
-                                                                                  };
+                                      {
+                                          "foo"
+                                      };
                 ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -73,9 +73,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void ExceptionReentrancy()
             {
                 var generalTree = new ObservableGeneralTree<string>("root")
-                                                                                  {
-                                                                                      "foo"
-                                                                                  };
+                                      {
+                                          "foo"
+                                      };
                 new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.Clear());
             }
         }
@@ -87,9 +87,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var generalTree = new ObservableGeneralTree<string>("root")
-                                                                                  {
-                                                                                      "foo"
-                                                                                  };
+                                      {
+                                          "foo"
+                                      };
                 ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -97,10 +97,10 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void ExceptionReentrancy()
             {
                 var generalTree = new ObservableGeneralTree<string>("root")
-                                                                                  {
-                                                                                      "foo", 
-                                                                                      "bar"
-                                                                                  };
+                                      {
+                                          "foo", 
+                                          "bar"
+                                      };
                 new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.Remove("foo"), obj => obj.Remove("bar"));
             }
 
@@ -113,9 +113,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var generalTree = new ObservableGeneralTree<string>("root")
-                                                                                  {
-                                                                                      "foo"
-                                                                                  };
+                                      {
+                                          "foo"
+                                      };
                 ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.RemoveAt(0), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -123,10 +123,10 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void ExceptionReentrancy()
             {
                 var generalTree = new ObservableGeneralTree<string>("root")
-                                                                                  {
-                                                                                      "foo", 
-                                                                                      "bar"
-                                                                                  };
+                                      {
+                                          "foo", 
+                                          "bar"
+                                      };
                 new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.RemoveAt(0));
             }
 

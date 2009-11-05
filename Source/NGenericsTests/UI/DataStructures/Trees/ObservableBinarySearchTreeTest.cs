@@ -14,32 +14,32 @@ using NGenerics.Tests.Util;
 using NGenerics.UI.DataStructures.Trees;
 using NUnit.Framework;
 
-namespace NGenerics.UI.Test.DataStructures.Trees
+namespace NGenerics.Tests.UI.DataStructures.Trees
 {
     [TestFixture]
     public class ObservableBinarySearchTreeTest
     {
-		[TestFixture]
-		public class Contruction
-		{
+        [TestFixture]
+        public class Contruction
+        {
 
-			[Test]
-			public void Serialization()
-			{
-				var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableBinarySearchTree<int, int>());
-				ObservableCollectionTester.CheckMonitor(deserialize);
-			}
-			[Test]
-			public void Monitor1()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservableBinarySearchTree<int, int>());
-			}
-			[Test]
-			public void Monitor2()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservableBinarySearchTree<int, int>(Comparer<int>.Default));
-			}
-		}
+            [Test]
+            public void Serialization()
+            {
+                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableBinarySearchTree<int, int>());
+                ObservableCollectionTester.CheckMonitor(deserialize);
+            }
+            [Test]
+            public void Monitor1()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservableBinarySearchTree<int, int>());
+            }
+            [Test]
+            public void Monitor2()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservableBinarySearchTree<int, int>(Comparer<int>.Default));
+            }
+        }
         [TestFixture]
         public class Add
         {
@@ -82,9 +82,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                                                                  {
-                                                                                      new KeyValuePair<string, string>("foo", "bar")
-                                                                                  };
+                                           {
+                                               new KeyValuePair<string, string>("foo", "bar")
+                                           };
                 ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -92,9 +92,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void ExceptionReentrancy()
             {
                 var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                                                                  {
-                                                                                      new KeyValuePair<string, string>("foo", "bar")
-                                                                                  };
+                                           {
+                                               new KeyValuePair<string, string>("foo", "bar")
+                                           };
                 new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Clear());
             }
         }
@@ -106,9 +106,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                                                                  {
-                                                                                      new KeyValuePair<string, string>("foo", "bar")
-                                                                                  };
+                                           {
+                                               new KeyValuePair<string, string>("foo", "bar")
+                                           };
                 ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -116,9 +116,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void ExceptionSimpleReentrancy()
             {
                 var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                                                                  {
-                                                                                      new KeyValuePair<string, string>("foo", "bar")
-                                                                                  };
+                                           {
+                                               new KeyValuePair<string, string>("foo", "bar")
+                                           };
                 new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Remove("foo"));
             }
             [Test]
@@ -126,9 +126,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             {
                 var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
                 var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                                                                  {
-                                                                                      keyValuePair
-                                                                                  };
+                                           {
+                                               keyValuePair
+                                           };
                 ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Remove(keyValuePair), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -137,9 +137,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             {
                 var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
                 var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                                                                  {
-                                                                                      keyValuePair
-                                                                                  };
+                                           {
+                                               keyValuePair
+                                           };
                 new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Remove(keyValuePair));
             }
 

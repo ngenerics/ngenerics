@@ -14,34 +14,34 @@ using NGenerics.Tests.Util;
 using NGenerics.UI.DataStructures.Trees;
 using NUnit.Framework;
 
-namespace NGenerics.UI.Test.DataStructures.Trees
+namespace NGenerics.Tests.UI.DataStructures.Trees
 {
     [TestFixture]
     public class ObservableRedBlackTreeTest
     {
 
-		[TestFixture]
-		public class Contruction
-		{
+        [TestFixture]
+        public class Contruction
+        {
 
-			[Test]
-			public void Serialization()
-			{
-				var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableRedBlackTree<int, int>());
-				ObservableCollectionTester.CheckMonitor(deserialize);
-			}
-			[Test]
-			public void Monitor1()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservableRedBlackTree<int, int>());
-			}
+            [Test]
+            public void Serialization()
+            {
+                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableRedBlackTree<int, int>());
+                ObservableCollectionTester.CheckMonitor(deserialize);
+            }
+            [Test]
+            public void Monitor1()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservableRedBlackTree<int, int>());
+            }
 
-			[Test]
-			public void Monitor2()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservableRedBlackTree<int, int>(Comparer<int>.Default));
-			}
-		}
+            [Test]
+            public void Monitor2()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservableRedBlackTree<int, int>(Comparer<int>.Default));
+            }
+        }
         [TestFixture]
         public class Add
         {
@@ -84,9 +84,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var redBlackTree = new ObservableRedBlackTree<string, string>
-                                                                                  {
-                                                                                      new KeyValuePair<string, string>("foo", "bar")
-                                                                                  };
+                                       {
+                                           new KeyValuePair<string, string>("foo", "bar")
+                                       };
                 ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -106,9 +106,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var redBlackTree = new ObservableRedBlackTree<string, string>
-                                                                                  {
-                                                                                      new KeyValuePair<string, string>("foo", "bar")
-                                                                                  };
+                                       {
+                                           new KeyValuePair<string, string>("foo", "bar")
+                                       };
                 ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -116,9 +116,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void ExceptionSimpleReentrancy()
             {
                 var redBlackTree = new ObservableRedBlackTree<string, string>
-                                                                                  {
-                                                                                      new KeyValuePair<string, string>("foo", "bar")
-                                                                                  };
+                                       {
+                                           new KeyValuePair<string, string>("foo", "bar")
+                                       };
                 new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Remove("foo"));
             }
             [Test]
@@ -126,9 +126,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             {
                 var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
                 var redBlackTree = new ObservableRedBlackTree<string, string>
-                                                                                  {
-                                                                                      keyValuePair
-                                                                                  };
+                                       {
+                                           keyValuePair
+                                       };
                 ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Remove(keyValuePair), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -137,9 +137,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             {
                 var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
                 var redBlackTree = new ObservableRedBlackTree<string, string>
-                                                                                  {
-                                                                                      keyValuePair
-                                                                                  };
+                                       {
+                                           keyValuePair
+                                       };
                 new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Remove(keyValuePair));
             }
 

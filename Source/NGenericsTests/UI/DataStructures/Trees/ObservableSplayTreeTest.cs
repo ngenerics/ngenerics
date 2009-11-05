@@ -14,34 +14,34 @@ using NGenerics.Tests.Util;
 using NGenerics.UI.DataStructures.Trees;
 using NUnit.Framework;
 
-namespace NGenerics.UI.Test.DataStructures.Trees
+namespace NGenerics.Tests.UI.DataStructures.Trees
 {
     [TestFixture]
     public class ObservableSplayTreeTest
     {
 
-		[TestFixture]
-		public class Contruction
-		{
-			[Test]
-			public void Serialization()
-			{
-				var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableSplayTree<int, int>());
-				ObservableCollectionTester.CheckMonitor(deserialize);
-			}
+        [TestFixture]
+        public class Contruction
+        {
+            [Test]
+            public void Serialization()
+            {
+                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableSplayTree<int, int>());
+                ObservableCollectionTester.CheckMonitor(deserialize);
+            }
 
-			[Test]
-			public void Monitor1()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservableSplayTree<int, int>());
-			}
-			[Test]
-			public void Monitor2()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservableSplayTree<int, int>(Comparer<int>.Default));
-			}
+            [Test]
+            public void Monitor1()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservableSplayTree<int, int>());
+            }
+            [Test]
+            public void Monitor2()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservableSplayTree<int, int>(Comparer<int>.Default));
+            }
 
-		}
+        }
         [TestFixture]
         public class Add
         {
@@ -84,9 +84,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             {
                 var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
                 var splayTree = new ObservableSplayTree<string, string>
-                                                                                  {
-                                                                                      keyValuePair
-                                                                                  };
+                                    {
+                                        keyValuePair
+                                    };
                 ObservableCollectionTester.ExpectEvents(splayTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -95,9 +95,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             {
                 var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
                 var splayTree = new ObservableSplayTree<string, string>
-                                                                                  {
-                                                                                      keyValuePair
-                                                                                  };
+                                    {
+                                        keyValuePair
+                                    };
                 new ReentracyTester<ObservableSplayTree<string, string>>(splayTree, obj => obj.Clear());
             }
         }
@@ -110,9 +110,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             {
                 var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
                 var splayTree = new ObservableSplayTree<string, string>
-                                                                                  {
-                                                                                      keyValuePair
-                                                                                  };
+                                    {
+                                        keyValuePair
+                                    };
                 ObservableCollectionTester.ExpectEvents(splayTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -121,9 +121,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             {
                 var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
                 var splayTree = new ObservableSplayTree<string, string>
-                                                                                  {
-                                                                                      keyValuePair
-                                                                                  };
+                                    {
+                                        keyValuePair
+                                    };
                 new ReentracyTester<ObservableSplayTree<string, string>>(splayTree, obj => obj.Remove("foo"));
             }
             [Test]
@@ -131,9 +131,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             {
                 var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
                 var splayTree = new ObservableSplayTree<string, string>
-                                                                                  {
-                                                                                      keyValuePair
-                                                                                  };
+                                    {
+                                        keyValuePair
+                                    };
                 ObservableCollectionTester.ExpectEvents(splayTree, obj => obj.Remove(keyValuePair), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -142,9 +142,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             {
                 var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
                 var splayTree = new ObservableSplayTree<string, string>
-                                                                                  {
-                                                                                      keyValuePair
-                                                                                  };
+                                    {
+                                        keyValuePair
+                                    };
                 new ReentracyTester<ObservableSplayTree<string, string>>(splayTree, obj => obj.Remove(keyValuePair));
             }
 

@@ -14,40 +14,40 @@ using NGenerics.Tests.Util;
 using NGenerics.UI.DataStructures.Trees;
 using NUnit.Framework;
 
-namespace NGenerics.UI.Test.DataStructures.Trees
+namespace NGenerics.Tests.UI.DataStructures.Trees
 {
     [TestFixture]
     public class ObservableBinaryTreeTest
     {
 
-		[TestFixture]
-		public class Contruction
-		{
+        [TestFixture]
+        public class Contruction
+        {
 
-			[Test]
-			public void Serialization()
-			{
-				var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableBinaryTree<int>(4));
-				ObservableCollectionTester.CheckMonitor(deserialize);
-			}
-			[Test]
-			public void Monitor1()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservableBinaryTree<int>(4));
-			}
-			[Test]
-			public void Monitor2()
-			{
-				var left = new BinaryTree<int>(2);
-				var right = new BinaryTree<int>(2);
-				ObservableCollectionTester.CheckMonitor(new ObservableBinaryTree<int>(4, left, right));
-			}
-			[Test]
-			public void Monitor3()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservableBinaryTree<int>(4, 5, 6));
-			}
-		}
+            [Test]
+            public void Serialization()
+            {
+                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableBinaryTree<int>(4));
+                ObservableCollectionTester.CheckMonitor(deserialize);
+            }
+            [Test]
+            public void Monitor1()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservableBinaryTree<int>(4));
+            }
+            [Test]
+            public void Monitor2()
+            {
+                var left = new BinaryTree<int>(2);
+                var right = new BinaryTree<int>(2);
+                ObservableCollectionTester.CheckMonitor(new ObservableBinaryTree<int>(4, left, right));
+            }
+            [Test]
+            public void Monitor3()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservableBinaryTree<int>(4, 5, 6));
+            }
+        }
         [TestFixture]
         public class Add
         {
@@ -89,9 +89,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var binaryTree = new ObservableBinaryTree<string>("root")
-                                                              {
-                                                                  "foo"
-                                                              };
+                                     {
+                                         "foo"
+                                     };
                 ObservableCollectionTester.ExpectEvents(binaryTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -110,9 +110,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var binaryTree = new ObservableBinaryTree<string>("root")
-                                                              {
-                                                                  "foo"
-                                                              };
+                                     {
+                                         "foo"
+                                     };
                 ObservableCollectionTester.ExpectEvents(binaryTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
             }
             [Test]
@@ -120,10 +120,10 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void ExceptionSimpleReentrancy()
             {
                 var binaryTree = new ObservableBinaryTree<string>("root")
-                                                              {
-                                                                  "foo",
-                                                                  "bar"
-                                                              };
+                                     {
+                                         "foo",
+                                         "bar"
+                                     };
                 new ReentracyTester<ObservableBinaryTree<string>>(binaryTree, obj => obj.Remove("foo"), obj => obj.Remove("bar"));
             }
             [Test]
@@ -152,9 +152,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var rootBinaryTree = new ObservableBinaryTree<string>("root")
-                                                                  {
-                                                                      "foo"
-                                                                  };
+                                         {
+                                             "foo"
+                                         };
                 ObservableCollectionTester.ExpectEvents(rootBinaryTree, obj => obj.RemoveLeft(), "Count", "Item[]", "IsEmpty");
             }
 
@@ -163,9 +163,9 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void ExceptionReentrancy()
             {
                 var rootBinaryTree = new ObservableBinaryTree<string>("root")
-                                                                  {
-                                                                      "foo"
-                                                                  };
+                                         {
+                                             "foo"
+                                         };
                 new ReentracyTester<ObservableBinaryTree<string>>(rootBinaryTree, obj => obj.RemoveLeft());
             }
         }
@@ -176,10 +176,10 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void Simple()
             {
                 var rootBinaryTree = new ObservableBinaryTree<string>("root")
-                                                                  {
-                                                                      "foo",
-                                                                      "bar"
-                                                                  };
+                                         {
+                                             "foo",
+                                             "bar"
+                                         };
                 ObservableCollectionTester.ExpectEvents(rootBinaryTree, obj => obj.RemoveRight(), "Count", "Item[]", "IsEmpty");
             }
 
@@ -188,10 +188,10 @@ namespace NGenerics.UI.Test.DataStructures.Trees
             public void ExceptionSimpleReentrancy()
             {
                 var rootBinaryTree = new ObservableBinaryTree<string>("root")
-                                                                  {
-                                                                      "foo",
-                                                                      "bar"
-                                                                  };
+                                         {
+                                             "foo",
+                                             "bar"
+                                         };
                 new ReentracyTester<ObservableBinaryTree<string>>(rootBinaryTree, obj => obj.RemoveRight());
             }
         }

@@ -15,7 +15,7 @@ using NGenerics.Tests.Util;
 using NGenerics.UI.DataStructures.Queues;
 using NUnit.Framework;
 
-namespace NGenerics.UI.Test.DataStructures.Queues
+namespace NGenerics.Tests.UI.DataStructures.Queues
 {
     [TestFixture]
     public class ObservablePriorityQueueTest

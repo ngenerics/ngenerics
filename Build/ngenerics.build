@@ -19,9 +19,7 @@
   <property name="project.build.dir" value="${project::get-base-directory()}"/>
   <property name="project.source.ngenerics.dir" value="..\Source"/>
   <property name="project.tests.ngenerics.dir" value="..\Source\NGenericsTests"/>
-  <property name="project.tests.ngenerics.assembly" value="..\Source\NGenericsTests\bin\Release\NGenerics.Tests.dll"/>
-  <property name="project.tests.ngenerics.ui.dir" value="..\Source\NGenerics.UI.Test"/>
-  <property name="project.tests.ngenerics.ui.assembly" value="..\Source\NGenerics.UI.Test\bin\Release\NGenerics.UI.Test.dll"/>
+  <property name="project.tests.ngenerics.assembly" value="..\Source\NGenericsTests\bin\Release\NGenerics.Tests.dll"/>  
   <property name="project.ngenerics.ui.assembly" value="..\Source\NGenerics.UI\bin\Release\NGenerics.UI.dll"/>
   <property name="project.ngenerics.assembly" value="..\Source\NGenerics\bin\Release\NGenerics.dll"/>
   <property name="project.ngenerics.assemblies.location" value="..\Source\NGenerics.UI\bin\Release"/>
@@ -265,8 +263,7 @@
     <echo message="*"/>
 
     <exec program="${nunit.exe}">
-      <arg value="${project.tests.ngenerics.assembly}" />
-      <arg value="${project.tests.ngenerics.ui.assembly}" />
+      <arg value="${project.tests.ngenerics.assembly}" />      
       <arg value="/xml=${project.report.xml.dir}\NGenericsTestsResults.xml" />
       <arg value="/config=NGenericsTests.dll.config" />
     </exec>

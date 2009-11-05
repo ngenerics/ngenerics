@@ -17,7 +17,7 @@ using NGenerics.Tests.Util;
 using NGenerics.UI.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.UI.Test.DataStructures.General
+namespace NGenerics.Tests.UI.DataStructures.General
 {
     [TestFixture]
     public class ObservableBagTest
