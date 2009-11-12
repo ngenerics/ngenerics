@@ -98,8 +98,8 @@ namespace NGenerics.Tests.DataStructures.General
             public void XmlSimple()
             {
                 var assoc = new Association<int, string>(5, "aa");
-                string s = assoc.Serialize();
-                var newAssoc = ObjectExtensions.Deserialize<Association<int, string>>(s);
+                var serialize = assoc.Serialize();
+                var newAssoc = ObjectExtensions.Deserialize<Association<int, string>>(serialize);
 
                 Assert.AreEqual(assoc.Key, newAssoc.Key);
                 Assert.AreEqual(assoc.Value, newAssoc.Value);

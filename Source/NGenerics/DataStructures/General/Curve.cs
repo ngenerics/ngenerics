@@ -212,7 +212,7 @@ namespace NGenerics.DataStructures.General
             get
             {
                 var values = new TValue[Count];
-                for (int i = 0; i < Count; i++)
+                for (var i = 0; i < Count; i++)
                 {
                     values[i] = data[i].Value;
                 }
@@ -229,22 +229,35 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.IList"/> is read-only.-or- The <see cref="T:System.Collections.IList"/> has a fixed size. </exception>
         void IList.Remove(object value)
         {
-            if (value is Association<TKey, TValue>)
-                Remove((Association<TKey, TValue>)value);
+            var association = value as Association<TKey, TValue>;
+            if (association != null)
+            {
+                Remove(association);
+            }
             else
+            {
                 if (value is KeyValuePair<TKey, TValue>)
                 {
-                    var val = (KeyValuePair<TKey, TValue>)value;
-                    int i = IndexOf(val.Key);
+                    var val = (KeyValuePair<TKey, TValue>) value;
+                    var i = IndexOf(val.Key);
                     if (i < 0)
+                    {
                         return;
+                    }
                     if (this[i].Value.Equals(val.Value))
+                    {
                         RemoveAt(i);
+                    }
                 }
                 else if (value is TKey)
-                    Remove((TKey)value);
+                {
+                    Remove((TKey) value);
+                }
                 else
+                {
                     throw new ArgumentException();
+                }
+            }
 
         }
 
@@ -595,8 +608,15 @@ namespace NGenerics.DataStructures.General
             var index = IndexOf(key);
 
             // Item was found
-            bool res = (index >= 0);
-            value = (res ? this[index].Value : default(TValue));
+            var res = (index >= 0);
+            if (res)
+            {
+                value = this[index].Value;
+            }
+            else
+            {
+                value = default(TValue);
+            }
             return res;
         }
 

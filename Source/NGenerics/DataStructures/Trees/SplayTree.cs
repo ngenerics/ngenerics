@@ -27,10 +27,11 @@ namespace NGenerics.DataStructures.Trees
 #if (!SILVERLIGHT)
     [Serializable]
 #endif
-    public class SplayTree<TKey, TValue> : BinarySearchTreeBase<TKey, TValue> {
+    public class SplayTree<TKey, TValue> : BinarySearchTreeBase<TKey, TValue>
+    {
         #region Globals
 
-        private static readonly KeyValuePair<TKey, TValue> nullPair = new KeyValuePair<TKey, TValue>();
+        private static readonly KeyValuePair<TKey, TValue> nullPair;
 
         #endregion
 
@@ -121,7 +122,7 @@ namespace NGenerics.DataStructures.Trees
         /// Adds an element with the provided key and value to the <see cref="IDictionary{TKey,TValue}"/>.
         /// </summary>
         /// <param name="item">The item.</param>
-		protected override void AddItem(KeyValuePair<TKey, TValue> item)
+        protected override void AddItem(KeyValuePair<TKey, TValue> item)
         {
             if (Tree == null)
             {
@@ -137,7 +138,7 @@ namespace NGenerics.DataStructures.Trees
                 {
                     throw new ArgumentException("Already in the tree.", "item");
                 }
-                
+
                 var newTree = new BinaryTree<KeyValuePair<TKey, TValue>>(item);
 
                 if (c < 0)
@@ -236,26 +237,26 @@ namespace NGenerics.DataStructures.Trees
             {
                 return false;
             }
-		    
+
             Splay(item);
 
-		    if (Comparer.Compare(item, Tree.Data) == 0)
-		    {
-		        // Now delete the root
-		        if (Tree.Left == null)
-		        {
-		            Tree = Tree.Right;
-		        }
-		        else
-		        {
-		            var tempRight = Tree.Right;
-		            Tree = Tree.Left;
-		            Splay(item);
-		            Tree.Right = tempRight;
-		        }
-		        return true;
-		    }
-		    
+            if (Comparer.Compare(item, Tree.Data) == 0)
+            {
+                // Now delete the root
+                if (Tree.Left == null)
+                {
+                    Tree = Tree.Right;
+                }
+                else
+                {
+                    var tempRight = Tree.Right;
+                    Tree = Tree.Left;
+                    Splay(item);
+                    Tree.Right = tempRight;
+                }
+                return true;
+            }
+
             return false;
         }
 
