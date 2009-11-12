@@ -23,11 +23,10 @@ namespace NGenerics.Tests.Patterns.Visitor
             [Test]
             public void ActionShouldBeCalledOnEveryObject()
             {
-                var list = new List<int>();
-
-                list.Add(1);
-                list.Add(2);
-                list.Add(-3);
+                var list = new List<int>
+                           {
+                               1, 2, -3
+                           };
 
                 var mockRepository = new MockRepository();
 
