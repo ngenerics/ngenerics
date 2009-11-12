@@ -15,13 +15,15 @@ using NUnit.Framework;
 namespace NGenerics.Tests.Infrastructure
 {
     [TestFixture]
-    public class CodeFormat {
+    public class CodeFormat
+    {
 
         #region Tests
 
         [Test]
-        public void All_Code_Files_Should_Start_With_The_Copyright_Header() {
-            List<string> files = GetNonCompliantFiles(
+        public void All_Code_Files_Should_Start_With_The_Copyright_Header()
+        {
+            var files = GetNonCompliantFiles(
                 @"..\..\..\NGenerics",
                 @"..\..\..\NGenericsTests",
                 @"..\..\..\SupportPrograms\ProjectSynchronizer",
@@ -29,40 +31,45 @@ namespace NGenerics.Tests.Infrastructure
                 @"..\..\..\Examples\ExampleLibraryVB"
                 );
 
-            Assert.AreEqual(files.Count, 0,
-                            "Non compliant files found : " + Environment.NewLine + String.Join(Environment.NewLine, files.ToArray()));
+            var message = string.Format("Non compliant files found : {0}{1}", Environment.NewLine, String.Join(Environment.NewLine, files.ToArray()));
+            Assert.AreEqual(files.Count, 0, message);
         }
 
         #endregion
 
         #region Private Members
 
-        private static List<string> GetNonCompliantFiles(params string[] directories) {
+        private static List<string> GetNonCompliantFiles(params string[] directories)
+        {
             var ret = new List<string>();
 
-            foreach (string root in directories) {
+            foreach (var root in directories)
+            {
                 ret.AddRange(GetNonCompliantFilesForDirectory(root));
             }
 
             return ret;
         }
 
-        private static List<string> GetNonCompliantFilesForDirectory(string directory) {
-            string directoryName = new DirectoryInfo(directory).Name;
+        private static List<string> GetNonCompliantFilesForDirectory(string directory)
+        {
+            var directoryName = new DirectoryInfo(directory).Name;
 
             // Ignore bin, obj, Resources, and svn directories
             if ((directoryName == "obj") ||
                 (directoryName == "bin") ||
                 (directoryName == ".svn") ||
-                (directoryName == "Resources")) {
-                    return new List<string>();
-                }
+                (directoryName == "Resources"))
+            {
+                return new List<string>();
+            }
 
             var ret = new List<string>();
 
             ScanFiles(directory, ret);
 
-            foreach (string subdirectory in Directory.GetDirectories(directory)) {
+            foreach (var subdirectory in Directory.GetDirectories(directory))
+            {
                 ret.AddRange(GetNonCompliantFiles(subdirectory));
             }
 
@@ -73,32 +80,41 @@ namespace NGenerics.Tests.Infrastructure
         {
             const string firstLine = "Copyright 2007-2009 The NGenerics Team";
 
-            foreach (string file in Directory.GetFiles(directory, "*.cs")) {
-                if (file.Contains(".Designer.")) {
+            foreach (var file in Directory.GetFiles(directory, "*.cs"))
+            {
+                if (file.Contains(".Designer."))
+                {
                     continue;
                 }
 
-                if (!IsCopyrightHeaderInFile("/*", firstLine, file)) {
+                if (!IsCopyrightHeaderInFile("/*", firstLine, file))
+                {
                     ret.Add(Path.GetFullPath(file));
                 }
             }
 
-            foreach (string file in Directory.GetFiles(directory, "*.vb")) {
-                if (file.Contains(".Designer.")) {
+            foreach (var file in Directory.GetFiles(directory, "*.vb"))
+            {
+                if (file.Contains(".Designer."))
+                {
                     continue;
                 }
 
-                if (!IsCopyrightHeaderInFile("'", firstLine, file)) {
+                if (!IsCopyrightHeaderInFile("'", firstLine, file))
+                {
                     ret.Add(Path.GetFullPath(file));
                 }
             }
         }
 
-        private static bool IsCopyrightHeaderInFile(string startsWith, string firstLine, string file) {
-            using (var reader = File.OpenText(file)) {
-                bool ret = reader.ReadLine().StartsWith(startsWith);
+        private static bool IsCopyrightHeaderInFile(string startsWith, string firstLine, string file)
+        {
+            using (var reader = File.OpenText(file))
+            {
+                var ret = reader.ReadLine().StartsWith(startsWith);
 
-                if (ret) {
+                if (ret)
+                {
                     // Ensure that copyright notices are updated consistently.
                     // Change this whenever the copyright notices need to change in the files.
                     ret = reader.ReadLine().Contains(firstLine);
