@@ -19,16 +19,16 @@ namespace ExampleLibraryCSharp.DataStructures.General
     public class DictionaryBaseExamples
     {
 
-        public class MyDictionary<TKey, TValue> : DictionaryBase<string, int>
-            {
-                
-            }
+        public class MyDictionary : DictionaryBase<string, int>
+        {
+
+        }
 
         #region Add
         [Test]
         public void AddExample()
         {
-            var dictionary = new MyDictionary<string, int>();
+            var dictionary = new MyDictionary();
             dictionary.Add("cat", 1);
             dictionary.Add("dog", 2);
             dictionary.Add("canary", 3);
@@ -43,7 +43,7 @@ namespace ExampleLibraryCSharp.DataStructures.General
         [Test]
         public void ClearExample()
         {
-            DictionaryBase<string, int> dictionary = new MyDictionary<string, int>
+            DictionaryBase<string, int> dictionary = new MyDictionary
                                                          {
                                                              {"cat", 1},
                                                              {"dog", 2},
@@ -69,7 +69,7 @@ namespace ExampleLibraryCSharp.DataStructures.General
         [Test]
         public void ComparerExample()
         {
-            DictionaryBase<string, int> dictionary = new MyDictionary<string, int>();
+            DictionaryBase<string, int> dictionary = new MyDictionary();
 
             // If no comparer is specified, the default comparer is used.
             Assert.AreSame(dictionary.Comparer, EqualityComparer<string>.Default);
@@ -81,7 +81,7 @@ namespace ExampleLibraryCSharp.DataStructures.General
         [Test]
         public void ContainsKeyExample()
         {
-            DictionaryBase<string, int> dictionary = new MyDictionary<string, int>
+            DictionaryBase<string, int> dictionary = new MyDictionary
                                                          {
                                                              {"cat", 1},
                                                              {"dog", 2},
@@ -102,7 +102,7 @@ namespace ExampleLibraryCSharp.DataStructures.General
         [Test]
         public void CountExample()
         {
-            DictionaryBase<string, int> dictionary = new MyDictionary<string, int>();
+            DictionaryBase<string, int> dictionary = new MyDictionary();
 
             // dictionary count is 0.
             Assert.AreEqual(0, dictionary.Count);
@@ -131,7 +131,7 @@ namespace ExampleLibraryCSharp.DataStructures.General
         #region GetEnumerator
         public void GetEnumeratorExample()
         {
-            DictionaryBase<string, int> dictionary = new MyDictionary<string, int>
+            DictionaryBase<string, int> dictionary = new MyDictionary
                                                          {
                                                              {"cat", 1},
                                                              {"dog", 2},
@@ -156,7 +156,7 @@ namespace ExampleLibraryCSharp.DataStructures.General
         #region Item
         public void ItemExample()
         {
-            DictionaryBase<string, int> dictionary = new MyDictionary<string, int>
+            DictionaryBase<string, int> dictionary = new MyDictionary
                                                          {
                                                              {"cat", 1},
                                                              {"dog", 2},
@@ -174,7 +174,7 @@ namespace ExampleLibraryCSharp.DataStructures.General
         [Test]
         public void KeysExample()
         {
-            DictionaryBase<string, int> dictionary = new MyDictionary<string, int>
+            DictionaryBase<string, int> dictionary = new MyDictionary
                                                          {
                                                              {"cat", 1},
                                                              {"dog", 2},
@@ -199,7 +199,7 @@ namespace ExampleLibraryCSharp.DataStructures.General
         [Test]
         public void RemoveExample()
         {
-            DictionaryBase<string, int> dictionary = new MyDictionary<string, int>
+            DictionaryBase<string, int> dictionary = new MyDictionary
                                                          {
                                                              {"cat", 1},
                                                              {"dog", 2},
@@ -225,7 +225,7 @@ namespace ExampleLibraryCSharp.DataStructures.General
         [Test]
         public void TryGetValueExample()
         {
-            DictionaryBase<string, int> dictionary = new MyDictionary<string, int>
+            DictionaryBase<string, int> dictionary = new MyDictionary
                                                          {
                                                              {"cat", 1},
                                                              {"dog", 2},
@@ -250,7 +250,7 @@ namespace ExampleLibraryCSharp.DataStructures.General
         [Test]
         public void ValuesExample()
         {
-            DictionaryBase<string, int> dictionary = new MyDictionary<string, int>
+            DictionaryBase<string, int> dictionary = new MyDictionary
                                                          {
                                                              {"cat", 1},
                                                              {"dog", 2},
