@@ -23,7 +23,6 @@ namespace NGenerics.Tests.Infrastructure
         public void All_Code_Files_Should_Start_With_The_Copyright_Header() {
             List<string> files = GetNonCompliantFiles(
                 @"..\..\..\NGenerics",
-                @"..\..\..\NGenerics.UI",
                 @"..\..\..\NGenericsTests",
                 @"..\..\..\SupportPrograms\ProjectSynchronizer",
                 @"..\..\..\Examples\ExampleLibraryCSharp",

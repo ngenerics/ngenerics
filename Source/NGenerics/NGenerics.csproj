@@ -56,12 +56,18 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\GraphAlgorithms.cs" />
@@ -85,6 +91,16 @@
     <Compile Include="DataStructures\General\Curve.cs" />
     <Compile Include="DataStructures\General\DictionaryBase.cs" />
     <Compile Include="DataStructures\General\ListBase.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableBag.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableBag.Notification.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableHashList.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableHashList.Notification.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableHeap.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableHeap.Notification.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservablePascalSet.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservablePascalSet.Notification.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableSkipList.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableSkipList.Notification.cs" />
     <Compile Include="DataStructures\Mathematical\CholeskyDecomposition.cs" />
     <Compile Include="DataStructures\Mathematical\ComplexNumber.cs">
       <SubType>Code</SubType>
@@ -125,6 +141,23 @@
     </Compile>
     <Compile Include="DataStructures\Mathematical\VectorN.Operators.cs" />
     <Compile Include="DataStructures\Queues\ClassicPriorityQueue.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservableCircularQueue.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservableCircularQueue.Notification.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservableDeque.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservableDeque.Notification.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservablePriorityQueue.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservablePriorityQueue.Notification.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableBinarySearchTree.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableBinarySearchTree.Notification.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableBinaryTree.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableBinaryTree.Notification.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableGeneralTree.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableGeneralTree.Notification.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableRedBlackTree.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableRedBlackTree.Notification.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableSplayTree.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableSplayTree.Notification.cs" />
+    <Compile Include="Util\SimpleMonitor.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeBase.cs" />
     <Compile Include="DataStructures\Trees\ISearchTreeDictionary.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeDictionaryBase.cs" />

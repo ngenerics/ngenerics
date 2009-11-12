@@ -9,11 +9,12 @@
 
 
 using System;
+using NGenerics.DataStructures.General.Observable;
+using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
-using NGenerics.UI.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.UI.DataStructures.General
+namespace NGenerics.Tests.DataStructures.General.Observable
 {
     [TestFixture]
     public class ObservablePascalSetTest

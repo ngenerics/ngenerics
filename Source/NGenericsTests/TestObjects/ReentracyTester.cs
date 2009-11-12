@@ -11,7 +11,7 @@ using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
 
-namespace NGenerics.Tests.UI
+namespace NGenerics.Tests.TestObjects
 {
     public class ReentracyTester<T> where T : INotifyCollectionChanged, INotifyPropertyChanged
     {

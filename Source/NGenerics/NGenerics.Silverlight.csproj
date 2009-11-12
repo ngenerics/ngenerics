@@ -185,6 +185,33 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Threading\CancelEventArgs.cs" />
     <Compile Include="DataStructures\General\Curve.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableBag.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableBag.Notification.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableHashList.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableHashList.Notification.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableHeap.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableHeap.Notification.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservablePascalSet.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservablePascalSet.Notification.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableSkipList.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableSkipList.Notification.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservableCircularQueue.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservableCircularQueue.Notification.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservableDeque.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservableDeque.Notification.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservablePriorityQueue.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservablePriorityQueue.Notification.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableBinarySearchTree.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableBinarySearchTree.Notification.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableBinaryTree.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableBinaryTree.Notification.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableGeneralTree.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableGeneralTree.Notification.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableRedBlackTree.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableRedBlackTree.Notification.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableSplayTree.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableSplayTree.Notification.cs" />
+    <Compile Include="Util\SimpleMonitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagrams\Bag.cd" />

@@ -20,9 +20,8 @@
   <property name="project.source.ngenerics.dir" value="..\Source"/>
   <property name="project.tests.ngenerics.dir" value="..\Source\NGenericsTests"/>
   <property name="project.tests.ngenerics.assembly" value="..\Source\NGenericsTests\bin\Release\NGenerics.Tests.dll"/>  
-  <property name="project.ngenerics.ui.assembly" value="..\Source\NGenerics.UI\bin\Release\NGenerics.UI.dll"/>
-  <property name="project.ngenerics.assembly" value="..\Source\NGenerics\bin\Release\NGenerics.dll"/>
-  <property name="project.ngenerics.assemblies.location" value="..\Source\NGenerics.UI\bin\Release"/>
+    <property name="project.ngenerics.assembly" value="..\Source\NGenerics\bin\Release\NGenerics.dll"/>
+  <property name="project.ngenerics.assemblies.location" value="..\Source\NGenerics\bin\Release"/>
   <property name="project.examples.csharp.assembly" value="..\Source\Examples\ExampleLibraryCSharp\bin\Release\ExampleLibraryCSharp.dll"/>
   <property name="project.examples.vb.assembly" value="..\Source\Examples\ExampleLibraryVB\bin\Release\ExampleLibraryVB.dll"/>
 
@@ -120,13 +119,7 @@
       <fileset basedir="..\Source\NGenerics\bin\Release">
         <include name="*" />
       </fileset>
-    </delete>
-
-    <delete>
-      <fileset basedir="..\Source\NGenerics.UI\bin\Release">
-        <include name="*" />
-      </fileset>
-    </delete>
+    </delete>    
 
     <property name="build.release" value="true" />
     <property name="build.source" value="false" />

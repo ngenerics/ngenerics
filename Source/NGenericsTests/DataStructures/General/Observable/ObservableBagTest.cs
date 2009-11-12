@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Threading;
+using NGenerics.DataStructures.General.Observable;
+using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
-using NGenerics.UI.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.UI.DataStructures.General
+namespace NGenerics.Tests.DataStructures.General.Observable
 {
     [TestFixture]
     public class ObservableBagTest
@@ -35,10 +36,12 @@ namespace NGenerics.Tests.UI.DataStructures.General
 
                 ThreadStart start = FireAdd;
                 Debug.WriteLine("1");
-                new Thread(start).Start();
+                var thread = new Thread(start);
+                thread.Start();
                 Debug.WriteLine("2");
                 bag.Add(3);
                 Debug.WriteLine("3");
+                thread.Join(5000);
             }
 
             private void FireAdd()

@@ -181,21 +181,21 @@
       <DependentUpon>TestFiles.resx</DependentUpon>
     </Compile>
     <Compile Include="Threading\BackgroundWorkerTest.cs" />
-    <Compile Include="UI\DataStructures\General\ObservableBagTest.cs" />
-    <Compile Include="UI\DataStructures\General\ObservableHashListTest.cs" />
-    <Compile Include="UI\DataStructures\General\ObservableHeapTest.cs" />
-    <Compile Include="UI\DataStructures\General\ObservablePascalSetTest.cs" />
-    <Compile Include="UI\DataStructures\General\ObservableSkipListTest.cs" />
-    <Compile Include="UI\DataStructures\Queues\ObservableCircularQueueTest.cs" />
-    <Compile Include="UI\DataStructures\Queues\ObservableDequeTest.cs" />
-    <Compile Include="UI\DataStructures\Queues\ObservablePriorityQueueTest.cs" />
-    <Compile Include="UI\DataStructures\Trees\ObservableBinarySearchTreeTest.cs" />
-    <Compile Include="UI\DataStructures\Trees\ObservableBinaryTreeTest.cs" />
-    <Compile Include="UI\DataStructures\Trees\ObservableGeneralTreeTest.cs" />
-    <Compile Include="UI\DataStructures\Trees\ObservableRedBlackTreeTest.cs" />
-    <Compile Include="UI\DataStructures\Trees\ObservableSplayTreeTest.cs" />
-    <Compile Include="UI\ObservableCollectionTester.cs" />
-    <Compile Include="UI\ReentracyTester.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableBagTest.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableHashListTest.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableHeapTest.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservablePascalSetTest.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableSkipListTest.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservableCircularQueueTest.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservableDequeTest.cs" />
+    <Compile Include="DataStructures\Queues\Observable\ObservablePriorityQueueTest.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableBinarySearchTreeTest.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableBinaryTreeTest.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableGeneralTreeTest.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableRedBlackTreeTest.cs" />
+    <Compile Include="DataStructures\Trees\Observable\ObservableSplayTreeTest.cs" />
+    <Compile Include="TestObjects\ObservableCollectionTester.cs" />
+    <Compile Include="TestObjects\ReentracyTester.cs" />
     <Compile Include="Util\CompletedTrackingVisitor.cs" />
     <Compile Include="Util\GeneralTreeComparer.cs" />
     <Compile Include="Util\GuardTest.cs" />
@@ -211,10 +211,6 @@
     <Compile Include="Patterns\Visitor\VisitorExtensionsTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NGenerics.UI\NGenerics.UI.csproj">
-      <Project>{9B539DCE-170B-4ACF-BFF2-6479343E4DDA}</Project>
-      <Name>NGenerics.UI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NGenerics\NGenerics.csproj">
       <Project>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</Project>
       <Name>NGenerics</Name>

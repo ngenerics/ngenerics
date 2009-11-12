@@ -9,11 +9,12 @@
 
 
 using System;
+using NGenerics.DataStructures.Trees.Observable;
+using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
-using NGenerics.UI.DataStructures.Trees;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.UI.DataStructures.Trees
+namespace NGenerics.Tests.DataStructures.Trees.Observable
 {
     [TestFixture]
     public class ObservableGeneralTreeTest

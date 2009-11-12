@@ -14,7 +14,7 @@ using System.ComponentModel;
 using System.Reflection;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.UI
+namespace NGenerics.Tests.TestObjects
 {
     public static class ObservableCollectionTester
     {

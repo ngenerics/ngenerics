@@ -10,11 +10,12 @@
 
 using System;
 using System.Collections.Generic;
+using NGenerics.DataStructures.Queues.Observable;
+using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
-using NGenerics.UI.DataStructures.Queues;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.UI.DataStructures.Queues
+namespace NGenerics.Tests.DataStructures.Queues.Observable
 {
     [TestFixture]
     public class ObservableDequeTest
