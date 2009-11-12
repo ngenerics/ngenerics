@@ -26,72 +26,74 @@ namespace NGenerics.Tests.DataStructures.Trees
         #region Tests
 
         [TestFixture]
-		public class Add
-		{
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = new RedBlackTree<int, string>();
+        public class Add
+        {
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = new RedBlackTree<int, string>();
 
-				for (var i = 0; i < 100; i++)
-				{
-					redBlackTree.Add(i, i.ToString());
+                for (var i = 0; i < 100; i++)
+                {
+                    redBlackTree.Add(i, i.ToString());
 
-					Assert.IsTrue(redBlackTree.ContainsKey(i));
-					Assert.AreEqual(redBlackTree.Count, i + 1);
-				}
+                    Assert.IsTrue(redBlackTree.ContainsKey(i));
+                    Assert.AreEqual(redBlackTree.Count, i + 1);
+                }
 
-				for (var i = 300; i > 200; i--)
-				{
-					redBlackTree.Add(i, i.ToString());
+                for (var i = 300; i > 200; i--)
+                {
+                    redBlackTree.Add(i, i.ToString());
 
-					Assert.IsTrue(redBlackTree.ContainsKey(i));
-					Assert.AreEqual(redBlackTree.Count, 100 + (300 - i) + 1);
-				}
-
-
-				for (var i = 100; i < 200; i++)
-				{
-					redBlackTree.Add(i, i.ToString());
-
-					Assert.IsTrue(redBlackTree.ContainsKey(i));
-					Assert.AreEqual(redBlackTree.Count, 100 + i + 1);
-				}
-
-				for (var i = 301; i < 400; i++)
-				{
-					redBlackTree.Add(new KeyValuePair<int, string>(i, i.ToString()));
-
-					Assert.IsTrue(redBlackTree.ContainsKey(i));
-					Assert.AreEqual(redBlackTree[i], i.ToString());
-					Assert.IsTrue(redBlackTree.Contains(new KeyValuePair<int, string>(i, i.ToString())));
-				}
+                    Assert.IsTrue(redBlackTree.ContainsKey(i));
+                    Assert.AreEqual(redBlackTree.Count, 100 + (300 - i) + 1);
+                }
 
 
+                for (var i = 100; i < 200; i++)
+                {
+                    redBlackTree.Add(i, i.ToString());
 
-				Assert.IsFalse(redBlackTree.Contains(new KeyValuePair<int, string>(500, "500")));
-				Assert.IsFalse(redBlackTree.Contains(new KeyValuePair<int, string>(300, "301")));
-				Assert.IsTrue(redBlackTree.Contains(new KeyValuePair<int, string>(300, "300")));
-			}
+                    Assert.IsTrue(redBlackTree.ContainsKey(i));
+                    Assert.AreEqual(redBlackTree.Count, 100 + i + 1);
+                }
 
-			[Test]
-			[ExpectedException(typeof(ArgumentException))]
-			public void ExceptionKeyAlreadyInTree()
-			{
-				var redBlackTree = new RedBlackTree<int, string>();
+                for (var i = 301; i < 400; i++)
+                {
+                    redBlackTree.Add(new KeyValuePair<int, string>(i, i.ToString()));
 
-				redBlackTree.Add(0, "50");
-				redBlackTree.Add(0, "20");
-			}
+                    Assert.IsTrue(redBlackTree.ContainsKey(i));
+                    Assert.AreEqual(redBlackTree[i], i.ToString());
+                    Assert.IsTrue(redBlackTree.Contains(new KeyValuePair<int, string>(i, i.ToString())));
+                }
 
-			[Test]
-			[ExpectedException(typeof(ArgumentNullException))]
-			public void ExceptionNullKey()
-			{
-				var redBlackTree = new RedBlackTree<object, string>();
 
-				redBlackTree.Add(null, "a");
-			}
+
+                Assert.IsFalse(redBlackTree.Contains(new KeyValuePair<int, string>(500, "500")));
+                Assert.IsFalse(redBlackTree.Contains(new KeyValuePair<int, string>(300, "301")));
+                Assert.IsTrue(redBlackTree.Contains(new KeyValuePair<int, string>(300, "300")));
+            }
+
+            [Test]
+            [ExpectedException(typeof(ArgumentException))]
+            public void ExceptionKeyAlreadyInTree()
+            {
+                var redBlackTree = new RedBlackTree<int, string>
+				                   {
+				                   	{0, "50"}, 
+									{0, "20"}
+				                   };
+            }
+
+            [Test]
+            [ExpectedException(typeof(ArgumentNullException))]
+            public void ExceptionNullKey()
+            {
+                var redBlackTree = new RedBlackTree<object, string>
+				                   {
+				                   	{null, "a"}
+				                   };
+            }
 
             [Test]
             public void StressTestRandomData()
@@ -138,158 +140,158 @@ namespace NGenerics.Tests.DataStructures.Trees
                 }
             }
 
-		}
-	
-		[TestFixture]
-		public class Accept
-		{
+        }
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = GetTestTree();
+        [TestFixture]
+        public class Accept
+        {
 
-				var visitor = new TrackingVisitor<KeyValuePair<int, string>>();
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = GetTestTree();
 
-				redBlackTree.AcceptVisitor(visitor);
+                var visitor = new TrackingVisitor<KeyValuePair<int, string>>();
 
-				Assert.AreEqual(visitor.TrackingList.Count, 100);
+                redBlackTree.AcceptVisitor(visitor);
 
-				for (var i = 0; i < 100; i++)
-				{
-					Assert.IsTrue(visitor.TrackingList.Contains(new KeyValuePair<int, string>(i, i.ToString())));
-				}
-			}
+                Assert.AreEqual(visitor.TrackingList.Count, 100);
 
-			[Test]
-			[ExpectedException(typeof(ArgumentNullException))]
-			public void ExceptionNullVisitor()
-			{
-				var redBlackTree = GetTestTree();
-				redBlackTree.AcceptVisitor(null);
-			}
+                for (var i = 0; i < 100; i++)
+                {
+                    Assert.IsTrue(visitor.TrackingList.Contains(new KeyValuePair<int, string>(i, i.ToString())));
+                }
+            }
 
-		}
+            [Test]
+            [ExpectedException(typeof(ArgumentNullException))]
+            public void ExceptionNullVisitor()
+            {
+                var redBlackTree = GetTestTree();
+                redBlackTree.AcceptVisitor(null);
+            }
 
-		[TestFixture]
-		public class Count
-		{
+        }
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = GetTestTree();
-				Assert.IsFalse(redBlackTree.IsEmpty);
+        [TestFixture]
+        public class Count
+        {
 
-				redBlackTree.Clear();
-				Assert.IsTrue(redBlackTree.IsEmpty);
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = GetTestTree();
+                Assert.IsFalse(redBlackTree.IsEmpty);
+
+                redBlackTree.Clear();
+                Assert.IsTrue(redBlackTree.IsEmpty);
 
                 redBlackTree = new RedBlackTree<int, string>();
-				Assert.IsTrue(redBlackTree.IsEmpty);
-			}
+                Assert.IsTrue(redBlackTree.IsEmpty);
+            }
 
-		}
+        }
 
-		[TestFixture]
-		public class CopyTo
-		{
+        [TestFixture]
+        public class CopyTo
+        {
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = GetTestTree(10);
-
-				var array = new KeyValuePair<int, string>[10];
-				redBlackTree.CopyTo(array, 0);
-
-				var list = new List<KeyValuePair<int, string>>(array);
-
-				for (var i = 0; i < 10; i++)
-				{
-					Assert.IsTrue(list.Contains(new KeyValuePair<int, string>(i, i.ToString())));
-				}
-
-				Assert.AreEqual(list.Count, 10);
-			}
-
-			[Test]
-			[ExpectedException(typeof(ArgumentNullException))]
-			public void ExceptionNullArray()
-			{
+            [Test]
+            public void Simple()
+            {
                 var redBlackTree = GetTestTree(10);
-				redBlackTree.CopyTo(null, 1);
-			}
 
-			[Test]
-			[ExpectedException(typeof(ArgumentException))]
-			public void ExceptionNotEnoughSpaceInTargetArray1()
-			{
+                var array = new KeyValuePair<int, string>[10];
+                redBlackTree.CopyTo(array, 0);
+
+                var list = new List<KeyValuePair<int, string>>(array);
+
+                for (var i = 0; i < 10; i++)
+                {
+                    Assert.IsTrue(list.Contains(new KeyValuePair<int, string>(i, i.ToString())));
+                }
+
+                Assert.AreEqual(list.Count, 10);
+            }
+
+            [Test]
+            [ExpectedException(typeof(ArgumentNullException))]
+            public void ExceptionNullArray()
+            {
                 var redBlackTree = GetTestTree(10);
-				var array = new KeyValuePair<int, string>[9];
-				redBlackTree.CopyTo(array, 0);
-			}
+                redBlackTree.CopyTo(null, 1);
+            }
 
-			[Test]
-			[ExpectedException(typeof(ArgumentException))]
-			public void ExceptionNotEnoughSpaceInTargetArray2()
-			{
+            [Test]
+            [ExpectedException(typeof(ArgumentException))]
+            public void ExceptionNotEnoughSpaceInTargetArray1()
+            {
                 var redBlackTree = GetTestTree(10);
-				var array = new KeyValuePair<int, string>[10];
-				redBlackTree.CopyTo(array, 1);
-			}
+                var array = new KeyValuePair<int, string>[9];
+                redBlackTree.CopyTo(array, 0);
+            }
 
-		}
+            [Test]
+            [ExpectedException(typeof(ArgumentException))]
+            public void ExceptionNotEnoughSpaceInTargetArray2()
+            {
+                var redBlackTree = GetTestTree(10);
+                var array = new KeyValuePair<int, string>[10];
+                redBlackTree.CopyTo(array, 1);
+            }
 
-		[TestFixture]
-		public class Clear
-		{
+        }
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = GetTestTree();
-				redBlackTree.Clear();
+        [TestFixture]
+        public class Clear
+        {
 
-				Assert.AreEqual(redBlackTree.Count, 0);
-				Assert.IsFalse(redBlackTree.ContainsKey(40));
-				Assert.IsFalse(redBlackTree.ContainsKey(41));
-			}
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = GetTestTree();
+                redBlackTree.Clear();
 
-		}
+                Assert.AreEqual(redBlackTree.Count, 0);
+                Assert.IsFalse(redBlackTree.ContainsKey(40));
+                Assert.IsFalse(redBlackTree.ContainsKey(41));
+            }
 
-		[TestFixture]
-		public class Contruction
-		{
+        }
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = new RedBlackTree<int, string>();
-				Assert.AreEqual(redBlackTree.Count, 0);
+        [TestFixture]
+        public class Contruction
+        {
+
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = new RedBlackTree<int, string>();
+                Assert.AreEqual(redBlackTree.Count, 0);
                 Assert.IsTrue(redBlackTree.Comparer is KeyValuePairComparer<int, string>);
 
                 redBlackTree = new RedBlackTree<int, string>(new ReverseComparer<int>());
-				Assert.AreEqual(redBlackTree.Count, 0);
+                Assert.AreEqual(redBlackTree.Count, 0);
                 Assert.IsTrue(redBlackTree.Comparer.GetType().IsAssignableFrom(typeof(KeyValuePairComparer<int, string>)));
-			}
+            }
 
-			[Test]
-			[ExpectedException(typeof(ArgumentNullException))]
-			public void ExceptionNullComparer()
-			{
-                new RedBlackTree<int, string>((IComparer<int>) null);
-			}
+            [Test]
+            [ExpectedException(typeof(ArgumentNullException))]
+            public void ExceptionNullComparer()
+            {
+                new RedBlackTree<int, string>((IComparer<int>)null);
+            }
 
-		}
-	
-		[TestFixture]
-		public class DepthFirstTraversal
-		{
+        }
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = new RedBlackTree<string, int>
+        [TestFixture]
+        public class DepthFirstTraversal
+        {
+
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = new RedBlackTree<string, int>
 				                                     {
 				                                         new KeyValuePair<string, int>("horse", 4),
 				                                         new KeyValuePair<string, int>("cat", 1),
@@ -297,459 +299,459 @@ namespace NGenerics.Tests.DataStructures.Trees
 				                                         new KeyValuePair<string, int>("canary", 3)
 				                                     };
 
-			    var visitor = new TrackingVisitor<KeyValuePair<string, int>>();
+                var visitor = new TrackingVisitor<KeyValuePair<string, int>>();
 
-				var inOrderVisitor =
-					new InOrderVisitor<KeyValuePair<string, int>>(visitor);
+                var inOrderVisitor =
+                    new InOrderVisitor<KeyValuePair<string, int>>(visitor);
 
-				redBlackTree.DepthFirstTraversal(inOrderVisitor);
+                redBlackTree.DepthFirstTraversal(inOrderVisitor);
 
-				Assert.AreEqual(visitor.TrackingList[0].Key, "canary");
-				Assert.AreEqual(visitor.TrackingList[1].Key, "cat");
-				Assert.AreEqual(visitor.TrackingList[2].Key, "dog");
-				Assert.AreEqual(visitor.TrackingList[3].Key, "horse");
-			}
+                Assert.AreEqual(visitor.TrackingList[0].Key, "canary");
+                Assert.AreEqual(visitor.TrackingList[1].Key, "cat");
+                Assert.AreEqual(visitor.TrackingList[2].Key, "dog");
+                Assert.AreEqual(visitor.TrackingList[3].Key, "horse");
+            }
 
-			[Test]
-			[ExpectedException(typeof(ArgumentNullException))]
-			public void ExceptionNullVisitor()
-			{
-				var redBlackTree = GetTestTree(20);
-				redBlackTree.DepthFirstTraversal(null);
-			}
+            [Test]
+            [ExpectedException(typeof(ArgumentNullException))]
+            public void ExceptionNullVisitor()
+            {
+                var redBlackTree = GetTestTree(20);
+                redBlackTree.DepthFirstTraversal(null);
+            }
 
-		}
+        }
 
-		[TestFixture]
-		public class GetEnumerator
-		{
+        [TestFixture]
+        public class GetEnumerator
+        {
 
-			[Test]
-			public void Simple1()
-			{
-				var list = new List<KeyValuePair<int, string>>();
-				var redBlackTree = GetTestTree();
+            [Test]
+            public void Simple1()
+            {
+                var list = new List<KeyValuePair<int, string>>();
+                var redBlackTree = GetTestTree();
 
-				using (var enumerator = redBlackTree.GetEnumerator())
-				{
-					while (enumerator.MoveNext())
-					{
-						list.Add(enumerator.Current);
-					}
+                using (var enumerator = redBlackTree.GetEnumerator())
+                {
+                    while (enumerator.MoveNext())
+                    {
+                        list.Add(enumerator.Current);
+                    }
 
-				}
-			}
+                }
+            }
 
-			[Test]
-			public void Simple2()
-			{
-				var redBlackTree = GetTestTree();
-				var list = new List<KeyValuePair<int, string>>();
+            [Test]
+            public void Simple2()
+            {
+                var redBlackTree = GetTestTree();
+                var list = new List<KeyValuePair<int, string>>();
 
-				using (var enumerator = redBlackTree.GetEnumerator())
-				{
-					while (enumerator.MoveNext())
-					{
-						list.Add(enumerator.Current);
-					}
-				}
+                using (var enumerator = redBlackTree.GetEnumerator())
+                {
+                    while (enumerator.MoveNext())
+                    {
+                        list.Add(enumerator.Current);
+                    }
+                }
 
-				Assert.AreEqual(list.Count, 100);
+                Assert.AreEqual(list.Count, 100);
 
-				for (var i = 0; i < 100; i++)
-				{
-					Assert.IsTrue(list.Contains(new KeyValuePair<int, string>(i, i.ToString())));
-				}
-			}
+                for (var i = 0; i < 100; i++)
+                {
+                    Assert.IsTrue(list.Contains(new KeyValuePair<int, string>(i, i.ToString())));
+                }
+            }
 
-			[Test]
-			public void Interface()
-			{
-				var list = new List<KeyValuePair<int, string>>();
-				var redBlackTree = GetTestTree();
+            [Test]
+            public void Interface()
+            {
+                var list = new List<KeyValuePair<int, string>>();
+                var redBlackTree = GetTestTree();
 
-				using (var enumerator = redBlackTree.GetEnumerator())
-				{
-					while (enumerator.MoveNext())
-					{
-						list.Add(enumerator.Current);
-					}
+                using (var enumerator = redBlackTree.GetEnumerator())
+                {
+                    while (enumerator.MoveNext())
+                    {
+                        list.Add(enumerator.Current);
+                    }
 
-				}
-			}
+                }
+            }
 
-			[Test]
-			public void Interface1()
-			{
-				IEnumerable<KeyValuePair<int, string>> redBlackTree = GetTestTree();
-				var list = new List<KeyValuePair<int, string>>();
+            [Test]
+            public void Interface1()
+            {
+                IEnumerable<KeyValuePair<int, string>> redBlackTree = GetTestTree();
+                var list = new List<KeyValuePair<int, string>>();
 
-				using (var enumerator = redBlackTree.GetEnumerator())
-				{
-					while (enumerator.MoveNext())
-					{
-						list.Add(enumerator.Current);
-					}
-				}
+                using (var enumerator = redBlackTree.GetEnumerator())
+                {
+                    while (enumerator.MoveNext())
+                    {
+                        list.Add(enumerator.Current);
+                    }
+                }
 
-				Assert.AreEqual(list.Count, 100);
+                Assert.AreEqual(list.Count, 100);
 
-				for (var i = 0; i < 100; i++)
-				{
-					Assert.IsTrue(list.Contains(new KeyValuePair<int, string>(i, i.ToString())));
-				}
-			}
+                for (var i = 0; i < 100; i++)
+                {
+                    Assert.IsTrue(list.Contains(new KeyValuePair<int, string>(i, i.ToString())));
+                }
+            }
 
-			[Test]
-			public void Interface2()
-			{
-				var redBlackTree = GetTestTree();
-				var list = new List<KeyValuePair<int, string>>();
+            [Test]
+            public void Interface2()
+            {
+                var redBlackTree = GetTestTree();
+                var list = new List<KeyValuePair<int, string>>();
 
                 var enumerator = ((IEnumerable)redBlackTree).GetEnumerator();
-				{
-					while (enumerator.MoveNext())
-					{
-						list.Add((KeyValuePair<int, string>)enumerator.Current);
-					}
-				}
+                {
+                    while (enumerator.MoveNext())
+                    {
+                        list.Add((KeyValuePair<int, string>)enumerator.Current);
+                    }
+                }
 
-				Assert.AreEqual(list.Count, 100);
+                Assert.AreEqual(list.Count, 100);
 
-				for (var i = 0; i < 100; i++)
-				{
-					Assert.IsTrue(list.Contains(new KeyValuePair<int, string>(i, i.ToString())));
-				}
-			}
+                for (var i = 0; i < 100; i++)
+                {
+                    Assert.IsTrue(list.Contains(new KeyValuePair<int, string>(i, i.ToString())));
+                }
+            }
 
-		}
-		
-		
-		[TestFixture]
-		public class IsReadOnly
-		{
+        }
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = new RedBlackTree<int, string>();
-				Assert.IsFalse(redBlackTree.IsReadOnly);
-			}
 
-		}
-		
-		[TestFixture]
-		public class IsEmpty
-		{
+        [TestFixture]
+        public class IsReadOnly
+        {
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = new RedBlackTree<int, string>();
-				Assert.IsTrue(redBlackTree.IsEmpty);
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = new RedBlackTree<int, string>();
+                Assert.IsFalse(redBlackTree.IsReadOnly);
+            }
+
+        }
+
+        [TestFixture]
+        public class IsEmpty
+        {
+
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = new RedBlackTree<int, string>();
+                Assert.IsTrue(redBlackTree.IsEmpty);
 
                 redBlackTree = GetTestTree();
-				Assert.IsFalse(redBlackTree.IsEmpty);
+                Assert.IsFalse(redBlackTree.IsEmpty);
 
-				redBlackTree.Clear();
-				Assert.IsTrue(redBlackTree.IsEmpty);
-			}
+                redBlackTree.Clear();
+                Assert.IsTrue(redBlackTree.IsEmpty);
+            }
 
-		}
-		
-	
+        }
 
-		[TestFixture]
-		public class Index
-		{
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = GetTestTree(20);
 
-				for (var i = 0; i < 20; i++)
-				{
-					Assert.AreEqual(redBlackTree[i], i.ToString());
-				}
+        [TestFixture]
+        public class Index
+        {
 
-				redBlackTree[0] = "50";
-				Assert.AreEqual(redBlackTree[0], "50");
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = GetTestTree(20);
 
-				redBlackTree[1] = "-20";
-				Assert.AreEqual(redBlackTree[1], "-20");
-			}
+                for (var i = 0; i < 20; i++)
+                {
+                    Assert.AreEqual(redBlackTree[i], i.ToString());
+                }
 
-			[Test]
-			[ExpectedException(typeof(KeyNotFoundException))]
-			public void ExceptionInvalidIndexSet()
-			{
-				var redBlackTree = GetTestTree(20);
-				redBlackTree[50] = "50";
-			}
+                redBlackTree[0] = "50";
+                Assert.AreEqual(redBlackTree[0], "50");
 
-			[Test]
-			[ExpectedException(typeof(KeyNotFoundException))]
-			public void ExceptionInvalidIndexGet()
-			{
-				var redBlackTree = GetTestTree(20);
+                redBlackTree[1] = "-20";
+                Assert.AreEqual(redBlackTree[1], "-20");
+            }
 
-				for (var i = 0; i < 20; i++)
-				{
-					Assert.AreEqual(redBlackTree[i], i.ToString());
-				}
+            [Test]
+            [ExpectedException(typeof(KeyNotFoundException))]
+            public void ExceptionInvalidIndexSet()
+            {
+                var redBlackTree = GetTestTree(20);
+                redBlackTree[50] = "50";
+            }
 
-				var s = redBlackTree[20];
-			}
-		}
-	
-		[TestFixture]
-		public class Keys
-		{
+            [Test]
+            [ExpectedException(typeof(KeyNotFoundException))]
+            public void ExceptionInvalidIndexGet()
+            {
+                var redBlackTree = GetTestTree(20);
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = GetTestTree(20);
-				var keys = redBlackTree.Keys;
+                for (var i = 0; i < 20; i++)
+                {
+                    Assert.AreEqual(redBlackTree[i], i.ToString());
+                }
 
-				Assert.AreEqual(keys.Count, 20);
+                var s = redBlackTree[20];
+            }
+        }
 
-				var counter = 0;
+        [TestFixture]
+        public class Keys
+        {
 
-				using (var enumerator = keys.GetEnumerator())
-				{
-					while (enumerator.MoveNext())
-					{
-						Assert.AreEqual(enumerator.Current, counter);
-						counter++;
-					}
-				}
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = GetTestTree(20);
+                var keys = redBlackTree.Keys;
+
+                Assert.AreEqual(keys.Count, 20);
+
+                var counter = 0;
+
+                using (var enumerator = keys.GetEnumerator())
+                {
+                    while (enumerator.MoveNext())
+                    {
+                        Assert.AreEqual(enumerator.Current, counter);
+                        counter++;
+                    }
+                }
 
                 redBlackTree = new RedBlackTree<int, string>();
-				keys = redBlackTree.Keys;
+                keys = redBlackTree.Keys;
 
-				Assert.IsNotNull(keys);
-				Assert.AreEqual(keys.Count, 0);
-			}
+                Assert.IsNotNull(keys);
+                Assert.AreEqual(keys.Count, 0);
+            }
 
-		}
+        }
 
-		[TestFixture]
-		public class Minimum
-		{
+        [TestFixture]
+        public class Minimum
+        {
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = GetTestTree(20);
-				Assert.AreEqual(redBlackTree.Minimum.Key, 0);
-			}
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = GetTestTree(20);
+                Assert.AreEqual(redBlackTree.Minimum.Key, 0);
+            }
 
-			[Test]
-			[ExpectedException(typeof(InvalidOperationException))]
-			public void ExceptionInvalidMin()
-			{
-				var redBlackTree = new RedBlackTree<int, string>();
-				var i = redBlackTree.Minimum.Key;
-			}
+            [Test]
+            [ExpectedException(typeof(InvalidOperationException))]
+            public void ExceptionInvalidMin()
+            {
+                var redBlackTree = new RedBlackTree<int, string>();
+                var i = redBlackTree.Minimum.Key;
+            }
 
-		}
-	
-		[TestFixture]
-		public class Maximum
-		{
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = GetTestTree(20);
-				Assert.AreEqual(redBlackTree.Maximum.Key, 19);
-			}
+        }
 
-			[Test]
-			[ExpectedException(typeof(InvalidOperationException))]
-			public void ExceptionInvalidMax()
-			{
-				var redBlackTree = new RedBlackTree<int, string>();
-				var i = redBlackTree.Maximum.Key;
-			}
-		}
+        [TestFixture]
+        public class Maximum
+        {
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = GetTestTree(20);
+                Assert.AreEqual(redBlackTree.Maximum.Key, 19);
+            }
 
-		[TestFixture]
-		public class Remove
-		{
+            [Test]
+            [ExpectedException(typeof(InvalidOperationException))]
+            public void ExceptionInvalidMax()
+            {
+                var redBlackTree = new RedBlackTree<int, string>();
+                var i = redBlackTree.Maximum.Key;
+            }
+        }
 
-			[Test]
-			public void Small()
-			{
-				var redBlackTree = GetTestTree(5);
+        [TestFixture]
+        public class Remove
+        {
 
-				for (var i = 0; i < 5; i++)
-				{
-					Assert.IsTrue(redBlackTree.Remove(i));
-					Assert.AreEqual(redBlackTree.Count, 5 - i - 1);
-					Assert.IsFalse(redBlackTree.ContainsKey(i));
+            [Test]
+            public void Small()
+            {
+                var redBlackTree = GetTestTree(5);
 
-					for (var j = i + 1; j < 5; j++)
-					{
-						Assert.IsTrue(redBlackTree.ContainsKey(j));
-					}
-				}
-			}
+                for (var i = 0; i < 5; i++)
+                {
+                    Assert.IsTrue(redBlackTree.Remove(i));
+                    Assert.AreEqual(redBlackTree.Count, 5 - i - 1);
+                    Assert.IsFalse(redBlackTree.ContainsKey(i));
 
-			[Test]
-			public void Big()
-			{
-				var redBlackTree = GetTestTree();
+                    for (var j = i + 1; j < 5; j++)
+                    {
+                        Assert.IsTrue(redBlackTree.ContainsKey(j));
+                    }
+                }
+            }
 
-				for (var i = 0; i < 100; i++)
-				{
-					Assert.IsTrue(redBlackTree.Remove(i));
-					Assert.AreEqual(redBlackTree.Count, 100 - i - 1);
-					Assert.IsFalse(redBlackTree.ContainsKey(i));
+            [Test]
+            public void Big()
+            {
+                var redBlackTree = GetTestTree();
 
-					for (var j = i + 1; j < 100; j++)
-					{
-						Assert.IsTrue(redBlackTree.ContainsKey(j));
-					}
-				}
-			}
+                for (var i = 0; i < 100; i++)
+                {
+                    Assert.IsTrue(redBlackTree.Remove(i));
+                    Assert.AreEqual(redBlackTree.Count, 100 - i - 1);
+                    Assert.IsFalse(redBlackTree.ContainsKey(i));
 
-			[Test]
-			public void RemoveNotFound()
-			{
-				var redBlackTree = GetTestTree(20);
+                    for (var j = i + 1; j < 100; j++)
+                    {
+                        Assert.IsTrue(redBlackTree.ContainsKey(j));
+                    }
+                }
+            }
 
-				for (var i = 20; i < 40; i++)
-				{
-					Assert.IsFalse(redBlackTree.Remove(i));
-					Assert.AreEqual(redBlackTree.Count, 20);
-				}
-			}
+            [Test]
+            public void RemoveNotFound()
+            {
+                var redBlackTree = GetTestTree(20);
 
-		}
+                for (var i = 20; i < 40; i++)
+                {
+                    Assert.IsFalse(redBlackTree.Remove(i));
+                    Assert.AreEqual(redBlackTree.Count, 20);
+                }
+            }
 
-		[TestFixture]
-		public class Serialization
-		{
+        }
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = GetTestTree();
+        [TestFixture]
+        public class Serialization
+        {
+
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = GetTestTree();
                 var newTree = SerializeUtil.BinarySerializeDeserialize(redBlackTree);
 
                 Assert.AreNotSame(redBlackTree, newTree);
-				Assert.AreEqual(redBlackTree.Count, newTree.Count);
+                Assert.AreEqual(redBlackTree.Count, newTree.Count);
 
-				var redBlackTreeEnumerator = redBlackTree.GetEnumerator();
-				var newTreeEnumerator = newTree.GetEnumerator();
+                var redBlackTreeEnumerator = redBlackTree.GetEnumerator();
+                var newTreeEnumerator = newTree.GetEnumerator();
 
                 while (redBlackTreeEnumerator.MoveNext())
-				{
-					Assert.IsTrue(newTreeEnumerator.MoveNext());
+                {
+                    Assert.IsTrue(newTreeEnumerator.MoveNext());
                     Assert.AreEqual(redBlackTreeEnumerator.Current.Key, newTreeEnumerator.Current.Key);
                     Assert.AreEqual(redBlackTreeEnumerator.Current.Value, newTreeEnumerator.Current.Value);
 
                     Assert.IsTrue(newTree.ContainsKey(redBlackTreeEnumerator.Current.Key));
                     Assert.AreEqual(newTree[redBlackTreeEnumerator.Current.Key], redBlackTreeEnumerator.Current.Value);
-				}
+                }
 
-				Assert.IsFalse(newTreeEnumerator.MoveNext());
-			}
+                Assert.IsFalse(newTreeEnumerator.MoveNext());
+            }
 
-			[Test]
-			public void NonIComparable()
-			{
-				var redBlackTree = new RedBlackTree<NonComparableTClass, string>();
+            [Test]
+            public void NonIComparable()
+            {
+                var redBlackTree = new RedBlackTree<NonComparableTClass, string>();
 
-				for (var i = 0; i < 100; i++)
-				{
-					redBlackTree.Add(new NonComparableTClass(i), i.ToString());
-				}
+                for (var i = 0; i < 100; i++)
+                {
+                    redBlackTree.Add(new NonComparableTClass(i), i.ToString());
+                }
 
                 var newTree = SerializeUtil.BinarySerializeDeserialize(redBlackTree);
 
                 Assert.AreNotSame(redBlackTree, newTree);
-				Assert.AreEqual(redBlackTree.Count, newTree.Count);
+                Assert.AreEqual(redBlackTree.Count, newTree.Count);
 
-				var redBlackTreeEnumerator = redBlackTree.GetEnumerator();
-				var newTreeEnumerator = newTree.GetEnumerator();
+                var redBlackTreeEnumerator = redBlackTree.GetEnumerator();
+                var newTreeEnumerator = newTree.GetEnumerator();
 
                 while (redBlackTreeEnumerator.MoveNext())
-				{
-					Assert.IsTrue(newTreeEnumerator.MoveNext());
+                {
+                    Assert.IsTrue(newTreeEnumerator.MoveNext());
                     Assert.AreEqual(redBlackTreeEnumerator.Current.Key.Number, newTreeEnumerator.Current.Key.Number);
                     Assert.AreEqual(redBlackTreeEnumerator.Current.Value, newTreeEnumerator.Current.Value);
 
                     Assert.IsTrue(newTree.ContainsKey(redBlackTreeEnumerator.Current.Key));
                     Assert.AreEqual(newTree[redBlackTreeEnumerator.Current.Key], redBlackTreeEnumerator.Current.Value);
-				}
+                }
 
-				Assert.IsFalse(newTreeEnumerator.MoveNext());
-			}
+                Assert.IsFalse(newTreeEnumerator.MoveNext());
+            }
 
-		}
-       
-		[TestFixture]
-		public class TryGetValue
-		{
+        }
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = new RedBlackTree<int, string>();
+        [TestFixture]
+        public class TryGetValue
+        {
 
-				string value;
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = new RedBlackTree<int, string>();
 
-				for (var i = 0; i < 100; i++)
-				{
-					redBlackTree.Add(i, i.ToString());
+                string value;
 
-					Assert.AreEqual(redBlackTree.Count, i + 1);
-					Assert.IsTrue(redBlackTree.TryGetValue(i, out value));
-					Assert.AreEqual(value, i.ToString());
-				}
+                for (var i = 0; i < 100; i++)
+                {
+                    redBlackTree.Add(i, i.ToString());
+
+                    Assert.AreEqual(redBlackTree.Count, i + 1);
+                    Assert.IsTrue(redBlackTree.TryGetValue(i, out value));
+                    Assert.AreEqual(value, i.ToString());
+                }
 
 
-				Assert.IsFalse(redBlackTree.TryGetValue(101, out value));
-				Assert.IsNull(value);
+                Assert.IsFalse(redBlackTree.TryGetValue(101, out value));
+                Assert.IsNull(value);
 
-				Assert.IsFalse(redBlackTree.TryGetValue(102, out value));
-				Assert.IsNull(value);
-			}
+                Assert.IsFalse(redBlackTree.TryGetValue(102, out value));
+                Assert.IsNull(value);
+            }
 
-		}
-	
-		[TestFixture]
-		public class Values
-		{
+        }
 
-			[Test]
-			public void Simple()
-			{
-				var redBlackTree = GetTestTree(20);
-				var values = redBlackTree.Values;
+        [TestFixture]
+        public class Values
+        {
 
-				Assert.AreEqual(values.Count, 20);
+            [Test]
+            public void Simple()
+            {
+                var redBlackTree = GetTestTree(20);
+                var values = redBlackTree.Values;
 
-				var counter = 0;
+                Assert.AreEqual(values.Count, 20);
 
-				using (var enumerator = values.GetEnumerator())
-				{
-					while (enumerator.MoveNext())
-					{
-						Assert.AreEqual(enumerator.Current, counter.ToString());
-						counter++;
-					}
-				}
+                var counter = 0;
+
+                using (var enumerator = values.GetEnumerator())
+                {
+                    while (enumerator.MoveNext())
+                    {
+                        Assert.AreEqual(enumerator.Current, counter.ToString());
+                        counter++;
+                    }
+                }
 
                 redBlackTree = new RedBlackTree<int, string>();
-				values = redBlackTree.Values;
+                values = redBlackTree.Values;
 
-				Assert.IsNotNull(values);
-				Assert.AreEqual(values.Count, 0);
-			}
+                Assert.IsNotNull(values);
+                Assert.AreEqual(values.Count, 0);
+            }
 
         }
 
