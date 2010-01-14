@@ -67,6 +67,18 @@ namespace NGenerics.Sorting
             Sort(list, new ComparisonComparer<T>(comparison));
         }
 
+        public void Sort(IList<T> list, Comparison<T> comparison, SortOrder sortOrder)
+        {
+            #region Validation
+
+            Guard.ArgumentNotNull(list, "list");
+            Guard.ArgumentNotNull(comparison, "comparison");
+
+            #endregion
+
+            Sort(list, new ReverseComparisonComparer<T>(comparison));
+        }
+
 
 		/// <inheritdoc />
         /// <example>

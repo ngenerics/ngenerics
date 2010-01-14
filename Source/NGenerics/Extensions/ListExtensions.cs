@@ -325,6 +325,15 @@ namespace NGenerics.Extensions
             sorter.Sort(list, comparison);
         }
 
+        public static void Sort<T>(this IList<T> list, Comparison<T> comparison, SortOrder sortOrder)
+        {
+            Guard.ArgumentNotNull(list, "list");
+            Guard.ArgumentNotNull(comparison, "comparison");
+
+            var sorter = new QuickSorter<T>();
+            sorter.Sort(list, comparison);
+        }
+
 
         #if SILVERLIGHT
 

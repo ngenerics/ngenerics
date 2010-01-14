@@ -79,6 +79,7 @@
     <Compile Include="Comparers\ComparisonComparer.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Comparers\ReverseComparisonComparer.cs" />
     <Compile Include="Comparers\EdgeWeightComparer.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,6 +87,7 @@
     <Compile Include="Comparers\KeyValuePairComparer.cs" />
     <Compile Include="Comparers\ReverseComparer.cs" />
     <Compile Include="DataStructures\General\Association.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionary.cs" />
     <Compile Include="DataStructures\General\Bag.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DataStructures\General\Curve.cs" />

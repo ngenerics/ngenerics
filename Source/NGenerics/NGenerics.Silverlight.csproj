@@ -64,7 +64,9 @@
     <Compile Include="Comparers\ComparisonComparer.cs" />
     <Compile Include="Comparers\EdgeWeightComparer.cs" />
     <Compile Include="Comparers\ReverseComparer.cs" />
+    <Compile Include="Comparers\ReverseComparisonComparer.cs" />
     <Compile Include="DataStructures\General\Association.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionary.cs" />
     <Compile Include="DataStructures\General\Bag.cs" />
     <Compile Include="DataStructures\General\DictionaryBase.cs" />
     <Compile Include="DataStructures\General\Edge.cs" />
