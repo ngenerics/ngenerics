@@ -1,5 +1,5 @@
 /*  
- Copyright 2007-2009 The NGenerics Team
+ Copyright 2007-2010 The NGenerics Team
  (http://code.google.com/p/ngenerics/wiki/Team)
 
  This program is licensed under the GNU Lesser General Public License (LGPL).  You should 

@@ -1,5 +1,5 @@
 ﻿/*  
-  Copyright 2007-2009 The NGenerics Team
+  Copyright 2007-2010 The NGenerics Team
  (http://code.google.com/p/ngenerics/wiki/Team)
 
  This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
@@ -131,7 +131,6 @@ namespace NGenerics.DataStructures.General
             return false;
         }
 
-
         #region ICollection<TItem> Members
 
 		/// <inheritdoc />
@@ -175,7 +174,6 @@ namespace NGenerics.DataStructures.General
 
         #endregion
 
-
         #region IEnumerable<TItem> Members
 		/// <inheritdoc />
         public virtual IEnumerator<TItem> GetEnumerator()
@@ -190,7 +188,6 @@ namespace NGenerics.DataStructures.General
         }
 
         #endregion
-
 
         /// <summary>
         /// When implemented in a derived class, extracts the key from the specified element.
