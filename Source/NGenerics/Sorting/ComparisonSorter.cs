@@ -67,6 +67,11 @@ namespace NGenerics.Sorting
             Sort(list, new ComparisonComparer<T>(comparison));
         }
 
+        /// <inheritdoc />
+        /// <example>
+        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\SorterExamples.cs" region="SortListDelegate" lang="cs" title="The following example shows how to use the Sort method."/>
+        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\SorterExamples.vb" region="SortListDelegate" lang="vbnet" title="The following example shows how to use the Sort method."/>
+        /// </example>
         public void Sort(IList<T> list, Comparison<T> comparison, SortOrder sortOrder)
         {
             #region Validation

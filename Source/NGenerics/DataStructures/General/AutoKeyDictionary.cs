@@ -37,12 +37,11 @@ namespace NGenerics.DataStructures.General
 #endif
     {
 
-        #region Fields
+        #region Globals
 
         private readonly Dictionary<TKey, TItem> dictionary;
       
         #endregion
-
 
         #region Constructors
 
@@ -52,6 +51,10 @@ namespace NGenerics.DataStructures.General
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AutoKeyDictionary&lt;TKey, TItem&gt;"/> class.
+        /// </summary>
+        /// <param name="getKeyForItem">The key retrieval function for the item.</param>
         /// <param name="comparer">The implementation of the <see cref="IEqualityComparer{T}"/> generic interface to use when comparing keys, or null to use the default equality comparer for the type of the key, obtained from <see cref="EqualityComparer{T}.Default"></see>.</param>
         public AutoKeyDictionary(Func<TItem, TKey> getKeyForItem, IEqualityComparer<TKey> comparer)
             : this(getKeyForItem, comparer, 0)
@@ -67,6 +70,10 @@ namespace NGenerics.DataStructures.General
             dictionary = new Dictionary<TKey, TItem>(capacity);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AutoKeyDictionary&lt;TKey, TItem&gt;"/> class.
+        /// </summary>
+        /// <param name="getKeyForItem">The key retrieval function for the item.</param>
         /// <param name="comparer">The implementation of the <see cref="IEqualityComparer{T}"/> generic interface to use when comparing keys, or null to use the default equality comparer for the type of the key, obtained from <see cref="EqualityComparer{T}.Default"/>.</param>
         /// <param name="capacity">The initial number of elements that the <see cref="AutoKeyDictionary{TKey,TItem}"/> can contain.</param>
         public AutoKeyDictionary(Func<TItem, TKey> getKeyForItem, IEqualityComparer<TKey> comparer, int capacity)
@@ -86,10 +93,13 @@ namespace NGenerics.DataStructures.General
 #endif
         #endregion
 
-
         #region Methods
 
-
+        /// <summary>
+        /// Attempts to add the specified item to the dictionary.
+        /// </summary>
+        /// <param name="item">The item to add to the dictionary.</param>
+        /// <returns><c>True</c> if the item was added, <c>false</c> if another item with the same key was found in the dictionary.</returns>
         public virtual bool TryAdd(TItem item)
         {
             Guard.ArgumentNotNull(item, "item");
@@ -103,6 +113,11 @@ namespace NGenerics.DataStructures.General
             return false;
         }
 
+        /// <summary>
+        /// Attempts to remove the specified item from the dictionary.
+        /// </summary>
+        /// <param name="item">The item to remove from the dictionary.</param>
+        /// <returns><c>True</c> if the item was found and removed, <c>false</c> if another item with the same key was found in the dictionary.</returns>
         public virtual bool TryRemove(TItem item)
         {
             Guard.ArgumentNotNull(item, "item");
@@ -288,7 +303,6 @@ namespace NGenerics.DataStructures.General
 
 
         #endregion
-
 
         #region Properties
 

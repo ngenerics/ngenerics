@@ -15,7 +15,6 @@ using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General
 {
-
     [TestFixture]
     public class AutoKeyDictionaryTests
     {
@@ -23,13 +22,11 @@ namespace NGenerics.Tests.DataStructures.General
         [TestFixture]
         public class Construction
         {
-
             [Test]
             public void Simple()
             {
                 new AutoKeyDictionary<string, int>(x => x.ToString());
             }
-
 
             [Test]
             public void Comparer()
@@ -37,14 +34,12 @@ namespace NGenerics.Tests.DataStructures.General
                 new AutoKeyDictionary<string, int>(x => x.ToString(),StringComparer.InvariantCultureIgnoreCase);
             }
 
-
             [Test]
             public void CapacityComparer()
             {
                 var target = new AutoKeyDictionary<string, int>(x => x.ToString(),StringComparer.InvariantCultureIgnoreCase, 1);
                 Assert.AreEqual(StringComparer.InvariantCultureIgnoreCase, target.Comparer);
             }
-
         }
 
         [TestFixture]
@@ -124,10 +119,8 @@ namespace NGenerics.Tests.DataStructures.General
                 Assert.IsTrue(target.RemoveKey("2"));
                 Assert.IsFalse(target.ContainsKey("2"));
             }
-
-       
-
         }
+
         [TestFixture]
         public class InternalRemove
         {
@@ -140,7 +133,6 @@ namespace NGenerics.Tests.DataStructures.General
                 Assert.IsFalse(target.ContainsKey("2"));
             }
 
-
             [Test]
             [ExpectedException(typeof(ArgumentNullException))]
             public void ExceptionNullKey()
@@ -148,7 +140,6 @@ namespace NGenerics.Tests.DataStructures.General
                 var target = new AutoKeyDictionary<string, int>(x => x.ToString());
                 target.InternalRemove(null);
             }
-
         }
 
         [TestFixture]
@@ -162,13 +153,11 @@ namespace NGenerics.Tests.DataStructures.General
                 collection.Add(1);
                 Assert.IsTrue(target.Contains(1));
             }
-
         }
 
         [TestFixture]
         public class Clear
         {
-
             [Test]
             public void Simple()
             {
@@ -199,14 +188,12 @@ namespace NGenerics.Tests.DataStructures.General
                 ICollection<int> collection = target;
                 Assert.IsFalse(collection.Remove(2));
             }
-
         }
 
 
         [TestFixture]
         public class GetEnumerator
         {
-
             [Test]
             public void Simple()
             {
@@ -225,10 +212,7 @@ namespace NGenerics.Tests.DataStructures.General
                 enumerator.MoveNext();
                 current = enumerator.Current;
                 Assert.AreEqual(9, current);
-
             }
-
-
 
             [Test]
             public void Interface()
@@ -248,10 +232,7 @@ namespace NGenerics.Tests.DataStructures.General
                 enumerator.MoveNext();
                 current = (int)enumerator.Current;
                 Assert.AreEqual(9, current);
-
             }
-
-
         }
 
 
@@ -268,6 +249,7 @@ namespace NGenerics.Tests.DataStructures.General
                 Assert.IsFalse(collection.Contains(3));
             }
         }
+
         [TestFixture]
         public class Serialization
         {
@@ -282,11 +264,9 @@ namespace NGenerics.Tests.DataStructures.General
             }
         }
 
-
         [TestFixture]
         public class CopyTo
         {
-
             [Test]
             public void Simple()
             {
@@ -299,9 +279,6 @@ namespace NGenerics.Tests.DataStructures.General
                 Assert.AreEqual(2, pairs[1]);
                 Assert.AreEqual(3, pairs[2]);
             }
-
         }
-
-
     }
 }

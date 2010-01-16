@@ -325,6 +325,13 @@ namespace NGenerics.Extensions
             sorter.Sort(list, comparison);
         }
 
+        /// <summary>
+        /// Sorts the specified list.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">The list.</param>
+        /// <param name="comparison">The comparison.</param>
+        /// <param name="sortOrder">The sort order.</param>
         public static void Sort<T>(this IList<T> list, Comparison<T> comparison, SortOrder sortOrder)
         {
             Guard.ArgumentNotNull(list, "list");

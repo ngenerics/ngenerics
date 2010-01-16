@@ -34,7 +34,6 @@ namespace ExampleLibraryCSharp.Sorting
         }
         #endregion
 
-
         #region SortListDelegate
         [Test]
         public void SortListDelegateExample()
@@ -66,7 +65,6 @@ namespace ExampleLibraryCSharp.Sorting
             return 0;
         }
         #endregion
-
         
         #region SortList
         [Test]
@@ -85,7 +83,6 @@ namespace ExampleLibraryCSharp.Sorting
             Assert.AreEqual(77, list[4]);
         }
         #endregion
-
 
         #region SortListOrder
         [Test]
