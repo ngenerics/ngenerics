@@ -108,6 +108,7 @@
     <Compile Include="Extensions\IEnumerableExtensionsExamples.cs" />
     <Compile Include="Extensions\ObjectExtensionsExamples.cs" />
     <Compile Include="Patterns\Conversion\ConverterExtensionsExamples.cs" />
+    <Compile Include="Patterns\Conversion\ConverterExamples.cs" />
     <Compile Include="Patterns\Specification\AbstractSpecificationExamples.cs" />
     <Compile Include="Patterns\Specification\AndSpecificationExamples.cs" />
     <Compile Include="Patterns\Specification\NotSpecificationExamples.cs" />

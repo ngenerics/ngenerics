@@ -31,7 +31,7 @@ namespace NGenerics.DataStructures.Trees
     {
         #region Globals
 
-        private static readonly KeyValuePair<TKey, TValue> nullPair;
+        private static readonly KeyValuePair<TKey, TValue> nullPair = new KeyValuePair<TKey, TValue>();
 
         #endregion
 

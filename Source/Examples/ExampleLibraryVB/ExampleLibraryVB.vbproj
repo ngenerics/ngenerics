@@ -135,6 +135,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Patterns\Conversion\ConverterExamples.vb" />
     <Compile Include="Patterns\Conversion\ConverterExtensionsExamples.vb" />
     <Compile Include="Patterns\Specification\AbstractSpecificationExamples.vb" />
     <Compile Include="Patterns\Specification\AndSpecificationExamples.vb" />
