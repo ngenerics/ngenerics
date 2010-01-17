@@ -14,6 +14,7 @@ namespace ExampleLibraryCSharp.Patterns.Specification {
     
     [TestFixture]
     public class NotSpecificationExamples {
+
         #region IsSatisfiedBy
 
         public enum CustomerType {

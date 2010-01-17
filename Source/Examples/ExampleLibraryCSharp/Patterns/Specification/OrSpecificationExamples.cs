@@ -14,6 +14,7 @@ namespace ExampleLibraryCSharp.Patterns.Specification {
 
     [TestFixture]
     public class OrSpecificationExamples {
+
         #region IsSatisfiedBy
 
         public enum CustomerType {
