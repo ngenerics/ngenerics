@@ -82,11 +82,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\AssociationExamples.cs" region="Key" lang="cs" title="The following example shows how to use the Key property."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\AssociationExamples.vb" region="Key" lang="vbnet" title="The following example shows how to use the Key property."/>
         /// </example>
-		public TKey Key
-		{
-			get;
-			set;
-		}
+		public TKey Key{get;set;}
 
 		/// <summary>
 		/// Gets the value.
@@ -96,11 +92,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\AssociationExamples.cs" region="Value" lang="cs" title="The following example shows how to use the Value property."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\AssociationExamples.vb" region="Value" lang="vbnet" title="The following example shows how to use the Value property."/>
         /// </example>
-		public TValue Value
-		{
-			get;
-			set;
-		}
+		public TValue Value{get;set;}
 
         /// <summary>
         /// Construct a <see cref="KeyValuePair{TKey,TValue}"/> object from the current values.
@@ -129,15 +121,19 @@ namespace NGenerics.DataStructures.General
         public override bool Equals(object obj)
         {
             if (obj == null)
+            {
                 return false;
+            }
             if (ReferenceEquals(obj, this))
+            {
                 return true;
-            if (!(obj is Association<TKey, TValue>))
+            }
+            var association = obj as Association<TKey, TValue>;
+            if (association == null)
+            {
                 return false;
-            var that = (Association<TKey, TValue>)obj;
-            return
-                Key.Equals(that.Key) &&
-                Value.Equals(that.Value);
+            }
+            return Key.Equals(association.Key) && Value.Equals(association.Value);
         }
 
         /// <inheritdoc/>

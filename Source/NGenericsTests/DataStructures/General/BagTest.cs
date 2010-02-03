@@ -21,7 +21,7 @@ namespace NGenerics.Tests.DataStructures.General
     [TestFixture]
     public class BagTest
     {
-               
+
         [TestFixture]
         public class Construction
         {
@@ -57,7 +57,7 @@ namespace NGenerics.Tests.DataStructures.General
 
             [Test]
             [ExpectedException(typeof(ArgumentNullException))]
-			public void ExceptionNullComparer1()
+            public void ExceptionNullComparer1()
             {
                 new Bag<string>(null);
             }
@@ -70,7 +70,7 @@ namespace NGenerics.Tests.DataStructures.General
             }
 
         }
-        
+
         [TestFixture]
         public class Accept
         {
@@ -78,7 +78,7 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void Simple()
             {
-                var bag = new Bag<string> {"5", "4", "3", "2"};
+                var bag = new Bag<string> { "5", "4", "3", "2" };
 
                 var visitor = new TrackingVisitor<string>();
                 bag.AcceptVisitor<string>(visitor);
@@ -93,7 +93,7 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void CompletedVisitor1()
             {
-                var bag = new Bag<string> {"5", "4", "3", "2"};
+                var bag = new Bag<string> { "5", "4", "3", "2" };
 
                 var visitor = new CompletedTrackingVisitor<KeyValuePair<string, int>>();
                 bag.AcceptVisitor<KeyValuePair<string, int>>(visitor);
@@ -102,7 +102,7 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void CompletedVisitor2()
             {
-                var bag = new Bag<string> {"5", "4", "3", "2"};
+                var bag = new Bag<string> { "5", "4", "3", "2" };
 
                 var visitor = new CompletedTrackingVisitor<string>();
                 bag.AcceptVisitor<string>(visitor);
@@ -111,7 +111,7 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void Simple2()
             {
-                var bag = new Bag<string> {"5", "4", "3", "2"};
+                var bag = new Bag<string> { "5", "4", "3", "2" };
 
                 var visitor = new TrackingVisitor<KeyValuePair<string, int>>();
                 bag.AcceptVisitor<KeyValuePair<string, int>>(visitor);
@@ -125,23 +125,23 @@ namespace NGenerics.Tests.DataStructures.General
 
             [Test]
             [ExpectedException(typeof(ArgumentNullException))]
-			public void ExceptionNullVisitor1()
+            public void ExceptionNullVisitor1()
             {
                 var bag = new Bag<string>();
                 bag.AcceptVisitor<string>(null);
             }
 
-          
+
 
             [Test]
             [ExpectedException(typeof(ArgumentNullException))]
-			public void ExceptionInvalid1()
+            public void ExceptionInvalid1()
             {
                 var bag = new Bag<string>();
                 bag.AcceptVisitor<string>(null);
             }
 
-      
+
 
         }
 
@@ -150,7 +150,7 @@ namespace NGenerics.Tests.DataStructures.General
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
                 var bag = new Bag<string>();
 
@@ -204,7 +204,7 @@ namespace NGenerics.Tests.DataStructures.General
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
                 var bag = GetTestBag();
 
@@ -219,15 +219,15 @@ namespace NGenerics.Tests.DataStructures.General
                 Assert.IsTrue(bag.IsEmpty);
             }
         }
-                        
+
         [TestFixture]
         public class Contains
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
-                var bag = new Bag<string> {"aa"};
+                var bag = new Bag<string> { "aa" };
 
                 Assert.IsTrue(bag.Contains("aa"));
                 Assert.AreEqual(bag["aa"], 1);
@@ -255,9 +255,9 @@ namespace NGenerics.Tests.DataStructures.General
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
-                var bag = new Bag<int> {3, 4, 5, 6};
+                var bag = new Bag<int> { 3, 4, 5, 6 };
 
                 var array = new int[50];
 
@@ -279,9 +279,9 @@ namespace NGenerics.Tests.DataStructures.General
 
             [Test]
             [ExpectedException(typeof(ArgumentException))]
-			public void ExceptionInvalid1()
+            public void ExceptionInvalid1()
             {
-                var bag = new Bag<int> {3, 4, 5, 6};
+                var bag = new Bag<int> { 3, 4, 5, 6 };
 
                 var array = new int[3];
 
@@ -290,9 +290,9 @@ namespace NGenerics.Tests.DataStructures.General
 
             [Test]
             [ExpectedException(typeof(ArgumentException))]
-			public void ExceptionInvalid2()
+            public void ExceptionInvalid2()
             {
-                var bag = new Bag<int> {3, 4, 5, 6};
+                var bag = new Bag<int> { 3, 4, 5, 6 };
 
                 var array = new int[4];
 
@@ -303,18 +303,18 @@ namespace NGenerics.Tests.DataStructures.General
             [ExpectedException(typeof(ArgumentNullException))]
             public void ExceptionInvalid3()
             {
-                var bag = new Bag<int> {3, 4, 5, 6};
+                var bag = new Bag<int> { 3, 4, 5, 6 };
 
                 bag.CopyTo(null, 1);
             }
         }
-               
+
         [TestFixture]
         public class Count
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
                 var bag = GetTestBag();
                 Assert.AreEqual(bag.Count, 35);
@@ -337,19 +337,19 @@ namespace NGenerics.Tests.DataStructures.General
                 Assert.IsFalse(bag.IsEmpty);
             }
         }
-              
+
         [TestFixture]
         public class Subtract
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
-                var bag1 = new Bag<int> {3, 4, 5, 6};
+                var bag1 = new Bag<int> { 3, 4, 5, 6 };
 
-                var bag2 = new Bag<int> {3, 4, 5};
+                var bag2 = new Bag<int> { 3, 4, 5 };
 
-                var shouldBe = new Bag<int> {6};
+                var shouldBe = new Bag<int> { 6 };
 
                 var resultBag = bag1 - bag2;
 
@@ -375,13 +375,13 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void Interface()
             {
-                var bag1 = new Bag<int> {3, 4, 5, 6};
+                var bag1 = new Bag<int> { 3, 4, 5, 6 };
 
-                var bag2 = new Bag<int> {3, 4, 5};
+                var bag2 = new Bag<int> { 3, 4, 5 };
 
-                var shouldBe = new Bag<int> {6};
+                var shouldBe = new Bag<int> { 6 };
 
-                var resultBag = (Bag<int>) ((IBag<int>) bag1).Subtract(bag2);
+                var resultBag = (Bag<int>)((IBag<int>)bag1).Subtract(bag2);
 
                 Assert.IsTrue(resultBag.Equals(shouldBe));
 
@@ -411,13 +411,13 @@ namespace NGenerics.Tests.DataStructures.General
             }
 
         }
-        
+
         [TestFixture]
         public class GetCountEnumerator
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
                 var bag = GetTestBag();
 
@@ -447,13 +447,13 @@ namespace NGenerics.Tests.DataStructures.General
             }
 
         }
-              
+
         [TestFixture]
         public class GetEnumerator
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
                 var bag = GetTestBag();
                 var enumerator = bag.GetEnumerator();
@@ -503,13 +503,13 @@ namespace NGenerics.Tests.DataStructures.General
             }
 
         }
-              
+
         [TestFixture]
         public class GetHashCodeObject
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
                 var dictionary = new Dictionary<Bag<string>, string>();
 
@@ -526,13 +526,13 @@ namespace NGenerics.Tests.DataStructures.General
             }
 
         }
-               
+
         [TestFixture]
         public class Intersection
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
                 var bag1 = new Bag<string>();
                 var bag2 = GetTestBag();
@@ -564,7 +564,7 @@ namespace NGenerics.Tests.DataStructures.General
                 var bag1 = new Bag<string>();
                 var bag2 = GetTestBag();
 
-                var resultBag = (Bag<string>) ((IBag<string>) bag1).Intersection(bag2);
+                var resultBag = (Bag<string>)((IBag<string>)bag1).Intersection(bag2);
 
                 Assert.IsTrue(resultBag.Equals(bag1));
 
@@ -572,7 +572,7 @@ namespace NGenerics.Tests.DataStructures.General
 
                 var shouldBe = new Bag<string>();
 
-                resultBag = (Bag<string>) ((IBag<string>) bag1).Intersection(bag2);
+                resultBag = (Bag<string>)((IBag<string>)bag1).Intersection(bag2);
 
                 Assert.IsTrue(shouldBe.Equals(resultBag));
 
@@ -580,7 +580,7 @@ namespace NGenerics.Tests.DataStructures.General
 
                 shouldBe.Add("2", 2);
 
-                resultBag = (Bag<string>) ((IBag<string>) bag1).Intersection(bag2);
+                resultBag = (Bag<string>)((IBag<string>)bag1).Intersection(bag2);
 
                 Assert.IsTrue(shouldBe.Equals(resultBag));
             }
@@ -594,7 +594,7 @@ namespace NGenerics.Tests.DataStructures.General
             }
 
         }
-               
+
         [TestFixture]
         public class IsEqual
         {
@@ -607,7 +607,7 @@ namespace NGenerics.Tests.DataStructures.General
             }
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
                 var bag1 = new Bag<int>();
                 var bag2 = new Bag<int>();
@@ -651,13 +651,13 @@ namespace NGenerics.Tests.DataStructures.General
             }
 
         }
-          
+
 
         [TestFixture]
         public class IsReadOnly
         {
             [Test]
-			public void Simple()
+            public void Simple()
             {
                 var bag = GetTestBag();
                 Assert.IsFalse(bag.IsReadOnly);
@@ -670,9 +670,9 @@ namespace NGenerics.Tests.DataStructures.General
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
-                var bag = new Bag<string> {"aa", "bb", "aa", {"cc", 3}};
+                var bag = new Bag<string> { "aa", "bb", "aa", { "cc", 3 } };
 
                 Assert.AreEqual(bag.Count, 6);
 
@@ -704,7 +704,7 @@ namespace NGenerics.Tests.DataStructures.General
             [ExpectedException(typeof(ArgumentOutOfRangeException))]
             public void ExceptionMaximumBelowZero()
             {
-                var bag = new Bag<string> {"aa", "bb", "aa", {"cc", 3}};
+                var bag = new Bag<string> { "aa", "bb", "aa", { "cc", 3 } };
 
                 bag.Remove("aa", -1);
             }
@@ -712,7 +712,7 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void Max()
             {
-                var bag = new Bag<string> {"aa", "bb", "aa", {"cc", 3}};
+                var bag = new Bag<string> { "aa", "bb", "aa", { "cc", 3 } };
 
                 Assert.AreEqual(bag.Count, 6);
 
@@ -741,9 +741,9 @@ namespace NGenerics.Tests.DataStructures.General
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
-                var bag = new Bag<string> {"aa", "bb", "aa", {"cc", 3}};
+                var bag = new Bag<string> { "aa", "bb", "aa", { "cc", 3 } };
 
                 Assert.AreEqual(bag.Count, 6);
 
@@ -762,13 +762,13 @@ namespace NGenerics.Tests.DataStructures.General
                 Assert.AreEqual(bag.Count, 1);
             }
         }
-              
+
         [TestFixture]
         public class Serializable
         {
 
             [Test]
-			public void Simple()
+            public void Simple()
             {
                 var bag1 = new Bag<int>();
                 var bag2 = SerializeUtil.BinarySerializeDeserialize(bag1);
@@ -778,7 +778,7 @@ namespace NGenerics.Tests.DataStructures.General
             }
 
         }
-               
+
         [TestFixture]
         public class Union
         {
@@ -797,7 +797,7 @@ namespace NGenerics.Tests.DataStructures.General
                 bag2.Add(5, 2);
                 bag2.Add(6, 2);
 
-                var shouldBe = new Bag<int> {{2, 2}, {3, 5}, {4, 8}, {5, 2}, {6, 2}};
+                var shouldBe = new Bag<int> { { 2, 2 }, { 3, 5 }, { 4, 8 }, { 5, 2 }, { 6, 2 } };
 
                 var resultBag = bag1 + bag2;
 
@@ -822,9 +822,9 @@ namespace NGenerics.Tests.DataStructures.General
                 bag2.Add(4, 3);
                 bag2.Add(5, 2);
 
-                var shouldBe = new Bag<int> {{2, 2}, {3, 5}, {4, 8}, {5, 2}};
+                var shouldBe = new Bag<int> { { 2, 2 }, { 3, 5 }, { 4, 8 }, { 5, 2 } };
 
-                var resultBag = (Bag<int>) ((IBag<int>) bag1).Union(bag2);
+                var resultBag = (Bag<int>)((IBag<int>)bag1).Union(bag2);
 
                 Assert.IsTrue(shouldBe.Equals(resultBag));
 
@@ -842,7 +842,7 @@ namespace NGenerics.Tests.DataStructures.General
             }
 
         }
-      
+
 
         #region Private Members
 
