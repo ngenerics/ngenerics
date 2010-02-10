@@ -8,12 +8,19 @@ namespace NGenerics.Tests.DataStructures.General
     {
 
         [Test]
-        public void Replace()
+        public void ReplaceString()
         {
             CaseInsensitiveString value = "AbcDEf";
 
             Assert.AreEqual("AbEf", value.Replace("Cd", string.Empty).Value);
             Assert.AreEqual("AbXyEf", value.Replace("Cd", "Xy").Value);
+        }
+        [Test]
+        public void ReplaceChar()
+        {
+            CaseInsensitiveString value = "AbcDEf";
+
+            Assert.AreEqual("AbFDEf", value.Replace('C', 'F').Value);
         }
     }
 }

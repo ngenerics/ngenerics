@@ -330,7 +330,8 @@ namespace NGenerics.DataStructures.General
 
         public CaseInsensitiveString Replace(char oldChar, char newChar)
         {
-            return Value.Replace(oldChar, newChar);
+            //TODO: not the fastest way
+            return Replace(oldChar.ToString(), newChar.ToString());
         }
 
 
