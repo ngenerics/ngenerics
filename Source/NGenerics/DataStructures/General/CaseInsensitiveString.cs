@@ -333,10 +333,36 @@ namespace NGenerics.DataStructures.General
             return Value.Replace(oldChar, newChar);
         }
 
-        public CaseInsensitiveString Replace(string oldValue, string newValue)
+
+        public CaseInsensitiveString Replace(string pattern, string replacement)
         {
-            return Value.Replace(oldValue, newValue);
+
+            if (String.IsNullOrEmpty(pattern))
+            {
+                return this;
+            }
+
+
+            var posCurrent = 0;
+            var lenPattern = pattern.Length;
+            var idxNext = Value.IndexOf(pattern, StringComparison.InvariantCultureIgnoreCase);
+            var result = new StringBuilder();
+
+            while (idxNext >= 0)
+            {
+                result.Append(Value, posCurrent, idxNext - posCurrent);
+                result.Append(replacement);
+
+                posCurrent = idxNext + lenPattern;
+
+                idxNext = Value.IndexOf(pattern, posCurrent, StringComparison.InvariantCultureIgnoreCase);
+            }
+
+            result.Append(Value, posCurrent, Value.Length - posCurrent);
+
+            return result.ToString();
         }
+
 
         public CaseInsensitiveString[] Split(params char[] separator)
         {
