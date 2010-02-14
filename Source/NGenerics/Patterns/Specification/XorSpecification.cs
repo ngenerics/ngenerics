@@ -35,6 +35,10 @@ namespace NGenerics.Patterns.Specification
         /// <returns>
         /// 	<c>true</c> if the specification is satisfied by the specified item; otherwise, <c>false</c>.
         /// </returns>
+        /// <example>
+        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Patterns\Specification\XorSpecificationExamples.cs" region="IsSatisfiedBy" lang="cs" title="The following example shows how to use the IsSatisfiedBy method."/>
+        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Patterns\Specification\XorSpecificationExamples.vb" region="IsSatisfiedBy" lang="vbnet" title="The following example shows how to use the IsSatisfiedBy method."/>
+        /// </example>
         public override bool IsSatisfiedBy(T item)
         {
             return Left.IsSatisfiedBy(item) ^ Right.IsSatisfiedBy(item);
