@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{bcf5bfce-5d3b-4e5a-9cee-750f3cdec64c}</ProjectGuid>
-    <SHFBSchemaVersion>1.8.0.0</SHFBSchemaVersion>
+    <SHFBSchemaVersion>1.8.0.3</SHFBSchemaVersion>
     <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual
          Studio adds them anyway -->
     <AssemblyName>Documentation</AssemblyName>
@@ -20,7 +20,7 @@
 &amp;lt%3bbr/&amp;gt%3bA class library containing data structure and algorithms not currently present in the standard .NET framework.  For help and support, please see the NGenerics project site %28&amp;lt%3ba href=&amp;quot%3bwww.codeplex.com/NGenerics&amp;quot%3b&amp;gt%3bwww.codeplex.com/NGenerics&amp;lt%3b/a&amp;gt%3b%29 or pop a mail to &amp;lt%3ba href=&amp;quot%3bmailto:ngenerics%40gmail.com&amp;quot%3b&amp;gt%3bngenerics%40gmail.com&amp;lt%3b/a&amp;gt%3b.
 </ProjectSummary>
     <MissingTags>Parameter, AutoDocumentCtors, TypeParameter</MissingTags>
-    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected</VisibleItems>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Internals, Privates, Protected, SealedProtected</VisibleItems>
     <HtmlHelp1xCompilerPath>
     </HtmlHelp1xCompilerPath>
     <HtmlHelp2xCompilerPath>
@@ -36,7 +36,7 @@
     <RootNamespaceTitle>Reference</RootNamespaceTitle>
     <HelpTitle>NGenerics</HelpTitle>
     <CopyrightHref>http://www.gnu.org/licenses/lgpl.html</CopyrightHref>
-    <CopyrightText>Copyright %28c%29 2009 The NGenerics Team</CopyrightText>
+    <CopyrightText>Copyright %28c%29 2010 The NGenerics Team</CopyrightText>
     <FeedbackEMailAddress>ngenerics-users%40googlegroups.com</FeedbackEMailAddress>
     <HeaderText>NGenerics</HeaderText>
     <SdkLinkType>None</SdkLinkType>
