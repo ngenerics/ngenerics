@@ -51,6 +51,10 @@ namespace NGenerics.DataStructures.General
             Value = (string)info.GetValue("StringValue", typeof(string));
         }
 
+
+        /// <summary>
+        /// Gets or sets the undeling case sensitive string.
+        /// </summary>
         public string Value { get; set; }
 
 
