@@ -35,7 +35,7 @@ namespace NGenerics.DataStructures.General
     {
         #region Globals
 
-        private readonly IAssociationKeyComparer<TKey, TValue> comparerToUse;
+        private readonly AssociationKeyComparer<TKey, TValue> comparerToUse;
         private readonly List<Association<TKey, TValue>> data;
 
         #endregion

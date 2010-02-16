@@ -67,14 +67,12 @@
     <Compile Include="Comparers\EdgeWeightComparer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Comparers\IAssociationKeyComparer.cs" />
     <Compile Include="Comparers\KeyValuePairComparer.cs" />
     <Compile Include="Comparers\ReverseComparer.cs" />
     <Compile Include="DataStructures\General\Association.cs" />
     <Compile Include="DataStructures\General\AutoKeyDictionary.cs" />
     <Compile Include="DataStructures\General\Bag.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="DataStructures\General\CaseInsensitiveString.cs" />
     <Compile Include="DataStructures\General\Curve.cs" />
     <Compile Include="DataStructures\General\DictionaryBase.cs" />
     <Compile Include="DataStructures\General\ListBase.cs" />

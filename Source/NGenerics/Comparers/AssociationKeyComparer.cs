@@ -22,7 +22,8 @@ namespace NGenerics.Comparers
 #if (!SILVERLIGHT)
     [Serializable]
 #endif
-    public class AssociationKeyComparer<TKey, TValue> : IAssociationKeyComparer<TKey, TValue> where TKey : IComparable {
+    public class AssociationKeyComparer<TKey, TValue> : IComparer<Association<TKey, TValue>>, IComparer<TKey> where TKey : IComparable
+    {
         
         #region Globals
 
@@ -55,7 +56,7 @@ namespace NGenerics.Comparers
         /// Gets the default comparer for the type of association specified.
         /// </summary>
         /// <value>The default comparer.</value>
-        public static IAssociationKeyComparer<TKey, TValue> DefaultComparer
+        public static AssociationKeyComparer<TKey, TValue> DefaultComparer
         {
             get { return new AssociationKeyComparer<TKey, TValue>(); }
         }

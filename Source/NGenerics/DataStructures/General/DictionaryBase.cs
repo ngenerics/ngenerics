@@ -60,7 +60,7 @@ namespace NGenerics.DataStructures.General
 
         private readonly Dictionary<TKey, TValue> dictionary;
 
-        #endregion
+        #endregion 
 
         #region Construction
 

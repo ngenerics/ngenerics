@@ -175,7 +175,6 @@
     <Compile Include="Util\Guard.cs" />
     <Compile Include="Util\Swapper.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
-    <Compile Include="Comparers\IAssociationKeyComparer.cs" />
     <Compile Include="Comparers\KeyValuePairComparer.cs" />
     <Compile Include="DataStructures\Trees\ISearchTreeDictionary.cs" />
     <Compile Include="DataStructures\Trees\RedBlackTreeDictionary.cs" />
