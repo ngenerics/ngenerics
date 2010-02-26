@@ -9,6 +9,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using NGenerics.Sorting;
 using NGenerics.Util;
 
@@ -227,11 +228,11 @@ namespace NGenerics.Extensions
 			Guard.ArgumentNotNull(list, "list");
             Guard.ArgumentNotNull(action, "action");
 
-            for (var i = 0; i < list.Count; i++)
+            foreach (var item in list)
             {
-                action(list[i]);
+                action(item);
             }
-        }
+		}
 
 
         /// <inheritdoc cref="List{T}.InsertRange"/>
@@ -300,6 +301,20 @@ namespace NGenerics.Extensions
         /// </summary>
         /// <typeparam name="T">The type of item in the list.</typeparam>
         /// <param name="list">The list.</param>
+        /// <param name="sortOrder">The order in which to sort the list.</param>
+        public static void Sort<T>(this IList<T> list, SortOrder sortOrder)
+		{
+			Guard.ArgumentNotNull(list, "list");
+
+            var sorter = new QuickSorter<T>();
+            sorter.Sort(list, sortOrder);
+        }
+
+        /// <summary>
+        /// Sorts the specified list.
+        /// </summary>
+        /// <typeparam name="T">The type of item in the list.</typeparam>
+        /// <param name="list">The list.</param>
         /// <param name="comparer">The comparer.</param>
         public static void Sort<T>(this IList<T> list, IComparer<T> comparer)
 		{
@@ -331,14 +346,44 @@ namespace NGenerics.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="list">The list.</param>
         /// <param name="comparison">The comparison.</param>
-        /// <param name="sortOrder">The sort order.</param>
+        /// <param name="sortOrder">The order in which to sort the list.</param>
         public static void Sort<T>(this IList<T> list, Comparison<T> comparison, SortOrder sortOrder)
         {
             Guard.ArgumentNotNull(list, "list");
             Guard.ArgumentNotNull(comparison, "comparison");
 
             var sorter = new QuickSorter<T>();
-            sorter.Sort(list, comparison);
+            sorter.Sort(list, comparison, sortOrder);
+        }
+
+        /// <summary>
+        /// Sorts the specified list.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <param name="property">The target property to use to sort the list.</param>
+        public static void Sort<T>(this IList<T> list, Expression<Func<T, IComparable>> property)
+        {
+            Sort(list, property, SortOrder.Ascending);
+        }
+
+        /// <summary>
+        /// Sorts the specified list.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <param name="sortOrder">The order in which to sort the list.</param>
+        /// <param name="property">The target property to use to sort the list.</param>
+        public static void Sort<T>(this IList<T> list, Expression<Func<T, IComparable>> property, SortOrder sortOrder)
+        {
+            Guard.ArgumentNotNull(list, "list");
+            Guard.ArgumentNotNull(property, "property");
+
+            var sorter = new QuickSorter<T>();
+            var comparison = new Comparison<T>((x, y) =>
+                                               {
+                                                   var compile = property.Compile();
+                                                   return compile(x).CompareTo(compile(y));
+                                               });
+            sorter.Sort(list, comparison, sortOrder);
         }
 
 

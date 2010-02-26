@@ -7,6 +7,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
+using System;
 using System.Collections.Generic;
 
 namespace NGenerics.Sorting
@@ -17,7 +18,6 @@ namespace NGenerics.Sorting
     /// <typeparam name="T">The type of element to be sorted.</typeparam>
     public abstract class Sorter<T> : ISorter<T>
     {
-        #region ISorter<T> Members
 		/// <inheritdoc />
         public void Sort(IList<T> list)
         {
@@ -26,6 +26,12 @@ namespace NGenerics.Sorting
 		/// <inheritdoc />
         public abstract void Sort(IList<T> list, SortOrder order);
 
-        #endregion
+        public static void ValidateSortOrder(SortOrder sortOrder)
+        {
+            if ((sortOrder != SortOrder.Ascending) && (sortOrder != SortOrder.Descending))
+            {
+                throw new ArgumentOutOfRangeException("sortOrder");
+            }
+        }
     }
 }

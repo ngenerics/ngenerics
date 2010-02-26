@@ -120,13 +120,6 @@ namespace NGenerics.Sorting
             }
         }
 
-        private static void ValidateSortOrder(SortOrder sortOrder)
-        {
-            if ((sortOrder != SortOrder.Ascending) && (sortOrder != SortOrder.Descending))
-            {
-                throw new ArgumentOutOfRangeException("sortOrder");
-            }
-        }
 
         #endregion
 

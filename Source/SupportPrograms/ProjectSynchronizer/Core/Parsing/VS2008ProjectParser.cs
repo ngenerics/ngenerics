@@ -68,9 +68,9 @@ namespace ProjectSynchronizer.Core.Parsing {
                 select itemGroup
             ).First();
 
-            for (var i = 0; i < pathsToAdd.Count; i++)
+            foreach (var path in pathsToAdd)
             {
-                compileNode.Add(new XElement(XName.Get("Compile", MSBuildSchema), new XAttribute("Include", pathsToAdd[i])));
+                compileNode.Add(new XElement(XName.Get("Compile", MSBuildSchema), new XAttribute("Include", path)));
             }
 
             foreach (var path in pathsToRemove) 
