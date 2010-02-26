@@ -81,7 +81,17 @@ namespace NGenerics.Sorting
 
             #endregion
 
-            Sort(list, new ReverseComparisonComparer<T>(comparison));
+            ValidateSortOrder(sortOrder);
+
+            if (sortOrder == SortOrder.Ascending)
+            {
+                Sort(list, new ComparisonComparer<T>(comparison));
+            }
+            else if (sortOrder == SortOrder.Descending)
+            {
+                Sort(list, new ReverseComparisonComparer<T>(comparison));
+            }
+
         }
 
 
@@ -90,27 +100,31 @@ namespace NGenerics.Sorting
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\SorterExamples.cs" region="SortListOrder" lang="cs" title="The following example shows how to use the Sort method."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\SorterExamples.vb" region="SortListOrder" lang="vbnet" title="The following example shows how to use the Sort method."/>
         /// </example>
-        public override void Sort(IList<T> list, SortOrder order)
+        public override void Sort(IList<T> list, SortOrder sortOrder)
         {
             #region Validation
 
             Guard.ArgumentNotNull(list, "list");
 
-
-            if ((order != SortOrder.Ascending) && (order != SortOrder.Descending))
-            {
-                throw new ArgumentOutOfRangeException("order");
-            }
+            ValidateSortOrder(sortOrder);
 
             #endregion
 
-            if (order == SortOrder.Ascending)
+            if (sortOrder == SortOrder.Ascending)
             {
                 Sort(list, Comparer<T>.Default);
             }
-            else if (order == SortOrder.Descending)
+            else if (sortOrder == SortOrder.Descending)
             {
                 Sort(list, new ReverseComparer<T>(Comparer<T>.Default));
+            }
+        }
+
+        private static void ValidateSortOrder(SortOrder sortOrder)
+        {
+            if ((sortOrder != SortOrder.Ascending) && (sortOrder != SortOrder.Descending))
+            {
+                throw new ArgumentOutOfRangeException("sortOrder");
             }
         }
 
