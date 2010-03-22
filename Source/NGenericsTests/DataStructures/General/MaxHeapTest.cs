@@ -65,8 +65,10 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
 			public void Simple()
             {
-                var heap = new Heap<int>(HeapType.Maximum);
-                heap.Add(5);
+                var heap = new Heap<int>(HeapType.Maximum)
+                           {
+                               5
+                           };
 
                 Assert.AreEqual(heap.Count, 1);
                 Assert.IsFalse(heap.IsEmpty);

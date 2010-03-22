@@ -78,8 +78,10 @@ namespace NGenerics.Tests.Comparers
             [ExpectedException(typeof(ArgumentNullException))]
             public void ExceptionNullComparer()
             {
-                var comparer = new ReverseComparer<int>();
-                comparer.Comparer = null;
+                new ReverseComparer<int>
+                {
+                    Comparer = null
+                };
             }
         }
     }

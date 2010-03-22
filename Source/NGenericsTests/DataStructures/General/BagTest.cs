@@ -152,9 +152,11 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void Simple()
             {
-                var bag = new Bag<string>();
+                var bag = new Bag<string>
+                          {
+                              "aa"
+                          };
 
-                bag.Add("aa");
                 Assert.AreEqual(bag.Count, 1);
                 Assert.IsTrue(bag.Contains("aa"));
                 Assert.AreEqual(bag["aa"], 1);
@@ -185,16 +187,22 @@ namespace NGenerics.Tests.DataStructures.General
             [ExpectedException(typeof(ArgumentOutOfRangeException))]
             public void ExceptionZeroAmount()
             {
-                var bag = new Bag<string>();
-                bag.Add("aa", 0);
+                new Bag<string>
+                          {
+                              {"aa", 0}
+                          };
             }
 
             [Test]
             [ExpectedException(typeof(ArgumentOutOfRangeException))]
             public void ExceptionNegativeAmount()
             {
-                var bag = new Bag<string>();
-                bag.Add("aa", -1);
+                new Bag<string>
+                {
+                    {
+                        "aa", -1
+                    }
+                };
             }
 
         }

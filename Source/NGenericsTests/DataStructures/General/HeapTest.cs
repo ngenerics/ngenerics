@@ -67,9 +67,11 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void ComparerDelegate1()
             {
-                var heap = new Heap<SimpleClass>(HeapType.Maximum, (x, y) => x.TestProperty.CompareTo(y.TestProperty));
+                var heap = new Heap<SimpleClass>(HeapType.Maximum, (x, y) => x.TestProperty.CompareTo(y.TestProperty))
+                           {
+                               new SimpleClass("5")
+                           };
 
-                heap.Add(new SimpleClass("5"));
                 Assert.AreEqual(heap.Count, 1);
                 Assert.AreEqual(heap.Root.TestProperty, "5");
 
@@ -91,9 +93,11 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void ComparerDelegateWithIntialSize()
             {
-                var heap = new Heap<SimpleClass>(HeapType.Maximum, 10, (x, y) => x.TestProperty.CompareTo(y.TestProperty));
+                var heap = new Heap<SimpleClass>(HeapType.Maximum, 10, (x, y) => x.TestProperty.CompareTo(y.TestProperty))
+                           {
+                               new SimpleClass("5")
+                           };
 
-                heap.Add(new SimpleClass("5"));
                 Assert.AreEqual(heap.Count, 1);
                 Assert.AreEqual(heap.Root.TestProperty, "5");
 

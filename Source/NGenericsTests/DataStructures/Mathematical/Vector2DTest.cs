@@ -151,11 +151,12 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 			[Test]
 			public void Double()
 			{
-				var vector = new Vector2D(4, 7);
+				var vector = new Vector2D(4, 7)
+				             {
+				                 1
+				             };
 
-				vector.Add(1);
-
-				Assert.AreEqual(5, vector.X);
+			    Assert.AreEqual(5, vector.X);
 				Assert.AreEqual(8, vector.Y);
 			}
 			
@@ -188,14 +189,16 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 				Assert.AreEqual(7, vector1[0]);
 				Assert.AreEqual(11, vector1[1]);
 			}
-			
-			[Test]
-			[ExpectedException(typeof(ArgumentNullException))]
-			public void ExceptionNullVector()
-			{
-				var vector = new Vector2D();
-				vector.Add(null);
-			}
+
+            [Test]
+            [ExpectedException(typeof(ArgumentNullException))]
+            public void ExceptionNullVector()
+            {
+                new Vector2D
+                {
+                    null
+                };
+            }
 
 		}
 

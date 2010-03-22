@@ -25,16 +25,19 @@ namespace NGenerics.Tests.DataStructures.General
             [ExpectedException(typeof(ArgumentNullException))]
             public void ExceptionInvalidRange()
             {
-                var hashList = new HashList<int, string>();
-                hashList.Add(3, (List<string>) null);
+                var hashList = new HashList<int, string>
+                               {
+                                   {3, (List<string>) null}
+                               };
             }
 
             [Test]
             public void Simple()
             {
-                var hashList = new HashList<int, string>();
-
-                hashList.Add(2, "a");
+                var hashList = new HashList<int, string>
+                               {
+                                   {2, "a"}
+                               };
 
                 Assert.AreEqual(hashList.ValueCount, 1);
                 Assert.AreEqual(hashList.KeyCount, 1);
@@ -54,9 +57,10 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void Params()
             {
-                var hashList = new HashList<int, string>();
-
-                hashList.Add(2, "a", "b");
+                var hashList = new HashList<int, string>
+                               {
+                                   {2, "a", "b"}
+                               };
 
                 Assert.AreEqual(hashList.ValueCount, 2);
                 Assert.AreEqual(hashList.KeyCount, 1);

@@ -117,9 +117,9 @@ namespace NGenerics.Tests.DataStructures.Trees
 
                     Assert.AreEqual(redBlackTree.Count, i + 1);
 
-                    for (var j = 0; j < data.Count; j++)
+                    foreach (var t in data)
                     {
-                        Assert.IsTrue(redBlackTree.ContainsKey(data[j]));
+                        Assert.IsTrue(redBlackTree.ContainsKey(t));
                     }
                 }
 
@@ -133,9 +133,9 @@ namespace NGenerics.Tests.DataStructures.Trees
 
                     Assert.AreEqual(redBlackTree.Count, data.Count);
 
-                    for (var j = 0; j < data.Count; j++)
+                    foreach (var t in data)
                     {
-                        Assert.IsTrue(redBlackTree.ContainsKey(data[j]));
+                        Assert.IsTrue(redBlackTree.ContainsKey(t));
                     }
                 }
             }

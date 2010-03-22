@@ -31,10 +31,12 @@ namespace NGenerics.Tests.DataStructures.General
 			[Test]
 			public void Simple()
 			{
-				var sortedList = new SortedList<int>();
-				sortedList.Add(5);
+				var sortedList = new SortedList<int>
+				                 {
+				                     5
+				                 };
 
-				Assert.AreEqual(sortedList.Count, 1);
+			    Assert.AreEqual(sortedList.Count, 1);
 				Assert.IsFalse(sortedList.IsEmpty);
 				Assert.AreEqual(sortedList[0], 5);
 

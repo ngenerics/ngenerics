@@ -715,9 +715,9 @@ namespace NGenerics.Tests.DataStructures.Queues
                     }
                 }
 
-                for (var j = 0; j < currentItems.Count; j++)
+                foreach (var item in currentItems)
                 {
-                    Assert.IsTrue(circularQueue.Contains(currentItems[j]));
+                    Assert.IsTrue(circularQueue.Contains(item));
                 }
             }
         }
@@ -765,14 +765,14 @@ namespace NGenerics.Tests.DataStructures.Queues
                     }
                 }
 
-                for (var j = 0; j < currentItems.Count; j++)
+                foreach (var item in currentItems)
                 {
-                    if (circularQueue.Contains(currentItems[j]) == false)
+                    if (circularQueue.Contains(item) == false)
                     {
                         Console.Write("a");
                     }
 
-                    Assert.IsTrue(circularQueue.Contains(currentItems[j]));
+                    Assert.IsTrue(circularQueue.Contains(item));
                 }
             }
         }

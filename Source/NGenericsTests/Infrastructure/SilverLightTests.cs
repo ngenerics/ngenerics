@@ -25,16 +25,16 @@ namespace NGenerics.Tests.Infrastructure {
             var ngenericsCompilationItems = parser.FindCompilationItems(@"..\..\..\NGenerics\NGenerics.csproj");
             var silverlightCompilationItems = parser.FindCompilationItems(@"..\..\..\NGenerics\NGenerics.SilverLight.csproj");
 
-            for (var i = 0; i < ngenericsCompilationItems.Count; i++)
+            foreach (var compilationItem in ngenericsCompilationItems)
             {
-                Assert.IsTrue(silverlightCompilationItems.Contains(ngenericsCompilationItems[i]), "File " + Path.GetFullPath(ngenericsCompilationItems[i]) + " not found in SilverLight build.");
+                Assert.IsTrue(silverlightCompilationItems.Contains(compilationItem), "File " + Path.GetFullPath(compilationItem) + " not found in SilverLight build.");
             }
 
-            for (var i = 0; i < silverlightCompilationItems.Count; i++)
+            foreach (var compilationItem in silverlightCompilationItems)
             {
-                if (!ngenericsCompilationItems.Contains(silverlightCompilationItems[i]))
+                if (!ngenericsCompilationItems.Contains(compilationItem))
                 {
-                    var path = Path.Combine(@"..\..\..\NGenerics", silverlightCompilationItems[i]);
+                    var path = Path.Combine(@"..\..\..\NGenerics", compilationItem);
                     Assert.IsTrue(File.Exists(path), path + " does not exist");
                 }
             }

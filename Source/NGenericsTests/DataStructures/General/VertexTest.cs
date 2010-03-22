@@ -436,9 +436,9 @@ namespace NGenerics.Tests.DataStructures.General
 
         private static void AssertContainsEdges(ICollection<Edge<int>> edgeList, bool containsValue, params Edge<int>[] edges)
         {
-            for (var i = 0; i < edges.Length; i++)
+            foreach (var edge in edges)
             {
-                Assert.AreEqual(edgeList.Contains(edges[i]), containsValue);
+                Assert.AreEqual(edgeList.Contains(edge), containsValue);
             }
         }
 

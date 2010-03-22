@@ -241,8 +241,10 @@ namespace NGenerics.Tests.DataStructures.General
             [ExpectedException(typeof(Exception), ExpectedMessage = "AddItem")]
             public void AddTest()
             {
-                var target = new MockExceptionDictionary();
-                target.Add(2, 2);
+                new MockExceptionDictionary
+                {
+                    {2, 2}
+                };
             }
 
 

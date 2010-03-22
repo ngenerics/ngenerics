@@ -70,16 +70,18 @@ namespace NGenerics.Tests.DataStructures.Trees
 		public class Add
 		{
 
-			[Test]
-			[ExpectedException(typeof(ArgumentException))]
-			public void ExceptionDuplicateAdd()
-			{
-				var tree = new BinarySearchTree<int, string>();
-				tree.Add(4, "4");
-				tree.Add(4, "4");
-			}
+            [Test]
+            [ExpectedException(typeof(ArgumentException))]
+            public void ExceptionDuplicateAdd()
+            {
+                new BinarySearchTree<int, string>
+                {
+                    {4, "4"}, 
+                    {4, "4"}
+                };
+            }
 
-			[Test]
+		    [Test]
 			public void KeyValuePair()
 			{
 				var tree = new BinarySearchTree<int, string>();

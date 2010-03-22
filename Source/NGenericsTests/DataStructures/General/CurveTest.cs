@@ -86,8 +86,10 @@ namespace NGenerics.Tests.DataStructures.General
             [Test]
             public void AddTwo()
             {
-                var curve = new Curve<int, int>();
-                curve.Add(12, 32);
+                var curve = new Curve<int, int>
+                            {
+                                {12, 32}
+                            };
                 Assert.IsTrue(curve.Contains(12, 32));
             }
 

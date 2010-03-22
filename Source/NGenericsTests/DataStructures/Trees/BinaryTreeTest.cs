@@ -275,9 +275,9 @@ namespace NGenerics.Tests.DataStructures.Trees
 
                 binaryTree.CopyTo(array, 0);
 
-                for (var i = 0; i < array.Length; i++)
+                foreach (var t in array)
                 {
-                    Assert.AreNotEqual(array[i], 0);
+                    Assert.AreNotEqual(t, 0);
                 }
 
                 var list = new List<int>();

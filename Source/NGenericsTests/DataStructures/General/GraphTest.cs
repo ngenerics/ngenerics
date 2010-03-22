@@ -156,11 +156,11 @@ namespace NGenerics.Tests.DataStructures.General
                     }
                 }
 
-                for (var i = 0; i < edges.Count; i++)
+                foreach (var edge in edges)
                 {
-                    Assert.IsTrue(graph.ContainsEdge(edges[i]));
-                    Assert.IsTrue(graph.ContainsEdge(edges[i].FromVertex, edges[i].ToVertex));
-                    Assert.IsTrue(graph.ContainsEdge(edges[i].FromVertex.Data, edges[i].ToVertex.Data));
+                    Assert.IsTrue(graph.ContainsEdge(edge));
+                    Assert.IsTrue(graph.ContainsEdge(edge.FromVertex, edge.ToVertex));
+                    Assert.IsTrue(graph.ContainsEdge(edge.FromVertex.Data, edge.ToVertex.Data));
                 }
             }
 
@@ -671,13 +671,13 @@ namespace NGenerics.Tests.DataStructures.General
 
                 var edgeList = GetEdges(graph);
 
-                for (var i = 0; i < edgeList.Count; i++)
+                foreach (var t in edgeList)
                 {
-                    Assert.IsTrue(graph.ContainsEdge(edgeList[i].FromVertex, edgeList[i].ToVertex));
-                    Assert.IsTrue(graph.ContainsEdge(edgeList[i].FromVertex.Data, edgeList[i].ToVertex.Data));
+                    Assert.IsTrue(graph.ContainsEdge(t.FromVertex, t.ToVertex));
+                    Assert.IsTrue(graph.ContainsEdge(t.FromVertex.Data, t.ToVertex.Data));
 
-                    Assert.IsFalse(graph.ContainsEdge(edgeList[i].ToVertex, edgeList[i].FromVertex));
-                    Assert.IsFalse(graph.ContainsEdge(edgeList[i].ToVertex.Data, edgeList[i].FromVertex.Data));
+                    Assert.IsFalse(graph.ContainsEdge(t.ToVertex, t.FromVertex));
+                    Assert.IsFalse(graph.ContainsEdge(t.ToVertex.Data, t.FromVertex.Data));
                 }
 
                 Assert.IsFalse(graph.ContainsEdge(100, 200));
@@ -691,13 +691,13 @@ namespace NGenerics.Tests.DataStructures.General
 
                 var edgeList = GetEdges(graph);
 
-                for (var i = 0; i < edgeList.Count; i++)
+                foreach (var edge in edgeList)
                 {
-                    Assert.IsTrue(graph.ContainsEdge(edgeList[i].FromVertex, edgeList[i].ToVertex));
-                    Assert.IsTrue(graph.ContainsEdge(edgeList[i].FromVertex.Data, edgeList[i].ToVertex.Data));
+                    Assert.IsTrue(graph.ContainsEdge(edge.FromVertex, edge.ToVertex));
+                    Assert.IsTrue(graph.ContainsEdge(edge.FromVertex.Data, edge.ToVertex.Data));
 
-                    Assert.IsTrue(graph.ContainsEdge(edgeList[i].ToVertex, edgeList[i].FromVertex));
-                    Assert.IsTrue(graph.ContainsEdge(edgeList[i].ToVertex.Data, edgeList[i].FromVertex.Data));
+                    Assert.IsTrue(graph.ContainsEdge(edge.ToVertex, edge.FromVertex));
+                    Assert.IsTrue(graph.ContainsEdge(edge.ToVertex.Data, edge.FromVertex.Data));
                 }
 
                 Assert.IsFalse(graph.ContainsEdge(100, 200));
@@ -1096,9 +1096,9 @@ namespace NGenerics.Tests.DataStructures.General
                 {
                     var found = false;
 
-                    for (var j = 0; j < edges.Count; j++)
+                    foreach (var edge in edges)
                     {
-                        if ((edges[j].FromVertex == vertices[i]) && (edges[j].ToVertex == vertices[i + 2]))
+                        if ((edge.FromVertex == vertices[i]) && (edge.ToVertex == vertices[i + 2]))
                         {
                             found = true;
                             break;
@@ -1135,9 +1135,9 @@ namespace NGenerics.Tests.DataStructures.General
                 {
                     var found = false;
 
-                    for (var j = 0; j < edges.Count; j++)
+                    foreach (var edge in edges)
                     {
-                        if ((edges[j].FromVertex == vertices[i]) && (edges[j].ToVertex == vertices[i + 2]))
+                        if ((edge.FromVertex == vertices[i]) && (edge.ToVertex == vertices[i + 2]))
                         {
                             found = true;
                             break;

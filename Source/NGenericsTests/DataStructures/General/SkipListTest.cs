@@ -432,10 +432,10 @@ namespace NGenerics.Tests.DataStructures.General
 				                                            array[5]
 				                                        };
 
-			    for (var i = 0; i < pairs.Length; i++)
-				{
-					Assert.IsTrue(list.Contains(pairs[i]));
-				}
+			    foreach (var keyValuePair in pairs)
+			    {
+			        Assert.IsTrue(list.Contains(keyValuePair));
+			    }
 			}
 
 			[Test]

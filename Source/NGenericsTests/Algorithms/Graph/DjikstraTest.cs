@@ -46,19 +46,19 @@ namespace NGenerics.Tests.Algorithms.Graph
 
                 var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
-                for (var i = 0; i < edges.Count; i++)
+                foreach (var edge in edges)
                 {
-                    if ((edges[i].FromVertex.Data == 1) && (edges[i].ToVertex.Data == 2))
+                    if ((edge.FromVertex.Data == 1) && (edge.ToVertex.Data == 2))
                     {
-                        Assert.AreEqual(edges[i].Weight, 3);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 3);
+                        Assert.AreEqual(edge.Weight, 3);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 3);
                     }
-                    else if ((edges[i].FromVertex.Data == 1) && (edges[i].ToVertex.Data == 3))
+                    else if ((edge.FromVertex.Data == 1) && (edge.ToVertex.Data == 3))
                     {
-                        Assert.AreEqual(edges[i].Weight, 5);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 5);
+                        Assert.AreEqual(edge.Weight, 5);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 5);
                     }
                     else
                     {
@@ -91,19 +91,19 @@ namespace NGenerics.Tests.Algorithms.Graph
 
                 var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
-                for (var i = 0; i < edges.Count; i++)
+                foreach (var edge in edges)
                 {
-                    if ((edges[i].FromVertex.Data == 2) && (edges[i].ToVertex.Data == 3))
+                    if ((edge.FromVertex.Data == 2) && (edge.ToVertex.Data == 3))
                     {
-                        Assert.AreEqual(edges[i].Weight, 4);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 4);
+                        Assert.AreEqual(edge.Weight, 4);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 4);
                     }
-                    else if ((edges[i].FromVertex.Data == 3) && (edges[i].ToVertex.Data == 1))
+                    else if ((edge.FromVertex.Data == 3) && (edge.ToVertex.Data == 1))
                     {
-                        Assert.AreEqual(edges[i].Weight, 3);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 4);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 7);
+                        Assert.AreEqual(edge.Weight, 3);
+                        Assert.AreEqual(edge.FromVertex.Weight, 4);
+                        Assert.AreEqual(edge.ToVertex.Weight, 7);
                     }
                     else
                     {
@@ -136,19 +136,19 @@ namespace NGenerics.Tests.Algorithms.Graph
 
                 var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
-                for (var i = 0; i < edges.Count; i++)
+                foreach (var edge in edges)
                 {
-                    if ((edges[i].FromVertex.Data == 1) && (edges[i].ToVertex.Data == 2))
+                    if ((edge.FromVertex.Data == 1) && (edge.ToVertex.Data == 2))
                     {
-                        Assert.AreEqual(edges[i].Weight, 3);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 3);
+                        Assert.AreEqual(edge.Weight, 3);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 3);
                     }
-                    else if ((edges[i].FromVertex.Data == 1) && (edges[i].ToVertex.Data == 3))
+                    else if ((edge.FromVertex.Data == 1) && (edge.ToVertex.Data == 3))
                     {
-                        Assert.AreEqual(edges[i].Weight, 1);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 1);
+                        Assert.AreEqual(edge.Weight, 1);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 1);
                     }
                     else
                     {
@@ -180,19 +180,19 @@ namespace NGenerics.Tests.Algorithms.Graph
 
                 var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
-                for (var i = 0; i < edges.Count; i++)
+                foreach (var edge in edges)
                 {
-                    if ((edges[i].FromVertex.Data == 2) && (edges[i].ToVertex.Data == 1))
+                    if ((edge.FromVertex.Data == 2) && (edge.ToVertex.Data == 1))
                     {
-                        Assert.AreEqual(edges[i].Weight, 3);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 3);
+                        Assert.AreEqual(edge.Weight, 3);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 3);
                     }
-                    else if ((edges[i].FromVertex.Data == 1) && (edges[i].ToVertex.Data == 3))
+                    else if ((edge.FromVertex.Data == 1) && (edge.ToVertex.Data == 3))
                     {
-                        Assert.AreEqual(edges[i].Weight, 1);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 3);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 4);
+                        Assert.AreEqual(edge.Weight, 1);
+                        Assert.AreEqual(edge.FromVertex.Weight, 3);
+                        Assert.AreEqual(edge.ToVertex.Weight, 4);
                     }
                     else
                     {
@@ -242,37 +242,37 @@ namespace NGenerics.Tests.Algorithms.Graph
 
                 var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
-                for (var i = 0; i < edges.Count; i++)
+                foreach (var edge in edges)
                 {
-                    if ((edges[i].FromVertex.Data == "a") && (edges[i].ToVertex.Data == "d"))
+                    if ((edge.FromVertex.Data == "a") && (edge.ToVertex.Data == "d"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 5);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 5);
+                        Assert.AreEqual(edge.Weight, 5);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 5);
                     }
-                    else if ((edges[i].FromVertex.Data == "a") && (edges[i].ToVertex.Data == "f"))
+                    else if ((edge.FromVertex.Data == "a") && (edge.ToVertex.Data == "f"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 1);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 1);
+                        Assert.AreEqual(edge.Weight, 1);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 1);
                     }
-                    else if ((edges[i].FromVertex.Data == "b") && (edges[i].ToVertex.Data == "c"))
+                    else if ((edge.FromVertex.Data == "b") && (edge.ToVertex.Data == "c"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 1);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 3);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 4);
+                        Assert.AreEqual(edge.Weight, 1);
+                        Assert.AreEqual(edge.FromVertex.Weight, 3);
+                        Assert.AreEqual(edge.ToVertex.Weight, 4);
                     }
-                    else if ((edges[i].FromVertex.Data == "f") && (edges[i].ToVertex.Data == "b"))
+                    else if ((edge.FromVertex.Data == "f") && (edge.ToVertex.Data == "b"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 2);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 1);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 3);
+                        Assert.AreEqual(edge.Weight, 2);
+                        Assert.AreEqual(edge.FromVertex.Weight, 1);
+                        Assert.AreEqual(edge.ToVertex.Weight, 3);
                     }
-                    else if ((edges[i].FromVertex.Data == "f") && (edges[i].ToVertex.Data == "e"))
+                    else if ((edge.FromVertex.Data == "f") && (edge.ToVertex.Data == "e"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 2);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 1);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 3);
+                        Assert.AreEqual(edge.Weight, 2);
+                        Assert.AreEqual(edge.FromVertex.Weight, 1);
+                        Assert.AreEqual(edge.ToVertex.Weight, 3);
                     }
                     else
                     {
@@ -330,43 +330,43 @@ namespace NGenerics.Tests.Algorithms.Graph
 
                 var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
-                for (var i = 0; i < edges.Count; i++)
+                foreach (var edge in edges)
                 {
-                    if ((edges[i].FromVertex.Data == "g") && (edges[i].ToVertex.Data == "a"))
+                    if ((edge.FromVertex.Data == "g") && (edge.ToVertex.Data == "a"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 1);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 1);
+                        Assert.AreEqual(edge.Weight, 1);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 1);
                     }
-                    else if ((edges[i].FromVertex.Data == "c") && (edges[i].ToVertex.Data == "b"))
+                    else if ((edge.FromVertex.Data == "c") && (edge.ToVertex.Data == "b"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 3);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 4);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 7);
+                        Assert.AreEqual(edge.Weight, 3);
+                        Assert.AreEqual(edge.FromVertex.Weight, 4);
+                        Assert.AreEqual(edge.ToVertex.Weight, 7);
                     }
-                    else if ((edges[i].FromVertex.Data == "g") && (edges[i].ToVertex.Data == "c"))
+                    else if ((edge.FromVertex.Data == "g") && (edge.ToVertex.Data == "c"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 4);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 4);
+                        Assert.AreEqual(edge.Weight, 4);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 4);
                     }
-                    else if ((edges[i].FromVertex.Data == "g") && (edges[i].ToVertex.Data == "d"))
+                    else if ((edge.FromVertex.Data == "g") && (edge.ToVertex.Data == "d"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 3);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 3);
+                        Assert.AreEqual(edge.Weight, 3);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 3);
                     }
-                    else if ((edges[i].FromVertex.Data == "d") && (edges[i].ToVertex.Data == "e"))
+                    else if ((edge.FromVertex.Data == "d") && (edge.ToVertex.Data == "e"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 1);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 3);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 4);
+                        Assert.AreEqual(edge.Weight, 1);
+                        Assert.AreEqual(edge.FromVertex.Weight, 3);
+                        Assert.AreEqual(edge.ToVertex.Weight, 4);
                     }
-                    else if ((edges[i].FromVertex.Data == "g") && (edges[i].ToVertex.Data == "f"))
+                    else if ((edge.FromVertex.Data == "g") && (edge.ToVertex.Data == "f"))
                     {
-                        Assert.AreEqual(edges[i].Weight, 1);
-                        Assert.AreEqual(edges[i].FromVertex.Weight, 0);
-                        Assert.AreEqual(edges[i].ToVertex.Weight, 1);
+                        Assert.AreEqual(edge.Weight, 1);
+                        Assert.AreEqual(edge.FromVertex.Weight, 0);
+                        Assert.AreEqual(edge.ToVertex.Weight, 1);
                     }
                     else
                     {

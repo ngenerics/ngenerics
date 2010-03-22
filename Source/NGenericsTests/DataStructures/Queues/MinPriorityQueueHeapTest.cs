@@ -40,20 +40,21 @@ namespace NGenerics.Tests.DataStructures.Queues {
 
                 priorityQueue.AcceptVisitor(visitor);
 
-                for (var i = 0; i < visitor.TrackingList.Count; i++) {
+                foreach (var t in visitor.TrackingList)
+                {
                     count++;
 
-                    if (visitor.TrackingList[i] == "a") {
+                    if (t == "a") {
                         a = true;
-                    } else if (visitor.TrackingList[i] == "b") {
+                    } else if (t == "b") {
                         b = true;
-                    } else if (visitor.TrackingList[i] == "c") {
+                    } else if (t == "c") {
                         c = true;
-                    } else if (visitor.TrackingList[i] == "d") {
+                    } else if (t == "d") {
                         d = true;
-                    } else if (visitor.TrackingList[i] == "e") {
+                    } else if (t == "e") {
                         e = true;
-                    } else if (visitor.TrackingList[i] == "f") {
+                    } else if (t == "f") {
                         f = true;
                     }
                 }

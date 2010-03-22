@@ -176,9 +176,11 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 			[Test]
 			public void Double()
 			{
-				var vector = new Vector3D(4, 7, 3);
-				vector.Add(1);
-				Assert.AreEqual(5, vector.X);
+				var vector = new Vector3D(4, 7, 3)
+				             {
+				                 1
+				             };
+			    Assert.AreEqual(5, vector.X);
 				Assert.AreEqual(8, vector.Y);
 				Assert.AreEqual(4, vector.Z);
 			}
@@ -220,13 +222,15 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 				Assert.AreEqual(2, vector2[2]);
 			}
 
-			[Test]
-			[ExpectedException(typeof(ArgumentNullException))]
-			public void ExceptionNullVector()
-			{
-				var vector = new Vector3D();
-				vector.Add(null);
-			}
+            [Test]
+            [ExpectedException(typeof(ArgumentNullException))]
+            public void ExceptionNullVector()
+            {
+                new Vector3D
+                {
+                    null
+                };
+            }
 
 		}
 
