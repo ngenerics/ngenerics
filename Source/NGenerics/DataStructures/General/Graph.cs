@@ -181,8 +181,7 @@ namespace NGenerics.DataStructures.General
 
             for (var i = 0; i < vertexList.Count; i++)
             {
-                var vertex = vertexList[i];
-                yield return vertex.Data;
+                yield return vertexList[i].Data;
             }
         }
 

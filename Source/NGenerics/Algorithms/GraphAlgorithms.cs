@@ -87,10 +87,11 @@ namespace NGenerics.Algorithms
                     // Enumerate through all the edges emanating from this node					
                     for (var i = 0; i < edges.Count; i++)
                     {
-                        var partnerVertex = edges[i].GetPartnerVertex(item.Value);
+                        var edge = edges[i];
+                        var partnerVertex = edge.GetPartnerVertex(item.Value);
 
                         // Calculate the new distance to this distance
-                        var distance = vertexInfo.Distance + edges[i].Weight;
+                        var distance = vertexInfo.Distance + edge.Weight;
 
                         var newVertexInfo = vertexStatus[partnerVertex];
 
@@ -98,7 +99,7 @@ namespace NGenerics.Algorithms
                         // vertex to the heap for further analysis
                         if (distance < newVertexInfo.Distance)
                         {
-                            newVertexInfo.EdgeFollowed = edges[i];
+                            newVertexInfo.EdgeFollowed = edge;
                             newVertexInfo.Distance = distance;
                             heap.Add(new Association<double, Vertex<T>>(distance, partnerVertex));
                         }

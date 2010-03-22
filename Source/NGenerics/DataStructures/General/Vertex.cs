@@ -165,23 +165,24 @@ namespace NGenerics.DataStructures.General
 		{
 			for (var i = 0; i < emanatingEdges.Count; i++)
 			{
-				if (emanatingEdges[i].IsDirected)
+			    var emanatingEdge = emanatingEdges[i];
+			    if (emanatingEdge.IsDirected)
 				{
-					if (emanatingEdges[i].ToVertex == toVertex)
+					if (emanatingEdge.ToVertex == toVertex)
 					{
 						return true;
 					}
 				}
 				else
 				{
-					if ((emanatingEdges[i].ToVertex == toVertex) || ((emanatingEdges[i].FromVertex == toVertex)))
+					if ((emanatingEdge.ToVertex == toVertex) || ((emanatingEdge.FromVertex == toVertex)))
 					{
 						return true;
 					}
 				}
 			}
 
-			return false;
+                return false;
 		}
 
 		/// <summary>
@@ -199,13 +200,14 @@ namespace NGenerics.DataStructures.General
 		{
 			for (var i = 0; i < incidentEdges.Count; i++)
 			{
-				if ((incidentEdges[i].FromVertex == fromVertex) || (incidentEdges[i].ToVertex == fromVertex))
+			    var incidentEdge = incidentEdges[i];
+			    if ((incidentEdge.FromVertex == fromVertex) || (incidentEdge.ToVertex == fromVertex))
 				{
 					return true;
 				}
 			}
 
-			return false;
+		    return false;
 		}
 
         /// <summary>
@@ -221,23 +223,24 @@ namespace NGenerics.DataStructures.General
 		{
 			for (var i = 0; i < emanatingEdges.Count; i++)
 			{
-				if (emanatingEdges[i].IsDirected)
+			    var emanatingEdgeTo = emanatingEdges[i];
+			    if (emanatingEdgeTo.IsDirected)
 				{
-					if (emanatingEdges[i].ToVertex == toVertex)
+					if (emanatingEdgeTo.ToVertex == toVertex)
 					{
-						return emanatingEdges[i];
+						return emanatingEdgeTo;
 					}
 				}
 				else
 				{					
-					if ((emanatingEdges[i].FromVertex == toVertex) || (emanatingEdges[i].ToVertex == toVertex))
+					if ((emanatingEdgeTo.FromVertex == toVertex) || (emanatingEdgeTo.ToVertex == toVertex))
 					{
-						return emanatingEdges[i];
+						return emanatingEdgeTo;
 					}
 				}
 			}
 
-			return null;
+            return null;
 		}
 
 		/// <summary>
@@ -253,13 +256,14 @@ namespace NGenerics.DataStructures.General
 		{
 			for (var i = 0; i < incidentEdges.Count; i++)
 			{
-				if ((incidentEdges[i].ToVertex == toVertex) || (incidentEdges[i].FromVertex == toVertex))
+			    var incidentEdgeWith = incidentEdges[i];
+			    if ((incidentEdgeWith.ToVertex == toVertex) || (incidentEdgeWith.FromVertex == toVertex))
 				{
-					return incidentEdges[i];
+					return incidentEdgeWith;
 				}
 			}
 
-			return null;
+		    return null;
 		}
 
 
