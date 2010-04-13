@@ -635,7 +635,7 @@ namespace NGenerics.Tests.DataStructures.General
             {
                 var intListBase = new ListBase<int> {4};
 
-                var longListBase = intListBase.ConvertAll(IntToLong);
+                var longListBase = intListBase.ConvertAll(new Converter<int, long>(IntToLong));
 
                 Assert.IsTrue(longListBase.Contains(4));
             }
