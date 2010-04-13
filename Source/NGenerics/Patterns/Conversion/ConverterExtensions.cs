@@ -30,7 +30,7 @@ namespace NGenerics.Patterns.Conversion
         /// <returns>The converted representation of the input.</returns>
         public static IEnumerable<TOutput> ConvertAll<TInput, TOutput>(this IConverter<TInput, TOutput> converter, IEnumerable<TInput> input)
         {
-            return ConvertInternal(input, converter.Convert);
+            return ConvertInternal<TInput, TOutput>(input, converter.Convert);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace NGenerics.Patterns.Conversion
         /// <returns>The converted representation of the input.</returns>
         public static IEnumerable<T2> ConvertAll<T1, T2>(this IBidirectionalConverter<T1, T2> converter, IEnumerable<T1> input)
         {
-            return ConvertInternal(input, converter.Convert);
+            return ConvertInternal<T1, T2>(input, converter.Convert);
         }
 
         /// <summary>
