@@ -284,7 +284,6 @@
     <None Include="Diagrams\Queues.cd" />
     <None Include="Diagrams\Trees.cd" />
     <None Include="Diagrams\Vectors.cd" />
-    <None Include="Migrated rules for NGenerics.ruleset" />
     <None Include="NGenerics.snk" />
   </ItemGroup>
   <ItemGroup>
