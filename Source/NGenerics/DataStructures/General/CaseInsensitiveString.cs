@@ -14,6 +14,7 @@ using System.Globalization;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
+using System.Security;
 using System.Text;
 using System.Xml;
 using System.Xml.Schema;
@@ -136,6 +137,8 @@ namespace NGenerics.DataStructures.General
             return left.Value.Equals(right.Value, StringComparison.InvariantCultureIgnoreCase);
         }
 
+
+		[SecurityCritical]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             Guard.ArgumentNotNull(info, "info");

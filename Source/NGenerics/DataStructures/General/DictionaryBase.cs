@@ -16,7 +16,7 @@ using System.Globalization;
 #if (!SILVERLIGHT)
 using System.Reflection;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
+using System.Security;
 #endif
 using NGenerics.Util;
 
@@ -550,7 +550,7 @@ namespace NGenerics.DataStructures.General
         #region ISerializable Members
 
         /// <inheritdoc />
-        [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+		[SecurityCritical]
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             dictionary.GetObjectData(info, context);

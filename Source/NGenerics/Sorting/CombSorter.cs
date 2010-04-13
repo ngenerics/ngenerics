@@ -33,7 +33,7 @@ namespace NGenerics.Sorting
 		{
 			var gap = list.Count;
 			
-			while (!((gap == 1)))
+			while (gap != 1)
 			{
 				if (gap > 1)
 				{

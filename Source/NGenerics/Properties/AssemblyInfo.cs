@@ -13,7 +13,6 @@ using System.Runtime.InteropServices;
 using System;
 #if (!SILVERLIGHT)
 using System.Security;
-using System.Security.Permissions;
 using System.Diagnostics.CodeAnalysis;
 #endif
 using System.Resources;
@@ -37,8 +36,6 @@ using System.Resources;
 #if (!SILVERLIGHT)
 
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: SecurityPermission(SecurityAction.RequestMinimum)]
-
 // FXCop Rules
 [module: SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "NGenerics.Algorithms")]
 [module: SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "NGenerics.Comparers")]
