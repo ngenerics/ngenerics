@@ -1,4 +1,4 @@
- /*  
+/*  
   Copyright 2007-2010 The NGenerics Team
  (http://code.google.com/p/ngenerics/wiki/Team)
 
