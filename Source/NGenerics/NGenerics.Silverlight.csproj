@@ -12,7 +12,7 @@
     <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NGenerics.Silverlight</RootNamespace>
+    <RootNamespace>NGenerics</RootNamespace>
     <AssemblyName>NGenerics.Silverlight</AssemblyName>
     <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <SilverlightApplication>false</SilverlightApplication>
@@ -87,6 +87,7 @@
     <Compile Include="DataStructures\General\Association.cs" />
     <Compile Include="DataStructures\General\AutoKeyDictionary.cs" />
     <Compile Include="DataStructures\General\Bag.cs" />
+    <Compile Include="DataStructures\General\CaseInsensitiveString.cs" />
     <Compile Include="DataStructures\General\DictionaryBase.cs" />
     <Compile Include="DataStructures\General\Edge.cs" />
     <Compile Include="DataStructures\General\Graph.cs" />
@@ -99,6 +100,8 @@
     <Compile Include="DataStructures\General\ISet.cs" />
     <Compile Include="DataStructures\General\ListBase.cs" />
     <Compile Include="DataStructures\General\ObjectMatrix.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableDictionary.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableDictionary.Notification.cs" />
     <Compile Include="DataStructures\General\PascalSet.cs" />
     <Compile Include="DataStructures\General\Singleton.cs" />
     <Compile Include="DataStructures\General\SkipList.cs" />

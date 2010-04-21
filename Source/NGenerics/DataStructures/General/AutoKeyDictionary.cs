@@ -11,13 +11,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security;
 using NGenerics.Util;
 #if (!SILVERLIGHT)
+using System.Security;
 using System.Reflection;
 using System.Diagnostics;
 using System.Runtime.Serialization;
-
 #endif
 
 namespace NGenerics.DataStructures.General

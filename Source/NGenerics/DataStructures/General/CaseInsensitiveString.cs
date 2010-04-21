@@ -11,16 +11,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
-using System.Security;
 using System.Text;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using NGenerics.Util;
-
+#if (!SILVERLIGHT)
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.Serialization;
+using System.Security;
+#endif
 namespace NGenerics.DataStructures.General
 {
     /// <summary>
@@ -30,9 +31,13 @@ namespace NGenerics.DataStructures.General
     /// All operations are performed in case insensive manner using <see cref="StringComparison.InvariantCultureIgnoreCase"/>.
     /// </remarks>
     [ComVisible(true)]
+#if (SILVERLIGHT)
+    public sealed class CaseInsensitiveString : IComparable,  IConvertible, IComparable<string>, IEquatable<string>,  IXmlSerializable, IEnumerable<char>
+#else
     [Serializable]
-    public sealed class CaseInsensitiveString : IComparable, ICloneable, IConvertible, IComparable<string>, IEquatable<string>, ISerializable, IXmlSerializable, IEnumerable<char>
-    {
+    public sealed class CaseInsensitiveString : IComparable,  IConvertible, IComparable<string>, IEquatable<string>,  IXmlSerializable, IEnumerable<char>,ICloneable,ISerializable
+#endif
+	{
 
 
         public CaseInsensitiveString()
@@ -46,11 +51,14 @@ namespace NGenerics.DataStructures.General
             Value = value;
         }
 
+		
+#if (!SILVERLIGHT)
         protected CaseInsensitiveString(SerializationInfo info, StreamingContext context)
         {
             Guard.ArgumentNotNull(info, "info");
             Value = (string)info.GetValue("StringValue", typeof(string));
         }
+#endif
 
 
         /// <summary>
@@ -117,7 +125,8 @@ namespace NGenerics.DataStructures.General
 
 
 
-
+		
+#if(!SILVERLIGHT)
         /// <summary>
         /// Retrieves an object that can iterate through the individual characters in this string.
         /// </summary>
@@ -128,7 +137,7 @@ namespace NGenerics.DataStructures.General
         {
             return Value.GetEnumerator();
         }
-
+#endif
 
 
 
@@ -137,6 +146,8 @@ namespace NGenerics.DataStructures.General
             return left.Value.Equals(right.Value, StringComparison.InvariantCultureIgnoreCase);
         }
 
+		
+#if(!SILVERLIGHT)
 
 		[SecurityCritical]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -144,6 +155,7 @@ namespace NGenerics.DataStructures.General
             Guard.ArgumentNotNull(info, "info");
             info.AddValue("StringValue", Value);
         }
+#endif
 
 
 
@@ -154,8 +166,9 @@ namespace NGenerics.DataStructures.General
         }
 
 
-        #region ICloneable Members
 
+#if (!SILVERLIGHT)
+        #region ICloneable Members
         /// <summary>
         /// Returns a reference to this instance of <see cref="String"/>.
         /// </summary>
@@ -168,6 +181,7 @@ namespace NGenerics.DataStructures.General
         }
 
         #endregion
+#endif
 
         #region IComparable Members
 
@@ -458,7 +472,7 @@ namespace NGenerics.DataStructures.General
 
         IEnumerator<char> IEnumerable<char>.GetEnumerator()
         {
-            return Value.GetEnumerator();
+			return ((IEnumerable<char>)Value).GetEnumerator();
         }
 
         /// <summary>
@@ -468,8 +482,8 @@ namespace NGenerics.DataStructures.General
         /// An <see cref="IEnumerator"/> object that can be used to iterate through the current <see cref="String"/> object.
         /// </returns>
         IEnumerator IEnumerable.GetEnumerator()
-        {
-            return Value.GetEnumerator();
+		{
+			return ((IEnumerable)Value).GetEnumerator();
         }
 
         #endregion
@@ -484,7 +498,10 @@ namespace NGenerics.DataStructures.General
         /// </returns>
         /// <param name="value">A <see cref="String"/>.</param>
         /// <exception cref="NullReferenceException">This instance is null.</exception>
+        /// 
+#if(!SILVERLIGHT)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
+#endif
         public bool Equals(string value)
         {
             return (this == value);
@@ -550,7 +567,9 @@ namespace NGenerics.DataStructures.General
         /// </returns>
         /// <param name="obj">An <see cref="Object"/>.</param>
         /// <exception cref="NullReferenceException">This instance is null.</exception>
+#if (!SILVERLIGHT)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
+#endif
         public override bool Equals(object obj)
         {
             var strB = obj as string;
@@ -577,6 +596,8 @@ namespace NGenerics.DataStructures.General
             return Value.ToCharArray();
         }
 
+		
+#if(!SILVERLIGHT)
         /// <summary>
         /// Copies the characters in a specified substring in this instance to a Unicode character array.
         /// </summary>
@@ -594,7 +615,7 @@ namespace NGenerics.DataStructures.General
         {
             return Value.ToCharArray(startIndex, length);
         }
-
+#endif
 
         /// <summary>
         /// Returns the hash code for this string.
@@ -602,7 +623,9 @@ namespace NGenerics.DataStructures.General
         /// <returns>
         /// A 32-bit signed integer hash code.
         /// </returns>
+#if(!SILVERLIGHT)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
+#endif
         public override int GetHashCode()
         {
             return Value.ToUpper().GetHashCode();
@@ -621,6 +644,7 @@ namespace NGenerics.DataStructures.General
             return StringArrayTo(Value.Split(separator));
         }
 
+#if (!SILVERLIGHT)
         /// <summary>
         /// Returns a string array that contains the substrings in this instance that are delimited by elements of a specified Unicode character array. A parameter specifies the maximum number of substrings to return.
         /// </summary>
@@ -634,6 +658,7 @@ namespace NGenerics.DataStructures.General
         {
             return StringArrayTo(Value.Split(separator, count));
         }
+#endif
 
         /// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified Unicode character array. A parameter specifies whether to return empty array elements.
@@ -650,7 +675,8 @@ namespace NGenerics.DataStructures.General
             return StringArrayTo(Value.Split(separator, options));
         }
 
-
+		
+#if(!SILVERLIGHT)
         /// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified Unicode character array. Parameters specify the maximum number of substrings to return and whether to return empty array elements.
         /// </summary>
@@ -667,6 +693,7 @@ namespace NGenerics.DataStructures.General
         {
             return StringArrayTo(Value.Split(separator, count, options));
         }
+#endif
 
         /// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified string array. A parameter specifies whether to return empty array elements.
@@ -683,7 +710,8 @@ namespace NGenerics.DataStructures.General
             return StringArrayTo(Value.Split(separator, options));
         }
 
-
+		
+#if(!SILVERLIGHT)
         /// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified string array. Parameters specify the maximum number of substrings to return and whether to return empty array elements.
         /// </summary>
@@ -700,6 +728,7 @@ namespace NGenerics.DataStructures.General
         {
             return StringArrayTo(Value.Split(separator, count, options));
         }
+#endif
 
         private static CaseInsensitiveString[] StringArrayTo(string[] strings)
         {
@@ -779,6 +808,8 @@ namespace NGenerics.DataStructures.General
             return Value.TrimEnd(trimChars);
         }
 
+		
+#if (!SILVERLIGHT)
 
         /// <summary>
         /// Indicates whether this string is in Unicode normalization form C.
@@ -830,7 +861,7 @@ namespace NGenerics.DataStructures.General
             return Value.Normalize(normalizationForm);
         }
 
-
+#endif
 
         /// <summary>
         /// Returns a value indicating whether the specified <see cref="String"/> object occurs within this string.
@@ -842,8 +873,8 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is null.</exception>
         public bool Contains(string value)
         {
-            return Value.ToUpperInvariant().Contains(value.ToUpperInvariant());
-        }
+			return Value.ToUpper(CultureInfo.InvariantCulture).Contains(value.ToUpper(CultureInfo.InvariantCulture));
+		}
 
         /// <summary>
         /// Determines whether the end of this instance matches the specified string.
@@ -874,7 +905,7 @@ namespace NGenerics.DataStructures.General
         {
             return Value.EndsWith(value, comparisonType);
         }
-
+#if (!SILVERLIGHT)
         /// <summary>
         /// Determines whether the end of this string matches the specified string when compared using the specified culture.
         /// </summary>
@@ -889,7 +920,7 @@ namespace NGenerics.DataStructures.General
         {
             return Value.EndsWith(value, ignoreCase, culture);
         }
-
+#endif
         /// <summary>
         /// Reports the index of the first occurrence of the specified Unicode character in this string.
         /// </summary>
@@ -1327,6 +1358,8 @@ namespace NGenerics.DataStructures.General
         }
 
 
+#if(!SILVERLIGHT)
+
         /// <summary>
         /// Determines whether the beginning of this string matches the specified string when compared using the specified culture.
         /// </summary>
@@ -1341,7 +1374,7 @@ namespace NGenerics.DataStructures.General
         {
             return Value.StartsWith(value, ignoreCase, culture);
         }
-
+#endif
 
         /// <summary>
         /// Returns a copy of this <see cref="String"/> converted to lowercase, using the casing rules of the current culture.
@@ -1369,6 +1402,7 @@ namespace NGenerics.DataStructures.General
             return Value.ToLower(culture);
         }
 
+#if (!SILVERLIGHT)
         /// <summary>
         /// Returns a copy of this <see cref="String"/> object converted to lowercase using the casing rules of the invariant culture.
         /// </summary>
@@ -1380,8 +1414,21 @@ namespace NGenerics.DataStructures.General
         {
             return Value.ToLowerInvariant();
         }
-
+		
         /// <summary>
+        /// Returns a copy of this <see cref="String"/> object converted to uppercase using the casing rules of the invariant culture.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="String"/> object in uppercase.
+        /// </returns>
+        /// <PermissionSet><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode"/></PermissionSet>
+        public string ToUpperInvariant()
+        {
+            return Value.ToUpperInvariant();
+        }
+#endif
+
+		/// <summary>
         /// Returns a copy of this <see cref="String"/> converted to uppercase, using the casing rules of the current culture.
         /// </summary>
         /// <returns>
@@ -1407,17 +1454,6 @@ namespace NGenerics.DataStructures.General
             return Value.ToUpper(culture);
         }
 
-        /// <summary>
-        /// Returns a copy of this <see cref="String"/> object converted to uppercase using the casing rules of the invariant culture.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="String"/> object in uppercase.
-        /// </returns>
-        /// <PermissionSet><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode"/></PermissionSet>
-        public string ToUpperInvariant()
-        {
-            return Value.ToUpperInvariant();
-        }
 
         /// <summary>
         /// Returns this instance of <see cref="String"/>; no actual conversion is performed.

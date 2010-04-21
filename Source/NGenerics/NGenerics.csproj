@@ -52,7 +52,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;STRICT_VALIDATION</DefineConstants>
+    <DefineConstants>TRACE;STRICT_VALIDATION, CONTRACTS_FULL</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\NGenerics.xml</DocumentationFile>
@@ -99,6 +99,8 @@
     <Compile Include="DataStructures\General\CaseInsensitiveString.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataStructures\General\Observable\ObservableDictionary.Notification.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableDictionary.cs" />
     <Compile Include="DataStructures\General\Curve.cs" />
     <Compile Include="DataStructures\General\DictionaryBase.cs" />
     <Compile Include="DataStructures\General\ListBase.cs" />
