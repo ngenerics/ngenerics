@@ -61,7 +61,7 @@ namespace NGenerics.Extensions
         /// <param name="func">A <see cref="Func{T,V}"/> to convert each <typeparamref name="T"/> to a string.</param>
         /// <param name="joinString">The <see cref="string"/> to use in between each value.</param>
         /// <returns>All values concatenated into a string using ", " as in betweeen each value.</returns>
-        private static string ConcatToString<T>(IEnumerable<T> enumerable, Func<T, string> func, string joinString)
+        private static string ConcatToString<T>(this IEnumerable<T> enumerable, Func<T, string> func, string joinString)
         {
             var stringBuilder = new StringBuilder();
             var list = Enumerable.ToList(enumerable);
