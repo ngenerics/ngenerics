@@ -101,7 +101,18 @@ namespace NGenerics.Extensions
         /// <typeparam name="T">The type of object to wrap.</typeparam>
         /// <param name="obj">The object to wrap.</param>
         /// <returns>A new <see cref="List{T}"/> containing the object.</returns>
+        [Obsolete("Made obsolete to stop conflicting with Enumerable.ToList. Use ObjectExtensions.ToEnumerable instead.", true)]
         public static List<T> ToList<T>(this T obj)
+        {
+            return new List<T>{obj};
+        }
+        /// <summary>
+        /// Wraps an object in an <see cref="List{T}"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of object to wrap.</typeparam>
+        /// <param name="obj">The object to wrap.</param>
+        /// <returns>A new <see cref="List{T}"/> containing the object.</returns>
+        public static List<T> ToEnumerable<T>(this T obj)
         {
             return new List<T>{obj};
         }
