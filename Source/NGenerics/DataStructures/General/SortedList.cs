@@ -112,7 +112,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="RemoveAt" lang="cs" title="The following example shows how to use the RemoveAt method."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="RemoveAt" lang="vbnet" title="The following example shows how to use the RemoveAt method."/>
         /// </example>
-        public void RemoveAt(int index)
+        public virtual void RemoveAt(int index)
         {
             data.RemoveAt(index);
         }
@@ -190,7 +190,7 @@ namespace NGenerics.DataStructures.General
             AddItem(item);
         }
 
-        private int AddItem(T item)
+        protected virtual int AddItem(T item)
         {
             if (data.Count == 0)
             {
@@ -211,7 +211,7 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <inheritdoc />  
-        public bool Remove(T item)
+        public virtual bool Remove(T item)
         {
             return data.Remove(item);
         }
@@ -269,6 +269,19 @@ namespace NGenerics.DataStructures.General
             return data.GetEnumerator();
         }
 
+        /// <summary>
+        /// Adds the elements of the specified collection to the end of the <see cref="SortedList{T}"/>.
+        /// </summary>
+        /// <param name="collection">The collection whose elements should be added to the end of the <see cref="SortedList{T}"/>. The collection itself cannot be null, but it can contain elements that are null, if type T is a reference type.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="collection"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
+        public void AddRange(IEnumerable<T> collection)
+        {
+            Guard.ArgumentNotNull(collection, "collection");
+            foreach (var item in collection)
+            {
+                AddItem(item);
+            }
+        }
         int IList.Add(object value)
         {
             return AddItem((T)value);
@@ -284,7 +297,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
         /// </example>
-        public void Clear()
+        public virtual void Clear()
         {
             data.Clear();
         }

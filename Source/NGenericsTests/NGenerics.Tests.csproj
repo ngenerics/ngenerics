@@ -107,6 +107,7 @@
     <Compile Include="DataStructures\General\EdgeTest.cs" />
     <Compile Include="DataStructures\General\HeapTest.cs" />
     <Compile Include="DataStructures\General\Observable\ObservableDictionaryTest.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableSortedListTest.cs" />
     <Compile Include="DataStructures\General\VertexTest.cs" />
     <Compile Include="DataStructures\Mathematical\CholeskyDecompositionTest.cs" />
     <Compile Include="DataStructures\Mathematical\LUDecompositionTest.cs" />

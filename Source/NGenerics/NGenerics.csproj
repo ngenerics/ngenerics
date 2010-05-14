@@ -99,6 +99,8 @@
     <Compile Include="DataStructures\General\CaseInsensitiveString.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataStructures\General\Observable\ObservableSortedList.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableSortedList.Notification.cs" />
     <Compile Include="DataStructures\General\Observable\ObservableDictionary.Notification.cs" />
     <Compile Include="DataStructures\General\Observable\ObservableDictionary.cs" />
     <Compile Include="DataStructures\General\Curve.cs" />
