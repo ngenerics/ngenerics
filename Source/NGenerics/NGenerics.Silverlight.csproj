@@ -102,6 +102,8 @@
     <Compile Include="DataStructures\General\ObjectMatrix.cs" />
     <Compile Include="DataStructures\General\Observable\ObservableDictionary.cs" />
     <Compile Include="DataStructures\General\Observable\ObservableDictionary.Notification.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableSortedList.cs" />
+    <Compile Include="DataStructures\General\Observable\ObservableSortedList.Notification.cs" />
     <Compile Include="DataStructures\General\PascalSet.cs" />
     <Compile Include="DataStructures\General\Singleton.cs" />
     <Compile Include="DataStructures\General\SkipList.cs" />
