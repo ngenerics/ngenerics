@@ -52,7 +52,7 @@ namespace NGenerics.DataStructures.General.Observable
             if (remove)
             {
                 OnPropertyChanged("Count", "IsEmpty", "Item[]");
-                OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, -1));
+                OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, -1));
             }
             return remove;
         }
