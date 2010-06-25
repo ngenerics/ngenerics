@@ -25,10 +25,10 @@ using System.Security;
 namespace NGenerics.DataStructures.General
 {
     /// <summary>
-    /// Represents case insensivie text as a series of Unicode characters.
+    /// Represents case insensitive text as a series of Unicode characters.
     /// </summary>
     /// <remarks>
-    /// All operations are performed in case insensive manner using <see cref="StringComparison.InvariantCultureIgnoreCase"/>.
+    /// All operations are performed in case insensitive manner using <see cref="StringComparison.InvariantCultureIgnoreCase"/>.
     /// </remarks>
     [ComVisible(true)]
 #if (SILVERLIGHT)
@@ -53,7 +53,7 @@ namespace NGenerics.DataStructures.General
 
 		
 #if (!SILVERLIGHT)
-        protected CaseInsensitiveString(SerializationInfo info, StreamingContext context)
+        private CaseInsensitiveString(SerializationInfo info, StreamingContext context)
         {
             Guard.ArgumentNotNull(info, "info");
             Value = (string)info.GetValue("StringValue", typeof(string));
@@ -62,7 +62,7 @@ namespace NGenerics.DataStructures.General
 
 
         /// <summary>
-        /// Gets or sets the undeling case sensitive string.
+        /// Gets or sets the underlying case sensitive string.
         /// </summary>
         public string Value { get; set; }
 

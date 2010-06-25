@@ -12,6 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nunit", "Nunit", "{51319DF5
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rhino.Mocks", "Rhino.Mocks", "{7299DFB7-B767-434F-80B2-DFB7E5B0980B}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\Rhino.Mocks\Rhino.Mocks 3.5.Silverlight.dll = Dependencies\Rhino.Mocks\Rhino.Mocks 3.5.Silverlight.dll
+		Dependencies\Rhino.Mocks\Rhino.Mocks 3.5.Silverlight.pdb = Dependencies\Rhino.Mocks\Rhino.Mocks 3.5.Silverlight.pdb
+		Dependencies\Rhino.Mocks\Rhino.Mocks.dll = Dependencies\Rhino.Mocks\Rhino.Mocks.dll
+		Dependencies\Rhino.Mocks\Rhino.Mocks.xml = Dependencies\Rhino.Mocks\Rhino.Mocks.xml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1BD15AEE-67E3-44CF-8FEF-5D2B170720F4}"
 EndProject

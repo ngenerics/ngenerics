@@ -25,7 +25,7 @@ namespace NGenerics.Tests.Patterns.Specification
                 ISpecification<int> spec = new PredicateSpecification<int>(x => x == 5);
                 var notSpec = spec.Not();
 
-                Assert.IsInstanceOfType(typeof (NotSpecification<int>), notSpec);
+                Assert.IsInstanceOf<NotSpecification<int>>(notSpec);
                 Assert.AreEqual(((NotSpecification<int>) notSpec).Specification, spec);
             }
         }

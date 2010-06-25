@@ -26,7 +26,7 @@ namespace NGenerics.Tests.Patterns.Specification
 
                 var andSpec = spec1.And(spec2);
 
-                Assert.IsInstanceOfType(typeof (AndSpecification<int>), andSpec);
+                Assert.IsInstanceOf<AndSpecification<int>>(andSpec);
 
                 Assert.AreEqual(((AndSpecification<int>) andSpec).Left, spec1);
                 Assert.AreEqual(((AndSpecification<int>) andSpec).Right, spec2);
@@ -34,7 +34,7 @@ namespace NGenerics.Tests.Patterns.Specification
                 ISpecification<int> interfaceSpec = spec1;
                 var interfaceAndSpec = interfaceSpec.And(spec2);
 
-                Assert.IsInstanceOfType(typeof(AndSpecification<int>), interfaceAndSpec);
+                Assert.IsInstanceOf<AndSpecification<int>>(interfaceAndSpec);
 
                 Assert.AreEqual(((AndSpecification<int>) interfaceAndSpec).Left, spec1);
                 Assert.AreEqual(((AndSpecification<int>) interfaceAndSpec).Right, spec2);
@@ -49,7 +49,7 @@ namespace NGenerics.Tests.Patterns.Specification
 
                 var andSpec = spec1 & spec2;
 
-                Assert.IsInstanceOfType(typeof(AndSpecification<int>), andSpec);
+                Assert.IsInstanceOf<AndSpecification<int>>(andSpec);
 
                 Assert.AreEqual(((AndSpecification<int>) andSpec).Left, spec1);
                 Assert.AreEqual(((AndSpecification<int>) andSpec).Right, spec2);
@@ -67,7 +67,7 @@ namespace NGenerics.Tests.Patterns.Specification
 
                 var orSpec = spec1.Or(spec2);
 
-                Assert.IsInstanceOfType(typeof(OrSpecification<int>), orSpec);
+                Assert.IsInstanceOf<OrSpecification<int>>(orSpec);
 
                 Assert.AreEqual(((OrSpecification<int>) orSpec).Left, spec1);
                 Assert.AreEqual(((OrSpecification<int>) orSpec).Right, spec2);
@@ -75,7 +75,7 @@ namespace NGenerics.Tests.Patterns.Specification
                 ISpecification<int> interfaceSpec = spec1;
                 var interfaceResultSpec = interfaceSpec.Or(spec2);
 
-                Assert.IsInstanceOfType(typeof(OrSpecification<int>), interfaceResultSpec);
+                Assert.IsInstanceOf<OrSpecification<int>>(interfaceResultSpec);
 
                 Assert.AreEqual(((OrSpecification<int>) interfaceResultSpec).Left, spec1);
                 Assert.AreEqual(((OrSpecification<int>) interfaceResultSpec).Right, spec2);
@@ -89,7 +89,7 @@ namespace NGenerics.Tests.Patterns.Specification
 
                 var orSpec = spec1 | spec2;
 
-                Assert.IsInstanceOfType(typeof(OrSpecification<int>), orSpec);
+                Assert.IsInstanceOf<OrSpecification<int>>(orSpec);
 
                 Assert.AreEqual(((OrSpecification<int>) orSpec).Left, spec1);
                 Assert.AreEqual(((OrSpecification<int>) orSpec).Right, spec2);
@@ -105,13 +105,13 @@ namespace NGenerics.Tests.Patterns.Specification
                 var spec = new PredicateSpecification<int>(x => x > 5);
                 var orSpec = spec.Not();
 
-                Assert.IsInstanceOfType(typeof(NotSpecification<int>), orSpec);
+                Assert.IsInstanceOf<NotSpecification<int>>(orSpec);
                 Assert.AreEqual(((NotSpecification<int>) orSpec).Specification, spec);
 
 
                 ISpecification<int> interfaceSpec = spec.Not();
 
-                Assert.IsInstanceOfType(typeof(NotSpecification<int>), interfaceSpec);
+                Assert.IsInstanceOf<NotSpecification<int>>(interfaceSpec);
                 Assert.AreEqual(((NotSpecification<int>) interfaceSpec).Specification, spec);
             }
 
@@ -121,7 +121,7 @@ namespace NGenerics.Tests.Patterns.Specification
                 var spec = new PredicateSpecification<int>(x => x > 5);
                 var orSpec = !spec;
 
-                Assert.IsInstanceOfType(typeof(NotSpecification<int>), orSpec);
+                Assert.IsInstanceOf<NotSpecification<int>>(orSpec);
                 Assert.AreEqual(((NotSpecification<int>) orSpec).Specification, spec);
             }
         }
@@ -143,7 +143,7 @@ namespace NGenerics.Tests.Patterns.Specification
                 ISpecification<int> interfaceSpec = spec1;
                 var interfaceResultSpec = interfaceSpec.Xor(spec2);
 
-                Assert.IsInstanceOfType(typeof(XorSpecification<int>), interfaceResultSpec);
+                Assert.IsInstanceOf<XorSpecification<int>>(interfaceResultSpec);
 
                 Assert.AreEqual(((XorSpecification<int>) interfaceResultSpec).Left, spec1);
                 Assert.AreEqual(((XorSpecification<int>) interfaceResultSpec).Right, spec2);
