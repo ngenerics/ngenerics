@@ -6,7 +6,6 @@
 	<property name="nant.settings.currentframework" value="net-4.0" />
 	<property name="framework-get-assembly-directory" value="${framework::get-assembly-directory('net-4.0')}" />
 	<property name="dotNetReferenceAssemblyPath" value="${framework-get-assembly-directory}\" />
-	<include name="${dotNetReferenceAssemblyPath}System.ComponentModel.DataAnnotations.dll" />
 
 	<!-- Behavioural Properties -->
 	<property name="debug" value="false" overwrite="false" />
