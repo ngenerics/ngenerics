@@ -154,6 +154,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\NGenerics\NGenerics.csproj">
       <Project>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</Project>
       <Name>NGenerics</Name>

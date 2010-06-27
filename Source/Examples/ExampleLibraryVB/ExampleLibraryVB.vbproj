@@ -177,12 +177,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NGenerics\NGenerics.csproj">
-      <Project>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</Project>
-      <Name>NGenerics</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -208,6 +202,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\NGenerics\NGenerics.csproj">
+      <Project>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</Project>
+      <Name>NGenerics</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
