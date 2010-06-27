@@ -261,7 +261,8 @@
 		<exec program="${nunit.exe}">
 			<arg value="${project.tests.ngenerics.assembly}" />      
 			<arg value="/xml=${project.report.xml.dir}\NGenericsTestsResults.xml" />
-			<arg value="/config=NGenericsTests.dll.config" />
+      <arg value="/framework=4.0.30319" />
+      <arg value="/config=NGenericsTests.dll.config" />
 		</exec>
 
 		<echo message="*"/>
@@ -428,17 +429,6 @@
 		<mkdir dir="${project.report.html.dir}" />
 	</target>
 
-	<!-- 
-	<target name="run-fxcop" description="Runs Microsoft FxCop.">
-
-		<echo message="*"/>
-		<echo message="* Running Microsoft FxCop..."/>
-		<echo message="*"/>
-		
-		<exec program="${fxcop.exe}"
-			commandline="/p:Projects\FxCop\NGenerics.FxCop /o:${project.report.xml.dir}\Fxcop-Results.xml" failonerror="true"/>
-	</target>
-	-->
 
 	<target name="run-ncover" description="Runs NCover to determine code coverage.">
 
@@ -462,22 +452,3 @@
 
 
 </project>
-
-<!-- 
- <target name="run-ndepend" >
-		<delete failonerror="true" dir="D:\Projects\Personal Projects\NGenerics\SolutionFiles\NDepend\Output" />
-		<exec program="C:\Program Files\Development\NDepend\NDepend.Console.exe">
-			<arg value="D:\Projects\Personal Projects\NGenerics\SolutionFiles\NDepend\NDependProject.xml" />
-			<arg value="/Silent" />
-		</exec>
-	</target>
-	
-	<exec program="${nunit-console.exe}">
-			<arg value="NGenericsTests.dll" />
-			<arg value="ExampleLibraryCSharp.dll" />
-			<arg value="ExampleLibraryVB.dll" />
-			<arg value="/xml=NGenericsTests-Results.xml" />
-			<arg value="/config=NGenericsTests.dll.config" />
-		</exec>
--->
-
