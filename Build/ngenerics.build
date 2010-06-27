@@ -155,8 +155,9 @@
 			<arg value="${path::combine(project.source.ngenerics.dir, solution.build.name)}" />
 			<arg value="/t:Rebuild"/>
 			<arg value="/p:Configuration=Release"/>
-			<arg value="/p:DefineConstants=${build.constants}" />
-		</exec>
+      <arg value="/p:TrackFileAccess=false"/>
+			<arg value="/p:DefineConstants=${build.constants}" />      
+    </exec>
 	</target>
 
 	<target name="init-release" description="Cleans and creates the required directories.">
