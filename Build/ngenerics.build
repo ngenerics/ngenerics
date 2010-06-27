@@ -273,6 +273,7 @@
 			<arg value="${project.examples.csharp.assembly}" />
 			<arg value="${project.examples.vb.assembly}" />
 			<arg value="/xml=${project.report.xml.dir}\NGenericsExamplesTestsResults.xml" />
+      <arg value="/framework=4.0.30319" />
 			<arg value="/config=NGenericsTests.dll.config" />
 		</exec>
 
