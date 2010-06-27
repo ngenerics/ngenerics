@@ -37,7 +37,7 @@ namespace NGenerics.DataStructures.General.Observable
             CheckReentrancy();
             var index = base.AddItem(item);
             OnPropertyChanged("Count", "IsEmpty", "Item[]");
-            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item));
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, -1));
             return index;
         }
 
