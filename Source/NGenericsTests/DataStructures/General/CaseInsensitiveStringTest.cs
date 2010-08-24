@@ -7,6 +7,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
+using System.Collections.Generic;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
@@ -24,7 +25,19 @@ namespace NGenerics.Tests.DataStructures.General
             Assert.AreEqual("AbEf", value.Replace("Cd", string.Empty).Value);
             Assert.AreEqual("AbXyEf", value.Replace("Cd", "Xy").Value);
         }
-        [Test]
+
+		[Test]
+		public void EqualityComparer()
+		{
+			CaseInsensitiveString value1 = "AbcDEf";
+			CaseInsensitiveString value2 = "AbcDEf";
+
+			var defaultComparer = EqualityComparer<CaseInsensitiveString>.Default;
+			Assert.AreEqual(defaultComparer.GetHashCode(value1), defaultComparer.GetHashCode(value2));
+			Assert.IsTrue(defaultComparer.Equals(value1,value2));
+		}
+
+    	[Test]
         public void ReplaceChar()
         {
             CaseInsensitiveString value = "AbcDEf";

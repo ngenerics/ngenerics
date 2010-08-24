@@ -32,10 +32,10 @@ namespace NGenerics.DataStructures.General
     /// </remarks>
     [ComVisible(true)]
 #if (SILVERLIGHT)
-    public sealed class CaseInsensitiveString : IComparable,  IConvertible, IComparable<string>, IEquatable<string>,  IXmlSerializable, IEnumerable<char>
+    public sealed class CaseInsensitiveString : IComparable,  IConvertible, IComparable<string>, IEquatable<string>, IEquatable<CaseInsensitiveString>,  IXmlSerializable, IEnumerable<char>
 #else
-    [Serializable]
-    public sealed class CaseInsensitiveString : IComparable,  IConvertible, IComparable<string>, IEquatable<string>,  IXmlSerializable, IEnumerable<char>,ICloneable,ISerializable
+	[Serializable]
+	public sealed class CaseInsensitiveString : IComparable, IConvertible, IComparable<string>, IEquatable<string>, IEquatable<CaseInsensitiveString>, IXmlSerializable, IEnumerable<char>, ICloneable, ISerializable
 #endif
 	{
 
@@ -498,11 +498,29 @@ namespace NGenerics.DataStructures.General
         /// </returns>
         /// <param name="value">A <see cref="String"/>.</param>
         /// <exception cref="NullReferenceException">This instance is null.</exception>
-        /// 
 #if(!SILVERLIGHT)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 #endif
         public bool Equals(string value)
+        {
+            return (this == value);
+        }
+
+        #endregion
+		#region IEquatable<CaseInsensitiveString> Members
+
+		/// <summary>
+		/// Determines whether this instance and another specified <see cref="CaseInsensitiveString"/> object have the same value.
+        /// </summary>
+        /// <returns>
+        /// true if the value of the <paramref name="value"/> parameter is the same as this instance; otherwise, false.
+        /// </returns>
+		/// <param name="value">A <see cref="CaseInsensitiveString"/>.</param>
+        /// <exception cref="NullReferenceException">This instance is null.</exception>
+#if(!SILVERLIGHT)
+        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
+#endif
+        public bool Equals(CaseInsensitiveString value)
         {
             return (this == value);
         }
