@@ -21,7 +21,7 @@ namespace ExampleLibraryCSharp.Sorting
         [Test]
         public void SortExample()
         {
-            var sorter = new BucketSorter(100);
+            var sorter = new BucketSorter();
 
             var list = new List<int> {13, 5, 77, 9, 12};
 
@@ -39,7 +39,7 @@ namespace ExampleLibraryCSharp.Sorting
         [Test]
         public void SortWithOrderExample()
         {
-            var sorter = new BucketSorter(100);
+            var sorter = new BucketSorter();
 
             var list = new List<int> {13, 5, 77, 9, 12};
 

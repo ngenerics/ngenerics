@@ -8,6 +8,7 @@
 */
 
 
+using System;
 using System.Collections.Generic;
 using NGenerics.Util;
 
@@ -19,34 +20,35 @@ namespace NGenerics.Sorting
     /// <example>
     /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\BucketSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
     /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\BucketSorterExamples.vb" region="Sort" lang="vbnet" title="The following example shows how to use the Sort method."/>
-	/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\BucketSorterExamples.cs" region="SortWithSortOrder" lang="cs" title="The following example shows how to use the Sort method with a SortOrder."/>
-	/// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\BucketSorterExamples.vb" region="SortWithSortOrder" lang="vbnet" title="The following example shows how to use the Sort method with a SortOrder."/>
+    /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\BucketSorterExamples.cs" region="SortWithSortOrder" lang="cs" title="The following example shows how to use the Sort method with a SortOrder."/>
+    /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\BucketSorterExamples.vb" region="SortWithSortOrder" lang="vbnet" title="The following example shows how to use the Sort method with a SortOrder."/>
     /// </example>
-	public sealed class BucketSorter : Sorter<int>
-	{
-		#region Globals
+    public sealed class BucketSorter : Sorter<int>
+    {
 
-        private readonly int maximumUniverse;
+        #region Construction
 
-		#endregion
+        /// <param name="maximumUniverse">The maximum universe.(Obsolete)</param> 
+        [Obsolete]
+        public BucketSorter(int maximumUniverse)
+        {
+            
+        }
 
-		#region Construction
+       
+       /// <example>
+       /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\BubbleSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
+       /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\BubbleSorterExamples.vb" region="Sort" lang="vbnet" title="The following example shows how to use the Sort method."/>
+       /// </example>
+       public BucketSorter()
+       {
 
-        /// <param name="maximumUniverse">The maximum universe.</param>
-        /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\BubbleSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\BubbleSorterExamples.vb" region="Sort" lang="vbnet" title="The following example shows how to use the Sort method."/>
-        /// </example>
-		public BucketSorter(int maximumUniverse)
-		{
-            this.maximumUniverse = maximumUniverse;
-		}
-
-		#endregion
+       }
+        #endregion
 
         #region ISorter<int> Members
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public override void Sort(IList<int> list, SortOrder order)
         {
             #region Validation
@@ -55,12 +57,24 @@ namespace NGenerics.Sorting
 
             #endregion
 
-            var maximumIndex = maximumUniverse + 1;
+            if (list.Count<=1)
+                return;
+
+            int max, min;
+            max = min = list[0];
+            
+            for (var i = 0; i < list.Count; i++)
+            {
+                if (list[i] > max) max = list[i];
+                else if (list[i] < min) min = list[i];
+            }
+
+            var maximumIndex = max - min + 1;
             var counters = new int[maximumIndex];
 
             for (var i = 0; i < list.Count; i++)
             {
-                counters[list[i]]++;
+                counters[list[i] - min]++;
             }
 
             if (order == SortOrder.Ascending)

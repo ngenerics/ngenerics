@@ -17,7 +17,7 @@ Public Class BucketSorterExamples
 #Region "Sort"
   <Test()> _
   Public Sub SortExample()
-    Dim sorter As New BucketSorter(100)
+        Dim sorter As New BucketSorter()
 
     Dim list As New List(Of Integer)
     list.Add(13)
@@ -39,7 +39,7 @@ Public Class BucketSorterExamples
 #Region "SortWithSortOrder"
     <Test()> _
     Public Sub SortWithOrderExample()
-        Dim sorter As New BucketSorter(100)
+        Dim sorter As New BucketSorter()
 
         Dim list As New List(Of Integer)
         list.Add(13)

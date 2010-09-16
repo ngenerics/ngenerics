@@ -555,7 +555,7 @@ namespace NGenerics.Tests.Sorting
         [Test]
 		public void Simple()
         {
-            var sorter = new BucketSorter(500);
+            var sorter = new BucketSorter();
             TestSorter(sorter);
         }
 
@@ -563,7 +563,7 @@ namespace NGenerics.Tests.Sorting
         [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
-            var sorter = new BucketSorter(500);
+            var sorter = new BucketSorter();
             sorter.Sort(null);
         }
 
@@ -571,7 +571,7 @@ namespace NGenerics.Tests.Sorting
         [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
-            var sorter = new BucketSorter(500);
+            var sorter = new BucketSorter();
             sorter.Sort(null, SortOrder.Ascending);
         }
 
@@ -779,6 +779,10 @@ namespace NGenerics.Tests.Sorting
             list = GetSingleItemList();
             sorter.Sort(list, SortOrder.Descending);
             AssertSingleList(list);
+
+            // Test empty List
+            list = new List<int>();
+            sorter.Sort(list, SortOrder.Descending);
         }
 
         private static void AssertSingleList(List<int> list)
