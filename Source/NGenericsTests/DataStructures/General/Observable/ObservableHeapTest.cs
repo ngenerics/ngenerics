@@ -16,115 +16,110 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.Observable
+namespace NGenerics.Tests.DataStructures.General.Observable.ObservableHeapTest
 {
+
     [TestFixture]
-    public class ObservableHeapTest
+    public class Contruction
     {
 
-
-        [TestFixture]
-        public class Contruction
+        [Test]
+        public void Serialization()
         {
-
-            [Test]
-            public void Serialization()
-            {
-                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableHeap<int>(HeapType.Minimum));
-                ObservableCollectionTester.CheckMonitor(deserialize);
-            }
-            [Test]
-            public void Monitor1()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableHeap<int>(HeapType.Minimum));
-            }
-            [Test]
-            public void Monitor2()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableHeap<int>(HeapType.Minimum, Comparer<int>.Default));
-            }
-            [Test]
-            public void Monitor3()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableHeap<int>(HeapType.Minimum,2));
-            }
-            [Test]
-            public void Monitor4()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableHeap<int>(HeapType.Minimum, 2, Comparer<int>.Default));
-            }
+            var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableHeap<int>(HeapType.Minimum));
+            ObservableCollectionTester.CheckMonitor(deserialize);
         }
-
-        [TestFixture]
-        public class Add
+        [Test]
+        public void Monitor1()
         {
-            [Test]
-            public void Simple()
-            {
-                var heap = new ObservableHeap<string>(HeapType.Minimum);
-                ObservableCollectionTester.ExpectEvents(heap, obj => obj.Add("foo"), "Count", "Root", "IsEmpty");
-            }
-
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var heap = new ObservableHeap<string>(HeapType.Minimum);
-                new ReentracyTester<ObservableHeap<string>>(heap, obj => obj.Add("foo"));
-            }
+            ObservableCollectionTester.CheckMonitor(new ObservableHeap<int>(HeapType.Minimum));
         }
-
-        [TestFixture]
-        public class Clear
+        [Test]
+        public void Monitor2()
         {
-            [Test]
-            public void Simple()
-            {
-                var heap = new ObservableHeap<string>(HeapType.Minimum)
-                               {
-                                   "foo"
-                               };
-
-                ObservableCollectionTester.ExpectEvents(heap, obj => obj.Clear(), "Count", "Root", "IsEmpty");
-            }
-
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var heap = new ObservableHeap<string>(HeapType.Minimum)
-                               {
-                                   "foo"
-                               };
-                new ReentracyTester<ObservableHeap<string>>(heap, obj => obj.Clear());
-            }
+            ObservableCollectionTester.CheckMonitor(new ObservableHeap<int>(HeapType.Minimum, Comparer<int>.Default));
         }
-
-        [TestFixture]
-        public class Remove
+        [Test]
+        public void Monitor3()
         {
-            [Test]
-            public void Simple()
-            {
-                var heap = new ObservableHeap<string>(HeapType.Minimum)
-                               {
-                                   "foo"
-                               };
-
-                ObservableCollectionTester.ExpectEvents(heap, obj => obj.RemoveRoot(), "Count", "Root", "IsEmpty");
-            }
-
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var heap = new ObservableHeap<string>(HeapType.Minimum)
-                               {
-                                   "foo"
-                               };
-                new ReentracyTester<ObservableHeap<string>>(heap, obj => obj.RemoveRoot());
-            }
+            ObservableCollectionTester.CheckMonitor(new ObservableHeap<int>(HeapType.Minimum, 2));
         }
-
+        [Test]
+        public void Monitor4()
+        {
+            ObservableCollectionTester.CheckMonitor(new ObservableHeap<int>(HeapType.Minimum, 2, Comparer<int>.Default));
+        }
     }
+
+    [TestFixture]
+    public class Add
+    {
+        [Test]
+        public void Simple()
+        {
+            var heap = new ObservableHeap<string>(HeapType.Minimum);
+            ObservableCollectionTester.ExpectEvents(heap, obj => obj.Add("foo"), "Count", "Root", "IsEmpty");
+        }
+
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
+        {
+            var heap = new ObservableHeap<string>(HeapType.Minimum);
+            new ReentracyTester<ObservableHeap<string>>(heap, obj => obj.Add("foo"));
+        }
+    }
+
+    [TestFixture]
+    public class Clear
+    {
+        [Test]
+        public void Simple()
+        {
+            var heap = new ObservableHeap<string>(HeapType.Minimum)
+                               {
+                                   "foo"
+                               };
+
+            ObservableCollectionTester.ExpectEvents(heap, obj => obj.Clear(), "Count", "Root", "IsEmpty");
+        }
+
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
+        {
+            var heap = new ObservableHeap<string>(HeapType.Minimum)
+                               {
+                                   "foo"
+                               };
+            new ReentracyTester<ObservableHeap<string>>(heap, obj => obj.Clear());
+        }
+    }
+
+    [TestFixture]
+    public class Remove
+    {
+        [Test]
+        public void Simple()
+        {
+            var heap = new ObservableHeap<string>(HeapType.Minimum)
+                               {
+                                   "foo"
+                               };
+
+            ObservableCollectionTester.ExpectEvents(heap, obj => obj.RemoveRoot(), "Count", "Root", "IsEmpty");
+        }
+
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
+        {
+            var heap = new ObservableHeap<string>(HeapType.Minimum)
+                               {
+                                   "foo"
+                               };
+            new ReentracyTester<ObservableHeap<string>>(heap, obj => obj.RemoveRoot());
+        }
+    }
+
 }

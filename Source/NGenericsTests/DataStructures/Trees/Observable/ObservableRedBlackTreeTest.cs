@@ -15,136 +15,131 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Trees.Observable
+namespace NGenerics.Tests.DataStructures.Trees.Observable.ObservableRedBlackTreeTest
 {
     [TestFixture]
-    public class ObservableRedBlackTreeTest
+    public class Contruction
     {
 
-        [TestFixture]
-        public class Contruction
+        [Test]
+        public void Serialization()
         {
-
-            [Test]
-            public void Serialization()
-            {
-                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableRedBlackTree<int, int>());
-                ObservableCollectionTester.CheckMonitor(deserialize);
-            }
-            [Test]
-            public void Monitor1()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableRedBlackTree<int, int>());
-            }
-
-            [Test]
-            public void Monitor2()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableRedBlackTree<int, int>(Comparer<int>.Default));
-            }
+            var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableRedBlackTree<int, int>());
+            ObservableCollectionTester.CheckMonitor(deserialize);
         }
-        [TestFixture]
-        public class Add
+        [Test]
+        public void Monitor1()
         {
-            [Test]
-            public void Simple()
-            {
-                var redBlackTree = new ObservableRedBlackTree<string, string>();
-                ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Add("foo", "bar"), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionSimpleReentrancy()
-            {
-                var redBlackTree = new ObservableRedBlackTree<string, string>();
-                new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Add("foo", "bar"));
-            }
-
-            [Test]
-            public void KeyValue()
-            {
-                var redBlackTree = new ObservableRedBlackTree<string, string>();
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Add(keyValuePair), "Count", "Item[]", "IsEmpty");
-            }
-
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionKeyValueReentrancy()
-            {
-                var redBlackTree = new ObservableRedBlackTree<string, string>();
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Add(keyValuePair));
-            }
+            ObservableCollectionTester.CheckMonitor(new ObservableRedBlackTree<int, int>());
         }
 
-        [TestFixture]
-        public class Clear
+        [Test]
+        public void Monitor2()
         {
-            [Test]
-            public void Simple()
-            {
-                var redBlackTree = new ObservableRedBlackTree<string, string>
+            ObservableCollectionTester.CheckMonitor(new ObservableRedBlackTree<int, int>(Comparer<int>.Default));
+        }
+    }
+    [TestFixture]
+    public class Add
+    {
+        [Test]
+        public void Simple()
+        {
+            var redBlackTree = new ObservableRedBlackTree<string, string>();
+            ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Add("foo", "bar"), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionSimpleReentrancy()
+        {
+            var redBlackTree = new ObservableRedBlackTree<string, string>();
+            new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Add("foo", "bar"));
+        }
+
+        [Test]
+        public void KeyValue()
+        {
+            var redBlackTree = new ObservableRedBlackTree<string, string>();
+            var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+            ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Add(keyValuePair), "Count", "Item[]", "IsEmpty");
+        }
+
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionKeyValueReentrancy()
+        {
+            var redBlackTree = new ObservableRedBlackTree<string, string>();
+            var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+            new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Add(keyValuePair));
+        }
+    }
+
+    [TestFixture]
+    public class Clear
+    {
+        [Test]
+        public void Simple()
+        {
+            var redBlackTree = new ObservableRedBlackTree<string, string>
                                        {
                                            new KeyValuePair<string, string>("foo", "bar")
                                        };
-                ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var redBlackTree = new ObservableRedBlackTree<string, string>();
-                new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Clear());
-            }
-
+            ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
         }
-
-        [TestFixture]
-        public class Remove
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
         {
-            [Test]
-            public void Simple()
-            {
-                var redBlackTree = new ObservableRedBlackTree<string, string>
-                                       {
-                                           new KeyValuePair<string, string>("foo", "bar")
-                                       };
-                ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionSimpleReentrancy()
-            {
-                var redBlackTree = new ObservableRedBlackTree<string, string>
-                                       {
-                                           new KeyValuePair<string, string>("foo", "bar")
-                                       };
-                new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Remove("foo"));
-            }
-            [Test]
-            public void KeyValue()
-            {
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                var redBlackTree = new ObservableRedBlackTree<string, string>
-                                       {
-                                           keyValuePair
-                                       };
-                ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Remove(keyValuePair), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionKeyValueReentrancy()
-            {
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                var redBlackTree = new ObservableRedBlackTree<string, string>
-                                       {
-                                           keyValuePair
-                                       };
-                new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Remove(keyValuePair));
-            }
-
+            var redBlackTree = new ObservableRedBlackTree<string, string>();
+            new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Clear());
         }
 
     }
+
+    [TestFixture]
+    public class Remove
+    {
+        [Test]
+        public void Simple()
+        {
+            var redBlackTree = new ObservableRedBlackTree<string, string>
+                                       {
+                                           new KeyValuePair<string, string>("foo", "bar")
+                                       };
+            ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionSimpleReentrancy()
+        {
+            var redBlackTree = new ObservableRedBlackTree<string, string>
+                                       {
+                                           new KeyValuePair<string, string>("foo", "bar")
+                                       };
+            new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Remove("foo"));
+        }
+        [Test]
+        public void KeyValue()
+        {
+            var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+            var redBlackTree = new ObservableRedBlackTree<string, string>
+                                       {
+                                           keyValuePair
+                                       };
+            ObservableCollectionTester.ExpectEvents(redBlackTree, obj => obj.Remove(keyValuePair), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionKeyValueReentrancy()
+        {
+            var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+            var redBlackTree = new ObservableRedBlackTree<string, string>
+                                       {
+                                           keyValuePair
+                                       };
+            new ReentracyTester<ObservableRedBlackTree<string, string>>(redBlackTree, obj => obj.Remove(keyValuePair));
+        }
+
+    }
+
 }

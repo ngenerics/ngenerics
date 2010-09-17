@@ -15,136 +15,133 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Trees.Observable
+namespace NGenerics.Tests.DataStructures.Trees.Observable.ObservableBinarySearchTreeTest
 {
+
     [TestFixture]
-    public class ObservableBinarySearchTreeTest
+    public class Contruction
     {
-        [TestFixture]
-        public class Contruction
-        {
 
-            [Test]
-            public void Serialization()
-            {
-                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableBinarySearchTree<int, int>());
-                ObservableCollectionTester.CheckMonitor(deserialize);
-            }
-            [Test]
-            public void Monitor1()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableBinarySearchTree<int, int>());
-            }
-            [Test]
-            public void Monitor2()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableBinarySearchTree<int, int>(Comparer<int>.Default));
-            }
+        [Test]
+        public void Serialization()
+        {
+            var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableBinarySearchTree<int, int>());
+            ObservableCollectionTester.CheckMonitor(deserialize);
         }
-        [TestFixture]
-        public class Add
+        [Test]
+        public void Monitor1()
         {
-            [Test]
-            public void Simple()
-            {
-                var binarySearchTree = new ObservableBinarySearchTree<string, string>();
-                ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Add("foo", "bar"), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionSimpleReentrancy()
-            {
-                var binarySearchTree = new ObservableBinarySearchTree<string, string>();
-
-                new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Add("foo", "bar"));
-            }
-            [Test]
-            public void KeyValue()
-            {
-                var binarySearchTree = new ObservableBinarySearchTree<string, string>();
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Add(keyValuePair), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionKeyValueReentrancy()
-            {
-                var binarySearchTree = new ObservableBinarySearchTree<string, string>();
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Add(keyValuePair));
-            }
-
+            ObservableCollectionTester.CheckMonitor(new ObservableBinarySearchTree<int, int>());
         }
-
-        [TestFixture]
-        public class Clear
+        [Test]
+        public void Monitor2()
         {
-            [Test]
-            public void Simple()
-            {
-                var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                           {
-                                               new KeyValuePair<string, string>("foo", "bar")
-                                           };
-                ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                           {
-                                               new KeyValuePair<string, string>("foo", "bar")
-                                           };
-                new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Clear());
-            }
+            ObservableCollectionTester.CheckMonitor(new ObservableBinarySearchTree<int, int>(Comparer<int>.Default));
         }
-
-        [TestFixture]
-        public class Remove
+    }
+    [TestFixture]
+    public class Add
+    {
+        [Test]
+        public void Simple()
         {
-            [Test]
-            public void Simple()
-            {
-                var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                           {
-                                               new KeyValuePair<string, string>("foo", "bar")
-                                           };
-                ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionSimpleReentrancy()
-            {
-                var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                           {
-                                               new KeyValuePair<string, string>("foo", "bar")
-                                           };
-                new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Remove("foo"));
-            }
-            [Test]
-            public void KeyValue()
-            {
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                           {
-                                               keyValuePair
-                                           };
-                ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Remove(keyValuePair), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionKeyValueReentrancy()
-            {
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                var binarySearchTree = new ObservableBinarySearchTree<string, string>
-                                           {
-                                               keyValuePair
-                                           };
-                new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Remove(keyValuePair));
-            }
+            var binarySearchTree = new ObservableBinarySearchTree<string, string>();
+            ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Add("foo", "bar"), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionSimpleReentrancy()
+        {
+            var binarySearchTree = new ObservableBinarySearchTree<string, string>();
 
+            new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Add("foo", "bar"));
+        }
+        [Test]
+        public void KeyValue()
+        {
+            var binarySearchTree = new ObservableBinarySearchTree<string, string>();
+            var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+            ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Add(keyValuePair), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionKeyValueReentrancy()
+        {
+            var binarySearchTree = new ObservableBinarySearchTree<string, string>();
+            var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+            new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Add(keyValuePair));
         }
 
     }
+
+    [TestFixture]
+    public class Clear
+    {
+        [Test]
+        public void Simple()
+        {
+            var binarySearchTree = new ObservableBinarySearchTree<string, string>
+                                           {
+                                               new KeyValuePair<string, string>("foo", "bar")
+                                           };
+            ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
+        {
+            var binarySearchTree = new ObservableBinarySearchTree<string, string>
+                                           {
+                                               new KeyValuePair<string, string>("foo", "bar")
+                                           };
+            new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Clear());
+        }
+    }
+
+    [TestFixture]
+    public class Remove
+    {
+        [Test]
+        public void Simple()
+        {
+            var binarySearchTree = new ObservableBinarySearchTree<string, string>
+                                           {
+                                               new KeyValuePair<string, string>("foo", "bar")
+                                           };
+            ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionSimpleReentrancy()
+        {
+            var binarySearchTree = new ObservableBinarySearchTree<string, string>
+                                           {
+                                               new KeyValuePair<string, string>("foo", "bar")
+                                           };
+            new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Remove("foo"));
+        }
+        [Test]
+        public void KeyValue()
+        {
+            var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+            var binarySearchTree = new ObservableBinarySearchTree<string, string>
+                                           {
+                                               keyValuePair
+                                           };
+            ObservableCollectionTester.ExpectEvents(binarySearchTree, obj => obj.Remove(keyValuePair), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionKeyValueReentrancy()
+        {
+            var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+            var binarySearchTree = new ObservableBinarySearchTree<string, string>
+                                           {
+                                               keyValuePair
+                                           };
+            new ReentracyTester<ObservableBinarySearchTree<string, string>>(binarySearchTree, obj => obj.Remove(keyValuePair));
+        }
+
+    }
+
 }

@@ -14,11 +14,8 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.Observable
+namespace NGenerics.Tests.DataStructures.General.Observable.ObservablePascalSetTest
 {
-    [TestFixture]
-    public class ObservablePascalSetTest
-    {
         [TestFixture]
         public class Contruction
         {
@@ -119,5 +116,5 @@ namespace NGenerics.Tests.DataStructures.General.Observable
             }
         }
 
-    }
+ 
 }

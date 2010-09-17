@@ -13,17 +13,14 @@ using NGenerics.DataStructures.Mathematical;
 using NGenerics.Extensions;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Mathematical
+namespace NGenerics.Tests.DataStructures.Mathematical.CholeskyDecompositionTest
 {
-   [TestFixture]
-   public class CholeskyDecompositionTest
-   {
-      [TestFixture]
-      public class QuickCholeskyDecomposition
-      {
-         [Test]
-         public void Simple()
-         {
+    [TestFixture]
+    public class QuickCholeskyDecomposition
+    {
+        [Test]
+        public void Simple()
+        {
             var matrixA = new Matrix(5, 5);
 
             //      // [ 2,  1,  1,  3,  2 ]
@@ -74,34 +71,34 @@ namespace NGenerics.Tests.DataStructures.Mathematical
             var sqrt2 = Math.Sqrt(2.0);
             var sqrt2inv = 1.0 / sqrt2;
 
-            Assert.IsTrue(QCMatrix[0, 0].IsSimilarTo( sqrt2));
+            Assert.IsTrue(QCMatrix[0, 0].IsSimilarTo(sqrt2));
 
-            Assert.IsTrue(QCMatrix[1, 0].IsSimilarTo( sqrt2inv));
-            Assert.IsTrue(QCMatrix[1, 1].IsSimilarTo( Math.Sqrt(1.5)));
+            Assert.IsTrue(QCMatrix[1, 0].IsSimilarTo(sqrt2inv));
+            Assert.IsTrue(QCMatrix[1, 1].IsSimilarTo(Math.Sqrt(1.5)));
 
-            Assert.IsTrue(QCMatrix[2, 0].IsSimilarTo( sqrt2inv));
-            Assert.IsTrue(QCMatrix[2, 1].IsSimilarTo( Math.Sqrt(1.5)));
-            Assert.IsTrue(QCMatrix[2, 2].IsSimilarTo( Math.Sqrt(7.0)));
+            Assert.IsTrue(QCMatrix[2, 0].IsSimilarTo(sqrt2inv));
+            Assert.IsTrue(QCMatrix[2, 1].IsSimilarTo(Math.Sqrt(1.5)));
+            Assert.IsTrue(QCMatrix[2, 2].IsSimilarTo(Math.Sqrt(7.0)));
 
-            Assert.IsTrue(QCMatrix[3, 0].IsSimilarTo( Math.Sqrt(4.5)));
-            Assert.IsTrue(QCMatrix[3, 1].IsSimilarTo( -Math.Sqrt(1.0 / 6.0)));
-            Assert.IsTrue(QCMatrix[3, 2].IsSimilarTo( 0));
-            Assert.IsTrue(QCMatrix[3, 3].IsSimilarTo( Math.Sqrt(7.0 / 3.0)));
+            Assert.IsTrue(QCMatrix[3, 0].IsSimilarTo(Math.Sqrt(4.5)));
+            Assert.IsTrue(QCMatrix[3, 1].IsSimilarTo(-Math.Sqrt(1.0 / 6.0)));
+            Assert.IsTrue(QCMatrix[3, 2].IsSimilarTo(0));
+            Assert.IsTrue(QCMatrix[3, 3].IsSimilarTo(Math.Sqrt(7.0 / 3.0)));
 
-            Assert.IsTrue(QCMatrix[4, 0].IsSimilarTo( sqrt2));
-            Assert.IsTrue(QCMatrix[4, 1].IsSimilarTo( 0));
-            Assert.IsTrue(QCMatrix[4, 2].IsSimilarTo( 4.0 / Math.Sqrt(7.0)));
-            Assert.IsTrue(QCMatrix[4, 3].IsSimilarTo( -Math.Sqrt(12.0 / 7.0)));
-            Assert.IsTrue(QCMatrix[4, 4].IsSimilarTo( sqrt2));
-         }
-      }
+            Assert.IsTrue(QCMatrix[4, 0].IsSimilarTo(sqrt2));
+            Assert.IsTrue(QCMatrix[4, 1].IsSimilarTo(0));
+            Assert.IsTrue(QCMatrix[4, 2].IsSimilarTo(4.0 / Math.Sqrt(7.0)));
+            Assert.IsTrue(QCMatrix[4, 3].IsSimilarTo(-Math.Sqrt(12.0 / 7.0)));
+            Assert.IsTrue(QCMatrix[4, 4].IsSimilarTo(sqrt2));
+        }
+    }
 
-      [TestFixture]
-      public class Decompose
-      {
-         [Test]
-         public void Simple()
-         {
+    [TestFixture]
+    public class Decompose
+    {
+        [Test]
+        public void Simple()
+        {
             var matrixA = new Matrix(5, 5);
 
             //      // [ 2,  1,  1,  3,  2 ]
@@ -165,32 +162,32 @@ namespace NGenerics.Tests.DataStructures.Mathematical
             var sqrt2 = Math.Sqrt(2.0);
             var sqrt2inv = 1.0 / sqrt2;
 
-            Assert.IsTrue(QCMatrix[0, 0].IsSimilarTo( sqrt2));
+            Assert.IsTrue(QCMatrix[0, 0].IsSimilarTo(sqrt2));
 
-            Assert.IsTrue(QCMatrix[1, 0].IsSimilarTo( sqrt2inv));
-            Assert.IsTrue(QCMatrix[1, 1].IsSimilarTo( Math.Sqrt(1.5)));
+            Assert.IsTrue(QCMatrix[1, 0].IsSimilarTo(sqrt2inv));
+            Assert.IsTrue(QCMatrix[1, 1].IsSimilarTo(Math.Sqrt(1.5)));
 
-            Assert.IsTrue(QCMatrix[2, 0].IsSimilarTo( sqrt2inv));
-            Assert.IsTrue(QCMatrix[2, 1].IsSimilarTo( Math.Sqrt(1.5)));
-            Assert.IsTrue(QCMatrix[2, 2].IsSimilarTo( Math.Sqrt(7.0)));
+            Assert.IsTrue(QCMatrix[2, 0].IsSimilarTo(sqrt2inv));
+            Assert.IsTrue(QCMatrix[2, 1].IsSimilarTo(Math.Sqrt(1.5)));
+            Assert.IsTrue(QCMatrix[2, 2].IsSimilarTo(Math.Sqrt(7.0)));
 
-            Assert.IsTrue(QCMatrix[3, 0].IsSimilarTo( Math.Sqrt(4.5)));
-            Assert.IsTrue(QCMatrix[3, 1].IsSimilarTo( -Math.Sqrt(1.0 / 6.0)));
-            Assert.IsTrue(QCMatrix[3, 2].IsSimilarTo( 0));
-            Assert.IsTrue(QCMatrix[3, 3].IsSimilarTo( Math.Sqrt(7.0 / 3.0)));
+            Assert.IsTrue(QCMatrix[3, 0].IsSimilarTo(Math.Sqrt(4.5)));
+            Assert.IsTrue(QCMatrix[3, 1].IsSimilarTo(-Math.Sqrt(1.0 / 6.0)));
+            Assert.IsTrue(QCMatrix[3, 2].IsSimilarTo(0));
+            Assert.IsTrue(QCMatrix[3, 3].IsSimilarTo(Math.Sqrt(7.0 / 3.0)));
 
 
             Assert.IsTrue(QCMatrix[4, 0].IsSimilarTo(sqrt2));
-            Assert.IsTrue(QCMatrix[4, 1].IsSimilarTo( 0));
-            Assert.IsTrue(QCMatrix[4, 2].IsSimilarTo( 4.0 / Math.Sqrt(7.0)));
-            Assert.IsTrue(QCMatrix[4, 3].IsSimilarTo( -Math.Sqrt(12.0 / 7.0)));
-            Assert.IsTrue(QCMatrix[4, 4].IsSimilarTo( sqrt2));
-         }
+            Assert.IsTrue(QCMatrix[4, 1].IsSimilarTo(0));
+            Assert.IsTrue(QCMatrix[4, 2].IsSimilarTo(4.0 / Math.Sqrt(7.0)));
+            Assert.IsTrue(QCMatrix[4, 3].IsSimilarTo(-Math.Sqrt(12.0 / 7.0)));
+            Assert.IsTrue(QCMatrix[4, 4].IsSimilarTo(sqrt2));
+        }
 
-         [Test]
-         [ExpectedException(typeof(ArgumentException))]
-         public void ExceptionNonSymmetricMatrix()
-         {
+        [Test]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ExceptionNonSymmetricMatrix()
+        {
             var matrixA = new Matrix(2, 2);
 
             matrixA[0, 0] = 0;
@@ -201,16 +198,16 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 
 
             var decomposition = new CholeskyDecomposition(matrixA);
-         }
+        }
 
-      }
+    }
 
-      [TestFixture]
-      public class LeftRightFactors
-      {
-         [Test]
-         public void Simple()
-         {
+    [TestFixture]
+    public class LeftRightFactors
+    {
+        [Test]
+        public void Simple()
+        {
             var matrixA = new Matrix(5, 5);
 
             //      // [ 2,  1,  1,  3,  2 ]
@@ -253,7 +250,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical
             var decomposition = new CholeskyDecomposition(matrixA);
 
 
-           var AA = decomposition.LeftFactorMatrix*decomposition.RightFactorMatrix;
+            var AA = decomposition.LeftFactorMatrix * decomposition.RightFactorMatrix;
             Console.WriteLine(AA.ToString());
 
             Assert.AreEqual(AA.Rows, 5);
@@ -262,17 +259,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 
             Assert.IsTrue(matrixA.Equals(AA, DoubleExtensions.DefaultPrecision));
 
-  
-         }
 
-      }
+        }
 
-      [TestFixture]
-      public class Solve
-      {
-         [Test]
-         public void Simple()
-         {
+    }
+
+    [TestFixture]
+    public class Solve
+    {
+        [Test]
+        public void Simple()
+        {
             var matrixA = new Matrix(5, 5);
 
             //      // [ 2,  1,  1,  3,  2 ]
@@ -319,7 +316,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical
             matrixB[3, 0] = -5;
             matrixB[4, 0] = 1;
 
-           
+
             var decomposition = new CholeskyDecomposition(matrixA);
 
             var solveMatrix = decomposition.Solve(matrixB);
@@ -328,22 +325,22 @@ namespace NGenerics.Tests.DataStructures.Mathematical
             Assert.AreEqual(solveMatrix.Rows, 5);
             Assert.AreEqual(solveMatrix.Columns, 1);
 
-            Assert.IsTrue(solveMatrix[0, 0].IsSimilarTo( -629.0 / 98.0));
-            Assert.IsTrue(solveMatrix[1, 0].IsSimilarTo( 237.0 / 49.0));
-            Assert.IsTrue(solveMatrix[2, 0].IsSimilarTo( -53.0 / 49.0));
-            Assert.IsTrue(solveMatrix[3, 0].IsSimilarTo( 62.0 / 49.0));
+            Assert.IsTrue(solveMatrix[0, 0].IsSimilarTo(-629.0 / 98.0));
+            Assert.IsTrue(solveMatrix[1, 0].IsSimilarTo(237.0 / 49.0));
+            Assert.IsTrue(solveMatrix[2, 0].IsSimilarTo(-53.0 / 49.0));
+            Assert.IsTrue(solveMatrix[3, 0].IsSimilarTo(62.0 / 49.0));
             Assert.IsTrue(solveMatrix[4, 0].IsSimilarTo(23.0 / 14.0));
 
 
-         }
-      }
+        }
+    }
 
-      [TestFixture]
-      public class QuickSolveLinearEquation
-      {
-         [Test]
-         public void Simple()
-         {
+    [TestFixture]
+    public class QuickSolveLinearEquation
+    {
+        [Test]
+        public void Simple()
+        {
             var matrixA = new Matrix(5, 5);
 
             //      // [ 2,  1,  1,  3,  2 ]
@@ -394,18 +391,18 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 
             var solveMatrix = CholeskyDecomposition.QuickSolveLinearEquation(matrixA, B);
 
-            Assert.AreEqual(solveMatrix.Length, 5);            
+            Assert.AreEqual(solveMatrix.Length, 5);
 
-            Assert.IsTrue(solveMatrix[0].IsSimilarTo( -629.0 / 98.0));
-            Assert.IsTrue(solveMatrix[1].IsSimilarTo( 237.0 / 49.0));
-            Assert.IsTrue(solveMatrix[2].IsSimilarTo( -53.0 / 49.0));
-            Assert.IsTrue(solveMatrix[3].IsSimilarTo( 62.0 / 49.0));
+            Assert.IsTrue(solveMatrix[0].IsSimilarTo(-629.0 / 98.0));
+            Assert.IsTrue(solveMatrix[1].IsSimilarTo(237.0 / 49.0));
+            Assert.IsTrue(solveMatrix[2].IsSimilarTo(-53.0 / 49.0));
+            Assert.IsTrue(solveMatrix[3].IsSimilarTo(62.0 / 49.0));
             Assert.IsTrue(solveMatrix[4].IsSimilarTo(23.0 / 14.0));
 
 
-         }
+        }
 
-      } 
+    }
 
-   }
+
 }

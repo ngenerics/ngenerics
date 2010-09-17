@@ -10,29 +10,26 @@
 using NGenerics.Algorithms;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Algorithms.Math
+namespace NGenerics.Tests.Algorithms.Math.EuclidTest
 {
     [TestFixture]
-    public class EuclidTest
+    public class GreatestCommonDivisor
     {
-        [TestFixture]
-        public class GreatestCommonDivisor
+        [Test]
+        public void TestValid()
         {
-            [Test]
-            public void TestValid()
-            {
-                Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(8, 4), 4);
-                Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(4, 8), 4);
+            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(8, 4), 4);
+            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(4, 8), 4);
 
-                Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(5, 1), 1);
+            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(5, 1), 1);
 
-                Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(0, 0), 0);
+            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(0, 0), 0);
 
-                Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(0, 0), 0);
+            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(0, 0), 0);
 
-                Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(180, 640), 20);
-            }
+            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(180, 640), 20);
         }
-
     }
+
+
 }

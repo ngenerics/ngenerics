@@ -13,11 +13,8 @@ using NGenerics.Tests.Util;
 using NUnit.Framework;
 using NGenerics.DataStructures.General;
 
-namespace NGenerics.Tests.DataStructures.General
+namespace NGenerics.Tests.DataStructures.General.HashListTest
 {
-    [TestFixture]
-    public class HashListTest
-    {
         [TestFixture]
         public class Add
         {
@@ -300,5 +297,4 @@ namespace NGenerics.Tests.DataStructures.General
                 Assert.IsFalse(newHashEnumerator.MoveNext());
             }
         }
-    }
 }

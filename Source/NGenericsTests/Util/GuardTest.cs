@@ -12,11 +12,10 @@ using System;
 using NGenerics.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Util
+namespace NGenerics.Tests.Util.GuardTest
 {
-    [TestFixture]
-    public class GuardTest
-	{
+    
+
 		[TestFixture]
 		public class ArgumentNotNull
 		{
@@ -83,5 +82,4 @@ namespace NGenerics.Tests.Util
 				}
 			}
 		}
-    }
 }

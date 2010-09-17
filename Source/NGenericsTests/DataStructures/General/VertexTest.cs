@@ -12,15 +12,27 @@ using System.Collections.Generic;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General
+namespace NGenerics.Tests.DataStructures.General.VertexTest
 {
-    [TestFixture]
+  
     public class VertexTest
-    {
+    {   
+        #region Private Members
+
+        internal static void AssertContainsEdges(ICollection<Edge<int>> edgeList, bool containsValue, params Edge<int>[] edges)
+        {
+            foreach (var edge in edges)
+            {
+                Assert.AreEqual(edgeList.Contains(edge), containsValue);
+            }
+        }
+
+        #endregion
+    }
         #region Tests
 
         [TestFixture]
-		public class Construction
+		public class Construction:VertexTest
 		{
             [Test]
 			public void Simple()
@@ -56,7 +68,7 @@ namespace NGenerics.Tests.DataStructures.General
 		}
 
         [TestFixture]
-        public class Data
+        public class Data:VertexTest
         {
             [Test]
 			public void Simple()
@@ -73,7 +85,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
 		[TestFixture]
-		public class EmanatingEdges
+		public class EmanatingEdges:VertexTest
 		{
 			[Test]
 			[ExpectedException(typeof(NotSupportedException))]
@@ -171,7 +183,7 @@ namespace NGenerics.Tests.DataStructures.General
 		}
 
         [TestFixture]
-        public class GetEmanatingEdgeTo
+        public class GetEmanatingEdgeTo:VertexTest
         {
             [Test]
             public void Undirected()
@@ -221,7 +233,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class GetIncidentEdgeWith
+        public class GetIncidentEdgeWith:VertexTest
         {
             [Test]
             public void Undirected()
@@ -273,7 +285,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class GetPartnerVertex
+        public class GetPartnerVertex:VertexTest
         {
             [Test]
 			public void Simple()
@@ -317,7 +329,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
 		[TestFixture]
-		public class IncidentEdges
+		public class IncidentEdges:VertexTest
 		{
             [Test]
             public void Directed()
@@ -432,16 +444,5 @@ namespace NGenerics.Tests.DataStructures.General
 
         #endregion
 
-        #region Private Members
 
-        private static void AssertContainsEdges(ICollection<Edge<int>> edgeList, bool containsValue, params Edge<int>[] edges)
-        {
-            foreach (var edge in edges)
-            {
-                Assert.AreEqual(edgeList.Contains(edge), containsValue);
-            }
-        }
-
-        #endregion
-    }
 }

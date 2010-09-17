@@ -11,30 +11,23 @@ using System.Collections.Generic;
 using NGenerics.Extensions;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Extensions
+namespace NGenerics.Tests.Extensions.EnumerableExtensionsTest
 {
+
     [TestFixture]
-    public class EnumerableExtensionsTest
+    public class ForEach
     {
-
-        [TestFixture]
-        public class ForEach
+        [Test]
+        public void Should_Iterate_Over_Each_Item_In_The_Collection()
         {
-            [Test]
-            public void Should_Iterate_Over_Each_Item_In_The_Collection()
-            {
-				IEnumerable<int> list = new List<int> { 1, 2, 3, 4, 5 };
-                var total = 0;
+            IEnumerable<int> list = new List<int> { 1, 2, 3, 4, 5 };
+            var total = 0;
 
-                list.ForEach(x => total += x);
+            list.ForEach(x => total += x);
 
-                Assert.AreEqual(total, 15);
-            }
+            Assert.AreEqual(total, 15);
         }
-
-
-
-
-
     }
+
+
 }

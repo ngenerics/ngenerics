@@ -16,238 +16,235 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Queues.Observable
+namespace NGenerics.Tests.DataStructures.Queues.Observable.ObservablePriorityQueueTest
 {
+
     [TestFixture]
-    public class ObservablePriorityQueueTest
+    public class Contruction
     {
-        [TestFixture]
-        public class Contruction
+
+
+        [Test]
+        public void Serialization()
         {
-
-
-            [Test]
-            public void Serialization()
-            {
-                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservablePriorityQueue<int, int>(PriorityQueueType.Minimum));
-                ObservableCollectionTester.CheckMonitor(deserialize);
-            }
-            [Test]
-            public void Monitor1()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservablePriorityQueue<int, int>(PriorityQueueType.Minimum));
-            }
+            var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservablePriorityQueue<int, int>(PriorityQueueType.Minimum));
+            ObservableCollectionTester.CheckMonitor(deserialize);
         }
-        [TestFixture]
-        public class Enqueue
+        [Test]
+        public void Monitor1()
         {
-            [Test]
-            public void Simple()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Enqueue("foo"), "Count", "IsEmpty");
-            }
-
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Enqueue("foo"));
-            }
-            [Test]
-            public void Prority()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Enqueue("foo",1), "Count", "IsEmpty");
-            }
-
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionPriorityReentrancy()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Enqueue("foo",1));
-            }
+            ObservableCollectionTester.CheckMonitor(new ObservablePriorityQueue<int, int>(PriorityQueueType.Minimum));
+        }
+    }
+    [TestFixture]
+    public class Enqueue
+    {
+        [Test]
+        public void Simple()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Enqueue("foo"), "Count", "IsEmpty");
         }
 
-        [TestFixture]
-        public class Add
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
         {
-            [Test]
-            public void Simple()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Add("foo"), "Count", "IsEmpty");
-            }
-
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Add("foo"));
-            }
-            [Test]
-            public void Prority()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Add("foo", 1), "Count", "IsEmpty");
-            }
-
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionPriorityReentrancy()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Add("foo", 1));
-            }
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Enqueue("foo"));
         }
-        [TestFixture]
-        public class AddPriorityGroup
+        [Test]
+        public void Prority()
         {
-            [Test]
-            public void Simple()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                var list = new List<string> { "foo" };
-                ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.AddPriorityGroup(list, 2), "Count", "IsEmpty");
-            }
-
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                var list = new List<string>{"foo"};
-                new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.AddPriorityGroup(list,2));
-            }
-
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Enqueue("foo", 1), "Count", "IsEmpty");
         }
 
-        [TestFixture]
-        public class Clear
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionPriorityReentrancy()
         {
-            [Test]
-            public void Simple()
-            {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Enqueue("foo", 1));
+        }
+    }
 
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                priorityQueue.Enqueue("foo");
-
-                ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Clear(), "Count", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                priorityQueue.Enqueue("foo");
-
-                new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Clear());
-            }
+    [TestFixture]
+    public class Add
+    {
+        [Test]
+        public void Simple()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Add("foo"), "Count", "IsEmpty");
         }
 
-        [TestFixture]
-        public class Dequeue
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
         {
-            [Test]
-            public void Simple()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                priorityQueue.Enqueue("foo");
-
-                ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Dequeue(), "Count", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                priorityQueue.Enqueue("foo");
-
-                new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Dequeue());
-            }
-
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Add("foo"));
+        }
+        [Test]
+        public void Prority()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Add("foo", 1), "Count", "IsEmpty");
         }
 
-        [TestFixture]
-        public class Remove
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionPriorityReentrancy()
         {
-            [Test]
-            public void Simple()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                priorityQueue.Enqueue("foo");
-
-                ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Remove("foo"), "Count", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionSimpleReentrancy()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                priorityQueue.Enqueue("foo");
-
-                new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Dequeue());
-            }
-            [Test]
-            public void Priority()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                priorityQueue.Enqueue("foo");
-
-                int priority;
-                ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Remove("foo", out priority), "Count", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionPriorityReentrancy()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                priorityQueue.Enqueue("foo",2);
-                int priority;
-                new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Remove("foo", out priority));
-            }
-
-            [Test]
-            public void NotInList()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-
-                ObservableCollectionTester.ExpectNoEvents(priorityQueue, obj => obj.Remove("foo"));
-            }
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Add("foo", 1));
+        }
+    }
+    [TestFixture]
+    public class AddPriorityGroup
+    {
+        [Test]
+        public void Simple()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            var list = new List<string> { "foo" };
+            ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.AddPriorityGroup(list, 2), "Count", "IsEmpty");
         }
 
-
-        [TestFixture]
-        public class RemovePriorityGroup
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
         {
-            [Test]
-            public void Simple()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                priorityQueue.Enqueue("foo",2);
-
-                ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.RemovePriorityGroup(2), "Count", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionPriorityReentrancy()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-                priorityQueue.Enqueue("foo", 2);
-                new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.RemovePriorityGroup(2));
-            }
-
-            [Test]
-            public void NotInList()
-            {
-                var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
-
-                ObservableCollectionTester.ExpectNoEvents(priorityQueue, obj => obj.RemovePriorityGroup(2));
-            }
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            var list = new List<string> { "foo" };
+            new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.AddPriorityGroup(list, 2));
         }
 
     }
+
+    [TestFixture]
+    public class Clear
+    {
+        [Test]
+        public void Simple()
+        {
+
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            priorityQueue.Enqueue("foo");
+
+            ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Clear(), "Count", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            priorityQueue.Enqueue("foo");
+
+            new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Clear());
+        }
+    }
+
+    [TestFixture]
+    public class Dequeue
+    {
+        [Test]
+        public void Simple()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            priorityQueue.Enqueue("foo");
+
+            ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Dequeue(), "Count", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            priorityQueue.Enqueue("foo");
+
+            new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Dequeue());
+        }
+
+    }
+
+    [TestFixture]
+    public class Remove
+    {
+        [Test]
+        public void Simple()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            priorityQueue.Enqueue("foo");
+
+            ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Remove("foo"), "Count", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionSimpleReentrancy()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            priorityQueue.Enqueue("foo");
+
+            new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Dequeue());
+        }
+        [Test]
+        public void Priority()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            priorityQueue.Enqueue("foo");
+
+            int priority;
+            ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.Remove("foo", out priority), "Count", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionPriorityReentrancy()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            priorityQueue.Enqueue("foo", 2);
+            int priority;
+            new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.Remove("foo", out priority));
+        }
+
+        [Test]
+        public void NotInList()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+
+            ObservableCollectionTester.ExpectNoEvents(priorityQueue, obj => obj.Remove("foo"));
+        }
+    }
+
+
+    [TestFixture]
+    public class RemovePriorityGroup
+    {
+        [Test]
+        public void Simple()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            priorityQueue.Enqueue("foo", 2);
+
+            ObservableCollectionTester.ExpectEvents(priorityQueue, obj => obj.RemovePriorityGroup(2), "Count", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionPriorityReentrancy()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+            priorityQueue.Enqueue("foo", 2);
+            new ReentracyTester<ObservablePriorityQueue<string, int>>(priorityQueue, obj => obj.RemovePriorityGroup(2));
+        }
+
+        [Test]
+        public void NotInList()
+        {
+            var priorityQueue = new ObservablePriorityQueue<string, int>(PriorityQueueType.Minimum);
+
+            ObservableCollectionTester.ExpectNoEvents(priorityQueue, obj => obj.RemovePriorityGroup(2));
+        }
+    }
+
 }

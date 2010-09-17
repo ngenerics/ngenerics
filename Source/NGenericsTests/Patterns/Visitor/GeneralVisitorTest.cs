@@ -13,11 +13,8 @@ using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace NGenerics.Tests.Patterns.Visitor
+namespace NGenerics.Tests.Patterns.Visitor.GeneralVisitorTest
 {
-    [TestFixture]
-    public class GeneralVisitorTest
-    {
         [TestFixture]
         public class Construction
         {
@@ -119,17 +116,18 @@ namespace NGenerics.Tests.Patterns.Visitor
 
                 mockRepository.VerifyAll();
             }
+            #region Private Members
+
+            private static List<int> GetTestList()
+            {
+                var list = new List<int>(new[] { 1, 2, 3, 8, 5 });
+
+                return list;
+            }
+
+            #endregion
+ 
         }
 
-        #region Private Members
-
-        private static List<int> GetTestList()
-        {
-            var list = new List<int>(new[] { 1, 2, 3, 8, 5 });
-
-            return list;
-        }
-
-        #endregion
-    }
+ 
 }

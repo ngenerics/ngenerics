@@ -17,15 +17,27 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General
+namespace NGenerics.Tests.DataStructures.General.MinHeapTest
 {
-	[TestFixture]
+
 	public class MinHeapTest
     {
+
+        #region Private Members
+
+        internal static Heap<int> GetTestHeap()
+        {
+            var heap = new Heap<int>(HeapType.Minimum) { 5, 4, 99, 12, 5 };
+
+            return heap;
+        }
+
+        #endregion
+    }
         #region Tests
 
         [TestFixture]
-        public class Accept
+    public class Accept : MinHeapTest
         {
             [Test]
 			public void Simple()
@@ -61,7 +73,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Add
+        public class Add : MinHeapTest
         {
             [Test]
 			public void Simple()
@@ -95,7 +107,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Clear
+        public class Clear : MinHeapTest
         {
             [Test]
 			public void Simple()
@@ -119,7 +131,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Contains
+        public class Contains : MinHeapTest
         {
             [Test]
 			public void Simple()
@@ -136,7 +148,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
                 
         [TestFixture]
-        public class Construction
+        public class Construction : MinHeapTest
         {
             [Test]
 			public void Simple()
@@ -168,7 +180,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Comparer
+        public class Comparer : MinHeapTest
         {
             [Test]
             [ExpectedException(typeof(ArgumentNullException))]
@@ -186,7 +198,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class CopyTo
+        public class CopyTo : MinHeapTest
         {
             [Test]
 			public void Simple()
@@ -232,7 +244,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class GetEnumerator
+        public class GetEnumerator : MinHeapTest
         {
             [Test]
             public void Interface()
@@ -307,7 +319,7 @@ namespace NGenerics.Tests.DataStructures.General
 
 
         [TestFixture]
-        public class IsReadOnly
+        public class IsReadOnly : MinHeapTest
         {
             [Test]
 			public void Simple()
@@ -321,7 +333,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Remove
+        public class Remove : MinHeapTest
         {
             [Test]
             [ExpectedException(typeof(NotSupportedException))]
@@ -378,7 +390,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Root
+        public class Root : MinHeapTest
         {
             [Test]
             public void SmallestItem()
@@ -398,7 +410,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Serializable
+        public class Serializable : MinHeapTest
         {
             [Test]
 			public void Simple()
@@ -441,15 +453,4 @@ namespace NGenerics.Tests.DataStructures.General
 		
         #endregion
 
-        #region Private Members
-
-        private static Heap<int> GetTestHeap()
-		{
-			var heap = new Heap<int>(HeapType.Minimum) {5, 4, 99, 12, 5};
-
-            return heap;
-        }
-
-        #endregion
-    }
 }

@@ -15,12 +15,8 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.Observable
+namespace NGenerics.Tests.DataStructures.General.Observable.ObservableSortedListTest
 {
-    [TestFixture]
-    public class ObservableSortedListTest
-    {
-
 
         [TestFixture]
         public class Contruction
@@ -130,8 +126,4 @@ namespace NGenerics.Tests.DataStructures.General.Observable
          
         }
 
-
-
-
-    }
 }

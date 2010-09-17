@@ -10,11 +10,8 @@
 using NGenerics.Extensions;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Extensions
+namespace NGenerics.Tests.Extensions.ObjectExtensionsTests
 {
-    [TestFixture]
-    public class ObjectExtensionsTests
-    {
         [TestFixture]
         public class Convert
         {
@@ -27,4 +24,3 @@ namespace NGenerics.Tests.Extensions
             }
         }
     }
-}

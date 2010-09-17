@@ -12,52 +12,45 @@ using NUnit.Framework;
 using NGenerics.Sorting;
 using Rhino.Mocks;
 
-namespace NGenerics.Tests.Sorting
+namespace NGenerics.Tests.Sorting.SorterExtensionsTests
 {
+
     [TestFixture]
-    public class SorterExtensionsTests
+    public class Sort
     {
-        #region Tests
-
-        [TestFixture]
-        public class Sort
+        [Test]
+        public void Simple_Sort()
         {
-            [Test]
-            public void Simple_Sort()
-            {
-                var mocks = new MockRepository();
-                var sorter = mocks.StrictMock<ISorter<int>>();
-                
-                var list = GetTestList();
-                sorter.Sort(list);
+            var mocks = new MockRepository();
+            var sorter = mocks.StrictMock<ISorter<int>>();
 
-                mocks.ReplayAll();
+            var list = GetTestList();
+            sorter.Sort(list);
 
-                list.Sort(sorter);
+            mocks.ReplayAll();
 
-                mocks.VerifyAll();
-            }
+            list.Sort(sorter);
 
-            [Test]
-            public void Sort_With_Order()
-            {
-                var mocks = new MockRepository();
-                var sorter = mocks.StrictMock<ISorter<int>>();
-
-                var list = GetTestList();
-                sorter.Sort(list, SortOrder.Ascending);
-                sorter.Sort(list, SortOrder.Descending);
-
-                mocks.ReplayAll();
-
-                list.Sort(sorter, SortOrder.Ascending);
-                list.Sort(sorter, SortOrder.Descending);
-
-                mocks.VerifyAll();
-            }
+            mocks.VerifyAll();
         }
 
-        #endregion
+        [Test]
+        public void Sort_With_Order()
+        {
+            var mocks = new MockRepository();
+            var sorter = mocks.StrictMock<ISorter<int>>();
+
+            var list = GetTestList();
+            sorter.Sort(list, SortOrder.Ascending);
+            sorter.Sort(list, SortOrder.Descending);
+
+            mocks.ReplayAll();
+
+            list.Sort(sorter, SortOrder.Ascending);
+            list.Sort(sorter, SortOrder.Descending);
+
+            mocks.VerifyAll();
+        }
 
         #region Private Members
 
@@ -76,7 +69,7 @@ namespace NGenerics.Tests.Sorting
         //        {
         //            Assert.AreEqual(list[9-i], i);
         //        }
-                
+
         //    }
         //}
 
@@ -99,4 +92,9 @@ namespace NGenerics.Tests.Sorting
 
         #endregion
     }
+
+
+
+
+
 }

@@ -14,124 +14,120 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Trees.Observable
+namespace NGenerics.Tests.DataStructures.Trees.Observable.ObservableGeneralTreeTest
 {
+
+
     [TestFixture]
-    public class ObservableGeneralTreeTest
+    public class Contruction
     {
 
-
-        [TestFixture]
-        public class Contruction
+        [Test]
+        public void Serialization()
         {
-
-            [Test]
-            public void Serialization()
-            {
-                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableGeneralTree<int>(4));
-                ObservableCollectionTester.CheckMonitor(deserialize);
-            }
-            [Test]
-            public void Monitor1()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableGeneralTree<int>(4));
-            }
+            var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableGeneralTree<int>(4));
+            ObservableCollectionTester.CheckMonitor(deserialize);
         }
-			
-        [TestFixture]
-        public class Add
+        [Test]
+        public void Monitor1()
         {
-            [Test]
-            public void Simple()
-            {
-                var generalTree = new ObservableGeneralTree<string>("root");
-                ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.Add("foo"), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var generalTree = new ObservableGeneralTree<string>("root");
-                new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.Add("foo"));
-            }
-
+            ObservableCollectionTester.CheckMonitor(new ObservableGeneralTree<int>(4));
         }
+    }
 
-        [TestFixture]
-        public class Clear
+    [TestFixture]
+    public class Add
+    {
+        [Test]
+        public void Simple()
         {
-            [Test]
-            public void Simple()
-            {
-                var generalTree = new ObservableGeneralTree<string>("root")
-                                      {
-                                          "foo"
-                                      };
-                ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var generalTree = new ObservableGeneralTree<string>("root")
-                                      {
-                                          "foo"
-                                      };
-                new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.Clear());
-            }
+            var generalTree = new ObservableGeneralTree<string>("root");
+            ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.Add("foo"), "Count", "Item[]", "IsEmpty");
         }
-
-        [TestFixture]
-        public class Remove
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
         {
-            [Test]
-            public void Simple()
-            {
-                var generalTree = new ObservableGeneralTree<string>("root")
-                                      {
-                                          "foo"
-                                      };
-                ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var generalTree = new ObservableGeneralTree<string>("root")
-                                      {
-                                          "foo", 
-                                          "bar"
-                                      };
-                new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.Remove("foo"), obj => obj.Remove("bar"));
-            }
-
-        }
-
-        [TestFixture]
-        public class RemoveAt
-        {
-            [Test]
-            public void Simple()
-            {
-                var generalTree = new ObservableGeneralTree<string>("root")
-                                      {
-                                          "foo"
-                                      };
-                ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.RemoveAt(0), "Count", "Item[]", "IsEmpty");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var generalTree = new ObservableGeneralTree<string>("root")
-                                      {
-                                          "foo", 
-                                          "bar"
-                                      };
-                new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.RemoveAt(0));
-            }
-
+            var generalTree = new ObservableGeneralTree<string>("root");
+            new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.Add("foo"));
         }
 
     }
+
+    [TestFixture]
+    public class Clear
+    {
+        [Test]
+        public void Simple()
+        {
+            var generalTree = new ObservableGeneralTree<string>("root")
+                                      {
+                                          "foo"
+                                      };
+            ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.Clear(), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
+        {
+            var generalTree = new ObservableGeneralTree<string>("root")
+                                      {
+                                          "foo"
+                                      };
+            new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.Clear());
+        }
+    }
+
+    [TestFixture]
+    public class Remove
+    {
+        [Test]
+        public void Simple()
+        {
+            var generalTree = new ObservableGeneralTree<string>("root")
+                                      {
+                                          "foo"
+                                      };
+            ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.Remove("foo"), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
+        {
+            var generalTree = new ObservableGeneralTree<string>("root")
+                                      {
+                                          "foo", 
+                                          "bar"
+                                      };
+            new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.Remove("foo"), obj => obj.Remove("bar"));
+        }
+
+    }
+
+    [TestFixture]
+    public class RemoveAt
+    {
+        [Test]
+        public void Simple()
+        {
+            var generalTree = new ObservableGeneralTree<string>("root")
+                                      {
+                                          "foo"
+                                      };
+            ObservableCollectionTester.ExpectEvents(generalTree, obj => obj.RemoveAt(0), "Count", "Item[]", "IsEmpty");
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ExceptionReentrancy()
+        {
+            var generalTree = new ObservableGeneralTree<string>("root")
+                                      {
+                                          "foo", 
+                                          "bar"
+                                      };
+            new ReentracyTester<ObservableGeneralTree<string>>(generalTree, obj => obj.RemoveAt(0));
+        }
+
+    }
+
 }

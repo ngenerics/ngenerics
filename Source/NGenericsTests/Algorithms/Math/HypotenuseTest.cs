@@ -11,35 +11,32 @@
 using NGenerics.Algorithms;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Algorithms.Math
+namespace NGenerics.Tests.Algorithms.Math.HypotenuseTest
 {
     [TestFixture]
-    public class HypotenuseTest
+    public class Hypotenuse
     {
-        [TestFixture]
-        public class Hypotenuse
+        [Test]
+        public void Simple()
         {
-            [Test]
-            public void Simple()
-            {
-                var a = 4;
-                var b = 8;
+            var a = 4;
+            var b = 8;
 
-                var hyp = MathAlgorithms.Hypotenuse(a, b);
+            var hyp = MathAlgorithms.Hypotenuse(a, b);
 
-                Assert.AreEqual(hyp, System.Math.Sqrt(80));
+            Assert.AreEqual(hyp, System.Math.Sqrt(80));
 
-                a = 8;
-                b = 4;
-                hyp = MathAlgorithms.Hypotenuse(a, b);
+            a = 8;
+            b = 4;
+            hyp = MathAlgorithms.Hypotenuse(a, b);
 
-                Assert.AreEqual(hyp, System.Math.Sqrt(80));
+            Assert.AreEqual(hyp, System.Math.Sqrt(80));
 
-                a = 0;
-                b = 0;
-                hyp = MathAlgorithms.Hypotenuse(a, b);
-                Assert.AreEqual(hyp, 0);
-            }
+            a = 0;
+            b = 0;
+            hyp = MathAlgorithms.Hypotenuse(a, b);
+            Assert.AreEqual(hyp, 0);
         }
     }
+
 }

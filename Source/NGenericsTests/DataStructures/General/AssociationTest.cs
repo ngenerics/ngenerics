@@ -13,98 +13,94 @@ using NGenerics.Extensions;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General
+namespace NGenerics.Tests.DataStructures.General.AssociationTest
 {
-	[TestFixture]
-	public class AssociationTest
+    [TestFixture]
+    public class Construction
     {
-        [TestFixture]
-        public class Construction
+
+        [Test]
+        public void Simple()
         {
+            var assoc = new Association<int, string>(5, "aa");
 
-            [Test]
-			public void Simple()
-            {
-                var assoc = new Association<int, string>(5, "aa");
+            Assert.AreEqual(assoc.Key, 5);
+            Assert.AreEqual(assoc.Value, "aa");
 
-                Assert.AreEqual(assoc.Key, 5);
-                Assert.AreEqual(assoc.Value, "aa");
-
-            }
-            [Test]
-            public void Equality()
-            {
-                var assoc = new Association<int, string>(5, "aa");
-                var assoc2 = new Association<int, string>(5, "aa");
-                Assert.AreEqual(assoc.Key, assoc2.Key);
-                Assert.AreEqual(assoc.Key, assoc2.Key);
-                Assert.AreEqual(assoc, assoc2);
-
-            }
+        }
+        [Test]
+        public void Equality()
+        {
+            var assoc = new Association<int, string>(5, "aa");
+            var assoc2 = new Association<int, string>(5, "aa");
+            Assert.AreEqual(assoc.Key, assoc2.Key);
+            Assert.AreEqual(assoc.Key, assoc2.Key);
+            Assert.AreEqual(assoc, assoc2);
 
         }
 
-        [TestFixture]
-        public class Value
+    }
+
+    [TestFixture]
+    public class Value
+    {
+
+        [Test]
+        public void Simple()
         {
+            var assoc = new Association<int, string>(5, "aa");
 
-            [Test]
-			public void Simple()
-            {
-                var assoc = new Association<int, string>(5, "aa");
+            Assert.AreEqual(assoc.Value, "aa");
 
-                Assert.AreEqual(assoc.Value, "aa");
+            assoc.Value = "bla";
 
-                assoc.Value = "bla";
-
-                Assert.AreEqual(assoc.Value, "bla");
-            }
-
-        }
-           
-        [TestFixture]
-        public class Key
-        {
-            [Test]
-			public void Simple()
-            {
-                var assoc = new Association<int, string>(5, "aa");
-
-                Assert.AreEqual(assoc.Key, 5);
-
-                assoc.Key = 2;
-
-                Assert.AreEqual(assoc.Key, 2);
-            }
-
+            Assert.AreEqual(assoc.Value, "bla");
         }
 
-        [TestFixture]
-        public class Serializable
+    }
+
+    [TestFixture]
+    public class Key
+    {
+        [Test]
+        public void Simple()
         {
+            var assoc = new Association<int, string>(5, "aa");
 
-            [Test]
-            public void Simple()
-            {
-                var assoc = new Association<int, string>(5, "aa");
-                var newAssoc = SerializeUtil.BinarySerializeDeserialize(assoc);
+            Assert.AreEqual(assoc.Key, 5);
 
-                Assert.AreEqual(assoc.Key, newAssoc.Key);
-                Assert.AreEqual(assoc.Value, newAssoc.Value);
-                Assert.AreNotSame(assoc, newAssoc);
-            }
+            assoc.Key = 2;
 
-            [Test]
-            public void XmlSimple()
-            {
-                var assoc = new Association<int, string>(5, "aa");
-                var serialize = assoc.Serialize();
-                var newAssoc = ObjectExtensions.Deserialize<Association<int, string>>(serialize);
+            Assert.AreEqual(assoc.Key, 2);
+        }
 
-                Assert.AreEqual(assoc.Key, newAssoc.Key);
-                Assert.AreEqual(assoc.Value, newAssoc.Value);
-                Assert.AreEqual(assoc, newAssoc);
-            }
+    }
+
+    [TestFixture]
+    public class Serializable
+    {
+
+        [Test]
+        public void Simple()
+        {
+            var assoc = new Association<int, string>(5, "aa");
+            var newAssoc = SerializeUtil.BinarySerializeDeserialize(assoc);
+
+            Assert.AreEqual(assoc.Key, newAssoc.Key);
+            Assert.AreEqual(assoc.Value, newAssoc.Value);
+            Assert.AreNotSame(assoc, newAssoc);
+        }
+
+        [Test]
+        public void XmlSimple()
+        {
+            var assoc = new Association<int, string>(5, "aa");
+            var serialize = assoc.Serialize();
+            var newAssoc = ObjectExtensions.Deserialize<Association<int, string>>(serialize);
+
+            Assert.AreEqual(assoc.Key, newAssoc.Key);
+            Assert.AreEqual(assoc.Value, newAssoc.Value);
+            Assert.AreEqual(assoc, newAssoc);
         }
     }
 }

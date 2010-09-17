@@ -13,57 +13,54 @@ using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace NGenerics.Tests.Patterns.Visitor
+namespace NGenerics.Tests.Patterns.Visitor.OrderedVisitorTest
 {
     [TestFixture]
-    public class OrderedVisitorTest
+    public class Construction
     {
-        [TestFixture]
-        public class Construction
+        [Test]
+        public void Simple()
         {
-            [Test]
-            public void Simple()
-            {
-                var visitor = new TrackingVisitor<int>();
-                var orderedVisitor = new OrderedVisitor<int>(visitor);
+            var visitor = new TrackingVisitor<int>();
+            var orderedVisitor = new OrderedVisitor<int>(visitor);
 
-                Assert.IsFalse(orderedVisitor.HasCompleted);
-                Assert.AreSame(orderedVisitor.VisitorToUse, visitor);
-            }
-
-            [Test]
-            [ExpectedException(typeof(ArgumentNullException))]
-            public void ExceptionNullVisitor()
-            {
-                new OrderedVisitor<int>(null);
-            }
+            Assert.IsFalse(orderedVisitor.HasCompleted);
+            Assert.AreSame(orderedVisitor.VisitorToUse, visitor);
         }
 
-        [TestFixture]
-        public class Visit
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ExceptionNullVisitor()
         {
-            [Test]
-            public void InnerVisitorShouldBeCalledOnEachVisi_Method()
-            {
-                var mockRepository = new MockRepository();
-                var innerVisitor = mockRepository.StrictMock<IVisitor<int>>();
-
-                var orderedVisitor = new OrderedVisitor<int>(innerVisitor);
-
-                innerVisitor.Visit(1);
-                innerVisitor.Visit(0);
-                innerVisitor.Visit(-3);
-                innerVisitor.Visit(5);
-
-                mockRepository.ReplayAll();
-
-                orderedVisitor.Visit(1);
-                orderedVisitor.VisitInOrder(0);
-                orderedVisitor.VisitPostOrder(-3);
-                orderedVisitor.VisitPreOrder(5);
-
-                mockRepository.VerifyAll();
-            }
+            new OrderedVisitor<int>(null);
         }
     }
+
+    [TestFixture]
+    public class Visit
+    {
+        [Test]
+        public void InnerVisitorShouldBeCalledOnEachVisi_Method()
+        {
+            var mockRepository = new MockRepository();
+            var innerVisitor = mockRepository.StrictMock<IVisitor<int>>();
+
+            var orderedVisitor = new OrderedVisitor<int>(innerVisitor);
+
+            innerVisitor.Visit(1);
+            innerVisitor.Visit(0);
+            innerVisitor.Visit(-3);
+            innerVisitor.Visit(5);
+
+            mockRepository.ReplayAll();
+
+            orderedVisitor.Visit(1);
+            orderedVisitor.VisitInOrder(0);
+            orderedVisitor.VisitPostOrder(-3);
+            orderedVisitor.VisitPreOrder(5);
+
+            mockRepository.VerifyAll();
+        }
+    }
+
 }

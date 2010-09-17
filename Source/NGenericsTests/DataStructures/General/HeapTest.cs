@@ -14,112 +14,108 @@ using NGenerics.DataStructures.General;
 using NUnit.Framework;
 using NGenerics.Tests.Util;
 
-namespace NGenerics.Tests.DataStructures.General
+namespace NGenerics.Tests.DataStructures.General.HeapTest
 {
-	[TestFixture]
-	public class HeapTest
-    {
-        #region Globals
 
+
+    #region Tests
+
+    [TestFixture]
+    public class Construction
+    {
         private static readonly Type heapType = typeof(Heap<int>);
         private static readonly Type heapTypeType = typeof(HeapType);
 
-        #endregion
 
-        #region Tests
-
-        [TestFixture]
-        public class Construction
+        [Test]
+        public void InvalidHeapType1()
         {
-            [Test]
-            public void InvalidHeapType1()
+            Exception argException = null;
+            try
             {
-                Exception argException = null;
-                try
-                {
-                    var constructor = heapType.GetConstructor(new[] { heapTypeType, typeof(IComparer<int>) });
-                    constructor.Invoke(new object[] { -1, Comparer<int>.Default });
-                }
-                catch (TargetInvocationException e)
-                {
-                    argException = e.InnerException;
-                }
-                Assert.IsNotNull(argException);
+                var constructor = heapType.GetConstructor(new[] { heapTypeType, typeof(IComparer<int>) });
+                constructor.Invoke(new object[] { -1, Comparer<int>.Default });
             }
-
-
-            [Test]
-            public void InvalidHeapType2()
+            catch (TargetInvocationException e)
             {
-                Exception argException = null;
-                try
-                {
-                    var constructor = heapType.GetConstructor(new[] { heapTypeType, typeof(int), typeof(IComparer<int>) });
-                    constructor.Invoke(new object[] { -1, 5, Comparer<int>.Default });
-                }
-                catch (TargetInvocationException e)
-                {
-                    argException = e.InnerException;
-                }
-                Assert.IsNotNull(argException);
+                argException = e.InnerException;
             }
-
-            [Test]
-            public void ComparerDelegate1()
-            {
-                var heap = new Heap<SimpleClass>(HeapType.Maximum, (x, y) => x.TestProperty.CompareTo(y.TestProperty))
-                           {
-                               new SimpleClass("5")
-                           };
-
-                Assert.AreEqual(heap.Count, 1);
-                Assert.AreEqual(heap.Root.TestProperty, "5");
-
-                heap.Add(new SimpleClass("2"));
-                Assert.AreEqual(heap.Count, 2);
-                Assert.AreEqual(heap.Root.TestProperty, "5");
-
-                heap.Add(new SimpleClass("3"));
-                Assert.AreEqual(heap.Count, 3);
-                Assert.AreEqual(heap.Root.TestProperty, "5");
-
-                Assert.AreEqual(heap.RemoveRoot().TestProperty, "5");
-
-                heap.Add(new SimpleClass("1"));
-                Assert.AreEqual(heap.Count, 3);
-                Assert.AreEqual(heap.Root.TestProperty, "3");
-            }
-
-            [Test]
-            public void ComparerDelegateWithIntialSize()
-            {
-                var heap = new Heap<SimpleClass>(HeapType.Maximum, 10, (x, y) => x.TestProperty.CompareTo(y.TestProperty))
-                           {
-                               new SimpleClass("5")
-                           };
-
-                Assert.AreEqual(heap.Count, 1);
-                Assert.AreEqual(heap.Root.TestProperty, "5");
-
-                heap.Add(new SimpleClass("2"));
-                Assert.AreEqual(heap.Count, 2);
-                Assert.AreEqual(heap.Root.TestProperty, "5");
-
-                heap.Add(new SimpleClass("3"));
-                Assert.AreEqual(heap.Count, 3);
-                Assert.AreEqual(heap.Root.TestProperty, "5");
-
-                Assert.AreEqual(heap.RemoveRoot().TestProperty, "5");
-
-                heap.Add(new SimpleClass("1"));
-                Assert.AreEqual(heap.Count, 3);
-                Assert.AreEqual(heap.Root.TestProperty, "3");
-            }
+            Assert.IsNotNull(argException);
         }
 
-        
-        #endregion
 
-        
+        [Test]
+        public void InvalidHeapType2()
+        {
+            Exception argException = null;
+            try
+            {
+                var constructor = heapType.GetConstructor(new[] { heapTypeType, typeof(int), typeof(IComparer<int>) });
+                constructor.Invoke(new object[] { -1, 5, Comparer<int>.Default });
+            }
+            catch (TargetInvocationException e)
+            {
+                argException = e.InnerException;
+            }
+            Assert.IsNotNull(argException);
+        }
+
+        [Test]
+        public void ComparerDelegate1()
+        {
+            var heap = new Heap<SimpleClass>(HeapType.Maximum, (x, y) => x.TestProperty.CompareTo(y.TestProperty))
+                           {
+                               new SimpleClass("5")
+                           };
+
+            Assert.AreEqual(heap.Count, 1);
+            Assert.AreEqual(heap.Root.TestProperty, "5");
+
+            heap.Add(new SimpleClass("2"));
+            Assert.AreEqual(heap.Count, 2);
+            Assert.AreEqual(heap.Root.TestProperty, "5");
+
+            heap.Add(new SimpleClass("3"));
+            Assert.AreEqual(heap.Count, 3);
+            Assert.AreEqual(heap.Root.TestProperty, "5");
+
+            Assert.AreEqual(heap.RemoveRoot().TestProperty, "5");
+
+            heap.Add(new SimpleClass("1"));
+            Assert.AreEqual(heap.Count, 3);
+            Assert.AreEqual(heap.Root.TestProperty, "3");
+        }
+
+        [Test]
+        public void ComparerDelegateWithIntialSize()
+        {
+            var heap = new Heap<SimpleClass>(HeapType.Maximum, 10, (x, y) => x.TestProperty.CompareTo(y.TestProperty))
+                           {
+                               new SimpleClass("5")
+                           };
+
+            Assert.AreEqual(heap.Count, 1);
+            Assert.AreEqual(heap.Root.TestProperty, "5");
+
+            heap.Add(new SimpleClass("2"));
+            Assert.AreEqual(heap.Count, 2);
+            Assert.AreEqual(heap.Root.TestProperty, "5");
+
+            heap.Add(new SimpleClass("3"));
+            Assert.AreEqual(heap.Count, 3);
+            Assert.AreEqual(heap.Root.TestProperty, "5");
+
+            Assert.AreEqual(heap.RemoveRoot().TestProperty, "5");
+
+            heap.Add(new SimpleClass("1"));
+            Assert.AreEqual(heap.Count, 3);
+            Assert.AreEqual(heap.Root.TestProperty, "3");
+        }
     }
+
+
+    #endregion
+
+
+
 }

@@ -12,18 +12,15 @@ using System;
 using NGenerics.DataStructures.Mathematical;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Mathematical
+namespace NGenerics.Tests.DataStructures.Mathematical.LUDecompositionTest
 {
-   [TestFixture]
-   public class LUDecompositionTest
-   {
-      [TestFixture]
-      public class Determinant
-      {
+    [TestFixture]
+    public class Determinant
+    {
 
-         [Test]
-         public void Simple()
-         {
+        [Test]
+        public void Simple()
+        {
             var matrix = new Matrix(3, 3);
 
             // [ 3,  1,  8 ]
@@ -46,17 +43,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical
             var decomposition = new LUDecomposition(matrix);
 
             Assert.AreEqual(14.0d, decomposition.Determinant(), 0.00000001d);
-         }
+        }
 
-      }
+    }
 
-      [TestFixture]
-      public class LowerTriangularFactor
-      {
+    [TestFixture]
+    public class LowerTriangularFactor
+    {
 
-         [Test]
-         public void Simple()
-         {
+        [Test]
+        public void Simple()
+        {
             var matrix = new Matrix(3, 3);
 
             /*
@@ -100,17 +97,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical
             Assert.AreEqual(L[2, 0], 0.5714, 0.0001);
             Assert.AreEqual(L[2, 1], 0.5000, 0.0001);
             Assert.AreEqual(L[2, 2], 1.000, 0.0001);
-         }
+        }
 
-      }
+    }
 
-      [TestFixture]
-      public class NonSingular
-      {
+    [TestFixture]
+    public class NonSingular
+    {
 
-         [Test]
-         public void Simple()
-         {
+        [Test]
+        public void Simple()
+        {
             var matrix = new Matrix(3, 3);
 
             // [ 4,  4,  4 ]
@@ -128,16 +125,16 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 
             var decomposition = new LUDecomposition(matrix);
             Assert.IsFalse(decomposition.NonSingular);
-         }
+        }
 
-      }
+    }
 
-      [TestFixture]
-      public class Solve
-      {
-         [Test]
-         public void Simple()
-         {
+    [TestFixture]
+    public class Solve
+    {
+        [Test]
+        public void Simple()
+        {
             var matrixA = new Matrix(2, 2);
 
             matrixA[0, 0] = 0;
@@ -165,12 +162,12 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 
             Assert.AreEqual(solveMatrix[1, 0], 1);
             Assert.AreEqual(solveMatrix[1, 1], 0);
-         }
+        }
 
-         [Test]
-         [ExpectedException(typeof(ArgumentException))]
-         public void ExceptionDifferentRowCounts()
-         {
+        [Test]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ExceptionDifferentRowCounts()
+        {
             var matrixA = new Matrix(2, 2);
 
             matrixA[0, 0] = 0;
@@ -192,17 +189,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 
             var decomposition = new LUDecomposition(matrixA);
             var solveMatrix = decomposition.Solve(matrixB);
-         }
+        }
 
-      }
+    }
 
-      [TestFixture]
-      public class UpperTriangularFactor
-      {
+    [TestFixture]
+    public class UpperTriangularFactor
+    {
 
-         [Test]
-         public void Simple()
-         {
+        [Test]
+        public void Simple()
+        {
             var matrix = new Matrix(3, 3);
 
             /*
@@ -246,8 +243,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical
             Assert.AreEqual(upperTriangularFactorMatrix[2, 0], 0.0000, 0.0001);
             Assert.AreEqual(upperTriangularFactorMatrix[2, 1], 0.0000, 0.0001);
             Assert.AreEqual(upperTriangularFactorMatrix[2, 2], 4.5000, 0.0001);
-         }
+        }
 
-      }
-   }
+    }
 }

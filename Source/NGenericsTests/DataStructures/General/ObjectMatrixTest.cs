@@ -16,16 +16,49 @@ using NGenerics.Patterns.Visitor;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General
+namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTest
 {
-    [TestFixture]
+   
     public class ObjectMatrixTest
-    {
+    {  
+        #region Private Members
+
+        internal static void TestIfEqual(ObjectMatrix<int> l, ObjectMatrix<int> r)
+        {
+            Assert.AreEqual(l.Columns, r.Columns);
+            Assert.AreEqual(l.Rows, r.Rows);
+
+            for (var i = 0; i < l.Rows; i++)
+            {
+                for (var j = 0; j < l.Columns; j++)
+                {
+                    Assert.AreEqual(l[i, j], r[i, j]);
+                }
+            }
+        }
+
+        internal static ObjectMatrix<int> GetTestMatrix()
+        {
+            var matrix = new ObjectMatrix<int>(10, 15);
+
+            for (var i = 0; i < 10; i++)
+            {
+                for (var j = 0; j < 15; j++)
+                {
+                    matrix[i, j] = i + j;
+                }
+            }
+
+            return matrix;
+        }
+
+        #endregion
+    }
 
         #region Tests
 
         [TestFixture]
-        public class Accept
+        public class Accept:ObjectMatrixTest
         {
             [Test]
             [ExpectedException(typeof(ArgumentNullException))]
@@ -57,7 +90,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Add
+        public class Add:ObjectMatrixTest
         {
             [Test]
             [ExpectedException(typeof(NotSupportedException))]
@@ -69,7 +102,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class AddColumn
+        public class AddColumn:ObjectMatrixTest
         {
             [Test]
 			public void Simple()
@@ -170,7 +203,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class AddColumns
+        public class AddColumns:ObjectMatrixTest
         {
             [Test]
             public void Multiple()
@@ -220,7 +253,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class AddRow
+        public class AddRow:ObjectMatrixTest
         {
             [Test]
             public void Simple()
@@ -322,7 +355,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class AddRows
+        public class AddRows:ObjectMatrixTest
         {
             [Test]
             public void Multiple()
@@ -372,7 +405,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Construction
+        public class Construction:ObjectMatrixTest
         {
             [Test]
             public void Simple()
@@ -416,7 +449,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Clear
+        public class Clear:ObjectMatrixTest
         {
             [Test]
 			public void Simple()
@@ -435,7 +468,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Contains
+        public class Contains:ObjectMatrixTest
         {
             [Test]
 			public void Simple()
@@ -456,7 +489,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class CopyTo
+        public class CopyTo:ObjectMatrixTest
         {
             [Test]
 			public void Simple()
@@ -510,7 +543,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Count
+        public class Count:ObjectMatrixTest
         {
             [Test]
             public void Simple()
@@ -525,7 +558,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class DeleteRow
+        public class DeleteRow:ObjectMatrixTest
         {
             [Test]
             [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -627,7 +660,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class DeleteColumn
+        public class DeleteColumn:ObjectMatrixTest
         {
             [Test]
             [ExpectedException(typeof(InvalidOperationException))]
@@ -729,7 +762,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class GetColumn
+        public class GetColumn:ObjectMatrixTest
         {
             [Test]
 			public void Simple()
@@ -787,7 +820,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class GetEnumerator
+        public class GetEnumerator:ObjectMatrixTest
         {
             [Test]
             public void Interface()
@@ -843,7 +876,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
                 
         [TestFixture]
-        public class GetRow
+        public class GetRow:ObjectMatrixTest
         {
             [Test]
             public void Simple()
@@ -902,7 +935,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class GetSubMatrix
+        public class GetSubMatrix:ObjectMatrixTest
         {
             [Test]
             public void Interface()
@@ -1004,7 +1037,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Indexer
+        public class Indexer:ObjectMatrixTest
         {
             [Test]
 			public void ExcetionInvalid()
@@ -1068,7 +1101,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class InterchangeColumns
+        public class InterchangeColumns:ObjectMatrixTest
         {
             [Test]
             public void SameColumn()
@@ -1153,7 +1186,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class InterchangeRows
+        public class InterchangeRows:ObjectMatrixTest
         {
             [Test]
             public void Simple()
@@ -1239,7 +1272,7 @@ namespace NGenerics.Tests.DataStructures.General
 
   
         [TestFixture]
-        public class IsReadOnly
+        public class IsReadOnly:ObjectMatrixTest
         {
             [Test]
 			public void Simple()
@@ -1253,7 +1286,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class IsSquare
+        public class IsSquare:ObjectMatrixTest
         {
             [Test]
 			public void Simple()
@@ -1273,7 +1306,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Remove
+        public class Remove:ObjectMatrixTest
         {
             [Test]
             [ExpectedException(typeof(NotSupportedException))]
@@ -1285,7 +1318,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Resize
+        public class Resize:ObjectMatrixTest
         {
             [Test]
             public void Smaller()
@@ -1386,7 +1419,7 @@ namespace NGenerics.Tests.DataStructures.General
         }
 
         [TestFixture]
-        public class Serializable
+        public class Serializable:ObjectMatrixTest
         {
             [Test]
             public void Simple()
@@ -1400,37 +1433,5 @@ namespace NGenerics.Tests.DataStructures.General
         
         #endregion
 
-        #region Private Members
-
-        private static void TestIfEqual(ObjectMatrix<int> l, ObjectMatrix<int> r)
-        {
-            Assert.AreEqual(l.Columns, r.Columns);
-            Assert.AreEqual(l.Rows, r.Rows);
-
-            for (var i = 0; i < l.Rows; i++)
-            {
-                for (var j = 0; j < l.Columns; j++)
-                {
-                    Assert.AreEqual(l[i, j], r[i, j]);
-                }
-            }
-        }
-
-        private static ObjectMatrix<int> GetTestMatrix()
-        {
-            var matrix = new ObjectMatrix<int>(10, 15);
-
-            for (var i = 0; i < 10; i++)
-            {
-                for (var j = 0; j < 15; j++)
-                {
-                    matrix[i, j] = i + j;
-                }
-            }
-
-            return matrix;
-        }
-
-        #endregion
-    }
+      
 }

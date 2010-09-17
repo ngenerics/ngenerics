@@ -11,26 +11,23 @@ using System;
 using NGenerics.Patterns.Specification;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Patterns.Specification
+namespace NGenerics.Tests.Patterns.Specification.PredicateSpecificationTests
 {
     [TestFixture]
-    public class PredicateSpecificationTests
+    public class IsSatisfiedBy
     {
-        [TestFixture]
-        public class IsSatisfiedBy
+        [Test]
+        public void Specification_Should_Save_And_Use_Predicate_Supplied_Correctly()
         {
-            [Test]
-            public void Specification_Should_Save_And_Use_Predicate_Supplied_Correctly()
-            {
-                Predicate<int> predicate = x => x == 5;
-                var specification = new PredicateSpecification<int>(predicate);
-                Assert.AreEqual(specification.Predicate, predicate);
+            Predicate<int> predicate = x => x == 5;
+            var specification = new PredicateSpecification<int>(predicate);
+            Assert.AreEqual(specification.Predicate, predicate);
 
-                Assert.IsTrue(specification.IsSatisfiedBy(5));
+            Assert.IsTrue(specification.IsSatisfiedBy(5));
 
-                Assert.IsFalse(specification.IsSatisfiedBy(3));
-                Assert.IsFalse(specification.IsSatisfiedBy(6));
-            }
+            Assert.IsFalse(specification.IsSatisfiedBy(3));
+            Assert.IsFalse(specification.IsSatisfiedBy(6));
         }
-   }
+    }
 }
+

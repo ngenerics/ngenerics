@@ -14,11 +14,9 @@ using NGenerics.Algorithms;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Algorithms.Graph
+namespace NGenerics.Tests.Algorithms.Graph.PrimTest
 {
-    [TestFixture]
-    public class PrimTest
-    {
+
         [TestFixture]
         public class PrimsAlgorithm
         {
@@ -160,16 +158,18 @@ namespace NGenerics.Tests.Algorithms.Graph
             {
                 GraphAlgorithms.PrimsAlgorithm(new Graph<int>(true), new Vertex<int>(5));
             }
+
+            #region Private Members
+
+            private static void AddEdge(Graph<int> g, List<Vertex<int>> vertices, int value1, int value2, int weight)
+            {
+                g.AddEdge(vertices[value1 - 1], vertices[value2 - 1], weight);
+            }
+
+            #endregion
         }
 
 
-        #region Private Members
 
-        private static void AddEdge(Graph<int> g, List<Vertex<int>> vertices, int value1, int value2, int weight)
-        {
-            g.AddEdge(vertices[value1 - 1], vertices[value2 - 1], weight);
-        }
-
-        #endregion
-    }
+    
 }
