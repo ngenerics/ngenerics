@@ -32,18 +32,18 @@ namespace NGenerics.Sorting
         [Obsolete]
         public BucketSorter(int maximumUniverse)
         {
-            
+
         }
 
-       
-       /// <example>
-       /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\BubbleSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
-       /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\BubbleSorterExamples.vb" region="Sort" lang="vbnet" title="The following example shows how to use the Sort method."/>
-       /// </example>
-       public BucketSorter()
-       {
 
-       }
+        /// <example>
+        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\BubbleSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
+        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\BubbleSorterExamples.vb" region="Sort" lang="vbnet" title="The following example shows how to use the Sort method."/>
+        /// </example>
+        public BucketSorter()
+        {
+
+        }
         #endregion
 
         #region ISorter<int> Members
@@ -57,12 +57,12 @@ namespace NGenerics.Sorting
 
             #endregion
 
-            if (list.Count<=1)
+            if (list.Count <= 1)
                 return;
 
             int max, min;
             max = min = list[0];
-            
+
             for (var i = 0; i < list.Count; i++)
             {
                 if (list[i] > max) max = list[i];
@@ -85,7 +85,7 @@ namespace NGenerics.Sorting
                 {
                     for (var j = 0; j < counters[i]; j++)
                     {
-                        list[position] = i;
+                        list[position] = i + min;
                         position++;
                     }
                 }
@@ -98,7 +98,7 @@ namespace NGenerics.Sorting
                 {
                     for (var j = 0; j < counters[i]; j++)
                     {
-                        list[position] = i;
+                        list[position] = i + min;
                         position--;
                     }
                 }
