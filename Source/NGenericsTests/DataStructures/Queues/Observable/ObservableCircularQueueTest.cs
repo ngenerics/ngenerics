@@ -14,111 +14,116 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Queues.Observable.ObservableCircularQueueTest
+namespace NGenerics.Tests.DataStructures.Queues.Observable
 {
 
-    [TestFixture]
-    public class Contruction
-    {
-        [Test]
-        public void Serialization()
-        {
-            var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableCircularQueue<int>(2));
-            ObservableCollectionTester.CheckMonitor(deserialize);
-        }
+	[TestFixture]
+	public class ObservableCircularQueueTest
+	{
+		[TestFixture]
+		public class Contruction
+		{
+			[Test]
+			public void Serialization()
+			{
+				var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableCircularQueue<int>(2));
+				ObservableCollectionTester.CheckMonitor(deserialize);
+			}
 
-        [Test]
-        public void Monitor1()
-        {
-            ObservableCollectionTester.CheckMonitor(new ObservableCircularQueue<int>(2));
-        }
-    }
-    [TestFixture]
-    public class Enqueue
-    {
-        [Test]
-        public void Simple()
-        {
-            var circularQueue = new ObservableCircularQueue<string>(5);
-            ObservableCollectionTester.ExpectEvents(circularQueue, obj => obj.Enqueue("foo"), "Count", "IsEmpty");
-        }
+			[Test]
+			public void Monitor1()
+			{
+				ObservableCollectionTester.CheckMonitor(new ObservableCircularQueue<int>(2));
+			}
+		}
+		[TestFixture]
+		public class Enqueue
+		{
+			[Test]
+			public void Simple()
+			{
+				var circularQueue = new ObservableCircularQueue<string>(5);
+				ObservableCollectionTester.ExpectEvents(circularQueue, obj => obj.Enqueue("foo"), "Count", "IsEmpty");
+			}
 
 
-        [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ExceptionReentrancy()
-        {
-            var circularQueue = new ObservableCircularQueue<string>(5);
-            new ReentracyTester<ObservableCircularQueue<string>>(circularQueue, obj => obj.Enqueue("foo"));
-        }
-    }
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionReentrancy()
+			{
+				var circularQueue = new ObservableCircularQueue<string>(5);
+				new ReentracyTester<ObservableCircularQueue<string>>(circularQueue, obj => obj.Enqueue("foo"));
+			}
+		}
 
-    [TestFixture]
-    public class Clear
-    {
-        [Test]
-        public void Simple()
-        {
+		[TestFixture]
+		public class Clear
+		{
+			[Test]
+			public void Simple()
+			{
 
-            var circularQueue = new ObservableCircularQueue<string>(5);
-            circularQueue.Enqueue("foo");
+				var circularQueue = new ObservableCircularQueue<string>(5);
+				circularQueue.Enqueue("foo");
 
-            ObservableCollectionTester.ExpectEvents(circularQueue, obj => obj.Clear(), "Count", "IsEmpty");
-        }
-        [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ExceptionReentrancy()
-        {
-            var circularQueue = new ObservableCircularQueue<string>(5);
-            circularQueue.Enqueue("foo");
-            new ReentracyTester<ObservableCircularQueue<string>>(circularQueue, obj => obj.Clear());
-        }
-    }
+				ObservableCollectionTester.ExpectEvents(circularQueue, obj => obj.Clear(), "Count", "IsEmpty");
+			}
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionReentrancy()
+			{
+				var circularQueue = new ObservableCircularQueue<string>(5);
+				circularQueue.Enqueue("foo");
+				new ReentracyTester<ObservableCircularQueue<string>>(circularQueue, obj => obj.Clear());
+			}
+		}
 
-    [TestFixture]
-    public class Remove
-    {
-        [Test]
-        public void Simple()
-        {
-            var circularQueue = new ObservableCircularQueue<string>(5);
-            circularQueue.Enqueue("foo");
+		[TestFixture]
+		public class Remove
+		{
+			[Test]
+			public void Simple()
+			{
+				var circularQueue = new ObservableCircularQueue<string>(5);
+				circularQueue.Enqueue("foo");
 
-            ObservableCollectionTester.ExpectEvents(circularQueue, obj => obj.Remove("foo"), "Count", "IsEmpty");
-        }
+				ObservableCollectionTester.ExpectEvents(circularQueue, obj => obj.Remove("foo"), "Count", "IsEmpty");
+			}
 
-        [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ExceptionReentrancy()
-        {
-            var circularQueue = new ObservableCircularQueue<string>(5);
-            circularQueue.Enqueue("foo");
-            circularQueue.Enqueue("foo");
-            new ReentracyTester<ObservableCircularQueue<string>>(circularQueue, obj => obj.Remove("foo"));
-        }
-    }
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionReentrancy()
+			{
+				var circularQueue = new ObservableCircularQueue<string>(5);
+				circularQueue.Enqueue("foo");
+				circularQueue.Enqueue("foo");
+				new ReentracyTester<ObservableCircularQueue<string>>(circularQueue, obj => obj.Remove("foo"));
+			}
+		}
 
-    [TestFixture]
-    public class Dequeue
-    {
-        [Test]
-        public void Simple()
-        {
-            var circularQueue = new ObservableCircularQueue<string>(5);
-            circularQueue.Enqueue("foo");
+		[TestFixture]
+		public class Dequeue
+		{
+			[Test]
+			public void Simple()
+			{
+				var circularQueue = new ObservableCircularQueue<string>(5);
+				circularQueue.Enqueue("foo");
 
-            ObservableCollectionTester.ExpectEvents(circularQueue, obj => obj.Dequeue(), "Count", "IsEmpty");
-        }
+				ObservableCollectionTester.ExpectEvents(circularQueue, obj => obj.Dequeue(), "Count", "IsEmpty");
+			}
 
-        [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ExceptionReentrancy()
-        {
-            var circularQueue = new ObservableCircularQueue<string>(5);
-            circularQueue.Enqueue("foo");
-            circularQueue.Enqueue("bar");
-            new ReentracyTester<ObservableCircularQueue<string>>(circularQueue, obj => obj.Dequeue());
-        }
-    }
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionReentrancy()
+			{
+				var circularQueue = new ObservableCircularQueue<string>(5);
+				circularQueue.Enqueue("foo");
+				circularQueue.Enqueue("bar");
+				new ReentracyTester<ObservableCircularQueue<string>>(circularQueue, obj => obj.Dequeue());
+			}
+		}
+
+	}
 
 }

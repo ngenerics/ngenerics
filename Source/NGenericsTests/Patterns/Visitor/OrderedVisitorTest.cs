@@ -13,54 +13,58 @@ using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace NGenerics.Tests.Patterns.Visitor.OrderedVisitorTest
+namespace NGenerics.Tests.Patterns.Visitor
 {
-    [TestFixture]
-    public class Construction
-    {
-        [Test]
-        public void Simple()
-        {
-            var visitor = new TrackingVisitor<int>();
-            var orderedVisitor = new OrderedVisitor<int>(visitor);
+	[TestFixture]
+	public class OrderedVisitorTest
+	{
+		[TestFixture]
+		public class Construction
+		{
+			[Test]
+			public void Simple()
+			{
+				var visitor = new TrackingVisitor<int>();
+				var orderedVisitor = new OrderedVisitor<int>(visitor);
 
-            Assert.IsFalse(orderedVisitor.HasCompleted);
-            Assert.AreSame(orderedVisitor.VisitorToUse, visitor);
-        }
+				Assert.IsFalse(orderedVisitor.HasCompleted);
+				Assert.AreSame(orderedVisitor.VisitorToUse, visitor);
+			}
 
-        [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void ExceptionNullVisitor()
-        {
-            new OrderedVisitor<int>(null);
-        }
-    }
+			[Test]
+			[ExpectedException(typeof(ArgumentNullException))]
+			public void ExceptionNullVisitor()
+			{
+				new OrderedVisitor<int>(null);
+			}
+		}
 
-    [TestFixture]
-    public class Visit
-    {
-        [Test]
-        public void InnerVisitorShouldBeCalledOnEachVisi_Method()
-        {
-            var mockRepository = new MockRepository();
-            var innerVisitor = mockRepository.StrictMock<IVisitor<int>>();
+		[TestFixture]
+		public class Visit
+		{
+			[Test]
+			public void InnerVisitorShouldBeCalledOnEachVisi_Method()
+			{
+				var mockRepository = new MockRepository();
+				var innerVisitor = mockRepository.StrictMock<IVisitor<int>>();
 
-            var orderedVisitor = new OrderedVisitor<int>(innerVisitor);
+				var orderedVisitor = new OrderedVisitor<int>(innerVisitor);
 
-            innerVisitor.Visit(1);
-            innerVisitor.Visit(0);
-            innerVisitor.Visit(-3);
-            innerVisitor.Visit(5);
+				innerVisitor.Visit(1);
+				innerVisitor.Visit(0);
+				innerVisitor.Visit(-3);
+				innerVisitor.Visit(5);
 
-            mockRepository.ReplayAll();
+				mockRepository.ReplayAll();
 
-            orderedVisitor.Visit(1);
-            orderedVisitor.VisitInOrder(0);
-            orderedVisitor.VisitPostOrder(-3);
-            orderedVisitor.VisitPreOrder(5);
+				orderedVisitor.Visit(1);
+				orderedVisitor.VisitInOrder(0);
+				orderedVisitor.VisitPostOrder(-3);
+				orderedVisitor.VisitPreOrder(5);
 
-            mockRepository.VerifyAll();
-        }
-    }
+				mockRepository.VerifyAll();
+			}
+		}
 
+	}
 }

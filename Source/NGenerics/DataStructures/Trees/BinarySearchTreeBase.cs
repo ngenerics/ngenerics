@@ -22,8 +22,8 @@ namespace NGenerics.DataStructures.Trees
     /// <summary>
     /// A base class for Binary Search Trees that store a single value in each node.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-#if !SILVERLIGHT
+	/// <typeparam name="T"></typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public abstract class BinarySearchTreeBase<T> : ISearchTree<T>

@@ -20,7 +20,6 @@ namespace NGenerics.Tests.DataStructures.Queues
     [TestFixture]
     public class CircularQueueTest
     {
-        #region Tests
 
         [TestFixture]
         public class Accept
@@ -777,9 +776,7 @@ namespace NGenerics.Tests.DataStructures.Queues
             }
         }
 
-        #endregion
 
-        #region Private Members
 
         private static CircularQueue<int> GetFullTestQueue()
         {
@@ -831,7 +828,5 @@ namespace NGenerics.Tests.DataStructures.Queues
 
             return circularQueue;
         }
-
-        #endregion
     }
 }

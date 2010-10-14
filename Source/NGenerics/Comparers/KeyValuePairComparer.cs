@@ -16,8 +16,8 @@ namespace NGenerics.Comparers {
     /// A comparer for comparing keys for the KeyValuePair class.
     /// </summary>
     /// <typeparam name="TKey">The key type.</typeparam>
-    /// <typeparam name="TValue">The value type.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TValue">The value type.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public class KeyValuePairComparer<TKey, TValue> : IComparer<KeyValuePair<TKey, TValue>> {

@@ -19,8 +19,8 @@ namespace NGenerics.Threading
     /// <summary>
     /// Event for when async operations complete.
     /// </summary>
-    /// <typeparam name="TState">The type of the state.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TState">The type of the state.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [HostProtection(SecurityAction.LinkDemand, SharedState = true)]
 #endif
     public class AsyncCompletedEventArgs<TState> : EventArgs

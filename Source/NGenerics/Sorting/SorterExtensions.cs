@@ -16,7 +16,7 @@ namespace NGenerics.Sorting
     /// <summary>
     /// Provides extensions to lists.
     /// </summary>
-    public static partial class ListExtensions
+    public static class ListExtensions
     {
         /// <summary>
         /// Sorts the specified list.

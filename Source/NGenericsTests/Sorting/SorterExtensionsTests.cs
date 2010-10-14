@@ -12,70 +12,54 @@ using NUnit.Framework;
 using NGenerics.Sorting;
 using Rhino.Mocks;
 
-namespace NGenerics.Tests.Sorting.SorterExtensionsTests
+namespace NGenerics.Tests.Sorting
 {
 
-    [TestFixture]
-    public class Sort
-    {
-        [Test]
-        public void Simple_Sort()
-        {
-            var mocks = new MockRepository();
-            var sorter = mocks.StrictMock<ISorter<int>>();
+	[TestFixture]
+	public class SorterExtensionsTests
+	{
+		[TestFixture]
+		public class Sort
+		{
+			[Test]
+			public void Simple_Sort()
+			{
+				var mocks = new MockRepository();
+				var sorter = mocks.StrictMock<ISorter<int>>();
 
-            var list = GetTestList();
-            sorter.Sort(list);
+				var list = GetTestList();
+				sorter.Sort(list);
 
-            mocks.ReplayAll();
+				mocks.ReplayAll();
 
-            list.Sort(sorter);
+				list.Sort(sorter);
 
-            mocks.VerifyAll();
-        }
+				mocks.VerifyAll();
+			}
 
-        [Test]
-        public void Sort_With_Order()
-        {
-            var mocks = new MockRepository();
-            var sorter = mocks.StrictMock<ISorter<int>>();
+			[Test]
+			public void Sort_With_Order()
+			{
+				var mocks = new MockRepository();
+				var sorter = mocks.StrictMock<ISorter<int>>();
 
-            var list = GetTestList();
-            sorter.Sort(list, SortOrder.Ascending);
-            sorter.Sort(list, SortOrder.Descending);
+				var list = GetTestList();
+				sorter.Sort(list, SortOrder.Ascending);
+				sorter.Sort(list, SortOrder.Descending);
 
-            mocks.ReplayAll();
+				mocks.ReplayAll();
 
-            list.Sort(sorter, SortOrder.Ascending);
-            list.Sort(sorter, SortOrder.Descending);
+				list.Sort(sorter, SortOrder.Ascending);
+				list.Sort(sorter, SortOrder.Descending);
 
-            mocks.VerifyAll();
-        }
+				mocks.VerifyAll();
+			}
 
-        #region Private Members
 
-        //private static void AssertSorted(IList<int> list, SortOrder sortOrder)
-        //{
-        //    if (sortOrder == SortOrder.Ascending)
-        //    {
-        //        for (var i = 0; i< 10; i++)
-        //        {
-        //            Assert.AreEqual(list[i], i);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        for (var i = 9; i >= 0; i--)
-        //        {
-        //            Assert.AreEqual(list[9-i], i);
-        //        }
 
-        //    }
-        //}
-
-        private static IList<int> GetTestList()
-        {
-            return new List<int>
+			private static IList<int> GetTestList()
+			{
+				return new List<int>
                        {
                            3,
                            2,
@@ -88,13 +72,9 @@ namespace NGenerics.Tests.Sorting.SorterExtensionsTests
                            6,
                            7
                        };
-        }
-
-        #endregion
-    }
+			}
+		}
 
 
-
-
-
+	}
 }

@@ -18,8 +18,8 @@ namespace NGenerics.Comparers
     /// <summary>
     /// A comparer for comparing weights on graph edges.
 	/// </summary>
-    /// <typeparam name="T">The type of the objects to compare.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of the objects to compare.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public sealed class EdgeWeightComparer<T> : IComparer<Edge<T>>

@@ -19,8 +19,8 @@ namespace NGenerics.DataStructures.General
     /// An implementation of a SortedList data structure, which keeps any objects
     /// added to it sorted.
     /// </summary>
-    /// <typeparam name="T">The type of elements in the sorted list.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of elements in the sorted list.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

@@ -22,8 +22,8 @@ namespace NGenerics.DataStructures.General
     /// </summary>
     /// <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
     /// <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
-    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-#if (!SILVERLIGHT)
+	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public class SkipList<TKey, TValue> : IDictionary<TKey, TValue>
@@ -609,10 +609,7 @@ namespace NGenerics.DataStructures.General
             {
                 return currentNode.Right;
             }
-            else
-            {
-                return null;
-            }
+        	return null;
         }
 
         private int PickRandomLevel()

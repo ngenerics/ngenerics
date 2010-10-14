@@ -165,24 +165,18 @@ namespace NGenerics.DataStructures.Mathematical
 
             if (absX > absY)
             {
-                if (absX > absZ)
+            	if (absX > absZ)
                 {
                     return 0;
                 }
-                else
-                {
-                    return 2;
-                }
+            	return 2;
             }
 
-		    if (absY > absZ)
+			if (absY > absZ)
 		    {
 		        return 1;
 		    }
-		    else
-		    {
-		        return 2;
-		    }
+			return 2;
         }
 
 
@@ -213,24 +207,18 @@ namespace NGenerics.DataStructures.Mathematical
             var absZ = Math.Abs(Z);
             if (absX < absY)
             {
-                if (absX < absZ)
+            	if (absX < absZ)
                 {
                     return 0;
                 }
-                else
-                {
-                    return 2;
-                }
+            	return 2;
             }
 
-		    if (absY < absZ)
+			if (absY < absZ)
 		    {
 		        return 1;
 		    }
-		    else
-		    {
-		        return 2;
-		    }
+			return 2;
         }
 
 
@@ -353,23 +341,20 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         protected override IVector<double> CrossProductSafe(IVector<double> vector)
-        {
-		    if (vector.DimensionCount == 2)
+		{
+			if (vector.DimensionCount == 2)
 		    {
 		        return new Vector3D(-Z * vector[1],
 		                            Z * vector[0],
 		                            X * vector[1] - Y * vector[0]);
 		    }
-		    else
-		    {
-		        return new Vector3D(Y * vector[2] - Z * vector[1],
-		                            Z * vector[0] - X * vector[2],
-		                            X * vector[1] - Y * vector[0]);
-		    }
-        }
+			return new Vector3D(Y * vector[2] - Z * vector[1],
+			                    Z * vector[0] - X * vector[2],
+			                    X * vector[1] - Y * vector[0]);
+		}
 
 
-		/// <inheritdoc />
+    	/// <inheritdoc />
         /// <example>
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.cs" region="Decrement" lang="cs" title="The following example shows how to use the Decrement method."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.vb" region="Decrement" lang="vbnet" title="The following example shows how to use the Decrement method."/>

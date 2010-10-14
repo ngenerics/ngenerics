@@ -12,29 +12,26 @@ using System.Collections.Generic;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.VertexTest
+namespace NGenerics.Tests.DataStructures.General
 {
-  
-    public class VertexTest
-    {   
-        #region Private Members
 
-        internal static void AssertContainsEdges(ICollection<Edge<int>> edgeList, bool containsValue, params Edge<int>[] edges)
-        {
-            foreach (var edge in edges)
-            {
-                Assert.AreEqual(edgeList.Contains(edge), containsValue);
-            }
-        }
+		[TestFixture]
+	public sealed class VertexTest
+	{
 
-        #endregion
-    }
-        #region Tests
-
-        [TestFixture]
-		public class Construction:VertexTest
+		internal static void AssertContainsEdges(ICollection<Edge<int>> edgeList, bool containsValue, params Edge<int>[] edges)
 		{
-            [Test]
+			foreach (var edge in edges)
+			{
+				Assert.AreEqual(edgeList.Contains(edge), containsValue);
+			}
+		}
+
+
+		[TestFixture]
+		public class Construction 
+		{
+			[Test]
 			public void Simple()
 			{
 				var vertex = new Vertex<int>(4);
@@ -67,25 +64,25 @@ namespace NGenerics.Tests.DataStructures.General.VertexTest
 
 		}
 
-        [TestFixture]
-        public class Data:VertexTest
-        {
-            [Test]
+		[TestFixture]
+		public class Data 
+		{
+			[Test]
 			public void Simple()
-            {
-                var vertex = new Vertex<int>(5);
-                Assert.AreEqual(vertex.Data, 5);
+			{
+				var vertex = new Vertex<int>(5);
+				Assert.AreEqual(vertex.Data, 5);
 
-                vertex.Data = 2;
-                Assert.AreEqual(vertex.Data, 2);
+				vertex.Data = 2;
+				Assert.AreEqual(vertex.Data, 2);
 
-                vertex.Data = 10;
-                Assert.AreEqual(vertex.Data, 10);
-            }
-        }
+				vertex.Data = 10;
+				Assert.AreEqual(vertex.Data, 10);
+			}
+		}
 
 		[TestFixture]
-		public class EmanatingEdges:VertexTest
+		public class EmanatingEdges 
 		{
 			[Test]
 			[ExpectedException(typeof(NotSupportedException))]
@@ -96,340 +93,340 @@ namespace NGenerics.Tests.DataStructures.General.VertexTest
 				vertex1.EmanatingEdges.Add(new Edge<int>(vertex1, vertex2, false));
 			}
 
-            [Test]
-            public void Undirected()
-            {
-                var vertex1 = new Vertex<int>(3);
-                var vertex2 = new Vertex<int>(5);
-                var vertex3 = new Vertex<int>(8);
+			[Test]
+			public void Undirected()
+			{
+				var vertex1 = new Vertex<int>(3);
+				var vertex2 = new Vertex<int>(5);
+				var vertex3 = new Vertex<int>(8);
 
-                var graph = new Graph<int>(false);
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
-                graph.AddVertex(vertex3);
+				var graph = new Graph<int>(false);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
+				graph.AddVertex(vertex3);
 
-                graph.AddEdge(vertex1, vertex2);
-                graph.AddEdge(vertex3, vertex1);
+				graph.AddEdge(vertex1, vertex2);
+				graph.AddEdge(vertex3, vertex1);
 
-                var edgeList = vertex1.EmanatingEdges;
+				var edgeList = vertex1.EmanatingEdges;
 
-                Assert.AreEqual(edgeList.Count, 2);
+				Assert.AreEqual(edgeList.Count, 2);
 
-                AssertContainsEdges(edgeList, true,
-                    vertex1.GetEmanatingEdgeTo(vertex2),
-                    vertex1.GetEmanatingEdgeTo(vertex3),
-                    vertex3.GetEmanatingEdgeTo(vertex1));
-            }
+				AssertContainsEdges(edgeList, true,
+					vertex1.GetEmanatingEdgeTo(vertex2),
+					vertex1.GetEmanatingEdgeTo(vertex3),
+					vertex3.GetEmanatingEdgeTo(vertex1));
+			}
 
-            [Test]
-            public void UndirectedEnumerator()
-            {
-                var vertex1 = new Vertex<int>(3);
-                var vertex2 = new Vertex<int>(5);
-                var vertex3 = new Vertex<int>(8);
+			[Test]
+			public void UndirectedEnumerator()
+			{
+				var vertex1 = new Vertex<int>(3);
+				var vertex2 = new Vertex<int>(5);
+				var vertex3 = new Vertex<int>(8);
 
-                var graph = new Graph<int>(false);
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
-                graph.AddVertex(vertex3);
+				var graph = new Graph<int>(false);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
+				graph.AddVertex(vertex3);
 
-                graph.AddEdge(vertex1, vertex2);
-                graph.AddEdge(vertex3, vertex1);
+				graph.AddEdge(vertex1, vertex2);
+				graph.AddEdge(vertex3, vertex1);
 
-                var edgeList = vertex1.EmanatingEdges;
+				var edgeList = vertex1.EmanatingEdges;
 
-                foreach (var edge in edgeList)
-                {
-                    Console.WriteLine(edge.Weight);
-                }
+				foreach (var edge in edgeList)
+				{
+					Console.WriteLine(edge.Weight);
+				}
 
-                Assert.AreEqual(edgeList.Count, 2);
+				Assert.AreEqual(edgeList.Count, 2);
 
-                AssertContainsEdges(edgeList, true,
-                    vertex1.GetEmanatingEdgeTo(vertex2),
-                    vertex1.GetEmanatingEdgeTo(vertex3),
-                    vertex3.GetEmanatingEdgeTo(vertex1));
-            }
+				AssertContainsEdges(edgeList, true,
+					vertex1.GetEmanatingEdgeTo(vertex2),
+					vertex1.GetEmanatingEdgeTo(vertex3),
+					vertex3.GetEmanatingEdgeTo(vertex1));
+			}
 
-            [Test]
-            public void Directed()
-            {
-                var vertex1 = new Vertex<int>(3);
-                var vertex2 = new Vertex<int>(5);
-                var vertex3 = new Vertex<int>(8);
+			[Test]
+			public void Directed()
+			{
+				var vertex1 = new Vertex<int>(3);
+				var vertex2 = new Vertex<int>(5);
+				var vertex3 = new Vertex<int>(8);
 
-                var graph = new Graph<int>(true);
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
-                graph.AddVertex(vertex3);
+				var graph = new Graph<int>(true);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
+				graph.AddVertex(vertex3);
 
-                graph.AddEdge(vertex1, vertex2);
-                graph.AddEdge(vertex3, vertex1);
+				graph.AddEdge(vertex1, vertex2);
+				graph.AddEdge(vertex3, vertex1);
 
-                var edgeList = vertex3.EmanatingEdges;
+				var edgeList = vertex3.EmanatingEdges;
 
-                Assert.AreEqual(edgeList.Count, 1);
-                AssertContainsEdges(edgeList, true,
-                    vertex3.GetEmanatingEdgeTo(vertex1)
-                );
+				Assert.AreEqual(edgeList.Count, 1);
+				AssertContainsEdges(edgeList, true,
+					vertex3.GetEmanatingEdgeTo(vertex1)
+				);
 
-                edgeList = vertex1.EmanatingEdges;
+				edgeList = vertex1.EmanatingEdges;
 
-                Assert.AreEqual(edgeList.Count, 1);
-                AssertContainsEdges(edgeList, true,
-                    vertex1.GetEmanatingEdgeTo(vertex2)
-                );
-            }
+				Assert.AreEqual(edgeList.Count, 1);
+				AssertContainsEdges(edgeList, true,
+					vertex1.GetEmanatingEdgeTo(vertex2)
+				);
+			}
 		}
 
-        [TestFixture]
-        public class GetEmanatingEdgeTo:VertexTest
-        {
-            [Test]
-            public void Undirected()
-            {
-                var vertex1 = new Vertex<int>(3);
-                var vertex2 = new Vertex<int>(5);
-                var vertex3 = new Vertex<int>(8);
+		[TestFixture]
+		public class GetEmanatingEdgeTo 
+		{
+			[Test]
+			public void Undirected()
+			{
+				var vertex1 = new Vertex<int>(3);
+				var vertex2 = new Vertex<int>(5);
+				var vertex3 = new Vertex<int>(8);
 
-                var graph = new Graph<int>(false);
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
+				var graph = new Graph<int>(false);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
 
-                graph.AddEdge(vertex1, vertex2);
+				graph.AddEdge(vertex1, vertex2);
 
-                var edge = vertex1.GetEmanatingEdgeTo(vertex2);
-                Assert.AreEqual(edge.FromVertex, vertex1);
-                Assert.AreEqual(edge.ToVertex, vertex2);
+				var edge = vertex1.GetEmanatingEdgeTo(vertex2);
+				Assert.AreEqual(edge.FromVertex, vertex1);
+				Assert.AreEqual(edge.ToVertex, vertex2);
 
-                edge = vertex2.GetEmanatingEdgeTo(vertex1);
-                Assert.AreEqual(edge.FromVertex, vertex1);
-                Assert.AreEqual(edge.ToVertex, vertex2);
+				edge = vertex2.GetEmanatingEdgeTo(vertex1);
+				Assert.AreEqual(edge.FromVertex, vertex1);
+				Assert.AreEqual(edge.ToVertex, vertex2);
 
-                Assert.IsNull(vertex1.GetEmanatingEdgeTo(vertex3));
-            }
+				Assert.IsNull(vertex1.GetEmanatingEdgeTo(vertex3));
+			}
 
-            [Test]
-            public void Directed()
-            {
-                var vertex1 = new Vertex<int>(3);
-                var vertex2 = new Vertex<int>(5);
-                var vertex3 = new Vertex<int>(8);
+			[Test]
+			public void Directed()
+			{
+				var vertex1 = new Vertex<int>(3);
+				var vertex2 = new Vertex<int>(5);
+				var vertex3 = new Vertex<int>(8);
 
-                var graph = new Graph<int>(true);
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
+				var graph = new Graph<int>(true);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
 
-                graph.AddEdge(vertex1, vertex2);
+				graph.AddEdge(vertex1, vertex2);
 
-                var edge = vertex1.GetEmanatingEdgeTo(vertex2);
-                Assert.AreEqual(edge.FromVertex, vertex1);
-                Assert.AreEqual(edge.ToVertex, vertex2);
+				var edge = vertex1.GetEmanatingEdgeTo(vertex2);
+				Assert.AreEqual(edge.FromVertex, vertex1);
+				Assert.AreEqual(edge.ToVertex, vertex2);
 
-                edge = vertex2.GetEmanatingEdgeTo(vertex1);
-                Assert.IsNull(edge);
-                Assert.IsNull(vertex1.GetEmanatingEdgeTo(vertex3));
-            }
-        }
-
-        [TestFixture]
-        public class GetIncidentEdgeWith:VertexTest
-        {
-            [Test]
-            public void Undirected()
-            {
-                var vertex1 = new Vertex<int>(3);
-                var vertex2 = new Vertex<int>(5);
-                var vertex3 = new Vertex<int>(8);
-
-                var graph = new Graph<int>(false);
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
-
-                graph.AddEdge(vertex1, vertex2);
-
-                var edge = vertex1.GetIncidentEdgeWith(vertex2);
-                Assert.AreEqual(edge.FromVertex, vertex1);
-                Assert.AreEqual(edge.ToVertex, vertex2);
-
-                edge = vertex2.GetIncidentEdgeWith(vertex1);
-                Assert.AreEqual(edge.FromVertex, vertex1);
-                Assert.AreEqual(edge.ToVertex, vertex2);
-
-                Assert.IsNull(vertex1.GetIncidentEdgeWith(vertex3));
-            }
-
-            [Test]
-            public void Directed()
-            {
-                var vertex1 = new Vertex<int>(3);
-                var vertex2 = new Vertex<int>(5);
-                var vertex3 = new Vertex<int>(8);
-
-                var graph = new Graph<int>(true);
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
-
-                graph.AddEdge(vertex1, vertex2);
-
-                var edge = vertex1.GetIncidentEdgeWith(vertex2);
-                Assert.AreEqual(edge.FromVertex, vertex1);
-                Assert.AreEqual(edge.ToVertex, vertex2);
-
-                edge = vertex2.GetIncidentEdgeWith(vertex1);
-                Assert.AreEqual(edge.FromVertex, vertex1);
-                Assert.AreEqual(edge.ToVertex, vertex2);
-
-                Assert.IsNull(vertex1.GetIncidentEdgeWith(vertex3));
-            }
-        }
-
-        [TestFixture]
-        public class GetPartnerVertex:VertexTest
-        {
-            [Test]
-			public void Simple()
-            {
-                var graph = new Graph<int>(false);
-                var vertex1 = new Vertex<int>(1);
-                var vertex2 = new Vertex<int>(2);
-                var vertex3 = new Vertex<int>(3);
-
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
-                graph.AddVertex(vertex3);
-
-                var v1v2 = graph.AddEdge(vertex1, vertex2);
-                var v3v2 = graph.AddEdge(vertex3, vertex2);
-
-                Assert.AreEqual(v1v2.GetPartnerVertex(vertex1), vertex2);
-                Assert.AreEqual(v1v2.GetPartnerVertex(vertex2), vertex1);
-
-                Assert.AreEqual(v3v2.GetPartnerVertex(vertex2), vertex3);
-                Assert.AreEqual(v3v2.GetPartnerVertex(vertex3), vertex2);
-            }
-
-            [Test]
-            [ExpectedException(typeof(ArgumentException))]
-            public void ExceptionVertexNotPartOfEdge()
-            {
-                var graph = new Graph<int>(false);
-                var vertex1 = new Vertex<int>(1);
-                var vertex2 = new Vertex<int>(2);
-                var vertex3 = new Vertex<int>(3);
-
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
-                graph.AddVertex(vertex3);
-
-                var edge = graph.AddEdge(vertex1, vertex2);
-
-                edge.GetPartnerVertex(vertex3);
-            }
-        }
+				edge = vertex2.GetEmanatingEdgeTo(vertex1);
+				Assert.IsNull(edge);
+				Assert.IsNull(vertex1.GetEmanatingEdgeTo(vertex3));
+			}
+		}
 
 		[TestFixture]
-		public class IncidentEdges:VertexTest
+		public class GetIncidentEdgeWith 
 		{
-            [Test]
-            public void Directed()
-            {
-                var vertex1 = new Vertex<int>(3);
-                var vertex2 = new Vertex<int>(5);
-                var vertex3 = new Vertex<int>(8);
+			[Test]
+			public void Undirected()
+			{
+				var vertex1 = new Vertex<int>(3);
+				var vertex2 = new Vertex<int>(5);
+				var vertex3 = new Vertex<int>(8);
 
-                var graph = new Graph<int>(true);
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
-                graph.AddVertex(vertex3);
+				var graph = new Graph<int>(false);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
 
-                graph.AddEdge(vertex1, vertex2);
-                graph.AddEdge(vertex3, vertex1);
+				graph.AddEdge(vertex1, vertex2);
 
-                var edgeList = vertex3.IncidentEdges;
+				var edge = vertex1.GetIncidentEdgeWith(vertex2);
+				Assert.AreEqual(edge.FromVertex, vertex1);
+				Assert.AreEqual(edge.ToVertex, vertex2);
 
-                Assert.AreEqual(edgeList.Count, 1);
-                AssertContainsEdges(edgeList, true,
-                    vertex3.GetEmanatingEdgeTo(vertex1)
-                );
+				edge = vertex2.GetIncidentEdgeWith(vertex1);
+				Assert.AreEqual(edge.FromVertex, vertex1);
+				Assert.AreEqual(edge.ToVertex, vertex2);
 
-                edgeList = vertex1.IncidentEdges;
+				Assert.IsNull(vertex1.GetIncidentEdgeWith(vertex3));
+			}
 
-                Assert.AreEqual(edgeList.Count, 2);
+			[Test]
+			public void Directed()
+			{
+				var vertex1 = new Vertex<int>(3);
+				var vertex2 = new Vertex<int>(5);
+				var vertex3 = new Vertex<int>(8);
 
-                AssertContainsEdges(edgeList, true,
-                    vertex1.GetEmanatingEdgeTo(vertex2),
-                    vertex3.GetEmanatingEdgeTo(vertex1)
-                );
-            }
+				var graph = new Graph<int>(true);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
 
-            [Test]
-            public void DirectedEnumerator()
-            {
-                var vertex1 = new Vertex<int>(3);
-                var vertex2 = new Vertex<int>(5);
-                var vertex3 = new Vertex<int>(8);
+				graph.AddEdge(vertex1, vertex2);
 
-                var graph = new Graph<int>(true);
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
-                graph.AddVertex(vertex3);
+				var edge = vertex1.GetIncidentEdgeWith(vertex2);
+				Assert.AreEqual(edge.FromVertex, vertex1);
+				Assert.AreEqual(edge.ToVertex, vertex2);
 
-                graph.AddEdge(vertex1, vertex2);
-                graph.AddEdge(vertex3, vertex1);
+				edge = vertex2.GetIncidentEdgeWith(vertex1);
+				Assert.AreEqual(edge.FromVertex, vertex1);
+				Assert.AreEqual(edge.ToVertex, vertex2);
 
-                var edgeList = vertex3.IncidentEdges;
+				Assert.IsNull(vertex1.GetIncidentEdgeWith(vertex3));
+			}
+		}
 
-                foreach (var edge in edgeList)
-                {
-                    Console.Write(edge.Weight.ToString());
-                }
+		[TestFixture]
+		public class GetPartnerVertex 
+		{
+			[Test]
+			public void Simple()
+			{
+				var graph = new Graph<int>(false);
+				var vertex1 = new Vertex<int>(1);
+				var vertex2 = new Vertex<int>(2);
+				var vertex3 = new Vertex<int>(3);
 
-                Assert.AreEqual(edgeList.Count, 1);
-                AssertContainsEdges(edgeList, true,
-                    vertex3.GetEmanatingEdgeTo(vertex1)
-                );
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
+				graph.AddVertex(vertex3);
 
-                edgeList = vertex1.IncidentEdges;
+				var v1v2 = graph.AddEdge(vertex1, vertex2);
+				var v3v2 = graph.AddEdge(vertex3, vertex2);
 
-                Assert.AreEqual(edgeList.Count, 2);
+				Assert.AreEqual(v1v2.GetPartnerVertex(vertex1), vertex2);
+				Assert.AreEqual(v1v2.GetPartnerVertex(vertex2), vertex1);
 
-                AssertContainsEdges(edgeList, true,
-                    vertex1.GetEmanatingEdgeTo(vertex2),
-                    vertex3.GetEmanatingEdgeTo(vertex1)
-                );
-            }
+				Assert.AreEqual(v3v2.GetPartnerVertex(vertex2), vertex3);
+				Assert.AreEqual(v3v2.GetPartnerVertex(vertex3), vertex2);
+			}
 
-            [Test]
-            public void Undirected()
-            {
-                var vertex1 = new Vertex<int>(3);
-                var vertex2 = new Vertex<int>(5);
-                var vertex3 = new Vertex<int>(8);
+			[Test]
+			[ExpectedException(typeof(ArgumentException))]
+			public void ExceptionVertexNotPartOfEdge()
+			{
+				var graph = new Graph<int>(false);
+				var vertex1 = new Vertex<int>(1);
+				var vertex2 = new Vertex<int>(2);
+				var vertex3 = new Vertex<int>(3);
 
-                var graph = new Graph<int>(false);
-                graph.AddVertex(vertex1);
-                graph.AddVertex(vertex2);
-                graph.AddVertex(vertex3);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
+				graph.AddVertex(vertex3);
 
-                graph.AddEdge(vertex1, vertex2);
-                graph.AddEdge(vertex3, vertex1);
+				var edge = graph.AddEdge(vertex1, vertex2);
 
-                var edgeList = vertex3.IncidentEdges;
+				edge.GetPartnerVertex(vertex3);
+			}
+		}
 
-                Assert.AreEqual(edgeList.Count, 1);
-                AssertContainsEdges(edgeList, true,
-                    vertex3.GetEmanatingEdgeTo(vertex1)
-                );
+		[TestFixture]
+		public class IncidentEdges 
+		{
+			[Test]
+			public void Directed()
+			{
+				var vertex1 = new Vertex<int>(3);
+				var vertex2 = new Vertex<int>(5);
+				var vertex3 = new Vertex<int>(8);
 
-                edgeList = vertex1.IncidentEdges;
+				var graph = new Graph<int>(true);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
+				graph.AddVertex(vertex3);
 
-                Assert.AreEqual(edgeList.Count, 2);
-                AssertContainsEdges(edgeList, true,
-                    vertex1.GetEmanatingEdgeTo(vertex2),
-                    vertex3.GetEmanatingEdgeTo(vertex1)
-                );
-            }
+				graph.AddEdge(vertex1, vertex2);
+				graph.AddEdge(vertex3, vertex1);
+
+				var edgeList = vertex3.IncidentEdges;
+
+				Assert.AreEqual(edgeList.Count, 1);
+				AssertContainsEdges(edgeList, true,
+					vertex3.GetEmanatingEdgeTo(vertex1)
+				);
+
+				edgeList = vertex1.IncidentEdges;
+
+				Assert.AreEqual(edgeList.Count, 2);
+
+				AssertContainsEdges(edgeList, true,
+					vertex1.GetEmanatingEdgeTo(vertex2),
+					vertex3.GetEmanatingEdgeTo(vertex1)
+				);
+			}
+
+			[Test]
+			public void DirectedEnumerator()
+			{
+				var vertex1 = new Vertex<int>(3);
+				var vertex2 = new Vertex<int>(5);
+				var vertex3 = new Vertex<int>(8);
+
+				var graph = new Graph<int>(true);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
+				graph.AddVertex(vertex3);
+
+				graph.AddEdge(vertex1, vertex2);
+				graph.AddEdge(vertex3, vertex1);
+
+				var edgeList = vertex3.IncidentEdges;
+
+				foreach (var edge in edgeList)
+				{
+					Console.Write(edge.Weight.ToString());
+				}
+
+				Assert.AreEqual(edgeList.Count, 1);
+				AssertContainsEdges(edgeList, true,
+					vertex3.GetEmanatingEdgeTo(vertex1)
+				);
+
+				edgeList = vertex1.IncidentEdges;
+
+				Assert.AreEqual(edgeList.Count, 2);
+
+				AssertContainsEdges(edgeList, true,
+					vertex1.GetEmanatingEdgeTo(vertex2),
+					vertex3.GetEmanatingEdgeTo(vertex1)
+				);
+			}
+
+			[Test]
+			public void Undirected()
+			{
+				var vertex1 = new Vertex<int>(3);
+				var vertex2 = new Vertex<int>(5);
+				var vertex3 = new Vertex<int>(8);
+
+				var graph = new Graph<int>(false);
+				graph.AddVertex(vertex1);
+				graph.AddVertex(vertex2);
+				graph.AddVertex(vertex3);
+
+				graph.AddEdge(vertex1, vertex2);
+				graph.AddEdge(vertex3, vertex1);
+
+				var edgeList = vertex3.IncidentEdges;
+
+				Assert.AreEqual(edgeList.Count, 1);
+				AssertContainsEdges(edgeList, true,
+					vertex3.GetEmanatingEdgeTo(vertex1)
+				);
+
+				edgeList = vertex1.IncidentEdges;
+
+				Assert.AreEqual(edgeList.Count, 2);
+				AssertContainsEdges(edgeList, true,
+					vertex1.GetEmanatingEdgeTo(vertex2),
+					vertex3.GetEmanatingEdgeTo(vertex1)
+				);
+			}
 
 			[Test]
 			[ExpectedException(typeof(NotSupportedException))]
@@ -440,9 +437,8 @@ namespace NGenerics.Tests.DataStructures.General.VertexTest
 				vertex1.IncidentEdges.Add(new Edge<int>(vertex1, vertex2, false));
 			}
 
-        }
-
-        #endregion
+		}
 
 
+	}
 }

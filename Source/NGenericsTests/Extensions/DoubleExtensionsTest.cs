@@ -10,29 +10,33 @@
 using NUnit.Framework;
 using NGenerics.Extensions;
 
-namespace NGenerics.Tests.Extensions.DoubleExtensionsTests
+namespace NGenerics.Tests.Extensions
 {
-    [TestFixture]
-    public class IsSimilarTo
-    {
-        [Test]
-        public void Should_Be_Similiar()
-        {
-            var d1 = 5.000000000009d;
-            var d2 = 5d;
+	[TestFixture]
+	public class DoubleExtensionsTests
+	{
+		[TestFixture]
+		public class IsSimilarTo
+		{
+			[Test]
+			public void Should_Be_Similiar()
+			{
+				var d1 = 5.000000000009d;
+				var d2 = 5d;
 
-            Assert.IsTrue(d1.IsSimilarTo(d2));
-        }
+				Assert.IsTrue(d1.IsSimilarTo(d2));
+			}
 
-        [Test]
-        public void Should_Not_Be_Similiar()
-        {
-            var d1 = 5.00000000002d;
-            var d2 = 5d;
+			[Test]
+			public void Should_Not_Be_Similiar()
+			{
+				var d1 = 5.00000000002d;
+				var d2 = 5d;
 
-            Assert.IsFalse(d1.IsSimilarTo(d2));
-        }
-    }
+				Assert.IsFalse(d1.IsSimilarTo(d2));
+			}
+		}
+
+	}
 
 }
-

@@ -27,10 +27,9 @@ namespace NGenerics.DataStructures.General
     /// <typeparam name="TKey">The type of keys in the collection.</typeparam>
     /// <typeparam name="TItem">The type of items in the collection.</typeparam>
     [ComVisible(false)]
-  #if (SILVERLIGHT)
+  #if (SILVERLIGHT || WINDOWSPHONE)
     public abstract class AutoKeyDictionary<TKey, TItem> : ICollection<TItem>
-#endif
-#if (!SILVERLIGHT)
+#else
     [Serializable]
     [DebuggerDisplay("Count = {Count}")]
     public class AutoKeyDictionary<TKey, TItem> : ICollection<TItem>, ISerializable, IDeserializationCallback
@@ -83,8 +82,8 @@ namespace NGenerics.DataStructures.General
             dictionary = new Dictionary<TKey, TItem>(capacity, comparer);
         }
 
-#if (!SILVERLIGHT)
-        /// <inheritdoc cref="Dictionary{TKey,TValue}(SerializationInfo, StreamingContext)"/>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <inheritdoc cref="Dictionary{TKey,TValue}(SerializationInfo, StreamingContext)"/>
         protected AutoKeyDictionary(SerializationInfo info, StreamingContext context)
         {
             var constructor = typeof(Dictionary<TKey, TItem>).GetConstructor(BindingFlags.NonPublic | BindingFlags.CreateInstance | BindingFlags.Instance, null, new[] { typeof(SerializationInfo), typeof(StreamingContext) }, null);
@@ -270,11 +269,11 @@ namespace NGenerics.DataStructures.General
         }
 
 
-#if(!SILVERLIGHT)
-        #region ISerializable, IDeserializationCallback
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		#region ISerializable, IDeserializationCallback
 
 
-        #region IDeserializationCallback Members
+		#region IDeserializationCallback Members
 		/// <inheritdoc />
         public virtual void OnDeserialization(object sender)
         {

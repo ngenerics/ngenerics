@@ -14,7 +14,7 @@ using NGenerics.Algorithms;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Algorithms.Graph.DijkstraTest
+namespace NGenerics.Tests.Algorithms.Graph
 {
 
     [TestFixture]

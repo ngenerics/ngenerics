@@ -17,8 +17,8 @@ namespace NGenerics.Comparers
 	/// <summary>
 	/// A comparer that wraps the IComparable interface to reproduce the opposite comparison result.
 	/// </summary>
-    /// <typeparam name="T">The type of the objects to compare.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of the objects to compare.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public sealed class ReverseComparer<T> : IComparer<T>

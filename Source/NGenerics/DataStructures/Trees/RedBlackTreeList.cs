@@ -18,8 +18,8 @@ namespace NGenerics.DataStructures.Trees
     /// A RedBlack Tree list variant.  Equivalent to <see cref="RedBlackTree{TKey,TValue}"/> where TValue is a <see cref="LinkedList{T}"/>.
     /// </summary>
     /// <typeparam name="TKey">The type of the key.</typeparam>
-    /// <typeparam name="TValue">The type of the value.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TValue">The type of the value.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     internal class RedBlackTreeList<TKey, TValue> : RedBlackTree<TKey, LinkedList<TValue>>

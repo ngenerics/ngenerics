@@ -10,17 +10,21 @@
 using NGenerics.Extensions;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Extensions.ObjectExtensionsTests
+namespace NGenerics.Tests.Extensions
 {
-        [TestFixture]
-        public class Convert
-        {
-            [Test]
-            public void Simple()
-            {
-                var str = "134";
-                var x = str.ConvertTo<int>();
-                Assert.AreEqual(x, 134);
-            }
-        }
-    }
+	[TestFixture]
+	public class ObjectExtensionsTests
+	{
+		[TestFixture]
+		public class Convert
+		{
+			[Test]
+			public void Simple()
+			{
+				var str = "134";
+				var x = str.ConvertTo<int>();
+				Assert.AreEqual(x, 134);
+			}
+		}
+	}
+}

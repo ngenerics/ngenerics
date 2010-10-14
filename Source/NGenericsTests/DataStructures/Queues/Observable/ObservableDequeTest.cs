@@ -15,124 +15,131 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Queues.ObservableDequeTest
+namespace NGenerics.Tests.DataStructures.Queues.Observable
 {
 
-    [TestFixture]
-    public class Contruction
-    {
+	[TestFixture]
+	public class ObservableDequeTest
+	{
 
-        [Test]
-        public void Serialization()
-        {
-            var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableDeque<int>());
-            ObservableCollectionTester.CheckMonitor(deserialize);
-        }
-        [Test]
-        public void Monitor1()
-        {
-            ObservableCollectionTester.CheckMonitor(new ObservableDeque<int>());
-        }
-        [Test]
-        public void Monitor2()
-        {
-            ObservableCollectionTester.CheckMonitor(new ObservableDeque<int>(new List<int>()));
-        }
-    }
-    [TestFixture]
-    public class EnqueueHead
-    {
-        [Test]
-        public void Simple()
-        {
-            var deque = new ObservableDeque<string>();
-            ObservableCollectionTester.ExpectEvents(deque, obj => obj.EnqueueHead("foo"), "Count", "IsEmpty", "Head", "Tail");
-        }
 
-    }
-    [TestFixture]
-    public class EnqueueTail
-    {
-        [Test]
-        public void Simple()
-        {
-            var deque = new ObservableDeque<string>();
-            ObservableCollectionTester.ExpectEvents(deque, obj => obj.EnqueueTail("foo"), "Count", "IsEmpty", "Head", "Tail");
-        }
-        [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ExceptionReentrancy()
-        {
-            var deque = new ObservableDeque<string>();
-            new ReentracyTester<ObservableDeque<string>>(deque, obj => obj.EnqueueTail("foo"));
-        }
+		[TestFixture]
+		public class Contruction
+		{
 
-    }
+			[Test]
+			public void Serialization()
+			{
+				var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableDeque<int>());
+				ObservableCollectionTester.CheckMonitor(deserialize);
+			}
+			[Test]
+			public void Monitor1()
+			{
+				ObservableCollectionTester.CheckMonitor(new ObservableDeque<int>());
+			}
+			[Test]
+			public void Monitor2()
+			{
+				ObservableCollectionTester.CheckMonitor(new ObservableDeque<int>(new List<int>()));
+			}
+		}
+		[TestFixture]
+		public class EnqueueHead
+		{
+			[Test]
+			public void Simple()
+			{
+				var deque = new ObservableDeque<string>();
+				ObservableCollectionTester.ExpectEvents(deque, obj => obj.EnqueueHead("foo"), "Count", "IsEmpty", "Head", "Tail");
+			}
 
-    [TestFixture]
-    public class Clear
-    {
-        [Test]
-        public void Simple()
-        {
+		}
+		[TestFixture]
+		public class EnqueueTail
+		{
+			[Test]
+			public void Simple()
+			{
+				var deque = new ObservableDeque<string>();
+				ObservableCollectionTester.ExpectEvents(deque, obj => obj.EnqueueTail("foo"), "Count", "IsEmpty", "Head", "Tail");
+			}
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionReentrancy()
+			{
+				var deque = new ObservableDeque<string>();
+				new ReentracyTester<ObservableDeque<string>>(deque, obj => obj.EnqueueTail("foo"));
+			}
 
-            var deque = new ObservableDeque<string>();
-            deque.EnqueueHead("foo");
+		}
 
-            ObservableCollectionTester.ExpectEvents(deque, obj => obj.Clear(), "Count", "IsEmpty", "Head", "Tail");
-        }
-        [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ExceptionReentrancy()
-        {
-            var deque = new ObservableDeque<string>();
-            deque.EnqueueHead("foo");
-            new ReentracyTester<ObservableDeque<string>>(deque, obj => obj.Clear());
-        }
-    }
+		[TestFixture]
+		public class Clear
+		{
+			[Test]
+			public void Simple()
+			{
 
-    [TestFixture]
-    public class DequeueHead
-    {
-        [Test]
-        public void Simple()
-        {
-            var deque = new ObservableDeque<string>();
-            deque.EnqueueHead("foo");
+				var deque = new ObservableDeque<string>();
+				deque.EnqueueHead("foo");
 
-            ObservableCollectionTester.ExpectEvents(deque, obj => obj.DequeueHead(), "Count", "IsEmpty", "Head", "Tail");
-        }
+				ObservableCollectionTester.ExpectEvents(deque, obj => obj.Clear(), "Count", "IsEmpty", "Head", "Tail");
+			}
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionReentrancy()
+			{
+				var deque = new ObservableDeque<string>();
+				deque.EnqueueHead("foo");
+				new ReentracyTester<ObservableDeque<string>>(deque, obj => obj.Clear());
+			}
+		}
 
-        [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ExceptionReentrancy()
-        {
-            var deque = new ObservableDeque<string>();
-            deque.EnqueueHead("foo");
-            new ReentracyTester<ObservableDeque<string>>(deque, obj => obj.DequeueHead());
-        }
-    }
+		[TestFixture]
+		public class DequeueHead
+		{
+			[Test]
+			public void Simple()
+			{
+				var deque = new ObservableDeque<string>();
+				deque.EnqueueHead("foo");
 
-    [TestFixture]
-    public class DequeueTail
-    {
-        [Test]
-        public void Simple()
-        {
-            var deque = new ObservableDeque<string>();
-            deque.EnqueueHead("foo");
+				ObservableCollectionTester.ExpectEvents(deque, obj => obj.DequeueHead(), "Count", "IsEmpty", "Head", "Tail");
+			}
 
-            ObservableCollectionTester.ExpectEvents(deque, obj => obj.DequeueTail(), "Count", "IsEmpty", "Head", "Tail");
-        }
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionReentrancy()
+			{
+				var deque = new ObservableDeque<string>();
+				deque.EnqueueHead("foo");
+				new ReentracyTester<ObservableDeque<string>>(deque, obj => obj.DequeueHead());
+			}
+		}
 
-        [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ExceptionReentrancy()
-        {
-            var deque = new ObservableDeque<string>();
-            deque.EnqueueHead("foo");
-            new ReentracyTester<ObservableDeque<string>>(deque, obj => obj.DequeueTail());
-        }
-    }
+		[TestFixture]
+		public class DequeueTail
+		{
+			[Test]
+			public void Simple()
+			{
+				var deque = new ObservableDeque<string>();
+				deque.EnqueueHead("foo");
+
+				ObservableCollectionTester.ExpectEvents(deque, obj => obj.DequeueTail(), "Count", "IsEmpty", "Head", "Tail");
+			}
+
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionReentrancy()
+			{
+				var deque = new ObservableDeque<string>();
+				deque.EnqueueHead("foo");
+				new ReentracyTester<ObservableDeque<string>>(deque, obj => obj.DequeueTail());
+			}
+		}
+
+	}
 
 }

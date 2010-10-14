@@ -20,8 +20,8 @@ namespace NGenerics.DataStructures.General
     /// <summary>
     /// An implementation of a Heap data structure.
     /// </summary>
-    /// <typeparam name="T">The type of item stored in the <see cref="Heap{T}"/>.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of item stored in the <see cref="Heap{T}"/>.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]

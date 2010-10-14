@@ -18,8 +18,8 @@ namespace NGenerics.Comparers
     /// A comparer for comparing keys using the Association class.
     /// </summary>
     /// <typeparam name="TKey">The key type.</typeparam>
-    /// <typeparam name="TValue">The value type.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TValue">The value type.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public class AssociationKeyComparer<TKey, TValue> : IComparer<Association<TKey, TValue>>, IComparer<TKey> where TKey : IComparable

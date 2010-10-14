@@ -25,7 +25,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>NGenerics.snk</AssemblyOriginatorKeyFile>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -79,9 +79,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\Graph\DjikstraTest.cs" />
@@ -150,7 +148,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataStructures\Queues\CircularQueueTest.cs" />
-    <Compile Include="DataStructures\General\AssociationTest.cs" />
     <Compile Include="DataStructures\General\BagTest.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeTest.cs" />
     <Compile Include="DataStructures\Trees\BinaryTreeTest.cs" />
@@ -219,9 +216,9 @@
     <Compile Include="Patterns\Visitor\VisitorExtensionsTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NGenerics\NGenerics.csproj">
-      <Project>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</Project>
-      <Name>NGenerics</Name>
+    <ProjectReference Include="..\NGenerics\NGenerics.Net4.csproj">
+      <Project>{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230}</Project>
+      <Name>NGenerics.Net4</Name>
     </ProjectReference>
     <ProjectReference Include="..\SupportPrograms\ProjectSynchronizer\ProjectSynchronizer.csproj">
       <Project>{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}</Project>

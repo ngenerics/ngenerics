@@ -22,8 +22,8 @@ namespace NGenerics.DataStructures.General
 	/// A Dictionary that accepts multiple values for a unique key.
 	/// </summary>
 	/// <typeparam name="TKey">The type of the keys in the HashList.</typeparam>
-    /// <typeparam name="TValue">The type of the values in the HashList.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TValue">The type of the values in the HashList.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
 	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
@@ -78,8 +78,8 @@ namespace NGenerics.DataStructures.General
         }
 
 
-#if (!SILVERLIGHT)
-        /// <param name="info">A <see cref="SerializationInfo"/> object containing the information required to serialize the <see cref="Dictionary{TKey,TValue}"/>.</param>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <param name="info">A <see cref="SerializationInfo"/> object containing the information required to serialize the <see cref="Dictionary{TKey,TValue}"/>.</param>
 		/// <param name="context">A <see cref="StreamingContext"/> structure containing the source and destination of the serialized stream associated with the <see cref="Dictionary{TKey,TValue}"/>.</param>
 		protected HashList(SerializationInfo info, StreamingContext context) : base(info, context)
 		{

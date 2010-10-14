@@ -26,8 +26,8 @@ namespace NGenerics.DataStructures.General
     /// how many times it is a member. For example, in the bag { a, a, b, b, b, c }, the 
     /// multiplicities of the members a, b, and c are respectively 2, 3, and 1.
 	/// </remarks>
-    /// <typeparam name="T">The type of elements in the <see cref="Bag{T}"/>.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of elements in the <see cref="Bag{T}"/>.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
 	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

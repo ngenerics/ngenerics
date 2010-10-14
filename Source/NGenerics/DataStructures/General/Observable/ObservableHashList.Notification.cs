@@ -88,8 +88,8 @@ namespace NGenerics.DataStructures.General.Observable
         }
 
 
-#if (!SILVERLIGHT)
-        /// <inheritdoc />
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <inheritdoc />
         protected ObservableHashList(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

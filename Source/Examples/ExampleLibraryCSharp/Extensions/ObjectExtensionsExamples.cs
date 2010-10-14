@@ -21,7 +21,7 @@ namespace ExampleLibraryCSharp.Extensions
         {
             // Convert from the string representation to an actual number,
             var from = "23.55";
-            var to = from.ConvertTo<decimal>();
+            var to =  from.ConvertTo<decimal>();
 
             Assert.AreEqual(to, 23.55);
         }

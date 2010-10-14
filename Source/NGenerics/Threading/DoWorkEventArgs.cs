@@ -14,9 +14,9 @@ using System.Security.Permissions;
 
 namespace NGenerics.Threading
 {
-    
-#if (!SILVERLIGHT)
-    /// <summary>
+
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+	/// <summary>
     /// The information for an event when work begins.
     /// </summary>
     /// <typeparam name="TArgument">The type of the argument.</typeparam>

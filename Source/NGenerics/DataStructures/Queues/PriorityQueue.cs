@@ -27,8 +27,8 @@ namespace NGenerics.DataStructures.Queues
     /// <typeparam name="TPriority">The type of the priority in the <see cref="PriorityQueue{TPriority, TValue}"/>.</typeparam>
     /// <typeparam name="TValue">The type of the elements in the <see cref="PriorityQueue{TPriority, TValue}"/>.</typeparam>
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-    [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
-#if (!SILVERLIGHT)
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public class PriorityQueue<TValue, TPriority> : ICollection<TValue>, IQueue<TValue> 

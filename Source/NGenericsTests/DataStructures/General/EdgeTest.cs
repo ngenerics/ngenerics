@@ -11,8 +11,11 @@ using System;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.EdgeTest
+namespace NGenerics.Tests.DataStructures.General
 {
+        [TestFixture]
+        public class EdgeTest
+        {
         [TestFixture]
         public class Construction
         {
@@ -98,4 +101,5 @@ namespace NGenerics.Tests.DataStructures.General.EdgeTest
                 Assert.AreEqual(edge.Weight, 14.6);
             }
         }
+}
 }

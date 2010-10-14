@@ -27,8 +27,8 @@ namespace NGenerics.DataStructures.Trees
     /// </summary>
     /// <typeparam name="TKey">The type of the keys in the <see cref="RedBlackTree{TKey,TValue}"/>.</typeparam>
     /// <typeparam name="TValue">The type of the values in the <see cref="RedBlackTree{TKey,TValue}"/>.</typeparam>
-    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-#if (!SILVERLIGHT)
+	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public class RedBlackTree<TKey, TValue> : RedBlackTree<KeyValuePair<TKey, TValue>>, IDictionary<TKey, TValue>  // BinarySearchTreeBase<TKey, TValue>

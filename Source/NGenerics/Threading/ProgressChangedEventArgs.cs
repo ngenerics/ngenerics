@@ -18,8 +18,8 @@ namespace NGenerics.Threading
     /// <summary>
     /// An event argument for when the progress of the task changed.
     /// </summary>
-    /// <typeparam name="TState">The type of the state.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TState">The type of the state.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [HostProtection(SecurityAction.LinkDemand, SharedState = true)]
 #endif
     public class ProgressChangedEventArgs<TState> : EventArgs

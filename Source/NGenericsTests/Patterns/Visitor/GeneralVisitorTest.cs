@@ -13,121 +13,125 @@ using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace NGenerics.Tests.Patterns.Visitor.GeneralVisitorTest
+namespace NGenerics.Tests.Patterns.Visitor
 {
-        [TestFixture]
-        public class Construction
-        {
-            [Test]
-            public void Simple()
-            {
-                new GeneralVisitor<int>(
-                    delegate {
-                                 return false;
-                    }
-                    );
-            }
+	[TestFixture]
+	public class GeneralVisitorTest
+	{
+		[TestFixture]
+		public class Construction
+		{
+			[Test]
+			public void Simple()
+			{
+				new GeneralVisitor<int>(
+					delegate
+					{
+						return false;
+					}
+					);
+			}
 
-            [Test]
-            [ExpectedException(typeof(ArgumentNullException))]
-            public void ExceptionNullPredicate()
-            {
-                new GeneralVisitor<int>(null);
-            }
-        }
+			[Test]
+			[ExpectedException(typeof(ArgumentNullException))]
+			public void ExceptionNullPredicate()
+			{
+				new GeneralVisitor<int>(null);
+			}
+		}
 
-        [TestFixture]
-        public class Visit
-        {
-            [Test]
-            public void Simple()
-            {
-                var list = GetTestList();
+		[TestFixture]
+		public class Visit
+		{
+			[Test]
+			public void Simple()
+			{
+				var list = GetTestList();
 
-                var mockRepository = new MockRepository();
-                var trackingList = mockRepository.StrictMock<IList<int>>();
-                                
-                // All items should be visited...
-                trackingList.Add(1);
-                trackingList.Add(2);
-                trackingList.Add(3);
-                trackingList.Add(8);
-                trackingList.Add(5);
+				var mockRepository = new MockRepository();
+				var trackingList = mockRepository.StrictMock<IList<int>>();
 
-                mockRepository.ReplayAll();
+				// All items should be visited...
+				trackingList.Add(1);
+				trackingList.Add(2);
+				trackingList.Add(3);
+				trackingList.Add(8);
+				trackingList.Add(5);
 
-                var generalVisitor = new GeneralVisitor<int>(
-                    delegate (int value) {
-                                             trackingList.Add(value);
-                                             return false;
-                    }
-                    );
-                                
-                list.AcceptVisitor(generalVisitor);
+				mockRepository.ReplayAll();
 
-                mockRepository.VerifyAll();
-            }
+				var generalVisitor = new GeneralVisitor<int>(
+					delegate(int value)
+					{
+						trackingList.Add(value);
+						return false;
+					}
+					);
 
-            [Test]
-            public void StoppingVisitor()
-            {
-                var list = GetTestList();
+				list.AcceptVisitor(generalVisitor);
 
-                var mockRepository = new MockRepository();
-                var trackingList = mockRepository.StrictMock<IList<int>>();
-                
-                // Only the first item should be visited.
-                trackingList.Add(1);
-                
-                mockRepository.ReplayAll();
+				mockRepository.VerifyAll();
+			}
 
-                var generalVisitor = new GeneralVisitor<int>(
-                    delegate (int value) {
-                                             trackingList.Add(value);
-                                             return true;
-                    }
-                    );
+			[Test]
+			public void StoppingVisitor()
+			{
+				var list = GetTestList();
 
-                list.AcceptVisitor(generalVisitor);
+				var mockRepository = new MockRepository();
+				var trackingList = mockRepository.StrictMock<IList<int>>();
 
-                mockRepository.VerifyAll();
-            }
+				// Only the first item should be visited.
+				trackingList.Add(1);
 
-            [Test]
-            public void StoppedVisitor()
-            {
-                var visitableList = GetTestList();
+				mockRepository.ReplayAll();
 
-                var mockRepository = new MockRepository();
-                var trackingList = mockRepository.StrictMock<IList<int>>();
-                                
-                // No items should be visited.
+				var generalVisitor = new GeneralVisitor<int>(
+					delegate(int value)
+					{
+						trackingList.Add(value);
+						return true;
+					}
+					);
 
-                mockRepository.ReplayAll();
+				list.AcceptVisitor(generalVisitor);
 
-                var generalVisitor = new GeneralVisitor<int>(
-                    delegate (int value) {
-                                             trackingList.Add(value);
-                                             return true;
-                    }
-                    ) {HasCompleted = true};
+				mockRepository.VerifyAll();
+			}
 
-                visitableList.AcceptVisitor(generalVisitor);
+			[Test]
+			public void StoppedVisitor()
+			{
+				var visitableList = GetTestList();
 
-                mockRepository.VerifyAll();
-            }
-            #region Private Members
+				var mockRepository = new MockRepository();
+				var trackingList = mockRepository.StrictMock<IList<int>>();
 
-            private static List<int> GetTestList()
-            {
-                var list = new List<int>(new[] { 1, 2, 3, 8, 5 });
+				// No items should be visited.
 
-                return list;
-            }
+				mockRepository.ReplayAll();
 
-            #endregion
- 
-        }
+				var generalVisitor = new GeneralVisitor<int>(
+					delegate(int value)
+					{
+						trackingList.Add(value);
+						return true;
+					}
+					) { HasCompleted = true };
 
- 
+				visitableList.AcceptVisitor(generalVisitor);
+
+				mockRepository.VerifyAll();
+			}
+
+			private static List<int> GetTestList()
+			{
+				return new List<int>(new[] { 1, 2, 3, 8, 5 });
+			}
+
+
+		}
+
+
+	}
 }

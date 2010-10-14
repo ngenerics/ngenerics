@@ -20,8 +20,8 @@ namespace NGenerics.DataStructures.Trees
     /// <summary>
     /// An implementation of a Binary Tree data structure.
     /// </summary>
-    /// <typeparam name="T">The type of elements in the <see cref="BinaryTree{T}"/>.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of elements in the <see cref="BinaryTree{T}"/>.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

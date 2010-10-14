@@ -12,7 +12,7 @@ using NGenerics.Comparers;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Comparers.EdgeWeightComparerTest
+namespace NGenerics.Tests.Comparers
 {
     [TestFixture]
     public class Construction

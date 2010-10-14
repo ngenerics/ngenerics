@@ -31,8 +31,8 @@ namespace NGenerics.DataStructures.General
     /// An implementation of a Graph data structure.  The graph can be either
     /// directed or undirected.
     /// </summary>
-    /// <typeparam name="T">The type of elements in the graph.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of elements in the graph.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

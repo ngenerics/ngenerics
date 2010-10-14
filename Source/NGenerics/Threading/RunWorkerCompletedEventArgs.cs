@@ -18,8 +18,8 @@ namespace NGenerics.Threading
     /// <summary>
     /// An event argument fo when the worker has completed running.
     /// </summary>
-    /// <typeparam name="TState">The type of the state.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TState">The type of the state.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [HostProtection(SecurityAction.LinkDemand, SharedState = true)]
 #endif
     public class RunWorkerCompletedEventArgs<TState> : AsyncCompletedEventArgs<TState> {
@@ -43,8 +43,8 @@ namespace NGenerics.Threading
         /// <summary>
         /// Gets or sets the state of the user.
         /// </summary>
-        /// <value>The state of the user.</value>
-#if (!SILVERLIGHT)
+		/// <value>The state of the user.</value>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
 #endif
         public override TState UserState

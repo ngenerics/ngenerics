@@ -18,8 +18,8 @@ namespace NGenerics.DataStructures.Mathematical
     /// An interface describing a mathematical Vector.
     /// </summary>
     /// <typeparam name="T">The type of vector.</typeparam>
-    public interface IVector<T> : IEnumerable<T>, IEquatable<IVector<T>>
-#if (!SILVERLIGHT)
+	public interface IVector<T> : IEnumerable<T>, IEquatable<IVector<T>>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
         , ICloneable
 #endif
     {

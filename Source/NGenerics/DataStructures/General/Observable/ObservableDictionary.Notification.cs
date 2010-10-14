@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+#if (!NET4)
 using System.Collections.ObjectModel;
+#endif
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -91,8 +93,8 @@ namespace NGenerics.DataStructures.General.Observable
         }
 
 
-#if (!SILVERLIGHT)
-        /// <inheritdoc />
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <inheritdoc />
 		protected ObservableDictionary(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

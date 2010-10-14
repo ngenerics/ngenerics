@@ -15,7 +15,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace NGenerics.DataStructures.Queues.Observable {
 
-#if (!SILVERLIGHT)
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

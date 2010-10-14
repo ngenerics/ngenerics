@@ -21,8 +21,8 @@ namespace NGenerics.DataStructures.General
     /// <summary>
     /// A data structure representing a matrix of objects.
 	/// </summary>
-    /// <typeparam name="T">The type of elements in the object matrix.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of elements in the object matrix.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

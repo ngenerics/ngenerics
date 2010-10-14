@@ -12,8 +12,12 @@ using System.Collections.Generic;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.CurveTest
+namespace NGenerics.Tests.DataStructures.General
 {
+    [TestFixture]
+	public class CurveTest
+	{
+		
 
     [TestFixture]
     public class Construction
@@ -847,4 +851,4 @@ namespace NGenerics.Tests.DataStructures.General.CurveTest
     //}
 
 
-}
+}}

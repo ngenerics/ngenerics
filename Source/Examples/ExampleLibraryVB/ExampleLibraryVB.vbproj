@@ -26,7 +26,8 @@
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -204,9 +205,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NGenerics\NGenerics.csproj">
-      <Project>{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}</Project>
-      <Name>NGenerics</Name>
+    <ProjectReference Include="..\..\NGenerics\NGenerics.Net4.csproj">
+      <Project>{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230}</Project>
+      <Name>NGenerics.Net4</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />

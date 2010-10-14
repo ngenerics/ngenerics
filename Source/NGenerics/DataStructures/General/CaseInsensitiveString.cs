@@ -17,7 +17,7 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using NGenerics.Util;
-#if (!SILVERLIGHT)
+#if (!SILVERLIGHT && !WINDOWSPHONE)
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.Serialization;
 using System.Security;
@@ -30,8 +30,8 @@ namespace NGenerics.DataStructures.General
     /// <remarks>
     /// All operations are performed in case insensitive manner using <see cref="StringComparison.InvariantCultureIgnoreCase"/>.
     /// </remarks>
-    [ComVisible(true)]
-#if (SILVERLIGHT)
+	[ComVisible(true)]
+#if (SILVERLIGHT || WINDOWSPHONE)
     public sealed class CaseInsensitiveString : IComparable,  IConvertible, IComparable<string>, IEquatable<string>, IEquatable<CaseInsensitiveString>,  IXmlSerializable, IEnumerable<char>
 #else
 	[Serializable]
@@ -51,9 +51,9 @@ namespace NGenerics.DataStructures.General
             Value = value;
         }
 
-		
-#if (!SILVERLIGHT)
-        private CaseInsensitiveString(SerializationInfo info, StreamingContext context)
+
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		private CaseInsensitiveString(SerializationInfo info, StreamingContext context)
         {
             Guard.ArgumentNotNull(info, "info");
             Value = (string)info.GetValue("StringValue", typeof(string));
@@ -125,9 +125,9 @@ namespace NGenerics.DataStructures.General
 
 
 
-		
-#if(!SILVERLIGHT)
-        /// <summary>
+
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <summary>
         /// Retrieves an object that can iterate through the individual characters in this string.
         /// </summary>
         /// <returns>
@@ -146,8 +146,8 @@ namespace NGenerics.DataStructures.General
             return left.Value.Equals(right.Value, StringComparison.InvariantCultureIgnoreCase);
         }
 
-		
-#if(!SILVERLIGHT)
+
+#if (!SILVERLIGHT && !WINDOWSPHONE)
 
 		[SecurityCritical]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -167,9 +167,9 @@ namespace NGenerics.DataStructures.General
 
 
 
-#if (!SILVERLIGHT)
-        #region ICloneable Members
-        /// <summary>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		#region ICloneable Members
+		/// <summary>
         /// Returns a reference to this instance of <see cref="String"/>.
         /// </summary>
         /// <returns>
@@ -497,8 +497,8 @@ namespace NGenerics.DataStructures.General
         /// true if the value of the <paramref name="value"/> parameter is the same as this instance; otherwise, false.
         /// </returns>
         /// <param name="value">A <see cref="String"/>.</param>
-        /// <exception cref="NullReferenceException">This instance is null.</exception>
-#if(!SILVERLIGHT)
+		/// <exception cref="NullReferenceException">This instance is null.</exception>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 #endif
         public bool Equals(string value)
@@ -516,8 +516,8 @@ namespace NGenerics.DataStructures.General
         /// true if the value of the <paramref name="value"/> parameter is the same as this instance; otherwise, false.
         /// </returns>
 		/// <param name="value">A <see cref="CaseInsensitiveString"/>.</param>
-        /// <exception cref="NullReferenceException">This instance is null.</exception>
-#if(!SILVERLIGHT)
+		/// <exception cref="NullReferenceException">This instance is null.</exception>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 #endif
         public bool Equals(CaseInsensitiveString value)
@@ -584,8 +584,8 @@ namespace NGenerics.DataStructures.General
         /// true if <paramref name="obj"/> is a <see cref="String"/> and its value is the same as this instance; otherwise, false.
         /// </returns>
         /// <param name="obj">An <see cref="Object"/>.</param>
-        /// <exception cref="NullReferenceException">This instance is null.</exception>
-#if (!SILVERLIGHT)
+		/// <exception cref="NullReferenceException">This instance is null.</exception>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 #endif
         public override bool Equals(object obj)
@@ -614,9 +614,9 @@ namespace NGenerics.DataStructures.General
             return Value.ToCharArray();
         }
 
-		
-#if(!SILVERLIGHT)
-        /// <summary>
+
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <summary>
         /// Copies the characters in a specified substring in this instance to a Unicode character array.
         /// </summary>
         /// <returns>
@@ -640,8 +640,8 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <returns>
         /// A 32-bit signed integer hash code.
-        /// </returns>
-#if(!SILVERLIGHT)
+		/// </returns>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 #endif
         public override int GetHashCode()
@@ -662,8 +662,8 @@ namespace NGenerics.DataStructures.General
             return StringArrayTo(Value.Split(separator));
         }
 
-#if (!SILVERLIGHT)
-        /// <summary>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <summary>
         /// Returns a string array that contains the substrings in this instance that are delimited by elements of a specified Unicode character array. A parameter specifies the maximum number of substrings to return.
         /// </summary>
         /// <returns>
@@ -693,9 +693,9 @@ namespace NGenerics.DataStructures.General
             return StringArrayTo(Value.Split(separator, options));
         }
 
-		
-#if(!SILVERLIGHT)
-        /// <summary>
+
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified Unicode character array. Parameters specify the maximum number of substrings to return and whether to return empty array elements.
         /// </summary>
         /// <returns>
@@ -728,9 +728,9 @@ namespace NGenerics.DataStructures.General
             return StringArrayTo(Value.Split(separator, options));
         }
 
-		
-#if(!SILVERLIGHT)
-        /// <summary>
+
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified string array. Parameters specify the maximum number of substrings to return and whether to return empty array elements.
         /// </summary>
         /// <returns>
@@ -826,10 +826,10 @@ namespace NGenerics.DataStructures.General
             return Value.TrimEnd(trimChars);
         }
 
-		
-#if (!SILVERLIGHT)
 
-        /// <summary>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+
+		/// <summary>
         /// Indicates whether this string is in Unicode normalization form C.
         /// </summary>
         /// <returns>
@@ -922,8 +922,8 @@ namespace NGenerics.DataStructures.General
         public bool EndsWith(string value, StringComparison comparisonType)
         {
             return Value.EndsWith(value, comparisonType);
-        }
-#if (!SILVERLIGHT)
+		}
+#if (!SILVERLIGHT && !WINDOWSPHONE)
         /// <summary>
         /// Determines whether the end of this string matches the specified string when compared using the specified culture.
         /// </summary>
@@ -1376,9 +1376,8 @@ namespace NGenerics.DataStructures.General
         }
 
 
-#if(!SILVERLIGHT)
-
-        /// <summary>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <summary>
         /// Determines whether the beginning of this string matches the specified string when compared using the specified culture.
         /// </summary>
         /// <returns>

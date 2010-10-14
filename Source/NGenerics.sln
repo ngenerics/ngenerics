@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nunit", "Nunit", "{51319DF5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rhino.Mocks", "Rhino.Mocks", "{7299DFB7-B767-434F-80B2-DFB7E5B0980B}"
 	ProjectSection(SolutionItems) = preProject
-		Dependencies\Rhino.Mocks\Rhino.Mocks 3.5.Silverlight.dll = Dependencies\Rhino.Mocks\Rhino.Mocks 3.5.Silverlight.dll
-		Dependencies\Rhino.Mocks\Rhino.Mocks 3.5.Silverlight.pdb = Dependencies\Rhino.Mocks\Rhino.Mocks 3.5.Silverlight.pdb
 		Dependencies\Rhino.Mocks\Rhino.Mocks.dll = Dependencies\Rhino.Mocks\Rhino.Mocks.dll
 		Dependencies\Rhino.Mocks\Rhino.Mocks.xml = Dependencies\Rhino.Mocks\Rhino.Mocks.xml
 	EndProjectSection
@@ -25,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{8B0EA7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SupportPrograms", "SupportPrograms", "{678FE67E-55D1-4AE4-ADCD-45557F3D628C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics", "NGenerics\NGenerics.csproj", "{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Net3", "NGenerics\NGenerics.Net3.csproj", "{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Tests", "NGenericsTests\NGenerics.Tests.csproj", "{EB755C88-21F2-41BC-B1C4-7C3392D1AA53}"
 EndProject
@@ -34,6 +32,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleLibraryCSharp", "Examples\ExampleLibraryCSharp\ExampleLibraryCSharp.csproj", "{CB746113-D391-47A8-BBE4-71C8C39E0B45}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectSynchronizer", "SupportPrograms\ProjectSynchronizer\ProjectSynchronizer.csproj", "{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.SL4", "NGenerics\NGenerics.SL4.csproj", "{8B02FFCD-07F4-4082-904A-A2A2EBD2A06D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.SL3", "NGenerics\NGenerics.SL3.csproj", "{B2AD6489-4057-4950-89C3-9434CACF0F29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Net4", "NGenerics\NGenerics.Net4.csproj", "{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Net4CP", "NGenerics\NGenerics.Net4CP.csproj", "{4DC701F9-45FF-40FF-B5E1-CE6097E7CA19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Net3CP", "NGenerics\NGenerics.Net3CP.csproj", "{D71328B8-B01B-4C6A-AC20-11D30374EB56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.WP7", "NGenerics\NGenerics.WP7.csproj", "{AF310F59-3C00-4554-BC62-A628B166E44B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +71,30 @@ Global
 		{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B02FFCD-07F4-4082-904A-A2A2EBD2A06D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B02FFCD-07F4-4082-904A-A2A2EBD2A06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B02FFCD-07F4-4082-904A-A2A2EBD2A06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B02FFCD-07F4-4082-904A-A2A2EBD2A06D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2AD6489-4057-4950-89C3-9434CACF0F29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2AD6489-4057-4950-89C3-9434CACF0F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2AD6489-4057-4950-89C3-9434CACF0F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2AD6489-4057-4950-89C3-9434CACF0F29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC701F9-45FF-40FF-B5E1-CE6097E7CA19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC701F9-45FF-40FF-B5E1-CE6097E7CA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC701F9-45FF-40FF-B5E1-CE6097E7CA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC701F9-45FF-40FF-B5E1-CE6097E7CA19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D71328B8-B01B-4C6A-AC20-11D30374EB56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71328B8-B01B-4C6A-AC20-11D30374EB56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71328B8-B01B-4C6A-AC20-11D30374EB56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71328B8-B01B-4C6A-AC20-11D30374EB56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF310F59-3C00-4554-BC62-A628B166E44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF310F59-3C00-4554-BC62-A628B166E44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF310F59-3C00-4554-BC62-A628B166E44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF310F59-3C00-4554-BC62-A628B166E44B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +106,12 @@ Global
 		{CB746113-D391-47A8-BBE4-71C8C39E0B45} = {2E2A4766-7E43-40B9-844A-68DCAB140277}
 		{EB755C88-21F2-41BC-B1C4-7C3392D1AA53} = {1BD15AEE-67E3-44CF-8FEF-5D2B170720F4}
 		{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13} = {8B0EA7EC-6410-47BE-898F-0E33A2F1310E}
+		{8B02FFCD-07F4-4082-904A-A2A2EBD2A06D} = {8B0EA7EC-6410-47BE-898F-0E33A2F1310E}
+		{B2AD6489-4057-4950-89C3-9434CACF0F29} = {8B0EA7EC-6410-47BE-898F-0E33A2F1310E}
+		{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230} = {8B0EA7EC-6410-47BE-898F-0E33A2F1310E}
+		{4DC701F9-45FF-40FF-B5E1-CE6097E7CA19} = {8B0EA7EC-6410-47BE-898F-0E33A2F1310E}
+		{D71328B8-B01B-4C6A-AC20-11D30374EB56} = {8B0EA7EC-6410-47BE-898F-0E33A2F1310E}
+		{AF310F59-3C00-4554-BC62-A628B166E44B} = {8B0EA7EC-6410-47BE-898F-0E33A2F1310E}
 		{6E7A7679-7F1E-4165-88D8-5E4593CA34A6} = {678FE67E-55D1-4AE4-ADCD-45557F3D628C}
 	EndGlobalSection
 EndGlobal

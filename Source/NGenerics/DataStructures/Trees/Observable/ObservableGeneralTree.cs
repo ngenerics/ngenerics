@@ -14,10 +14,11 @@ using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
 
 
-namespace NGenerics.DataStructures.Trees.Observable {
+namespace NGenerics.DataStructures.Trees.Observable
+{
 
-#if (!SILVERLIGHT)
-    [Serializable]
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+	[Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]

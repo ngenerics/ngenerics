@@ -17,8 +17,8 @@ namespace NGenerics.Comparers
 	/// <summary>
 	/// A Comparer using a Comparison delegate for comparisons between items.
 	/// </summary>
-    /// <typeparam name="T">The type of the objects to compare.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of the objects to compare.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
 	public sealed class ComparisonComparer<T> : IComparer<T>

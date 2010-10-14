@@ -14,10 +14,11 @@ using System;
 using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
 
-namespace NGenerics.DataStructures.Queues.Observable {
+namespace NGenerics.DataStructures.Queues.Observable
+{
 
-#if (!SILVERLIGHT)
-    [Serializable]
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+	[Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

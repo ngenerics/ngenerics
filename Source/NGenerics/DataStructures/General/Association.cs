@@ -21,8 +21,8 @@ namespace NGenerics.DataStructures.General
     /// It is serializable and implemented as class, whereas KeyValuePair is struct.
     /// </summary>
     /// <typeparam name="TKey">The type of the key for the association.</typeparam>
-    /// <typeparam name="TValue">The type of the value for the association.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TValue">The type of the value for the association.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public class Association<TKey, TValue> 

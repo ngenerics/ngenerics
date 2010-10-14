@@ -15,7 +15,7 @@ using System;
 
 namespace NGenerics.DataStructures.General
 {
-#if (!SILVERLIGHT)
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
 	internal sealed class SkipListNode<TKey, TValue>

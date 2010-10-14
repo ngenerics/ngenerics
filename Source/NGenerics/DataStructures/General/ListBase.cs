@@ -22,8 +22,8 @@ namespace NGenerics.DataStructures.General
 {
 	/// <summary>
 	/// Represents a strongly typed list of objects that can be accessed by index. Provides methods to search, sort, and manipulate lists.
-    /// </summary>
-#if (!SILVERLIGHT)
+	/// </summary>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [ DebuggerDisplay("Count = {Count}")]
@@ -169,13 +169,14 @@ namespace NGenerics.DataStructures.General
 		{
 			return innerList.Contains(item);
 		}
-
+		
+#if (!WINDOWSPHONE)
         /// <inheritdoc cref="List{T}.ConvertAll{TOutput}"/>
 		public IList<TOutput> ConvertAll<TOutput>(Converter<T, TOutput> converter)
 		{
             return innerList.ConvertAll(converter);
 		}
-
+#endif
 
         /// <inheritdoc cref="List{T}.CopyTo(T[])"/>
 		public void CopyTo(T[] array)

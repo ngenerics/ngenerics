@@ -18,8 +18,8 @@ namespace NGenerics.DataStructures.Trees {
     /// <summary>
     /// A container class, used for the RedBlackTree.
     /// </summary>
-    /// <typeparam name="T">The type of element.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of element.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

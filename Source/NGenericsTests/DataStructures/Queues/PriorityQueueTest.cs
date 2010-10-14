@@ -12,39 +12,41 @@ using System.Reflection;
 using NGenerics.DataStructures.Queues;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Queues.PriorityQueueTest
+namespace NGenerics.Tests.DataStructures.Queues
 {
 
-    [TestFixture]
-    public class Construction
-    {
-        #region Globals
+	[TestFixture]
+	public class PriorityQueueTest
+	{
+		[TestFixture]
+		public class Construction
+		{
 
-        private static readonly Type priorityQueueType = typeof(PriorityQueue<int, int>);
-        private static readonly Type priorityQueueTypeType = typeof(PriorityQueueType);
-
-        #endregion
-
-        [Test]
-        public void Construction1InvalidPriorityQueueType()
-        {
-            Exception argException = null;
-            try
-            {
-                var constructor = priorityQueueType.GetConstructor(new[] { priorityQueueTypeType });
-                constructor.Invoke(new object[] { -1 });
-            }
-            catch (TargetInvocationException e)
-            {
-                argException = e.InnerException;
-            }
-            Assert.IsNotNull(argException);
-        }
-    }
+			private static readonly Type priorityQueueType = typeof(PriorityQueue<int, int>);
+			private static readonly Type priorityQueueTypeType = typeof(PriorityQueueType);
 
 
-
+			[Test]
+			public void Construction1InvalidPriorityQueueType()
+			{
+				Exception argException = null;
+				try
+				{
+					var constructor = priorityQueueType.GetConstructor(new[] { priorityQueueTypeType });
+					constructor.Invoke(new object[] { -1 });
+				}
+				catch (TargetInvocationException e)
+				{
+					argException = e.InnerException;
+				}
+				Assert.IsNotNull(argException);
+			}
+		}
 
 
 
+
+
+
+	}
 }

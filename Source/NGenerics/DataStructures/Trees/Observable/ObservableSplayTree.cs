@@ -19,8 +19,8 @@ namespace NGenerics.DataStructures.Trees.Observable
     /// Represents a dynamic data <see cref="SplayTree{TKey,TValue}"/> that provides notifications when items get added, removed, or when the whole list is refreshed.
     /// </summary>
     /// <typeparam name="TKey">The type of the keys in the <see cref="ObservableSplayTree{TKey,TValue}"/>.</typeparam>
-    /// <typeparam name="TValue">The type of the values in the <see cref="ObservableSplayTree{TKey,TValue}"/>.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TValue">The type of the values in the <see cref="ObservableSplayTree{TKey,TValue}"/>.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

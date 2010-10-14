@@ -11,11 +11,11 @@ using System.Collections.Generic;
 using NGenerics.Extensions;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Extensions.EnumerableExtensionsTest
+namespace NGenerics.Tests.Extensions
 {
 
     [TestFixture]
-    public class ForEach
+    public class EnumerableExtensionsTest
     {
         [Test]
         public void Should_Iterate_Over_Each_Item_In_The_Collection()

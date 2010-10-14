@@ -14,7 +14,7 @@ using NGenerics.Algorithms;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Algorithms.Graph.KruskalTest
+namespace NGenerics.Tests.Algorithms.Graph
 {
     [TestFixture]
     public class KruskalsAlgorithm

@@ -18,12 +18,11 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.SortedListTest
+namespace NGenerics.Tests.DataStructures.General
 {
 
     public class SortedListTest
     {
-        #region Private Members
 
         private static SortedList<int> GetTestList()
         {
@@ -37,8 +36,6 @@ namespace NGenerics.Tests.DataStructures.General.SortedListTest
             return sortedList;
         }
 
-        #endregion
-        #region Tests
 
         [TestFixture]
         public class Add : SortedListTest
@@ -532,7 +529,6 @@ namespace NGenerics.Tests.DataStructures.General.SortedListTest
 
         }
 
-        #endregion
 
 
     }

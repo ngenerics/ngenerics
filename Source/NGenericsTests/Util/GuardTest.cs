@@ -12,9 +12,13 @@ using System;
 using NGenerics.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Util.GuardTest
+namespace NGenerics.Tests.Util
 {
-    
+
+
+	[TestFixture]
+	public class GuardTest
+	{
 
 		[TestFixture]
 		public class ArgumentNotNull
@@ -24,8 +28,8 @@ namespace NGenerics.Tests.Util.GuardTest
 			{
 				try
 				{
-				    const object tmp = null;
-				    Guard.ArgumentNotNull(tmp, "tmp");
+					const object tmp = null;
+					Guard.ArgumentNotNull(tmp, "tmp");
 				}
 				catch (ArgumentNullException ex)
 				{
@@ -48,17 +52,17 @@ namespace NGenerics.Tests.Util.GuardTest
 			[Test]
 			public void Simple()
 			{
-			    const string s = "a";
+				const string s = "a";
 
-			    // Should not throw an exception
+				// Should not throw an exception
 				Guard.ArgumentNotNullOrEmptyString(s, "tmp");
 			}
 
-		    [Test]
+			[Test]
 			public void ExceptionParameterNull()
-		    {
-		        const string s = null;
-		        try
+			{
+				const string s = null;
+				try
 				{
 					Guard.ArgumentNotNullOrEmptyString(s, "tmp1");
 				}
@@ -66,9 +70,9 @@ namespace NGenerics.Tests.Util.GuardTest
 				{
 					Assert.AreEqual(ex.ParamName, "tmp1");
 				}
-		    }
+			}
 
-		    [Test]
+			[Test]
 			public void ExceptionParameterEmptyString()
 			{
 				var s = String.Empty;
@@ -82,4 +86,6 @@ namespace NGenerics.Tests.Util.GuardTest
 				}
 			}
 		}
+	}
+
 }

@@ -20,8 +20,8 @@ namespace NGenerics.DataStructures.General
     /// <summary>
     /// A class representing a vertex in a graph.
 	/// </summary>
-    /// <typeparam name="T">The type contained in the vertex.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type contained in the vertex.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
 	public class Vertex<T>

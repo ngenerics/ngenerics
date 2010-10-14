@@ -11,43 +11,48 @@ using NGenerics.Patterns.Specification;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace NGenerics.Tests.Patterns.Specification.NotSpecificationTests
+namespace NGenerics.Tests.Patterns.Specification
 {
 
-    [TestFixture]
-    public class Construction
-    {
-        [Test]
-        public void Specification_Should_Be_Saved()
-        {
-            ISpecification<int> spec = new PredicateSpecification<int>(x => x == 5);
-            var notSpec = spec.Not();
+	[TestFixture]
+	public class NotSpecificationTests
+	{
+		[TestFixture]
+		public class Construction
+		{
+			[Test]
+			public void Specification_Should_Be_Saved()
+			{
+				ISpecification<int> spec = new PredicateSpecification<int>(x => x == 5);
+				var notSpec = spec.Not();
 
-            Assert.IsInstanceOf<NotSpecification<int>>(notSpec);
-            Assert.AreEqual(((NotSpecification<int>)notSpec).Specification, spec);
-        }
-    }
+				Assert.IsInstanceOf<NotSpecification<int>>(notSpec);
+				Assert.AreEqual(((NotSpecification<int>)notSpec).Specification, spec);
+			}
+		}
 
-    [TestFixture]
-    public class IsSatisfiedBy
-    {
-        [Test]
-        public void Not_Should_Reverse_SatisfiedBy_Value()
-        {
-            var mocks = new MockRepository();
-            var s = mocks.StrictMock<ISpecification<int>>();
+		[TestFixture]
+		public class IsSatisfiedBy
+		{
+			[Test]
+			public void Not_Should_Reverse_SatisfiedBy_Value()
+			{
+				var mocks = new MockRepository();
+				var s = mocks.StrictMock<ISpecification<int>>();
 
-            Expect.Call(s.IsSatisfiedBy(5)).Return(true);
-            Expect.Call(s.IsSatisfiedBy(6)).Return(false);
+				Expect.Call(s.IsSatisfiedBy(5)).Return(true);
+				Expect.Call(s.IsSatisfiedBy(6)).Return(false);
 
-            mocks.ReplayAll();
+				mocks.ReplayAll();
 
-            var not = new NotSpecification<int>(s);
+				var not = new NotSpecification<int>(s);
 
-            Assert.IsFalse(not.IsSatisfiedBy(5));
-            Assert.IsTrue(not.IsSatisfiedBy(6));
+				Assert.IsFalse(not.IsSatisfiedBy(5));
+				Assert.IsTrue(not.IsSatisfiedBy(6));
 
-            mocks.VerifyAll();
-        }
-    }
+				mocks.VerifyAll();
+			}
+		}
+	}
+
 }

@@ -22,8 +22,8 @@ namespace NGenerics.DataStructures.General
     /// Typical application would be for storing chart curve points, hence the name.
     /// </summary>
     /// <typeparam name="TKey">The type of the key.</typeparam>
-    /// <typeparam name="TValue">The type of the value.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TValue">The type of the value.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

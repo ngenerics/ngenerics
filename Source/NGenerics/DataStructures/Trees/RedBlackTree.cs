@@ -22,8 +22,8 @@ namespace NGenerics.DataStructures.Trees {
     /// An implementation of a Red-Black tree.
     /// </summary>
     /// <typeparam name="T">The type of element to keep in the tree.</typeparam>
-    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-#if (!SILVERLIGHT)
+	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public class RedBlackTree<T> : BinarySearchTreeBase<T> {

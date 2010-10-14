@@ -10,7 +10,7 @@
 using NGenerics.Algorithms;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Algorithms.Math.EuclidTest
+namespace NGenerics.Tests.Algorithms.Math
 {
     [TestFixture]
     public class GreatestCommonDivisor

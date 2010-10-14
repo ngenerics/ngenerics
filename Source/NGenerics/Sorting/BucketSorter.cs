@@ -60,8 +60,8 @@ namespace NGenerics.Sorting
             if (list.Count <= 1)
                 return;
 
-            int max, min;
-            max = min = list[0];
+			var max = list[0];
+			var min = list[0];
 
             for (var i = 0; i < list.Count; i++)
             {

@@ -17,7 +17,7 @@ using System;
 
 namespace NGenerics.DataStructures.General.Observable
 {
-#if (!SILVERLIGHT)
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
 	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]

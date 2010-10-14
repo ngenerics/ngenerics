@@ -15,134 +15,138 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.Observable.ObservableSkipListTest
+namespace NGenerics.Tests.DataStructures.General.Observable
 {
 
-        [TestFixture]
-        public class Contruction
-        {
+	[TestFixture]
+	public class ObservableSkipListTest
+	{
+		[TestFixture]
+		public class Contruction
+		{
 
-            [Test]
-            public void Serialization()
-            {
-                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableSkipList<int, int>());
-                ObservableCollectionTester.CheckMonitor(deserialize);
-            }
+			[Test]
+			public void Serialization()
+			{
+				var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservableSkipList<int, int>());
+				ObservableCollectionTester.CheckMonitor(deserialize);
+			}
 
-            [Test]
-            public void Monitor1()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableSkipList<int, int>());
-            }
-            [Test]
-            public void Monitor2()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableSkipList<int, int>(Comparer<int>.Default));
-            }
-            [Test]
-            public void Monitor3()
-            {
-                ObservableCollectionTester.CheckMonitor(new ObservableSkipList<int, int>(2, .4, Comparer<int>.Default));
-            }
-        }
+			[Test]
+			public void Monitor1()
+			{
+				ObservableCollectionTester.CheckMonitor(new ObservableSkipList<int, int>());
+			}
+			[Test]
+			public void Monitor2()
+			{
+				ObservableCollectionTester.CheckMonitor(new ObservableSkipList<int, int>(Comparer<int>.Default));
+			}
+			[Test]
+			public void Monitor3()
+			{
+				ObservableCollectionTester.CheckMonitor(new ObservableSkipList<int, int>(2, .4, Comparer<int>.Default));
+			}
+		}
 
 
-        [TestFixture]
-        public class Add
-        {
-            [Test]
-            public void Simple()
-            {
-                var skipList = new ObservableSkipList<string, string>();
-                ObservableCollectionTester.ExpectEvents(skipList, obj => obj.Add("foo", "bar"), "Count", "CurrentListLevel", "IsEmpty", "Values");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionSimpleReentrancy()
-            {
-                var skipList = new ObservableSkipList<string, string>();
-                new ReentracyTester<ObservableSkipList<string, string>>(skipList, obj => obj.Add("foo", "bar"));
-            }
-            [Test]
-            public void KeyValuePair()
-            {
-                var skipList = new ObservableSkipList<string, string>();
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                ObservableCollectionTester.ExpectEvents(skipList, obj => obj.Add(keyValuePair), "Count", "CurrentListLevel", "IsEmpty", "Values");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionKeyValuePairReentrancy()
-            {
-                var skipList = new ObservableSkipList<string, string>();
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                new ReentracyTester<ObservableSkipList<string, string>>(skipList, obj => obj.Add(keyValuePair));
-            }
+		[TestFixture]
+		public class Add
+		{
+			[Test]
+			public void Simple()
+			{
+				var skipList = new ObservableSkipList<string, string>();
+				ObservableCollectionTester.ExpectEvents(skipList, obj => obj.Add("foo", "bar"), "Count", "CurrentListLevel", "IsEmpty", "Values");
+			}
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionSimpleReentrancy()
+			{
+				var skipList = new ObservableSkipList<string, string>();
+				new ReentracyTester<ObservableSkipList<string, string>>(skipList, obj => obj.Add("foo", "bar"));
+			}
+			[Test]
+			public void KeyValuePair()
+			{
+				var skipList = new ObservableSkipList<string, string>();
+				var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+				ObservableCollectionTester.ExpectEvents(skipList, obj => obj.Add(keyValuePair), "Count", "CurrentListLevel", "IsEmpty", "Values");
+			}
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionKeyValuePairReentrancy()
+			{
+				var skipList = new ObservableSkipList<string, string>();
+				var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+				new ReentracyTester<ObservableSkipList<string, string>>(skipList, obj => obj.Add(keyValuePair));
+			}
 
-        }
+		}
 
-        [TestFixture]
-        public class Clear
-        {
-            [Test]
-            public void Simple()
-            {
+		[TestFixture]
+		public class Clear
+		{
+			[Test]
+			public void Simple()
+			{
 
-                var skipList = new ObservableSkipList<string, string> { new KeyValuePair<string, string>("foo", "bar") };
+				var skipList = new ObservableSkipList<string, string> { new KeyValuePair<string, string>("foo", "bar") };
 
-                ObservableCollectionTester.ExpectEvents(skipList, obj => obj.Clear(), "Count", "CurrentListLevel", "IsEmpty", "Values");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionReentrancy()
-            {
-                var skipList = new ObservableSkipList<string, string> { new KeyValuePair<string, string>("foo", "bar") };
-                new ReentracyTester<ObservableSkipList<string, string>>(skipList, obj => obj.Clear());
-            }
-        }
+				ObservableCollectionTester.ExpectEvents(skipList, obj => obj.Clear(), "Count", "CurrentListLevel", "IsEmpty", "Values");
+			}
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionReentrancy()
+			{
+				var skipList = new ObservableSkipList<string, string> { new KeyValuePair<string, string>("foo", "bar") };
+				new ReentracyTester<ObservableSkipList<string, string>>(skipList, obj => obj.Clear());
+			}
+		}
 
-        [TestFixture]
-        public class Remove
-        {
-            [Test]
-            public void Simple()
-            {
-                var skipList = new ObservableSkipList<string, string> { new KeyValuePair<string, string>("foo", "bar") };
+		[TestFixture]
+		public class Remove
+		{
+			[Test]
+			public void Simple()
+			{
+				var skipList = new ObservableSkipList<string, string> { new KeyValuePair<string, string>("foo", "bar") };
 
-                ObservableCollectionTester.ExpectEvents(skipList, obj => obj.Remove("foo"), "Count", "CurrentListLevel", "IsEmpty", "Values");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionSimpleReentrancy()
-            {
-                var skipList = new ObservableSkipList<string, string> { new KeyValuePair<string, string>("foo", "bar") };
-                new ReentracyTester<ObservableSkipList<string, string>>(skipList, obj => obj.Remove("foo"));
-            }
-            [Test]
-            public void KeyValue()
-            {
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                var skipList = new ObservableSkipList<string, string> { keyValuePair };
+				ObservableCollectionTester.ExpectEvents(skipList, obj => obj.Remove("foo"), "Count", "CurrentListLevel", "IsEmpty", "Values");
+			}
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionSimpleReentrancy()
+			{
+				var skipList = new ObservableSkipList<string, string> { new KeyValuePair<string, string>("foo", "bar") };
+				new ReentracyTester<ObservableSkipList<string, string>>(skipList, obj => obj.Remove("foo"));
+			}
+			[Test]
+			public void KeyValue()
+			{
+				var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+				var skipList = new ObservableSkipList<string, string> { keyValuePair };
 
-                ObservableCollectionTester.ExpectEvents(skipList, obj => obj.Remove(keyValuePair), "Count", "CurrentListLevel", "IsEmpty", "Values");
-            }
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionKeyValueReentrancy()
-            {
-                var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
-                var skipList = new ObservableSkipList<string, string> { keyValuePair };
-                new ReentracyTester<ObservableSkipList<string, string>>(skipList, obj => obj.Remove(keyValuePair));
-            }
+				ObservableCollectionTester.ExpectEvents(skipList, obj => obj.Remove(keyValuePair), "Count", "CurrentListLevel", "IsEmpty", "Values");
+			}
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionKeyValueReentrancy()
+			{
+				var keyValuePair = new KeyValuePair<string, string>("foo", "bar");
+				var skipList = new ObservableSkipList<string, string> { keyValuePair };
+				new ReentracyTester<ObservableSkipList<string, string>>(skipList, obj => obj.Remove(keyValuePair));
+			}
 
-            [Test]
-            public void NotInList()
-            {
-                var skipList = new ObservableSkipList<string, string>();
+			[Test]
+			public void NotInList()
+			{
+				var skipList = new ObservableSkipList<string, string>();
 
-                ObservableCollectionTester.ExpectNoEvents(skipList, obj => obj.Remove("foo"));
-            }
-        }
+				ObservableCollectionTester.ExpectNoEvents(skipList, obj => obj.Remove("foo"));
+			}
+		}
 
- 
+
+	}
 }

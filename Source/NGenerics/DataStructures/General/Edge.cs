@@ -16,8 +16,8 @@ namespace NGenerics.DataStructures.General
 	/// <summary>
 	/// A class representing an edge in a graph.
 	/// </summary>
-    /// <typeparam name="T">The type of object the edge contains.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of object the edge contains.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
 	public class Edge<T>

@@ -46,13 +46,13 @@ namespace NGenerics.DataStructures.General
     /// </para>
     /// </remarks>
     /// <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
-    /// <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-    public abstract class DictionaryBase<TKey, TValue> : IDictionary<TKey, TValue>, IDictionary
-#if (!SILVERLIGHT)
+	public abstract class DictionaryBase<TKey, TValue> : IDictionary<TKey, TValue>, IDictionary
+#if (!SILVERLIGHT && !WINDOWSPHONE)
         , ISerializable, IDeserializationCallback
 #endif
     {
@@ -111,8 +111,8 @@ namespace NGenerics.DataStructures.General
 
 
 
-#if (!SILVERLIGHT)
-        /// <inheritdoc cref="Dictionary{TKey,TValue}(SerializationInfo, StreamingContext)"/>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		/// <inheritdoc cref="Dictionary{TKey,TValue}(SerializationInfo, StreamingContext)"/>
         protected DictionaryBase(SerializationInfo info, StreamingContext context)
         {
             var constructor = typeof(Dictionary<TKey, TValue>).GetConstructor(BindingFlags.NonPublic | BindingFlags.CreateInstance | BindingFlags.Instance, null, new[] { typeof(SerializationInfo), typeof(StreamingContext) }, null);
@@ -546,10 +546,10 @@ namespace NGenerics.DataStructures.General
 
         #endregion
 
-#if (!SILVERLIGHT)
-        #region ISerializable Members
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		#region ISerializable Members
 
-        /// <inheritdoc />
+		/// <inheritdoc />
 		[SecurityCritical]
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {

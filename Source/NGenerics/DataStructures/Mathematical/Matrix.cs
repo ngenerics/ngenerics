@@ -23,14 +23,14 @@ namespace NGenerics.DataStructures.Mathematical
     /// </summary>
     /// <remarks>
     /// Some of the members have been adapted from the JAMA package : http://math.nist.gov/javanumerics/jama/, which is in the public domain.
-    /// </remarks>
-#if (!SILVERLIGHT)
+	/// </remarks>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-    public class Matrix : ObjectMatrix<double>, IMathematicalMatrix, IEquatable<IMathematicalMatrix>, ICollection<double>
-#if (!SILVERLIGHT)
+	public class Matrix : ObjectMatrix<double>, IMathematicalMatrix, IEquatable<IMathematicalMatrix>, ICollection<double>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
         , ICloneable
 #endif
     {
@@ -1211,10 +1211,10 @@ namespace NGenerics.DataStructures.Mathematical
 
         #endregion
 
-#if (!SILVERLIGHT)
-        #region IClonable Members
+#if (!SILVERLIGHT && !WINDOWSPHONE)
+		#region IClonable Members
 
-        /// <inheritdoc />
+		/// <inheritdoc />
         object ICloneable.Clone()
         {
             return Clone();

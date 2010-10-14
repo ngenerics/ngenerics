@@ -19,9 +19,9 @@ using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.Mathematical
 {
+	[TestFixture]
 	public class MatrixTest
     {
-        #region Tests
 
         [TestFixture]
         public class Construction
@@ -3602,9 +3602,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 
         }
 
-        #endregion
 
-        #region Private Members
 
         private static void TestDiagonalValues(Matrix matrix, int rows, int columns, int value)
 		{
@@ -3659,7 +3657,5 @@ namespace NGenerics.Tests.DataStructures.Mathematical
 		}
 
 
-
-		#endregion
 	}
 }

@@ -12,58 +12,64 @@ using NGenerics.Tests.TestObjects;
 using NUnit.Framework;
 using ProjectSynchronizer.Core.Parsing;
 
-namespace NGenerics.Tests.SupportPrograms.ProjectSynchronizer.Parsing.VS2008SynchronizerTests
+namespace NGenerics.Tests.SupportPrograms.ProjectSynchronizer.Parsing
 {
 
 
-    [TestFixture]
-    public class Synchronize
-    {
-        private const string SampleNGenericsProject = @"..\..\TestObjects\Artifacts\SampleProjects\NGenerics.csproj";
-        private const string SampleNGenericsSilverLightProject = @"..\..\TestObjects\Artifacts\SampleProjects\NGenerics.SilverLight.csproj";
-        private const string MergeNGenericsSilverLightProject = @"..\..\TestObjects\Artifacts\SampleProjects\NGenerics.SilverLight.Merged.csproj";
+	[TestFixture]
+	public class VS2008SynchronizerTests
+	{
 
-        [Test]
-        public void Should_Synchronize_Test_Project_Files()
-        {
-            var parser = new VS2008ProjectParser();
-            var synchronizer = new VS2008Synchronizer();
+		[TestFixture]
+		public class Synchronize
+		{
+			private const string SampleNGenericsProject = @"..\..\TestObjects\Artifacts\SampleProjects\NGenerics.csproj";
+			private const string SampleNGenericsSilverLightProject = @"..\..\TestObjects\Artifacts\SampleProjects\NGenerics.SilverLight.csproj";
+			private const string MergeNGenericsSilverLightProject = @"..\..\TestObjects\Artifacts\SampleProjects\NGenerics.SilverLight.Merged.csproj";
 
-            var items = parser.FindCompilationItems(SampleNGenericsSilverLightProject);
+			[Test]
+			public void Should_Synchronize_Test_Project_Files()
+			{
+				var parser = new VS2008ProjectParser();
+				var synchronizer = new VS2008Synchronizer();
 
-            Assert.AreEqual(items.Count, 1);
-            Assert.AreEqual(items[0], @"Algorithms\GraphAlgorithms.cs");
+				var items = parser.FindCompilationItems(SampleNGenericsSilverLightProject);
 
-            try
-            {
+				Assert.AreEqual(items.Count, 1);
+				Assert.AreEqual(items[0], @"Algorithms\GraphAlgorithms.cs");
 
-                // Copy the silverlight project to another location
-                File.WriteAllText(MergeNGenericsSilverLightProject, TestFiles.NGenerics_Silverlight);
+				try
+				{
 
-                // Sync any changes
-                synchronizer.Synchronize(SampleNGenericsProject, MergeNGenericsSilverLightProject);
+					// Copy the silverlight project to another location
+					File.WriteAllText(MergeNGenericsSilverLightProject, TestFiles.NGenerics_Silverlight);
 
-                // File size must be larger after we've added the dependencies
-                var size = new FileInfo(MergeNGenericsSilverLightProject).Length;
+					// Sync any changes
+					synchronizer.Synchronize(SampleNGenericsProject, MergeNGenericsSilverLightProject);
 
-                // Parse the file back in, and ensure that those items are there.
-                items = parser.FindCompilationItems(MergeNGenericsSilverLightProject);
+					// File size must be larger after we've added the dependencies
+					var size = new FileInfo(MergeNGenericsSilverLightProject).Length;
 
-                Assert.AreEqual(items.Count, 4);
+					// Parse the file back in, and ensure that those items are there.
+					items = parser.FindCompilationItems(MergeNGenericsSilverLightProject);
 
-                Assert.AreEqual(items[0], @"Algorithms\GraphAlgorithms.cs");
-                Assert.AreEqual(items[1], @"Algorithms\MathAlgorithms.cs");
-                Assert.AreEqual(items[2], @"Algorithms\VertexInfo.cs");
-                Assert.AreEqual(items[3], @"Comparers\AssociationKeyComparer.cs");
-            }
-            finally
-            {
-                if (File.Exists(MergeNGenericsSilverLightProject))
-                {
-                    File.Delete(MergeNGenericsSilverLightProject);
-                }
-            }
-        }
+					Assert.AreEqual(items.Count, 4);
 
-    }
+					Assert.AreEqual(items[0], @"Algorithms\GraphAlgorithms.cs");
+					Assert.AreEqual(items[1], @"Algorithms\MathAlgorithms.cs");
+					Assert.AreEqual(items[2], @"Algorithms\VertexInfo.cs");
+					Assert.AreEqual(items[3], @"Comparers\AssociationKeyComparer.cs");
+				}
+				finally
+				{
+					if (File.Exists(MergeNGenericsSilverLightProject))
+					{
+						File.Delete(MergeNGenericsSilverLightProject);
+					}
+				}
+			}
+
+		}
+	}
+
 }

@@ -22,8 +22,8 @@ namespace NGenerics.DataStructures.Trees
     /// </summary>
     /// <typeparam name="TKey">The type of the keys in the tree.</typeparam>
     /// <typeparam name="TValue">The type of the values in the tree.</typeparam>
-    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-#if (!SILVERLIGHT)
+	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     public abstract class BinarySearchTreeBase<TKey, TValue> : 

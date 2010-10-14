@@ -16,11 +16,14 @@ using NUnit.Framework;
 using NGenerics.DataStructures.General;
 using System.Collections;
 
-namespace NGenerics.Tests.DataStructures.General.BagTest
+namespace NGenerics.Tests.DataStructures.General
 {
 
     [TestFixture]
-    public class Construction : BagTest
+    public class BagTest
+    {
+    [TestFixture]
+    public class Construction 
     {
 
         [Test]
@@ -69,7 +72,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class Accept : BagTest
+    public class Accept 
     {
 
         [Test]
@@ -143,7 +146,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class Add : BagTest
+    public class Add 
     {
 
         [Test]
@@ -205,7 +208,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class Clear : BagTest
+    public class Clear 
     {
 
         [Test]
@@ -226,7 +229,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class Contains : BagTest
+    public class Contains 
     {
 
         [Test]
@@ -256,7 +259,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class CopyTo : BagTest
+    public class CopyTo 
     {
 
         [Test]
@@ -315,7 +318,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class Count : BagTest
+    public class Count 
     {
 
         [Test]
@@ -344,7 +347,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class Subtract : BagTest
+    public class Subtract 
     {
 
         [Test]
@@ -418,7 +421,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class GetCountEnumerator : BagTest
+    public class GetCountEnumerator 
     {
 
         [Test]
@@ -454,7 +457,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class GetEnumerator : BagTest
+    public class GetEnumerator 
     {
 
         [Test]
@@ -510,7 +513,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class GetHashCodeObject : BagTest
+    public class GetHashCodeObject 
     {
 
         [Test]
@@ -533,7 +536,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class Intersection : BagTest
+    public class Intersection 
     {
 
         [Test]
@@ -601,7 +604,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class IsEqual : BagTest
+    public class IsEqual 
     {
 
         [Test]
@@ -659,7 +662,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
 
 
     [TestFixture]
-    public class IsReadOnly : BagTest
+    public class IsReadOnly 
     {
         [Test]
         public void Simple()
@@ -671,7 +674,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class Remove : BagTest
+    public class Remove 
     {
 
         [Test]
@@ -742,7 +745,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class RemoveAll : BagTest
+    public class RemoveAll 
     {
 
         [Test]
@@ -769,7 +772,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class Serializable : BagTest
+    public class Serializable 
     {
 
         [Test]
@@ -785,7 +788,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
     }
 
     [TestFixture]
-    public class Union : BagTest
+    public class Union 
     {
         [Test]
         public void Simple()
@@ -848,13 +851,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
 
     }
 
-
-    public class BagTest
-    {
-
-        #region Private Members
-
-        internal static Bag<string> GetTestBag()
+  internal static Bag<string> GetTestBag()
         {
             var bag = new Bag<string>();
 
@@ -875,7 +872,5 @@ namespace NGenerics.Tests.DataStructures.General.BagTest
 
             return bag;
         }
-
-        #endregion
     }
 }

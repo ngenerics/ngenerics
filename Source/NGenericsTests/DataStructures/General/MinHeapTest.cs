@@ -17,420 +17,417 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.MinHeapTest
+namespace NGenerics.Tests.DataStructures.General
 {
 
-	public class MinHeapTest
-    {
+		[TestFixture]
+	public sealed class MinHeapTest
+	{
 
-        #region Private Members
 
-        internal static Heap<int> GetTestHeap()
-        {
-            var heap = new Heap<int>(HeapType.Minimum) { 5, 4, 99, 12, 5 };
+		internal static Heap<int> GetTestHeap()
+		{
+			var heap = new Heap<int>(HeapType.Minimum) { 5, 4, 99, 12, 5 };
 
-            return heap;
-        }
+			return heap;
+		}
 
-        #endregion
-    }
-        #region Tests
 
-        [TestFixture]
-    public class Accept : MinHeapTest
-        {
-            [Test]
+		[TestFixture]
+		public class Accept 
+		{
+			[Test]
 			public void Simple()
-            {
-                var visitor = new TrackingVisitor<int>();
-                var heap = GetTestHeap();
+			{
+				var visitor = new TrackingVisitor<int>();
+				var heap = GetTestHeap();
 
-                heap.AcceptVisitor(visitor);
+				heap.AcceptVisitor(visitor);
 
-                Assert.AreEqual(visitor.TrackingList.Count, heap.Count);
-                Assert.IsTrue(visitor.TrackingList.Contains(5));
-                Assert.IsTrue(visitor.TrackingList.Contains(4));
-                Assert.IsTrue(visitor.TrackingList.Contains(99));
-                Assert.IsTrue(visitor.TrackingList.Contains(12));
-                Assert.IsTrue(visitor.TrackingList.Contains(5));
-            }
+				Assert.AreEqual(visitor.TrackingList.Count, heap.Count);
+				Assert.IsTrue(visitor.TrackingList.Contains(5));
+				Assert.IsTrue(visitor.TrackingList.Contains(4));
+				Assert.IsTrue(visitor.TrackingList.Contains(99));
+				Assert.IsTrue(visitor.TrackingList.Contains(12));
+				Assert.IsTrue(visitor.TrackingList.Contains(5));
+			}
 
-            [Test]
-            public void Stopping()
-            {
-                var visitor = new CompletedTrackingVisitor<int>();
-                var heap = GetTestHeap();
-                heap.AcceptVisitor(visitor);
-            }
+			[Test]
+			public void Stopping()
+			{
+				var visitor = new CompletedTrackingVisitor<int>();
+				var heap = GetTestHeap();
+				heap.AcceptVisitor(visitor);
+			}
 
-            [Test]
-            [ExpectedException(typeof(ArgumentNullException))]
-            public void ExceptionNullVisitor()
-            {
-                var heap = GetTestHeap();
-                heap.AcceptVisitor(null);
-            }
-        }
+			[Test]
+			[ExpectedException(typeof(ArgumentNullException))]
+			public void ExceptionNullVisitor()
+			{
+				var heap = GetTestHeap();
+				heap.AcceptVisitor(null);
+			}
+		}
 
-        [TestFixture]
-        public class Add : MinHeapTest
-        {
-            [Test]
+		[TestFixture]
+		public class Add 
+		{
+			[Test]
 			public void Simple()
-            {
-                var heap = new Heap<int>(HeapType.Minimum)
+			{
+				var heap = new Heap<int>(HeapType.Minimum)
                            {
                                5
                            };
 
-                Assert.AreEqual(heap.Count, 1);
-                Assert.IsFalse(heap.IsEmpty);
-                Assert.AreEqual(heap.Root, 5);
+				Assert.AreEqual(heap.Count, 1);
+				Assert.IsFalse(heap.IsEmpty);
+				Assert.AreEqual(heap.Root, 5);
 
-                heap.Add(2);
-                Assert.AreEqual(heap.Count, 2);
-                Assert.IsFalse(heap.IsEmpty);
-                Assert.AreEqual(heap.Root, 2);
+				heap.Add(2);
+				Assert.AreEqual(heap.Count, 2);
+				Assert.IsFalse(heap.IsEmpty);
+				Assert.AreEqual(heap.Root, 2);
 
-                heap.Add(3);
-                Assert.AreEqual(heap.Count, 3);
-                Assert.IsFalse(heap.IsEmpty);
-                Assert.AreEqual(heap.Root, 2);
+				heap.Add(3);
+				Assert.AreEqual(heap.Count, 3);
+				Assert.IsFalse(heap.IsEmpty);
+				Assert.AreEqual(heap.Root, 2);
 
-                Assert.AreEqual(heap.RemoveRoot(), 2);
+				Assert.AreEqual(heap.RemoveRoot(), 2);
 
-                heap.Add(1);
-                Assert.AreEqual(heap.Count, 3);
-                Assert.IsFalse(heap.IsEmpty);
-                Assert.AreEqual(heap.Root, 1);
-            }
-        }
+				heap.Add(1);
+				Assert.AreEqual(heap.Count, 3);
+				Assert.IsFalse(heap.IsEmpty);
+				Assert.AreEqual(heap.Root, 1);
+			}
+		}
 
-        [TestFixture]
-        public class Clear : MinHeapTest
-        {
-            [Test]
+		[TestFixture]
+		public class Clear 
+		{
+			[Test]
 			public void Simple()
-            {
-                var heap = new Heap<int>(HeapType.Minimum);
+			{
+				var heap = new Heap<int>(HeapType.Minimum);
 
-                for (var i = 20; i > 0; i--)
-                {
-                    heap.Add(i);
-                    Assert.AreEqual(heap.Root, i);
-                }
+				for (var i = 20; i > 0; i--)
+				{
+					heap.Add(i);
+					Assert.AreEqual(heap.Root, i);
+				}
 
-                Assert.IsFalse(heap.IsEmpty);
-                Assert.AreEqual(heap.Count, 20);
+				Assert.IsFalse(heap.IsEmpty);
+				Assert.AreEqual(heap.Count, 20);
 
-                heap.Clear();
+				heap.Clear();
 
-                Assert.AreEqual(heap.Count, 0);
-                Assert.IsTrue(heap.IsEmpty);
-            }		
-        }
+				Assert.AreEqual(heap.Count, 0);
+				Assert.IsTrue(heap.IsEmpty);
+			}
+		}
 
-        [TestFixture]
-        public class Contains : MinHeapTest
-        {
-            [Test]
+		[TestFixture]
+		public class Contains 
+		{
+			[Test]
 			public void Simple()
-            {
-                var heap = GetTestHeap();
+			{
+				var heap = GetTestHeap();
 
-                Assert.IsTrue(heap.Contains(5));
-                Assert.IsTrue(heap.Contains(4));
-                Assert.IsTrue(heap.Contains(99));
-                Assert.IsTrue(heap.Contains(12));
-                Assert.IsTrue(heap.Contains(5));
-                Assert.IsFalse(heap.Contains(3));
-            }
-        }
-                
-        [TestFixture]
-        public class Construction : MinHeapTest
-        {
-            [Test]
+				Assert.IsTrue(heap.Contains(5));
+				Assert.IsTrue(heap.Contains(4));
+				Assert.IsTrue(heap.Contains(99));
+				Assert.IsTrue(heap.Contains(12));
+				Assert.IsTrue(heap.Contains(5));
+				Assert.IsFalse(heap.Contains(3));
+			}
+		}
+
+		[TestFixture]
+		public class Construction 
+		{
+			[Test]
 			public void Simple()
-            {
-                var heap = new Heap<int>(HeapType.Minimum);
+			{
+				var heap = new Heap<int>(HeapType.Minimum);
 
-                Assert.AreEqual(heap.Type, HeapType.Minimum);
-                Assert.AreEqual(heap.Count, 0);
-                Assert.IsTrue(heap.IsEmpty);
+				Assert.AreEqual(heap.Type, HeapType.Minimum);
+				Assert.AreEqual(heap.Count, 0);
+				Assert.IsTrue(heap.IsEmpty);
 
-                heap = new Heap<int>(HeapType.Minimum, Comparer<int>.Default);
+				heap = new Heap<int>(HeapType.Minimum, Comparer<int>.Default);
 
-                Assert.AreEqual(heap.Type, HeapType.Minimum);
-                Assert.AreEqual(heap.Count, 0);
-                Assert.IsTrue(heap.IsEmpty);
+				Assert.AreEqual(heap.Type, HeapType.Minimum);
+				Assert.AreEqual(heap.Count, 0);
+				Assert.IsTrue(heap.IsEmpty);
 
-                heap = new Heap<int>(HeapType.Minimum, 50);
+				heap = new Heap<int>(HeapType.Minimum, 50);
 
-                Assert.AreEqual(heap.Type, HeapType.Minimum);
-                Assert.AreEqual(heap.Count, 0);
-                Assert.IsTrue(heap.IsEmpty);
+				Assert.AreEqual(heap.Type, HeapType.Minimum);
+				Assert.AreEqual(heap.Count, 0);
+				Assert.IsTrue(heap.IsEmpty);
 
-                heap = new Heap<int>(HeapType.Minimum, 50, Comparer<int>.Default);
+				heap = new Heap<int>(HeapType.Minimum, 50, Comparer<int>.Default);
 
-                Assert.AreEqual(heap.Type, HeapType.Minimum);
-                Assert.AreEqual(heap.Count, 0);
-                Assert.IsTrue(heap.IsEmpty);
-            }
-        }
+				Assert.AreEqual(heap.Type, HeapType.Minimum);
+				Assert.AreEqual(heap.Count, 0);
+				Assert.IsTrue(heap.IsEmpty);
+			}
+		}
 
-        [TestFixture]
-        public class Comparer : MinHeapTest
-        {
-            [Test]
-            [ExpectedException(typeof(ArgumentNullException))]
-            public void ExceptionNullComparer1()
-            {
-                new Heap<int>(HeapType.Maximum, (IComparer<int>) null);
-            }
+		[TestFixture]
+		public class Comparer 
+		{
+			[Test]
+			[ExpectedException(typeof(ArgumentNullException))]
+			public void ExceptionNullComparer1()
+			{
+				new Heap<int>(HeapType.Maximum, (IComparer<int>)null);
+			}
 
-            [Test]
-            [ExpectedException(typeof(ArgumentNullException))]
-            public void ExceptionNullComparer2()
-            {
-                new Heap<int>(HeapType.Maximum, 50, (IComparer<int>) null);
-            }
-        }
+			[Test]
+			[ExpectedException(typeof(ArgumentNullException))]
+			public void ExceptionNullComparer2()
+			{
+				new Heap<int>(HeapType.Maximum, 50, (IComparer<int>)null);
+			}
+		}
 
-        [TestFixture]
-        public class CopyTo : MinHeapTest
-        {
-            [Test]
+		[TestFixture]
+		public class CopyTo 
+		{
+			[Test]
 			public void Simple()
-            {
-                var heap = GetTestHeap();
-                var array = new int[heap.Count];
+			{
+				var heap = GetTestHeap();
+				var array = new int[heap.Count];
 
-                heap.CopyTo(array, 0);
+				heap.CopyTo(array, 0);
 
-                var list = new List<int>(array);
-                Assert.AreEqual(list.Count, heap.Count);
-                Assert.IsTrue(list.Contains(5));
-                Assert.IsTrue(list.Contains(4));
-                Assert.IsTrue(list.Contains(99));
-                Assert.IsTrue(list.Contains(12));
-            }
+				var list = new List<int>(array);
+				Assert.AreEqual(list.Count, heap.Count);
+				Assert.IsTrue(list.Contains(5));
+				Assert.IsTrue(list.Contains(4));
+				Assert.IsTrue(list.Contains(99));
+				Assert.IsTrue(list.Contains(12));
+			}
 
-            [Test]
-            [ExpectedException(typeof(ArgumentNullException))]
-            public void ExceptionNullArray()
-            {
-                var heap = GetTestHeap();
-                heap.CopyTo(null, 0);
-            }
+			[Test]
+			[ExpectedException(typeof(ArgumentNullException))]
+			public void ExceptionNullArray()
+			{
+				var heap = GetTestHeap();
+				heap.CopyTo(null, 0);
+			}
 
-            [Test]
-            [ExpectedException(typeof(ArgumentException))]
-            public void ExceptionInvalidArrayLength1()
-            {
-                var heap = GetTestHeap();
-                var array = new int[heap.Count - 1];
-                heap.CopyTo(array, 0);
-            }
+			[Test]
+			[ExpectedException(typeof(ArgumentException))]
+			public void ExceptionInvalidArrayLength1()
+			{
+				var heap = GetTestHeap();
+				var array = new int[heap.Count - 1];
+				heap.CopyTo(array, 0);
+			}
 
-            [Test]
-            [ExpectedException(typeof(ArgumentException))]
+			[Test]
+			[ExpectedException(typeof(ArgumentException))]
 			public void ExceptionInvalidArrayLength2()
-            {
-                var heap = GetTestHeap();
-                var array = new int[heap.Count];
-                heap.CopyTo(array, 1);
-            }
-        }
+			{
+				var heap = GetTestHeap();
+				var array = new int[heap.Count];
+				heap.CopyTo(array, 1);
+			}
+		}
 
-        [TestFixture]
-        public class GetEnumerator : MinHeapTest
-        {
-            [Test]
-            public void Interface()
-            {
-                var heap = new Heap<int>(HeapType.Maximum);
+		[TestFixture]
+		public class GetEnumerator 
+		{
+			[Test]
+			public void Interface()
+			{
+				var heap = new Heap<int>(HeapType.Maximum);
 
-                const int maximum = 100;
+				const int maximum = 100;
 
-                for (var i = 0; i < maximum; i++)
-                {
-                    heap.Add(i);
-                }
+				for (var i = 0; i < maximum; i++)
+				{
+					heap.Add(i);
+				}
 
-                var isPresent = new bool[maximum];
+				var isPresent = new bool[maximum];
 
-                for (var i = 0; i < isPresent.Length; i++)
-                {
-                    isPresent[i] = false;
-                }
+				for (var i = 0; i < isPresent.Length; i++)
+				{
+					isPresent[i] = false;
+				}
 
-                var enumerator = ((IEnumerable) heap).GetEnumerator();
+				var enumerator = ((IEnumerable)heap).GetEnumerator();
 
-                Assert.IsTrue(enumerator.MoveNext());
+				Assert.IsTrue(enumerator.MoveNext());
 
-                do
-                {
-                    isPresent[(int) enumerator.Current] = true;
-                }
-                while (enumerator.MoveNext());
+				do
+				{
+					isPresent[(int)enumerator.Current] = true;
+				}
+				while (enumerator.MoveNext());
 
-                for (var i = 0; i < maximum; i++)
-                {
-                    Assert.IsTrue(isPresent[i]);
-                }
-            }
+				for (var i = 0; i < maximum; i++)
+				{
+					Assert.IsTrue(isPresent[i]);
+				}
+			}
 
-            [Test]
-            public void Simple()
-            {
-                var heap = new Heap<int>(HeapType.Minimum);
-
-                const int maximum = 100;
-
-                for (var i = 0; i < maximum; i++)
-                {
-                    heap.Add(i);
-                }
-
-                var isPresent = new bool[maximum];
-
-                for (var i = 0; i < isPresent.Length; i++)
-                {
-                    isPresent[i] = false;
-                }
-
-                var enumerator = heap.GetEnumerator();
-
-                Assert.IsTrue(enumerator.MoveNext());
-
-                do
-                {
-                    isPresent[enumerator.Current] = true;
-                }
-                while (enumerator.MoveNext());
-
-                for (var i = 0; i < maximum; i++)
-                {
-                    Assert.IsTrue(isPresent[i]);
-                }
-            }
-        }
-
-
-        [TestFixture]
-        public class IsReadOnly : MinHeapTest
-        {
-            [Test]
+			[Test]
 			public void Simple()
-            {
-                var heap = new Heap<int>(HeapType.Maximum);
-                Assert.IsFalse(heap.IsReadOnly);
+			{
+				var heap = new Heap<int>(HeapType.Minimum);
 
-                heap = GetTestHeap();
-                Assert.IsFalse(heap.IsReadOnly);
-            }
-        }
+				const int maximum = 100;
 
-        [TestFixture]
-        public class Remove : MinHeapTest
-        {
-            [Test]
-            [ExpectedException(typeof(NotSupportedException))]
-            public void ExceptionInterface()
-            {
-                ICollection<int> heap = GetTestHeap();
-                heap.Remove(4);
-            }
+				for (var i = 0; i < maximum; i++)
+				{
+					heap.Add(i);
+				}
 
-            [Test]
-            public void SmallestItem()
-            {
-                var heap = new Heap<int>(HeapType.Minimum) {5};
-                Assert.AreEqual(heap.Root, 5);
-                Assert.AreEqual(heap.Count, 1);
-                Assert.IsFalse(heap.IsEmpty);
+				var isPresent = new bool[maximum];
 
-                Assert.AreEqual(heap.RemoveRoot(), 5);
-                Assert.AreEqual(heap.Count, 0);
-                Assert.IsTrue(heap.IsEmpty);
-            }
+				for (var i = 0; i < isPresent.Length; i++)
+				{
+					isPresent[i] = false;
+				}
+
+				var enumerator = heap.GetEnumerator();
+
+				Assert.IsTrue(enumerator.MoveNext());
+
+				do
+				{
+					isPresent[enumerator.Current] = true;
+				}
+				while (enumerator.MoveNext());
+
+				for (var i = 0; i < maximum; i++)
+				{
+					Assert.IsTrue(isPresent[i]);
+				}
+			}
+		}
 
 
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionEmpty()
-            {
-                var heap = new Heap<int>(HeapType.Minimum);
-
-                Assert.AreEqual(heap.Count, 0);
-
-                heap.RemoveRoot();
-            }
-
-            [Test]
-            public void Stress()
-            {
-                var heap = new Heap<int>(HeapType.Minimum);
-
-                const int maximum = 5000;
-
-                for (var i = maximum; i > 0; i--)
-                {
-                    heap.Add(i);
-
-                    Assert.AreEqual(heap.Root, i);
-                }
-
-                for (var i = 1; i <= maximum; i++)
-                {
-                    Assert.AreEqual(heap.RemoveRoot(), i);
-                }
-            }
-        }
-
-        [TestFixture]
-        public class Root : MinHeapTest
-        {
-            [Test]
-            public void SmallestItem()
-            {
-                var heap = new Heap<int>(HeapType.Minimum) {5};
-                Assert.AreEqual(heap.Root, 5);
-                Assert.AreEqual(heap.Count, 1);
-            }
-
-            [Test]
-            [ExpectedException(typeof(InvalidOperationException))]
-            public void ExceptionEmpty()
-            {
-                var heap = new Heap<int>(HeapType.Minimum);
-                var i = heap.Root;
-            }
-        }
-
-        [TestFixture]
-        public class Serializable : MinHeapTest
-        {
-            [Test]
+		[TestFixture]
+		public class IsReadOnly 
+		{
+			[Test]
 			public void Simple()
-            {
-                var heap = GetTestHeap();
-                var newHeap = SerializeUtil.BinarySerializeDeserialize(heap);
+			{
+				var heap = new Heap<int>(HeapType.Maximum);
+				Assert.IsFalse(heap.IsReadOnly);
 
-                Assert.AreNotSame(heap, newHeap);
-                Assert.AreEqual(heap.Count, newHeap.Count);
+				heap = GetTestHeap();
+				Assert.IsFalse(heap.IsReadOnly);
+			}
+		}
 
-                while (heap.Count > 0)
-                {
-                    Assert.AreEqual(heap.RemoveRoot(), newHeap.RemoveRoot());
-                }
-            }
+		[TestFixture]
+		public class Remove 
+		{
+			[Test]
+			[ExpectedException(typeof(NotSupportedException))]
+			public void ExceptionInterface()
+			{
+				ICollection<int> heap = GetTestHeap();
+				heap.Remove(4);
+			}
 
-            [Test]
-            public void NonIComparable()
-            {
-                var heap = new Heap<NonComparableTClass>(HeapType.Minimum)
+			[Test]
+			public void SmallestItem()
+			{
+				var heap = new Heap<int>(HeapType.Minimum) { 5 };
+				Assert.AreEqual(heap.Root, 5);
+				Assert.AreEqual(heap.Count, 1);
+				Assert.IsFalse(heap.IsEmpty);
+
+				Assert.AreEqual(heap.RemoveRoot(), 5);
+				Assert.AreEqual(heap.Count, 0);
+				Assert.IsTrue(heap.IsEmpty);
+			}
+
+
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionEmpty()
+			{
+				var heap = new Heap<int>(HeapType.Minimum);
+
+				Assert.AreEqual(heap.Count, 0);
+
+				heap.RemoveRoot();
+			}
+
+			[Test]
+			public void Stress()
+			{
+				var heap = new Heap<int>(HeapType.Minimum);
+
+				const int maximum = 5000;
+
+				for (var i = maximum; i > 0; i--)
+				{
+					heap.Add(i);
+
+					Assert.AreEqual(heap.Root, i);
+				}
+
+				for (var i = 1; i <= maximum; i++)
+				{
+					Assert.AreEqual(heap.RemoveRoot(), i);
+				}
+			}
+		}
+
+		[TestFixture]
+		public class Root 
+		{
+			[Test]
+			public void SmallestItem()
+			{
+				var heap = new Heap<int>(HeapType.Minimum) { 5 };
+				Assert.AreEqual(heap.Root, 5);
+				Assert.AreEqual(heap.Count, 1);
+			}
+
+			[Test]
+			[ExpectedException(typeof(InvalidOperationException))]
+			public void ExceptionEmpty()
+			{
+				var heap = new Heap<int>(HeapType.Minimum);
+				var i = heap.Root;
+			}
+		}
+
+		[TestFixture]
+		public class Serializable 
+		{
+			[Test]
+			public void Simple()
+			{
+				var heap = GetTestHeap();
+				var newHeap = SerializeUtil.BinarySerializeDeserialize(heap);
+
+				Assert.AreNotSame(heap, newHeap);
+				Assert.AreEqual(heap.Count, newHeap.Count);
+
+				while (heap.Count > 0)
+				{
+					Assert.AreEqual(heap.RemoveRoot(), newHeap.RemoveRoot());
+				}
+			}
+
+			[Test]
+			public void NonIComparable()
+			{
+				var heap = new Heap<NonComparableTClass>(HeapType.Minimum)
                                                   {
                                                       new NonComparableTClass(5),
                                                       new NonComparableTClass(4),
@@ -439,18 +436,18 @@ namespace NGenerics.Tests.DataStructures.General.MinHeapTest
                                                       new NonComparableTClass(5)
                                                   };
 
-                var newHeap = SerializeUtil.BinarySerializeDeserialize(heap);
+				var newHeap = SerializeUtil.BinarySerializeDeserialize(heap);
 
-                Assert.AreNotSame(heap, newHeap);
-                Assert.AreEqual(heap.Count, newHeap.Count);
+				Assert.AreNotSame(heap, newHeap);
+				Assert.AreEqual(heap.Count, newHeap.Count);
 
-                while (heap.Count > 0)
-                {
-                    Assert.AreEqual(heap.RemoveRoot().Number, newHeap.RemoveRoot().Number);
-                }
-            }
-        }
-		
-        #endregion
+				while (heap.Count > 0)
+				{
+					Assert.AreEqual(heap.RemoveRoot().Number, newHeap.RemoveRoot().Number);
+				}
+			}
+		}
 
+
+	}
 }

@@ -11,7 +11,7 @@
 using NGenerics.Algorithms;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Algorithms.Math.HypotenuseTest
+namespace NGenerics.Tests.Algorithms.Math
 {
     [TestFixture]
     public class Hypotenuse

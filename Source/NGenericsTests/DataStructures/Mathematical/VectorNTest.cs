@@ -12,8 +12,11 @@ using System;
 using NGenerics.DataStructures.Mathematical;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Mathematical.VectorNTest
+namespace NGenerics.Tests.DataStructures.Mathematical
 {
+    [TestFixture]
+    public class VectorNTest
+    {
     [TestFixture]
     public class AbsoluteMaximum
     {
@@ -661,4 +664,5 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorNTest
         }
 
     }
+}
 }

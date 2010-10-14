@@ -23,8 +23,8 @@ namespace NGenerics.DataStructures.Trees
     /// <summary>
     /// A general tree data structure that can hold any amount of nodes.
     /// </summary>
-    /// <typeparam name="T">The type of elements in the <see cref="GeneralTree{T}"/>.</typeparam>
-#if (!SILVERLIGHT)
+	/// <typeparam name="T">The type of elements in the <see cref="GeneralTree{T}"/>.</typeparam>
+#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
