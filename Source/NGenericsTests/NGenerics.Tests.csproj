@@ -98,6 +98,7 @@
     <Compile Include="Comparers\EdgeWeightComparerTest.cs" />
     <Compile Include="Comparers\KeyValuePairComparerTests.cs" />
     <Compile Include="Comparers\ReverseComparerTest.cs" />
+    <Compile Include="DataStructures\General\AssociationTest.cs" />
     <Compile Include="DataStructures\General\AutoKeyDictionaryTests.cs" />
     <Compile Include="DataStructures\General\CaseInsensitiveStringTest.cs" />
     <Compile Include="DataStructures\General\CurveTest.cs" />
