@@ -13,7 +13,7 @@ using NGenerics.Extensions;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.AssociationTest
+namespace NGenerics.Tests.DataStructures.General
 {
     [TestFixture]
     public class Construction
