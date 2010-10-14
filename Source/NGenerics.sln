@@ -94,7 +94,6 @@ Global
 		{AF310F59-3C00-4554-BC62-A628B166E44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF310F59-3C00-4554-BC62-A628B166E44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF310F59-3C00-4554-BC62-A628B166E44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF310F59-3C00-4554-BC62-A628B166E44B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
