@@ -1,1 +1,0 @@
-Tools\Nant\Nant.exe -buildfile:ngenerics.build build
