@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="WpfExample.HgChart.HGChartCtrl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     Height="Auto" Width="Auto">
+
+
+    <Canvas  x:Name="_chartArea" ClipToBounds="False" Background="Black">
+
+        <TextBlock  x:Name="txtNoData" FontSize="12"
+                      Text="No data found." Visibility="Hidden"
+                      Opacity="100" Foreground="Red">
+        </TextBlock>
+    </Canvas>
+
+
+
+</UserControl>
