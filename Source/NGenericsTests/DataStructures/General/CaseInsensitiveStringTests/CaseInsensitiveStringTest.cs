@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General
+namespace NGenerics.Tests.DataStructures.General.CaseInsensitiveStringTests
 {
     [TestFixture]
     public class CaseInsensitiveStringTest

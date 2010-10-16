@@ -12,18 +12,8 @@ using NGenerics.Comparers;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Comparers.AssociationKeyComparerTest
+namespace NGenerics.Tests.Comparers.AssociationKeyComparerTests
 {
-    [TestFixture]
-    public class Construction
-    {
-        [Test]
-        public void Simple()
-        {
-            new AssociationKeyComparer<int, string>();
-        }
-    }
-
     [TestFixture]
     public class Compare
     {

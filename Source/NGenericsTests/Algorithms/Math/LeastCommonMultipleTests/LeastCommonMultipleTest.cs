@@ -10,7 +10,7 @@
 using NUnit.Framework;
 using NGenerics.Algorithms;
 
-namespace NGenerics.Tests.Algorithms.Math
+namespace NGenerics.Tests.Algorithms.Math.LeastCommonMultipleTests
 {
     [TestFixture]
     public class LeastCommonMultipleTest

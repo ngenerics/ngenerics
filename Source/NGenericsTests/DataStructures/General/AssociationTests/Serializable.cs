@@ -13,69 +13,8 @@ using NGenerics.Extensions;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.AssociationTest
+namespace NGenerics.Tests.DataStructures.General.AssociationTests
 {
-    [TestFixture]
-    public class Construction
-    {
-
-        [Test]
-        public void Simple()
-        {
-            var assoc = new Association<int, string>(5, "aa");
-
-            Assert.AreEqual(assoc.Key, 5);
-            Assert.AreEqual(assoc.Value, "aa");
-
-        }
-        [Test]
-        public void Equality()
-        {
-            var assoc = new Association<int, string>(5, "aa");
-            var assoc2 = new Association<int, string>(5, "aa");
-            Assert.AreEqual(assoc.Key, assoc2.Key);
-            Assert.AreEqual(assoc.Key, assoc2.Key);
-            Assert.AreEqual(assoc, assoc2);
-
-        }
-
-    }
-
-    [TestFixture]
-    public class Value
-    {
-
-        [Test]
-        public void Simple()
-        {
-            var assoc = new Association<int, string>(5, "aa");
-
-            Assert.AreEqual(assoc.Value, "aa");
-
-            assoc.Value = "bla";
-
-            Assert.AreEqual(assoc.Value, "bla");
-        }
-
-    }
-
-    [TestFixture]
-    public class Key
-    {
-        [Test]
-        public void Simple()
-        {
-            var assoc = new Association<int, string>(5, "aa");
-
-            Assert.AreEqual(assoc.Key, 5);
-
-            assoc.Key = 2;
-
-            Assert.AreEqual(assoc.Key, 2);
-        }
-
-    }
-
     [TestFixture]
     public class Serializable
     {

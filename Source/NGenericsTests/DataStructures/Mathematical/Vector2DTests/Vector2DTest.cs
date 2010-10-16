@@ -13,7 +13,7 @@ using NGenerics.DataStructures.Mathematical;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTest
+namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
 {
 
     [TestFixture]

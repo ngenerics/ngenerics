@@ -15,7 +15,6 @@ namespace NGenerics.Tests.Util
 {
     class CompletedTrackingVisitor<T> : IVisitor<T>
     {
-        #region IVisitor<T> Members
 
         /// <summary>
         /// Gets a value indicating whether this instance is done performing it's work..
@@ -37,6 +36,5 @@ namespace NGenerics.Tests.Util
             throw new Exception("This visitor has already completed.");
         }
 
-        #endregion
     }
 }

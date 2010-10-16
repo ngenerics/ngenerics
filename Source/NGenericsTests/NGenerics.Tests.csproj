@@ -84,25 +84,69 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\Graph\DjikstraTests\DjikstraTest.cs" />
-    <Compile Include="Algorithms\Graph\KruskalTests\KruskalTest.cs" />
-    <Compile Include="Algorithms\Graph\PrimTests\PrimTest.cs">
+    <Compile Include="Algorithms\Graph\DjikstraTests\DijkstrasAlgorithmTests.cs" />
+    <Compile Include="Algorithms\Graph\KruskalTests\KruskalsAlgorithmTest.cs" />
+    <Compile Include="Algorithms\Graph\PrimTests\PrimsAlgorithm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Algorithms\Math\EuclidTests\EuclidTest.cs" />
-    <Compile Include="Algorithms\Math\FibonacciTests\FibonacciTest.cs" />
+    <Compile Include="Algorithms\Math\FibonacciTests\GenerateFibonacciSequence.cs" />
+    <Compile Include="Algorithms\Math\FibonacciTests\GenerateNthFibonacci.cs" />
     <Compile Include="Algorithms\Math\HypotenuseTests\HypotenuseTest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Algorithms\Math\LeastCommonMultipleTests\LeastCommonMultipleTest.cs" />
-    <Compile Include="Comparers\AssociationKeyComparerTests\AssociationKeyComparerTest.cs" />
+    <Compile Include="Comparers\AssociationKeyComparerTests\Compare.cs" />
+    <Compile Include="Comparers\AssociationKeyComparerTests\Construction.cs" />
+    <Compile Include="Comparers\ComparisonComparerTests\Compare.cs" />
+    <Compile Include="Comparers\ComparisonComparerTests\Comparison.cs" />
     <Compile Include="Comparers\ComparisonComparerTests\ComparisonComparerTest.cs" />
-    <Compile Include="Comparers\EdgeWeightComparerTests\EdgeWeightComparerTest.cs" />
-    <Compile Include="Comparers\KeyValuePairComparerTests\KeyValuePairComparerTests.cs" />
-    <Compile Include="Comparers\ReverseComparerTests\ReverseComparerTest.cs" />
-    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\AutoKeyDictionaryTests.cs" />
+    <Compile Include="Comparers\ComparisonComparerTests\Construction.cs" />
+    <Compile Include="Comparers\EdgeWeightComparerTests\Construction.cs" />
+    <Compile Include="Comparers\EdgeWeightComparerTests\Compare.cs" />
+    <Compile Include="Comparers\KeyValuePairComparerTests\Construction.cs" />
+    <Compile Include="Comparers\KeyValuePairComparerTests\Compare.cs" />
+    <Compile Include="Comparers\ReverseComparerTests\Compare.cs" />
+    <Compile Include="Comparers\ReverseComparerTests\Construction.cs" />
+    <Compile Include="Comparers\ReverseComparerTests\Comparer.cs" />
+    <Compile Include="DataStructures\General\AssociationTests\Construction.cs" />
+    <Compile Include="DataStructures\General\AssociationTests\Key.cs" />
+    <Compile Include="DataStructures\General\AssociationTests\Value.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\Add.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\CopyTo.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\Clear.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\Construction.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\Contains.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\ContainsKey.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\GetEnumerator.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\InternalRemove.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\Keys.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\Remove.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\RemoveKey.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\Serialization.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\Values.cs" />
+    <Compile Include="DataStructures\General\BagTests\Accept.cs" />
+    <Compile Include="DataStructures\General\BagTests\Add.cs" />
+    <Compile Include="DataStructures\General\BagTests\Clear.cs" />
+    <Compile Include="DataStructures\General\BagTests\Construction.cs" />
+    <Compile Include="DataStructures\General\BagTests\Contains.cs" />
+    <Compile Include="DataStructures\General\BagTests\CopyTo.cs" />
+    <Compile Include="DataStructures\General\BagTests\Count.cs" />
+    <Compile Include="DataStructures\General\BagTests\GetCountEnumerator.cs" />
+    <Compile Include="DataStructures\General\BagTests\GetEnumerator.cs" />
+    <Compile Include="DataStructures\General\BagTests\GetHashCodeObject.cs" />
+    <Compile Include="DataStructures\General\BagTests\Intersection.cs" />
+    <Compile Include="DataStructures\General\BagTests\IsEqual.cs" />
+    <Compile Include="DataStructures\General\BagTests\IsReadOnly.cs" />
+    <Compile Include="DataStructures\General\BagTests\Remove.cs" />
+    <Compile Include="DataStructures\General\BagTests\RemoveAll.cs" />
+    <Compile Include="DataStructures\General\BagTests\Serializable.cs" />
+    <Compile Include="DataStructures\General\BagTests\Subtract.cs" />
+    <Compile Include="DataStructures\General\BagTests\Union.cs" />
     <Compile Include="DataStructures\General\CaseInsensitiveStringTests\CaseInsensitiveStringTest.cs" />
-    <Compile Include="DataStructures\General\CurveTests\CurveTest.cs" />
+    <Compile Include="DataStructures\General\CurveTests\Add.cs" />
+    <Compile Include="DataStructures\General\CurveTests\Construction.cs" />
+    <Compile Include="DataStructures\General\CurveTests\Other.cs" />
     <Compile Include="DataStructures\General\DictionaryBaseTests\DictionaryBaseTests.cs" />
     <Compile Include="DataStructures\General\EdgeTests\EdgeTest.cs" />
     <Compile Include="DataStructures\General\HeapTests\HeapTest.cs" />
@@ -150,7 +194,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataStructures\Queues\CircularQueueTests\CircularQueueTest.cs" />
-    <Compile Include="DataStructures\General\AssociationTests\AssociationTest.cs" />
+    <Compile Include="DataStructures\General\AssociationTests\Serializable.cs" />
     <Compile Include="DataStructures\General\BagTests\BagTest.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeTests\BinarySearchTreeTest.cs" />
     <Compile Include="DataStructures\Trees\BinaryTreeTests\BinaryTreeTest.cs" />
@@ -206,17 +250,18 @@
     <Compile Include="TestObjects\ReentracyTester.cs" />
     <Compile Include="Util\CompletedTrackingVisitor.cs" />
     <Compile Include="Util\GeneralTreeComparer.cs" />
-    <Compile Include="Util\GuardTest.cs" />
+    <Compile Include="Util\GuardTests\ArgumentNotNull.cs" />
+    <Compile Include="Util\GuardTests\ArgumentNotNullOrEmptyString.cs" />
     <Compile Include="Util\IntComparer.cs" />
     <Compile Include="Util\SerializeUtil.cs" />
     <Compile Include="Util\SimpleClass.cs" />
-    <Compile Include="Patterns\Visitor\ActionVisitorTest.cs" />
-    <Compile Include="Patterns\Visitor\ComparableFindingVisitorTest.cs" />
-    <Compile Include="Patterns\Visitor\GeneralVisitorTest.cs" />
-    <Compile Include="Patterns\Visitor\KeyTrackingVisitorTest.cs" />
-    <Compile Include="Patterns\Visitor\OrderedVisitorTest.cs" />
-    <Compile Include="Patterns\Visitor\ValueTrackingVisitorTest.cs" />
-    <Compile Include="Patterns\Visitor\VisitorExtensionsTest.cs" />
+    <Compile Include="Patterns\Visitor\ActionVisitorTests\ActionVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\ComparableFindingVisitorTests\ComparableFindingVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\GeneralVisitorTests\GeneralVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\KeyTrackingVisitorTests\KeyTrackingVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\OrderedVisitorTests\OrderedVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\ValueTrackingVisitorTests\ValueTrackingVisitorTest.cs" />
+    <Compile Include="Patterns\Visitor\VisitorExtensionsTests\VisitorExtensionsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NGenerics\NGenerics.Net4.csproj">

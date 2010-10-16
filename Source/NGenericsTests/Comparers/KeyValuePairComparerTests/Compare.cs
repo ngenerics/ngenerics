@@ -12,19 +12,8 @@ using System.Collections.Generic;
 using NGenerics.Comparers;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Comparers.KeyValuePairComparerTest
+namespace NGenerics.Tests.Comparers.KeyValuePairComparerTests
 {
-
-    [TestFixture]
-    public class Construction
-    {
-        [Test]
-        public void Simple()
-        {
-            new KeyValuePairComparer<int, string>();
-        }
-    }
-
     [TestFixture]
     public class Compare
     {
