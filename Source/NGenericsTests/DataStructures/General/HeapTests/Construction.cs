@@ -14,11 +14,10 @@ using NGenerics.DataStructures.General;
 using NUnit.Framework;
 using NGenerics.Tests.Util;
 
-namespace NGenerics.Tests.DataStructures.General.HeapTest
+namespace NGenerics.Tests.DataStructures.General.HeapTests
 {
 
 
-    #region Tests
 
     [TestFixture]
     public class Construction
@@ -114,7 +113,6 @@ namespace NGenerics.Tests.DataStructures.General.HeapTest
     }
 
 
-    #endregion
 
 
 
