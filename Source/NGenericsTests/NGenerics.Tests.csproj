@@ -79,59 +79,60 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\Graph\DjikstraTest.cs" />
-    <Compile Include="Algorithms\Graph\KruskalTest.cs" />
-    <Compile Include="Algorithms\Graph\PrimTest.cs">
+    <Compile Include="Algorithms\Graph\DjikstraTests\DjikstraTest.cs" />
+    <Compile Include="Algorithms\Graph\KruskalTests\KruskalTest.cs" />
+    <Compile Include="Algorithms\Graph\PrimTests\PrimTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Algorithms\Math\EuclidTest.cs" />
-    <Compile Include="Algorithms\Math\FibonacciTest.cs" />
-    <Compile Include="Algorithms\Math\HypotenuseTest.cs">
+    <Compile Include="Algorithms\Math\EuclidTests\EuclidTest.cs" />
+    <Compile Include="Algorithms\Math\FibonacciTests\FibonacciTest.cs" />
+    <Compile Include="Algorithms\Math\HypotenuseTests\HypotenuseTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Algorithms\Math\LeastCommonMultipleTest.cs" />
-    <Compile Include="Comparers\AssociationKeyComparerTest.cs" />
-    <Compile Include="Comparers\ComparisonComparerTest.cs" />
-    <Compile Include="Comparers\EdgeWeightComparerTest.cs" />
-    <Compile Include="Comparers\KeyValuePairComparerTests.cs" />
-    <Compile Include="Comparers\ReverseComparerTest.cs" />
-    <Compile Include="DataStructures\General\AssociationTest.cs" />
-    <Compile Include="DataStructures\General\AutoKeyDictionaryTests.cs" />
-    <Compile Include="DataStructures\General\CaseInsensitiveStringTest.cs" />
-    <Compile Include="DataStructures\General\CurveTest.cs" />
-    <Compile Include="DataStructures\General\DictionaryBaseTests.cs" />
-    <Compile Include="DataStructures\General\EdgeTest.cs" />
-    <Compile Include="DataStructures\General\HeapTest.cs" />
+    <Compile Include="Algorithms\Math\LeastCommonMultipleTests\LeastCommonMultipleTest.cs" />
+    <Compile Include="Comparers\AssociationKeyComparerTests\AssociationKeyComparerTest.cs" />
+    <Compile Include="Comparers\ComparisonComparerTests\ComparisonComparerTest.cs" />
+    <Compile Include="Comparers\EdgeWeightComparerTests\EdgeWeightComparerTest.cs" />
+    <Compile Include="Comparers\KeyValuePairComparerTests\KeyValuePairComparerTests.cs" />
+    <Compile Include="Comparers\ReverseComparerTests\ReverseComparerTest.cs" />
+    <Compile Include="DataStructures\General\AutoKeyDictionaryTests\AutoKeyDictionaryTests.cs" />
+    <Compile Include="DataStructures\General\CaseInsensitiveStringTests\CaseInsensitiveStringTest.cs" />
+    <Compile Include="DataStructures\General\CurveTests\CurveTest.cs" />
+    <Compile Include="DataStructures\General\DictionaryBaseTests\DictionaryBaseTests.cs" />
+    <Compile Include="DataStructures\General\EdgeTests\EdgeTest.cs" />
+    <Compile Include="DataStructures\General\HeapTests\HeapTest.cs" />
     <Compile Include="DataStructures\General\Observable\ObservableDictionaryTest.cs" />
     <Compile Include="DataStructures\General\Observable\ObservableSortedListTest.cs" />
-    <Compile Include="DataStructures\General\VertexTest.cs" />
-    <Compile Include="DataStructures\Mathematical\CholeskyDecompositionTest.cs" />
-    <Compile Include="DataStructures\Mathematical\LUDecompositionTest.cs" />
-    <Compile Include="DataStructures\Mathematical\QRDecompositionTests.cs" />
-    <Compile Include="DataStructures\Mathematical\Vector2DTest.cs" />
-    <Compile Include="DataStructures\Mathematical\Vector2DTest.Operators.cs">
+    <Compile Include="DataStructures\General\VertexTests\VertexTest.cs" />
+    <Compile Include="DataStructures\Mathematical\CholeskyDecompositionTests\CholeskyDecompositionTest.cs" />
+    <Compile Include="DataStructures\Mathematical\LUDecompositionTests\LUDecompositionTest.cs" />
+    <Compile Include="DataStructures\Mathematical\QRDecompositionTests\QRDecompositionTests.cs" />
+    <Compile Include="DataStructures\Mathematical\Vector2DTests\Vector2DTest.cs" />
+    <Compile Include="DataStructures\Mathematical\Vector2DTests\Vector2DTest.Operators.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataStructures\Mathematical\Vector3DTest.cs">
+    <Compile Include="DataStructures\Mathematical\Vector3DTests\Vector3DTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataStructures\Mathematical\Vector3DTest.Operators.cs">
+    <Compile Include="DataStructures\Mathematical\Vector3DTests\Vector3DTest.Operators.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataStructures\Mathematical\VectorBaseTest.cs" />
-    <Compile Include="DataStructures\Mathematical\VectorBaseTestObject.cs" />
-    <Compile Include="DataStructures\Mathematical\VectorNTest.cs">
+    <Compile Include="DataStructures\Mathematical\VectorBaseTests\VectorBaseTest.cs" />
+    <Compile Include="DataStructures\Mathematical\VectorBaseTestObjects\VectorBaseTestObject.cs" />
+    <Compile Include="DataStructures\Mathematical\VectorNTests.cs\VectorNTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataStructures\Mathematical\VectorNTest.Operators.cs" />
-    <Compile Include="DataStructures\Queues\PriorityQueueTest.cs" />
-    <Compile Include="Extensions\ListExtensionsTest.cs" />
-    <Compile Include="Extensions\DoubleExtensionsTest.cs" />
-    <Compile Include="Extensions\EnumerableExtensionsTest.cs" />
-    <Compile Include="Extensions\ObjectExtensionsTests.cs" />
+    <Compile Include="DataStructures\Mathematical\VectorNTests.cs\VectorNTest.Operators.cs" />
+    <Compile Include="DataStructures\Queues\PriorityQueueTests\PriorityQueueTest.cs" />
+    <Compile Include="Extensions\ListExtensionsTests\ListExtensionsTest.cs" />
+    <Compile Include="Extensions\DoubleExtensionsTests\DoubleExtensionsTest.cs" />
+    <Compile Include="Extensions\EnumerableExtensionsTests\EnumerableExtensionsTest.cs" />
+    <Compile Include="Extensions\ObjectExtensionsTests\ObjectExtensionsTests.cs" />
     <Compile Include="Infrastructure\CodeFormat.cs" />
     <Compile Include="Infrastructure\SilverLightTests.cs" />
     <Compile Include="Patterns\Conversion\ConverterExtensionsTests.cs" />
@@ -148,37 +149,38 @@
     <Compile Include="TestObjects\NonComparableTClass.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataStructures\Queues\CircularQueueTest.cs" />
-    <Compile Include="DataStructures\General\BagTest.cs" />
-    <Compile Include="DataStructures\Trees\BinarySearchTreeTest.cs" />
-    <Compile Include="DataStructures\Trees\BinaryTreeTest.cs" />
-    <Compile Include="DataStructures\Mathematical\ComplexNumberTest.cs">
+    <Compile Include="DataStructures\Queues\CircularQueueTests\CircularQueueTest.cs" />
+    <Compile Include="DataStructures\General\AssociationTests\AssociationTest.cs" />
+    <Compile Include="DataStructures\General\BagTests\BagTest.cs" />
+    <Compile Include="DataStructures\Trees\BinarySearchTreeTests\BinarySearchTreeTest.cs" />
+    <Compile Include="DataStructures\Trees\BinaryTreeTests\BinaryTreeTest.cs" />
+    <Compile Include="DataStructures\Mathematical\ComplexNumberTests\ComplexNumberTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataStructures\Queues\DequeTest.cs" />
+    <Compile Include="DataStructures\Queues\DequeTests\DequeTest.cs" />
     <Compile Include="TestObjects\DummyComparer.cs" />
-    <Compile Include="DataStructures\Trees\GeneralTreeTest.cs" />
-    <Compile Include="DataStructures\General\GraphTest.cs" />
-    <Compile Include="DataStructures\General\HashListTest.cs">
+    <Compile Include="DataStructures\Trees\GeneralTreeTests\GeneralTreeTest.cs" />
+    <Compile Include="DataStructures\General\GraphTests\GraphTest.cs" />
+    <Compile Include="DataStructures\General\HashListTests\HashListTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataStructures\General\ListTest.cs" />
-    <Compile Include="DataStructures\Mathematical\MatrixTest.cs" />
-    <Compile Include="DataStructures\General\MaxHeapTest.cs" />
-    <Compile Include="DataStructures\Queues\MaxPriorityQueueHeapTest.cs" />
-    <Compile Include="DataStructures\General\MinHeapTest.cs" />
-    <Compile Include="DataStructures\Queues\MinPriorityQueueHeapTest.cs" />
-    <Compile Include="DataStructures\General\ObjectMatrixTest.cs">
+    <Compile Include="DataStructures\General\ListTests\ListTest.cs" />
+    <Compile Include="DataStructures\Mathematical\MatrixTests\MatrixTest.cs" />
+    <Compile Include="DataStructures\General\MaxHeapTests\MaxHeapTest.cs" />
+    <Compile Include="DataStructures\Queues\MaxPriorityQueueHeapTests\MaxPriorityQueueHeapTest.cs" />
+    <Compile Include="DataStructures\General\MinHeapTests\MinHeapTest.cs" />
+    <Compile Include="DataStructures\Queues\MinPriorityQueueHeapTests\MinPriorityQueueHeapTest.cs" />
+    <Compile Include="DataStructures\General\ObjectMatrixTests\ObjectMatrixTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataStructures\Trees\RedBlackTreeTest.cs">
+    <Compile Include="DataStructures\Trees\RedBlackTreeTests\RedBlackTreeTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataStructures\General\SetTest.cs" />
-    <Compile Include="DataStructures\General\SingletonTest.cs" />
-    <Compile Include="DataStructures\General\SkipListTest.cs" />
-    <Compile Include="DataStructures\General\SortedListTest.cs" />
-    <Compile Include="DataStructures\Trees\SplayTreeTest.cs" />
+    <Compile Include="DataStructures\General\SetTests\SetTest.cs" />
+    <Compile Include="DataStructures\General\SingletonTests\SingletonTest.cs" />
+    <Compile Include="DataStructures\General\SkipListTests\SkipListTest.cs" />
+    <Compile Include="DataStructures\General\SortedListTests\SortedListTest.cs" />
+    <Compile Include="DataStructures\Trees\SplayTreeTests\SplayTreeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\TestSort.cs" />
     <Compile Include="TestObjects\TestFiles.Designer.cs">
@@ -192,14 +194,14 @@
     <Compile Include="DataStructures\General\Observable\ObservableHeapTest.cs" />
     <Compile Include="DataStructures\General\Observable\ObservablePascalSetTest.cs" />
     <Compile Include="DataStructures\General\Observable\ObservableSkipListTest.cs" />
-    <Compile Include="DataStructures\Queues\Observable\ObservableCircularQueueTest.cs" />
-    <Compile Include="DataStructures\Queues\Observable\ObservableDequeTest.cs" />
-    <Compile Include="DataStructures\Queues\Observable\ObservablePriorityQueueTest.cs" />
-    <Compile Include="DataStructures\Trees\Observable\ObservableBinarySearchTreeTest.cs" />
-    <Compile Include="DataStructures\Trees\Observable\ObservableBinaryTreeTest.cs" />
-    <Compile Include="DataStructures\Trees\Observable\ObservableGeneralTreeTest.cs" />
-    <Compile Include="DataStructures\Trees\Observable\ObservableRedBlackTreeTest.cs" />
-    <Compile Include="DataStructures\Trees\Observable\ObservableSplayTreeTest.cs" />
+    <Compile Include="DataStructures\Queues\ObservableCircularQueueTests\ObservableCircularQueueTest.cs" />
+    <Compile Include="DataStructures\Queues\ObservableDequeTests\ObservableDequeTest.cs" />
+    <Compile Include="DataStructures\Queues\ObservablePriorityQueueTests\ObservablePriorityQueueTest.cs" />
+    <Compile Include="DataStructures\Trees\ObservableBinarySearchTreeTests\ObservableBinarySearchTreeTest.cs" />
+    <Compile Include="DataStructures\Trees\ObservableBinaryTreeTests\ObservableBinaryTreeTest.cs" />
+    <Compile Include="DataStructures\Trees\ObservableGeneralTreeTests\ObservableGeneralTreeTest.cs" />
+    <Compile Include="DataStructures\Trees\ObservableRedBlackTreeTests\ObservableRedBlackTreeTest.cs" />
+    <Compile Include="DataStructures\Trees\ObservableSplayTreeTests\ObservableSplayTreeTest.cs" />
     <Compile Include="TestObjects\ObservableCollectionTester.cs" />
     <Compile Include="TestObjects\ReentracyTester.cs" />
     <Compile Include="Util\CompletedTrackingVisitor.cs" />
@@ -266,6 +268,7 @@
     <Content Include="TestObjects\Artifacts\SampleProjects\NGenerics.csproj" />
     <Content Include="TestObjects\Artifacts\SampleProjects\NGenerics.Silverlight.csproj" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

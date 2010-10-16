@@ -13,51 +13,47 @@ using NGenerics.DataStructures.Trees;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Patterns.Visitor
+namespace NGenerics.Tests.Patterns.Visitor.KeyTrackingVisitorTest
 {
-	[TestFixture]
-	public class KeyTrackingVisitorTest
-	{
-		[TestFixture]
-		public class Construction
-		{
-			[Test]
-			public void Simple()
-			{
-				var visitor = new KeyTrackingVisitor<int, string>();
-				Assert.IsFalse(visitor.HasCompleted);
-				Assert.AreEqual(visitor.TrackingList.Count, 0);
-			}
-		}
+    [TestFixture]
+    public class Construction
+    {
+        [Test]
+        public void Simple()
+        {
+            var visitor = new KeyTrackingVisitor<int, string>();
+            Assert.IsFalse(visitor.HasCompleted);
+            Assert.AreEqual(visitor.TrackingList.Count, 0);
+        }
+    }
 
-		[TestFixture]
-		public class Visit
-		{
-			[Test]
-			public void Simple()
-			{
-				var tree = new RedBlackTree<int, string>();
+    [TestFixture]
+    public class Visit
+    {
+        [Test]
+        public void Simple()
+        {
+            var tree = new RedBlackTree<int, string>();
 
-				for (var i = 0; i < 50; i++)
-				{
-					tree.Add(i, i.ToString());
-				}
+            for (var i = 0; i < 50; i++)
+            {
+                tree.Add(i, i.ToString());
+            }
 
-				var visitor = new KeyTrackingVisitor<int, string>();
-				tree.AcceptVisitor(visitor);
+            var visitor = new KeyTrackingVisitor<int, string>();
+            tree.AcceptVisitor(visitor);
 
-				Assert.IsFalse(visitor.HasCompleted);
+            Assert.IsFalse(visitor.HasCompleted);
 
-				Assert.AreEqual(visitor.TrackingList.Count, 50);
+            Assert.AreEqual(visitor.TrackingList.Count, 50);
 
-				var list = new List<int>(visitor.TrackingList);
+            var list = new List<int>(visitor.TrackingList);
 
-				for (var i = 0; i < 50; i++)
-				{
-					Assert.IsTrue(list.Contains(i));
-				}
-			}
-		}
+            for (var i = 0; i < 50; i++)
+            {
+                Assert.IsTrue(list.Contains(i));
+            }
+        }
+    }
 
-	}
 }

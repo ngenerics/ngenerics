@@ -13,71 +13,67 @@ using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace NGenerics.Tests.Patterns.Visitor
+namespace NGenerics.Tests.Patterns.Visitor.VisitorExtensionsTest
 {
 
-	[TestFixture]
-	public class VisitorExtensionsTest
-	{
-		[TestFixture]
-		public class AcceptVisitor
-		{
-			[Test]
-			public void Simple()
-			{
-				var mocks = new MockRepository();
-				var visitor = mocks.StrictMock<IVisitor<int>>();
+    [TestFixture]
+    public class AcceptVisitor
+    {
+        [Test]
+        public void Simple()
+        {
+            var mocks = new MockRepository();
+            var visitor = mocks.StrictMock<IVisitor<int>>();
 
-				Expect.Call(visitor.HasCompleted).Return(false);
-				visitor.Visit(1);
+            Expect.Call(visitor.HasCompleted).Return(false);
+            visitor.Visit(1);
 
-				Expect.Call(visitor.HasCompleted).Return(false);
-				visitor.Visit(2);
+            Expect.Call(visitor.HasCompleted).Return(false);
+            visitor.Visit(2);
 
-				Expect.Call(visitor.HasCompleted).Return(false);
-				visitor.Visit(3);
+            Expect.Call(visitor.HasCompleted).Return(false);
+            visitor.Visit(3);
 
-				Expect.Call(visitor.HasCompleted).Return(false);
-				visitor.Visit(4);
+            Expect.Call(visitor.HasCompleted).Return(false);
+            visitor.Visit(4);
 
-				mocks.ReplayAll();
+            mocks.ReplayAll();
 
-				var l = new List<int> { 1, 2, 3, 4 };
-				l.AcceptVisitor(visitor);
+            var l = new List<int> { 1, 2, 3, 4 };
+            l.AcceptVisitor(visitor);
 
-				mocks.VerifyAll();
-			}
+            mocks.VerifyAll();
+        }
 
-			[Test]
-			public void Stopping_Visitor()
-			{
-				var mocks = new MockRepository();
-				var visitor = mocks.StrictMock<IVisitor<int>>();
+        [Test]
+        public void Stopping_Visitor()
+        {
+            var mocks = new MockRepository();
+            var visitor = mocks.StrictMock<IVisitor<int>>();
 
-				Expect.Call(visitor.HasCompleted).Return(false);
-				visitor.Visit(1);
+            Expect.Call(visitor.HasCompleted).Return(false);
+            visitor.Visit(1);
 
-				Expect.Call(visitor.HasCompleted).Return(false);
-				visitor.Visit(2);
+            Expect.Call(visitor.HasCompleted).Return(false);
+            visitor.Visit(2);
 
-				Expect.Call(visitor.HasCompleted).Return(true);
+            Expect.Call(visitor.HasCompleted).Return(true);
 
-				mocks.ReplayAll();
+            mocks.ReplayAll();
 
-				var l = new List<int> { 1, 2, 3, 4 };
-				l.AcceptVisitor(visitor);
+            var l = new List<int> { 1, 2, 3, 4 };
+            l.AcceptVisitor(visitor);
 
-				mocks.VerifyAll();
-			}
+            mocks.VerifyAll();
+        }
 
-			[Test]
-			[ExpectedException(typeof(ArgumentNullException))]
-			public void Null_Visitor()
-			{
-				var l = new List<int> { 1, 2, 3, 4 };
-				l.AcceptVisitor(null);
-			}
-		}
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Null_Visitor()
+        {
+            var l = new List<int> { 1, 2, 3, 4 };
+            l.AcceptVisitor(null);
+        }
+    }
 
-	}
 }

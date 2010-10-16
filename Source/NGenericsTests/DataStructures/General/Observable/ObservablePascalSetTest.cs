@@ -14,112 +14,107 @@ using NGenerics.Tests.TestObjects;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.Observable
+namespace NGenerics.Tests.DataStructures.General.Observable.ObservablePascalSetTest
 {
-	[TestFixture]
-	public class ObservablePascalSetTest
-	{
+        [TestFixture]
+        public class Contruction
+        {
 
-		[TestFixture]
-		public class Contruction
-		{
+            [Test]
+            public void Serialization()
+            {
+                var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservablePascalSet(0, 10));
+                ObservableCollectionTester.CheckMonitor(deserialize);
+            }
+            [Test]
+            public void Monitor1()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservablePascalSet(0,10));
+            }
+            [Test]
+            public void Monitor2()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservablePascalSet(0,10,new []{1}));
+            }
+            [Test]
+            public void Monitor3()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservablePascalSet(10));
+            }
+            [Test]
+            public void Monitor4()
+            {
+                ObservableCollectionTester.CheckMonitor(new ObservablePascalSet(10, new[] { 1 }));
+            }
+        }
 
-			[Test]
-			public void Serialization()
-			{
-				var deserialize = SerializeUtil.BinarySerializeDeserialize(new ObservablePascalSet(0, 10));
-				ObservableCollectionTester.CheckMonitor(deserialize);
-			}
-			[Test]
-			public void Monitor1()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservablePascalSet(0, 10));
-			}
-			[Test]
-			public void Monitor2()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservablePascalSet(0, 10, new[] { 1 }));
-			}
-			[Test]
-			public void Monitor3()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservablePascalSet(10));
-			}
-			[Test]
-			public void Monitor4()
-			{
-				ObservableCollectionTester.CheckMonitor(new ObservablePascalSet(10, new[] { 1 }));
-			}
-		}
-
-		[TestFixture]
-		public class Add
-		{
-			[Test]
-			public void Simple()
-			{
-				var pascalSet = new ObservablePascalSet(10);
-				ObservableCollectionTester.ExpectEvents(pascalSet, obj => obj.Add(4), "Count", "LowerBound", "UpperBound", "Capacity", "IsFull", "Item[]");
-
-			}
+        [TestFixture]
+        public class Add
+        {
+            [Test]
+            public void Simple()
+            {
+                var pascalSet = new ObservablePascalSet(10);
+                ObservableCollectionTester.ExpectEvents(pascalSet, obj => obj.Add(4), "Count", "LowerBound", "UpperBound", "Capacity", "IsFull", "Item[]");
+                
+            }
 
 
-			[Test]
-			[ExpectedException(typeof(InvalidOperationException))]
-			public void ExceptionReentrancy()
-			{
-				var pascalSet = new ObservablePascalSet(10);
-				new ReentracyTester<ObservablePascalSet>(pascalSet, obj => obj.Add(4), obj => obj.Add(5));
-			}
-		}
+            [Test]
+            [ExpectedException(typeof(InvalidOperationException))]
+            public void ExceptionReentrancy()
+            {
+                var pascalSet = new ObservablePascalSet(10);
+                new ReentracyTester<ObservablePascalSet>(pascalSet, obj => obj.Add(4), obj => obj.Add(5));
+            }
+        }
 
-		[TestFixture]
-		public class Clear
-		{
-			[Test]
-			public void Simple()
-			{
-				var pascalSet = new ObservablePascalSet(10) { 4 };
+        [TestFixture]
+        public class Clear
+        {
+            [Test]
+            public void Simple()
+            {
+                var pascalSet = new ObservablePascalSet(10){4};
 
-				ObservableCollectionTester.ExpectEvents(pascalSet, obj => obj.Clear(), "Count", "LowerBound", "UpperBound", "Capacity", "IsFull", "Item[]");
-			}
+                ObservableCollectionTester.ExpectEvents(pascalSet, obj => obj.Clear(), "Count", "LowerBound", "UpperBound", "Capacity", "IsFull", "Item[]");
+            }
 
-			[Test]
-			[ExpectedException(typeof(InvalidOperationException))]
-			public void ExceptionReentrancy()
-			{
-				var pascalSet = new ObservablePascalSet(10);
-				new ReentracyTester<ObservablePascalSet>(pascalSet, obj => obj.Clear());
-			}
-		}
+            [Test]
+            [ExpectedException(typeof(InvalidOperationException))]
+            public void ExceptionReentrancy()
+            {
+                var pascalSet = new ObservablePascalSet(10);
+                new ReentracyTester<ObservablePascalSet>(pascalSet, obj => obj.Clear());
+            }
+        }
 
-		[TestFixture]
-		public class Remove
-		{
-			[Test]
-			public void Simple()
-			{
-				var pascalSet = new ObservablePascalSet(10)
+        [TestFixture]
+        public class Remove
+        {
+            [Test]
+            public void Simple()
+            {
+                var pascalSet = new ObservablePascalSet(10)
                                     {
                                         4
                                     };
 
-				ObservableCollectionTester.ExpectEvents(pascalSet, obj => obj.Remove(4), "Count", "LowerBound", "UpperBound", "Capacity", "IsFull", "Item[]");
-			}
+                ObservableCollectionTester.ExpectEvents(pascalSet, obj => obj.Remove(4), "Count", "LowerBound", "UpperBound", "Capacity", "IsFull", "Item[]");
+            }
 
-			[Test]
-			[ExpectedException(typeof(InvalidOperationException))]
-			public void ExceptionReentrancy()
-			{
-				var pascalSet = new ObservablePascalSet(10)
+            [Test]
+            [ExpectedException(typeof(InvalidOperationException))]
+            public void ExceptionReentrancy()
+            {
+                var pascalSet = new ObservablePascalSet(10)
                                     {
                                         4,
                                         5
                                     };
-				new ReentracyTester<ObservablePascalSet>(pascalSet, obj => obj.Remove(4), obj => obj.Remove(5));
-			}
-		}
+                new ReentracyTester<ObservablePascalSet>(pascalSet, obj => obj.Remove(4), obj => obj.Remove(5));
+            }
+        }
 
-
-	}
+ 
 }

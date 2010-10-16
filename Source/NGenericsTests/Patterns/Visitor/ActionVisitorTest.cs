@@ -12,10 +12,10 @@ using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace NGenerics.Tests.Patterns.Visitor
+namespace NGenerics.Tests.Patterns.Visitor.ActionVisitorTest
 {
     [TestFixture]
-    public class ActionVisitorTest
+    public class Visit
     {
         [Test]
         public void ActionShouldBeCalledOnEveryObject()

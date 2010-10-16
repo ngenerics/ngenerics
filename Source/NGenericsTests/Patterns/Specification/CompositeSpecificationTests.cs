@@ -11,33 +11,28 @@ using NGenerics.Patterns.Specification;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace NGenerics.Tests.Patterns.Specification
+namespace NGenerics.Tests.Patterns.Specification.CompositeSpecificationTests
 {
-	[TestFixture]
-	public class CompositeSpecificationTests
-	{
-		[TestFixture]
-		public class Construction
-		{
-			[Test]
-			public void Arguments_Should_Be_Saved()
-			{
-				var spec1 = new PredicateSpecification<int>(x => x > 5);
-				var spec2 = new PredicateSpecification<int>(x => x < 10);
+    [TestFixture]
+    public class Construction
+    {
+        [Test]
+        public void Arguments_Should_Be_Saved()
+        {
+            var spec1 = new PredicateSpecification<int>(x => x > 5);
+            var spec2 = new PredicateSpecification<int>(x => x < 10);
 
-				var mocks = new MockRepository();
+            var mocks = new MockRepository();
 
-				var compositeSpecification = mocks.Stub<CompositeSpecification<int>>(spec1, spec2);
+            var compositeSpecification = mocks.Stub<CompositeSpecification<int>>(spec1, spec2);
 
-				mocks.ReplayAll();
+            mocks.ReplayAll();
 
-				Assert.AreEqual(compositeSpecification.Left, spec1);
-				Assert.AreEqual(compositeSpecification.Right, spec2);
+            Assert.AreEqual(compositeSpecification.Left, spec1);
+            Assert.AreEqual(compositeSpecification.Right, spec2);
 
-				mocks.VerifyAll();
-			}
-		}
-
-	}
+            mocks.VerifyAll();
+        }
+    }
 
 }

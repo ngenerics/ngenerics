@@ -18,8 +18,7 @@ namespace NGenerics.Tests.Infrastructure {
     public class SilverLightTests {
 
         [Test]
-		//TODO: fix this
-		[Ignore]
+        [Ignore]
         public void All_NGenerics_Files_Should_Be_In_SilverLight_Build_And_All_SilverLight_Files_Must_Exist()
         {
             var parser = new VS2008ProjectParser();
