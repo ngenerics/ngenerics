@@ -2,10 +2,10 @@
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.GraphTest
+namespace NGenerics.Tests.DataStructures.General.GraphTests
 {
     [TestFixture]
-    public class IsWeaklyConnected : GraphTests.GraphTest
+    public class IsWeaklyConnected : GraphTest
     {
         [Test]
         [ExpectedException(typeof(InvalidOperationException))]

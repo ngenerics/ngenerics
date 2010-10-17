@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NGenerics.Tests.DataStructures.General.BagTests
 {
     [TestFixture]
-    public class CopyTo : BagTests.BagTest
+    public class CopyTo : BagTest
     {
 
         [Test]

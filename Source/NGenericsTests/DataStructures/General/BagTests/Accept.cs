@@ -5,10 +5,10 @@ using NGenerics.Patterns.Visitor;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.BagTest
+namespace NGenerics.Tests.DataStructures.General.BagTests
 {
     [TestFixture]
-    public class Accept : BagTests.BagTest
+    public class Accept : BagTest
     {
 
         [Test]

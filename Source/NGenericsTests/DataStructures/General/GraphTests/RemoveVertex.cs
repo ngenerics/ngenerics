@@ -2,10 +2,10 @@
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.GraphTest
+namespace NGenerics.Tests.DataStructures.General.GraphTests
 {
     [TestFixture]
-    public class RemoveVertex : GraphTests.GraphTest
+    public class RemoveVertex : GraphTest
     {
         [Test]
         public void Undirected()

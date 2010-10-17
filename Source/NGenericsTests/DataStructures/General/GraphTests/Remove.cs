@@ -2,10 +2,10 @@
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.GraphTest
+namespace NGenerics.Tests.DataStructures.General.GraphTests
 {
     [TestFixture]
-    public class Remove : GraphTests.GraphTest
+    public class Remove : GraphTest
     {
         [Test]
         public void Interface()

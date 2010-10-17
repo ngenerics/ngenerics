@@ -1,10 +1,10 @@
 ﻿using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.GraphTest
+namespace NGenerics.Tests.DataStructures.General.GraphTests
 {
     [TestFixture]
-    public class IncomingEdgeCount : GraphTests.GraphTest
+    public class IncomingEdgeCount : GraphTest
     {
         [Test]
         public void Directed()

@@ -1,10 +1,10 @@
 ﻿using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.GraphTest
+namespace NGenerics.Tests.DataStructures.General.GraphTests
 {
     [TestFixture]
-    public class IsCyclic : GraphTests.GraphTest
+    public class IsCyclic : GraphTest
     {
         [Test]
         public void Simple()

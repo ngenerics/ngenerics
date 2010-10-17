@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace NGenerics.Tests.DataStructures.General.BagTests
 {
     [TestFixture]
-    public class GetCountEnumerator : BagTests.BagTest
+    public class GetCountEnumerator : BagTest
     {
 
         [Test]

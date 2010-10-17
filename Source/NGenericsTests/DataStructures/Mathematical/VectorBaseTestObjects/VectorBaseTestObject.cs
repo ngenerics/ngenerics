@@ -11,7 +11,7 @@ using System;
 using NGenerics.DataStructures.General;
 using NGenerics.DataStructures.Mathematical;
 
-namespace NGenerics.Tests.DataStructures.Mathematical
+namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTestObjects
 {
     public class VectorBaseTestObject : VectorBase<double>
     {

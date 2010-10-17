@@ -1,5 +1,4 @@
-﻿using System;
-using NGenerics.DataStructures.General;
+﻿using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.ListTests
@@ -12,7 +11,7 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
         {
             var intListBase = new ListBase<int> {4};
 
-            var longListBase = intListBase.ConvertAll(new Converter<int, long>(IntToLong));
+            var longListBase = intListBase.ConvertAll(IntToLong);
 
             Assert.IsTrue(longListBase.Contains(4));
         }

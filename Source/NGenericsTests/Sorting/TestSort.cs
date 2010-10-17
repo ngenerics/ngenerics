@@ -718,14 +718,11 @@ namespace NGenerics.Tests.Sorting
             {
                 return -1;
             }
-            else if (i > j)
+            if (i > j)
             {
                 return 1;
             }
-            else
-            {
-                return 0;
-            }
+            return 0;
         }
 
         private static void TestSorter(ISorter<int> sorter)

@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.GraphTest
+namespace NGenerics.Tests.DataStructures.General.GraphTests
 {
     [TestFixture]
-    public class GetVertex : GraphTests.GraphTest
+    public class GetVertex : GraphTest
     {
         [Test]
         public void Directed()

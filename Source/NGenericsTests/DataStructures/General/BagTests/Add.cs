@@ -2,10 +2,10 @@
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.BagTest
+namespace NGenerics.Tests.DataStructures.General.BagTests
 {
     [TestFixture]
-    public class Add : BagTests.BagTest
+    public class Add : BagTest
     {
 
         [Test]

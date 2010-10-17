@@ -3,10 +3,10 @@ using NGenerics.DataStructures.General;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.GraphTest
+namespace NGenerics.Tests.DataStructures.General.GraphTests
 {
     [TestFixture]
-    public class TopologicalSort : GraphTests.GraphTest
+    public class TopologicalSort : GraphTest
     {
         [Test]
         [ExpectedException(typeof(ArgumentException))]

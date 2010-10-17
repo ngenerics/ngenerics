@@ -1,0 +1,57 @@
+﻿using NGenerics.DataStructures.General;
+using NUnit.Framework;
+
+namespace NGenerics.Tests.DataStructures.General.VertexTests
+{
+    [TestFixture]
+    public class GetIncidentEdgeWith:VertexTest
+    {
+        [Test]
+        public void Undirected()
+        {
+            var vertex1 = new Vertex<int>(3);
+            var vertex2 = new Vertex<int>(5);
+            var vertex3 = new Vertex<int>(8);
+
+            var graph = new Graph<int>(false);
+            graph.AddVertex(vertex1);
+            graph.AddVertex(vertex2);
+
+            graph.AddEdge(vertex1, vertex2);
+
+            var edge = vertex1.GetIncidentEdgeWith(vertex2);
+            Assert.AreEqual(edge.FromVertex, vertex1);
+            Assert.AreEqual(edge.ToVertex, vertex2);
+
+            edge = vertex2.GetIncidentEdgeWith(vertex1);
+            Assert.AreEqual(edge.FromVertex, vertex1);
+            Assert.AreEqual(edge.ToVertex, vertex2);
+
+            Assert.IsNull(vertex1.GetIncidentEdgeWith(vertex3));
+        }
+
+        [Test]
+        public void Directed()
+        {
+            var vertex1 = new Vertex<int>(3);
+            var vertex2 = new Vertex<int>(5);
+            var vertex3 = new Vertex<int>(8);
+
+            var graph = new Graph<int>(true);
+            graph.AddVertex(vertex1);
+            graph.AddVertex(vertex2);
+
+            graph.AddEdge(vertex1, vertex2);
+
+            var edge = vertex1.GetIncidentEdgeWith(vertex2);
+            Assert.AreEqual(edge.FromVertex, vertex1);
+            Assert.AreEqual(edge.ToVertex, vertex2);
+
+            edge = vertex2.GetIncidentEdgeWith(vertex1);
+            Assert.AreEqual(edge.FromVertex, vertex1);
+            Assert.AreEqual(edge.ToVertex, vertex2);
+
+            Assert.IsNull(vertex1.GetIncidentEdgeWith(vertex3));
+        }
+    }
+}

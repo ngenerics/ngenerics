@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace NGenerics.Tests.DataStructures.General.BagTests
 {
     [TestFixture]
-    public class Subtract : BagTests.BagTest
+    public class Subtract : BagTest
     {
 
         [Test]

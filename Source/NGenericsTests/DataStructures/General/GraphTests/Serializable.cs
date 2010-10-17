@@ -2,10 +2,10 @@
 using NGenerics.Tests.Util;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.General.GraphTest
+namespace NGenerics.Tests.DataStructures.General.GraphTests
 {
     [TestFixture]
-    public class Serializable : GraphTests.GraphTest
+    public class Serializable : GraphTest
     {
         [Test]
         public void Simple()
