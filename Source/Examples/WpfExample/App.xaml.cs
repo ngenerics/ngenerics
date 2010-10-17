@@ -1,5 +1,4 @@
-﻿using System.Windows;
-
+﻿
 namespace WpfExample
 {
     /// <summary>

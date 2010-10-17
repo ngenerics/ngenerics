@@ -17,7 +17,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 
-#if (!SILVERLIGHT)
+#if (!SILVERLIGHT && !WINDOWSPHONE)
 using System.Runtime.Serialization;
 #endif
 
@@ -47,10 +47,7 @@ namespace NGenerics.DataStructures.General.Observable
 		
         #region Construction
         
-        /// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\Observable\ObservableDictionaryExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\Observable\ObservableDictionaryExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
-        /// </example>     
+    
         public ObservableDictionary()
         {
             monitor = new SimpleMonitor();

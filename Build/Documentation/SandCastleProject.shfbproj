@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{bcf5bfce-5d3b-4e5a-9cee-750f3cdec64c}</ProjectGuid>
-    <SHFBSchemaVersion>1.8.0.3</SHFBSchemaVersion>
+    <SHFBSchemaVersion>1.9.0.0</SHFBSchemaVersion>
     <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual
          Studio adds them anyway -->
     <AssemblyName>Documentation</AssemblyName>
@@ -31,7 +31,7 @@
     </WorkingPath>
     <BuildLogFile>
     </BuildLogFile>
-    <FrameworkVersion>3.5</FrameworkVersion>
+    <FrameworkVersion>4.0.30319</FrameworkVersion>
     <RootNamespaceContainer>True</RootNamespaceContainer>
     <RootNamespaceTitle>Reference</RootNamespaceTitle>
     <HelpTitle>NGenerics</HelpTitle>
@@ -42,11 +42,8 @@
     <SdkLinkType>None</SdkLinkType>
     <PresentationStyle>Prototype</PresentationStyle>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\..\Source\NGenerics\bin\Release\NGenerics.dll" />
-      <DocumentationSource sourceFile="..\..\Source\NGenerics.UI\bin\Release\NGenerics.UI.dll" />
-      <DocumentationSource sourceFile="..\..\Source\NGenerics.UI\bin\Release\NGenerics.UI.xml" />
-      <DocumentationSource sourceFile="..\..\Source\NGenerics\bin\Release\NGenerics.xml" />
-    </DocumentationSources>
+      <DocumentationSource sourceFile="..\..\Source\NGenerics\bin\ReleaseNet4\NGenerics.dll" />
+<DocumentationSource sourceFile="..\..\Source\NGenerics\bin\ReleaseNet4\NGenerics.xml" /></DocumentationSources>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="(global)" isDocumented="False" xmlns="" />
       <NamespaceSummaryItem name="NGenerics.Algorithms" isDocumented="True" xmlns="">&lt;b&gt;The root namespace for Algorithms.&lt;/b&gt;</NamespaceSummaryItem>
