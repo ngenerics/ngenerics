@@ -29,7 +29,19 @@ namespace NGenerics.Tests.Infrastructure
                 @"..\..\..\Examples\ExampleLibraryCSharp",
                 @"..\..\..\Examples\ExampleLibraryVB"
                 );
-
+            //foreach (var file in files)
+            //{
+//                var readAllText = File.ReadAllText(file);
+//                File.WriteAllText(file, @"/*  
+//  Copyright 2007-2010 The NGenerics Team
+// (http://code.google.com/p/ngenerics/wiki/Team)
+//
+// This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
+// have received a copy of the license along with the source code.  If not, an online copy
+// of the license can be found at http://www.gnu.org/copyleft/lesser.html.
+//*/
+//" + readAllText);
+//            }
             var message = string.Format("Non compliant files found : {0}{1}", Environment.NewLine, String.Join(Environment.NewLine, files.ToArray()));
             Assert.AreEqual(files.Count, 0, message);
         }
