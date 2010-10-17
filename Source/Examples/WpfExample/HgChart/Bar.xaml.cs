@@ -5,48 +5,33 @@ namespace WpfExample.HgChart
 {
     public class Bar
     {
-        #region "Private Variables"
-
-        private Color barColor = Colors.Red;
-        private double barWidth = 5;
-        private Color colorOnMouseOver = Colors.Yellow;
-
-        #endregion
-
-        #region "Properties"
 
         public Bar()
         {
+        	ColorOnMouseOver = Colors.Yellow;
+        	BarWidth = 5;
+        	BarColor = Colors.Red;
         }
-        
-        public Bar(double value, string argument)
+
+    	public Bar(double value, string argument)
         {
-            ID = string.Empty;
+    		ColorOnMouseOver = Colors.Yellow;
+    		BarWidth = 5;
+    		BarColor = Colors.Red;
+    		ID = string.Empty;
             BarValue = value;
             Argument = argument;
         }
 
-        public Color BarColor
-        {
-            get { return barColor; }
-            set { barColor = value; }
-        }
+    	public Color BarColor { get; set; }
 
-        public double BarWidth
-        {
-            get { return barWidth; }
-            set { barWidth = value; }
-        }
+    	public double BarWidth { get; set; }
 
-        public string BarLabel { get; set; }
+    	public string BarLabel { get; set; }
 
-        public Color ColorOnMouseOver
-        {
-            get { return colorOnMouseOver; }
-            set { colorOnMouseOver = value; }
-        }
+    	public Color ColorOnMouseOver { get; set; }
 
-        public DateTime TimeStamp { get; set; }
+    	public DateTime TimeStamp { get; set; }
 
         public string QueryParam { set; get; }
 
@@ -63,7 +48,5 @@ namespace WpfExample.HgChart
         public double BarValue { set; get; }
 
         public string Argument { get; set; }
-
-        #endregion
     }
 }

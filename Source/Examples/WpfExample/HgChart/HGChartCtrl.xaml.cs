@@ -11,7 +11,7 @@ namespace WpfExample.HgChart
     /// <summary>
     ///   Interaction logic for HGChart.xaml
     /// </summary>
-    public partial class HGChartCtrl : UserControl
+    public partial class HGChartCtrl
     {
         private double _maxData;
         private double _leftMargin = 3;
@@ -19,9 +19,8 @@ namespace WpfExample.HgChart
 
         private readonly Stopwatch _stopWatch = new Stopwatch();
         private TextBlock _txtTopTitle;
-        private bool _showAxisLabel;
 
-        private readonly DispatcherTimer _resizeTimer = new DispatcherTimer
+    	private readonly DispatcherTimer _resizeTimer = new DispatcherTimer
                                                             {
                                                                 Interval = new TimeSpan(0, 0, 0, 0, 100),
                                                                 IsEnabled = false
@@ -107,7 +106,7 @@ namespace WpfExample.HgChart
 
             foreach (var el in dt)
             {
-                double tmp = Convert.ToDouble(el);
+                var tmp = Convert.ToDouble(el);
 
                 if (tmp > max)
                     max = tmp;
@@ -152,7 +151,7 @@ namespace WpfExample.HgChart
                 return;
 
             // Will be made more generic in the next versions.
-            ICollection dt = DataSource;
+            var dt = DataSource;
 
             if (null != dt)
             {
@@ -200,13 +199,9 @@ namespace WpfExample.HgChart
             set { _spaceBetweenBars = value; }
         }
 
-        public bool ShowAxisLabel
-        {
-            get { return _showAxisLabel; }
-            set { _showAxisLabel = value; }
-        }
+    	public bool ShowAxisLabel { get; set; }
 
-        public int ChartingMethod
+    	public int ChartingMethod
         {
             set { visualHost.ChartingMethod(value); }
         }

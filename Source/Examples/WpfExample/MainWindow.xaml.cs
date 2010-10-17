@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NGenerics.Sorting;
 using WpfExample.HgChart;
@@ -21,7 +13,7 @@ namespace WpfExample
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         private PointCollection _data;
         //public int MyProperty { get; set; }
@@ -36,7 +28,7 @@ namespace WpfExample
                                                                         new CocktailSorter<int>(),
                                                                         new CombSorter<int>(),
                                                                         new GnomeSorter<int>(),
-                                                                        new  HeapSorter<int>(),
+                                                                        new HeapSorter<int>(),
                                                                         new InsertionSorter<int>(),
                                                                         new MergeSorter<int>(),
                                                                         new OddEvenTransportSorter<int>(),
@@ -48,45 +40,44 @@ namespace WpfExample
     };
 
         private List<HGChartCtrl> hgc=new List<HGChartCtrl>();
+
         public MainWindow()
         {
-            InitializeComponent();
+        	InitializeComponent();
 
-            MainData.Add(23);
+        	MainData.Add(23);
 
-            _data = LayoutRoot.Resources["CodeData"] as PointCollection;
+			_data = (PointCollection)LayoutRoot.Resources["CodeData"];
 
-            _data.Add(new Point(2, 100));
-            _data.Add(new Point(22, 120));
-            _data.Add(new Point(4, 80));
-            for (int i = 5; i >0; i--)
-            {
-                var chrt = new HGChartCtrl()
-                {
-                    // Width = 50,
-                    Height = 50,
-                    DataSource = _mainData,
-                    SpaceBetweenBars = 1,
-                    ShowAxisLabel = false,
-                    ShowValueOnBar = false,
-                    SmartAxisLabel = true,
-                    TextColor = Brushes.Yellow,
-                    ChartingMethod = i
-                };
-                StPanelMain.Children.Add(chrt);
-                hgc.Add(chrt);
-            }
-            
-            
+        	_data.Add(new Point(2, 100));
+        	_data.Add(new Point(22, 120));
+        	_data.Add(new Point(4, 80));
+        	for (var i = 5; i > 0; i--)
+        	{
+        		var chrt = new HGChartCtrl
+        		           	{
+        		           		// Width = 50,
+        		           		Height = 50,
+        		           		DataSource = _mainData,
+        		           		SpaceBetweenBars = 1,
+        		           		ShowAxisLabel = false,
+        		           		ShowValueOnBar = false,
+        		           		SmartAxisLabel = true,
+        		           		TextColor = Brushes.Yellow,
+        		           		ChartingMethod = i
+        		           	};
+        		StPanelMain.Children.Add(chrt);
+        		hgc.Add(chrt);
+        	}
         }
 
-        private void btnAddData_Click(object sender, RoutedEventArgs e)
+    	private void btnAddData_Click(object sender, RoutedEventArgs e)
         {
             
              //int[]data=new int[_mainData.Count+100];
                  
             //_mainData.CopyTo(data,100);
-            for (int i = 0; i < 100; i++)
+            for (var i = 0; i < 100; i++)
             {
                 _mainData.Add(_rnd.Next(250));
             }
@@ -112,15 +103,15 @@ namespace WpfExample
 
         private void btnMagic_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
             {
-                Rectangle rect = new Rectangle()
-                                     {
+                var rect = new Rectangle
+                           	{
                                          Height = 20,
                                          Width = 20
                                      };
-                Button btn = new Button()
-                                 {
+                var btn = new Button
+                          	{
                                      Content = "btn" + i,
                                  };
 
@@ -133,12 +124,4 @@ namespace WpfExample
 
         }
     }
-
-
-
-    public class ObjectCollection : Collection<object>
-    {
-    }
-
-
 }
