@@ -18,7 +18,6 @@ namespace NGenerics.Tests.Infrastructure
     public class CodeFormat
     {
 
-        #region Tests
 
         [Test]
         public void All_Code_Files_Should_Start_With_The_Copyright_Header()
@@ -34,10 +33,6 @@ namespace NGenerics.Tests.Infrastructure
             var message = string.Format("Non compliant files found : {0}{1}", Environment.NewLine, String.Join(Environment.NewLine, files.ToArray()));
             Assert.AreEqual(files.Count, 0, message);
         }
-
-        #endregion
-
-        #region Private Members
 
         private static List<string> GetNonCompliantFiles(params string[] directories)
         {
@@ -125,6 +120,5 @@ namespace NGenerics.Tests.Infrastructure
             }
         }
 
-        #endregion
     }
 }

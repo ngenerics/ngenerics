@@ -1,0 +1,31 @@
+﻿using NGenerics.DataStructures.Mathematical;
+using NUnit.Framework;
+
+namespace NGenerics.Tests.DataStructures.Mathematical.VectorNTests
+{
+    [TestFixture]
+    public class DotProduct
+    {
+
+        [Test]
+        public void Simple()
+        {
+            var vector1 = new VectorN(2);
+            vector1.SetValues(4, 7);
+
+            var vector2 = new VectorN(2);
+            vector2.SetValues(3, 4);
+
+            var dotProduct = vector1.DotProduct(vector2);
+            Assert.AreEqual(40, dotProduct);
+
+
+            Assert.AreEqual(4, vector1[0]);
+            Assert.AreEqual(7, vector1[1]);
+
+            Assert.AreEqual(3, vector2[0]);
+            Assert.AreEqual(4, vector2[1]);
+        }
+
+    }
+}
