@@ -10,10 +10,6 @@
 
 using System;
 using System.Collections.Generic;
-#if(!NET4)
-using System.Collections.ObjectModel;
-#endif
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -49,22 +45,25 @@ namespace NGenerics.DataStructures.General.Observable
 
 
         /// <inheritdoc />
-        public ObservableBag(int capacity):base (capacity)
+        public ObservableBag(int capacity)
+            : base(capacity)
         {
             monitor = new SimpleMonitor();
         }
 
 
         /// <inheritdoc />
-        public ObservableBag(IEqualityComparer<T> comparer): base(comparer)
+        public ObservableBag(IEqualityComparer<T> comparer)
+            : base(comparer)
         {
             monitor = new SimpleMonitor();
         }
 
 
-	
+
         /// <inheritdoc />
-        public ObservableBag(int capacity, IEqualityComparer<T> comparer): base(capacity, comparer)
+        public ObservableBag(int capacity, IEqualityComparer<T> comparer)
+            : base(capacity, comparer)
         {
             monitor = new SimpleMonitor();
         }
@@ -77,7 +76,7 @@ namespace NGenerics.DataStructures.General.Observable
         /// </summary>
         /// <param name="e">A <see cref="NotifyCollectionChangedAction"/> that contains the event data.</param>
         [SuppressMessage("Microsoft.Security", "CA2109:ReviewVisibleEventHandlers")]
-        protected virtual void OnCollectionChanged( NotifyCollectionChangedEventArgs e)
+        protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
             if (CollectionChanged != null)
             {

@@ -12,10 +12,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using NGenerics.Patterns.Visitor;
-using NGenerics.Util;
-using NGenerics.Sorting;
 using System.Diagnostics.CodeAnalysis;
+using NGenerics.Patterns.Visitor;
+using NGenerics.Sorting;
+using NGenerics.Util;
 
 
 namespace NGenerics.DataStructures.Trees
@@ -23,7 +23,7 @@ namespace NGenerics.DataStructures.Trees
     /// <summary>
     /// A general tree data structure that can hold any amount of nodes.
     /// </summary>
-	/// <typeparam name="T">The type of elements in the <see cref="GeneralTree{T}"/>.</typeparam>
+    /// <typeparam name="T">The type of elements in the <see cref="GeneralTree{T}"/>.</typeparam>
 #if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
 #endif
@@ -57,7 +57,7 @@ namespace NGenerics.DataStructures.Trees
 
         #region ICollection<T>  Members
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public bool Contains(T item)
         {
             foreach (var thisItem in this)
@@ -71,7 +71,7 @@ namespace NGenerics.DataStructures.Trees
             return false;
         }
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public void CopyTo(T[] array, int arrayIndex)
         {
 
@@ -115,9 +115,9 @@ namespace NGenerics.DataStructures.Trees
                 }
             }
         }
-    
 
-		/// <inheritdoc />
+
+        /// <inheritdoc />
         public int Count
         {
             get
@@ -126,13 +126,13 @@ namespace NGenerics.DataStructures.Trees
             }
         }
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public virtual void Clear()
         {
             childNodes.Clear();
         }
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public bool IsEmpty
         {
             get
@@ -141,19 +141,19 @@ namespace NGenerics.DataStructures.Trees
             }
         }
 
-		/// <inheritdoc />
-		void ICollection<T>.Add(T item)
+        /// <inheritdoc />
+        void ICollection<T>.Add(T item)
         {
             var child = new GeneralTree<T>(item);
             InsertItem(Count, child);
         }
 
-		/// <inheritdoc />
-		public GeneralTree<T> Add(T item)
+        /// <inheritdoc />
+        public GeneralTree<T> Add(T item)
         {
             var child = new GeneralTree<T>(item);
             InsertItem(Count, child);
-			return child;
+            return child;
         }
 
         /// <summary>
@@ -165,26 +165,26 @@ namespace NGenerics.DataStructures.Trees
         /// 	<b>Notes to Inheritors: </b>
         /// Derived classes can override this method to change the behavior of the <see cref="Add(T)"/> method.
         /// </remarks>
-		protected virtual void InsertItem(int index, GeneralTree<T> item)
-		{
-			if (item.parent != null)
-			{
-				item.parent.Remove(item);
-			}
+        protected virtual void InsertItem(int index, GeneralTree<T> item)
+        {
+            if (item.parent != null)
+            {
+                item.parent.Remove(item);
+            }
 
-			if (!childNodes.Contains(item))
-			{
-				childNodes.Add(item);
-				item.parent = this;
-			}
-		}
+            if (!childNodes.Contains(item))
+            {
+                childNodes.Add(item);
+                item.parent = this;
+            }
+        }
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public bool Remove(T item)
         {
             return RemoveItem(item);
         }
-        
+
         /// <summary>
         /// Removes the item form the tree.
         /// </summary>
@@ -198,8 +198,8 @@ namespace NGenerics.DataStructures.Trees
         {
             for (var i = 0; i < childNodes.Count; i++)
             {
-            	var tree = childNodes[i];
-            	if (tree.Data.Equals(item))
+                var tree = childNodes[i];
+                if (tree.Data.Equals(item))
                 {
                     tree.parent = null;
                     childNodes.RemoveAt(i);
@@ -207,7 +207,7 @@ namespace NGenerics.DataStructures.Trees
                 }
             }
 
-        	return false;
+            return false;
         }
 
         /// <inheritdoc />
@@ -224,30 +224,30 @@ namespace NGenerics.DataStructures.Trees
 
         #region ITree<T> Members
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         void ITree<T>.Add(ITree<T> child)
         {
             Add((GeneralTree<T>)child);
         }
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         ITree<T> ITree<T>.GetChild(int index)
         {
             return GetChild(index);
         }
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         bool ITree<T>.Remove(ITree<T> child)
         {
             return Remove((GeneralTree<T>)child);
         }
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         ITree<T> ITree<T>.FindNode(Predicate<T> condition)
         {
             return FindNode(condition);
         }
-		/// <inheritdoc />
+        /// <inheritdoc />
         ITree<T> ITree<T>.Parent
         {
             get
@@ -271,7 +271,7 @@ namespace NGenerics.DataStructures.Trees
             get
             {
                 return GetPath(x => x);
-            }   
+            }
         }
 
         /// <summary>
@@ -299,13 +299,14 @@ namespace NGenerics.DataStructures.Trees
             {
                 return parent;
             }
-            set {
+            set
+            {
                 Guard.ArgumentNotNull(value, "value");
                 value.Add(this);
             }
         }
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public int Degree
         {
             get
@@ -329,7 +330,7 @@ namespace NGenerics.DataStructures.Trees
             {
                 return this;
             }
-            
+
             for (var i = 0; i < Degree; i++)
             {
                 var ret = childNodes[i].FindNode(condition);
@@ -381,7 +382,7 @@ namespace NGenerics.DataStructures.Trees
         }
 
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public int Height
         {
             get
@@ -390,7 +391,7 @@ namespace NGenerics.DataStructures.Trees
                 {
                     return 0;
                 }
-                
+
                 return 1 + FindMaximumChildHeight();
             }
         }
@@ -409,7 +410,7 @@ namespace NGenerics.DataStructures.Trees
             {
                 return;
             }
-            
+
             orderedVisitor.VisitPreOrder(Data);
 
             for (var i = 0; i < Degree; i++)
@@ -472,7 +473,7 @@ namespace NGenerics.DataStructures.Trees
             }
         }
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public virtual bool IsLeafNode
         {
             get
@@ -487,7 +488,7 @@ namespace NGenerics.DataStructures.Trees
         /// <param name="child">The child tree to add.</param>
         public void Add(GeneralTree<T> child)
         {
-        InsertItem(Count, child);
+            InsertItem(Count, child);
         }
 
         /// <summary>
@@ -497,14 +498,14 @@ namespace NGenerics.DataStructures.Trees
         /// <returns>A value indicating whether the child was found (and removed) from this tree.</returns>
         public bool Remove(GeneralTree<T> child)
         {
-        	var indexOf = childNodes.IndexOf(child);
-			
+            var indexOf = childNodes.IndexOf(child);
+
             if (indexOf > -1)
-			{
-				RemoveItem(indexOf, child);
-				return true;
-			}
-            
+            {
+                RemoveItem(indexOf, child);
+                return true;
+            }
+
             return false;
         }
 
@@ -514,7 +515,7 @@ namespace NGenerics.DataStructures.Trees
         /// <param name="index">The index.</param>
         public void RemoveAt(int index)
         {
-			RemoveItem(index, childNodes[index]);
+            RemoveItem(index, childNodes[index]);
         }
 
         /// <summary>
@@ -526,11 +527,11 @@ namespace NGenerics.DataStructures.Trees
         /// 	<b>Notes to Inheritors: </b>
         /// Derived classes can override this method to change the behavior of the <see cref="RemoveAt"/> method.
         /// </remarks>
-		protected virtual void RemoveItem(int index, GeneralTree<T> item)
-		{
-			item.parent = null;
-			childNodes.RemoveAt(index);	
-		}
+        protected virtual void RemoveItem(int index, GeneralTree<T> item)
+        {
+            item.parent = null;
+            childNodes.RemoveAt(index);
+        }
 
         /// <summary>
         /// Sorts all descendants using the specified sorter.
@@ -680,7 +681,7 @@ namespace NGenerics.DataStructures.Trees
         #endregion
 
         #region IEnumerable Members
-		/// <inheritdoc />
+        /// <inheritdoc />
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -690,14 +691,14 @@ namespace NGenerics.DataStructures.Trees
 
         #region ISortable<GeneralTree<T>> Members
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         /// <exception cref="NotSupportedException">Always.</exception>
         void ISortable<GeneralTree<T>>.Sort(ISorter<GeneralTree<T>> sorter)
         {
             throw new NotSupportedException();
         }
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public void Sort(IComparisonSorter<GeneralTree<T>> sorter, Comparison<GeneralTree<T>> comparison)
         {
@@ -708,9 +709,9 @@ namespace NGenerics.DataStructures.Trees
 
             #endregion
 
-			childNodes.Sort(sorter, comparison);
+            childNodes.Sort(sorter, comparison);
         }
-        
+
         /// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public void Sort(IComparisonSorter<GeneralTree<T>> sorter, IComparer<GeneralTree<T>> comparer)
@@ -722,9 +723,9 @@ namespace NGenerics.DataStructures.Trees
 
             #endregion
 
-			childNodes.Sort(sorter, comparer);
+            childNodes.Sort(sorter, comparer);
         }
-		
+
         /// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public void Sort(ISorter<GeneralTree<T>> sorter, SortOrder order)
@@ -735,14 +736,14 @@ namespace NGenerics.DataStructures.Trees
 
             #endregion
 
-			childNodes.Sort(sorter, order);
+            childNodes.Sort(sorter, order);
         }
-        
+
         #endregion
 
         #region Object Members
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public override string ToString()
         {
             return Data.ToString();

@@ -55,7 +55,7 @@ namespace NGenerics.DataStructures.Trees.Observable
         /// <summary>
         /// Raises the <see cref="CollectionChanged"/> event.
         /// </summary>
-        /// <param name="e">A <see cref="NotifyCollectionChangedAction"/> that contains the event data.</param>
+        /// <param name="e">A <see cref="System.Collections.Specialized.NotifyCollectionChangedAction"/> that contains the event data.</param>
         [SuppressMessage("Microsoft.Security", "CA2109:ReviewVisibleEventHandlers")]
         protected virtual void OnCollectionChanged( NotifyCollectionChangedEventArgs e)
         {
@@ -93,7 +93,7 @@ namespace NGenerics.DataStructures.Trees.Observable
         }
 
 
-        /// <inheritdoc cref="ObservableCollection{T}.BlockReentrancy"/>
+        /// <inheritdoc cref="System.Collections.ObjectModel.ObservableCollection{T}.BlockReentrancy"/>
         protected IDisposable BlockReentrancy()
         {
             monitor.Enter();
@@ -101,7 +101,7 @@ namespace NGenerics.DataStructures.Trees.Observable
         }
 
 
-        /// <inheritdoc cref="ObservableCollection{T}.CheckReentrancy"/>
+        /// <inheritdoc cref="System.Collections.ObjectModel.ObservableCollection{T}.CheckReentrancy"/>
         protected void CheckReentrancy()
         {
             if ((monitor.Busy && (CollectionChanged != null)) && (CollectionChanged.GetInvocationList().Length > 0))

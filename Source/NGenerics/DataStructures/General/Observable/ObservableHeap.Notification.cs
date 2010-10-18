@@ -62,16 +62,18 @@ namespace NGenerics.DataStructures.General.Observable
             monitor = new SimpleMonitor();
         }
 
-  
+
         /// <inheritdoc />
-        public ObservableHeap(HeapType type, IComparer<T> comparer): base(type,comparer)
+        public ObservableHeap(HeapType type, IComparer<T> comparer)
+            : base(type, comparer)
         {
             monitor = new SimpleMonitor();
         }
 
-  
+
         /// <inheritdoc />
-        public ObservableHeap(HeapType type, int capacity, IComparer<T> comparer): base(type,capacity,comparer)
+        public ObservableHeap(HeapType type, int capacity, IComparer<T> comparer)
+            : base(type, capacity, comparer)
         {
 
             monitor = new SimpleMonitor();
@@ -84,7 +86,7 @@ namespace NGenerics.DataStructures.General.Observable
         /// </summary>
         /// <param name="e">A <see cref="NotifyCollectionChangedAction"/> that contains the event data.</param>
         [SuppressMessage("Microsoft.Security", "CA2109:ReviewVisibleEventHandlers")]
-        protected virtual void OnCollectionChanged( NotifyCollectionChangedEventArgs e)
+        protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
             if (CollectionChanged != null)
             {

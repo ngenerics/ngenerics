@@ -10,7 +10,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -107,7 +106,7 @@ namespace NGenerics.DataStructures.General.Observable
         }
 
 
-        /// <inheritdoc cref="ObservableCollection{T}.BlockReentrancy"/>
+        /// <inheritdoc cref="System.Collections.ObjectModel.ObservableCollection{T}.BlockReentrancy"/>
         protected IDisposable BlockReentrancy()
         {
             monitor.Enter();
@@ -115,7 +114,7 @@ namespace NGenerics.DataStructures.General.Observable
         }
 
 
-        /// <inheritdoc cref="ObservableCollection{T}.CheckReentrancy"/>
+        /// <inheritdoc cref="System.Collections.ObjectModel.ObservableCollection{T}.CheckReentrancy"/>
         protected void CheckReentrancy()
         {
             if ((monitor.Busy && (CollectionChanged != null)) && (CollectionChanged.GetInvocationList().Length > 0))

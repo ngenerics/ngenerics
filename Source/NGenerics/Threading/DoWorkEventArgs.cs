@@ -16,7 +16,7 @@ namespace NGenerics.Threading
 {
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
-	/// <summary>
+    /// <summary>
     /// The information for an event when work begins.
     /// </summary>
     /// <typeparam name="TArgument">The type of the argument.</typeparam>

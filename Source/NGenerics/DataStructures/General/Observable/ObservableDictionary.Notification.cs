@@ -10,10 +10,6 @@
 
 using System;
 using System.Collections.Generic;
-#if (!NET4)
-using System.Collections.ObjectModel;
-#endif
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -107,7 +103,7 @@ namespace NGenerics.DataStructures.General.Observable
         /// <summary>
         /// Raises the <see cref="CollectionChanged"/> event.
         /// </summary>
-        /// <param name="e">A <see cref="NotifyCollectionChangedAction"/> that contains the event data.</param>
+        /// <param name="e">A <see cref="System.Collections.Specialized.NotifyCollectionChangedAction"/> that contains the event data.</param>
         [SuppressMessage("Microsoft.Security", "CA2109:ReviewVisibleEventHandlers")]
         protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
@@ -146,7 +142,7 @@ namespace NGenerics.DataStructures.General.Observable
         }
 
 
-        /// <inheritdoc cref="ObservableCollection{T}.BlockReentrancy"/>
+        /// <inheritdoc cref="System.Collections.ObjectModel.ObservableCollection{T}.BlockReentrancy"/>
         protected IDisposable BlockReentrancy()
         {
             monitor.Enter();

@@ -97,7 +97,7 @@ namespace NGenerics.DataStructures.Queues.Observable
         }
 
 
-        /// <inheritdoc cref="ObservableCollection{T}.BlockReentrancy"/>
+        /// <inheritdoc cref="System.Collections.ObjectModel.ObservableCollection{T}.BlockReentrancy"/>
         protected IDisposable BlockReentrancy()
         {
             monitor.Enter();
@@ -105,7 +105,7 @@ namespace NGenerics.DataStructures.Queues.Observable
         }
 
 
-        /// <inheritdoc cref="ObservableCollection{T}.CheckReentrancy"/>
+        /// <inheritdoc cref="System.Collections.ObjectModel.ObservableCollection{T}.CheckReentrancy"/>
         protected void CheckReentrancy()
         {
             if ((monitor.Busy && (CollectionChanged != null)) && (CollectionChanged.GetInvocationList().Length > 0))
