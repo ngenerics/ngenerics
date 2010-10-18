@@ -30,21 +30,27 @@ namespace NGenerics.DataStructures.General
     /// <remarks>
     /// All operations are performed in case insensitive manner using <see cref="StringComparison.InvariantCultureIgnoreCase"/>.
     /// </remarks>
-	[ComVisible(true)]
+    [ComVisible(true)]
 #if (SILVERLIGHT || WINDOWSPHONE)
-    public sealed class CaseInsensitiveString : IComparable,  IConvertible, IComparable<string>, IEquatable<string>, IEquatable<CaseInsensitiveString>,  IXmlSerializable, IEnumerable<char>
+	public sealed class CaseInsensitiveString : IComparable,  IConvertible, IComparable<string>, IEquatable<string>, IEquatable<CaseInsensitiveString>,  IXmlSerializable, IEnumerable<char>
 #else
-	[Serializable]
-	public sealed class CaseInsensitiveString : IComparable, IConvertible, IComparable<string>, IEquatable<string>, IEquatable<CaseInsensitiveString>, IXmlSerializable, IEnumerable<char>, ICloneable, ISerializable
+    [Serializable]
+    public sealed class CaseInsensitiveString : IComparable, IConvertible, IComparable<string>, IEquatable<string>, IEquatable<CaseInsensitiveString>, IXmlSerializable, IEnumerable<char>, ICloneable, ISerializable
 #endif
-	{
+    {
 
-
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public CaseInsensitiveString()
         {
             Value = string.Empty;
         }
 
+        /// <summary>
+        /// Constrcuts CaseInsensitiveString based on <paramref name="value"/>
+        /// </summary>
+        /// <param name="value"></param>
         public CaseInsensitiveString(string value)
         {
             Guard.ArgumentNotNull(value, "value");
@@ -53,7 +59,7 @@ namespace NGenerics.DataStructures.General
 
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
-		private CaseInsensitiveString(SerializationInfo info, StreamingContext context)
+        private CaseInsensitiveString(SerializationInfo info, StreamingContext context)
         {
             Guard.ArgumentNotNull(info, "info");
             Value = (string)info.GetValue("StringValue", typeof(string));
@@ -97,6 +103,11 @@ namespace NGenerics.DataStructures.General
             }
         }
 
+        /// <summary>
+        /// Returns substring after <paramref name="after"/>
+        /// </summary>
+        /// <param name="after"></param>
+        /// <returns></returns>
         public CaseInsensitiveString GetLastAfter(string after)
         {
             Guard.ArgumentNotNullOrEmptyString(after, "after");
@@ -111,13 +122,19 @@ namespace NGenerics.DataStructures.General
 
 
 
-
+        /// <summary>
+        /// Write the string to Xml
+        /// </summary>
+        /// <param name="writer"></param>
         public void WriteXml(XmlWriter writer)
         {
             writer.WriteValue(Value);
         }
 
-
+        /// <summary>
+        /// Reads the string from xml
+        /// </summary>
+        /// <param name="reader"></param>
         public void ReadXml(XmlReader reader)
         {
             Value = reader.ReadElementContentAsString();
@@ -127,7 +144,7 @@ namespace NGenerics.DataStructures.General
 
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
-		/// <summary>
+        /// <summary>
         /// Retrieves an object that can iterate through the individual characters in this string.
         /// </summary>
         /// <returns>
@@ -149,7 +166,7 @@ namespace NGenerics.DataStructures.General
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
 
-		[SecurityCritical]
+        [SecurityCritical]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             Guard.ArgumentNotNull(info, "info");
@@ -159,7 +176,10 @@ namespace NGenerics.DataStructures.General
 
 
 
-
+        /// <summary>
+        /// returms xmlSchema
+        /// </summary>
+        /// <returns></returns>
         public XmlSchema GetSchema()
         {
             return null;
@@ -168,8 +188,8 @@ namespace NGenerics.DataStructures.General
 
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
-		#region ICloneable Members
-		/// <summary>
+        #region ICloneable Members
+        /// <summary>
         /// Returns a reference to this instance of <see cref="String"/>.
         /// </summary>
         /// <returns>
@@ -216,7 +236,7 @@ namespace NGenerics.DataStructures.General
         /// Compares this instance with a specified <see cref="String"/> object and indicates whether this instance precedes, follows, or appears in the same position in the sort order as the specified <see cref="String"/>.
         /// </summary>
         /// <returns>
-        /// A 32-bit signed integer that indicates whether this instance precedes, follows, or appears in the same position in the sort order as the <paramref name="value"/> parameter.
+        /// A 32-bit signed integer that indicates whether this instance precedes, follows, or appears in the same position in the sort order as the <paramref name="strB"/> parameter.
         /// Value
         /// Condition
         /// Less than zero
@@ -472,7 +492,7 @@ namespace NGenerics.DataStructures.General
 
         IEnumerator<char> IEnumerable<char>.GetEnumerator()
         {
-			return ((IEnumerable<char>)Value).GetEnumerator();
+            return ((IEnumerable<char>)Value).GetEnumerator();
         }
 
         /// <summary>
@@ -482,8 +502,8 @@ namespace NGenerics.DataStructures.General
         /// An <see cref="IEnumerator"/> object that can be used to iterate through the current <see cref="String"/> object.
         /// </returns>
         IEnumerator IEnumerable.GetEnumerator()
-		{
-			return ((IEnumerable)Value).GetEnumerator();
+        {
+            return ((IEnumerable)Value).GetEnumerator();
         }
 
         #endregion
@@ -497,7 +517,7 @@ namespace NGenerics.DataStructures.General
         /// true if the value of the <paramref name="value"/> parameter is the same as this instance; otherwise, false.
         /// </returns>
         /// <param name="value">A <see cref="String"/>.</param>
-		/// <exception cref="NullReferenceException">This instance is null.</exception>
+        /// <exception cref="NullReferenceException">This instance is null.</exception>
 #if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 #endif
@@ -507,16 +527,16 @@ namespace NGenerics.DataStructures.General
         }
 
         #endregion
-		#region IEquatable<CaseInsensitiveString> Members
+        #region IEquatable<CaseInsensitiveString> Members
 
-		/// <summary>
-		/// Determines whether this instance and another specified <see cref="CaseInsensitiveString"/> object have the same value.
+        /// <summary>
+        /// Determines whether this instance and another specified <see cref="CaseInsensitiveString"/> object have the same value.
         /// </summary>
         /// <returns>
         /// true if the value of the <paramref name="value"/> parameter is the same as this instance; otherwise, false.
         /// </returns>
-		/// <param name="value">A <see cref="CaseInsensitiveString"/>.</param>
-		/// <exception cref="NullReferenceException">This instance is null.</exception>
+        /// <param name="value">A <see cref="CaseInsensitiveString"/>.</param>
+        /// <exception cref="NullReferenceException">This instance is null.</exception>
 #if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 #endif
@@ -555,7 +575,11 @@ namespace NGenerics.DataStructures.General
         }
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static implicit operator string(CaseInsensitiveString value)
         {
             if (value == null)
@@ -566,7 +590,11 @@ namespace NGenerics.DataStructures.General
         }
 
 
-
+        /// <summary>
+        /// Creates a new instance of <see cref="CaseInsensitiveString" /> based  on <paramref name="value"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static implicit operator CaseInsensitiveString(string value)
         {
             if (value == null)
@@ -584,7 +612,7 @@ namespace NGenerics.DataStructures.General
         /// true if <paramref name="obj"/> is a <see cref="String"/> and its value is the same as this instance; otherwise, false.
         /// </returns>
         /// <param name="obj">An <see cref="Object"/>.</param>
-		/// <exception cref="NullReferenceException">This instance is null.</exception>
+        /// <exception cref="NullReferenceException">This instance is null.</exception>
 #if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 #endif
@@ -616,7 +644,7 @@ namespace NGenerics.DataStructures.General
 
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
-		/// <summary>
+        /// <summary>
         /// Copies the characters in a specified substring in this instance to a Unicode character array.
         /// </summary>
         /// <returns>
@@ -640,7 +668,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <returns>
         /// A 32-bit signed integer hash code.
-		/// </returns>
+        /// </returns>
 #if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 #endif
@@ -663,7 +691,7 @@ namespace NGenerics.DataStructures.General
         }
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
-		/// <summary>
+        /// <summary>
         /// Returns a string array that contains the substrings in this instance that are delimited by elements of a specified Unicode character array. A parameter specifies the maximum number of substrings to return.
         /// </summary>
         /// <returns>
@@ -695,7 +723,7 @@ namespace NGenerics.DataStructures.General
 
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
-		/// <summary>
+        /// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified Unicode character array. Parameters specify the maximum number of substrings to return and whether to return empty array elements.
         /// </summary>
         /// <returns>
@@ -730,7 +758,7 @@ namespace NGenerics.DataStructures.General
 
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
-		/// <summary>
+        /// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified string array. Parameters specify the maximum number of substrings to return and whether to return empty array elements.
         /// </summary>
         /// <returns>
@@ -829,7 +857,7 @@ namespace NGenerics.DataStructures.General
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
 
-		/// <summary>
+        /// <summary>
         /// Indicates whether this string is in Unicode normalization form C.
         /// </summary>
         /// <returns>
@@ -891,8 +919,8 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is null.</exception>
         public bool Contains(string value)
         {
-			return Value.ToUpper(CultureInfo.InvariantCulture).Contains(value.ToUpper(CultureInfo.InvariantCulture));
-		}
+            return Value.ToUpper(CultureInfo.InvariantCulture).Contains(value.ToUpper(CultureInfo.InvariantCulture));
+        }
 
         /// <summary>
         /// Determines whether the end of this instance matches the specified string.
@@ -922,7 +950,7 @@ namespace NGenerics.DataStructures.General
         public bool EndsWith(string value, StringComparison comparisonType)
         {
             return Value.EndsWith(value, comparisonType);
-		}
+        }
 #if (!SILVERLIGHT && !WINDOWSPHONE)
         /// <summary>
         /// Determines whether the end of this string matches the specified string when compared using the specified culture.
@@ -1377,7 +1405,7 @@ namespace NGenerics.DataStructures.General
 
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
-		/// <summary>
+        /// <summary>
         /// Determines whether the beginning of this string matches the specified string when compared using the specified culture.
         /// </summary>
         /// <returns>
@@ -1431,7 +1459,7 @@ namespace NGenerics.DataStructures.General
         {
             return Value.ToLowerInvariant();
         }
-		
+
         /// <summary>
         /// Returns a copy of this <see cref="String"/> object converted to uppercase using the casing rules of the invariant culture.
         /// </summary>
@@ -1445,7 +1473,7 @@ namespace NGenerics.DataStructures.General
         }
 #endif
 
-		/// <summary>
+        /// <summary>
         /// Returns a copy of this <see cref="String"/> converted to uppercase, using the casing rules of the current culture.
         /// </summary>
         /// <returns>
@@ -1595,7 +1623,11 @@ namespace NGenerics.DataStructures.General
             return Value.Remove(startIndex);
         }
 
-
+        /// <summary>
+        /// Remove <paramref name="toRemove"/> string if it is the of this string.
+        /// </summary>
+        /// <param name="toRemove"></param>
+        /// <returns></returns>
         public CaseInsensitiveString RemoveEnd(string toRemove)
         {
             Guard.ArgumentNotNullOrEmptyString(toRemove, "toRemove");

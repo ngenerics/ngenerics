@@ -18,14 +18,19 @@ namespace NGenerics.Sorting
     /// <typeparam name="T">The type of element to be sorted.</typeparam>
     public abstract class Sorter<T> : ISorter<T>
     {
-		/// <inheritdoc />
+        /// <inheritdoc />
         public void Sort(IList<T> list)
         {
             Sort(list, SortOrder.Ascending);
         }
-		/// <inheritdoc />
+        /// <inheritdoc />
         public abstract void Sort(IList<T> list, SortOrder order);
 
+        ///<summary>
+        /// Validates <paramref name="sortOrder" /> variable that it has a valid value
+        ///</summary>
+        ///<param name="sortOrder"></param>
+        ///<exception cref="ArgumentOutOfRangeException"></exception>
         public static void ValidateSortOrder(SortOrder sortOrder)
         {
             if ((sortOrder != SortOrder.Ascending) && (sortOrder != SortOrder.Descending))

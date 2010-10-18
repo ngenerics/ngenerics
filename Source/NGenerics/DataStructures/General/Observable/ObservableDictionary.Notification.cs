@@ -13,6 +13,7 @@ using System.Collections.Generic;
 #if (!NET4)
 using System.Collections.ObjectModel;
 #endif
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -44,16 +45,18 @@ namespace NGenerics.DataStructures.General.Observable
         /// <inheritdoc />
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
-		
+
         #region Construction
-        
-    
+
+        /// <summary>
+        /// default Constructor
+        /// </summary>
         public ObservableDictionary()
         {
             monitor = new SimpleMonitor();
         }
 
-	
+
         /// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public ObservableDictionary(IDictionary<TKey, TValue> dictionary)
@@ -91,13 +94,13 @@ namespace NGenerics.DataStructures.General.Observable
 
 
 #if (!SILVERLIGHT && !WINDOWSPHONE)
-		/// <inheritdoc />
-		protected ObservableDictionary(SerializationInfo info, StreamingContext context)
+        /// <inheritdoc />
+        protected ObservableDictionary(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
             monitor = new SimpleMonitor();
         }
-		
+
 #endif
         #endregion
 
@@ -106,7 +109,7 @@ namespace NGenerics.DataStructures.General.Observable
         /// </summary>
         /// <param name="e">A <see cref="NotifyCollectionChangedAction"/> that contains the event data.</param>
         [SuppressMessage("Microsoft.Security", "CA2109:ReviewVisibleEventHandlers")]
-        protected virtual void OnCollectionChanged( NotifyCollectionChangedEventArgs e)
+        protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
             if (CollectionChanged != null)
             {
@@ -151,7 +154,7 @@ namespace NGenerics.DataStructures.General.Observable
         }
 
 
-        /// <inheritdoc cref="ObservableCollection{T}.CheckReentrancy"/>
+        /// <inheritdoc cref="System.Collections.ObjectModel.ObservableCollection{T}.CheckReentrancy"/>
         protected void CheckReentrancy()
         {
             if ((monitor.Busy && (CollectionChanged != null)) && (CollectionChanged.GetInvocationList().Length > 0))

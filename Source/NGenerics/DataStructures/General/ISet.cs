@@ -17,64 +17,64 @@ namespace NGenerics.DataStructures.General
 		/// <summary>
 		/// Applies the difference operation to two <see cref="ISet"/>.
 		/// </summary>
-        /// <param name="other">The other <see cref="ISet"/>.</param>
+		/// <param name="other">The other <see cref="ISet"/>.</param>
 		/// <returns>The result of the difference operation.</returns>
 		ISet Subtract(ISet other);
 
 		/// <summary>
-        /// Applies the Intersection operation to two <see cref="ISet"/>s.
+		/// Applies the Intersection operation to two <see cref="ISet"/>s.
 		/// </summary>
-        /// <param name="other">The other <see cref="ISet"/>.</param>
+		/// <param name="other">The other <see cref="ISet"/>.</param>
 		/// <returns>The result of the intersection operation.</returns>
-        ISet Intersection(ISet other);
+		ISet Intersection(ISet other);
 
 		/// <summary>
 		/// Inverses this instance.
 		/// </summary>
-        /// <returns>The Inverse representation of the current <see cref="ISet"/>.</returns>
+		/// <returns>The Inverse representation of the current <see cref="ISet"/>.</returns>
 		ISet Inverse();
-        		
+				
 		/// <summary>
-        /// Determines whether the current instance is a proper subset specified <see cref="ISet"/>.
+		/// Determines whether the current instance is a proper subset specified <see cref="ISet"/>.
 		/// </summary>
-        /// <param name="other">The <see cref="ISet"/>.</param>
+		/// <param name="other">The <see cref="ISet"/>.</param>
 		/// <returns>
 		/// 	<c>true</c> if [is proper subset of] [the specified set]; otherwise, <c>false</c>.
 		/// </returns>
-        bool IsProperSubsetOf(ISet other);
+		bool IsProperSubsetOf(ISet other);
 
 		/// <summary>
-        /// Determines whether the current instance is a proper superset of specified <see cref="ISet"/>.
+		/// Determines whether the current instance is a proper superset of specified <see cref="ISet"/>.
 		/// </summary>
-        /// <param name="other">The set.</param>
+		/// <param name="other">The set.</param>
 		/// <returns>
 		/// 	<c>true</c> if [is proper superset of] [the specified set]; otherwise, <c>false</c>.
 		/// </returns>
-        bool IsProperSupersetOf(ISet other);
+		bool IsProperSupersetOf(ISet other);
 
 		/// <summary>
-        /// Determines whether the current instance is a subset of the specified <see cref="ISet"/>.
+		/// Determines whether the current instance is a subset of the specified <see cref="ISet"/>.
 		/// </summary>
-        /// <param name="other">The set.</param>
+		/// <param name="other">The set.</param>
 		/// <returns>
 		/// 	<c>true</c> if [is subset of] [the specified set]; otherwise, <c>false</c>.
 		/// </returns>
-        bool IsSubsetOf(ISet other);
+		bool IsSubsetOf(ISet other);
 
 		/// <summary>
-        /// Determines whether the current instance is a superset of the specified <see cref="ISet"/>.
+		/// Determines whether the current instance is a superset of the specified <see cref="ISet"/>.
 		/// </summary>
-        /// <param name="other">The set.</param>
+		/// <param name="other">The set.</param>
 		/// <returns>
 		/// 	<c>true</c> if [is superset of] [the specified set]; otherwise, <c>false</c>.
 		/// </returns>
 		bool IsSupersetOf(ISet other);
 
 		/// <summary>
-        /// Performs the union operation on two <see cref="ISet"/>s.
+		/// Performs the union operation on two <see cref="ISet"/>s.
 		/// </summary>
 		/// <param name="other">The set.</param>
-        /// <returns>The union of this <see cref="ISet"/> and <paramref name="set"/>.</returns>
+		/// <returns>The union of this <see cref="ISet"/> and <paramref name="other"/>.</returns>
 		ISet Union(ISet other);
 	}
 }
