@@ -12,10 +12,10 @@
         <StackPanel Name="StPanelMain">
 
             <StackPanel Name="stChartPanel" Orientation="Horizontal">
-                <Button Content="Generate Data" Height="23" Name="btnAddData" Width="75" Click="btnAddData_Click" />
-                <Button Content="Sort Data" Height="23" Name="btnSort" Width="75" Click="btnSortData_Click" />
-                <Button Content="Do Magic" Height="23" Name="btnMagic" Width="75" Click="btnMagic_Click" />
-                <ComboBox Height="23" Name="comboSorter" Width="120" ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:MainWindow, AncestorLevel=1}, Path=SorterList}" />
+                <Button Content="Generate Data" Height="23" Name="btnAddData" Width="116" Click="btnAddData_Click" />
+                <ComboBox Height="23" Name="comboSorter" Width="256" ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:MainWindow, AncestorLevel=1}, Path=SorterList}" Text="Chose sort method" />
+                <Button Content="Sort Data" Height="23" Name="btnSort" Width="61" Click="btnSortData_Click" />
+                <Button Content="Start Magic" Height="23" Name="btnMagic" Width="75" Click="btnMagic_Click" />
             </StackPanel>
 
         </StackPanel>

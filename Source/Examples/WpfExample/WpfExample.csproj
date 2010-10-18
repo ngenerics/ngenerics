@@ -71,6 +71,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DelayedObservableCollection.xaml.cs" />
     <Compile Include="HgChart\HGChartCtrl.xaml.cs">
       <DependentUpon>HGChartCtrl.xaml</DependentUpon>
     </Compile>
