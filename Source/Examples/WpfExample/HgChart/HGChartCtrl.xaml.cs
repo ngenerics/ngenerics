@@ -9,24 +9,15 @@ using System.Windows.Threading;
 namespace WpfExample.HgChart
 {
     /// <summary>
-    ///   Interaction logic for HGChart.xaml
+    ///   High performant chart control optimised for display off many elements (>1000 points) and still remaining responsive
     /// </summary>
     public partial class HGChartCtrl
     {
         private double _maxData;
-        private double _leftMargin = 3;
-        private double _spaceBetweenBars = 8;
-
+        private double _leftMargin;
+        private double _spaceBetweenBars;
         private readonly Stopwatch _stopWatch = new Stopwatch();
         private TextBlock _txtTopTitle;
-
-    	private readonly DispatcherTimer _resizeTimer = new DispatcherTimer
-                                                            {
-                                                                Interval = new TimeSpan(0, 0, 0, 0, 100),
-                                                                IsEnabled = false
-                                                            };
-
-        private readonly MyVisualHost visualHost = new MyVisualHost();
 
         public bool ShowValueOnBar { get; set; }
         public bool SmartAxisLabel { get; set; }
@@ -34,22 +25,22 @@ namespace WpfExample.HgChart
         public string XAxisField { get; set; }
         public ICollection DataSource { get; set; }
 
+        private readonly DispatcherTimer _resizeTimer = new DispatcherTimer
+        {
+            Interval = new TimeSpan(0, 0, 0, 0, 100),
+            IsEnabled = false
+        };
+
+        private readonly MyVisualHost visualHost = new MyVisualHost();
 
         public HGChartCtrl()
         {
+            _leftMargin = 3;
+            _spaceBetweenBars = 8;
+
             InitializeComponent();
             InitChartControls();
 
-
-            /* 
-              GradientStopCollection gsc = new GradientStopCollection(2)
-                                              {
-                                                  new GradientStop(Colors.Black, 1),
-                                                  new GradientStop(Colors.Gray, 0)
-                                              };}
-
-             _chartArea.Background = new LinearGradientBrush(gsc, 90);
-             */
             _resizeTimer.Tick += _resizeTimer_Tick;
         }
 
@@ -68,8 +59,7 @@ namespace WpfExample.HgChart
         {
             base.OnRenderSizeChanged(sizeInfo);
 
-            _resizeTimer.Stop();
-            _resizeTimer.Start();
+            Repaint();
         }
 
         private void _resizeTimer_Tick(object sender, EventArgs e)
@@ -91,8 +81,8 @@ namespace WpfExample.HgChart
         private void DrawEmptyChart()
         {
             txtNoData.Visibility = Visibility.Visible;
-            Canvas.SetTop(txtNoData, _chartArea.Height/2);
-            Canvas.SetLeft(txtNoData, _chartArea.Width/2);
+            Canvas.SetTop(txtNoData, _chartArea.Height / 2);
+            Canvas.SetLeft(txtNoData, _chartArea.Width / 2);
         }
 
         /// <summary>
@@ -100,7 +90,7 @@ namespace WpfExample.HgChart
         /// </summary>
         /// <param name = "dt"></param>
         /// <returns></returns>
-        private double GetMax(ICollection dt)
+        private static double GetMax(ICollection dt)
         {
             double max = 0;
 
@@ -137,10 +127,15 @@ namespace WpfExample.HgChart
             Canvas.SetLeft(_txtTopTitle, _leftMargin);
         }
 
+        public void Repaint()
+        {
+            _resizeTimer.Stop();
+            _resizeTimer.Start();
+        }
         /// <summary>
         ///   Creates the chart based on the datasource.
         /// </summary>
-        public void Generate()
+        protected void Generate()
         {
             _stopWatch.Restart();
             // Reset / Clear
@@ -199,9 +194,9 @@ namespace WpfExample.HgChart
             set { _spaceBetweenBars = value; }
         }
 
-    	public bool ShowAxisLabel { get; set; }
+        public bool ShowAxisLabel { get; set; }
 
-    	public int ChartingMethod
+        public int ChartingMethod
         {
             set { visualHost.ChartingMethod(value); }
         }

@@ -8,30 +8,28 @@ namespace WpfExample.HgChart
 
         public Bar()
         {
-        	ColorOnMouseOver = Colors.Yellow;
-        	BarWidth = 5;
-        	BarColor = Colors.Red;
+            ColorOnMouseOver = Colors.Yellow;
+            BarWidth = 5;
+            BarColor = Colors.Red;
         }
 
-    	public Bar(double value, string argument)
+        public Bar(double value, string argument)
+            : this()
         {
-    		ColorOnMouseOver = Colors.Yellow;
-    		BarWidth = 5;
-    		BarColor = Colors.Red;
-    		ID = string.Empty;
+            ID = string.Empty;
             BarValue = value;
             Argument = argument;
         }
 
-    	public Color BarColor { get; set; }
+        public Color BarColor { get; set; }
 
-    	public double BarWidth { get; set; }
+        public double BarWidth { get; set; }
 
-    	public string BarLabel { get; set; }
+        public string BarLabel { get; set; }
 
-    	public Color ColorOnMouseOver { get; set; }
+        public Color ColorOnMouseOver { get; set; }
 
-    	public DateTime TimeStamp { get; set; }
+        public DateTime TimeStamp { get; set; }
 
         public string QueryParam { set; get; }
 

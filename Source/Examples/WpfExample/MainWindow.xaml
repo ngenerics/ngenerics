@@ -2,100 +2,24 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"            
         xmlns:local="clr-namespace:WpfExample"        
-        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:objMod="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
-        Title="MainWindow" Height="591" Width="538">
+        Title="Main Window" Height="591" Width="538" Loaded="Window_Loaded">
     <Grid x:Name="LayoutRoot"        >
-             <Grid.Resources>
-            <PointCollection x:Key="EngineMeasurementCollection">
-                <Point X="1" Y="10"/>
-                <Point X="2" Y="30"/>
-                <Point X="3" Y="20"/>
-                <Point X="4" Y="40"/>
-                <Point X="5" Y="10"/>
-            </PointCollection>
-            
-            <PointCollection x:Key="CodeData"/>
+        <Grid.Resources>
         </Grid.Resources>
 
 
 
         <StackPanel Name="StPanelMain">
 
-            <chartingToolkit:Chart Title="Engine Performance">
-                <chartingToolkit:ColumnSeries 
-                    ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:MainWindow, AncestorLevel=1}, Path=MainData}" 
-                    Title="Sortable data" 
-                    Name="SortedData">                    
-                </chartingToolkit:ColumnSeries>
-                <chartingToolkit:ColumnSeries                     
-                    Title="Original Data" 
-                    Name="OriginalData">
-                </chartingToolkit:ColumnSeries>
-
-                <!--<chartingToolkit:ColumnSeries>
-                    <chartingToolkit:ColumnSeries.ItemsSource>
-                        <local:ObjectCollection>
-                            <sys:Double>100</sys:Double>
-                            <sys:Double>200</sys:Double>
-                            <sys:Double>300</sys:Double>
-                        </local:ObjectCollection>
-                    </chartingToolkit:ColumnSeries.ItemsSource>
-                </chartingToolkit:ColumnSeries>
-                
-                <chartingToolkit:LineSeries
-                            Title="Power"
-                            ItemsSource="{StaticResource EngineMeasurementCollection}"
-                            IndependentValueBinding="{Binding X}"
-                            DependentValueBinding="{Binding Y}">
-                
-                    <chartingToolkit:LineSeries.DependentRangeAxis>
-                        <chartingToolkit:LinearAxis
-                                    Orientation="Y"
-                                    Title="Power (hp)"
-                                    Minimum="0"
-                                    Maximum="250"
-                                    Interval="50"
-                                    ShowGridLines="True"/>
-                    </chartingToolkit:LineSeries.DependentRangeAxis>
-                </chartingToolkit:LineSeries>
-                
-                <chartingToolkit:LineSeries
-                            Title="Torque"
-                            ItemsSource="{StaticResource CodeData}"
-                            IndependentValueBinding="{Binding X}"
-                            DependentValueBinding="{Binding Y}">
-                    
-                    <chartingToolkit:LineSeries.DependentRangeAxis>
-                        <chartingToolkit:LinearAxis
-                                    Orientation="Y"
-                                    Title="Torque (lb-ft)"
-                                    Minimum="50"
-                                    Maximum="300"
-                                    Interval="50"/>
-                    </chartingToolkit:LineSeries.DependentRangeAxis>
-                </chartingToolkit:LineSeries>
-                <chartingToolkit:Chart.Axes>
-                    
-                    <chartingToolkit:LinearAxis
-                                Orientation="X"
-                                Title="Speed (rpm)"
-                                Interval="1000"
-                                ShowGridLines="True"/>
-                </chartingToolkit:Chart.Axes>
-                -->
-            </chartingToolkit:Chart>
-            
-            <StackPanel Name="stChartPanel" Orientation="Horizontal">                
-                <Button Content="Generate Data" Height="23" Name="btnAddData" Width="75" Click="btnAddData_Click" />                
+            <StackPanel Name="stChartPanel" Orientation="Horizontal">
+                <Button Content="Generate Data" Height="23" Name="btnAddData" Width="75" Click="btnAddData_Click" />
                 <Button Content="Sort Data" Height="23" Name="btnSort" Width="75" Click="btnSortData_Click" />
                 <Button Content="Do Magic" Height="23" Name="btnMagic" Width="75" Click="btnMagic_Click" />
                 <ComboBox Height="23" Name="comboSorter" Width="120" ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:MainWindow, AncestorLevel=1}, Path=SorterList}" />
             </StackPanel>
-            
+
         </StackPanel>
 
-         
+
     </Grid>
 </Window>
