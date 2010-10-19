@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfExample.HGChartControlDemo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"            
+        xmlns:local="clr-namespace:WpfExample"        
+        Title="HG Chart Control Demo" Height="591" Width="538" Loaded="Window_Loaded">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Resources>
+        </Grid.Resources>
+        <StackPanel Name="StPanelMain">
+            <StackPanel Name="stChartPanel" Orientation="Horizontal">
+                <Button Content="Generate More Data" Height="23" Name="btnAddData" Width="116" Click="btnAddData_Click" />
+                <ComboBox Height="23" Name="comboSorter" Width="256" ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:HGChartControlDemo, AncestorLevel=1}, Path=SorterList}" Text="Chose sort method" />
+                <Button Content="Sort Data" Height="23" Name="btnSort" Width="61" Click="btnSortData_Click" />
+            </StackPanel>
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>

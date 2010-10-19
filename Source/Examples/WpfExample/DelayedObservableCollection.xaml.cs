@@ -6,6 +6,7 @@ namespace WpfExample
 {
     public class DelayedObservableCollection<T> : ObservableCollection<T>
     {
+        public int Delay { get; set; }
         /// <summary>Initializes a new instance of the <see cref="T:System.Collections.ObjectModel.ObservableCollection`1" /> class.</summary>
         public DelayedObservableCollection()
             : base()
@@ -31,7 +32,7 @@ namespace WpfExample
         {
             base.SetItem(index, item);
 
-            Thread.Sleep(100);
+            Thread.Sleep(Delay);
         }
 
     }

@@ -59,6 +59,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="VisualSortingDemo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HGChartControlDemo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="HgChart\HGChartCtrl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +79,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="VisualSortingDemo.xaml.cs">
+      <DependentUpon>VisualSortingDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HGChartControlDemo.xaml.cs">
+      <DependentUpon>HGChartControlDemo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DelayedObservableCollection.xaml.cs" />
     <Compile Include="HgChart\HGChartCtrl.xaml.cs">
       <DependentUpon>HGChartCtrl.xaml</DependentUpon>
@@ -82,8 +96,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyVisualHost.xaml.cs" />
-    <Compile Include="ObjectCollection.xaml.cs" />
+    <Compile Include="HgChart\MyVisualHost.xaml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
