@@ -14,7 +14,7 @@ using System.Threading;
 namespace NGenerics.Threading
 {
     /// <summary>
-    /// Executes an operation on a separate thread.
+    /// Generic Implementation for BackgroundWorker. Executes an operation on a separate thread.
     /// </summary>
     /// <remarks>
     /// This is a temporary solution until one is included in the .net framework. See http://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=93696.
@@ -22,8 +22,9 @@ namespace NGenerics.Threading
     /// <typeparam name="TInput">The type of the argument that will be passed to the background operation.</typeparam>
     /// <typeparam name="TOutput">The type of the return value from the background operation.</typeparam>
     /// <typeparam name="TProgress">The type of state that will be passed back to notify the calling thread of a change in progress.</typeparam>
-    public class BackgroundWorker<TInput, TOutput, TProgress> {
-        
+    public class BackgroundWorker<TInput, TOutput, TProgress>
+    {
+
         #region Globals
 
         /// <summary>
@@ -57,8 +58,10 @@ namespace NGenerics.Threading
         /// Requests cancellation of a pending background operation.
         /// </summary>
         /// <exception cref="InvalidOperationException"><see cref="WorkerSupportsCancellation"/> is <see langword="false"/>.</exception>
-        public void CancelAsync() {
-            if (!WorkerSupportsCancellation) {
+        public void CancelAsync()
+        {
+            if (!WorkerSupportsCancellation)
+            {
                 throw new InvalidOperationException("BackgroundWorker_WorkerDoesntSupportCancellation");
             }
             CancellationPending = true;
@@ -69,7 +72,8 @@ namespace NGenerics.Threading
         /// </summary>
         /// <param name="percentProgress">The percentage, from 0 to 100, of the background operation that is complete.</param>
         /// <exception cref="InvalidOperationException">The <see cref="WorkerReportsProgress"/> property is set to false.</exception>
-        public void ReportProgress(int percentProgress) {
+        public void ReportProgress(int percentProgress)
+        {
             ReportProgress(percentProgress, default(TProgress));
         }
 
@@ -79,14 +83,19 @@ namespace NGenerics.Threading
         /// <param name="percentProgress">The percentage, from 0 to 100, of the background operation that is complete.</param>
         /// <param name="userState">The state to pass to <see cref="ProgressChanged"/>.</param>
         /// <exception cref="InvalidOperationException">The <see cref="WorkerReportsProgress"/> property is set to false.</exception>
-        public void ReportProgress(int percentProgress, TProgress userState) {
-            if (!WorkerReportsProgress) {
+        public void ReportProgress(int percentProgress, TProgress userState)
+        {
+            if (!WorkerReportsProgress)
+            {
                 throw new InvalidOperationException("BackgroundWorker_WorkerDoesntReportProgress");
             }
             var eventArgs = new ProgressChangedEventArgs<TProgress>(percentProgress, userState);
-            if (AsyncOperation == null) {
+            if (AsyncOperation == null)
+            {
                 OnProgressChanged(eventArgs);
-            } else {
+            }
+            else
+            {
                 AsyncOperation.Post(state => OnProgressChanged((ProgressChangedEventArgs<TProgress>)state), eventArgs);
             }
         }
@@ -95,8 +104,10 @@ namespace NGenerics.Threading
         /// <summary>
         /// Blocks the calling <see cref="Thread"/> until <see cref="IsBusy"/> is false.
         /// </summary>
-        public void SleepWhileBusy() {
-            while (IsBusy) {
+        public void SleepWhileBusy()
+        {
+            while (IsBusy)
+            {
                 Thread.Sleep(10);
             }
         }
@@ -107,10 +118,14 @@ namespace NGenerics.Threading
         /// <typeparam name="T">The type of the argument.</typeparam>
         /// <param name="action">The <see cref="Action{T}"/> to execute.</param>
         /// <param name="arg">Thee argument to pass to <paramref name="action"/></param>
-        public void ExecuteOnCallingThread<T>(Action<T> action, T arg) {
-            if (AsyncOperation == null) {
+        public void ExecuteOnCallingThread<T>(Action<T> action, T arg)
+        {
+            if (AsyncOperation == null)
+            {
                 action(arg);
-            } else {
+            }
+            else
+            {
                 AsyncOperation.Post(state => action((T)state), arg);
             }
         }
@@ -120,7 +135,8 @@ namespace NGenerics.Threading
         /// Starts execution of a background operation. 
         /// </summary>
         /// <exception cref="InvalidOperationException"><see cref="IsBusy"/> is <see langword="true"/>.</exception>
-        public void RunWorkerAsync() {
+        public void RunWorkerAsync()
+        {
             RunWorkerAsync(default(TInput));
         }
 
@@ -129,8 +145,10 @@ namespace NGenerics.Threading
         /// </summary>
         /// <param name="argument">The argument to pass to <see cref="DoWork"/>.</param>
         /// <exception cref="InvalidOperationException"><see cref="IsBusy"/> is <see langword="true"/>.</exception>
-        public virtual void RunWorkerAsync(TInput argument) {
-            if (IsBusy) {
+        public virtual void RunWorkerAsync(TInput argument)
+        {
+            if (IsBusy)
+            {
                 throw new InvalidOperationException("BackgroundWorker_WorkerAlreadyRunning");
             }
             IsBusy = true;
@@ -207,8 +225,10 @@ namespace NGenerics.Threading
         /// </summary>
         /// <param name="eventArgs">An EventArgs that contains the event data.</param>
         /// <exception cref="InvalidOperationException"><see cref="DoWork"/> is null.</exception>
-        protected virtual void OnDoWork(DoWorkEventArgs<TInput, TOutput> eventArgs) {
-            if (DoWork == null) {
+        protected virtual void OnDoWork(DoWorkEventArgs<TInput, TOutput> eventArgs)
+        {
+            if (DoWork == null)
+            {
                 throw new InvalidOperationException("BackgroundWorker_DoWorkNoDefined");
             }
             DoWork(this, eventArgs);
@@ -219,8 +239,10 @@ namespace NGenerics.Threading
         /// Calls the <see cref="ProgressChanged"/> delegate. 
         /// </summary>
         /// <param name="eventArgs">An EventArgs that contains the event data.</param>
-        protected virtual void OnProgressChanged(ProgressChangedEventArgs<TProgress> eventArgs) {
-            if (ProgressChanged != null) {
+        protected virtual void OnProgressChanged(ProgressChangedEventArgs<TProgress> eventArgs)
+        {
+            if (ProgressChanged != null)
+            {
                 ProgressChanged(this, eventArgs);
             }
         }
@@ -230,42 +252,53 @@ namespace NGenerics.Threading
         /// Calls the <see cref="ProgressChanged"/> delegate. 
         /// </summary>
         /// <param name="eventArgs">An EventArgs that contains the event data.</param>
-        protected virtual void OnRunWorkerCompleted(RunWorkerCompletedEventArgs<TOutput> eventArgs) {
-            if (ThrowExceptionOnCompleted && (eventArgs.Error != null)) {
+        protected virtual void OnRunWorkerCompleted(RunWorkerCompletedEventArgs<TOutput> eventArgs)
+        {
+            if (ThrowExceptionOnCompleted && (eventArgs.Error != null))
+            {
                 throw eventArgs.Error;
             }
-            if (RunWorkerCompleted != null) {
+            if (RunWorkerCompleted != null)
+            {
                 RunWorkerCompleted(this, eventArgs);
             }
         }
 
         #endregion
-        
+
         #region Private Members
 
         /// <summary>
         /// Event handler for when the operation complets.
         /// </summary>
         /// <param name="arg">The argument.</param>
-        private void AsyncOperationCompleted(object arg) {
+        private void AsyncOperationCompleted(object arg)
+        {
             IsBusy = false;
             CancellationPending = false;
             OnRunWorkerCompleted((RunWorkerCompletedEventArgs<TOutput>)arg);
         }
 
-        private void WorkerThreadStart(TInput input) {
+        private void WorkerThreadStart(TInput input)
+        {
             var result = default(TOutput);
             Exception error = null;
             var cancelled = false;
-            try {
+            try
+            {
                 var eventArgs = new DoWorkEventArgs<TInput, TOutput>(input);
                 OnDoWork(eventArgs);
-                if (eventArgs.Cancel) {
+                if (eventArgs.Cancel)
+                {
                     cancelled = true;
-                } else {
+                }
+                else
+                {
                     result = eventArgs.Result;
                 }
-            } catch (Exception exception) {
+            }
+            catch (Exception exception)
+            {
                 error = exception;
             }
 
