@@ -19,7 +19,7 @@ namespace WpfExample
 
         public ObservableCollection<ISorter<int>> SorterList
         {
-            get { return _sorterList; }
+            get { return Util.GetSorterList(); }
         }
 
         public ObservableCollection<int> MainData
@@ -27,23 +27,7 @@ namespace WpfExample
             get { return _mainData; }
         }
 
-        private readonly ObservableCollection<ISorter<int>> _sorterList = new ObservableCollection<ISorter<int>>
-																	{
-																		new BubbleSorter<int>(),
-																		new BucketSorter(),
-																		new CocktailSorter<int>(),
-																		new CombSorter<int>(),
-																		new GnomeSorter<int>(),
-																		new HeapSorter<int>(),
-																		new InsertionSorter<int>(),
-																		new MergeSorter<int>(),
-																		new OddEvenTransportSorter<int>(),
-																		new QuickSorter<int>(),
-																		new RadixSorter(),
-																		new SelectionSorter<int>(),
-																		new ShakerSorter<int>(),
-																		new ShellSorter<int>()
-	};
+
 
 
         public HGChartControlDemo()

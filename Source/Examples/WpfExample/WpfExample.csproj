@@ -59,6 +59,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GraphDemo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="VisualSortingDemo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,6 +83,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GraphDemo.xaml.cs">
+      <DependentUpon>GraphDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Util.cs" />
     <Compile Include="VisualSortingDemo.xaml.cs">
       <DependentUpon>VisualSortingDemo.xaml</DependentUpon>
     </Compile>

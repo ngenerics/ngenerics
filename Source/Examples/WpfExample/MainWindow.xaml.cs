@@ -39,6 +39,13 @@ namespace WpfExample
             new VisualSortingDemo().ShowDialog();
         }
 
+        private void btnShowGraph_Click(object sender, RoutedEventArgs e)
+        {
+            new GraphDemo().ShowDialog();
+        }
+
+
+
 
 
     }
