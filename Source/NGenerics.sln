@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{8B0EA7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SupportPrograms", "SupportPrograms", "{678FE67E-55D1-4AE4-ADCD-45557F3D628C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Net3", "NGenerics\NGenerics.Net3.csproj", "{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Net3.5", "NGenerics\NGenerics.Net3.5.csproj", "{E9627A13-B84F-4C54-BC1E-ACC0B2E86E13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Tests", "NGenericsTests\NGenerics.Tests.csproj", "{EB755C88-21F2-41BC-B1C4-7C3392D1AA53}"
 EndProject
@@ -41,7 +41,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Net4", "NGenerics
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Net4CP", "NGenerics\NGenerics.Net4CP.csproj", "{4DC701F9-45FF-40FF-B5E1-CE6097E7CA19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Net3CP", "NGenerics\NGenerics.Net3CP.csproj", "{D71328B8-B01B-4C6A-AC20-11D30374EB56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.Net3.5CP", "NGenerics\NGenerics.Net3.5CP.csproj", "{D71328B8-B01B-4C6A-AC20-11D30374EB56}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGenerics.WP7", "NGenerics\NGenerics.WP7.csproj", "{AF310F59-3C00-4554-BC62-A628B166E44B}"
 EndProject
