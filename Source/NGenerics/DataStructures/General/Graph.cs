@@ -32,9 +32,7 @@ namespace NGenerics.DataStructures.General
     /// directed or undirected.
     /// </summary>
 	/// <typeparam name="T">The type of elements in the graph.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
     public class Graph<T> : ICollection<T>

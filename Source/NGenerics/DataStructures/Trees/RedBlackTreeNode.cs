@@ -9,19 +9,14 @@
 
 
 
-#if (!SILVERLIGHT)
-using System;
-#endif
-using System.Diagnostics.CodeAnalysis;
+using System;using System.Diagnostics.CodeAnalysis;
 
 namespace NGenerics.DataStructures.Trees {
     /// <summary>
     /// A container class, used for the RedBlackTree.
     /// </summary>
 	/// <typeparam name="T">The type of element.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     internal class RedBlackTreeNode<T> : BinaryTree<T> {
         

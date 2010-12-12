@@ -24,9 +24,7 @@ namespace NGenerics.DataStructures.Mathematical
     /// <remarks>
     /// Some of the members have been adapted from the JAMA package : http://math.nist.gov/javanumerics/jama/, which is in the public domain.
 	/// </remarks>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
 	public class Matrix : ObjectMatrix<double>, IMathematicalMatrix, IEquatable<IMathematicalMatrix>, ICollection<double>

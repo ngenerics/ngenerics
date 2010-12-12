@@ -6,9 +6,7 @@
  have received a copy of the license along with the source code.  If not, an online copy
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
-#if (!SILVERLIGHT)
 using System;
-#endif
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
@@ -20,9 +18,7 @@ namespace NGenerics.DataStructures.Trees.Observable
     /// </summary>
     /// <typeparam name="TKey">The type of the keys in the <see cref="ObservableSplayTree{TKey,TValue}"/>.</typeparam>
 	/// <typeparam name="TValue">The type of the values in the <see cref="ObservableSplayTree{TKey,TValue}"/>.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
     public partial class ObservableSplayTree<TKey, TValue> : SplayTree<TKey, TValue>

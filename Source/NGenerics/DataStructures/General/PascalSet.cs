@@ -22,9 +22,7 @@ namespace NGenerics.DataStructures.General
     /// A data structure for representing a set of objects and common operations performed on sets.
     /// </summary>
 	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     public class PascalSet : ICollection<int>, ISet, IEquatable<PascalSet>
     {
         #region Globals

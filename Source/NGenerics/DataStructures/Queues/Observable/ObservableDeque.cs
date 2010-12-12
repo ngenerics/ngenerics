@@ -8,10 +8,7 @@
 */
 
 
-#if (!SILVERLIGHT)
-using System;
-#endif
-using System.Collections.Specialized;
+using System;using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
 
 namespace NGenerics.DataStructures.Queues.Observable

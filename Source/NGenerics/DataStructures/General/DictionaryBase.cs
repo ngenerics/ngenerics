@@ -47,9 +47,7 @@ namespace NGenerics.DataStructures.General
     /// </remarks>
     /// <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
 	/// <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
 	public abstract class DictionaryBase<TKey, TValue> : IDictionary<TKey, TValue>, IDictionary
 #if (!SILVERLIGHT && !WINDOWSPHONE)

@@ -8,9 +8,7 @@
 */
 
 
-#if (!SILVERLIGHT)
 using System;
-#endif
 using System.Collections.Generic;
 
 namespace NGenerics.DataStructures.General
@@ -22,9 +20,7 @@ namespace NGenerics.DataStructures.General
     /// </summary>
     /// <typeparam name="TKey">The type of the key for the association.</typeparam>
 	/// <typeparam name="TValue">The type of the value for the association.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     public class Association<TKey, TValue> 
 	{
 		#region Construction

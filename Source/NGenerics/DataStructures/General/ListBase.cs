@@ -23,9 +23,7 @@ namespace NGenerics.DataStructures.General
     /// <summary>
     /// Represents a strongly typed list of objects that can be accessed by index. Provides methods to search, sort, and manipulate lists.
     /// </summary>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [DebuggerDisplay("Count = {Count}")]
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]

@@ -11,15 +11,11 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
-#if (!SILVERLIGHT)
 using System;
-#endif
 
 namespace NGenerics.DataStructures.General.Observable
 {
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     public partial class ObservableDictionary<TKey, TValue> : DictionaryBase<TKey, TValue>
     {

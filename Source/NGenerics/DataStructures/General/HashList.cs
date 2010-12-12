@@ -23,9 +23,7 @@ namespace NGenerics.DataStructures.General
 	/// </summary>
 	/// <typeparam name="TKey">The type of the keys in the HashList.</typeparam>
 	/// <typeparam name="TValue">The type of the values in the HashList.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
 	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     public class HashList<TKey, TValue> : DictionaryBase<TKey, IList<TValue>>
 	{

@@ -21,9 +21,7 @@ namespace NGenerics.DataStructures.Mathematical
    /// Adapted from the JAMA package : http://math.nist.gov/javanumerics/jama/
    /// and from Numerical recipes
 	/// </remarks>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
    public class CholeskyDecomposition : IDecomposition
    {
       #region Globals

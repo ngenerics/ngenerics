@@ -175,6 +175,7 @@
     <Compile Include="DataStructures\Trees\Observable\ObservableRedBlackTree.Notification.cs" />
     <Compile Include="DataStructures\Trees\Observable\ObservableSplayTree.cs" />
     <Compile Include="DataStructures\Trees\Observable\ObservableSplayTree.Notification.cs" />
+    <Compile Include="Util\SerializableAttribute.cs" />
     <Compile Include="Util\SimpleMonitor.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeBase.cs" />
     <Compile Include="DataStructures\Trees\ISearchTreeDictionary.cs" />

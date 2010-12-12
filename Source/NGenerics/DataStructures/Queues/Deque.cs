@@ -19,9 +19,7 @@ namespace NGenerics.DataStructures.Queues
 	/// A data structure much like a queue, except that you can enqueue and dequeue to both the head and the tail.
 	/// </summary>
 	/// <typeparam name="T">The type of the elements in the <see cref="Deque{T}"/>.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
 	public class Deque<T> : ICollection<T>, IDeque<T>

@@ -7,9 +7,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-#if (!SILVERLIGHT)
 using System;
-#endif
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -21,9 +19,7 @@ namespace NGenerics.DataStructures.General
     /// A class representing a vertex in a graph.
 	/// </summary>
 	/// <typeparam name="T">The type contained in the vertex.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
 	public class Vertex<T>
 	{
 		#region Globals

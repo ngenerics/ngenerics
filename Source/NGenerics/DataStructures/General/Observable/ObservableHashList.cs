@@ -7,9 +7,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-#if (!SILVERLIGHT)
 using System;
-#endif
 
 using System.Collections.Generic;
 using System.Collections.Specialized;

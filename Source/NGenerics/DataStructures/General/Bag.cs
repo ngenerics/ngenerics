@@ -27,9 +27,7 @@ namespace NGenerics.DataStructures.General
     /// multiplicities of the members a, b, and c are respectively 2, 3, and 1.
 	/// </remarks>
 	/// <typeparam name="T">The type of elements in the <see cref="Bag{T}"/>.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
 	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
 	public class Bag<T> : IBag<T>, IEquatable<Bag<T>>
 	{

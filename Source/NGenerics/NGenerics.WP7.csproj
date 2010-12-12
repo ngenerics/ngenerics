@@ -220,6 +220,7 @@
     <Compile Include="Threading\ProgressChangedEventArgs.cs" />
     <Compile Include="Threading\RunWorkerCompletedEventArgs.cs" />
     <Compile Include="Util\Guard.cs" />
+	<Compile Include="Util\SerializableAttribute.cs" />
     <Compile Include="Util\SimpleMonitor.cs" />
     <Compile Include="Util\Swapper.cs" />
   </ItemGroup>

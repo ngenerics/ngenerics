@@ -36,9 +36,7 @@ namespace NGenerics.DataStructures.Mathematical
    /// <remarks>
    /// Adapted from the JAMA package : http://math.nist.gov/javanumerics/jama/
 	/// </remarks>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
    public class QRDecomposition : IDecomposition
    {
 

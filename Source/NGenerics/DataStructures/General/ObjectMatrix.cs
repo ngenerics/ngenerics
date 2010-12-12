@@ -22,9 +22,7 @@ namespace NGenerics.DataStructures.General
     /// A data structure representing a matrix of objects.
 	/// </summary>
 	/// <typeparam name="T">The type of elements in the object matrix.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
     public class ObjectMatrix<T> : IMatrix<T>, ICollection<T>

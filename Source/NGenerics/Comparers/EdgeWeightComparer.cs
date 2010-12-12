@@ -7,9 +7,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-#if (!SILVERLIGHT)
 using System;
-#endif
 using System.Collections.Generic;
 using NGenerics.DataStructures.General;
 
@@ -19,9 +17,7 @@ namespace NGenerics.Comparers
     /// A comparer for comparing weights on graph edges.
 	/// </summary>
 	/// <typeparam name="T">The type of the objects to compare.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     public sealed class EdgeWeightComparer<T> : IComparer<Edge<T>>
     {
 

@@ -21,9 +21,7 @@ namespace NGenerics.DataStructures.Trees
     /// An implementation of a Binary Tree data structure.
     /// </summary>
 	/// <typeparam name="T">The type of elements in the <see cref="BinaryTree{T}"/>.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     public class BinaryTree<T> : ICollection<T>, ITree<T>
     {

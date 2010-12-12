@@ -20,9 +20,7 @@ namespace NGenerics.DataStructures.Queues
     /// An implementation of a Circular Queue.
 	/// </summary>
 	/// <typeparam name="T">The type of the elements in the <see cref="CircularQueue{T}"/>.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
     [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]

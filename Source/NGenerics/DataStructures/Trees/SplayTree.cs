@@ -24,9 +24,7 @@ namespace NGenerics.DataStructures.Trees
     /// <typeparam name="TKey">The type of the keys in the <see cref="SplayTree{TKey,TValue}"/>.</typeparam>
     /// <typeparam name="TValue">The type of the values in the <see cref="SplayTree{TKey,TValue}"/>.</typeparam>
 	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     public class SplayTree<TKey, TValue> : BinarySearchTreeBase<TKey, TValue>
     {
         #region Globals

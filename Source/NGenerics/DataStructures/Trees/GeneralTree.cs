@@ -24,9 +24,7 @@ namespace NGenerics.DataStructures.Trees
     /// A general tree data structure that can hold any amount of nodes.
     /// </summary>
     /// <typeparam name="T">The type of elements in the <see cref="GeneralTree{T}"/>.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     public class GeneralTree<T> : ICollection<T>, ITree<T>, ISortable<GeneralTree<T>>
     {

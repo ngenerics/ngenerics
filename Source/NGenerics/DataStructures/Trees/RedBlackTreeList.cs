@@ -19,9 +19,7 @@ namespace NGenerics.DataStructures.Trees
     /// </summary>
     /// <typeparam name="TKey">The type of the key.</typeparam>
 	/// <typeparam name="TValue">The type of the value.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
     [Serializable]
-#endif
     internal class RedBlackTreeList<TKey, TValue> : RedBlackTree<TKey, LinkedList<TValue>>
     {
         #region Delegates
