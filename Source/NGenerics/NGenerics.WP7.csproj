@@ -47,11 +47,11 @@
     <Reference Include="system">
       <HintPath>..\Dependencies\WindowsPhone\System.dll</HintPath>
     </Reference>
-    <Reference Include="system.core">
-      <HintPath>..\Dependencies\WindowsPhone\System.Core.dll</HintPath>
-    </Reference>
     <Reference Include="system.windows">
       <HintPath>..\Dependencies\WindowsPhone\System.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="system.core">
+      <HintPath>..\Dependencies\WindowsPhone\System.Core.dll</HintPath>
     </Reference>
     <Reference Include="system.xml">
       <HintPath>..\Dependencies\WindowsPhone\System.xml.dll</HintPath>
@@ -237,5 +237,4 @@
   <Import Project="$(SolutionDir)\Dependencies\SilverlightForPhoneV4.0\Microsoft.Silverlight.WindowsPhone.Overrides.targets" />
   <Import Project="$(SolutionDir)\Dependencies\SilverlightForPhoneV4.0\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />
-
 </Project>

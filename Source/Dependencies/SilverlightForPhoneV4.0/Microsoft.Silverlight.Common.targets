@@ -93,7 +93,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
         <!-- Reset some items from the above task. Will remove when we merge with SL build system -->
         <PropertyGroup>
             <_FullFrameworkReferenceAssemblyPaths>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPathToStandardLibraries($(TargetFrameworkIdentifier), $(TargetFrameworkVersion), ''))</_FullFrameworkReferenceAssemblyPaths>
-            <TargetFrameworkDirectory>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPathToStandardLibraries($(TargetFrameworkIdentifier), $(TargetFrameworkVersion), $(TargetFrameworkProfile)))</TargetFrameworkDirectory>
+            <TargetFrameworkDirectory>$(SolutionDir)\Dependencies\WindowsPhone</TargetFrameworkDirectory>
         </PropertyGroup>
       
         <PropertyGroup>
