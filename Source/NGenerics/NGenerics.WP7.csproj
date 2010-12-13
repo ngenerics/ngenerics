@@ -234,8 +234,8 @@
     <None Include="Diagrams\Trees.cd" />
     <None Include="Diagrams\Vectors.cd" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <Import Project="$(SolutionDir)\Dependencies\SilverlightForPhoneV4.0\Microsoft.Silverlight.WindowsPhone.Overrides.targets" />
+  <Import Project="$(SolutionDir)\Dependencies\SilverlightForPhoneV4.0\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />
 
 </Project>
