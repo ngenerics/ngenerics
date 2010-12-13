@@ -47,15 +47,18 @@
     </Reference>
     <Reference Include="system">
       <HintPath>..\Dependencies\WindowsPhone\System.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="system.windows">
       <HintPath>..\Dependencies\WindowsPhone\System.Windows.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="system.core">
       <HintPath>..\Dependencies\WindowsPhone\System.Core.dll</HintPath>
     </Reference>
     <Reference Include="system.xml">
       <HintPath>..\Dependencies\WindowsPhone\System.xml.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
