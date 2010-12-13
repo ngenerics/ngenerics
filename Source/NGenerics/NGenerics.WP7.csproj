@@ -42,19 +42,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\Profile\WindowsPhone\mscorlib.dll</HintPath>
+      <HintPath>..\Dependencies\WindowsPhone\mscorlib.dll</HintPath>
     </Reference>
-    <Reference Include="System">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\Profile\WindowsPhone\System.dll</HintPath>
+    <Reference Include="system">
+      <HintPath>..\Dependencies\WindowsPhone\System.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows" >
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\Profile\WindowsPhone\System.dll</HintPath>
+    <Reference Include="system.core">
+      <HintPath>..\Dependencies\WindowsPhone\System.Core.dll</HintPath>
     </Reference>
-    <Reference Include="System.Core" >
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\Profile\WindowsPhone\System.dll</HintPath>
+    <Reference Include="system.windows">
+      <HintPath>..\Dependencies\WindowsPhone\System.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net" >
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\Profile\WindowsPhone\System.dll</HintPath>
+    <Reference Include="system.xml">
+      <HintPath>..\Dependencies\WindowsPhone\System.xml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -220,7 +220,7 @@
     <Compile Include="Threading\ProgressChangedEventArgs.cs" />
     <Compile Include="Threading\RunWorkerCompletedEventArgs.cs" />
     <Compile Include="Util\Guard.cs" />
-	<Compile Include="Util\SerializableAttribute.cs" />
+    <Compile Include="Util\SerializableAttribute.cs" />
     <Compile Include="Util\SimpleMonitor.cs" />
     <Compile Include="Util\Swapper.cs" />
   </ItemGroup>
@@ -237,11 +237,5 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
