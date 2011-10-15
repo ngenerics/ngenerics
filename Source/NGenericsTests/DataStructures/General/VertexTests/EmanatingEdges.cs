@@ -108,5 +108,19 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
                                 vertex1.GetEmanatingEdgeTo(vertex2)
                 );
         }
+
+        [Test]
+        public void EdgeToSelfInDirectedGraph()
+        {
+            var graph = new Graph<int>(true);
+            var vertex = new Vertex<int>(3);
+
+            var edge = new Edge<int>(vertex, vertex, true);
+
+            graph.AddVertex(vertex);
+            graph.AddEdge(edge);
+
+            Assert.AreEqual(vertex.EmanatingEdges.Count, 1);
+        }
     }
 }

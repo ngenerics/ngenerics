@@ -17,8 +17,6 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
 
     public class GraphTest
     {
-
-
         internal static Graph<int> GetTestDirectedGraph()
         {
             var graph = new Graph<int>(true);

@@ -43,7 +43,7 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
         }
 
         [Test]
-        public void tUndirected()
+        public void Undirected()
         {
             var graph = new Graph<int>(false);
             var vertex1 = new Vertex<int>(1);

@@ -1078,7 +1078,11 @@ namespace NGenerics.DataStructures.General
             #endregion
 
             edge.FromVertex.AddEdge(edge);
-            edge.ToVertex.AddEdge(edge);
+
+            if (edge.FromVertex != edge.ToVertex)
+            {
+                edge.ToVertex.AddEdge(edge);
+            }
         }
 
         /// <summary>
