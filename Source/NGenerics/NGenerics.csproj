@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230}</ProjectGuid>
+    <ProjectGuid>{11FC7AAB-0FFD-499E-97B8-9C69CC73E842}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NGenerics</RootNamespace>
