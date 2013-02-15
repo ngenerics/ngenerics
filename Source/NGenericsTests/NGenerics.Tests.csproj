@@ -271,33 +271,6 @@
     <Compile Include="DataStructures\General\ObjectMatrixTests\Remove.cs" />
     <Compile Include="DataStructures\General\ObjectMatrixTests\Resize.cs" />
     <Compile Include="DataStructures\General\ObjectMatrixTests\Serializable.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableBagTests\Add.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableBagTests\Clear.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableBagTests\Construction.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableBagTests\Reentrancy.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableDictionaryTests\Add.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableDictionaryTests\Clear.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableDictionaryTests\Contruction.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableDictionaryTests\Remove.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHashListTests\Add.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHashListTests\AddItem.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHashListTests\Clear.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHashListTests\Contruction.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHashListTests\Remove.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHashListTests\RemoveAll.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHeapTests\Add.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHeapTests\Clear.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHeapTests\Contruction.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservablePascalSetTests\Add.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservablePascalSetTests\Clear.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservablePascalSetTests\Contruction.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableSkipListTests\Add.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableSkipListTests\Clear.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableSkipListTests\Contruction.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableSortedListTests\Add.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableSortedListTests\Clear.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableSortedListTests\Contruction.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableSortedListTests\Remove.cs" />
     <Compile Include="DataStructures\General\SetTests\Accepct.cs" />
     <Compile Include="DataStructures\General\SetTests\Capacity.cs" />
     <Compile Include="DataStructures\General\SetTests\Clear.cs" />
@@ -550,12 +523,14 @@
     <Compile Include="DataStructures\Mathematical\Vector3DTests\Swap.cs" />
     <Compile Include="DataStructures\Mathematical\Vector3DTests\ToArray.cs" />
     <Compile Include="DataStructures\Mathematical\Vector3DTests\ToStringObj.cs" />
-    <Compile Include="DataStructures\Mathematical\Vector3DTests\Vector3DTest.cs">
+    <Compile Include="DataStructures\Mathematical\Vector3DTests\UnitVector.cs" />
+    <Compile Include="DataStructures\Mathematical\Vector3DTests\ToMatrix.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataStructures\Mathematical\Vector3DTests\ToMatrixOperator.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataStructures\Mathematical\Vector3DTests\ZeroVector.cs" />
     <Compile Include="DataStructures\Mathematical\VectorBaseTests\Accept.cs" />
     <Compile Include="DataStructures\Mathematical\VectorBaseTests\Add.cs" />
     <Compile Include="DataStructures\Mathematical\VectorBaseTests\Clear.cs" />
@@ -679,22 +654,6 @@
     <Compile Include="DataStructures\Queues\MinPriorityQueueHeapTests\Remove.cs" />
     <Compile Include="DataStructures\Queues\MinPriorityQueueHeapTests\RemovePriorityGroup.cs" />
     <Compile Include="DataStructures\Queues\MinPriorityQueueHeapTests\Serialization.cs" />
-    <Compile Include="DataStructures\Queues\ObservableCircularQueueTests\Clear.cs" />
-    <Compile Include="DataStructures\Queues\ObservableCircularQueueTests\Contruction.cs" />
-    <Compile Include="DataStructures\Queues\ObservableCircularQueueTests\Enqueue.cs" />
-    <Compile Include="DataStructures\Queues\ObservableCircularQueueTests\Remove.cs" />
-    <Compile Include="DataStructures\Queues\ObservableDequeTests\Clear.cs" />
-    <Compile Include="DataStructures\Queues\ObservableDequeTests\Contruction.cs" />
-    <Compile Include="DataStructures\Queues\ObservableDequeTests\DequeueHead.cs" />
-    <Compile Include="DataStructures\Queues\ObservableDequeTests\EnqueueHead.cs" />
-    <Compile Include="DataStructures\Queues\ObservableDequeTests\EnqueueTail.cs" />
-    <Compile Include="DataStructures\Queues\ObservablePriorityQueueTests\Add.cs" />
-    <Compile Include="DataStructures\Queues\ObservablePriorityQueueTests\AddPriorityGroup.cs" />
-    <Compile Include="DataStructures\Queues\ObservablePriorityQueueTests\Clear.cs" />
-    <Compile Include="DataStructures\Queues\ObservablePriorityQueueTests\Contruction.cs" />
-    <Compile Include="DataStructures\Queues\ObservablePriorityQueueTests\Dequeue.cs" />
-    <Compile Include="DataStructures\Queues\ObservablePriorityQueueTests\Enqueue.cs" />
-    <Compile Include="DataStructures\Queues\ObservablePriorityQueueTests\Remove.cs" />
     <Compile Include="DataStructures\Queues\PriorityQueueTests\Construction.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeTests\Accept.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeTests\Add.cs" />
@@ -765,24 +724,6 @@
     <Compile Include="DataStructures\Trees\GeneralTreeTests\Sort.cs" />
     <Compile Include="DataStructures\Trees\GeneralTreeTests\SortAllDescendants.cs" />
     <Compile Include="DataStructures\Trees\GeneralTreeTests\ToString.cs" />
-    <Compile Include="DataStructures\Trees\ObservableBinarySearchTreeTests\Add.cs" />
-    <Compile Include="DataStructures\Trees\ObservableBinarySearchTreeTests\Clear.cs" />
-    <Compile Include="DataStructures\Trees\ObservableBinarySearchTreeTests\Contruction.cs" />
-    <Compile Include="DataStructures\Trees\ObservableBinaryTreeTests\Add.cs" />
-    <Compile Include="DataStructures\Trees\ObservableBinaryTreeTests\Clear.cs" />
-    <Compile Include="DataStructures\Trees\ObservableBinaryTreeTests\Contruction.cs" />
-    <Compile Include="DataStructures\Trees\ObservableBinaryTreeTests\Remove.cs" />
-    <Compile Include="DataStructures\Trees\ObservableBinaryTreeTests\RemoveLeft.cs" />
-    <Compile Include="DataStructures\Trees\ObservableGeneralTreeTests\Add.cs" />
-    <Compile Include="DataStructures\Trees\ObservableGeneralTreeTests\Clear.cs" />
-    <Compile Include="DataStructures\Trees\ObservableGeneralTreeTests\Contruction.cs" />
-    <Compile Include="DataStructures\Trees\ObservableGeneralTreeTests\Remove.cs" />
-    <Compile Include="DataStructures\Trees\ObservableRedBlackTreeTests\Add.cs" />
-    <Compile Include="DataStructures\Trees\ObservableRedBlackTreeTests\Clear.cs" />
-    <Compile Include="DataStructures\Trees\ObservableRedBlackTreeTests\Contruction.cs" />
-    <Compile Include="DataStructures\Trees\ObservableSplayTreeTests\Add.cs" />
-    <Compile Include="DataStructures\Trees\ObservableSplayTreeTests\Clear.cs" />
-    <Compile Include="DataStructures\Trees\ObservableSplayTreeTests\Contruction.cs" />
     <Compile Include="DataStructures\Trees\RedBlackTreeTests\Accept.cs" />
     <Compile Include="DataStructures\Trees\RedBlackTreeTests\Add.cs" />
     <Compile Include="DataStructures\Trees\RedBlackTreeTests\Clear.cs" />
@@ -888,19 +829,6 @@
       <DependentUpon>TestFiles.resx</DependentUpon>
     </Compile>
     <Compile Include="Threading\BackgroundWorkerTest.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableBagTests\Remove.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHashListTests\RemoveValue.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableHeapTests\Remove.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservablePascalSetTests\Remove.cs" />
-    <Compile Include="DataStructures\General\Observable\ObservableSkipListTests\Remove.cs" />
-    <Compile Include="DataStructures\Queues\ObservableCircularQueueTests\Dequeue.cs" />
-    <Compile Include="DataStructures\Queues\ObservableDequeTests\DequeueTail.cs" />
-    <Compile Include="DataStructures\Queues\ObservablePriorityQueueTests\RemovePriorityGroup.cs" />
-    <Compile Include="DataStructures\Trees\ObservableBinarySearchTreeTests\Remove.cs" />
-    <Compile Include="DataStructures\Trees\ObservableBinaryTreeTests\RemoveRight.cs" />
-    <Compile Include="DataStructures\Trees\ObservableGeneralTreeTests\RemoveAt.cs" />
-    <Compile Include="DataStructures\Trees\ObservableRedBlackTreeTests\Remove.cs" />
-    <Compile Include="DataStructures\Trees\ObservableSplayTreeTests\Remove.cs" />
     <Compile Include="TestObjects\ObservableCollectionTester.cs" />
     <Compile Include="TestObjects\ReentracyTester.cs" />
     <Compile Include="Util\CompletedTrackingVisitor.cs" />

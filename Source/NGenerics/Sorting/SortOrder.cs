@@ -1,5 +1,5 @@
 /*  
-  Copyright 2007-2010 The NGenerics Team
+  Copyright 2007-2013 The NGenerics Team
  (https://github.com/ngenerics/ngenerics/wiki/Team)
 
  This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
@@ -8,22 +8,21 @@
 */
 
 
-
 namespace NGenerics.Sorting
 {
     /// <summary>
     /// Specifies the sorting order.
     /// </summary>
-	public enum SortOrder
-	{
+    public enum SortOrder
+    {
         /// <summary>
         /// Sort in ascending order.
         /// </summary>
-		Ascending = 0,
+        Ascending = 0,
 
         /// <summary>
         /// Sort in descending order.
         /// </summary>
-		Descending = 1
-	}
+        Descending = 1
+    }
 }

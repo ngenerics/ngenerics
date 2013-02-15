@@ -51,7 +51,6 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
 
             Assert.IsFalse(circularQueue.IsEmpty);
 
-            Console.WriteLine("d.IsFull");
             Assert.IsTrue(circularQueue.IsFull);
             Assert.AreEqual(circularQueue.Count, 4);
 

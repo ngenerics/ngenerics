@@ -57,22 +57,9 @@ namespace NGenerics.Tests.DataStructures.Mathematical.CholeskyDecompositionTests
             matrixA[4, 3] = 1;
             matrixA[4, 4] = 8;
 
-            //var matrixB = new Matrix(2, 2);
-
-            //matrixB[0, 0] = 1;
-            //matrixB[0, 1] = 0;
-
-            //matrixB[1, 0] = 0;
-            //matrixB[1, 1] = -1;
-
-            Console.WriteLine(matrixA.ToString());
-
             var decomposition = new CholeskyDecomposition(matrixA);
-            //  Matrix solveMatrix = decomposition.Solve(matrixB);
 
             var QCMatrix = decomposition.LeftFactorMatrix;
-
-            Console.WriteLine(QCMatrix.ToString());
 
             Assert.AreEqual(QCMatrix.Rows, 5);
             Assert.AreEqual(QCMatrix.Columns, 5);

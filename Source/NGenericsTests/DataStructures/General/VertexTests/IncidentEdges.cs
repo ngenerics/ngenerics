@@ -64,11 +64,6 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
 
             var edgeList = vertex3.IncidentEdges;
 
-            foreach (var edge in edgeList)
-            {
-                Console.Write(edge.Weight.ToString());
-            }
-
             Assert.AreEqual(edgeList.Count, 1);
             AssertContainsEdges(edgeList, true,
                                 vertex3.GetEmanatingEdgeTo(vertex1)

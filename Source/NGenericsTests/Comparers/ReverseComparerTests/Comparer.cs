@@ -1,5 +1,5 @@
 /*  
-  Copyright 2007-2010 The NGenerics Team
+  Copyright 2007-2013 The NGenerics Team
  (https://github.com/ngenerics/ngenerics/wiki/Team)
 
  This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
@@ -8,14 +8,14 @@
 */
 
 
-using System;
-using System.Collections.Generic;
-using NGenerics.Tests.Util;
-using NUnit.Framework;
-using NGenerics.Comparers;
-
 namespace NGenerics.Tests.Comparers.ReverseComparerTests
 {
+    using System;
+    using System.Collections.Generic;
+    using NGenerics.Comparers;
+    using Util;
+    using NUnit.Framework;
+
     [TestFixture]
     public class Comparer
     {

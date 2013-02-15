@@ -39,10 +39,8 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
             matrix[2, 2] = 0;
 
 
-            Console.WriteLine(matrix);
             Assert.AreEqual(matrix.IsTriangular, TriangularMatrixType.Upper);
             matrix = matrix.Transpose();
-            Console.WriteLine(matrix);
             Assert.AreEqual(matrix.IsTriangular, TriangularMatrixType.Lower);
         }
 

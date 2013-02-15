@@ -84,23 +84,12 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
                     if (circularQueue.Count > 0)
                     {
                         var val = circularQueue.Dequeue();
-
-                        if (!currentItems.Contains(val))
-                        {
-                            Console.Write("a");
-                        }
-
                         Assert.IsTrue(currentItems.Remove(val));
                     }
                 }
 
                 foreach (var item in currentItems)
                 {
-                    if (circularQueue.Contains(item) == false)
-                    {
-                        Console.Write("a");
-                    }
-
                     Assert.IsTrue(circularQueue.Contains(item));
                 }
             }

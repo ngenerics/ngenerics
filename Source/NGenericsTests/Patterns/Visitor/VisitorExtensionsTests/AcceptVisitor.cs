@@ -7,14 +7,13 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System;
-using System.Collections.Generic;
-using NGenerics.Patterns.Visitor;
-using NUnit.Framework;
-using Rhino.Mocks;
-
 namespace NGenerics.Tests.Patterns.Visitor.VisitorExtensionsTests
 {
+    using System;
+    using System.Collections.Generic;
+    using NGenerics.Patterns.Visitor;
+    using NUnit.Framework;
+    using Rhino.Mocks;
 
     [TestFixture]
     public class AcceptVisitor

@@ -62,7 +62,6 @@ namespace NGenerics.Tests.DataStructures.Mathematical.CholeskyDecompositionTests
 
 
             var AA = decomposition.LeftFactorMatrix * decomposition.RightFactorMatrix;
-            Console.WriteLine(AA.ToString());
 
             Assert.AreEqual(AA.Rows, 5);
             Assert.AreEqual(AA.Columns, 5);
