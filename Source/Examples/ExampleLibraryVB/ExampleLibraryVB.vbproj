@@ -171,9 +171,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NGenerics\NGenerics.Net4.csproj">
+    <ProjectReference Include="..\..\NGenerics\NGenerics.csproj">
       <Project>{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230}</Project>
-      <Name>NGenerics.Net4</Name>
+      <Name>NGenerics</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

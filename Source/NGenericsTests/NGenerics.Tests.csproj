@@ -43,6 +43,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,12 +68,13 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.4.1.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\Nunit\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Rhino.Mocks">
-      <HintPath>..\Dependencies\Rhino.Mocks\Rhino.Mocks.dll</HintPath>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -825,7 +828,6 @@
     <Compile Include="Extensions\ListExtensionsTests\Sort.cs" />
     <Compile Include="Extensions\ObjectExtensionsTests\ObjectExtensionsTests.cs" />
     <Compile Include="Infrastructure\CodeFormat.cs" />
-    <Compile Include="Infrastructure\SilverLightTests.cs" />
     <Compile Include="Patterns\Conversion\ConvertAll.cs" />
     <Compile Include="Patterns\Specification\AndSpecification\Construction.cs" />
     <Compile Include="Patterns\Specification\CompositeSpecification\Construction.cs" />
@@ -843,8 +845,6 @@
     <Compile Include="Patterns\Visitor\OrderedVisitorTests\Construction.cs" />
     <Compile Include="Patterns\Visitor\ValueTrackingVisitorTests\Construction.cs" />
     <Compile Include="Sorting\Sort.cs" />
-    <Compile Include="SupportPrograms\ProjectSynchronizer\Parsing\VS2008ProjectParserTests.cs" />
-    <Compile Include="SupportPrograms\ProjectSynchronizer\Parsing\VS2008SynchronizerTests.cs" />
     <Compile Include="TestObjects\NonComparableTClass.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -919,13 +919,9 @@
     <Compile Include="Patterns\Visitor\VisitorExtensionsTests\AcceptVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NGenerics\NGenerics.Net4.csproj">
+    <ProjectReference Include="..\NGenerics\NGenerics.csproj">
       <Project>{EC7DC9A7-D59A-4D20-99BA-9A5EE3FC7230}</Project>
-      <Name>NGenerics.Net4</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SupportPrograms\ProjectSynchronizer\ProjectSynchronizer.csproj">
-      <Project>{6E7A7679-7F1E-4165-88D8-5E4593CA34A6}</Project>
-      <Name>ProjectSynchronizer</Name>
+      <Name>NGenerics</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -957,6 +953,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="NGenerics.snk" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestObjects\TestFiles.resx">
@@ -982,4 +979,5 @@
       <UserProperties Notes="&lt;Notes Project=&quot;eb755c88-21f2-41bc-b1c4-7c3392d1aa53&quot; xmlns=&quot;clr-namespace:StickyNotes.Model;assembly=StickyNotes&quot;&gt;&lt;Notes.StickyNotes&gt;&lt;Note FilePath=&quot;&quot; Content=&quot;&quot; Date=&quot;2008-09-11T04:20:56.25+02:00&quot; /&gt;&lt;/Notes.StickyNotes&gt;&lt;/Notes&gt;" />
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>
