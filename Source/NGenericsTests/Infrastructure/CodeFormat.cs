@@ -1,6 +1,6 @@
 ﻿/*  
-  Copyright 2007-2010 The NGenerics Team
- (http://code.google.com/p/ngenerics/wiki/Team)
+  Copyright 2007-2013 The NGenerics Team
+ (https://github.com/ngenerics/ngenerics/wiki/Team)
 
  This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
  have received a copy of the license along with the source code.  If not, an online copy
@@ -69,7 +69,7 @@ namespace NGenerics.Tests.Infrastructure
 
         private static void ScanFiles(string directory, ICollection<string> ret)
         {
-            const string firstLine = "Copyright 2007-2010 The NGenerics Team";
+            const string firstLine = "Copyright 2007-2013 The NGenerics Team";
 
             foreach (var file in Directory.GetFiles(directory, "*.cs"))
             {
