@@ -5,7 +5,7 @@ NGenerics includes contains several useful data structures and
 algorithms.  For a complete list, please see the
 [wiki](https://github.com/ngenerics/ngenerics/wiki).
 
-Nuget packages can be found [[here|https://nuget.org/packages/NGenerics/]].
+Nuget packages can be found [here](https://nuget.org/packages/NGenerics/).
 
 CI Builds provided by [Codebetter TeamCity build server](http://teamcity.codebetter.com)
 
