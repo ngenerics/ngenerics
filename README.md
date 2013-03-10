@@ -9,12 +9,12 @@ Nuget packages can be found [[here|https://nuget.org/packages/NGenerics/]].
 
 CI Builds provided by [Codebetter TeamCity build server](http://teamcity.codebetter.com)
 
-Old builds can still be found at the old project site at [[Google Code||https://code.google.com/p/ngenerics/]].
+Old builds can still be found at the old project site at [Google Code](https://code.google.com/p/ngenerics/).
 
 Changelog
 ---------
 
-* _February 2013_ - Project site moved to Github from [[Google Code||https://code.google.com/p/ngenerics/]]. 
+* _February 2013_ - Project site moved to Github from [Google Code](https://code.google.com/p/ngenerics/). 
 
 Old version history : [Version History](https://github.com/ngenerics/ngenerics/wiki/VersionHistory)
 
