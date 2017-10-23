@@ -14,6 +14,8 @@ Old builds can still be found at the old project site at [Google Code](https://c
 Changelog
 ---------
 
+* _October 2017_ - Changed license from LGPL to the more permissive MIT
+
 * _February 2013_ - Project site moved to Github from [Google Code](https://code.google.com/p/ngenerics/). 
 
 Old version history : [Version History](https://github.com/ngenerics/ngenerics/wiki/VersionHistory)
