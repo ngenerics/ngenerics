@@ -22,10 +22,7 @@ namespace NGenerics.DataStructures.Mathematical
     /// A Complex Number data structure.  
 	/// </summary>
     [Serializable]
-	public struct ComplexNumber : IEquatable<ComplexNumber>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
-        , ICloneable
-#endif
+	public struct ComplexNumber : IEquatable<ComplexNumber>, ICloneable
     {
         #region Globals
 

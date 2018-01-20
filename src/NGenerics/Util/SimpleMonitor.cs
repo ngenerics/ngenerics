@@ -10,9 +10,7 @@
 using System;
 
 namespace NGenerics.Util {
-#if (!SILVERLIGHT && ! WINDOWSPHONE)
     [Serializable]
-#endif
     internal class SimpleMonitor : IDisposable
     {
         // Fields

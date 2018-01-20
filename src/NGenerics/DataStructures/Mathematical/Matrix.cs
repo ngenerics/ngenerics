@@ -28,10 +28,7 @@ namespace NGenerics.DataStructures.Mathematical
     [Serializable]
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-	public class Matrix : ObjectMatrix<double>, IMathematicalMatrix, IEquatable<IMathematicalMatrix>, ICollection<double>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
-        , ICloneable
-#endif
+	public class Matrix : ObjectMatrix<double>, IMathematicalMatrix, IEquatable<IMathematicalMatrix>, ICollection<double>, ICloneable
     {
 
         const string incompatibleMatrices = "Incompatible matrices.  For this operation the matrices should be of the same size.";
@@ -1209,7 +1206,6 @@ namespace NGenerics.DataStructures.Mathematical
 
         #endregion
 
-#if (!SILVERLIGHT && !WINDOWSPHONE)
 		#region IClonable Members
 
 		/// <inheritdoc />
@@ -1219,7 +1215,6 @@ namespace NGenerics.DataStructures.Mathematical
         }
 
         #endregion
-#endif
 
         #region IEquatable<IMathematicalMatrix> Members
 

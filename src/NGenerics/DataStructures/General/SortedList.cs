@@ -21,9 +21,7 @@ namespace NGenerics.DataStructures.General
 	/// added to it sorted.
 	/// </summary>
 	/// <typeparam name="T">The type of elements in the sorted list.</typeparam>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
 	[Serializable]
-#endif
 	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
 	[SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
 	public class SortedList<T> : IList<T>, IList

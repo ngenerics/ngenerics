@@ -18,11 +18,9 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using NGenerics.Util;
-#if (!SILVERLIGHT && !WINDOWSPHONE)
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.Serialization;
 using System.Security;
-#endif
 namespace NGenerics.DataStructures.General
 {
     /// <summary>
@@ -32,12 +30,8 @@ namespace NGenerics.DataStructures.General
     /// All operations are performed in case insensitive manner using <see cref="StringComparison.InvariantCultureIgnoreCase"/>.
     /// </remarks>
     [ComVisible(true)]
-#if (SILVERLIGHT || WINDOWSPHONE)
-	public sealed class CaseInsensitiveString : IComparable,  IConvertible, IComparable<string>, IEquatable<string>, IEquatable<CaseInsensitiveString>,  IXmlSerializable, IEnumerable<char>
-#else
     [Serializable]
     public sealed class CaseInsensitiveString : IComparable, IConvertible, IComparable<string>, IEquatable<string>, IEquatable<CaseInsensitiveString>, IXmlSerializable, IEnumerable<char>, ICloneable, ISerializable
-#endif
     {
 
         /// <summary>
@@ -58,15 +52,11 @@ namespace NGenerics.DataStructures.General
             Value = value;
         }
 
-
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         private CaseInsensitiveString(SerializationInfo info, StreamingContext context)
         {
             Guard.ArgumentNotNull(info, "info");
             Value = (string)info.GetValue("StringValue", typeof(string));
         }
-#endif
-
 
         /// <summary>
         /// Gets or sets the underlying case sensitive string.
@@ -141,10 +131,6 @@ namespace NGenerics.DataStructures.General
             Value = reader.ReadElementContentAsString();
         }
 
-
-
-
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         /// <summary>
         /// Retrieves an object that can iterate through the individual characters in this string.
         /// </summary>
@@ -155,17 +141,11 @@ namespace NGenerics.DataStructures.General
         {
             return Value.GetEnumerator();
         }
-#endif
-
-
 
         private static bool EqualsHelper(CaseInsensitiveString left, CaseInsensitiveString right)
         {
             return left.Value.Equals(right.Value, StringComparison.InvariantCultureIgnoreCase);
         }
-
-
-#if (!SILVERLIGHT && !WINDOWSPHONE)
 
         [SecurityCritical]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -173,8 +153,6 @@ namespace NGenerics.DataStructures.General
             Guard.ArgumentNotNull(info, "info");
             info.AddValue("StringValue", Value);
         }
-#endif
-
 
 
         /// <summary>
@@ -187,8 +165,6 @@ namespace NGenerics.DataStructures.General
         }
 
 
-
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         #region ICloneable Members
         /// <summary>
         /// Returns a reference to this instance of <see cref="String"/>.
@@ -202,7 +178,6 @@ namespace NGenerics.DataStructures.General
         }
 
         #endregion
-#endif
 
         #region IComparable Members
 
@@ -519,9 +494,7 @@ namespace NGenerics.DataStructures.General
         /// </returns>
         /// <param name="value">A <see cref="String"/>.</param>
         /// <exception cref="NullReferenceException">This instance is null.</exception>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
-#endif
         public bool Equals(string value)
         {
             return (this == value);
@@ -538,9 +511,7 @@ namespace NGenerics.DataStructures.General
         /// </returns>
         /// <param name="value">A <see cref="CaseInsensitiveString"/>.</param>
         /// <exception cref="NullReferenceException">This instance is null.</exception>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
-#endif
         public bool Equals(CaseInsensitiveString value)
         {
             return (this == value);
@@ -614,9 +585,7 @@ namespace NGenerics.DataStructures.General
         /// </returns>
         /// <param name="obj">An <see cref="Object"/>.</param>
         /// <exception cref="NullReferenceException">This instance is null.</exception>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
-#endif
         public override bool Equals(object obj)
         {
             var strB = obj as string;
@@ -627,10 +596,6 @@ namespace NGenerics.DataStructures.General
 
             return Equals(strB);
         }
-
-
-
-
 
         /// <summary>
         /// Copies the characters in this instance to a Unicode character array.
@@ -644,7 +609,6 @@ namespace NGenerics.DataStructures.General
         }
 
 
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         /// <summary>
         /// Copies the characters in a specified substring in this instance to a Unicode character array.
         /// </summary>
@@ -662,7 +626,6 @@ namespace NGenerics.DataStructures.General
         {
             return Value.ToCharArray(startIndex, length);
         }
-#endif
 
         /// <summary>
         /// Returns the hash code for this string.
@@ -670,9 +633,7 @@ namespace NGenerics.DataStructures.General
         /// <returns>
         /// A 32-bit signed integer hash code.
         /// </returns>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
-#endif
         public override int GetHashCode()
         {
             return Value.ToUpper().GetHashCode();
@@ -691,7 +652,6 @@ namespace NGenerics.DataStructures.General
             return StringArrayTo(Value.Split(separator));
         }
 
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         /// <summary>
         /// Returns a string array that contains the substrings in this instance that are delimited by elements of a specified Unicode character array. A parameter specifies the maximum number of substrings to return.
         /// </summary>
@@ -705,7 +665,6 @@ namespace NGenerics.DataStructures.General
         {
             return StringArrayTo(Value.Split(separator, count));
         }
-#endif
 
         /// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified Unicode character array. A parameter specifies whether to return empty array elements.
@@ -722,8 +681,6 @@ namespace NGenerics.DataStructures.General
             return StringArrayTo(Value.Split(separator, options));
         }
 
-
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         /// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified Unicode character array. Parameters specify the maximum number of substrings to return and whether to return empty array elements.
         /// </summary>
@@ -740,7 +697,6 @@ namespace NGenerics.DataStructures.General
         {
             return StringArrayTo(Value.Split(separator, count, options));
         }
-#endif
 
         /// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified string array. A parameter specifies whether to return empty array elements.
@@ -757,8 +713,6 @@ namespace NGenerics.DataStructures.General
             return StringArrayTo(Value.Split(separator, options));
         }
 
-
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         /// <summary>
         /// Returns a string array that contains the substrings in this string that are delimited by elements of a specified string array. Parameters specify the maximum number of substrings to return and whether to return empty array elements.
         /// </summary>
@@ -775,7 +729,6 @@ namespace NGenerics.DataStructures.General
         {
             return StringArrayTo(Value.Split(separator, count, options));
         }
-#endif
 
         private static CaseInsensitiveString[] StringArrayTo(string[] strings)
         {
@@ -856,8 +809,6 @@ namespace NGenerics.DataStructures.General
         }
 
 
-#if (!SILVERLIGHT && !WINDOWSPHONE)
-
         /// <summary>
         /// Indicates whether this string is in Unicode normalization form C.
         /// </summary>
@@ -908,8 +859,6 @@ namespace NGenerics.DataStructures.General
             return Value.Normalize(normalizationForm);
         }
 
-#endif
-
         /// <summary>
         /// Returns a value indicating whether the specified <see cref="String"/> object occurs within this string.
         /// </summary>
@@ -952,7 +901,7 @@ namespace NGenerics.DataStructures.General
         {
             return Value.EndsWith(value, comparisonType);
         }
-#if (!SILVERLIGHT && !WINDOWSPHONE)
+
         /// <summary>
         /// Determines whether the end of this string matches the specified string when compared using the specified culture.
         /// </summary>
@@ -967,7 +916,7 @@ namespace NGenerics.DataStructures.General
         {
             return Value.EndsWith(value, ignoreCase, culture);
         }
-#endif
+
         /// <summary>
         /// Reports the index of the first occurrence of the specified Unicode character in this string.
         /// </summary>
@@ -1404,8 +1353,6 @@ namespace NGenerics.DataStructures.General
             return Value.StartsWith(value, comparisonType);
         }
 
-
-#if (!SILVERLIGHT && !WINDOWSPHONE)
         /// <summary>
         /// Determines whether the beginning of this string matches the specified string when compared using the specified culture.
         /// </summary>
@@ -1420,7 +1367,6 @@ namespace NGenerics.DataStructures.General
         {
             return Value.StartsWith(value, ignoreCase, culture);
         }
-#endif
 
         /// <summary>
         /// Returns a copy of this <see cref="String"/> converted to lowercase, using the casing rules of the current culture.
@@ -1448,7 +1394,6 @@ namespace NGenerics.DataStructures.General
             return Value.ToLower(culture);
         }
 
-#if (!SILVERLIGHT)
         /// <summary>
         /// Returns a copy of this <see cref="String"/> object converted to lowercase using the casing rules of the invariant culture.
         /// </summary>
@@ -1472,7 +1417,6 @@ namespace NGenerics.DataStructures.General
         {
             return Value.ToUpperInvariant();
         }
-#endif
 
         /// <summary>
         /// Returns a copy of this <see cref="String"/> converted to uppercase, using the casing rules of the current culture.

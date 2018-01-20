@@ -12,9 +12,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-#if (!SILVERLIGHT)
 using System.Runtime.Serialization;
-#endif
 using NGenerics.Util;
 
 namespace NGenerics.DataStructures.General
@@ -76,15 +74,12 @@ namespace NGenerics.DataStructures.General
 		{
         }
 
-
-#if (!SILVERLIGHT && !WINDOWSPHONE)
 		/// <param name="info">A <see cref="SerializationInfo"/> object containing the information required to serialize the <see cref="Dictionary{TKey,TValue}"/>.</param>
 		/// <param name="context">A <see cref="StreamingContext"/> structure containing the source and destination of the serialized stream associated with the <see cref="Dictionary{TKey,TValue}"/>.</param>
 		protected HashList(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 		}
 
-#endif
         #endregion
 
         #region Public Members

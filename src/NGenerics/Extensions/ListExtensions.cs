@@ -9,9 +9,7 @@
 
 using System;
 using System.Collections.Generic;
-#if (!WINDOWS_PHONE)
 using System.Linq.Expressions;
-#endif
 using NGenerics.Sorting;
 using NGenerics.Util;
 
@@ -358,7 +356,6 @@ namespace NGenerics.Extensions
             sorter.Sort(list, comparison, sortOrder);
         }
 
-#if (!WINDOWSPHONE)
         /// <summary>
         /// Sorts the specified list.
         /// </summary>
@@ -388,10 +385,6 @@ namespace NGenerics.Extensions
                                                });
             sorter.Sort(list, comparison, sortOrder);
         }
-#endif
-
-
-        #if SILVERLIGHT
 
         /// <inheritdoc cref="List{T}.ConvertAll{TOutput}"/>
         public static List<TOutput> ConvertAll<T, TOutput>(this IList<T> enumerable, Converter<T, TOutput> converter) {
@@ -402,8 +395,5 @@ namespace NGenerics.Extensions
             }
             return list;
         }
-
-        #endif
-
     }
 }

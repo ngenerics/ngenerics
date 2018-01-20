@@ -19,10 +19,7 @@ namespace NGenerics.DataStructures.Mathematical
     /// An interface describing a mathematical Vector.
     /// </summary>
     /// <typeparam name="T">The type of vector.</typeparam>
-	public interface IVector<T> : IEnumerable<T>, IEquatable<IVector<T>>
-#if (!SILVERLIGHT && !WINDOWSPHONE)
-        , ICloneable
-#endif
+	public interface IVector<T> : IEnumerable<T>, IEquatable<IVector<T>>, ICloneable
     {
         
         /// <summary>
@@ -78,8 +75,8 @@ namespace NGenerics.DataStructures.Mathematical
         /// Get the cross product of this <see cref="IVector{T}"/> and <paramref name="vector"/>.
         /// </summary>
         /// <remarks>
-        /// Consider two vectors, a = (1,2,3) and b = (4,5,6). The cross product a × b is
-        /// a × b = (1,2,3) × (4,5,6) = ((2 × 6 - 3 × 5),(3 × 4 - 1 × 6), (1 × 5 - 2 × 4)) = (-3,6,-3). 
+        /// Consider two vectors, a = (1,2,3) and b = (4,5,6). The cross product a ï¿½ b is
+        /// a ï¿½ b = (1,2,3) ï¿½ (4,5,6) = ((2 ï¿½ 6 - 3 ï¿½ 5),(3 ï¿½ 4 - 1 ï¿½ 6), (1 ï¿½ 5 - 2 ï¿½ 4)) = (-3,6,-3). 
         /// </remarks>
         /// <param name="vector">The <see cref="IVector{T}"/> to calculate the cross product with.</param>
 		/// <returns>The cross product of this <see cref="IVector{T}"/> and <paramref name="vector"/>.</returns>

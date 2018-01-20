@@ -13,12 +13,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using NGenerics.Util;
-#if (!SILVERLIGHT)
 using System.Security;
 using System.Reflection;
 using System.Diagnostics;
 using System.Runtime.Serialization;
-#endif
 
 namespace NGenerics.DataStructures.General
 {
@@ -28,13 +26,9 @@ namespace NGenerics.DataStructures.General
     /// <typeparam name="TKey">The type of keys in the collection.</typeparam>
     /// <typeparam name="TItem">The type of items in the collection.</typeparam>
     [ComVisible(false)]
-  #if (SILVERLIGHT || WINDOWSPHONE)
-    public abstract class AutoKeyDictionary<TKey, TItem> : ICollection<TItem>
-#else
     [Serializable]
     [DebuggerDisplay("Count = {Count}")]
     public class AutoKeyDictionary<TKey, TItem> : ICollection<TItem>, ISerializable, IDeserializationCallback
-#endif
     {
 
         #region Globals
@@ -83,14 +77,13 @@ namespace NGenerics.DataStructures.General
             dictionary = new Dictionary<TKey, TItem>(capacity, comparer);
         }
 
-#if (!SILVERLIGHT && !WINDOWSPHONE)
 		/// <inheritdoc cref="Dictionary{TKey,TValue}(SerializationInfo, StreamingContext)"/>
         protected AutoKeyDictionary(SerializationInfo info, StreamingContext context)
         {
             var constructor = typeof(Dictionary<TKey, TItem>).GetConstructor(BindingFlags.NonPublic | BindingFlags.CreateInstance | BindingFlags.Instance, null, new[] { typeof(SerializationInfo), typeof(StreamingContext) }, null);
             dictionary = (Dictionary<TKey, TItem>)constructor.Invoke(BindingFlags.NonPublic, null, new object[] { info, context }, null);
         }
-#endif
+
         #endregion
 
         #region Methods
@@ -269,8 +262,6 @@ namespace NGenerics.DataStructures.General
             return dictionary.TryGetValue(key, out item);
         }
 
-
-#if (!SILVERLIGHT && !WINDOWSPHONE)
 		#region ISerializable, IDeserializationCallback
 
 
@@ -296,8 +287,6 @@ namespace NGenerics.DataStructures.General
         #endregion
 
         #endregion
-#endif
-
 
         #endregion
 

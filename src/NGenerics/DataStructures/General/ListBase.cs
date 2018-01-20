@@ -13,9 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using NGenerics.Util;
-#if (SILVERLIGHT)
 using NGenerics.Extensions;
-#endif
 using System.Diagnostics.CodeAnalysis;
 
 namespace NGenerics.DataStructures.General
@@ -168,13 +166,11 @@ namespace NGenerics.DataStructures.General
             return innerList.Contains(item);
         }
 
-#if (!WINDOWSPHONE)
         /// <inheritdoc cref="List{T}.ConvertAll{TOutput}"/>
         public IList<TOutput> ConvertAll<TOutput>(Converter<T, TOutput> converter)
         {
             return innerList.ConvertAll(converter);
         }
-#endif
 
         /// <inheritdoc cref="List{T}.CopyTo(T[])"/>
         public void CopyTo(T[] array)
@@ -187,7 +183,6 @@ namespace NGenerics.DataStructures.General
         {
             innerList.CopyTo(array, arrayIndex);
         }
-
 
         /// <summary>
         /// Copies all items in the list to the specified array.

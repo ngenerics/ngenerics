@@ -13,9 +13,7 @@ using System;
 
 namespace NGenerics.Tests.Util
 {
-#if (!SILVERLIGHT)
     [Serializable]
-#endif
     internal class SimpleClass
     {
         #region Globals

@@ -14,11 +14,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-#if (!SILVERLIGHT)
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Security;
-#endif
 using NGenerics.Util;
 
 namespace NGenerics.DataStructures.General
@@ -50,10 +48,7 @@ namespace NGenerics.DataStructures.General
 	/// <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
     [Serializable]
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
-	public abstract class DictionaryBase<TKey, TValue> : IDictionary<TKey, TValue>, IDictionary
-#if (!SILVERLIGHT && !WINDOWSPHONE)
-        , ISerializable, IDeserializationCallback
-#endif
+	public abstract class DictionaryBase<TKey, TValue> : IDictionary<TKey, TValue>, IDictionary, ISerializable, IDeserializationCallback
     {
         #region Globals
 
@@ -109,15 +104,12 @@ namespace NGenerics.DataStructures.General
         }
 
 
-
-#if (!SILVERLIGHT && !WINDOWSPHONE)
 		/// <inheritdoc cref="Dictionary{TKey,TValue}(SerializationInfo, StreamingContext)"/>
         protected DictionaryBase(SerializationInfo info, StreamingContext context)
         {
             var constructor = typeof(Dictionary<TKey, TValue>).GetConstructor(BindingFlags.NonPublic | BindingFlags.CreateInstance | BindingFlags.Instance, null, new[] { typeof(SerializationInfo), typeof(StreamingContext) }, null);
             dictionary = (Dictionary<TKey, TValue>)constructor.Invoke(BindingFlags.NonPublic, null, new object[] { info, context }, null);
         }
-#endif
 
         #endregion
 
@@ -545,7 +537,6 @@ namespace NGenerics.DataStructures.General
 
         #endregion
 
-#if (!SILVERLIGHT && !WINDOWSPHONE)
 		#region ISerializable Members
 
 		/// <inheritdoc />
@@ -566,7 +557,5 @@ namespace NGenerics.DataStructures.General
         }
 
         #endregion
-#endif
-
     }
 }

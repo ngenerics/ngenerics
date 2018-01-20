@@ -7,14 +7,12 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-#if (!SILVERLIGHT && !WINDOWSPHONE)
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
-
 
 namespace NGenerics.Extensions
 {
@@ -119,4 +117,3 @@ namespace NGenerics.Extensions
         }
     }
 }
-#endif
