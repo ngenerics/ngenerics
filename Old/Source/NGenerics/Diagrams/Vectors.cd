@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="NGenerics.DataStructures.Mathematical.VectorN">
+    <Position X="3.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Mathematical\VectorN.cs</FileName>
+      <HashCode>AkIOBAACAQAIAiBAOgCHEgAAAIABoIAABAmGQEFABQQ=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="NGenerics.DataStructures.Mathematical.VectorBase&lt;T&gt;">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Mathematical\VectorBase.Operators.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAYAUAIAAAAAAAAAIAAAAAAAAAAiA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="NGenerics.DataStructures.Mathematical.Vector3D">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Mathematical\Vector3D.cs</FileName>
+      <HashCode>gkIORACAAQAIAiBEeAWDMgAQAIAFpIIABAnmQUFAZQU=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="NGenerics.DataStructures.Mathematical.Vector2D">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Mathematical\Vector2D.cs</FileName>
+      <HashCode>gkIORACAAQAIAiBEeAWDMgAQAIAFpIIABAnmQEFAZQQ=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Interface Name="NGenerics.DataStructures.Mathematical.IVector&lt;T&gt;">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Mathematical\IVector.cs</FileName>
+      <HashCode>ggICQACAAQAAAgBAOAADEAAAAAABIIAAAEGEAEFAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+</ClassDiagram>

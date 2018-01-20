@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NGenerics.DataStructures.General.HashList&lt;TKey, TValue&gt;">
+    <Position X="5.25" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAJAAABAAAAAAAAAAAAgRAAAgIAAAAAEYAAAAAAAAAA=</HashCode>
+      <FileName>DataStructures\General\HashList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGenerics.DataStructures.General.SkipList&lt;TKey, TValue&gt;" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CEJAAIIAAAAUgFAQCACABIQAwAAIAAAEAEAgAIBQIwA=</HashCode>
+      <FileName>DataStructures\General\SkipList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NGenerics.DataStructures.General.SkipListNode&lt;TKey, TValue&gt;">
+    <Position X="10.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAQAAAAAAAAAAAAAAAAAAACgAAAAAAA=</HashCode>
+      <FileName>DataStructures\General\SkipListNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGenerics.DataStructures.General.SortedList&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="13" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEJAAAAAAAAAABAQCAAABAQAAAAAAAAECAAQAAhQIQA=</HashCode>
+      <FileName>DataStructures\General\SortedList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NGenerics.DataStructures.General.ReadOnlyPropertyList&lt;T, TProperty&gt;" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="1" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AEBAAgAQAAQAABAQSAAEAAQAAAAAAAAEAAAACAAQIQE=</HashCode>
+      <FileName>DataStructures\General\ReadOnlyPropertyList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="NGenerics.Sorting.ISortable&lt;T&gt;" Collapsed="true">
+    <Position X="2" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sorting\ISortable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Segoe UI" Size="9" />
+  <Class Name="NGenerics.DataStructures.Queues.CircularQueue&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="7" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Queues\CircularQueue.cs</FileName>
+      <HashCode>AKBAAAEAAAAEIBAQBAgAAAQiIAAIRAAIAAQQAABQIAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NGenerics.DataStructures.Queues.VisitableQueue&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Queues\VisitableQueue.cs</FileName>
+      <HashCode>AIJAAAAAAAAAAAAQAAAAAAAgAAAAAAAIAAQAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NGenerics.DataStructures.Queues.Deque&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Queues\Deque.cs</FileName>
+      <HashCode>AKBAIgAAAAAAAJAQAAAAAAQiIAAAAAAKAAQCCABQIAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NGenerics.DataStructures.Queues.PriorityQueue&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="1" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Queues\PriorityQueue.cs</FileName>
+      <HashCode>AKpAAAgAAAAkABAQAAAAAAQgAACABAAIAAQAAABQIAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="NGenerics.DataStructures.Queues.IDeque&lt;T&gt;">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Queues\IDeque.cs</FileName>
+      <HashCode>AAAAIAAAAAAAAIAAAAAAAAACAAAAAAACAAACCAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NGenerics.DataStructures.Queues.IQueue&lt;T&gt;">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DataStructures\Queues\IQueue.cs</FileName>
+      <HashCode>AABAAAAAAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NGenerics.DataStructures.General.IVisitableCollection&lt;T&gt;" Collapsed="true">
+    <Position X="0.75" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>DataStructures\General\IVisitableCollection.cs</FileName>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAgAAAAAAAIAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NGenerics.DataStructures.General.IVisitable&lt;T&gt;" Collapsed="true">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DataStructures\General\IVisitable.cs</FileName>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+</ClassDiagram>
