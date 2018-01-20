@@ -18,19 +18,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
     {
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void ExceptionInterfaceAdd()
         {
             ICollection<double> matrix = MatrixTest.GetTestMatrix();
-            matrix.Add(5);
+            Assert.Throws<NotSupportedException>(() => matrix.Add(5));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullMatrix()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Add(null);
+            Assert.Throws<ArgumentNullException>(() => matrix.Add(null));
         }
 
     }

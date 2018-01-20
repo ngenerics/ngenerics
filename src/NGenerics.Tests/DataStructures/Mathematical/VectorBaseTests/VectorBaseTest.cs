@@ -10,6 +10,7 @@
 using System;
 using NGenerics.DataStructures.Mathematical;
 using NGenerics.Patterns.Visitor;
+using NGenerics.Tests.DataStructures.Mathematical.VectorBaseTestObjects;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTest
@@ -39,11 +40,10 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTest
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var vector = new VectorBaseTestObject(2);
-            vector.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => vector.AcceptVisitor(null));
         }
 
     }
@@ -52,34 +52,27 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTest
     public class Add
     {
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "AddSafe")]
         public void Exception1()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.Add(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.Add(vector2), "AddSafe");
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(4);
-            vector1.Add(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.Add(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
-            new VectorBaseTestObject(2)
-				              {
-				                  null
-				              };
+            Assert.Throws<ArgumentNullException>(() => new VectorBaseTestObject(2) { null });
         }
-
     }
 
     [TestFixture]
@@ -117,83 +110,74 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTest
     {
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "CrossProductSafe")]
         public void Exception3x3()
         {
             var vector1 = new VectorBaseTestObject(3);
             var vector2 = new VectorBaseTestObject(3);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.CrossProduct(vector2), "CrossProductSafe");
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "CrossProductSafe")]
         public void Exception2x3()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(3);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.CrossProduct(vector2), "CrossProductSafe");
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "CrossProductSafe")]
         public void Exception3x2()
         {
             var vector1 = new VectorBaseTestObject(3);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "CrossProductSafe")]
         public void Exception2x2()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void Exception1x2()
         {
             var vector1 = new VectorBaseTestObject(1);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void Exception4x2()
         {
             var vector1 = new VectorBaseTestObject(4);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Exception2x1()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(1);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions1()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(4);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
             var vector1 = new VectorBaseTestObject(2);
-            vector1.CrossProduct(null);
+            Assert.Throws<ArgumentNullException>(() => vector1.CrossProduct(null));
         }
 
     }
@@ -214,31 +198,27 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTest
     public class Divide
     {
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "DivideSafe")]
         public void Exception()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.Divide(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.Divide(vector2));
         }
 
-
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
             var vector1 = new VectorBaseTestObject(2);
-            vector1.Divide(null);
+            Assert.Throws<ArgumentNullException>(() => vector1.Divide(null));
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(3);
-            vector1.Divide(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.Divide(vector2));
         }
 
     }
@@ -248,31 +228,28 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTest
     {
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "DotProductSafe")]
         public void Exception1()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.DotProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.DotProduct(vector2));
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
             var vector1 = new VectorBaseTestObject(2);
-            vector1.DotProduct(null);
+            Assert.Throws<ArgumentNullException>(() => vector1.DotProduct(null));
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void EceptionDifferentDimensions()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(3);
-            vector1.DotProduct(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.DotProduct(vector2));
         }
 
     }
@@ -406,31 +383,27 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTest
     [TestFixture]
     public class Multiply
     {
-
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "MultiplySafe")]
         public void Exception()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.Multiply(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.Multiply(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
             var vector1 = new VectorBaseTestObject(2);
-            vector1.Multiply(null);
+            Assert.Throws<ArgumentNullException>(() => vector1.Multiply(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(3);
-            vector1.Multiply(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.Multiply(vector2));
         }
 
     }
@@ -438,32 +411,28 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTest
     [TestFixture]
     public class Subtract
     {
-
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "SubtractSafe")]
         public void Exception()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.Subtract(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.Subtract(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionVectorNull()
         {
             var vector1 = new VectorBaseTestObject(2);
-            vector1.Subtract(null);
+            Assert.Throws<ArgumentNullException>(() => vector1.Subtract(null));
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(3);
-            vector1.Subtract(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.Subtract(vector2));
         }
 
     }
@@ -492,23 +461,19 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTest
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExcpetionNullOther()
         {
             var vector1 = new VectorBaseTestObject(2);
-            vector1.Swap(null);
+            Assert.Throws<ArgumentNullException>(() => vector1.Swap(null));
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(3);
-            vector1.Swap(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.Swap(vector2));
         }
-
     }
-
 }

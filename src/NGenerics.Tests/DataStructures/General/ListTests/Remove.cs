@@ -8,9 +8,9 @@
 */
 
 using System.Collections;
+using Moq;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.DataStructures.General.ListTests
 {
@@ -46,30 +46,22 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
         [Test]
         public void EnsureRemoveItem()
         {
-            var mockRepository = new MockRepository();
-            var listBase = mockRepository.PartialMock<Remove>();
-            listBase.RemoveItem(1, 7);
-            mockRepository.ReplayAll();
-            listBase.Add(4);
-            listBase.Add(7);
-            listBase.Add(8);
-            listBase.Remove(7);
-            mockRepository.VerifyAll();
+            var listBase = new Mock<Remove>();
+            listBase.Object.Add(4);
+            listBase.Object.Add(7);
+            listBase.Object.Add(8);
+            listBase.Object.Remove(7);
+            listBase.Verify(x => x.RemoveItem(1, 7));
         }
         [Test]
         public void InterfaceEnsureRemoveItem()
         {
-            var mockRepository = new MockRepository();
-            var listBase = mockRepository.PartialMock<Remove>();
-            listBase.RemoveItem(1, 7);
-            mockRepository.ReplayAll();
-            listBase.Add(4);
-            listBase.Add(7);
-            listBase.Add(8);
-            ((IList) listBase).Remove(7);
-            mockRepository.VerifyAll();
+            var listBase = new Mock<Remove>();
+            listBase.Object.Add(4);
+            listBase.Object.Add(7);
+            listBase.Object.Add(8);
+            ((IList) listBase.Object).Remove(7);
+            listBase.Verify(x => x.RemoveItem(1, 7));
         }
-
-
     }
 }

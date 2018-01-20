@@ -33,29 +33,26 @@ namespace NGenerics.Tests.DataStructures.General.MinHeapTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var heap = GetTestHeap();
-            heap.CopyTo(null, 0);
+            Assert.Throws<ArgumentNullException>(() => heap.CopyTo(null, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidArrayLength1()
         {
             var heap = GetTestHeap();
             var array = new int[heap.Count - 1];
-            heap.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => heap.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidArrayLength2()
         {
             var heap = GetTestHeap();
             var array = new int[heap.Count];
-            heap.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => heap.CopyTo(array, 1));
         }
     }
 }

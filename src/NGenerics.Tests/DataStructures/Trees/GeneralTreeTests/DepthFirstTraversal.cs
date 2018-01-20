@@ -57,11 +57,10 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var generalTree = GetTestTree();
-            generalTree.DepthFirstTraversal(null);
+            Assert.Throws<ArgumentNullException>(() => generalTree.DepthFirstTraversal(null));
         }
 
         [Test]

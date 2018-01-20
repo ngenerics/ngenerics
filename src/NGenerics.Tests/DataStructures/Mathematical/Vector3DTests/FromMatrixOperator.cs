@@ -63,31 +63,29 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
 
 
         [Test]
-        [ExpectedException(typeof(InvalidCastException))]
         public void ExceptionInvalidColumns()
         {
 
             var matrix = new Matrix(2, 2);
-            var actual = (Vector3D)matrix;
-
+            Vector3D actual;
+            Assert.Throws<InvalidCastException>(() => actual = (Vector3D)matrix);
         }
 
 
         [Test]
-        [ExpectedException(typeof(InvalidCastException))]
         public void ExceptionInvalidRows()
         {
-
             var matrix = new Matrix(4, 1);
-            var actual = (Vector3D)matrix;
+            Vector3D actual;
+            Assert.Throws<InvalidCastException>(() => actual = (Vector3D)matrix);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullMatrix()
         {
             const Matrix matrix = null;
-            var actual = (Vector3D)matrix;
+            Vector3D actual;
+            Assert.Throws<ArgumentNullException>(() => actual = (Vector3D)matrix);
         }
     }
 }

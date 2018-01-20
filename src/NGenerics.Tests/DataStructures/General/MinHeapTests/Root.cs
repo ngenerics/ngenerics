@@ -25,11 +25,11 @@ namespace NGenerics.Tests.DataStructures.General.MinHeapTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionEmpty()
         {
             var heap = new Heap<int>(HeapType.Minimum);
-            var i = heap.Root;
+            int i;
+            Assert.Throws<InvalidOperationException>(() => i = heap.Root);
         }
     }
 }

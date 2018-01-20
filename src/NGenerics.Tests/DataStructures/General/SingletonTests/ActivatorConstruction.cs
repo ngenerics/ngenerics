@@ -33,7 +33,7 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
             return (T)Activator.CreateInstance(typeof(T), new object[] { value, increment });
         }
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void SetupSingleton()
         {
             Singleton<InstanceWithActivatorConstructor>.ConstructWith =

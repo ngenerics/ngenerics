@@ -34,19 +34,19 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorNTests
         }
 
         [Test]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
         public void ExceptionTooLarge()
         {
             var vector = new VectorN(2);
-            var d = vector[2];
+            double d;
+            Assert.Throws<IndexOutOfRangeException>(() => d = vector[2]);
         }
 
         [Test]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
         public void ExceptionTooSmall()
         {
             var vector = new VectorN(2);
-            var d = vector[-1];
+            double d;
+            Assert.Throws<IndexOutOfRangeException>(() => d = vector[-1]);
         }
 
     }

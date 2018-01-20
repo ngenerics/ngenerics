@@ -18,13 +18,12 @@ namespace NGenerics.Tests.DataStructures.Trees.BinaryTreeTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNull()
         {
             var binaryTree = new BinaryTree<string>("asdasd");
             Assert.AreEqual(binaryTree.Data, "asdasd");
 
-            binaryTree.Data = null;
+            Assert.Throws<ArgumentNullException>(() => binaryTree.Data = null);
         }
 
         [Test]

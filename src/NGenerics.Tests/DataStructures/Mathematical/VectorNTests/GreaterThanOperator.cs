@@ -54,25 +54,25 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorNTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionLeftNull()
         {
             const VectorN vector1 = null;
             var vector2 = new VectorN(3);
             vector2.SetValues(2, 2, 2);
 
-            var condition = vector1 > vector2;
+            bool condition;
+            Assert.Throws<ArgumentNullException>(() => condition = vector1 > vector2);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionRightNull()
         {
             var vector1 = new VectorN(3);
             vector1.SetValues(1, 1, 1);
             const VectorN vector2 = null;
 
-            var condition = vector1 > vector2;
+            bool condition;
+            Assert.Throws<ArgumentNullException>(() => condition = vector1 > vector2);
         }
     }
 }

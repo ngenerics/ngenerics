@@ -64,24 +64,22 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionKeyAlreadyInTree()
         {
-            var redBlackTree = new RedBlackTree<int, string>
+            Assert.Throws<ArgumentException>(() => new RedBlackTree<int, string>
                                    {
                                        {0, "50"}, 
                                        {0, "20"}
-                                   };
+                                   });
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullKey()
         {
-            var redBlackTree = new RedBlackTree<object, string>
+            Assert.Throws<ArgumentNullException>(() =>  new RedBlackTree<object, string>
                                    {
                                        {null, "a"}
-                                   };
+                                   });;
         }
 
         [Test]

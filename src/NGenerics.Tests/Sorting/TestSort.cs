@@ -48,28 +48,24 @@ namespace NGenerics.Tests.Sorting
         public class BubbleSortTests{
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionComparisonNullList()
         {
             var sorter = new BubbleSorter<int>();
-            sorter.Sort(null, new Comparison<int>(IntComparison));
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, new Comparison<int>(IntComparison)));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparison2()
         {
             var sorter = new BubbleSorter<int>();
-
             var list = GetReverseSequentialTestList();
-            sorter.Sort(list, (Comparison<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(list, (Comparison<int>)null));
         }
 
         [Test]
 		public void ExceptionNullComparison1()
         {
             var sorter = new BubbleSorter<int>();
-
             var list = GetReverseSequentialTestList();
             sorter.Sort(list, new Comparison<int>(IntComparison));
             AssertGeneralTestListSorted(list);
@@ -83,35 +79,31 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new BubbleSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new BubbleSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new BubbleSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparer1()
         {
             var sorter = new BubbleSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
 
      }
@@ -119,20 +111,17 @@ namespace NGenerics.Tests.Sorting
 	[TestFixture]
 	public class RadixSorterTests
 	{
-
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullList()
         {
             var sorter = new RadixSorter();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
         
         [Test]
         public void NullComparison()
         {
             var sorter = new RadixSorter();
-
             var list = GetReverseSequentialTestList();
             sorter.Sort(list, SortOrder.Ascending);
             AssertGeneralTestListSorted(list);
@@ -169,36 +158,32 @@ namespace NGenerics.Tests.Sorting
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new RadixSorter();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new RadixSorter();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new RadixSorter();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
-
       }
 
 	[TestFixture]
 	public class OddEvenTransportSorterTests
 	  {
 
-		  [Test]
+		[Test]
 		public void Simple()
 		  {
 			  var sorter = new OddEvenTransportSorter<int>();
@@ -206,35 +191,31 @@ namespace NGenerics.Tests.Sorting
 		  }
 
 		  [Test]
-		  [ExpectedException(typeof(ArgumentNullException))]
 		  public void ExceptionNullList1()
 		  {
 			  var sorter = new OddEvenTransportSorter<int>();
-			  sorter.Sort(null);
+			  Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
 		  }
 
 		  [Test]
-		  [ExpectedException(typeof(ArgumentNullException))]
 		  public void ExceptionNullList2()
 		  {
 			  var sorter = new OddEvenTransportSorter<int>();
-			  sorter.Sort(null, Comparer<int>.Default);
+			  Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
 		  }
 
 		  [Test]
-		  [ExpectedException(typeof(ArgumentNullException))]
 		  public void ExceptionNullList3()
 		  {
 			  var sorter = new OddEvenTransportSorter<int>();
-			  sorter.Sort(null, SortOrder.Ascending);
+			  Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
 		  }
 
 		  [Test]
-		  [ExpectedException(typeof(ArgumentNullException))]
 		  public void ExceptionNullComparer1()
 		  {
 			  var sorter = new OddEvenTransportSorter<int>();
-			  sorter.Sort(new List<int>(), (IComparer<int>)null);
+			  Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
 		  }
 
 	  }
@@ -251,37 +232,32 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new CombSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new CombSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new CombSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparer1()
         {
             var sorter = new CombSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
-
 }
 
 	[TestFixture]
@@ -296,35 +272,31 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new InsertionSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new InsertionSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new InsertionSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparer1()
         {
             var sorter = new InsertionSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
 
      }
@@ -340,37 +312,32 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new SelectionSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new SelectionSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new SelectionSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparer1()
         {
             var sorter = new SelectionSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
-
        }
 
 
@@ -385,37 +352,32 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new HeapSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new HeapSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new HeapSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparer1()
         {
             var sorter = new HeapSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
-
 }
 
 	[TestFixture]
@@ -429,37 +391,32 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new GnomeSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new GnomeSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new GnomeSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparer1()
         {
             var sorter = new GnomeSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
-
     }
 
 	[TestFixture]
@@ -473,35 +430,31 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new MergeSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new MergeSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new MergeSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparer1()
         {
             var sorter = new MergeSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
 
       }
@@ -517,35 +470,31 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new QuickSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new QuickSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new QuickSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparer1()
         {
             var sorter = new QuickSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
 
 }
@@ -561,19 +510,17 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new BucketSorter();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new BucketSorter();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
        }
@@ -589,35 +536,31 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new ShellSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new ShellSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new ShellSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparer1()
         {
             var sorter = new ShellSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
 
        }
@@ -634,37 +577,32 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new ShakerSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new ShakerSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new ShakerSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullComparer1()
         {
             var sorter = new ShakerSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
-
        }
 
 	[TestFixture]
@@ -678,37 +616,32 @@ namespace NGenerics.Tests.Sorting
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList1()
         {
             var sorter = new CocktailSorter<int>();
-            sorter.Sort(null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList2()
         {
             var sorter = new CocktailSorter<int>();
-            sorter.Sort(null, Comparer<int>.Default);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void ExceptionNullList3()
         {
             var sorter = new CocktailSorter<int>();
-            sorter.Sort(null, SortOrder.Ascending);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer1()
         {
             var sorter = new CocktailSorter<int>();
-            sorter.Sort(new List<int>(), (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(new List<int>(), (IComparer<int>)null));
         }
-
 }
 
         #region Private Members

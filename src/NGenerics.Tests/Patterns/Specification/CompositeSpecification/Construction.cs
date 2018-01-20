@@ -8,9 +8,9 @@
 */
 
 
+using Moq;
 using NGenerics.Patterns.Specification;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.Patterns.Specification.CompositeSpecification
 {
@@ -23,17 +23,10 @@ namespace NGenerics.Tests.Patterns.Specification.CompositeSpecification
             var spec1 = new PredicateSpecification<int>(x => x > 5);
             var spec2 = new PredicateSpecification<int>(x => x < 10);
 
-            var mocks = new MockRepository();
+            var compositeSpecification = new Mock<CompositeSpecification<int>>(spec1, spec2);
 
-            var compositeSpecification = mocks.Stub<CompositeSpecification<int>>(spec1, spec2);
-
-            mocks.ReplayAll();
-
-            Assert.AreEqual(compositeSpecification.Left, spec1);
-            Assert.AreEqual(compositeSpecification.Right, spec2);
-
-            mocks.VerifyAll();
+            Assert.AreEqual(compositeSpecification.Object.Left, spec1);
+            Assert.AreEqual(compositeSpecification.Object.Right, spec2);
         }
     }
-
 }

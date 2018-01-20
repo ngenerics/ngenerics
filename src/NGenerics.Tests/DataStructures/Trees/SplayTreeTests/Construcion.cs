@@ -34,10 +34,9 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer()
         {
-            new SplayTree<int, string>((IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => new SplayTree<int, string>((IComparer<int>) null));
         }
 
     }

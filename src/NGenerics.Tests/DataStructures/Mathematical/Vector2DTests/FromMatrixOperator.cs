@@ -45,31 +45,30 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
 
 
         [Test]
-        [ExpectedException(typeof(InvalidCastException))]
         public void ExceptionInvalidColumns()
         {
 
             var matrix = new Matrix(2, 2);
-            var actual = (Vector2D)matrix;
+            Vector2D actual;
+            Assert.Throws<InvalidCastException>(() => actual = (Vector2D)matrix);
 
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidCastException))]
         public void ExceptionInvalidRows()
         {
 
             var matrix = new Matrix(3, 1);
-            var actual = (Vector2D)matrix;
-
+            Vector2D actual;
+            Assert.Throws<InvalidCastException>(() => actual = (Vector2D)matrix);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullMatrix()
         {
             const Matrix matrix = null;
-            var actual = (Vector2D)matrix;
+            Vector2D actual;
+            Assert.Throws<ArgumentNullException>(() =>  actual = (Vector2D)matrix);
         }
     }
 }

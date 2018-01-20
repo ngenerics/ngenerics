@@ -54,13 +54,10 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidEdgeDirected()
         {
             var graph = GetTestDirectedGraph();
-
             var vertices = graph.Vertices;
-
             var enumerator = vertices.GetEnumerator();
 
             enumerator.MoveNext();
@@ -70,17 +67,14 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             var vertex2 = enumerator.Current;
 
             var edge = new Edge<int>(vertex1, vertex2, false);
-            graph.AddEdge(edge);
+            Assert.Throws<ArgumentException>(() => graph.AddEdge(edge));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidEdgeUndirected()
         {
             var graph = GetTestUndirectedGraph();
-
             var vertices = graph.Vertices;
-
             var enumerator = vertices.GetEnumerator();
 
             enumerator.MoveNext();
@@ -90,30 +84,27 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             var vertex2 = enumerator.Current;
 
             var edge = new Edge<int>(vertex1, vertex2, true);
-            graph.AddEdge(edge);
+            Assert.Throws<ArgumentException>(() => graph.AddEdge(edge));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullToVertex()
         {
             var graph = new Graph<int>(true);
-            graph.AddEdge(null, new Vertex<int>(3));
+            Assert.Throws<ArgumentNullException>(() => graph.AddEdge(null, new Vertex<int>(3)));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullFromVertex()
         {
             var graph = new Graph<int>(true);
-            graph.AddEdge(new Vertex<int>(3), null);
+            Assert.Throws<ArgumentNullException>(() => graph.AddEdge(new Vertex<int>(3), null));
         }
 
         [Test]
         public void Undirected()
         {
             var graph = new Graph<int>(false);
-
             var vertices = new Vertex<int>[20];
 
             for (var i = 0; i < 20; i++)
@@ -135,7 +126,6 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
                 Assert.IsTrue(graph.ContainsEdge(edge));
                 Assert.IsTrue(vertices[i].HasEmanatingEdgeTo(vertices[i + 2]));
                 Assert.IsTrue(vertices[i].HasIncidentEdgeWith(vertices[i + 2]));
-
             }
         }
 
@@ -210,40 +200,33 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullEdge()
         {
             var graph = new Graph<int>(false);
-            graph.AddEdge(null);
+            Assert.Throws<ArgumentNullException>(() => graph.AddEdge(null));
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionVertexNotInGraphUndirected()
         {
             var graph = GetTestUndirectedGraph();
-
             var edge = new Edge<int>(new Vertex<int>(1), new Vertex<int>(1), false);
-            graph.AddEdge(edge);
+            Assert.Throws<ArgumentException>(() =>  graph.AddEdge(edge));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionVertexNotInGraphDirected()
         {
             var graph = GetTestDirectedGraph();
-
             var edge = new Edge<int>(new Vertex<int>(1), new Vertex<int>(1), true);
-            graph.AddEdge(edge);
+            Assert.Throws<ArgumentException>(() =>  graph.AddEdge(edge));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExcetionDuplicateEdgeUndirected1()
         {
             var graph = new Graph<int>(false);
-
             var vertices = new Vertex<int>[20];
 
             for (var i = 0; i < 20; i++)
@@ -255,11 +238,10 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             var edge = new Edge<int>(vertices[0], vertices[2], false);
             graph.AddEdge(edge);
 
-            graph.AddEdge(edge);
+            Assert.Throws<ArgumentException>(() => graph.AddEdge(edge));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDuplicateEdgeUndirected2()
         {
             var graph = new Graph<int>(false);
@@ -275,7 +257,7 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             var edge = new Edge<int>(vertices[0], vertices[2], false);
             graph.AddEdge(edge);
 
-            graph.AddEdge(new Edge<int>(vertices[2], vertices[0], false));
+            Assert.Throws<ArgumentException>(() => graph.AddEdge(new Edge<int>(vertices[2], vertices[0], false)));
         }
     }
 }

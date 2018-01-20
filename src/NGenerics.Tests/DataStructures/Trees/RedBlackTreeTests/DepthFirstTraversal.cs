@@ -44,11 +44,10 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var redBlackTree = GetTestTree(20);
-            redBlackTree.DepthFirstTraversal(null);
+            Assert.Throws<ArgumentNullException>(() => redBlackTree.DepthFirstTraversal(null));
         }
 
     }

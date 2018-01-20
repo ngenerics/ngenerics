@@ -77,46 +77,29 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer1()
         {
-            new SkipList<int, string>((IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => new SkipList<int, string>((IComparer<int>)null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer2()
         {
-            new SkipList<int, string>(2, 0.6, (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => new SkipList<int, string>(2, 0.6, (IComparer<int>)null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ExceptionMaximumLevelBelowOne1()
+        public void ExceptionMaximumLevelBelowOne()
         {
-            new SkipList<int, string>(-1, 0.5, Comparer<int>.Default);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new SkipList<int, string>(-1, 0.5, Comparer<int>.Default));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new SkipList<int, string>(0, 1, Comparer<int>.Default));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ExceptionMaximumLevelBelowOne2()
+        public void ExceptionInvalidProbability()
         {
-            new SkipList<int, string>(0, 1, Comparer<int>.Default);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new SkipList<int, string>(0, 0.5, Comparer<int>.Default));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new SkipList<int, string>(5, 0, Comparer<int>.Default));
         }
-
-        [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ExceptionInvalidProbability1()
-        {
-            new SkipList<int, string>(0, 0.5, Comparer<int>.Default);
-        }
-        [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ExceptionInvalidProbability2()
-        {
-            new SkipList<int, string>(5, 0, Comparer<int>.Default);
-        }
-
-
     }
 }

@@ -107,7 +107,6 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInterfaceIncompatibleMatrices()
         {
             IMathematicalMatrix matrix1 = new Matrix(2, 3);
@@ -120,15 +119,14 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
 
             IMathematicalMatrix matrix2 = MatrixTest.GetTestMatrix();
 
-            matrix1.Multiply(matrix2);
+            Assert.Throws<ArgumentException>(() => matrix1.Multiply(matrix2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionInterfaceTimesNull()
         {
             IMathematicalMatrix matrix = MatrixTest.GetTestMatrix();
-            matrix.Multiply(null);
+            Assert.Throws<ArgumentNullException>(() => matrix.Multiply(null));
         }
 
         [Test]
@@ -173,42 +171,42 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void IncompatibleSizes()
         {
             var matrix1 = new Matrix(2, 3);
             var matrix2 = new Matrix(4, 2);
-            var result = matrix1 * matrix2;							// Should throw an ArgumentException since the matrices are of incompatible sizes
+            Matrix result;
+            Assert.Throws<ArgumentException>(() => result = matrix1 * matrix2); // Should throw an ArgumentException since the matrices are of incompatible sizes
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionMultiplicationNull1()
         {
             var matrix = new Matrix(2, 3);
-            var result = matrix * null;
+            Matrix result;
+            Assert.Throws<ArgumentNullException>(() => result = matrix * null);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNull2()
         {
             var matrix = new Matrix(2, 3);
-            var result = null * matrix;
+            Matrix result;
+            Assert.Throws<ArgumentNullException>(() => result = null * matrix);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNull3()
         {
-            var result = ((Matrix)null) * 3;
+            Matrix result;
+            Assert.Throws<ArgumentNullException>(() => result = ((Matrix)null) * 3);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNull4()
         {
-            var result = 3 * ((Matrix)null);
+            Matrix result;
+            Assert.Throws<ArgumentNullException>(() => result = 3 * ((Matrix)null));
         }
     }
 }

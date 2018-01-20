@@ -36,29 +36,26 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var redBlackTree = GetTestTree(10);
-            redBlackTree.CopyTo(null, 1);
+            Assert.Throws<ArgumentNullException>(() => redBlackTree.CopyTo(null, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNotEnoughSpaceInTargetArray1()
         {
             var redBlackTree = GetTestTree(10);
             var array = new KeyValuePair<int, string>[9];
-            redBlackTree.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => redBlackTree.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNotEnoughSpaceInTargetArray2()
         {
             var redBlackTree = GetTestTree(10);
             var array = new KeyValuePair<int, string>[10];
-            redBlackTree.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => redBlackTree.CopyTo(array, 1));
         }
 
     }

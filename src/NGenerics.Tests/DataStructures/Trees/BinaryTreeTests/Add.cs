@@ -57,23 +57,19 @@ namespace NGenerics.Tests.DataStructures.Trees.BinaryTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionBadAdd1()
         {
-            new BinaryTree<int>(5, new BinaryTree<int>(3), new BinaryTree<int>(4))
-                {
-                    99
-                };
+            Assert.Throws<InvalidOperationException>(() => 
+            new BinaryTree<int>(5, new BinaryTree<int>(3), new BinaryTree<int>(4)) { 99 });
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionBadAdd2()
         {
-            new BinaryTree<int>(5, new BinaryTree<int>(3), new BinaryTree<int>(4))
+            Assert.Throws<InvalidOperationException>(() => new BinaryTree<int>(5, new BinaryTree<int>(3), new BinaryTree<int>(4))
                 {
                     new BinaryTree<int>(99)
-                };
+                });
         }
 
     }

@@ -112,12 +112,11 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
         }
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void ExceptionReadOnly()
         {
             var vertex1 = new Vertex<int>(5);
             var vertex2 = new Vertex<int>(5);
-            vertex1.IncidentEdges.Add(new Edge<int>(vertex1, vertex2, false));
+            Assert.Throws<NotSupportedException>(() => vertex1.IncidentEdges.Add(new Edge<int>(vertex1, vertex2, false)));
         }
 
     }

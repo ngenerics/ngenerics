@@ -39,7 +39,6 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionVertexNotPartOfEdge()
         {
             var graph = new Graph<int>(false);
@@ -53,7 +52,7 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
 
             var edge = graph.AddEdge(vertex1, vertex2);
 
-            edge.GetPartnerVertex(vertex3);
+            Assert.Throws<ArgumentException>(() => edge.GetPartnerVertex(vertex3));
         }
     }
 }

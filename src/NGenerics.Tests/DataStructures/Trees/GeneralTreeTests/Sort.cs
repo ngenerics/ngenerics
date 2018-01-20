@@ -21,11 +21,10 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
     {
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void ExceptionInterface()
         {
             ISortable<GeneralTree<int>> tree = GetTestTree();
-            tree.Sort(null);
+            Assert.Throws<NotSupportedException>(() => tree.Sort(null));
         }
 
         [Test]
@@ -54,46 +53,43 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparisonSorter1()
         {
             var tree = GetTestTree();
 
-            tree.Sort(null, (x, y) => x.Data.CompareTo(y.Data));
+            Assert.Throws<ArgumentNullException>(() => tree.Sort(null, (x, y) => x.Data.CompareTo(y.Data)));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparisonSorter2()
         {
             var tree = GetTestTree();
 
-            tree.Sort(null, new GeneralTreeComparer<int>());
+            Assert.Throws<ArgumentNullException>(() => tree.Sort(null, new GeneralTreeComparer<int>()));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparison1()
         {
             var tree = GetTestTree();
-            tree.Sort(new InsertionSorter<GeneralTree<int>>(), (Comparison<GeneralTree<int>>)null);
+            Assert.Throws<ArgumentNullException>(
+                () => tree.Sort(new InsertionSorter<GeneralTree<int>>(), (Comparison<GeneralTree<int>>)null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullSorter()
         {
             var tree = GetTestTree();
-            tree.Sort(null, SortOrder.Descending);
+            Assert.Throws<ArgumentNullException>(() => tree.Sort(null, SortOrder.Descending));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer1()
         {
             var tree = GetTestTree();
 
-            tree.Sort(new InsertionSorter<GeneralTree<int>>(), (IComparer<GeneralTree<int>>)null);
+            Assert.Throws<ArgumentNullException>(
+                () => tree.Sort(new InsertionSorter<GeneralTree<int>>(), (IComparer<GeneralTree<int>>)null));
         }
 
     }

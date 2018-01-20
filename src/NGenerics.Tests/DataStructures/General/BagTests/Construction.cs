@@ -48,18 +48,15 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer1()
         {
-            new Bag<string>(null);
+            Assert.Throws<ArgumentNullException>(() => new Bag<string>(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer2()
         {
-            new Bag<string>(5, null);
+            Assert.Throws<ArgumentNullException>(() => new Bag<string>(5, null));
         }
-
     }
 }

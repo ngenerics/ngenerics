@@ -46,17 +46,15 @@ namespace NGenerics.Tests.DataStructures.General.MaxHeapTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer1()
         {
-            new Heap<int>(HeapType.Maximum, (IComparer<int>)null);
+           Assert.Throws<ArgumentNullException>(() => new Heap<int>(HeapType.Maximum, (IComparer<int>)null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer2()
         {
-            new Heap<int>(HeapType.Maximum, 50, (IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => new Heap<int>(HeapType.Maximum, 50, (IComparer<int>) null));
         }
     }
 }

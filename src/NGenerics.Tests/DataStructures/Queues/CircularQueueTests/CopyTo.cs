@@ -100,15 +100,13 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var circularQueue = new CircularQueue<int>(20);
-            circularQueue.CopyTo(null, 0);
+            Assert.Throws<ArgumentNullException>(() => circularQueue.CopyTo(null, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExeptionInvalidArray1()
         {
             var circularQueue = new CircularQueue<int>(30);
@@ -120,11 +118,10 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
 
             var array = new int[19];
 
-            circularQueue.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => circularQueue.CopyTo(array, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidArray2()
         {
             var circularQueue = new CircularQueue<int>(20);
@@ -136,7 +133,7 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
 
             var array = new int[18];
 
-            circularQueue.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => circularQueue.CopyTo(array, 0));
         }
 
     }

@@ -138,11 +138,10 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVertex()
         {
             var graph = new Graph<int>(true);
-            graph.RemoveVertex(null);
+            Assert.Throws<ArgumentNullException>(() => graph.RemoveVertex(null));
         }
     }
 }

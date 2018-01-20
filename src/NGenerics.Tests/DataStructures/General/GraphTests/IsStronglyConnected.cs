@@ -17,19 +17,17 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
     public class IsStronglyConnected : GraphTest
     {
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionEmptyDirected()
         {
             var graph = new Graph<int>(true);
-            graph.IsStronglyConnected();
+            Assert.Throws<InvalidOperationException>(() => graph.IsStronglyConnected());
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionEmptyUndirected()
         {
             var graph = new Graph<int>(false);
-            graph.IsStronglyConnected();
+            Assert.Throws<InvalidOperationException>(() => graph.IsStronglyConnected());
         }
 
         [Test]

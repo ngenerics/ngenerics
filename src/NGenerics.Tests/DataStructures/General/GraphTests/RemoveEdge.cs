@@ -48,27 +48,24 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullEdge()
         {
             var graph = new Graph<int>(true);
-            graph.RemoveEdge(null);
+            Assert.Throws<ArgumentNullException>(() => graph.RemoveEdge(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVertex1()
         {
             var graph = new Graph<int>(true);
-            graph.RemoveEdge(new Vertex<int>(3), null);
+            Assert.Throws<ArgumentNullException>(() => graph.RemoveEdge(new Vertex<int>(3), null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVertex2()
         {
             var graph = new Graph<int>(true);
-            graph.RemoveEdge(null, new Vertex<int>(3));
+            Assert.Throws<ArgumentNullException>(() => graph.RemoveEdge(null, new Vertex<int>(3)));
         }
 
         [Test]

@@ -17,11 +17,10 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
     public class Accept:ObjectMatrixTest
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var matrix = GetTestMatrix();
-            matrix.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => matrix.AcceptVisitor(null));
         }
 
         [Test]

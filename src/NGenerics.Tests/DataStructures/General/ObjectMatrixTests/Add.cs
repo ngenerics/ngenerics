@@ -17,11 +17,10 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
     public class Add:ObjectMatrixTest
     {
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void ExceptionInterface()
         {
             var matrix = GetTestMatrix();
-            ((ICollection<int>) matrix).Add(5);
+            Assert.Throws<NotSupportedException>(() => ((ICollection<int>) matrix).Add(5));
         }
     }
 }

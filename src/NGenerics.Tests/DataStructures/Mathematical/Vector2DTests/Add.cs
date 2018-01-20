@@ -60,14 +60,9 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
-            new Vector2D
-                {
-                    null
-                };
+            Assert.Throws<ArgumentNullException>(() => new Vector2D { null });
         }
-
     }
 }

@@ -46,19 +46,18 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void ExceptionInvalidIndexerGet()
         {
             var splayTree = new SplayTree<int, string>();
-            var s = splayTree[4];
+            string value;
+            Assert.Throws<KeyNotFoundException>(() => value = splayTree[4]);
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void ExceptionInvalidIndexerSet()
         {
             var splayTree = new SplayTree<int, string>();
-            splayTree[4] = "testString";
+            Assert.Throws<KeyNotFoundException>(() => splayTree[4] = "testString");
         }
 
         [Test]

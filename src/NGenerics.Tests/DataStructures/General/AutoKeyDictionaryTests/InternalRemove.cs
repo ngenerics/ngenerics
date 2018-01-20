@@ -26,11 +26,10 @@ namespace NGenerics.Tests.DataStructures.General.AutoKeyDictionaryTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullKey()
         {
             var target = new AutoKeyDictionary<string, int>(x => x.ToString());
-            target.InternalRemove(null);
+            Assert.Throws<ArgumentNullException>(() => target.InternalRemove(null));
         }
     }
 }

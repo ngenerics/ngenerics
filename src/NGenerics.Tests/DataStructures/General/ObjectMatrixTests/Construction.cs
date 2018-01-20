@@ -29,31 +29,27 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNegativeRows()
         {
-            new ObjectMatrix<int>(-1, 20);
+            Assert.Throws<ArgumentException>(() => new ObjectMatrix<int>(-1, 20));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionZeroRows()
         {
-            new ObjectMatrix<int>(0, 20);
+            Assert.Throws<ArgumentException>(() => new ObjectMatrix<int>(0, 20));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNegativeColomns()
         {
-            new ObjectMatrix<int>(50, -1);
+            Assert.Throws<ArgumentException>(() => new ObjectMatrix<int>(50, -1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionZeroColumns()
         {
-            new ObjectMatrix<int>(50, 0);
+            Assert.Throws<ArgumentException>(() => new ObjectMatrix<int>(50, 0));
         }
     }
 }

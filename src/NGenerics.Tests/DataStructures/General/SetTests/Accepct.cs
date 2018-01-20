@@ -47,12 +47,10 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var pascalSet = new PascalSet(10);
-            pascalSet.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => pascalSet.AcceptVisitor(null));
         }
-
     }
 }

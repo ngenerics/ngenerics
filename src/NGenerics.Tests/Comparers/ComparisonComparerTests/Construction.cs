@@ -28,10 +28,9 @@ namespace NGenerics.Tests.Comparers.ComparisonComparerTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparison()
         {
-            new ComparisonComparer<SimpleClass>(null);
+            Assert.Throws<ArgumentNullException>(() => new ComparisonComparer<SimpleClass>(null));
         }
     }
 }

@@ -46,19 +46,17 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeRowCount()
         {
             var matrix = GetTestMatrix();
-            matrix.AddRows(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.AddRows(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionZeroRowCount()
         {
             var matrix = GetTestMatrix();
-            matrix.AddRows(0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.AddRows(0));
         }
     }
 }

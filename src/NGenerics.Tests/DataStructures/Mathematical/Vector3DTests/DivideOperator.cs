@@ -61,30 +61,30 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector3D1 = new Vector3D();
             VectorBase<double> vectorBase = new VectorN(4);
-            IVector<double> vector = vector3D1 / vectorBase;
+            IVector<double> vector;
+            Assert.Throws<ArgumentException>(() => vector = vector3D1 / vectorBase);
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullLeft()
         {
             var vector3D1 = new Vector3D();
-            var vector = null / vector3D1;
+            Vector3D vector;
+            Assert.Throws<ArgumentNullException>(() => vector = null / vector3D1);
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullRight()
         {
             var vector3D1 = new Vector3D();
-            var vector = vector3D1 / null;
+            Vector3D vector;
+            Assert.Throws<ArgumentNullException>(() => vector = vector3D1 / null);
         }
     }
 }

@@ -19,14 +19,13 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDuplicateAdd()
         {
-            new BinarySearchTree<int, string>
+            Assert.Throws<ArgumentException>(() => new BinarySearchTree<int, string>
                 {
                     {4, "4"}, 
                     {4, "4"}
-                };
+                });
         }
 
         [Test]

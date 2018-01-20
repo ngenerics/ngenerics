@@ -38,29 +38,26 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var splayTree = GetTestTree();
-            splayTree.CopyTo(null, 1);
+            Assert.Throws<ArgumentNullException>(() => splayTree.CopyTo(null, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExeptionNotEnoughSpaceInTargetArray1()
         {
             var splayTree = GetTestTree();
             var array = new KeyValuePair<int, string>[5];
-            splayTree.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => splayTree.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExeptionNotEnoughSpaceInTargetArray2()
         {
             var splayTree = GetTestTree();
             var array = new KeyValuePair<int, string>[6];
-            splayTree.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => splayTree.CopyTo(array, 1));
         }
 
     }

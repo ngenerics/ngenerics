@@ -39,31 +39,27 @@ namespace NGenerics.Tests.DataStructures.General.EdgeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullFromVertexDirected()
         {
-            new Edge<int>(null, new Vertex<int>(4), true);
+            Assert.Throws<ArgumentNullException>(() => new Edge<int>(null, new Vertex<int>(4), true));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullToVertexDirected()
         {
-            new Edge<int>(new Vertex<int>(4), null, true);
+            Assert.Throws<ArgumentNullException>(() => new Edge<int>(new Vertex<int>(4), null, true));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullFromVertexUndirected()
         {
-            new Edge<int>(null, new Vertex<int>(4), false);
+            Assert.Throws<ArgumentNullException>(() => new Edge<int>(null, new Vertex<int>(4), false));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullToVertexUndirected()
         {
-            new Edge<int>(new Vertex<int>(4), null, false);
+            Assert.Throws<ArgumentNullException>(() => new Edge<int>(new Vertex<int>(4), null, false));
         }
     }
 }

@@ -18,11 +18,10 @@ namespace NGenerics.Tests.DataStructures.Queues.DequeTests
     {
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void ExceptionInterface()
         {
             ICollection<int> deque = GetTestDeque();
-            deque.Remove(5);
+            Assert.Throws<NotSupportedException>(() => deque.Remove(5));
         }
 
     }

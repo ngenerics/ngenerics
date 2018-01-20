@@ -34,11 +34,11 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorNTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionMatrixNull()
         {
             const VectorN vector = null;
-            Matrix actual = vector;
+            Matrix actual;
+            Assert.Throws<ArgumentNullException>(() => actual = vector);
         }
     }
 }

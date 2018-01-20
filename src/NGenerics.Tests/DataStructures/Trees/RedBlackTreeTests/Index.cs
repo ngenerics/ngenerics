@@ -34,15 +34,13 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void ExceptionInvalidIndexSet()
         {
             var redBlackTree = GetTestTree(20);
-            redBlackTree[50] = "50";
+            Assert.Throws<KeyNotFoundException>(() => redBlackTree[50] = "50");
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void ExceptionInvalidIndexGet()
         {
             var redBlackTree = GetTestTree(20);
@@ -52,7 +50,8 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
                 Assert.AreEqual(redBlackTree[i], i.ToString());
             }
 
-            var s = redBlackTree[20];
+            string value;
+            Assert.Throws<KeyNotFoundException>(() => value = redBlackTree[20]);
         }
     }
 }

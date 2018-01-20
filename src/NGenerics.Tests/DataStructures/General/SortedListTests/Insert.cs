@@ -19,13 +19,10 @@ namespace NGenerics.Tests.DataStructures.General.SortedListTests
     {
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void Simple()
         {
             IList<int> sortedList = new SortedList<int>();
-            sortedList.Insert(5, 2);
+            Assert.Throws<NotSupportedException>(() => sortedList.Insert(5, 2));
         }
-
-
     }
 }

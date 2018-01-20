@@ -121,11 +121,10 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionNonSquare()
         {
             var matrix = new Matrix(3, 2);
-            matrix.Adjoint();
+            Assert.Throws<InvalidOperationException>(() => matrix.Adjoint());
         }
 
     }

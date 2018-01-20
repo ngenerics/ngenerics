@@ -28,32 +28,27 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidRow1()
         {
-            Matrix.IdentityMatrix(-1, 10);
+            Assert.Throws<ArgumentException>(() => Matrix.IdentityMatrix(-1, 10));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidColumn1()
         {
-            Matrix.IdentityMatrix(10, -1);
+            Assert.Throws<ArgumentException>(() => Matrix.IdentityMatrix(10, -1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidRow2()
         {
-            Matrix.IdentityMatrix(0, 10);
+            Assert.Throws<ArgumentException>(() => Matrix.IdentityMatrix(0, 10));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidColumn2()
         {
-            Matrix.IdentityMatrix(10, 0);
+            Assert.Throws<ArgumentException>(() => Matrix.IdentityMatrix(10, 0));
         }
-
     }
 }

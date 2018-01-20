@@ -51,11 +51,10 @@ namespace NGenerics.Tests.DataStructures.Queues.DequeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var dequeeque = new Deque<int>();
-            dequeeque.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => dequeeque.AcceptVisitor(null));
         }
 
     }

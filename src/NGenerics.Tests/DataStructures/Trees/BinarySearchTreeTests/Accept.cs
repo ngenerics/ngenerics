@@ -48,11 +48,10 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var tree = new BinarySearchTree<int, string>();
-            tree.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => tree.AcceptVisitor(null));
         }
 
     }

@@ -52,7 +52,6 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid1()
         {
             var skipList = new SkipList<int, string>();
@@ -67,11 +66,10 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
 
             var array = new KeyValuePair<int, string>[4];
 
-            skipList.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => skipList.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid2()
         {
             var skipList = new SkipList<int, string>();
@@ -86,11 +84,10 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
 
             var array = new KeyValuePair<int, string>[4];
 
-            skipList.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => skipList.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionInvalid3()
         {
             var skipList = new SkipList<int, string>();
@@ -103,8 +100,7 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
                 skipList.Add(pairs[i]);
             }
 
-            skipList.CopyTo(null, 0);
+            Assert.Throws<ArgumentNullException>(() => skipList.CopyTo(null, 0));
         }
-
     }
 }

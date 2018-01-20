@@ -63,29 +63,27 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionInvalidIntersectionOperator1()
         {
             var pascalSet = new PascalSet(0, 50, new[] { 15, 20, 30, 40, 34 });
-            var a = pascalSet * null;
+            PascalSet result;
+            Assert.Throws<ArgumentNullException>(() => result = pascalSet * null);
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullSet()
         {
             var pascalSet = new PascalSet(500);
-            pascalSet.Intersection(null);
+            Assert.Throws<ArgumentNullException>(() => pascalSet.Intersection(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExcetionNullOperator()
         {
             var pascalSet = new PascalSet(500);
-            var newSet = null * pascalSet;
+            PascalSet newSet;
+            Assert.Throws<ArgumentNullException>(() => newSet = null * pascalSet);
         }
-
     }
 }

@@ -69,21 +69,19 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor1()
         {
             var bag = new Bag<string>();
-            bag.AcceptVisitor<string>(null);
+            Assert.Throws<ArgumentNullException>(() => bag.AcceptVisitor<string>(null));
         }
 
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionInvalid1()
         {
             var bag = new Bag<string>();
-            bag.AcceptVisitor<string>(null);
+            Assert.Throws<ArgumentNullException>(() => bag.AcceptVisitor<string>(null));
         }
 
 

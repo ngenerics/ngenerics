@@ -21,11 +21,10 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var skipList = new SkipList<int, string>();
-            skipList.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => skipList.AcceptVisitor(null));
         }
 
         [Test]

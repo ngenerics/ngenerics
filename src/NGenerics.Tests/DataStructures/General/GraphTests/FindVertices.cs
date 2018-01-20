@@ -16,19 +16,17 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
     public class FindVertices : GraphTest
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullPredicateDirected()
         {
             var graph = GetTestDirectedGraph();
-            graph.FindVertices(null);
+            Assert.Throws<ArgumentNullException>(() => graph.FindVertices(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullPredicateUndirected()
         {
             var graph = GetTestUndirectedGraph();
-            graph.FindVertices(null);
+            Assert.Throws<ArgumentNullException>(() => graph.FindVertices(null));
         }
 
         [Test]

@@ -25,11 +25,11 @@ namespace NGenerics.Tests.DataStructures.General.MaxHeapTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionInvalid()
         {
             var heap = new Heap<int>(HeapType.Maximum);
-            var i = heap.Root;
+            int i;
+            Assert.Throws<InvalidOperationException>(() => i = heap.Root);
         }
     }
 }

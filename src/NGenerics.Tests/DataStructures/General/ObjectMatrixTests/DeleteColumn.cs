@@ -17,27 +17,24 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
     public class DeleteColumn:ObjectMatrixTest
     {
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionOnlyColumn()
         {
-            new ObjectMatrix<int>(4, 1).DeleteColumn(0);
+            Assert.Throws<InvalidOperationException>(() => new ObjectMatrix<int>(4, 1).DeleteColumn(0));
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeColumn()
         {
             var matrix = GetTestMatrix();
-            matrix.DeleteColumn(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.DeleteColumn(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionColumnInvalid()
         {
             var matrix = GetTestMatrix();
-            matrix.DeleteColumn(matrix.Columns);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.DeleteColumn(matrix.Columns));
         }
 
         [Test]

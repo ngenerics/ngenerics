@@ -8,9 +8,9 @@
 */
 
 
+using Moq;
 using NGenerics.Patterns.Specification;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.Patterns.Specification.OrSpecification
 {
@@ -20,44 +20,30 @@ namespace NGenerics.Tests.Patterns.Specification.OrSpecification
         [Test]
         public void Or_Should_Return_True_If_One_Is_True()
         {
-            var mocks = new MockRepository();
-            var s1 = mocks.StrictMock<ISpecification<int>>();
-            var s2 = mocks.StrictMock<ISpecification<int>>();
+            var s1 = new Mock<ISpecification<int>>();
+            var s2 = new Mock<ISpecification<int>>();
 
-            // 1st call
-            Expect.Call(s1.IsSatisfiedBy(5)).Return(true);
+            s1.Setup(x => x.IsSatisfiedBy(5)).Returns(true);
+            s2.Setup(x => x.IsSatisfiedBy(5)).Returns(false);
 
-            // 2nd call
-            Expect.Call(s1.IsSatisfiedBy(5)).Return(false);
-            Expect.Call(s2.IsSatisfiedBy(5)).Return(true);
-
-            mocks.ReplayAll();
-
-            ISpecification<int> orSpecification = new OrSpecification<int>(s1, s2);
+            ISpecification<int> orSpecification = new OrSpecification<int>(s1.Object, s2.Object);
 
             Assert.AreEqual(orSpecification.IsSatisfiedBy(5), true);
             Assert.AreEqual(orSpecification.IsSatisfiedBy(5), true);
-
-            mocks.VerifyAll();
         }
 
         [Test]
         public void Or_Should_Return_True_If_Both_Are_False()
         {
-            var mocks = new MockRepository();
-            var s1 = mocks.StrictMock<ISpecification<int>>();
-            var s2 = mocks.StrictMock<ISpecification<int>>();
+            var s1 = new Mock<ISpecification<int>>();
+            var s2 = new Mock<ISpecification<int>>();
 
-            Expect.Call(s1.IsSatisfiedBy(5)).Return(false);
-            Expect.Call(s2.IsSatisfiedBy(5)).Return(false);
+            s1.Setup(x => x.IsSatisfiedBy(5)).Returns(false);
+            s2.Setup(x => x.IsSatisfiedBy(5)).Returns(false);
 
-            mocks.ReplayAll();
-
-            ISpecification<int> orSpecification = new OrSpecification<int>(s1, s2);
+            ISpecification<int> orSpecification = new OrSpecification<int>(s1.Object, s2.Object);
 
             Assert.AreEqual(orSpecification.IsSatisfiedBy(5), false);
-
-            mocks.VerifyAll();
         }
     }
 }

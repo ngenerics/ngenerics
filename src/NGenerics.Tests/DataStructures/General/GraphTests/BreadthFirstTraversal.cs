@@ -18,19 +18,17 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
     public class BreadthFirstTraversal : GraphTest
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVertex()
         {
             var graph = new Graph<int>(true);
-            graph.BreadthFirstTraversal(new TrackingVisitor<Vertex<int>>(), null);
+            Assert.Throws<ArgumentNullException>(() => graph.BreadthFirstTraversal(new TrackingVisitor<Vertex<int>>(), null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var graph = new Graph<int>(true);
-            graph.BreadthFirstTraversal(null, new Vertex<int>(4));
+            Assert.Throws<ArgumentNullException>(() => graph.BreadthFirstTraversal(null, new Vertex<int>(4)));
         }
 
         [Test]

@@ -27,7 +27,7 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
         }
 
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void SetupSingleton()
         {
             var type = typeof(InstanceWithPrivateConstructor);

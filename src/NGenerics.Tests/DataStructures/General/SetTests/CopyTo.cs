@@ -19,11 +19,10 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExcepionNullArray()
         {
             var pascalSet = new PascalSet(20);
-            pascalSet.CopyTo(null, 0);
+            Assert.Throws<ArgumentNullException>(() => pascalSet.CopyTo(null, 0));
         }
 
         [Test]
@@ -43,24 +42,21 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid1()
         {
             var pascalSet = new PascalSet(10, new[] { 1, 2, 5, 6 });
 
             var array = new int[3];
-            pascalSet.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => pascalSet.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid2()
         {
             var pascalSet = new PascalSet(10, new[] { 1, 2, 5, 6 });
 
             var array = new int[4];
-            pascalSet.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => pascalSet.CopyTo(array, 1));
         }
-
     }
 }

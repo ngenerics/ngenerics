@@ -27,10 +27,9 @@ namespace NGenerics.Tests.Patterns.Visitor.OrderedVisitorTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
-            new OrderedVisitor<int>(null);
+            Assert.Throws<ArgumentNullException>(() => new OrderedVisitor<int>(null));
         }
     }
 }

@@ -129,35 +129,30 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullColumn()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.AddColumn(null);
+            Assert.Throws<ArgumentNullException>(() => matrix.AddColumn(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionTooManyValues()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.AddColumn(1, 2, 3, 4, 5);
+            Assert.Throws<ArgumentException>(() => matrix.AddColumn(1, 2, 3, 4, 5));
         }
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeColumns()
         {
             var matrix = MatrixTest. GetTestMatrix();
-            matrix.AddColumns(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.AddColumns(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionZeroColumns()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.AddColumns(0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.AddColumns(0));
         }
-
     }
 }

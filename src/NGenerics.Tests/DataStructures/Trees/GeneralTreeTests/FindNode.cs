@@ -48,19 +48,17 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullCondition()
         {
             var tree = GetTestTree();
-            tree.FindNode(null);
+            Assert.Throws<ArgumentNullException>(() => tree.FindNode(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionInterfaceNullCondition()
         {
             var tree = GetTestTree();
-            ((ITree<int>)tree).FindNode(null);
+            Assert.Throws<ArgumentNullException>(() => ((ITree<int>)tree).FindNode(null));
         }
 
         [Test]

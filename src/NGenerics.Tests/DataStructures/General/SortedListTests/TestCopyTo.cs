@@ -33,29 +33,26 @@ namespace NGenerics.Tests.DataStructures.General.SortedListTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var sortedList = SortedListTest.GetTestList();
-            sortedList.CopyTo(null, 0);
+            Assert.Throws<ArgumentNullException>(() => sortedList.CopyTo(null, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidCopyTo1()
         {
             var sortedList = SortedListTest.GetTestList();
             var array = new int[sortedList.Count - 1];
-            sortedList.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => sortedList.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidCopyTo2()
         {
             var sortedList = SortedListTest.GetTestList();
             var array = new int[sortedList.Count];
-            sortedList.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => sortedList.CopyTo(array, 1));
         }
 
     }

@@ -50,23 +50,22 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullOperatorPlus1()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            var newMatrix = null + matrix;
+            Matrix newMatrix;
+            Assert.Throws<ArgumentNullException>(() => newMatrix = null + matrix);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullOperatorPlus2()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            var newMatrix = matrix + null;
+            Matrix newMatrix;
+            Assert.Throws<ArgumentNullException>(() => newMatrix = matrix + null);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionIncompatibleMatrices()
         {
             IMathematicalMatrix matrix1 = new Matrix(2, 3);
@@ -79,15 +78,14 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
 
             IMathematicalMatrix matrix2 = MatrixTest.GetTestMatrix();
 
-            matrix1.Add(matrix2);
+            Assert.Throws<ArgumentException>(() => matrix1.Add(matrix2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionPlusNull()
         {
             IMathematicalMatrix matrix = MatrixTest.GetTestMatrix();
-            matrix.Add(null);
+            Assert.Throws<ArgumentNullException>(() => matrix.Add(null));
         }
 
         [Test]
@@ -123,14 +121,14 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentSizes()
         {
             var matrix1 = new Matrix(2, 3);
             var matrix2 = new Matrix(3, 2);
 
             // Should throw an ArgumentException since the matrices are of different sizes
-            var result = matrix1 + matrix2;
+            Matrix result;
+            Assert.Throws<ArgumentException>(() => result = matrix1 + matrix2);
         }
     }
 }

@@ -99,26 +99,24 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNull1()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.AddRow(null);
+            Assert.Throws<ArgumentNullException>(() => matrix.AddRow(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Exception1()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.AddRow(1, 2, 3, 4, 5, 6);
+            Assert.Throws<ArgumentException>(() => matrix.AddRow(1, 2, 3, 4, 5, 6));
         }
 
         [Test]
         public void MultipleRows()
         {
             var matrix = MatrixTest.GetTestMatrix();
-
+            
             var columnCount = matrix.Columns;
             var rowCount = matrix.Rows;
 
@@ -145,20 +143,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeRows()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.AddRows(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.AddRows(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionZeroRows()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.AddRows(0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.AddRows(0));
         }
-
     }
 }

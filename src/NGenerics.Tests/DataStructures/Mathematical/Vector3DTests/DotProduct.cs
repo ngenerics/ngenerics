@@ -57,20 +57,18 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector = new Vector3D();
             VectorBase<double> vectorBase = new VectorN(4);
-            vector.DotProduct(vectorBase);
+            Assert.Throws<ArgumentException>(() => vector.DotProduct(vectorBase));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExcetionNullVector()
         {
             var vector = new Vector3D();
-            vector.DotProduct(null);
+            Assert.Throws<ArgumentNullException>(() => vector.DotProduct(null));
         }
 
     }

@@ -65,51 +65,45 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNegativeNewNumberOfRows()
         {
             var matrix = GetTestMatrix();
-            matrix.Resize(-1, 8);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(-1, 8));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNegativeNewNumberOfColumns()
         {
             var matrix = GetTestMatrix();
-            matrix.Resize(8, -1);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(8, -1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionZeroNewNumberOfRows()
         {
             var matrix = GetTestMatrix();
-            matrix.Resize(8, 0);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(8, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionZeroNewNumberOfColumns()
         {
             var matrix = GetTestMatrix();
-            matrix.Resize(0, 8);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(0, 8));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNegativeNewNumberOfRowsAndNewNumberOfColumns()
         {
             var matrix = GetTestMatrix();
-            matrix.Resize(-1, -1);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(-1, -1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionZeroNewNumberOfColumnsAndNewNumberOfRows()
         {
             var matrix = GetTestMatrix();
-            matrix.Resize(0, 0);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(0, 0));
         }
     }
 }

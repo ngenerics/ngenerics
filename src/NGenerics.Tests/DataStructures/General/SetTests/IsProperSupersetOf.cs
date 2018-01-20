@@ -17,37 +17,35 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
     public class IsProperSupersetOf
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullSet()
         {
             var pascalSet = new PascalSet(500);
-            pascalSet.IsProperSupersetOf(null);
+            Assert.Throws<ArgumentNullException>(() => pascalSet.IsProperSupersetOf(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullS1()
         {
             var pascalSet = new PascalSet(500);
-            var p = null > pascalSet;
+            bool p;
+            Assert.Throws<ArgumentNullException>(() => p = null > pascalSet);
         }
+
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid()
         {
             var s1 = new PascalSet(0, 50, new[] { 15, 20, 30 });
             var s2 = new PascalSet(10, 60, new[] { 15, 20, 60 });
 
-            s1.IsProperSupersetOf(s2);
+            Assert.Throws<ArgumentException>(() => s1.IsProperSupersetOf(s2));
         }
 
-
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullS2()
         {
             var pascalSet = new PascalSet(0, 50, new[] { 15, 20, 30 });
-            var b = pascalSet > null;
+            bool b;
+            Assert.Throws<ArgumentNullException>(() => b = pascalSet > null);
         }
 
         [Test]

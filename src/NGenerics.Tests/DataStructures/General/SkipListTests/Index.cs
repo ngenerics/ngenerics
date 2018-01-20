@@ -34,36 +34,33 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void ExceptionInvalidItemGet1()
         {
             var skipList = new SkipList<int, string>();
-            var v = skipList[10];
+            string value;
+            Assert.Throws<KeyNotFoundException>(() => value = skipList[10]);
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void ExceptionInvalidItemGet2()
         {
             var skipList = new SkipList<int, string> { { 1, "aa" } };
-            var v = skipList[2];
+            string value;
+            Assert.Throws<KeyNotFoundException>(() => value = skipList[2]);
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void ExceptionInvalidItemset1()
         {
             var skipList = new SkipList<int, string>();
-            skipList[10] = "2";
+            Assert.Throws<KeyNotFoundException>(() => skipList[10] = "2");
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void ExceptionInvalidItemset2()
         {
             var skipList = new SkipList<int, string> { { 1, "aa" } };
-            skipList[10] = "2";
+            Assert.Throws<KeyNotFoundException>(() => skipList[10] = "2");
         }
-
     }
 }

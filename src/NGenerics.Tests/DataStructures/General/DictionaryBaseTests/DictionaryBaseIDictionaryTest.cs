@@ -27,20 +27,18 @@ namespace NGenerics.Tests.DataStructures.General.DictionaryBaseTests
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddInvalidKeyTypeTest()
         {
             var target = new MockStringDictionary();
-            ((IDictionary)target).Add(2, "a");
+            Assert.Throws<ArgumentException>(() => ((IDictionary)target).Add(2, "a"));
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddInvalidValueTypeTest()
         {
             var target = new MockStringDictionary();
-            ((IDictionary)target).Add("a", 2);
+            Assert.Throws<ArgumentException>(() => ((IDictionary)target).Add("a", 2));
         }
 
 
@@ -121,20 +119,18 @@ namespace NGenerics.Tests.DataStructures.General.DictionaryBaseTests
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void IndexerSetInvalidKeyTypeTest()
         {
             var target = new MockStringDictionary();
-            ((IDictionary)target)[2] = "a";
+            Assert.Throws<ArgumentException>(() => ((IDictionary)target)[2] = "a");
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void IndexerSetInvalidValueTypeTest()
         {
             var target = new MockStringDictionary();
-            ((IDictionary)target)["a"] = 2;
+            Assert.Throws<ArgumentException>(() => ((IDictionary)target)["a"] = 2);
         }
 
 

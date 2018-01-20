@@ -41,7 +41,6 @@ namespace NGenerics.Tests.DataStructures.Queues.DequeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionArrayTooSmall()
         {
             var deque = new Deque<int>();
@@ -51,11 +50,10 @@ namespace NGenerics.Tests.DataStructures.Queues.DequeTests
             deque.EnqueueHead(55);
 
             var array = new int[3];
-            deque.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => deque.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNotEnoughSpaceFromIndex()
         {
             var deque = new Deque<int>();
@@ -65,19 +63,17 @@ namespace NGenerics.Tests.DataStructures.Queues.DequeTests
             deque.EnqueueHead(55);
 
             var array = new int[4];
-            deque.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => deque.CopyTo(array, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var deque = new Deque<int>();
-            deque.CopyTo(null, 0);
+            Assert.Throws<ArgumentNullException>(() => deque.CopyTo(null, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidArray1()
         {
             var deque = new Deque<int>();
@@ -89,11 +85,10 @@ namespace NGenerics.Tests.DataStructures.Queues.DequeTests
 
             var array = new int[19];
 
-            deque.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => deque.CopyTo(array, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidArray2()
         {
             var deque = new Deque<int>();
@@ -105,8 +100,7 @@ namespace NGenerics.Tests.DataStructures.Queues.DequeTests
 
             var array = new int[18];
 
-            deque.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => deque.CopyTo(array, 0));
         }
-
     }
 }

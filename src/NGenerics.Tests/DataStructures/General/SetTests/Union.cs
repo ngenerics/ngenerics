@@ -20,30 +20,29 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid1()
         {
             var s1 = new PascalSet(0, 50, new[] { 15, 20, 30 });
             var s2 = new PascalSet(10, 60, new[] { 15, 20, 60 });
 
-            s1.Union(s2);
+            Assert.Throws<ArgumentException>(() => s1.Union(s2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullOperatorS1()
         {
             var pascalSet = new PascalSet(0, 50, new[] { 15, 20, 30 });
 
-            var union = null + pascalSet;
+            PascalSet union;
+            Assert.Throws<ArgumentNullException>(() => union = null + pascalSet);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptioNullS2()
         {
             var pascalSet = new PascalSet(0, 50, new[] { 15, 20, 30 });
-            var union = pascalSet + null;
+            PascalSet union;
+            Assert.Throws<ArgumentNullException>(() => union = pascalSet + null);
         }
 
         [Test]
@@ -130,13 +129,11 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void NullSet()
         {
             var pascalSet = new PascalSet(500);
-            pascalSet.Union(null);
+            Assert.Throws<ArgumentNullException>(() => pascalSet.Union(null));
         }
-
     }
 
 }

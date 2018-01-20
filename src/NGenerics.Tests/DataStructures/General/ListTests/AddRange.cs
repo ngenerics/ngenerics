@@ -7,9 +7,9 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
+using Moq;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.DataStructures.General.ListTests
 {
@@ -28,13 +28,9 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
         public void SimpleEnsureInsertItemCall()
         {
             var collection = new[] { 3 };
-            var mockRepository = new MockRepository();
-            var listBase = mockRepository.StrictMock<AddRange>();
-            listBase.AddRangeItems(collection);
-            mockRepository.ReplayAll();
-            listBase.AddRange(collection);
-            mockRepository.VerifyAll();
+            var listBase = new Mock<AddRange>();
+            listBase.Object.AddRange(collection);
+            listBase.Verify(x => x.AddRangeItems(collection));
         }
-
     }
 }

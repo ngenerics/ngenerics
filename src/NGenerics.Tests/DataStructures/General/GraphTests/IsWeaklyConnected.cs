@@ -17,19 +17,17 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
     public class IsWeaklyConnected : GraphTest
     {
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionEmptyDirected()
         {
             var graph = new Graph<int>(true);
-            graph.IsWeaklyConnected();
+            Assert.Throws<InvalidOperationException>(() => graph.IsWeaklyConnected());
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionEmptyUndirected()
         {
             var graph = new Graph<int>(false);
-            graph.IsWeaklyConnected();
+            Assert.Throws<ArgumentNullException>(() => graph.IsWeaklyConnected());
         }
 
         [Test]

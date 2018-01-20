@@ -32,10 +32,9 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer()
         {
-            new RedBlackTree<int, string>((IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => new RedBlackTree<int, string>((IComparer<int>) null));
         }
 
     }

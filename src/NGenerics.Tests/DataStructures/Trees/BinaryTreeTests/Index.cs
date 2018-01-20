@@ -26,13 +26,11 @@ namespace NGenerics.Tests.DataStructures.Trees.BinaryTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionBadIndexer()
         {
             var binaryTree = GetTestTree();
-
-            var i = binaryTree[2].Data;
+            int i;
+            Assert.Throws<ArgumentNullException>(() => i = binaryTree[2].Data);
         }
-
     }
 }

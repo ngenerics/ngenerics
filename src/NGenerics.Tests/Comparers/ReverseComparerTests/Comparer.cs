@@ -32,13 +32,14 @@ namespace NGenerics.Tests.Comparers.ReverseComparerTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer()
         {
-            new ReverseComparer<int>
-            {
-                Comparer = null
-            };
+            Assert.Throws<ArgumentNullException>(() =>  
+                new ReverseComparer<int>
+                {
+                    Comparer = null
+                }
+            );
         }
     }
 }

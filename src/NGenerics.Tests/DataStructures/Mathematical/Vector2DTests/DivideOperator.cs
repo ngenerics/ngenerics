@@ -45,28 +45,29 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector2D1 = new Vector2D();
             VectorBase<double> vectorBase = new VectorN(4);
-            IVector<double> vector = vector2D1 / vectorBase;
+            IVector<double> vector;
+            Assert.Throws<ArgumentException>(() => vector = vector2D1 / vectorBase);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullLeft()
         {
             var vector2D1 = new Vector2D();
-            var vector = null / vector2D1;
+            Vector2D vector;
+            Assert.Throws<ArgumentNullException>(() => vector = null / vector2D1);
+            
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullRight()
         {
             var vector2D1 = new Vector2D();
-            var vector = vector2D1 / null;
+            Vector2D vector;
+            Assert.Throws<ArgumentNullException>(() => vector = vector2D1 / null);
         }
     }
 }

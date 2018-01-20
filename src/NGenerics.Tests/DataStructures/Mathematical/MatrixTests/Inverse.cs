@@ -18,7 +18,6 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionZeroDeterminant()
         {
             var matrix = new Matrix(3, 3);
@@ -36,7 +35,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
             matrix[1, 1] = 4;
             matrix[1, 2] = 4;
 
-            matrix.Inverse();
+            Assert.Throws<ArgumentException>(() => matrix.Inverse());
         }
 
         [Test]

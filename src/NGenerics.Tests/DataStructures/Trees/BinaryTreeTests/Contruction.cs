@@ -45,10 +45,9 @@ namespace NGenerics.Tests.DataStructures.Trees.BinaryTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullData()
         {
-            new BinaryTree<string>(null);
+            Assert.Throws<ArgumentNullException>(() => new BinaryTree<string>(null));
         }
 
     }

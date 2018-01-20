@@ -29,18 +29,15 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorNTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionDimensionCountZero()
         {
-            VectorN.GetUnitVector(0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => VectorN.GetUnitVector(0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionDimensionCountNegative()
         {
-            VectorN.GetUnitVector(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => VectorN.GetUnitVector(-1));
         }
-
     }
 }

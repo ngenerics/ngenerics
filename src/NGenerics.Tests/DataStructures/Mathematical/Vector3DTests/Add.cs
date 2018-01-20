@@ -67,14 +67,9 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
-            new Vector3D
-                {
-                    null
-                };
+            Assert.Throws<ArgumentNullException>(() => new Vector3D { null });
         }
-
     }
 }

@@ -18,37 +18,35 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidProperSubsetOf()
         {
             var s1 = new PascalSet(0, 50, new[] { 15, 20, 30 });
             var s2 = new PascalSet(10, 60, new[] { 15, 20, 60 });
 
-            s1.IsProperSubsetOf(s2);
+            Assert.Throws<ArgumentException>(() => s1.IsProperSubsetOf(s2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void ExcetpionNullS1()
+        public void ExceptionNullS1()
         {
             var pascalSet = new PascalSet(0, 50, new[] { 15, 20, 30 });
-            var b = null < pascalSet;
+            bool b;
+            Assert.Throws<ArgumentNullException>(() => b = null < pascalSet);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullS2()
         {
             var pascalSet = new PascalSet(0, 50, new[] { 15, 20, 30 });
-            var b = pascalSet < null;
+            bool b;
+            Assert.Throws<ArgumentNullException>(() => b = pascalSet < null);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullSet()
         {
             var pascalSet = new PascalSet(500);
-            pascalSet.IsProperSubsetOf(null);
+            Assert.Throws<ArgumentNullException>(() => pascalSet.IsProperSubsetOf(null));
         }
 
         [Test]
@@ -83,12 +81,11 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void ExceptionNullS1()
+        public void ExceptionNullS3()
         {
             var pascalSet = new PascalSet(500);
-            var p = null < pascalSet;
+            bool p;
+            Assert.Throws<ArgumentNullException>(() => p = null < pascalSet);
         }
-
     }
 }

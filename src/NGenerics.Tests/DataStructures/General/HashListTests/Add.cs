@@ -18,13 +18,12 @@ namespace NGenerics.Tests.DataStructures.General.HashListTests
     public class Add
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionInvalidRange()
         {
-            var hashList = new HashList<int, string>
+            Assert.Throws<ArgumentNullException>(() => new HashList<int, string>
                                {
                                    {3, (List<string>) null}
-                               };
+                               });
         }
 
         [Test]

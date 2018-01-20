@@ -36,30 +36,26 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var generalTree = GetTestTree();
-            generalTree.CopyTo(null, 1);
+            Assert.Throws<ArgumentNullException>(() => generalTree.CopyTo(null, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid1()
         {
             var generalTree = GetTestTree();
             var array = new int[6];
-            generalTree.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => generalTree.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid2()
         {
             var generalTree = GetTestTree();
             var array = new int[7];
-            generalTree.CopyTo(array, 1);
+            Assert.Throws<ArgumentNullException>(() => generalTree.CopyTo(array, 1));
         }
-
     }
 }

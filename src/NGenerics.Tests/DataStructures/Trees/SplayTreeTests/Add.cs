@@ -18,10 +18,9 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
     public class Add : SplayTreeTest
     {
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDuplicate()
         {
-            var splayTree = new SplayTree<int, string> { { 4, "4" }, { 4, "4" } };
+            Assert.Throws<ArgumentException>(() => new SplayTree<int, string> { { 4, "4" }, { 4, "4" } });
         }
 
         [Test]

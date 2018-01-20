@@ -15,7 +15,7 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
     [TestFixture]
     public class Construction : SingletonTest
     {
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void SetupSingleton()
         {
             Singleton<TestInstance>.Instance.val = 5;

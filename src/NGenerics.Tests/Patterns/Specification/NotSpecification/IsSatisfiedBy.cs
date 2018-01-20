@@ -8,9 +8,9 @@
 */
 
 
+using Moq;
 using NGenerics.Patterns.Specification;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.Patterns.Specification.NotSpecification
 {
@@ -20,20 +20,16 @@ namespace NGenerics.Tests.Patterns.Specification.NotSpecification
         [Test]
         public void Not_Should_Reverse_SatisfiedBy_Value()
         {
-            var mocks = new MockRepository();
-            var s = mocks.StrictMock<ISpecification<int>>();
+            var s = new Mock<ISpecification<int>>();
 
-            Expect.Call(s.IsSatisfiedBy(5)).Return(true);
-            Expect.Call(s.IsSatisfiedBy(6)).Return(false);
-
-            mocks.ReplayAll();
-
-            var not = new NotSpecification<int>(s);
+            s.Setup(x => x.IsSatisfiedBy(5)).Returns(true);
+            
+            var not = new NotSpecification<int>(s.Object);
 
             Assert.IsFalse(not.IsSatisfiedBy(5));
-            Assert.IsTrue(not.IsSatisfiedBy(6));
 
-            mocks.VerifyAll();
+            s.Setup(x => x.IsSatisfiedBy(6)).Returns(false);
+            Assert.IsTrue(not.IsSatisfiedBy(6));
         }
     }
 }

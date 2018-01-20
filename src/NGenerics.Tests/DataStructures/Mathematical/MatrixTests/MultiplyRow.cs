@@ -18,19 +18,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionIndexNegative()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.MultiplyRow(-1, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.MultiplyRow(-1, 2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionRowGreaterThanRows()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.MultiplyRow(matrix.Rows, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.MultiplyRow(matrix.Rows, 2));
         }
 
         [Test]

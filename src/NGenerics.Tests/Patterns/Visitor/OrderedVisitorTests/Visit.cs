@@ -9,9 +9,9 @@
 
 
 
+using Moq;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.Patterns.Visitor.OrderedVisitorTests
 {
@@ -21,25 +21,19 @@ namespace NGenerics.Tests.Patterns.Visitor.OrderedVisitorTests
         [Test]
         public void InnerVisitorShouldBeCalledOnEachVisi_Method()
         {
-            var mockRepository = new MockRepository();
-            var innerVisitor = mockRepository.StrictMock<IVisitor<int>>();
+            var innerVisitor = new Mock<IVisitor<int>>();
+            var orderedVisitor = new OrderedVisitor<int>(innerVisitor.Object);
 
-            var orderedVisitor = new OrderedVisitor<int>(innerVisitor);
-
-            innerVisitor.Visit(1);
-            innerVisitor.Visit(0);
-            innerVisitor.Visit(-3);
-            innerVisitor.Visit(5);
-
-            mockRepository.ReplayAll();
 
             orderedVisitor.Visit(1);
             orderedVisitor.VisitInOrder(0);
             orderedVisitor.VisitPostOrder(-3);
             orderedVisitor.VisitPreOrder(5);
 
-            mockRepository.VerifyAll();
+            innerVisitor.Verify(x => x.Visit(1));
+            innerVisitor.Verify(x => x.Visit(0));
+            innerVisitor.Verify(x => x.Visit(-3));
+            innerVisitor.Verify(x => x.Visit(5));
         }
     }
-
 }

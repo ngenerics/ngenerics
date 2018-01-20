@@ -25,12 +25,11 @@ namespace NGenerics.Tests.DataStructures.Queues.DequeTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionEmpty()
         {
             var deque = new Deque<int>();
-            var i = deque.Tail;
+            int i;
+            Assert.Throws<InvalidOperationException>(() => i = deque.Tail);
         }
-
     }
 }

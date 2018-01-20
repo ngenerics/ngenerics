@@ -155,12 +155,11 @@ namespace NGenerics.Tests.DataStructures.General.CurveTests
     //        Assert.IsFalse(curve.Contains(3));
     //    }
     //    [Test]
-    //    [ExpectedException(typeof(ArgumentException))]
     //    public void ExceptionInvalidType()
     //    {
     //        var curve = (IList)new Curve<int,int>();
     //        curve.Add(3);
-    //        curve[0] = "a";
+    //        Assert.Throws<ArgumentException>(() => curve[0] = "a");
     //    }
     //    [Test]
     //    public void SimpleEnsureInsertItemCall()
@@ -229,11 +228,10 @@ namespace NGenerics.Tests.DataStructures.General.CurveTests
     //        Assert.IsTrue(curve.Contains(3));
     //    }
     //    [Test]
-    //    [ExpectedException(typeof(ArgumentException))]
     //    public void ExceptionInvalidType()
     //    {
     //        var curve = (IList)new Curve<int,int>();
-    //        curve.Insert(0, "d");
+    //        Assert.Throws<ArgumentException>(() => curve.Insert(0, "d"));
     //    }
     //    [Test]
     //    public void EnsureInsertItemCall()

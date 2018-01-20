@@ -18,10 +18,9 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
     {
 		
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullLeft()
         {
-            Matrix.LinearSolve(null, new Matrix(3, 3));
+            Assert.Throws<ArgumentNullException>(() => Matrix.LinearSolve(null, new Matrix(3, 3)));
         }
 
     }

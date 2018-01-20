@@ -44,11 +44,10 @@ namespace NGenerics.Tests.DataStructures.Trees.BinaryTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var binaryTree = GetTestTree();
-            binaryTree.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => binaryTree.AcceptVisitor(null));
         }
 
     }

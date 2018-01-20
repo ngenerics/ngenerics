@@ -47,12 +47,11 @@ namespace NGenerics.Tests.DataStructures.Mathematical.ComplexNumberTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionZeroComplexNumber()
         {
             var complexNumber = new ComplexNumber(0, 0);
-            var resultComplexNumber = complexNumber.Reciprocal;
+            ComplexNumber resultComplexNumber;
+            Assert.Throws<InvalidOperationException>(() => resultComplexNumber = complexNumber.Reciprocal);
         }
-
     }
 }

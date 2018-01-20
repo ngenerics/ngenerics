@@ -46,27 +46,24 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeColumnIndex()
         {
             var matrix = GetTestMatrix();
-            matrix.GetColumn(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetColumn(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionColumnTooLarge()
         {
             var matrix = GetTestMatrix();
-            matrix.GetColumn(matrix.Columns);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetColumn(matrix.Columns));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionColumnTooLarge2()
         {
             var matrix = GetTestMatrix();
-            matrix.GetColumn(matrix.Columns + 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetColumn(matrix.Columns + 1));
         }
     }
 }

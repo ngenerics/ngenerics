@@ -64,14 +64,13 @@ namespace NGenerics.Tests.DataStructures.Queues.MaxPriorityQueueHeapTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void WithNonComparableItem()
         {
             var priorityQueue = new PriorityQueue<string, NonComparable>(PriorityQueueType.Minimum);
             Assert.AreEqual(priorityQueue.Count, 0);
 
             priorityQueue.Add("a", new NonComparable());
-            priorityQueue.Add("b", new NonComparable());
+            Assert.Throws<ArgumentException>(() => priorityQueue.Add("b", new NonComparable()));
         }
 
         private class NonComparable

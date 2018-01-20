@@ -76,19 +76,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector3D()
         {
             var vector = new Vector3D();
-            vector.CrossProduct((Vector3D)null);
+            Assert.Throws<ArgumentNullException>(() => vector.CrossProduct((Vector3D)null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector2D()
         {
             var vector = new Vector3D();
-            vector.CrossProduct((Vector2D)null);
+            Assert.Throws<ArgumentNullException>(() => vector.CrossProduct((Vector2D)null));
         }
 
     }

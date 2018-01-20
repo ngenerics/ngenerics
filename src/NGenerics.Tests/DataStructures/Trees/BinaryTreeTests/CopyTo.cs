@@ -43,33 +43,26 @@ namespace NGenerics.Tests.DataStructures.Trees.BinaryTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Exception1()
         {
             var binaryTree = GetTestTree();
-
             var array = new int[5];
-
-            binaryTree.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => binaryTree.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Exception2()
         {
             var binaryTree = GetTestTree();
-
             var array = new int[6];
-
-            binaryTree.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => binaryTree.CopyTo(array, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var binaryTree = GetTestTree();
-            binaryTree.CopyTo(null, 1);
+            Assert.Throws<ArgumentNullException>(() => binaryTree.CopyTo(null, 1));
         }
 
     }

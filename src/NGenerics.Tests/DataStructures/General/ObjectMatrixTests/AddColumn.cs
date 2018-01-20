@@ -97,19 +97,18 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullValues()
         {
             var matrix = GetTestMatrix();
-            matrix.AddColumn(null);
+            Assert.Throws<ArgumentNullException>(() => matrix.AddColumn(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionIncorrectNumberOfColumns()
         {
             var matrix = GetTestMatrix();
-            matrix.AddColumn(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+            Assert.Throws<ArgumentException>(() =>
+                matrix.AddColumn(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16));
         }
     }
 }

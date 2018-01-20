@@ -55,20 +55,18 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullOther()
         {
             var vector = new Vector3D();
-            vector.Swap(null);
+            Assert.Throws<ArgumentNullException>(() => vector.Swap(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector = new Vector3D();
             VectorBase<double> vectorBase = new VectorN(4);
-            vector.Swap(vectorBase);
+            Assert.Throws<ArgumentException>(() => vector.Swap(vectorBase));
         }
 
     }

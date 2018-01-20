@@ -39,11 +39,10 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var vector = new VectorBaseTestObject(2);
-            vector.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => vector.AcceptVisitor(null));
         }
 
     }

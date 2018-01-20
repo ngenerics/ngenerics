@@ -18,83 +18,74 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTests
     {
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "CrossProductSafe")]
         public void Exception3x3()
         {
             var vector1 = new VectorBaseTestObject(3);
             var vector2 = new VectorBaseTestObject(3);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "CrossProductSafe")]
         public void Exception2x3()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(3);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "CrossProductSafe")]
         public void Exception3x2()
         {
             var vector1 = new VectorBaseTestObject(3);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "CrossProductSafe")]
         public void Exception2x2()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void Exception1x2()
         {
             var vector1 = new VectorBaseTestObject(1);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<InvalidOperationException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void Exception4x2()
         {
             var vector1 = new VectorBaseTestObject(4);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<InvalidOperationException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Exception2x1()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(1);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions1()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(4);
-            vector1.CrossProduct(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.CrossProduct(vector2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
             var vector1 = new VectorBaseTestObject(2);
-            vector1.CrossProduct(null);
+            Assert.Throws<ArgumentNullException>(() => vector1.CrossProduct(null));
         }
 
     }

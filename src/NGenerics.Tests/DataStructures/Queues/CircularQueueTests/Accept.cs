@@ -86,11 +86,10 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var circularQueue = new CircularQueue<int>(20);
-            circularQueue.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => circularQueue.AcceptVisitor(null));
         }
 
         [Test]

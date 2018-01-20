@@ -8,49 +8,28 @@
 */
 
 
+using Moq;
 using NGenerics.Patterns.Specification;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.Patterns.Specification.XorSpecification
 {
     [TestFixture]
     public class IsSatisfiedBy
     {
-        [Test]
-        public void Xor_Should_Return_True_Only_If_Both_Specifications_Return_Different_Values()
+        [TestCase(true, false, true)]
+        [TestCase(false, true, true)]
+        [TestCase(false, false, false)]
+        [TestCase(true, true, false)]
+        public void Xor_Should_Return_True_Only_If_Both_Specifications_Return_Different_Values(bool firstValue, bool secondValue, bool expected)
         {
-            var mocks = new MockRepository();
-            var s1 = mocks.StrictMock<ISpecification<int>>();
-            var s2 = mocks.StrictMock<ISpecification<int>>();
+            var s1 = new Mock<ISpecification<int>>();
+            var s2 = new Mock<ISpecification<int>>();
+            ISpecification<int> XorSpecification = new XorSpecification<int>(s1.Object, s2.Object);
 
-            // 1st call
-            Expect.Call(s1.IsSatisfiedBy(5)).Return(true);
-            Expect.Call(s2.IsSatisfiedBy(5)).Return(false);
-
-            // 2nd call
-            Expect.Call(s1.IsSatisfiedBy(5)).Return(false);
-            Expect.Call(s2.IsSatisfiedBy(5)).Return(true);
-
-            // 3rd call
-            Expect.Call(s1.IsSatisfiedBy(5)).Return(true);
-            Expect.Call(s2.IsSatisfiedBy(5)).Return(true);
-
-            // 4th call
-            Expect.Call(s1.IsSatisfiedBy(5)).Return(false);
-            Expect.Call(s2.IsSatisfiedBy(5)).Return(false);
-
-            mocks.ReplayAll();
-
-            ISpecification<int> XorSpecification = new XorSpecification<int>(s1, s2);
-
-            Assert.AreEqual(XorSpecification.IsSatisfiedBy(5), true);
-            Assert.AreEqual(XorSpecification.IsSatisfiedBy(5), true);
-            Assert.AreEqual(XorSpecification.IsSatisfiedBy(5), false);
-            Assert.AreEqual(XorSpecification.IsSatisfiedBy(5), false);
-
-            mocks.VerifyAll();
+            s1.Setup(x => x.IsSatisfiedBy(5)).Returns(firstValue);
+            s2.Setup(x => x.IsSatisfiedBy(5)).Returns(secondValue);
+            Assert.AreEqual(XorSpecification.IsSatisfiedBy(5), expected);
         }
     }
-
 }

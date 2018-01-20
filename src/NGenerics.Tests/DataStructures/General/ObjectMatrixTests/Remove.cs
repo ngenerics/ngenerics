@@ -17,11 +17,10 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
     public class Remove:ObjectMatrixTest
     {
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void ExceptionInterfaceNotSupported()
         {
             var matrix = GetTestMatrix();
-            ((ICollection<int>) matrix).Remove(5);
+            Assert.Throws<NotSupportedException>(() => ((ICollection<int>) matrix).Remove(5));
         }
     }
 }

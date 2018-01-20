@@ -27,10 +27,9 @@ namespace NGenerics.Tests.Patterns.Visitor.GeneralVisitorTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullPredicate()
         {
-            new GeneralVisitor<int>(null);
+            Assert.Throws<ArgumentNullException>(() => new GeneralVisitor<int>(null));
         }
     }
 }

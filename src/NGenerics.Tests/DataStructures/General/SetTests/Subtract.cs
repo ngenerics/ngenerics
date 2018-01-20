@@ -18,11 +18,10 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullSet()
         {
             var pascalSet = new PascalSet(500);
-            pascalSet.Subtract(null);
+            Assert.Throws<ArgumentNullException>(() => pascalSet.Subtract(null));
         }
 
         [Test]
@@ -71,20 +70,19 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullSetOperator2()
         {
             var pascalSet = new PascalSet(0, 50, new[] { 15, 20, 30, 40, 34 });
-            var a = null - pascalSet;
+            PascalSet a;
+            Assert.Throws<ArgumentNullException>(() => a = null - pascalSet);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullSetOperator1()
         {
             var pascalSet = new PascalSet(0, 50, new[] { 15, 20, 30, 40, 34 });
-            var a = pascalSet - null;
+            PascalSet a;
+            Assert.Throws<ArgumentNullException>(() => a = pascalSet - null);
         }
-
     }
 }

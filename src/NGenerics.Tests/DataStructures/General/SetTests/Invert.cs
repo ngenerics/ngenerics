@@ -18,10 +18,10 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Null()
         {
-            var newSet = !(PascalSet)null;
+            PascalSet newSet;
+            Assert.Throws<ArgumentNullException>(() => newSet = !(PascalSet)null);
         }
 
         [Test]

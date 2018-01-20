@@ -52,25 +52,27 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionZeroAmount()
         {
-            new Bag<string>
-                {
-                    {"aa", 0}
-                };
+            Assert.Throws<ArgumentOutOfRangeException>(() => 
+                new Bag<string>
+                    {
+                        {"aa", 0}
+                    }
+            );
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeAmount()
         {
-            new Bag<string>
-                {
+            Assert.Throws<ArgumentOutOfRangeException>(() =>  
+                new Bag<string>
                     {
-                        "aa", -1
+                        {
+                            "aa", -1
                         }
-                };
+                    }
+            );
         }
 
     }

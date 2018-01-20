@@ -36,11 +36,10 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void NullConverter()
         {
             var tree = GetTestTree();
-            tree.GetPath<int>(null);
+            Assert.Throws<ArgumentNullException>(() => tree.GetPath<int>(null));
         }
     }
 }

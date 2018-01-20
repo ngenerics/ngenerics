@@ -199,11 +199,11 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVertex()
         {
             var graph = new Graph<int>(true);
-            graph.DepthFirstTraversal(new PreOrderVisitor<Vertex<int>>(new TrackingVisitor<Vertex<int>>()), null);
+            Assert.Throws<ArgumentNullException>(() => graph.DepthFirstTraversal(
+                new PreOrderVisitor<Vertex<int>>(new TrackingVisitor<Vertex<int>>()), null));
         }
 
         [Test]
@@ -241,11 +241,10 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var graph = new Graph<int>(true);
-            graph.DepthFirstTraversal(null, new Vertex<int>(4));
+            Assert.Throws<ArgumentNullException>(() => graph.DepthFirstTraversal(null, new Vertex<int>(4)));
         }
     }
 }

@@ -40,10 +40,9 @@ namespace NGenerics.Tests.Algorithms.Math.FibonacciTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeUpperBound()
         {
-            MathAlgorithms.Fibonacci(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => MathAlgorithms.Fibonacci(-1));
         }
     }
 }

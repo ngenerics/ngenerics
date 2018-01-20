@@ -24,11 +24,11 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionInvalidMax()
         {
             var redBlackTree = new RedBlackTree<int, string>();
-            var i = redBlackTree.Maximum.Key;
+            int value;
+            Assert.Throws<InvalidOperationException>(() => value = redBlackTree.Maximum.Key);
         }
     }
 }

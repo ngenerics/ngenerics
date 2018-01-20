@@ -18,12 +18,10 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
     {
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void InterfaceRemove()
         {
             ICollection<double> matrix = MatrixTest.GetTestMatrix();
-            matrix.Remove(5);
+            Assert.Throws<NotSupportedException>(() => matrix.Remove(5));
         }
-
     }
 }

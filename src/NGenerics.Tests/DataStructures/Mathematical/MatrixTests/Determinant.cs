@@ -77,12 +77,10 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionNotSquare()
         {
             var matrix = new Matrix(2, 3);
-            matrix.Determinant();
+            Assert.Throws<InvalidOperationException>(() => matrix.Determinant());
         }
-
     }
 }

@@ -18,19 +18,17 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExcepionInvalidIndex1()
         {
             var generalTree = new GeneralTree<int>(3);
-            generalTree.RemoveAt(1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => generalTree.RemoveAt(1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidIndex2()
         {
             var generalTree = GetTestTree();
-            generalTree.RemoveAt(5);
+            Assert.Throws<ArgumentOutOfRangeException>(() => generalTree.RemoveAt(5));
         }
 
     }

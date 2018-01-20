@@ -47,12 +47,10 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var generalTree = GetTestTree();
-            generalTree.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => generalTree.AcceptVisitor(null));
         }
-
     }
 }

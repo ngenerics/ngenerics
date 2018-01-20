@@ -18,11 +18,10 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
             var vector = new Vector3D();
-            vector.Multiply(null);
+            Assert.Throws<ArgumentNullException>(() => vector.Multiply(null));
         }
 
         [Test]
@@ -105,12 +104,11 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector = new Vector3D();
             VectorBase<double> vectorBase = new VectorN(2);
-            vector.Multiply(vectorBase);
+            Assert.Throws<ArgumentException>(() => vector.Multiply(vectorBase));
         }
 
     }

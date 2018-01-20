@@ -33,12 +33,10 @@ namespace NGenerics.Tests.DataStructures.General.SortedListTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var sortedList = SortedListTest.GetTestList();
-            sortedList.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => sortedList.AcceptVisitor(null));
         }
-
     }
 }

@@ -65,35 +65,31 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeFirstRow()
         {
             var matrix = GetTestMatrix();
-            matrix.InterchangeRows(-1, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.InterchangeRows(-1, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionFirstRowTooLarge()
         {
             var matrix = GetTestMatrix();
-            matrix.InterchangeRows(matrix.Rows, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.InterchangeRows(matrix.Rows, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeSecondRow()
         {
             var matrix = GetTestMatrix();
-            matrix.InterchangeRows(0, -1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.InterchangeRows(0, -1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionSecondRowTooLarge()
         {
             var matrix = GetTestMatrix();
-            matrix.InterchangeRows(0, matrix.Rows);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.InterchangeRows(0, matrix.Rows));
         }
     }
 }

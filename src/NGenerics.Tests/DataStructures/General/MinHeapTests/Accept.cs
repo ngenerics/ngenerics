@@ -42,11 +42,10 @@ namespace NGenerics.Tests.DataStructures.General.MinHeapTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var heap = GetTestHeap();
-            heap.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => heap.AcceptVisitor(null));
         }
     }
 }

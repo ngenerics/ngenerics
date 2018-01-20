@@ -18,11 +18,10 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
     public class Accept
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var visitableList = new ListBase<int>(); 
-            visitableList.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => visitableList.AcceptVisitor(null));
         }
 
         [Test]

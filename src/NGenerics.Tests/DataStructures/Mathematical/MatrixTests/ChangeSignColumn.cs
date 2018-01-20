@@ -47,20 +47,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionColumnIndexLessThan0()
         {
             var matrix = new Matrix(3, 3);
-            matrix.ChangeSignColumn(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.ChangeSignColumn(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionColumnIndexGreaterThanColumnCount()
         {
             var matrix = new Matrix(3, 3);
-            matrix.ChangeSignColumn(3);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.ChangeSignColumn(3));
         }
-
     }
 }

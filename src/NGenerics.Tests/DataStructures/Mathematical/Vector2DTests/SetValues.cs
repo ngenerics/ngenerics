@@ -27,28 +27,24 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNullValues()
         {
             var vector = new Vector2D();
-            vector.SetValues();
+            Assert.Throws<ArgumentOutOfRangeException>(() => vector.SetValues());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNotEnoughValues()
         {
             var vector = new Vector2D();
-            vector.SetValues(4);
+            Assert.Throws<ArgumentOutOfRangeException>(() => vector.SetValues(4));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionTooManyValues()
         {
             var vector = new Vector2D();
-            vector.SetValues(4, 6, 3);
+            Assert.Throws<ArgumentOutOfRangeException>(() => vector.SetValues(4, 6, 3));
         }
-
     }
 }

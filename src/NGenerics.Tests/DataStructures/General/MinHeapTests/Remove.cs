@@ -18,11 +18,10 @@ namespace NGenerics.Tests.DataStructures.General.MinHeapTests
     public class Remove : MinHeapTest
     {
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void ExceptionInterface()
         {
             ICollection<int> heap = GetTestHeap();
-            heap.Remove(4);
+            Assert.Throws<NotSupportedException>(() => heap.Remove(4));
         }
 
         [Test]
@@ -40,14 +39,11 @@ namespace NGenerics.Tests.DataStructures.General.MinHeapTests
 
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionEmpty()
         {
             var heap = new Heap<int>(HeapType.Minimum);
-
             Assert.AreEqual(heap.Count, 0);
-
-            heap.RemoveRoot();
+            Assert.Throws<InvalidOperationException>(() => heap.RemoveRoot());
         }
 
         [Test]

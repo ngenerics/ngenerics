@@ -17,11 +17,10 @@ namespace NGenerics.Tests.DataStructures.General.MaxHeapTests
     public class Remove : MaxHeapTest
     {
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void ExceptionInterface()
         {
             ICollection<int> heap = GetTestHeap();
-            heap.Remove(4);
+            Assert.Throws<NotSupportedException>(() => heap.Remove(4));
         }
     }
 }

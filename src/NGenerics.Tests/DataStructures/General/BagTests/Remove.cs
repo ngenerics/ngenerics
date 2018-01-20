@@ -49,12 +49,10 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionMaximumBelowZero()
         {
             var bag = new Bag<string> { "aa", "bb", "aa", { "cc", 3 } };
-
-            bag.Remove("aa", -1);
+            Assert.Throws<ArgumentOutOfRangeException>(() =>   bag.Remove("aa", -1));
         }
 
         [Test]

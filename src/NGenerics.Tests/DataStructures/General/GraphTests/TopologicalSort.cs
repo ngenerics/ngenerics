@@ -18,11 +18,10 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
     public class TopologicalSort : GraphTest
     {
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionUndirectedGraph()
         {
             var graph = new Graph<int>(false);
-            graph.TopologicalSort();
+            Assert.Throws<ArgumentException>(() =>  graph.TopologicalSort());
         }
 
         [Test]
@@ -49,7 +48,6 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionTraversalException()
         {
             var graph = new Graph<int>(true);
@@ -65,12 +63,10 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             graph.AddEdge(vertex4, vertex1);
 
             var visitor = new TrackingVisitor<Vertex<int>>();
-
-            graph.TopologicalSortTraversal(visitor);
+            Assert.Throws<InvalidOperationException>(() => graph.TopologicalSortTraversal(visitor));
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void Exception()
         {
             var graph = new Graph<int>(true);
@@ -85,7 +81,7 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             graph.AddEdge(vertex3, vertex4);
             graph.AddEdge(vertex4, vertex1);
 
-            graph.TopologicalSort();
+            Assert.Throws<InvalidOperationException>(() => graph.TopologicalSort());
         }
     }
 }

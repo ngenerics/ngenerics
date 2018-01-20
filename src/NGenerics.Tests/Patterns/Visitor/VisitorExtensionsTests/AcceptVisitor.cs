@@ -12,9 +12,9 @@ namespace NGenerics.Tests.Patterns.Visitor.VisitorExtensionsTests
 {
     using System;
     using System.Collections.Generic;
+    using Moq;
     using NGenerics.Patterns.Visitor;
     using NUnit.Framework;
-    using Rhino.Mocks;
 
     [TestFixture]
     public class AcceptVisitor
@@ -22,57 +22,23 @@ namespace NGenerics.Tests.Patterns.Visitor.VisitorExtensionsTests
         [Test]
         public void Simple()
         {
-            var mocks = new MockRepository();
-            var visitor = mocks.StrictMock<IVisitor<int>>();
+            var visitor = new Mock<IVisitor<int>>();
 
-            Expect.Call(visitor.HasCompleted).Return(false);
-            visitor.Visit(1);
-
-            Expect.Call(visitor.HasCompleted).Return(false);
-            visitor.Visit(2);
-
-            Expect.Call(visitor.HasCompleted).Return(false);
-            visitor.Visit(3);
-
-            Expect.Call(visitor.HasCompleted).Return(false);
-            visitor.Visit(4);
-
-            mocks.ReplayAll();
+            visitor.Setup(x => x.HasCompleted).Returns(false);
 
             var l = new List<int> { 1, 2, 3, 4 };
-            l.AcceptVisitor(visitor);
-
-            mocks.VerifyAll();
+            l.AcceptVisitor(visitor.Object);
+            visitor.Verify(x => x.Visit(1));
+            visitor.Verify(x => x.Visit(2));
+            visitor.Verify(x => x.Visit(3));
+            visitor.Verify(x => x.Visit(4));
         }
 
         [Test]
-        public void Stopping_Visitor()
-        {
-            var mocks = new MockRepository();
-            var visitor = mocks.StrictMock<IVisitor<int>>();
-
-            Expect.Call(visitor.HasCompleted).Return(false);
-            visitor.Visit(1);
-
-            Expect.Call(visitor.HasCompleted).Return(false);
-            visitor.Visit(2);
-
-            Expect.Call(visitor.HasCompleted).Return(true);
-
-            mocks.ReplayAll();
-
-            var l = new List<int> { 1, 2, 3, 4 };
-            l.AcceptVisitor(visitor);
-
-            mocks.VerifyAll();
-        }
-
-        [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Null_Visitor()
         {
             var l = new List<int> { 1, 2, 3, 4 };
-            l.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => l.AcceptVisitor(null));
         }
     }
 

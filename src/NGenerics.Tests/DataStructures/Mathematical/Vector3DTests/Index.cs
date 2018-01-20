@@ -46,36 +46,33 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionGetTooLarge()
         {
             var vector = new Vector3D();
-            var d = vector[3];
+            double d;
+            Assert.Throws<ArgumentOutOfRangeException>(() => d = vector[3]);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionGetTooSmall()
         {
             var vector = new Vector3D();
-            var d = vector[-1];
+            double d;
+            Assert.Throws<ArgumentOutOfRangeException>(() => d = vector[-1]);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionSetTooLarge()
         {
             var vector = new Vector3D();
-            vector[3] = 9;
+            Assert.Throws<ArgumentOutOfRangeException>(() => vector[3] = 9);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionSetTooSmall()
         {
             var vector = new Vector3D();
-            vector[-1] = 9;
+            Assert.Throws<ArgumentOutOfRangeException>(() => vector[-1] = 9);
         }
-
     }
 }

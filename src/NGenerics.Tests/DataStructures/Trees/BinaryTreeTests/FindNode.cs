@@ -76,19 +76,17 @@ namespace NGenerics.Tests.DataStructures.Trees.BinaryTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExcetpionInterfaceNullCondition()
         {
             var binaryTree = GetTestTree();
-            ((ITree<int>)binaryTree).FindNode(null);
+            Assert.Throws<ArgumentNullException>(() => ((ITree<int>)binaryTree).FindNode(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExcepionNullCondition()
         {
             var binaryTree = GetTestTree();
-            binaryTree.FindNode(null);
+            Assert.Throws<ArgumentNullException>(() => binaryTree.FindNode(null));
         }
 
     }

@@ -27,18 +27,15 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidCapacity1()
         {
-            new CircularQueue<int>(0);
+            Assert.Throws<ArgumentException>(() => new CircularQueue<int>(0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidCapacity2()
         {
-            new CircularQueue<int>(-1);
+            Assert.Throws<ArgumentException>(() => new CircularQueue<int>(-1));
         }
-
     }
 }

@@ -56,7 +56,6 @@ namespace NGenerics.Tests.DataStructures.Mathematical.QRDecompositionTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionRankDeficient()
         {
             var matrixA = new Matrix(3, 2);
@@ -75,11 +74,10 @@ namespace NGenerics.Tests.DataStructures.Mathematical.QRDecompositionTests
             matrixB[1, 1] = 1;
 
             var qrDecomposition = new QRDecomposition(matrixA);
-            qrDecomposition.Solve(matrixB);
+            Assert.Throws<ArgumentException>(() => qrDecomposition.Solve(matrixB));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentRowCount()
         {
             var matrixA = new Matrix(2, 2);
@@ -95,7 +93,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical.QRDecompositionTests
             matrixB[1, 1] = 1;
 
             var qrDecomposition = new QRDecomposition(matrixA);
-            qrDecomposition.Solve(matrixB);
+            Assert.Throws<ArgumentException>(() => qrDecomposition.Solve(matrixB));
         }
 
     }

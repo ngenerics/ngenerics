@@ -76,11 +76,10 @@ namespace NGenerics.Tests.DataStructures.Queues.MinPriorityQueueHeapTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var priorityQueue = GetTestPriorityQueue();
-            priorityQueue.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => priorityQueue.AcceptVisitor(null));
         }
 
         [Test]

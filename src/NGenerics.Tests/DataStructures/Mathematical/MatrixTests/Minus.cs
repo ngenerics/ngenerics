@@ -18,7 +18,6 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionIncompatibleMatrices()
         {
             var matrix1 = new Matrix(2, 3);
@@ -31,7 +30,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
 
             var matrix2 = MatrixTest.GetTestMatrix();
 
-            matrix1.Subtract(matrix2);
+            Assert.Throws<ArgumentException>(() => matrix1.Subtract(matrix2));
         }
 
         [Test]
@@ -67,7 +66,6 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionIncompatibleMatrices2()
         {
             IMathematicalMatrix matrix1 = new Matrix(2, 3);
@@ -80,24 +78,22 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
 
             IMathematicalMatrix matrix2 = MatrixTest.GetTestMatrix();
 
-            matrix1.Subtract(matrix2);
+            Assert.Throws<ArgumentException>(() => matrix1.Subtract(matrix2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionInterfaceMinusNull()
         {
             IMathematicalMatrix matrix = MatrixTest.GetTestMatrix();
-            matrix.Subtract(null);
+            Assert.Throws<ArgumentNullException>(() => matrix.Subtract(null));
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionSubtractNull()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Subtract(null);
+            Assert.Throws<ArgumentNullException>(() => matrix.Subtract(null));
         }
 
         [Test]
@@ -133,19 +129,19 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullMinus1()
         {
             var matrix1 = new Matrix(2, 3);
-            var result = matrix1 - null;
+            Matrix result;
+            Assert.Throws<ArgumentNullException>(() => result = matrix1 - null);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullMinus2()
         {
             var matrix1 = new Matrix(2, 3);
-            var result = null - matrix1;
+            Matrix result;
+            Assert.Throws<ArgumentNullException>(() => result = null - matrix1);
         }
 
     }

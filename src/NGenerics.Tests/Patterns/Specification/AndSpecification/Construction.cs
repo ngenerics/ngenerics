@@ -17,17 +17,15 @@ namespace NGenerics.Tests.Patterns.Specification.AndSpecification
     public class Construction
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Should_Throw_If_Left_Specification_Is_Null()
         {
-            new AndSpecification<int>(null, new PredicateSpecification<int>(x => x == 5));
+            Assert.Throws<ArgumentNullException>(() => new AndSpecification<int>(null, new PredicateSpecification<int>(x => x == 5)));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Should_Throw_If_Right_Specification_Is_Null()
         {
-            new AndSpecification<int>(new PredicateSpecification<int>(x => x == 5), null);
+            Assert.Throws<ArgumentNullException>(() => new AndSpecification<int>(new PredicateSpecification<int>(x => x == 5), null));
         }
 
         [Test]

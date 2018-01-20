@@ -34,10 +34,9 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer()
         {
-            new BinarySearchTree<int, string>((IComparer<int>)null);
+            Assert.Throws<ArgumentNullException>(() => new BinarySearchTree<int, string>((IComparer<int>)null));
         }
 
     }

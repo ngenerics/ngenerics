@@ -15,7 +15,7 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
     [TestFixture]
     public class AssignConstructWith : SingletonTest
     {
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void SetupSingleton()
         {
             Singleton<float>.ConstructWith = () => 7;

@@ -9,9 +9,9 @@
 
 using System;
 using System.Collections;
+using Moq;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.DataStructures.General.ListTests
 {
@@ -34,32 +34,25 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
             Assert.IsTrue(listBase.Contains(3));
         }
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidType()
         {
-            var listBase = (IList)new ListBase<int>(); 
-            listBase.Insert(0,"d");
+            var listBase = (IList)new ListBase<int>();
+            Assert.Throws<ArgumentException>(() => listBase.Insert(0, "d"));
         }
         [Test]
         public void EnsureInsertItemCall()
         {
-            var mockRepository = new MockRepository();
-            var listBase = mockRepository.StrictMock<Insert>();
-            listBase.InsertItem(0, 5);
-            mockRepository.ReplayAll();
-            listBase.Insert(0, 5);
-            mockRepository.VerifyAll();
+            var listBase = new Mock<Insert>();
+            listBase.Object.Insert(0, 5);
+            listBase.Verify(x => x.InsertItem(0, 5));
         }
 
         [Test]
         public void InterfaceEnsureInsertItemCall()
         {
-            var mockRepository = new MockRepository();
-            var listBase = mockRepository.StrictMock<Insert>();
-            listBase.InsertItem(0, 5);
-            mockRepository.ReplayAll();
-            ((IList)listBase).Insert(0,5);
-            mockRepository.VerifyAll();
+            var listBase = new Mock<Insert>();
+            ((IList)listBase.Object).Insert(0,5);
+            listBase.Verify(x => x.InsertItem(0, 5));
         }
     }
 }

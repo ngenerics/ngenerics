@@ -19,51 +19,45 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidGetSubMatrix1()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.GetSubMatrix(-1, 0, 1, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(-1, 0, 1, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidGetSubMatrix2()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.GetSubMatrix(0, -1, 1, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(0, -1, 1, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidGetSubMatrix3()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.GetSubMatrix(0, 0, 0, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(0, 0, 0, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidGetSubMatrix4()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.GetSubMatrix(0, 0, 1, 0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(0, 0, 1, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidGetSubMatrix5()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.GetSubMatrix(0, 0, 6, 6);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(0, 0, 6, 6));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidGetSubMatrix6()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.GetSubMatrix(0, 0, 4, 7);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(0, 0, 4, 7));
         }
 
         [Test]

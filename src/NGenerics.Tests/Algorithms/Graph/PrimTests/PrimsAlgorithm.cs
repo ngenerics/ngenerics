@@ -140,24 +140,21 @@ namespace NGenerics.Tests.Algorithms.Graph.PrimTests
             }
 
             [Test]
-            [ExpectedException(typeof(ArgumentNullException))]
             public void ExceptionNullGraph()
             {
-                GraphAlgorithms.PrimsAlgorithm(null, new Vertex<int>(5));
+                Assert.Throws<ArgumentNullException>(() => GraphAlgorithms.PrimsAlgorithm(null, new Vertex<int>(5)));
             }
 
             [Test]
-            [ExpectedException(typeof(ArgumentNullException))]
             public void ExceptionNullVertex()
             {
-                GraphAlgorithms.PrimsAlgorithm(new Graph<int>(true), null);
+                Assert.Throws<ArgumentNullException>(() => GraphAlgorithms.PrimsAlgorithm(new Graph<int>(true), null));                
             }
 
             [Test]
-            [ExpectedException(typeof(ArgumentException))]
             public void ExceptionInvalidVertex()
             {
-                GraphAlgorithms.PrimsAlgorithm(new Graph<int>(true), new Vertex<int>(5));
+                Assert.Throws<ArgumentException>(() => GraphAlgorithms.PrimsAlgorithm(new Graph<int>(true), new Vertex<int>(5)));
             }
 
             #region Private Members

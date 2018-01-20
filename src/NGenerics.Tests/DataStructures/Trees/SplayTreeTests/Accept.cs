@@ -48,11 +48,10 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var splayTree = new SplayTree<int, string>();
-            splayTree.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => splayTree.AcceptVisitor(null));
         }
 
     }

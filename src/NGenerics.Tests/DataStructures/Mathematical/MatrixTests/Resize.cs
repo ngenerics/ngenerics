@@ -66,52 +66,45 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNewRowsNegative()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Resize(-1, 8);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(-1, 8));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNewColumnsNegative()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Resize(8, -1);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(8, -1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNewRowsZero()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Resize(8, 0);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(8, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNewColumnsZero()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Resize(0, 8);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(0, 8));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidSize5()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Resize(-1, -1);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(-1, -1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNewColumnsAndNewRowsTooSmall()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Resize(0, 0);
+            Assert.Throws<ArgumentException>(() => matrix.Resize(0, 0));
         }
-
     }
 }

@@ -50,12 +50,10 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionSetNull()
         {
             var root = new GeneralTree<int>(5) { 2, 3 };
-            root.ChildNodes[0].Parent = null;
+            Assert.Throws<ArgumentNullException>(() => root.ChildNodes[0].Parent = null);
         }
-
     }
 }

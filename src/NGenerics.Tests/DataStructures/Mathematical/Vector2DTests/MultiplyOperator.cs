@@ -8,6 +8,7 @@
 */
 
 using System;
+using NGenerics.DataStructures.General;
 using NGenerics.DataStructures.Mathematical;
 using NUnit.Framework;
 
@@ -51,30 +52,30 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector2D1 = new Vector2D();
             VectorBase<double> vectorBase = new VectorN(4);
-            var matrix = vector2D1 * vectorBase;
+            IMatrix<double> matrix;
+            Assert.Throws<ArgumentException>(() => matrix = vector2D1 * vectorBase);
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionLeftNull()
         {
             var vector2D1 = new Vector2D();
-            var matrix = null * vector2D1;
+            Matrix matrix;
+            Assert.Throws<ArgumentNullException>(() => matrix = null * vector2D1);
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionRightNull()
         {
             var vector2D1 = new Vector2D();
-            var matrix = vector2D1 * null;
+            Matrix matrix;
+            Assert.Throws<ArgumentNullException>(() => matrix = vector2D1 * null);
         }
     }
 }

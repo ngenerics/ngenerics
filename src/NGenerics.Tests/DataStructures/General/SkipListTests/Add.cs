@@ -40,7 +40,6 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDuplicate1()
         {
             var skipList = new SkipList<int, string>();
@@ -50,11 +49,10 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
                 skipList.Add(i, i.ToString());
             }
 
-            skipList.Add(5, "5");
+            Assert.Throws<ArgumentException>(() => skipList.Add(5, "5"));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDuplicate2()
         {
             var skipList = new SkipList<int, string>();
@@ -64,11 +62,10 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
                 skipList.Add(i, i.ToString());
             }
 
-            skipList.Add(0, "0");
+            Assert.Throws<ArgumentException>(() => skipList.Add(0, "0"));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDuplicate3()
         {
             var skipList = new SkipList<int, string>();
@@ -78,12 +75,11 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
                 skipList.Add(i, i.ToString());
             }
 
-            skipList.Add(19, "19");
+            Assert.Throws<ArgumentException>(() => skipList.Add(19, "19"));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
-        public void ExcetpionDuplicate4()
+        public void ExceptionDuplicate4()
         {
             var skipList = new SkipList<int, string>();
 
@@ -92,7 +88,7 @@ namespace NGenerics.Tests.DataStructures.General.SkipListTests
                 skipList.Add(i, i.ToString());
             }
 
-            skipList.Add(10, "15");
+            Assert.Throws<ArgumentException>(() => skipList.Add(10, "15"));
         }
 
         [Test]

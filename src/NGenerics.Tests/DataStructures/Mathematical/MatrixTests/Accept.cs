@@ -37,11 +37,10 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void NullVisitor()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => matrix.AcceptVisitor(null));
         }
 
     }

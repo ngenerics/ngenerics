@@ -18,11 +18,10 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
             var vector = new Vector2D();
-            vector.Multiply(null);
+            Assert.Throws<ArgumentNullException>(() => vector.Multiply(null));
         }
 
         [Test]
@@ -84,13 +83,11 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector2D = new Vector2D();
             var vector3D = new Vector3D();
-            vector2D.Multiply(vector3D);
+            Assert.Throws<ArgumentException>(() => vector2D.Multiply(vector3D));
         }
-
     }
 }

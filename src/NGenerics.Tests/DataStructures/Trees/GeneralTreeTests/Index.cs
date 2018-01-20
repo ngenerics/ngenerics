@@ -27,7 +27,6 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidIndex1()
         {
             var root = new GeneralTree<int>(5);
@@ -38,15 +37,16 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
             root.Add(child1);
             root.Add(child2);
 
-            var i = root[3].Data;
+            int i;
+            Assert.Throws<ArgumentOutOfRangeException>(() => i = root[3].Data);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidIndex2()
         {
             var root = new GeneralTree<int>(5);
-            var i = root[0].Data;
+            int i;
+            Assert.Throws<ArgumentOutOfRangeException>(() => i = root[0].Data);
         }
 
     }

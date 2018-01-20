@@ -8,9 +8,9 @@
 */
 
 
+using Moq;
 using NGenerics.Patterns.Specification;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.Patterns.Specification.AndSpecification
 {
@@ -18,45 +18,45 @@ namespace NGenerics.Tests.Patterns.Specification.AndSpecification
     public class IsSatisfiedBy
     {
         [Test]
-        public void And_Should_Return_False_If_Different_Or_Both_Are_False()
+        public void And_Should_Return_False_If_Different()
         {
-            var mocks = new MockRepository();
-            var s1 = mocks.StrictMock<ISpecification<int>>();
-            var s2 = mocks.StrictMock<ISpecification<int>>();
+            var s1 = new Mock<ISpecification<int>>();
+            var s2 = new Mock<ISpecification<int>>();
 
-            Expect.Call(s1.IsSatisfiedBy(5)).Return(true);
-            Expect.Call(s2.IsSatisfiedBy(5)).Return(false);
+            s1.Setup(x => x.IsSatisfiedBy(5)).Returns(true);
+            s2.Setup(x => x.IsSatisfiedBy(5)).Returns(false);
 
-            Expect.Call(s1.IsSatisfiedBy(5)).Return(false);
-
-            mocks.ReplayAll();
-
-            var andSpecification = new AndSpecification<int>(s1, s2);
+            var andSpecification = new AndSpecification<int>(s1.Object, s2.Object);
 
             Assert.AreEqual(andSpecification.IsSatisfiedBy(5), false);
-            Assert.AreEqual(andSpecification.IsSatisfiedBy(5), false);
+        }
 
-            mocks.VerifyAll();
+        [Test]
+        public void And_Should_Return_False_If_Both_Are_False()
+        {
+            var s1 = new Mock<ISpecification<int>>();
+            var s2 = new Mock<ISpecification<int>>();
+
+            s1.Setup(x => x.IsSatisfiedBy(5)).Returns(false);
+            s2.Setup(x => x.IsSatisfiedBy(5)).Returns(false);
+
+            var andSpecification = new AndSpecification<int>(s1.Object, s2.Object);
+
+            Assert.AreEqual(andSpecification.IsSatisfiedBy(5), false);
         }
 
         [Test]
         public void And_Should_Return_True_If_Both_Arguments_Are_True()
         {
-            var mocks = new MockRepository();
-            var s1 = mocks.StrictMock<ISpecification<int>>();
-            var s2 = mocks.StrictMock<ISpecification<int>>();
+            var s1 = new Mock<ISpecification<int>>();
+            var s2 = new Mock<ISpecification<int>>();
 
-            Expect.Call(s1.IsSatisfiedBy(5)).Return(true);
-            Expect.Call(s2.IsSatisfiedBy(5)).Return(true);
+            s1.Setup(x => x.IsSatisfiedBy(5)).Returns(true);
+            s2.Setup(x => x.IsSatisfiedBy(5)).Returns(true);
 
-            mocks.ReplayAll();
-
-            var andSpecification = new AndSpecification<int>(s1, s2);
+            var andSpecification = new AndSpecification<int>(s1.Object, s2.Object);
 
             Assert.AreEqual(andSpecification.IsSatisfiedBy(5), true);
-
-            mocks.VerifyAll();
         }
     }
-
 }

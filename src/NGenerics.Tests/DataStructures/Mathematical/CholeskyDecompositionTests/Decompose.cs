@@ -93,7 +93,6 @@ namespace NGenerics.Tests.DataStructures.Mathematical.CholeskyDecompositionTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionNonSymmetricMatrix()
         {
             var matrixA = new Matrix(2, 2);
@@ -105,7 +104,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical.CholeskyDecompositionTests
             matrixA[1, 1] = 0;
 
 
-            var decomposition = new CholeskyDecomposition(matrixA);
+            Assert.Throws<ArgumentException>(() => new CholeskyDecomposition(matrixA));
         }
 
     }

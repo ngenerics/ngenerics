@@ -15,7 +15,7 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
     [TestFixture]
     public class DefaultConstruction : SingletonTest
     {
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void SetupSingleton()
         {
             var temp = Singleton<int>.Instance;

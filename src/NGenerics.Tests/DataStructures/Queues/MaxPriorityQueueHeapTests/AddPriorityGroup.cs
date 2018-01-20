@@ -18,12 +18,10 @@ namespace NGenerics.Tests.DataStructures.Queues.MaxPriorityQueueHeapTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullList()
         {
             var priorityQueue = new PriorityQueue<string, int>(PriorityQueueType.Maximum);
-
-            priorityQueue.AddPriorityGroup(null, 4);
+            Assert.Throws<ArgumentNullException>(() => priorityQueue.AddPriorityGroup(null, 4));
         }
 
         [Test]

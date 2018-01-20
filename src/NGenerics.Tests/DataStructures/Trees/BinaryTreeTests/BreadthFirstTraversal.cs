@@ -37,11 +37,10 @@ namespace NGenerics.Tests.DataStructures.Trees.BinaryTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var binaryTree = GetTestTree();
-            binaryTree.BreadthFirstTraversal(null);
+            Assert.Throws<ArgumentNullException>(() => binaryTree.BreadthFirstTraversal(null));
         }
 
         [Test]

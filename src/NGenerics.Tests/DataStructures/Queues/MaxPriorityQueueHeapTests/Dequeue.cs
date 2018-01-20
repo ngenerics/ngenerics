@@ -18,11 +18,10 @@ namespace NGenerics.Tests.DataStructures.Queues.MaxPriorityQueueHeapTests
     {
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionEmpty()
         {
             var priorityQueue = new PriorityQueue<string, int>(PriorityQueueType.Maximum);
-            priorityQueue.Dequeue();
+            Assert.Throws<InvalidOperationException>(() => priorityQueue.Dequeue());
         }
 
         [Test]

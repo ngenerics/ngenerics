@@ -8,6 +8,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using NGenerics.DataStructures.Trees;
 using NUnit.Framework;
 
@@ -28,11 +29,11 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionInvalidMin()
         {
             var tree = new BinarySearchTree<int, string>();
-            var i = tree.Minimum;
+            KeyValuePair<int, string> i;
+            Assert.Throws<InvalidOperationException>(() => i = tree.Minimum);
         }
 
     }

@@ -18,20 +18,18 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
     {
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
             var vector = new Vector3D();
-            vector.Subtract(null);
+            Assert.Throws<ArgumentNullException>(() => vector.Subtract(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector3D = new Vector3D();
             VectorBase<double> vectorBase = new VectorN(4);
-            vector3D.Subtract(vectorBase);
+            Assert.Throws<ArgumentException>(() => vector3D.Subtract(vectorBase));
         }
 
         [Test]

@@ -47,28 +47,24 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidGetColumn1()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.GetColumn(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetColumn(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidGetColumn2()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.GetColumn(matrix.Columns);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetColumn(matrix.Columns));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidGetColumn3()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.GetColumn(matrix.Columns + 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetColumn(matrix.Columns + 1));
         }
-
     }
 }

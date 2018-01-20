@@ -11,7 +11,6 @@
 using System.Collections.Generic;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.Patterns.Visitor.ActionVisitorTests
 {
@@ -21,25 +20,16 @@ namespace NGenerics.Tests.Patterns.Visitor.ActionVisitorTests
         [Test]
         public void ActionShouldBeCalledOnEveryObject()
         {
-            var list = new List<int>
-                           {
-                               1, 2, -3
-                           };
+            var list = new List<int> { 1, 2, -3 };
 
-            var mockRepository = new MockRepository();
 
-            // Just looking for an interface with a method that matches Action<T> - temporarily settled on list.
-            var recorder = mockRepository.StrictMock<IList<int>>();
-            recorder.Add(1);
-            recorder.Add(2);
-            recorder.Add(-3);
-
-            mockRepository.ReplayAll();
-
-            var visitor = new ActionVisitor<int>(recorder.Add);
+            var recorded = new List<int>();
+            var visitor = new ActionVisitor<int>(x => recorded.Add(x));
             list.AcceptVisitor(visitor);
 
-            mockRepository.VerifyAll();
+            Assert.Contains(1, recorded);
+            Assert.Contains(2, recorded);
+            Assert.Contains(-3, recorded);
         }
     }
 

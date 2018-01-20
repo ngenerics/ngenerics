@@ -16,11 +16,10 @@ namespace NGenerics.Tests.Comparers.ComparisonComparerTests
     public class Comparison : ComparisonComparerTest
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullComparer()
         {
             var comparer = GetTestComparer();
-            comparer.Comparison = null;
+            Assert.Throws<ArgumentNullException>(() => comparer.Comparison = null);;
         }
     }
 }

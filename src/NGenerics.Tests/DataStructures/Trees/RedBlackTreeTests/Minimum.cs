@@ -25,11 +25,11 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionInvalidMin()
         {
             var redBlackTree = new RedBlackTree<int, string>();
-            var i = redBlackTree.Minimum.Key;
+            int key;
+            Assert.Throws<InvalidOperationException>(() =>  key = redBlackTree.Minimum.Key);
         }
 
     }

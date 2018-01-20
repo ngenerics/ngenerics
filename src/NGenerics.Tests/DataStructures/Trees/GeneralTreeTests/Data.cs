@@ -30,13 +30,11 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionSetNull()
         {
             var tree = new GeneralTree<string>("asdas");
             Assert.AreEqual(tree.Data, "asdas");
-            tree.Data = null;
+            Assert.Throws<ArgumentNullException>(() => tree.Data = null);
         }
-
     }
 }

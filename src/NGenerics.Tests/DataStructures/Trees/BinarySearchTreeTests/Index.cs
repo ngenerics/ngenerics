@@ -69,20 +69,18 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void ExceptionGetInvalidKey()
         {
             var tree = new BinarySearchTree<int, string>();
-            var s = tree[4];
+            string s;
+            Assert.Throws<KeyNotFoundException>(() => s = tree[4]);
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void ExceptionSetInvalidKey()
         {
             var tree = new BinarySearchTree<int, string>();
-            tree[4] = "testString";
+            Assert.Throws<KeyNotFoundException>(() => tree[4] = "testString");
         }
-
     }
 }

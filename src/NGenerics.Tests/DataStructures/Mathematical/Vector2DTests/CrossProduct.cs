@@ -77,20 +77,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void ExcetionNullVector2D()
+        public void ExceptionNullVector2D()
         {
             var vector = new Vector2D();
-            vector.CrossProduct((Vector2D)null);
+            Assert.Throws<ArgumentNullException>(() => vector.CrossProduct((Vector2D)null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void ExcetionNullVector3D()
+        public void ExceptionNullVector3D()
         {
             var vector = new Vector2D();
-            vector.CrossProduct((Vector3D)null);
+            Assert.Throws<ArgumentNullException>(() => vector.CrossProduct((Vector3D)null));
         }
-
     }
 }

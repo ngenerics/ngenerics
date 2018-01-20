@@ -30,28 +30,24 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNoValues()
         {
             var vector = new Vector3D();
-            vector.SetValues();
+            Assert.Throws<ArgumentOutOfRangeException>(() => vector.SetValues());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ExcepionNotEnoughValues()
+        public void ExceptionNotEnoughValues()
         {
             var vector = new Vector3D();
-            vector.SetValues(4);
+            Assert.Throws<ArgumentOutOfRangeException>(() => vector.SetValues(4));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionTooManyValues()
         {
             var vector = new Vector3D();
-            vector.SetValues(4, 6, 3, 7);
+            Assert.Throws<ArgumentOutOfRangeException>(() => vector.SetValues(4, 6, 3, 7));
         }
-
     }
 }

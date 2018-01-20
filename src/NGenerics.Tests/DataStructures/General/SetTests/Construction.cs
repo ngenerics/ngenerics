@@ -94,60 +94,51 @@ namespace NGenerics.Tests.DataStructures.General.SetTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidLowerBounds1()
         {
-            new PascalSet(-1, 10);
+            Assert.Throws<ArgumentException>(() => new PascalSet(-1, 10));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidLowerBounds2()
         {
-            new PascalSet(-1, 10, new[] { 3, 4 });
+            Assert.Throws<ArgumentException>(() => new PascalSet(-1, 10, new[] { 3, 4 }));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionUpperBoundSmallerThanLowerBound1()
         {
-            new PascalSet(12, 10);
+            Assert.Throws<ArgumentException>(() => new PascalSet(12, 10));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionUpperBoundSmallerThanLowerBound2()
         {
-            new PascalSet(12, 10, new[] { 3, 4 });
+            Assert.Throws<ArgumentException>(() => new PascalSet(12, 10, new[] { 3, 4 }));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullValues()
         {
-            new PascalSet(5, 10, null);
+            Assert.Throws<ArgumentNullException>(() => new PascalSet(5, 10, null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void ExcetpionUpperBoundNull()
+        public void ExceptionUpperBoundNull()
         {
-            new PascalSet(10, null);
+            Assert.Throws<ArgumentNullException>(() => new PascalSet(10, null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidInitialValues1()
         {
-            new PascalSet(10, 20, new[] { 3, 4, 15, 16 });
+            Assert.Throws<ArgumentException>(() => new PascalSet(10, 20, new[] { 3, 4, 15, 16 }));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidInitialValues2()
         {
-            new PascalSet(10, 20, new[] { 22, 12, 15, 16 });
+            Assert.Throws<ArgumentException>(() => new PascalSet(10, 20, new[] { 22, 12, 15, 16 }));
         }
-
     }
 }

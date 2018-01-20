@@ -8,9 +8,9 @@
 */
 
 using System.Collections;
+using Moq;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.DataStructures.General.ListTests
 {
@@ -20,7 +20,6 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
         [Test]
         public void Simple()
         {
-
             var listBase = new ListBase<int> {3};
             Assert.IsTrue(listBase.Contains(3));
         }
@@ -34,23 +33,17 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
         [Test]
         public void SimpleEnsureInsertItemCall()
         {
-            var mockRepository = new MockRepository();
-            var listBase = mockRepository.StrictMock<Add>();
-            listBase.InsertItem(0, 5);
-            mockRepository.ReplayAll();
-            listBase.Add(5);
-            mockRepository.VerifyAll();
+            var listBase = new Mock<Add>();
+            listBase.Object.Add(5);
+            listBase.Verify(x => x.InsertItem(0, 5));
         }
 
         [Test]
         public void InterfaceEnsureInsertItemCall()
         {
-            var mockRepository = new MockRepository();
-            var listBase = mockRepository.StrictMock<Add>();
-            listBase.InsertItem(0, 5);
-            mockRepository.ReplayAll();
+            var listBase = new Mock<Add>();
             ((IList)listBase).Add(5);
-            mockRepository.VerifyAll();
+            listBase.Verify(x => x.InsertItem(0, 5));
         }
     }
 }

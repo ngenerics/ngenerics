@@ -46,15 +46,13 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullMatrix()
         {
             var matrix1 = MatrixTest.GetTestMatrix();
-            matrix1.Concatenate(null);
+            Assert.Throws<ArgumentNullException>(() => matrix1.Concatenate(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentRowSizesLarger()
         {
             var matrix1 = MatrixTest.GetTestMatrix();
@@ -63,7 +61,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
             // Add a row to make the row sizes different
             matrix2.AddRow();
 
-            matrix1.Concatenate(matrix2);
+            Assert.Throws<ArgumentException>(() => matrix1.Concatenate(matrix2));
         }
         private static Matrix GetTestMinusMatrix()
         {
@@ -81,7 +79,6 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentRowSizesSmaller()
         {
             var matrix1 = MatrixTest.GetTestMatrix();
@@ -90,7 +87,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
             // Add a row to make the row sizes different
             matrix2.DeleteRow(0);
 
-            matrix1.Concatenate(matrix2);
+            Assert.Throws<ArgumentException>(() => matrix1.Concatenate(matrix2));
         }
 
         [Test]

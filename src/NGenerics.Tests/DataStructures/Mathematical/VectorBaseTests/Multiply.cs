@@ -18,30 +18,26 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorBaseTests
     {
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "MultiplySafe")]
         public void Exception()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(2);
-            vector1.Multiply(vector2);
+            Assert.Throws<NotImplementedException>(() => vector1.Multiply(vector2), "MultiplySafe");
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
             var vector1 = new VectorBaseTestObject(2);
-            vector1.Multiply(null);
+            Assert.Throws<ArgumentNullException>(() => vector1.Multiply(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector1 = new VectorBaseTestObject(2);
             var vector2 = new VectorBaseTestObject(3);
-            vector1.Multiply(vector2);
+            Assert.Throws<ArgumentException>(() => vector1.Multiply(vector2));
         }
-
     }
 }

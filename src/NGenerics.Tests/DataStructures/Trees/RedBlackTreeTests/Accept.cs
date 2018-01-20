@@ -36,11 +36,10 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var redBlackTree = GetTestTree();
-            redBlackTree.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => redBlackTree.AcceptVisitor(null));
         }
 
     }

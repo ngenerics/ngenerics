@@ -114,35 +114,31 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionColumnNegative()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Minor(2, -1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.Minor(2, -1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionColumnOutOfRange()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Minor(2, matrix.Columns);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.Minor(2, matrix.Columns));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionRowNegative()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Minor(-1, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.Minor(-1, 2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionRowOutOfRange()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.Minor(matrix.Rows, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.Minor(matrix.Rows, 2));
         }
 
         [Test]

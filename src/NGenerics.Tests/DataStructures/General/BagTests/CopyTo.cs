@@ -42,34 +42,28 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid1()
         {
             var bag = new Bag<int> { 3, 4, 5, 6 };
-
             var array = new int[3];
 
-            bag.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() =>  bag.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid2()
         {
             var bag = new Bag<int> { 3, 4, 5, 6 };
-
             var array = new int[4];
 
-            bag.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => bag.CopyTo(array, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionInvalid3()
         {
             var bag = new Bag<int> { 3, 4, 5, 6 };
-
-            bag.CopyTo(null, 1);
+            Assert.Throws<ArgumentNullException>(() => bag.CopyTo(null, 1));
         }
     }
 }

@@ -65,35 +65,31 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeFirstColumn()
         {
             var matrix = GetTestMatrix();
-            matrix.InterchangeColumns(-1, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.InterchangeColumns(-1, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionFirstColumnTooLarge()
         {
             var matrix = GetTestMatrix();
-            matrix.InterchangeColumns(matrix.Columns, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.InterchangeColumns(matrix.Columns, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeSecondColumn()
         {
             var matrix = GetTestMatrix();
-            matrix.InterchangeColumns(0, -1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.InterchangeColumns(0, -1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionSecondColumnTooLarge()
         {
             var matrix = GetTestMatrix();
-            matrix.InterchangeColumns(0, matrix.Columns);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.InterchangeColumns(0, matrix.Columns));
         }
     }
 }

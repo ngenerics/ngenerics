@@ -7,6 +7,9 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
+using System.Runtime.CompilerServices;
+[assembly:InternalsVisibleTo("NGenerics.Tests")]
+
 namespace NGenerics
 {
     static class Constants

@@ -49,7 +49,6 @@ namespace NGenerics.Tests.DataStructures.Mathematical.LUDecompositionTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentRowCounts()
         {
             var matrixA = new Matrix(2, 2);
@@ -72,7 +71,7 @@ namespace NGenerics.Tests.DataStructures.Mathematical.LUDecompositionTests
             matrixB[2, 1] = 3;
 
             var decomposition = new LUDecomposition(matrixA);
-            var solveMatrix = decomposition.Solve(matrixB);
+            Assert.Throws<ArgumentException>(() => decomposition.Solve(matrixB));
         }
 
     }

@@ -35,7 +35,7 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
         }
 
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void SetupSingleton()
         {
             Singleton<InstanceWithDefaultConstructor>.ConstructWith =

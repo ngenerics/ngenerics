@@ -17,12 +17,10 @@ namespace NGenerics.Tests.DataStructures.Queues.MinPriorityQueueHeapTests
     public class AddPriorityGroup : MinPriorityQueueTest
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullList()
         {
             var priorityQueue = new PriorityQueue<string, int>(PriorityQueueType.Minimum);
-
-            priorityQueue.AddPriorityGroup(null, 4);
+            Assert.Throws<ArgumentNullException>(() => priorityQueue.AddPriorityGroup(null, 4));
         }
 
         [Test]

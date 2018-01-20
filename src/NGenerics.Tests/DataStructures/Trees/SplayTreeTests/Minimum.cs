@@ -8,6 +8,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using NGenerics.DataStructures.Trees;
 using NUnit.Framework;
 
@@ -28,12 +29,11 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionEmpty()
         {
             var splayTree = new SplayTree<int, string>();
-            var i = splayTree.Minimum;
+            KeyValuePair<int, string> i;
+            Assert.Throws<InvalidOperationException>(() => i = splayTree.Minimum);
         }
-
     }
 }

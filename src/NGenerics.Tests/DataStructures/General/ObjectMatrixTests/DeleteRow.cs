@@ -17,19 +17,17 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
     public class DeleteRow:ObjectMatrixTest
     {
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeRow()
         {
             var matrix = GetTestMatrix();
-            matrix.DeleteRow(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.DeleteRow(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionRowInvalid()
         {
             var matrix = GetTestMatrix();
-            matrix.DeleteRow(matrix.Rows);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.DeleteRow(matrix.Rows));
         }
 
 
@@ -108,10 +106,9 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionOnlyRow()
         {
-            new ObjectMatrix<int>(1, 4).DeleteRow(0);
+            Assert.Throws<InvalidOperationException>(() => new ObjectMatrix<int>(1, 4).DeleteRow(0));
         }
     }
 }

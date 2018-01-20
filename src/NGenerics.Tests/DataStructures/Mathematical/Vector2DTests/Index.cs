@@ -38,36 +38,33 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionGetTooLarge()
         {
             var vector = new Vector2D();
-            var d = vector[2];
+            double d;
+            Assert.Throws<ArgumentOutOfRangeException>(() => d = vector[2]);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionGetTooSmall()
         {
             var vector = new Vector2D();
-            var d = vector[-1];
+            double d;
+            Assert.Throws<ArgumentOutOfRangeException>(() => d = vector[-1]);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionSetTooLarge()
         {
             var vector = new Vector2D();
-            vector[2] = 8;
+            Assert.Throws<ArgumentOutOfRangeException>(() => vector[2] = 8);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionSetTooSmall()
         {
             var vector = new Vector2D();
-            vector[-1] = 8;
+            Assert.Throws<ArgumentOutOfRangeException>(() => vector[-1] = 8);
         }
-
     }
 }

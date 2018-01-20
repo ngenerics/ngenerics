@@ -106,19 +106,17 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionIndexNegative()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.MultiplyColumn(-1, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.MultiplyColumn(-1, 2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionInvalidIndex()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.MultiplyColumn(matrix.Columns, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.MultiplyColumn(matrix.Columns, 2));
         }
 
     }

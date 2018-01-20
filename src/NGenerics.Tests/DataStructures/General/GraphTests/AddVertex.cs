@@ -81,25 +81,23 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionAddDuplicateUndirected()
         {
             var vertex = new Vertex<int>(5);
             var graph = new Graph<int>(false);
 
             graph.AddVertex(vertex);
-            graph.AddVertex(vertex);
+            Assert.Throws<ArgumentException>(() => graph.AddVertex(vertex));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionAddDuplicateDirected()
         {
             var vertex = new Vertex<int>(5);
             var graph = new Graph<int>(true);
 
             graph.AddVertex(vertex);
-            graph.AddVertex(vertex);
+            Assert.Throws<ArgumentException>(() => graph.AddVertex(vertex));
         }
     }
 }

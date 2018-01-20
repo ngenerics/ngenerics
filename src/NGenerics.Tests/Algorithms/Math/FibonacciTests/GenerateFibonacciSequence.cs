@@ -41,19 +41,16 @@ namespace NGenerics.Tests.Algorithms.Math.FibonacciTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionNegativeUpperBound()
         {
-            MathAlgorithms.GenerateFibonacciSequence(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => MathAlgorithms.GenerateFibonacciSequence(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Huge()
         {
             var setupLength = MathAlgorithms.FibonacciSequence.Length;
-
-            MathAlgorithms.GenerateFibonacciSequence(setupLength + 10);
+            Assert.Throws<ArgumentOutOfRangeException>(() => MathAlgorithms.GenerateFibonacciSequence(setupLength + 10));
 
         }
     }

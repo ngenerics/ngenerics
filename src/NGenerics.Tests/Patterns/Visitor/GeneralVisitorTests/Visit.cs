@@ -7,11 +7,9 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-
 using System.Collections.Generic;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.Patterns.Visitor.GeneralVisitorTests
 {
@@ -23,8 +21,7 @@ namespace NGenerics.Tests.Patterns.Visitor.GeneralVisitorTests
             {
                 var list = GetTestList();
 
-                var mockRepository = new MockRepository();
-                var trackingList = mockRepository.StrictMock<IList<int>>();
+                var trackingList = new List<int>();
                                 
                 // All items should be visited...
                 trackingList.Add(1);
@@ -32,8 +29,6 @@ namespace NGenerics.Tests.Patterns.Visitor.GeneralVisitorTests
                 trackingList.Add(3);
                 trackingList.Add(8);
                 trackingList.Add(5);
-
-                mockRepository.ReplayAll();
 
                 var generalVisitor = new GeneralVisitor<int>(
                     delegate (int value) {
@@ -44,7 +39,11 @@ namespace NGenerics.Tests.Patterns.Visitor.GeneralVisitorTests
                                 
                 list.AcceptVisitor(generalVisitor);
 
-                mockRepository.VerifyAll();
+                Assert.AreEqual(1, trackingList[0]);
+                Assert.AreEqual(2, trackingList[1]);
+                Assert.AreEqual(3, trackingList[2]);
+                Assert.AreEqual(8, trackingList[3]);
+                Assert.AreEqual(5, trackingList[4]);
             }
 
             [Test]
@@ -52,13 +51,7 @@ namespace NGenerics.Tests.Patterns.Visitor.GeneralVisitorTests
             {
                 var list = GetTestList();
 
-                var mockRepository = new MockRepository();
-                var trackingList = mockRepository.StrictMock<IList<int>>();
-                
-                // Only the first item should be visited.
-                trackingList.Add(1);
-                
-                mockRepository.ReplayAll();
+                var trackingList = new List<int>();
 
                 var generalVisitor = new GeneralVisitor<int>(
                     delegate (int value) {
@@ -68,22 +61,17 @@ namespace NGenerics.Tests.Patterns.Visitor.GeneralVisitorTests
                     );
 
                 list.AcceptVisitor(generalVisitor);
-
-                mockRepository.VerifyAll();
+                Assert.AreEqual(1, trackingList.Count);
+                Assert.AreEqual(1, trackingList[0]);
             }
 
             [Test]
             public void StoppedVisitor()
             {
                 var visitableList = GetTestList();
-
-                var mockRepository = new MockRepository();
-                var trackingList = mockRepository.StrictMock<IList<int>>();
+                var trackingList = new List<int>();
                                 
                 // No items should be visited.
-
-                mockRepository.ReplayAll();
-
                 var generalVisitor = new GeneralVisitor<int>(
                     delegate (int value) {
                                              trackingList.Add(value);
@@ -93,7 +81,7 @@ namespace NGenerics.Tests.Patterns.Visitor.GeneralVisitorTests
 
                 visitableList.AcceptVisitor(generalVisitor);
 
-                mockRepository.VerifyAll();
+                Assert.IsEmpty(trackingList);
             }
             #region Private Members
 

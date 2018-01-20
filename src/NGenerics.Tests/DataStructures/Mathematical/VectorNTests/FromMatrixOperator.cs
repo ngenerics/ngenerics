@@ -32,21 +32,20 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorNTests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidCastException))]
         public void ExceptionInvalidColumns()
         {
 
             var matrix = new Matrix(2, 2);
-            var actual = (VectorN)matrix;
-
+            VectorN actual;
+            Assert.Throws<InvalidCastException>(() => actual = (VectorN)matrix);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionMatrixNull()
         {
             const Matrix matrix = null;
-            var actual = (VectorN)matrix;
+            VectorN actual;
+            Assert.Throws<ArgumentNullException>(() => actual = (VectorN)matrix);
         }
     }
 }

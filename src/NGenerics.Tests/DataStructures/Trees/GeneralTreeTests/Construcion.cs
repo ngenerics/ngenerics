@@ -31,10 +31,9 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullData()
         {
-            new GeneralTree<string>(null);
+            Assert.Throws<ArgumentNullException>(() => new GeneralTree<string>(null));
         }
 
     }

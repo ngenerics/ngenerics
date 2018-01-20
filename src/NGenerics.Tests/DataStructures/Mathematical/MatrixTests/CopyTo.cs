@@ -38,34 +38,28 @@ namespace NGenerics.Tests.DataStructures.Mathematical.MatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var matrix = MatrixTest.GetTestMatrix();
-            matrix.CopyTo(null, 0);
+            Assert.Throws<ArgumentNullException>(() => matrix.CopyTo(null, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidArrayLength12()
         {
             var matrix = MatrixTest.GetTestMatrix();
-
             var array = new double[matrix.Rows * matrix.Columns];
 
-            matrix.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => matrix.CopyTo(array, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidArrayLength1()
         {
             var matrix = MatrixTest.GetTestMatrix();
-
             var array = new double[matrix.Rows * matrix.Columns - 1];
 
-            matrix.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => matrix.CopyTo(array, 0));
         }
-
     }
 }

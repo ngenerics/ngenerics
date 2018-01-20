@@ -373,24 +373,21 @@ namespace NGenerics.Tests.Algorithms.Graph.DijkstraTest
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullGraph()
         {
-            GraphAlgorithms.DijkstrasAlgorithm(null, new Vertex<int>(5));
+            Assert.Throws<ArgumentNullException>(() => GraphAlgorithms.DijkstrasAlgorithm(null, new Vertex<int>(5)));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVertex()
         {
-            GraphAlgorithms.DijkstrasAlgorithm(new Graph<int>(true), null);
+            Assert.Throws<ArgumentNullException>(() => GraphAlgorithms.DijkstrasAlgorithm(new Graph<int>(true), null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidVertex()
         {
-            GraphAlgorithms.DijkstrasAlgorithm(new Graph<int>(true), new Vertex<int>(5));
+            Assert.Throws<ArgumentException>(() => GraphAlgorithms.DijkstrasAlgorithm(new Graph<int>(true), new Vertex<int>(5)));
         }
 
         #region Private Members

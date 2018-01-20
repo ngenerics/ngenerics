@@ -46,43 +46,38 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ExcetionInvalid1()
+        public void ExceptionInvalid1()
         {
             var matrix = GetTestMatrix();
-            matrix.GetSubMatrix(-1, 0, 1, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(-1, 0, 1, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ExcetionInvalid2()
+        public void ExceptionInvalid2()
         {
             var matrix = GetTestMatrix();
-            matrix.GetSubMatrix(0, -1, 1, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(0, -1, 1, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ExcetionInvalid3()
+        public void ExceptionInvalid3()
         {
             var matrix = GetTestMatrix();
-            matrix.GetSubMatrix(0, 0, 0, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(0, 0, 0, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ExcetionInvalid4()
+        public void ExceptionInvalid4()
         {
             var matrix = GetTestMatrix();
-            matrix.GetSubMatrix(0, 0, 1, 0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(0, 0, 1, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ExcetionInvalid5()
+        public void ExceptionInvalid5()
         {
             var matrix = GetTestMatrix();
-            matrix.GetSubMatrix(0, 0, 16, 6);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.GetSubMatrix(0, 0, 16, 6));
         }
 
         [Test]

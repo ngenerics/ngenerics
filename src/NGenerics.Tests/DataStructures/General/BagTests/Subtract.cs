@@ -78,11 +78,10 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullBag()
         {
             var bag = new Bag<int>();
-            bag.Subtract(null);
+            Assert.Throws<ArgumentNullException>(() => bag.Subtract(null));
         }
 
     }

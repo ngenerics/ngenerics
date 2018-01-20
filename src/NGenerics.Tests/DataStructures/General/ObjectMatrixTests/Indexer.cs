@@ -29,51 +29,49 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Exception1()
         {
             var matrix = new ObjectMatrix<int>(10, 15);
-            matrix[10, 0] = 5;
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix[10, 0] = 5);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Exception2()
         {
             var matrix = new ObjectMatrix<int>(10, 15);
-            matrix[9, 15] = 5;
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix[9, 15] = 5);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Exception3()
         {
             var matrix = new ObjectMatrix<int>(10, 15);
-            var i = matrix[10, 0];
+            int i;
+            Assert.Throws<ArgumentOutOfRangeException>(() => i = matrix[10, 0]);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Exception4()
         {
             var matrix = new ObjectMatrix<int>(10, 15);
-            var i = matrix[9, 15];
+            int i;
+            Assert.Throws<ArgumentOutOfRangeException>(() =>  i = matrix[9, 15]);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Exception5()
         {
             var matrix = new ObjectMatrix<int>(10, 15);
-            var i = matrix[-1, 0];
+            int i;
+            Assert.Throws<ArgumentOutOfRangeException>(() => i = matrix[-1, 0]);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Exception6()
         {
             var matrix = new ObjectMatrix<int>(10, 15);
-            var i = matrix[9, -1];
+            int i;
+            Assert.Throws<ArgumentOutOfRangeException>(() => i = matrix[9, -1]);
         }
     }
 }

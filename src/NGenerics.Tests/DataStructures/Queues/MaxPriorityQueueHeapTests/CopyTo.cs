@@ -46,32 +46,28 @@ namespace NGenerics.Tests.DataStructures.Queues.MaxPriorityQueueHeapTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var priorityQueue = new PriorityQueue<string, int>(PriorityQueueType.Maximum);
-            priorityQueue.CopyTo(null, 0);
+            Assert.Throws<ArgumentNullException>(() => priorityQueue.CopyTo(null, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid1()
         {
             var priorityQueue = GetTestPriorityQueue();
 
             var array = new string[priorityQueue.Count - 1];
-            priorityQueue.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => priorityQueue.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalid2()
         {
             var priorityQueue = GetTestPriorityQueue();
 
             var array = new string[priorityQueue.Count];
-            priorityQueue.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => priorityQueue.CopyTo(array, 1));
         }
-
     }
 }

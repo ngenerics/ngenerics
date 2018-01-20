@@ -46,19 +46,17 @@ namespace NGenerics.Tests.DataStructures.General.ObjectMatrixTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ESimpletionNegativeColumnCount()
         {
             var matrix = GetTestMatrix();
-            matrix.AddColumns(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.AddColumns(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ExceptionZeroColumnCount()
         {
             var matrix = GetTestMatrix();
-            matrix.AddColumns(0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => matrix.AddColumns(0));
         }
     }
 }

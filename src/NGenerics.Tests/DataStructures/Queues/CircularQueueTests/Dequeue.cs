@@ -18,11 +18,10 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
     {
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ExceptionEmpty()
         {
             var circularQueue = new CircularQueue<int>(40);
-            circularQueue.Dequeue();
+            Assert.Throws<InvalidOperationException>(() => circularQueue.Dequeue());
         }
 
     }

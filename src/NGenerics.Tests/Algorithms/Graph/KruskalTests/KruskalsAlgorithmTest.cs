@@ -204,10 +204,9 @@ namespace NGenerics.Tests.Algorithms.Graph.KruskalTests
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullGraph()
         {
-            GraphAlgorithms.KruskalsAlgorithm<int>(null);
+            Assert.Throws<ArgumentNullException>(() => GraphAlgorithms.KruskalsAlgorithm<int>(null));
         }
 
         #region Private Members

@@ -18,22 +18,21 @@ namespace NGenerics.Tests.DataStructures.General.DictionaryBaseTests
 
 
         [Test]
-        [ExpectedException(typeof(Exception), ExpectedMessage = "AddItem")]
         public void AddTest()
         {
+            Assert.Throws<Exception>(() =>  
             new MockExceptionDictionary
                 {
                     {2, 2}
-                };
+                }, "AddItem");
         }
 
 
         [Test]
-        [ExpectedException(typeof(Exception), ExpectedMessage = "ClearItems")]
         public void ClearTest()
         {
             var target = new MockExceptionDictionary();
-            target.Clear();
+            Assert.Throws<ArgumentNullException>(() => target.Clear(), "ClearItems");
         }
 
 
@@ -51,20 +50,18 @@ namespace NGenerics.Tests.DataStructures.General.DictionaryBaseTests
 
 
         [Test]
-        [ExpectedException(typeof(Exception), ExpectedMessage = "SetItem")]
         public void IndexerTest()
         {
             var target = new MockExceptionDictionary();
-            target[2] = 2;
+            Assert.Throws<Exception>(() =>  target[2] = 2, "SetItem");
         }
 
 
         [Test]
-        [ExpectedException(typeof(Exception), ExpectedMessage = "RemoveItem")]
         public void RemoveTest()
         {
             var target = new MockExceptionDictionary();
-            target.Remove(2);
+            Assert.Throws<Exception>(() => target.Remove(2), "RemoveItem");
         }
 
 
@@ -79,6 +76,5 @@ namespace NGenerics.Tests.DataStructures.General.DictionaryBaseTests
             Assert.IsTrue(values.Contains("s"));
             Assert.IsTrue(values.Contains("z"));
         }
-
     }
 }

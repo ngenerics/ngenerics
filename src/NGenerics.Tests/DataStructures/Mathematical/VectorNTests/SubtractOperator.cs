@@ -58,30 +58,30 @@ namespace NGenerics.Tests.DataStructures.Mathematical.VectorNTests
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionDifferentDimensions()
         {
             var vector1 = new VectorN(2);
             var vector2 = new VectorN(4);
-            IVector<double> vector = vector1 - vector2;
+            IVector<double> vector;
+            Assert.Throws<ArgumentException>(() => vector = vector1 - vector2);
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionLeftNull()
         {
             var vector1 = new VectorN(2);
-            IVector<double> vector = null - vector1;
+            IVector<double> vector;
+            Assert.Throws<ArgumentNullException>(() => vector = null - vector1);
         }
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionRightNull()
         {
             var vector1 = new VectorN(2);
-            IVector<double> vector = vector1 - null;
+            IVector<double> vector;
+            Assert.Throws<ArgumentNullException>(() => vector = vector1 - null);
         }
     }
 

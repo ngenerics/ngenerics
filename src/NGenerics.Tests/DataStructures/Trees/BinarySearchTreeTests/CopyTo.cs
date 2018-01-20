@@ -38,29 +38,26 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullArray()
         {
             var binarySearchTree = GetTestTree();
-            binarySearchTree.CopyTo(null, 1);
+            Assert.Throws<ArgumentNullException>(() => binarySearchTree.CopyTo(null, 1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidArrayLength1()
         {
             var binarySearchTree = GetTestTree();
             var array = new KeyValuePair<int, string>[5];
-            binarySearchTree.CopyTo(array, 0);
+            Assert.Throws<ArgumentException>(() => binarySearchTree.CopyTo(array, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void ExceptionInvalidArrayLength2()
         {
             var binarySearchTree = GetTestTree();
             var array = new KeyValuePair<int, string>[6];
-            binarySearchTree.CopyTo(array, 1);
+            Assert.Throws<ArgumentException>(() => binarySearchTree.CopyTo(array, 1));
         }
 
     }

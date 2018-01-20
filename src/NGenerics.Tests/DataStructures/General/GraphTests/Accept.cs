@@ -74,11 +74,10 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVisitor()
         {
             var graph = new Graph<int>(false);
-            graph.AcceptVisitor(null);
+            Assert.Throws<ArgumentNullException>(() => graph.AcceptVisitor(null));
         }
     }
 }

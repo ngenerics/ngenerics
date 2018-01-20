@@ -33,13 +33,11 @@ namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ExceptionNullVector()
         {
             const Vector2D vector = null;
-            Matrix actual = vector;
+            Matrix actual;
+            Assert.Throws<ArgumentNullException>(() => actual = vector);
         }
     }
-
-
 }
