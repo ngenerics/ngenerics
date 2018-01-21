@@ -17,7 +17,8 @@ before_install:
   - sudo apt-get install -y mono-complete unzip wget
   - wget -O sonar.zip https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
   - unzip sonar.zip -d tools/sonar
-  - ls tools/sonar
+  - ls -l tools/sonar
+  - chmod +x tools/sonar/sonar-scanner-3.0.3.778/bin/sonar-scanner
 
 script:
   - cd src
