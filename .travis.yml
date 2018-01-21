@@ -2,9 +2,13 @@ language: csharp
 solution: src/NGenerics.sln
 mono: none
 dotnet: 2.0.3
+addons:
+  sonarcloud:
+  organization: "ngenerics-github"
 script:
   - cd src
   - dotnet restore
   - dotnet build
   - dotnet test NGenerics.Tests
   - dotnet test NGenerics.Examples
+  - sonar-scanner
