@@ -5,6 +5,13 @@ dotnet: 2.0.3
 addons:
   sonarcloud:
     organization: "ngenerics-github"
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y mono unzip wget
+  - wget -O sonar.zip https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
+  - unzip sonar.zip -d tools/sonar
+  - ls tools/sonar
+
 script:
   - cd src
   - dotnet restore
@@ -12,7 +19,3 @@ script:
   - dotnet test NGenerics.Tests
   - dotnet test NGenerics.Examples
   - sonar-scanner
-  - echo "which MSBuild"
-  - which SonarQube.Scanner.MSBuild.exe
-  - echo "which Mono"
-  - which mono 
