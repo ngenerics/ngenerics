@@ -23,7 +23,8 @@ namespace NGenerics.Tests.Infrastructure
         public void All_Code_Files_Should_Start_With_The_Copyright_Header()
         {
             string currentPath = Directory.GetCurrentDirectory();
-            string rootPath = Path.Combine(currentPath, @"..\..\..\..");
+            char s = Path.DirectorySeparatorChar;
+            string rootPath = Path.Combine(currentPath, $"..{s}..{s}..{s}..");
 
             var files = GetNonCompliantFiles(
                 Path.Combine(rootPath, "NGenerics"),
