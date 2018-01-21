@@ -20,3 +20,10 @@ script:
   - dotnet test NGenerics.Tests
   - dotnet test NGenerics.Examples
   - sonar-scanner
+  - |
+    mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe begin /k:ConsoleApplication1
+    dotnet restore
+    dotnet build
+    dotnet test NGenerics.Tests
+    dotnet test NGenerics.Examples
+    mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe end
