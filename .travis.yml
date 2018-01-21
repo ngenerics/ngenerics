@@ -12,3 +12,7 @@ script:
   - dotnet test NGenerics.Tests
   - dotnet test NGenerics.Examples
   - sonar-scanner
+  - echo "which MSBuild"
+  - which SonarQube.Scanner.MSBuild.exe
+  - echo "which Mono"
+  - which mono 
