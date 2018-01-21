@@ -11,7 +11,6 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y mono-complete unzip wget
   - wget -O sonar.zip https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
-  - pwd
   - unzip sonar.zip -d tools/sonar
   - ls tools/sonar
 
@@ -21,11 +20,10 @@ script:
   - dotnet build
   - dotnet test NGenerics.Tests
   - dotnet test NGenerics.Examples
-  - sonar-scanner
   - |
-    mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe begin
+    mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe begin /n:NGenerics /k:ngenerics-github /d:sonar.login=$SONAR_TOKEN /d:sonar.host.url="https://sonarcloud.io" /v:2.0 begin
     dotnet restore
     dotnet build
     dotnet test NGenerics.Tests
     dotnet test NGenerics.Examples
-    mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe end
+    mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe end /d:sonar.login=$SONAR_TOKEN /d:sonar.host.url="https://sonarcloud.io"
