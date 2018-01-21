@@ -4,7 +4,7 @@ mono: none
 dotnet: 2.0.3
 addons:
   sonarcloud:
-  organization: "ngenerics-github"
+    organization: "ngenerics-github"
 script:
   - cd src
   - dotnet restore
