@@ -1,0 +1,7 @@
+language: csharp
+solution: src/NGenerics.sln
+mono: none
+dotnet: 2.0.3
+script:
+  - dotnet restore
+  - dotnet test
