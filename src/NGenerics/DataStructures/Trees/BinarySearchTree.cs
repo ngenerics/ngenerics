@@ -141,7 +141,7 @@ namespace NGenerics.DataStructures.Trees
 
                     if (nodeResult == 0)
                     {
-                        throw new ArgumentException(alreadyContainedInTheTree, "item");
+                        throw new ArgumentException(AlreadyContainedInTheTree, "item");
                     }
 
                     if (nodeResult < 0)

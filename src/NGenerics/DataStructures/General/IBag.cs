@@ -8,22 +8,20 @@
 */
 
 
-
-
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 namespace NGenerics.DataStructures.General
 {
 	/// <summary>
-	///  An interface for a <see cref="Bag{T}"/> data structure.
-    /// </summary>
-    /// <remarks>
-    /// A Bag (sometimes also called a multiset) is a group of object in which each 
-    /// each member has a multiplicity, which is a natural number indicating (loosely speaking)
-    /// how many times it is a member. For example, in the bag { a, a, b, b, b, c }, the 
-    /// multiplicities of the members a, b, and c are respectively 2, 3, and 1.
-    /// </remarks>
+	///  An interface for a <see cref="T:NGenerics.DataStructures.General.Bag`1" /> data structure.
+	/// </summary>
+	/// <remarks>
+	/// A Bag (sometimes also called a multiset) is a group of object in which each 
+	/// each member has a multiplicity, which is a natural number indicating (loosely speaking)
+	/// how many times it is a member. For example, in the bag { a, a, b, b, b, c }, the 
+	/// multiplicities of the members a, b, and c are respectively 2, 3, and 1.
+	/// </remarks>
 	/// <typeparam name="T">The type of elements in the bag.</typeparam>
     [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     public interface IBag<T> : ICollection<T>, IEnumerable<KeyValuePair<T, int>>

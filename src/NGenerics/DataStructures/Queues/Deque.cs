@@ -27,8 +27,8 @@ namespace NGenerics.DataStructures.Queues
 	{
 		#region Globals
 
-        const string dequeIsEmpty = "The deque is empty.";
-		private readonly LinkedList<T> list;
+		private const string DequeIsEmpty = "The deque is empty.";
+		private readonly LinkedList<T> _list;
 
 		#endregion
 
@@ -40,7 +40,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
 		public Deque()
 		{
-			list = new LinkedList<T>();
+			_list = new LinkedList<T>();
 		}
 
         /// <param name="collection">A collection implementing the <see cref="IEnumerable{T}"/> interface.</param>
@@ -49,7 +49,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
 		public Deque(IEnumerable<T> collection)
 		{
-			list = new LinkedList<T>(collection);
+			_list = new LinkedList<T>(collection);
 		}
 
 		#endregion
@@ -75,7 +75,7 @@ namespace NGenerics.DataStructures.Queues
 		/// </remarks>
 		protected virtual void EnqueueHeadItem(T item)
 		{
-			list.AddFirst(item);
+			_list.AddFirst(item);
 		}
 
 		/// <inheritdoc />
@@ -86,9 +86,9 @@ namespace NGenerics.DataStructures.Queues
         {
             #region Validation
                         
-            if (list.Count == 0)
+            if (_list.Count == 0)
             {
-                throw new InvalidOperationException(dequeIsEmpty);
+                throw new InvalidOperationException(DequeIsEmpty);
             }
 
 		    #endregion
@@ -107,8 +107,8 @@ namespace NGenerics.DataStructures.Queues
 		protected virtual T DequeueHeadItem()
         {
 
-            var ret = list.First.Value;
-			list.RemoveFirst();
+            var ret = _list.First.Value;
+			_list.RemoveFirst();
 			return ret;			
 		}
 
@@ -131,7 +131,7 @@ namespace NGenerics.DataStructures.Queues
 		/// </remarks>
 		protected virtual void EnqueueTailItem(T item)
 		{
-			list.AddLast(item);
+			_list.AddLast(item);
 		}
 
 		/// <inheritdoc />
@@ -142,9 +142,9 @@ namespace NGenerics.DataStructures.Queues
         {
             #region Validation
             
-            if (list.Count == 0)
+            if (_list.Count == 0)
 		    {
-                throw new InvalidOperationException(dequeIsEmpty);
+                throw new InvalidOperationException(DequeIsEmpty);
             }
                         
             #endregion
@@ -163,8 +163,8 @@ namespace NGenerics.DataStructures.Queues
 		protected virtual T DequeueTailItem()
         {
 
-            var ret = list.Last.Value;
-			list.RemoveLast();
+            var ret = _list.Last.Value;
+			_list.RemoveLast();
 			return ret;			
 		}
 
@@ -178,14 +178,14 @@ namespace NGenerics.DataStructures.Queues
             {
                 #region Validation
                 
-                if (list.Count == 0)
+                if (_list.Count == 0)
                 {
-                    throw new InvalidOperationException(dequeIsEmpty);
+                    throw new InvalidOperationException(DequeIsEmpty);
                 }
                                 
                 #endregion
 				
-				return list.First.Value;				
+				return _list.First.Value;				
 			}
 		}
 
@@ -199,14 +199,14 @@ namespace NGenerics.DataStructures.Queues
             {
                 #region Validation
                                 
-                if (list.Count == 0)
+                if (_list.Count == 0)
 			    {
-                    throw new InvalidOperationException(dequeIsEmpty);
+                    throw new InvalidOperationException(DequeIsEmpty);
                 }
                                 
                 #endregion
 
-                return list.Last.Value;				
+                return _list.Last.Value;				
 			}
 		}
 
@@ -221,7 +221,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
 		public bool Contains(T item)
 		{
-			return list.Contains(item);
+			return _list.Contains(item);
 		}
 
 		/// <inheritdoc />
@@ -230,7 +230,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
 		public void CopyTo(T[] array, int arrayIndex)
 		{
-			list.CopyTo(array, arrayIndex);
+			_list.CopyTo(array, arrayIndex);
 		}
 
 		/// <inheritdoc />
@@ -241,7 +241,7 @@ namespace NGenerics.DataStructures.Queues
 		{
 			get
 			{
-				return list.Count;
+				return _list.Count;
 			}
 		}
 
@@ -263,7 +263,7 @@ namespace NGenerics.DataStructures.Queues
 		/// </remarks>
 		protected virtual void ClearItems()
 		{
-			list.Clear();
+			_list.Clear();
 		}
 
 		/// <inheritdoc />
@@ -293,22 +293,15 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
 		public IEnumerator<T> GetEnumerator()
 		{
-			return list.GetEnumerator();
+			return _list.GetEnumerator();
 		}
         
 		/// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
-		public bool IsEmpty
-		{
-			get
-			{
-				return Count == 0;
-			}
-		}
+		public bool IsEmpty => Count == 0;
 
-	
 		#endregion
      
    			
@@ -318,13 +311,7 @@ namespace NGenerics.DataStructures.Queues
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
 		#endregion
 

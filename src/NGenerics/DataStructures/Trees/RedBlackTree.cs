@@ -208,7 +208,7 @@ namespace NGenerics.DataStructures.Trees {
                     }
                 }
             } else {
-                throw new ArgumentException(alreadyContainedInTheTree);
+                throw new ArgumentException(AlreadyContainedInTheTree);
             }
 
             return node;

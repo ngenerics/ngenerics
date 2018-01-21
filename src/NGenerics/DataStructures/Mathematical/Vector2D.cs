@@ -404,13 +404,8 @@ namespace NGenerics.DataStructures.Mathematical
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="GetUnitVector" lang="cs" title="The following example shows how to use the UnitVector property."/>
         /// </example>
-        public static Vector2D UnitVector
-        {
-            get
-            {
-                return new Vector2D(1, 1);
-            }
-        }
+        public static Vector2D UnitVector => new Vector2D(1, 1);
+
         /// <summary>
         /// Creates zeroed <see cref="Vector2D"/>.
         /// </summary>
@@ -418,14 +413,10 @@ namespace NGenerics.DataStructures.Mathematical
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="GetZeroVector" lang="cs" title="The following example shows how to use the ZeroVector property."/>
         /// </example>
-        public static Vector2D ZeroVector
-        {
-            get { return new Vector2D(); }
-        }
+        public static Vector2D ZeroVector => new Vector2D();
 
 
-
-		/// <inheritdoc />
+        /// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Increment" lang="cs" title="The following example shows how to use the Increment method."/>
         /// </example>

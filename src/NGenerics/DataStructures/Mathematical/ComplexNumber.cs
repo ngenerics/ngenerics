@@ -26,8 +26,8 @@ namespace NGenerics.DataStructures.Mathematical
     {
         #region Globals
 
-        private double real;
-        private double imaginary;
+        private double _real;
+        private double _imaginary;
 
         #endregion
 
@@ -41,8 +41,8 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example>
         public ComplexNumber(double real, double imaginary)
         {
-            this.real = real;
-            this.imaginary = imaginary;
+            _real = real;
+            _imaginary = imaginary;
         }
 
         #endregion
@@ -79,7 +79,7 @@ namespace NGenerics.DataStructures.Mathematical
         {
             get
             {
-                return new ComplexNumber(real, -1 * imaginary);
+                return new ComplexNumber(_real, -1 * _imaginary);
             }
         }
 
@@ -183,11 +183,11 @@ namespace NGenerics.DataStructures.Mathematical
              */
 
             var matrix = new Matrix(2, 2);
-            matrix[0, 0] = real;
-            matrix[0, 1] = -1 * imaginary;
+            matrix[0, 0] = _real;
+            matrix[0, 1] = -1 * _imaginary;
 
-            matrix[1, 0] = imaginary;
-            matrix[1, 1] = real;
+            matrix[1, 0] = _imaginary;
+            matrix[1, 1] = _real;
 
             return matrix;
         }
@@ -206,7 +206,7 @@ namespace NGenerics.DataStructures.Mathematical
             get
             {
                 return Math.Sqrt(
-                    (real * real) + (imaginary * imaginary)
+                    (_real * _real) + (_imaginary * _imaginary)
                 );
             }
         }
@@ -223,11 +223,11 @@ namespace NGenerics.DataStructures.Mathematical
         {
             get
             {
-                return real;
+                return _real;
             }
             set
             {
-                real = value;
+                _real = value;
             }
         }
 
@@ -243,11 +243,11 @@ namespace NGenerics.DataStructures.Mathematical
         {
             get
             {
-                return imaginary;
+                return _imaginary;
             }
             set
             {
-                imaginary = value;
+                _imaginary = value;
             }
         }
 
@@ -262,7 +262,7 @@ namespace NGenerics.DataStructures.Mathematical
         {
             get
             {
-                return new ComplexNumber(real * -1, imaginary * -1);
+                return new ComplexNumber(_real * -1, _imaginary * -1);
             }
         }
 
@@ -276,7 +276,7 @@ namespace NGenerics.DataStructures.Mathematical
         {
             get
             {
-                return Math.Sqrt((real * real) + (imaginary * imaginary));
+                return Math.Sqrt((_real * _real) + (_imaginary * _imaginary));
             }
         }
 
@@ -295,16 +295,16 @@ namespace NGenerics.DataStructures.Mathematical
             {
                 #region Validation
 
-                if ((real == 0) && (imaginary == 0))
+                if ((_real == 0) && (_imaginary == 0))
                 {
                     throw new InvalidOperationException("Finding the Reciprocal of the complex number is only defined for non-zero (real, imaginary) numbers.");
                 }
 
                 #endregion
 
-                var div = (real * real) + (imaginary * imaginary);
+                var div = (_real * _real) + (_imaginary * _imaginary);
 
-                return new ComplexNumber(real / div, (imaginary * -1) / div);
+                return new ComplexNumber(_real / div, (_imaginary * -1) / div);
             }
         }
 
@@ -446,7 +446,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example>
         public static ComplexNumber operator *(double number, ComplexNumber complexNumber)
         {
-            return new ComplexNumber(complexNumber.real * number, complexNumber.imaginary * number);
+            return new ComplexNumber(complexNumber._real * number, complexNumber._imaginary * number);
         }
 
 
@@ -461,7 +461,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example>
         public static bool operator ==(ComplexNumber left, ComplexNumber right)
         {
-            return (left.real == right.real) && (left.imaginary == right.imaginary);
+            return (left._real == right._real) && (left._imaginary == right._imaginary);
         }
 
 
@@ -552,7 +552,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </returns>
         bool IEquatable<ComplexNumber>.Equals(ComplexNumber other)
         {
-            return (real == other.real) && (imaginary == other.imaginary);
+            return (_real == other._real) && (_imaginary == other._imaginary);
         }
 
         #endregion
@@ -567,7 +567,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </returns>
         public object Clone()
         {
-            return new ComplexNumber(real, imaginary);
+            return new ComplexNumber(_real, _imaginary);
         }
 
         #endregion
@@ -580,7 +580,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example>
         public override string ToString()
         {
-            return String.Format(CultureInfo.InvariantCulture, "{0} + {1}i", real, imaginary);
+            return String.Format(CultureInfo.InvariantCulture, "{0} + {1}i", _real, _imaginary);
         }
 
 
@@ -602,7 +602,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <inheritdoc />
         public override int GetHashCode()
         {
-            return real.GetHashCode() ^ imaginary.GetHashCode() & real.GetHashCode();
+            return _real.GetHashCode() ^ _imaginary.GetHashCode() & _real.GetHashCode();
         }
 
         #endregion

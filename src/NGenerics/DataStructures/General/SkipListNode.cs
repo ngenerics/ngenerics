@@ -41,7 +41,6 @@ namespace NGenerics.DataStructures.General
 		internal TKey Key
 		{
 			get;
-			private set;
 		}
 
 		/// <summary>

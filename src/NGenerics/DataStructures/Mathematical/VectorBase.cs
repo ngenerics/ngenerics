@@ -27,7 +27,7 @@ namespace NGenerics.DataStructures.Mathematical
     {
         #region Globals
 
-        private readonly int dimensionCount;
+        private readonly int _dimensionCount;
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="dimensionCount"/> is less than 0.</exception>
         protected VectorBase(int dimensionCount)
         {
-           this.dimensionCount = dimensionCount;
+           _dimensionCount = dimensionCount;
         }
 
         #endregion
@@ -50,16 +50,10 @@ namespace NGenerics.DataStructures.Mathematical
         #region Properties
 
 		/// <inheritdoc />
-        public int DimensionCount
-        {
-            get
-            {
-                return dimensionCount;
-            }
-        }
+        public int DimensionCount => _dimensionCount;
 
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         public abstract T this[int index]
         {
             get;
@@ -113,7 +107,7 @@ namespace NGenerics.DataStructures.Mathematical
         {
             if (left.DimensionCount != right.DimensionCount)
             {
-                throw new ArgumentException("Vectors must have the same DimensionCount to perform this operation", "right");
+                throw new ArgumentException("Vectors must have the same DimensionCount to perform this operation", nameof(right));
             }
         }
 
@@ -121,7 +115,7 @@ namespace NGenerics.DataStructures.Mathematical
 		/// <inheritdoc />
         public virtual void Clear()
         {
-            for (var index = 0; index < dimensionCount; index++)
+            for (var index = 0; index < _dimensionCount; index++)
             {
                 this[index] = default(T);
             }
@@ -265,11 +259,11 @@ namespace NGenerics.DataStructures.Mathematical
         private bool EqualsInternal(IVector<T> other)
         {
 
-            if (dimensionCount != other.DimensionCount)
+            if (_dimensionCount != other.DimensionCount)
             {
                 return false;
             }
-            for (var i = 0; i < dimensionCount; i++)
+            for (var i = 0; i < _dimensionCount; i++)
             {
                 if (!Equals(this[i], other[i]))
                 {
@@ -284,7 +278,7 @@ namespace NGenerics.DataStructures.Mathematical
         public override int GetHashCode()
         {
             var hashCode = 0;
-            for (var index = 0; index < dimensionCount; index++)
+            for (var index = 0; index < _dimensionCount; index++)
             {
                 hashCode ^= this[index].GetHashCode();
             }
@@ -377,7 +371,7 @@ namespace NGenerics.DataStructures.Mathematical
         public void SetValues(params T[] values)
         {
             Guard.ArgumentNotNull(values, "values");
-            if (values.Length != dimensionCount)
+            if (values.Length != _dimensionCount)
             {
                 throw new ArgumentOutOfRangeException("values", "length of array must equal dimension count");
             }
@@ -465,7 +459,7 @@ namespace NGenerics.DataStructures.Mathematical
 		/// </remarks>
         protected virtual void SwapSafe(IVector<T> other)
         {
-            for (var index = 0; index < dimensionCount; index++)
+            for (var index = 0; index < _dimensionCount; index++)
             {
                 var temp = this[index];
                 this[index] = other[index];
@@ -489,7 +483,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </returns>
         public virtual IEnumerator<T> GetEnumerator()
         {
-            for (var index = 0; index < dimensionCount; index++)
+            for (var index = 0; index < _dimensionCount; index++)
             {
                 yield return this[index];
             }
@@ -508,7 +502,7 @@ namespace NGenerics.DataStructures.Mathematical
         {
             var stringBuilder = new StringBuilder();
             stringBuilder.Append('{');
-            for (var index = 0; index < dimensionCount; index++)
+            for (var index = 0; index < _dimensionCount; index++)
             {
                 stringBuilder.Append(this[index]);
                 stringBuilder.Append(",");

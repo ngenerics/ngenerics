@@ -44,10 +44,10 @@ namespace NGenerics.DataStructures.Mathematical
       #region Globals
 
       // Array for internal storage of decomposition.
-      private Matrix qr;
+      private Matrix _qr;
 
       // Array for internal storage of diagonal of R.
-      private double[] diagonal;
+      private double[] _diagonal;
 
       #endregion
 
@@ -72,9 +72,9 @@ namespace NGenerics.DataStructures.Mathematical
       {
          get
          {
-            for (var j = 0; j < qr.Columns; j++)
+            for (var j = 0; j < _qr.Columns; j++)
             {
-               if (diagonal[j] == 0)
+               if (_diagonal[j] == 0)
                {
                   return false;
                }
@@ -93,15 +93,15 @@ namespace NGenerics.DataStructures.Mathematical
       {
          get
          {
-            var matrix = new Matrix(qr.Rows, qr.Columns);
+            var matrix = new Matrix(_qr.Rows, _qr.Columns);
 
-            for (var i = 0; i < qr.Rows; i++)
+            for (var i = 0; i < _qr.Rows; i++)
             {
-               for (var j = 0; j < qr.Columns; j++)
+               for (var j = 0; j < _qr.Columns; j++)
                {
                   if (i >= j)
                   {
-                     matrix.SetValue(i, j, qr.GetValue(i, j));
+                     matrix.SetValue(i, j, _qr.GetValue(i, j));
                   }
                   else
                   {
@@ -123,19 +123,19 @@ namespace NGenerics.DataStructures.Mathematical
       {
           get
           {
-              var matrix = new Matrix(qr.Columns, qr.Columns);
+              var matrix = new Matrix(_qr.Columns, _qr.Columns);
 
-              for (var i = 0; i < qr.Columns; i++)
+              for (var i = 0; i < _qr.Columns; i++)
               {
-                  for (var j = 0; j < qr.Columns; j++)
+                  for (var j = 0; j < _qr.Columns; j++)
                   {
                       if (i < j)
                       {
-                          matrix.SetValue(i, j, qr.GetValue(i, j));
+                          matrix.SetValue(i, j, _qr.GetValue(i, j));
                       }
                       else if (i == j)
                       {
-                          matrix.SetValue(i, j, diagonal[i]);
+                          matrix.SetValue(i, j, _diagonal[i]);
                       }
                       else
                       {
@@ -156,30 +156,30 @@ namespace NGenerics.DataStructures.Mathematical
       {
           get
           {
-              var matrix = new Matrix(qr.Rows, qr.Columns);
+              var matrix = new Matrix(_qr.Rows, _qr.Columns);
 
-              for (var k = qr.Columns - 1; k >= 0; k--)
+              for (var k = _qr.Columns - 1; k >= 0; k--)
               {
-                  for (var i = 0; i < qr.Rows; i++)
+                  for (var i = 0; i < _qr.Rows; i++)
                   {
                       matrix.SetValue(i, k, 0.0);
                   }
 
                   matrix.SetValue(k, k, 1.0);
 
-                  for (var j = k; j < qr.Columns; j++)
+                  for (var j = k; j < _qr.Columns; j++)
                   {
-                      if (qr.GetValue(k, k) != 0)
+                      if (_qr.GetValue(k, k) != 0)
                       {
                           var s = 0.0;
-                          for (var i = k; i < qr.Rows; i++)
+                          for (var i = k; i < _qr.Rows; i++)
                           {
-                              s += qr.GetValue(i, k)*matrix.GetValue(i, j);
+                              s += _qr.GetValue(i, k)*matrix.GetValue(i, j);
                           }
-                          s = (-s)/qr.GetValue(k, k);
-                          for (var i = k; i < qr.Rows; i++)
+                          s = (-s)/_qr.GetValue(k, k);
+                          for (var i = k; i < _qr.Rows; i++)
                           {
-                              matrix.SetValue(i, j, matrix.GetValue(i, j) + (s*qr.GetValue(i, k)));
+                              matrix.SetValue(i, j, matrix.GetValue(i, j) + (s*_qr.GetValue(i, k)));
                           }
                       }
                   }
@@ -198,55 +198,55 @@ namespace NGenerics.DataStructures.Mathematical
       /// <param name="matrix">The matrix to decompose.</param>
       public void Decompose(Matrix matrix)
       {
-         qr = matrix.Clone();
-         diagonal = new double[qr.Columns];
+         _qr = matrix.Clone();
+         _diagonal = new double[_qr.Columns];
 
          // Main loop.
-         for (var k = 0; k < qr.Columns; k++)
+         for (var k = 0; k < _qr.Columns; k++)
          {
             // Compute 2-norm of k-th column without under/overflow.
             double nrm = 0;
 
-            for (var i = k; i < qr.Rows; i++)
+            for (var i = k; i < _qr.Rows; i++)
             {
-               nrm = MathAlgorithms.Hypotenuse(nrm, qr[i, k]);
+               nrm = MathAlgorithms.Hypotenuse(nrm, _qr[i, k]);
             }
 
             if (nrm != 0.0)
             {
 
                // Form k-th Householder vector.
-               if (qr.GetValue(k, k) < 0)
+               if (_qr.GetValue(k, k) < 0)
                {
                   nrm = -nrm;
                }
-               for (var i = k; i < qr.Rows; i++)
+               for (var i = k; i < _qr.Rows; i++)
                {
-                  qr.SetValue(i, k, qr.GetValue(i, k) / nrm);
+                  _qr.SetValue(i, k, _qr.GetValue(i, k) / nrm);
                }
 
-               qr.SetValue(k, k, qr.GetValue(k, k) + 1.0);
+               _qr.SetValue(k, k, _qr.GetValue(k, k) + 1.0);
 
                // Apply transformation to remaining columns.
-               for (var j = k + 1; j < qr.Columns; j++)
+               for (var j = k + 1; j < _qr.Columns; j++)
                {
 
                   var s = 0.0;
 
-                  for (var i = k; i < qr.Rows; i++)
+                  for (var i = k; i < _qr.Rows; i++)
                   {
-                     s += qr.GetValue(i, k) * qr.GetValue(i, j);
+                     s += _qr.GetValue(i, k) * _qr.GetValue(i, j);
                   }
 
-                  s = (-s) / qr.GetValue(k, k);
+                  s = (-s) / _qr.GetValue(k, k);
 
-                  for (var i = k; i < qr.Rows; i++)
+                  for (var i = k; i < _qr.Rows; i++)
                   {
-                     qr.SetValue(i, j, qr.GetValue(i, j) + (s * qr.GetValue(i, k)));
+                     _qr.SetValue(i, j, _qr.GetValue(i, j) + (s * _qr.GetValue(i, k)));
                   }
                }
             }
-            diagonal[k] = -nrm;
+            _diagonal[k] = -nrm;
          }
       }
 
@@ -285,7 +285,7 @@ namespace NGenerics.DataStructures.Mathematical
       {
           Guard.ArgumentNotNull(right, "right");
 
-          Matrix.ValidateEqualRows(right, qr);
+          Matrix.ValidateEqualRows(right, _qr);
 
          if (!IsFullRank)
          {
@@ -297,41 +297,41 @@ namespace NGenerics.DataStructures.Mathematical
          var cloneMatrix = right.Clone();
 
          // Compute Y = transpose(Q)*B
-         for (var k = 0; k < qr.Columns; k++)
+         for (var k = 0; k < _qr.Columns; k++)
          {
             for (var j = 0; j < nx; j++)
             {
                var s = 0.0;
-               for (var i = k; i < qr.Rows; i++)
+               for (var i = k; i < _qr.Rows; i++)
                {
-                  s += qr.GetValue(i, k) * cloneMatrix.GetValue(i, j);
+                  s += _qr.GetValue(i, k) * cloneMatrix.GetValue(i, j);
                }
 
-               s = (-s) / qr.GetValue(k, k);
+               s = (-s) / _qr.GetValue(k, k);
 
-               for (var i = k; i < qr.Rows; i++)
+               for (var i = k; i < _qr.Rows; i++)
                {
-                  cloneMatrix.SetValue(i, j, cloneMatrix.GetValue(i, j) + (s * qr.GetValue(i, k)));
+                  cloneMatrix.SetValue(i, j, cloneMatrix.GetValue(i, j) + (s * _qr.GetValue(i, k)));
                }
             }
          }
          // Solve R*X = Y;
-         for (var k = qr.Columns - 1; k >= 0; k--)
+         for (var k = _qr.Columns - 1; k >= 0; k--)
          {
             for (var j = 0; j < nx; j++)
             {
-               cloneMatrix.SetValue(k, j, cloneMatrix.GetValue(k, j) / diagonal[k]);
+               cloneMatrix.SetValue(k, j, cloneMatrix.GetValue(k, j) / _diagonal[k]);
             }
             for (var i = 0; i < k; i++)
             {
                for (var j = 0; j < nx; j++)
                {
-                  cloneMatrix.SetValue(i, j, cloneMatrix.GetValue(i, j) - (cloneMatrix.GetValue(k, j) * qr.GetValue(i, k)));
+                  cloneMatrix.SetValue(i, j, cloneMatrix.GetValue(i, j) - (cloneMatrix.GetValue(k, j) * _qr.GetValue(i, k)));
                }
             }
          }
 
-         return cloneMatrix.GetSubMatrix(0, 0, qr.Columns, nx);
+         return cloneMatrix.GetSubMatrix(0, 0, _qr.Columns, nx);
       }
 
       #endregion

@@ -25,8 +25,8 @@ namespace NGenerics.DataStructures.General
 	{
 		#region Globals
 
-    	private readonly List<Edge<T>> incidentEdges;
-		private readonly List<Edge<T>> emanatingEdges;
+    	private readonly List<Edge<T>> _incidentEdges;
+		private readonly List<Edge<T>> _emanatingEdges;
 
     	#endregion
 
@@ -38,12 +38,8 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
         /// </example>
-		public Vertex(T data)
+		public Vertex(T data) : this(data, 0)
 		{
-			Data = data;
-			incidentEdges = new List<Edge<T>>();
-			emanatingEdges = new List<Edge<T>>();
-			Weight = 0;
 		}
 
 
@@ -54,9 +50,9 @@ namespace NGenerics.DataStructures.General
         /// </example>
 		public Vertex(T data, double weight)
 		{
+			_incidentEdges = new List<Edge<T>>();
+			_emanatingEdges = new List<Edge<T>>();
 			Data = data;
-			incidentEdges = new List<Edge<T>>();
-			emanatingEdges = new List<Edge<T>>();
 			Weight = weight;
 		}
 
@@ -89,13 +85,7 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="Degree" lang="cs" title="The following example shows how to use the Degree property."/>
         /// </example>
-		public int Degree
-		{
-			get
-			{
-				return emanatingEdges.Count;
-			}
-		}
+		public int Degree => _emanatingEdges.Count;
 
 		/// <summary>
 		/// Gets the edges incident on this vertex.
@@ -105,13 +95,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="IncidentEdges" lang="cs" title="The following example shows how to use the IncidentEdges property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-		public IList<Edge<T>> IncidentEdges
-		{
-			get
-			{
-                return new ReadOnlyCollection<Edge<T>>(incidentEdges);
-			}
-		}
+		public IList<Edge<T>> IncidentEdges => new ReadOnlyCollection<Edge<T>>(_incidentEdges);
 
 		/// <summary>
 		/// Gets the emanating edges on this vertex.
@@ -121,26 +105,15 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="EmanatingEdges" lang="cs" title="The following example shows how to use the EmanatingEdges property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-		public IList<Edge<T>> EmanatingEdges
-		{
-			get
-			{
-                return new ReadOnlyCollection<Edge<T>>(emanatingEdges);
-			}
-		}
+		public IList<Edge<T>> EmanatingEdges => new ReadOnlyCollection<Edge<T>>(_emanatingEdges);
 
-        /// <summary>
+		/// <summary>
         /// Gets count of the incoming edges on this vertex.
         /// </summary>
         /// <value>The number of incoming edges resident on the vertex.</value>
-        public int IncomingEdgeCount
-        {
-            get
-            {
-            	 return incidentEdges.Count - emanatingEdges.Count;
-            }
-        }
-            /// <summary>
+        public int IncomingEdgeCount => _incidentEdges.Count - _emanatingEdges.Count;
+
+		/// <summary>
 		/// Determines whether this vertex has an emanating edge to the specified vertex.
 		/// </summary>
 		/// <param name="toVertex">The vertex to test connectivity to.</param>
@@ -152,10 +125,9 @@ namespace NGenerics.DataStructures.General
         /// </example>
 		public bool HasEmanatingEdgeTo(Vertex<T> toVertex)
 		{
-			for (var i = 0; i < emanatingEdges.Count; i++)
+			foreach (var emanatingEdge in _emanatingEdges)
 			{
-			    var emanatingEdge = emanatingEdges[i];
-			    if (emanatingEdge.IsDirected)
+				if (emanatingEdge.IsDirected)
 				{
 					if (emanatingEdge.ToVertex == toVertex)
 					{
@@ -171,7 +143,7 @@ namespace NGenerics.DataStructures.General
 				}
 			}
 
-                return false;
+			return false;
 		}
 
 		/// <summary>
@@ -186,9 +158,9 @@ namespace NGenerics.DataStructures.General
         /// </example>
 		public bool HasIncidentEdgeWith(Vertex<T> fromVertex)
 		{
-			for (var i = 0; i < incidentEdges.Count; i++)
+			for (var i = 0; i < _incidentEdges.Count; i++)
 			{
-			    var incidentEdge = incidentEdges[i];
+			    var incidentEdge = _incidentEdges[i];
 			    if ((incidentEdge.FromVertex == fromVertex) || (incidentEdge.ToVertex == fromVertex))
 				{
 					return true;
@@ -207,28 +179,27 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="GetEmanatingEdgeTo" lang="cs" title="The following example shows how to use the GetEmanatingEdgeTo method."/>
         /// </example>
 		public Edge<T> GetEmanatingEdgeTo(Vertex<T> toVertex)
-		{
-			for (var i = 0; i < emanatingEdges.Count; i++)
-			{
-			    var emanatingEdgeTo = emanatingEdges[i];
-			    if (emanatingEdgeTo.IsDirected)
-				{
-					if (emanatingEdgeTo.ToVertex == toVertex)
-					{
-						return emanatingEdgeTo;
-					}
-				}
-				else
-				{					
-					if ((emanatingEdgeTo.FromVertex == toVertex) || (emanatingEdgeTo.ToVertex == toVertex))
-					{
-						return emanatingEdgeTo;
-					}
-				}
-			}
+        {
+	        foreach (var emanatingEdgeTo in _emanatingEdges)
+	        {
+		        if (emanatingEdgeTo.IsDirected)
+		        {
+			        if (emanatingEdgeTo.ToVertex == toVertex)
+			        {
+				        return emanatingEdgeTo;
+			        }
+		        }
+		        else
+		        {					
+			        if ((emanatingEdgeTo.FromVertex == toVertex) || (emanatingEdgeTo.ToVertex == toVertex))
+			        {
+				        return emanatingEdgeTo;
+			        }
+		        }
+	        }
 
-            return null;
-		}
+	        return null;
+        }
 
 		/// <summary>
 		/// Gets the incident edge to the specified vertex.
@@ -240,16 +211,15 @@ namespace NGenerics.DataStructures.General
         /// </example>
 		public Edge<T> GetIncidentEdgeWith(Vertex<T> toVertex)
 		{
-			for (var i = 0; i < incidentEdges.Count; i++)
+			foreach (var incidentEdgeWith in _incidentEdges)
 			{
-			    var incidentEdgeWith = incidentEdges[i];
-			    if ((incidentEdgeWith.ToVertex == toVertex) || (incidentEdgeWith.FromVertex == toVertex))
+				if ((incidentEdgeWith.ToVertex == toVertex) || (incidentEdgeWith.FromVertex == toVertex))
 				{
 					return incidentEdgeWith;
 				}
 			}
 
-		    return null;
+			return null;
 		}
 
 
@@ -263,12 +233,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="edge">The edge to be removed.</param>
 		internal void RemoveEdge(Edge<T> edge)
 		{
-			#region Asserts
-
 			Debug.Assert(edge != null);
-
-			#endregion
-
 			RemoveEdgeFromVertex(edge);
 		}
 
@@ -278,25 +243,21 @@ namespace NGenerics.DataStructures.General
         /// <param name="edge">The edge to add.</param>
 		internal void AddEdge(Edge<T> edge)
 		{
-			#region Asserts
-
 			Debug.Assert(edge != null);
-
-			#endregion
 
 			if (edge.IsDirected)
 			{
 				if (edge.FromVertex == this)
 				{
-					emanatingEdges.Add(edge);
+					_emanatingEdges.Add(edge);
 				}
 			}
 			else
 			{
-				emanatingEdges.Add(edge);
+				_emanatingEdges.Add(edge);
 			}
 
-			incidentEdges.Add(edge);
+			_incidentEdges.Add(edge);
 		}
 
 		#endregion
@@ -305,24 +266,19 @@ namespace NGenerics.DataStructures.General
 
 		private void RemoveEdgeFromVertex(Edge<T> edge)
         {
-            #region Asserts
-
-            Debug.Assert(incidentEdges.Remove(edge), "Edge not found on vertex in RemoveEdgeFromVertex.");
-
-            #endregion
-
-            incidentEdges.Remove(edge);
+            bool present = _incidentEdges.Remove(edge);
+            Debug.Assert(present, "Edge not found on vertex in RemoveEdgeFromVertex.");
 
 			if (edge.IsDirected)
 			{
 				if (edge.FromVertex == this)
 				{
-					emanatingEdges.Remove(edge);
+					_emanatingEdges.Remove(edge);
 				}
 			}
 			else
 			{
-				emanatingEdges.Remove(edge);
+				_emanatingEdges.Remove(edge);
 			}
 		}
 

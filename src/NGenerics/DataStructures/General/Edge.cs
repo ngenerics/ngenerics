@@ -23,9 +23,9 @@ namespace NGenerics.DataStructures.General
 	{
 		#region Globals
 
-		private readonly Vertex<T> from;
-		private readonly Vertex<T> to;
-		private readonly bool edgeIsDirected;
+		private readonly Vertex<T> _from;
+		private readonly Vertex<T> _to;
+		private readonly bool _edgeIsDirected;
 
 		#endregion
         
@@ -59,10 +59,10 @@ namespace NGenerics.DataStructures.General
             Guard.ArgumentNotNull(fromVertex, "fromVertex");
 
 
-			from = fromVertex;
-			to = toVertex;
+			_from = fromVertex;
+			_to = toVertex;
 			Weight = weight;
-			edgeIsDirected = isDirected;
+			_edgeIsDirected = isDirected;
 		}
 
 		#endregion
@@ -76,13 +76,7 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="FromVertex" lang="cs" title="The following example shows how to use the FromVertex property."/>
         /// </example>
-		public Vertex<T> FromVertex
-		{
-			get
-			{
-				return from;
-			}
-		}
+		public Vertex<T> FromVertex => _from;
 
 		/// <summary>
 		/// Gets the to <see cref="Vertex{T}"/>.
@@ -91,13 +85,7 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="ToVertex" lang="cs" title="The following example shows how to use the ToVertex property."/>
         /// </example>
-		public Vertex<T> ToVertex
-		{
-			get
-			{
-				return to;
-			}
-		}
+		public Vertex<T> ToVertex => _to;
 
 		/// <summary>
 		/// Gets a value indicating whether this <see cref="Edge{T}"/> is directed.
@@ -108,13 +96,7 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="IsDirected" lang="cs" title="The following example shows how to use the IsDirected property."/>
         /// </example>
-		public bool IsDirected
-		{
-			get
-			{
-				return edgeIsDirected;
-			}
-		}
+		public bool IsDirected => _edgeIsDirected;
 
 		/// <summary>
 		/// Gets the weight associated with this <see cref="Edge{T}"/>.
@@ -141,14 +123,14 @@ namespace NGenerics.DataStructures.General
         /// </example>
 		public Vertex<T> GetPartnerVertex(Vertex<T> vertex)
 		{
-		    if (from == vertex)
+		    if (_from == vertex)
 			{
-				return to;
+				return _to;
 			}
 		
-            if (to == vertex)
+            if (_to == vertex)
 		    {
-		        return from;
+		        return _from;
 		    }
 
             throw new ArgumentException("The vertex specified does not form part of this edge.", "vertex");

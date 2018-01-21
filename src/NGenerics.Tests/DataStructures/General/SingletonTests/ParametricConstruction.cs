@@ -18,11 +18,11 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
 
         private class InstanceWithParametricConstructor
         {
-            public int val;
+            public readonly int Val;
 
-            private InstanceWithParametricConstructor(int value)
+            public InstanceWithParametricConstructor(int value)
             {
-                val = value;
+                Val = value;
             }
         }
 
@@ -37,7 +37,7 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
         [Test]
         public void Call_Generic_Parametric_New_Constructor()
         {
-            Assert.AreEqual(Singleton<InstanceWithParametricConstructor>.Instance.val, 7);
+            Assert.AreEqual(Singleton<InstanceWithParametricConstructor>.Instance.Val, 7);
         }
     }
 }

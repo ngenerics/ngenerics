@@ -32,10 +32,10 @@ namespace NGenerics.DataStructures.Mathematical
       #region Globals
 
       // Storage of the LU decomposition
-      private Matrix LU;
+      private Matrix _lu;
 
-      private int pivotSign;
-      private int[] pivots;
+      private int _pivotSign;
+      private int[] _pivots;
 
       #endregion
 
@@ -63,9 +63,9 @@ namespace NGenerics.DataStructures.Mathematical
       {
          get
          {
-            for (var j = 0; j < LU.Columns; j++)
+            for (var j = 0; j < _lu.Columns; j++)
             {
-               if (LU.GetValue(j, j) == 0)
+               if (_lu.GetValue(j, j) == 0)
                {
                   return false;
                }
@@ -82,11 +82,11 @@ namespace NGenerics.DataStructures.Mathematical
       /// <returns>The determinant.</returns>
       public double Determinant()
       {
-         double determinant = pivotSign;
+         double determinant = _pivotSign;
 
-         for (var j = 0; j < LU.Columns; j++)
+         for (var j = 0; j < _lu.Columns; j++)
          {
-            determinant *= LU.GetValue(j, j);
+            determinant *= _lu.GetValue(j, j);
          }
 
          return determinant;
@@ -100,9 +100,9 @@ namespace NGenerics.DataStructures.Mathematical
       {
          var rank = 0;
 
-         for (var j = 0; j < LU.Columns; j++)
+         for (var j = 0; j < _lu.Columns; j++)
          {
-            if (LU.GetValue(j, j)!=0.0) rank++ ;
+            if (_lu.GetValue(j, j)!=0.0) rank++ ;
          }
          return rank;
       }
@@ -120,31 +120,31 @@ namespace NGenerics.DataStructures.Mathematical
          // Copy right hand side with pivoting
          var nx = B.Columns;
 
-         var subMatrix = B.GetSubMatrix(pivots, 0, nx - 1);
+         var subMatrix = B.GetSubMatrix(_pivots, 0, nx - 1);
 
          // Solve L*Y = B(piv,:)
-         for (var k = 0; k < LU.Columns; k++)
+         for (var k = 0; k < _lu.Columns; k++)
          {
-            for (var i = k + 1; i < LU.Columns; i++)
+            for (var i = k + 1; i < _lu.Columns; i++)
             {
                for (var j = 0; j < nx; j++)
                {
-                  subMatrix.SetValue(i, j, subMatrix.GetValue(i, j) - (subMatrix.GetValue(k, j) * LU.GetValue(i, k)));
+                  subMatrix.SetValue(i, j, subMatrix.GetValue(i, j) - (subMatrix.GetValue(k, j) * _lu.GetValue(i, k)));
                }
             }
          }
          // Solve U*X = Y;
-         for (var k = LU.Columns - 1; k >= 0; k--)
+         for (var k = _lu.Columns - 1; k >= 0; k--)
          {
             for (var j = 0; j < nx; j++)
             {
-               subMatrix.SetValue(k, j, subMatrix.GetValue(k, j) / LU.GetValue(k, k));
+               subMatrix.SetValue(k, j, subMatrix.GetValue(k, j) / _lu.GetValue(k, k));
             }
             for (var i = 0; i < k; i++)
             {
                for (var j = 0; j < nx; j++)
                {
-                  subMatrix.SetValue(i, j, subMatrix.GetValue(i, j) - (subMatrix.GetValue(k, j) * LU.GetValue(i, k)));
+                  subMatrix.SetValue(i, j, subMatrix.GetValue(i, j) - (subMatrix.GetValue(k, j) * _lu.GetValue(i, k)));
                }
             }
          }
@@ -158,28 +158,28 @@ namespace NGenerics.DataStructures.Mathematical
       /// <param name="matrix">The matrix to decompose.</param>
       public void Decompose(Matrix matrix)
       {
-         LU = matrix.Clone();
+         _lu = matrix.Clone();
 
-         pivots = new int[LU.Rows];
+         _pivots = new int[_lu.Rows];
 
-         for (var i = 0; i < LU.Rows; i++)
+         for (var i = 0; i < _lu.Rows; i++)
          {
-            pivots[i] = i;
+            _pivots[i] = i;
          }
 
-         pivotSign = 1;
+         _pivotSign = 1;
 
-         var column = new double[LU.Rows];
+         var column = new double[_lu.Rows];
 
-         for (var j = 0; j < LU.Columns; j++)
+         for (var j = 0; j < _lu.Columns; j++)
          {
-            for (var i = 0; i < LU.Rows; i++)
+            for (var i = 0; i < _lu.Rows; i++)
             {
-               column[i] = LU.GetValue(i, j);
+               column[i] = _lu.GetValue(i, j);
             }
 
             // Apply previous transformations.
-            for (var i = 0; i < LU.Rows; i++)
+            for (var i = 0; i < _lu.Rows; i++)
             {
                // Most of the time is spent in the following dot product.
                var kmax = Math.Min(i, j);
@@ -187,17 +187,17 @@ namespace NGenerics.DataStructures.Mathematical
 
                for (var k = 0; k < kmax; k++)
                {
-                  s += LU.GetValue(i, k) * column[k];
+                  s += _lu.GetValue(i, k) * column[k];
                }
 
-               LU.SetValue(i, j, column[i] - s);
+               _lu.SetValue(i, j, column[i] - s);
                column[i] -= s;
             }
 
             // Find pivot and exchange if necessary.
             var p = j;
 
-            for (var i = j + 1; i < LU.Rows; i++)
+            for (var i = j + 1; i < _lu.Rows; i++)
             {
                if (Math.Abs(column[i]) > Math.Abs(column[p]))
                {
@@ -207,24 +207,24 @@ namespace NGenerics.DataStructures.Mathematical
 
             if (p != j)
             {
-               for (var k = 0; k < LU.Columns; k++)
+               for (var k = 0; k < _lu.Columns; k++)
                {
-                  var t = LU[p, k];
-                  LU.SetValue(p, k, LU[j, k]);
-                  LU.SetValue(j, k, t);
+                  var t = _lu[p, k];
+                  _lu.SetValue(p, k, _lu[j, k]);
+                  _lu.SetValue(j, k, t);
                }
 
-               Swapper.Swap(pivots, p, j);
+               Swapper.Swap(_pivots, p, j);
 
-               pivotSign = -pivotSign;
+               _pivotSign = -_pivotSign;
             }
 
             // Compute multipliers.
-            if ((j < LU.Rows) && (LU.GetValue(j, j) != 0.0))
+            if ((j < _lu.Rows) && (_lu.GetValue(j, j) != 0.0))
             {
-               for (var i = j + 1; i < LU.Rows; i++)
+               for (var i = j + 1; i < _lu.Rows; i++)
                {
-                  LU.SetValue(i, j, LU.GetValue(i, j) / LU.GetValue(j, j));
+                  _lu.SetValue(i, j, _lu.GetValue(i, j) / _lu.GetValue(j, j));
                }
             }
          }
@@ -235,15 +235,15 @@ namespace NGenerics.DataStructures.Mathematical
       /// </summary>
       private Matrix GetLowerTriangularFactor()
       {
-         var matrix = new Matrix(LU.Rows, LU.Columns);
+         var matrix = new Matrix(_lu.Rows, _lu.Columns);
 
-         for (var i = 0; i < LU.Rows; i++)
+         for (var i = 0; i < _lu.Rows; i++)
          {
-            for (var j = 0; j < LU.Columns; j++)
+            for (var j = 0; j < _lu.Columns; j++)
             {
                if (i > j)
                {
-                  matrix.SetValue(i, j, LU.GetValue(i, j));
+                  matrix.SetValue(i, j, _lu.GetValue(i, j));
                }
                else if (i == j)
                {
@@ -264,15 +264,15 @@ namespace NGenerics.DataStructures.Mathematical
       /// </summary>
       private Matrix GetUpperTriangularFactor()
       {
-         var matrix = new Matrix(LU.Rows, LU.Columns);
+         var matrix = new Matrix(_lu.Rows, _lu.Columns);
 
-         for (var i = 0; i < LU.Rows; i++)
+         for (var i = 0; i < _lu.Rows; i++)
          {
-            for (var j = 0; j < LU.Columns; j++)
+            for (var j = 0; j < _lu.Columns; j++)
             {
                if (i <= j)
                {
-                  matrix.SetValue(i, j, LU.GetValue(i, j));
+                  matrix.SetValue(i, j, _lu.GetValue(i, j));
                }
                else
                {
@@ -319,7 +319,7 @@ namespace NGenerics.DataStructures.Mathematical
       {
           Guard.ArgumentNotNull(right, "right");
 
-          Matrix.ValidateEqualRows(right, LU);
+          Matrix.ValidateEqualRows(right, _lu);
 
           if (!NonSingular)
           {
