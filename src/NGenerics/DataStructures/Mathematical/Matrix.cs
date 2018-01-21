@@ -38,8 +38,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc/>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example> 
         public Matrix(int rows, int columns)
             : base(rows, columns)
@@ -211,8 +210,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="column">The column index.</param>
         /// <returns>The matrix without the row and column specified.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Minor" lang="cs" title="The following example shows how to use the Minor method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Minor" lang="vbnet" title="The following example shows how to use the Minor method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Minor" lang="cs" title="The following example shows how to use the Minor method."/>
         /// </example>
         public Matrix Minor(int row, int column)
         {
@@ -264,8 +262,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Determinant" lang="cs" title="The following example shows how to use the Determinant method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Determinant" lang="vbnet" title="The following example shows how to use the Determinant method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Determinant" lang="cs" title="The following example shows how to use the Determinant method."/>
         /// </example>
         public double Determinant()
         {
@@ -307,8 +304,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <returns>The Adjoint of the current matrix.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Adjoint" lang="cs" title="The following example shows how to use the Adjoint method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Adjoint" lang="vbnet" title="The following example shows how to use the Adjoint method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Adjoint" lang="cs" title="The following example shows how to use the Adjoint method."/>
         /// </example>
         public Matrix Adjoint()
         {
@@ -341,8 +337,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="matrix"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentException">The <see cref="ObjectMatrix{T}.Columns"/> of the current instance do not equal the <see cref="ObjectMatrix{T}.Columns"/> of <paramref name="matrix"/>.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="MultiplyMatrixMatrix" lang="cs" title="The following example shows how to use the Multiply method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="MultiplyMatrixMatrix" lang="vbnet" title="The following example shows how to use the Multiply method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="MultiplyMatrixMatrix" lang="cs" title="The following example shows how to use the Multiply method."/>
         /// </example>
         public Matrix Multiply(Matrix matrix)
         {
@@ -384,8 +379,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="number">The number to multiply this matrix with.</param>
         /// <returns>The result of the times operation.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="MultiplyMatrixDouble" lang="cs" title="The following example shows how to use the Multiply method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="MultiplyMatrixDouble" lang="vbnet" title="The following example shows how to use the Multiply method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="MultiplyMatrixDouble" lang="cs" title="The following example shows how to use the Multiply method."/>
         /// </example>
         public Matrix Multiply(double number)
         {
@@ -411,8 +405,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentException">The <see cref="ObjectMatrix{T}.Columns"/> of the current instance do not equal the <see cref="ObjectMatrix{T}.Columns"/> of <paramref name="matrix"/>.</exception>
         /// <exception cref="ArgumentException">The <see cref="ObjectMatrix{T}.Rows"/> of the current instance do not equal the <see cref="ObjectMatrix{T}.Rows"/> of <paramref name="matrix"/>.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public Matrix Add(Matrix matrix)
         {
@@ -424,8 +417,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <returns>An negated representation of the current matrix.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Negate" lang="cs" title="The following example shows how to use the Negate method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Negate" lang="vbnet" title="The following example shows how to use the Negate method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Negate" lang="cs" title="The following example shows how to use the Negate method."/>
         /// </example>
         public Matrix Negate()
         {
@@ -441,8 +433,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentException">The <see cref="ObjectMatrix{T}.Columns"/> of the current instance do not equal the <see cref="ObjectMatrix{T}.Columns"/> of <paramref name="matrix"/>.</exception>
         /// <exception cref="ArgumentException">The <see cref="ObjectMatrix{T}.Rows"/> of the current instance do not equal the <see cref="ObjectMatrix{T}.Rows"/> of <paramref name="matrix"/>.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Subtract" lang="cs" title="The following example shows how to use the Subtract method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Subtract" lang="vbnet" title="The following example shows how to use the Subtract method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Subtract" lang="cs" title="The following example shows how to use the Subtract method."/>
         /// </example>
         public Matrix Subtract(Matrix matrix)
         {
@@ -475,8 +466,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <returns>The transposed matrix.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Transpose" lang="cs" title="The following example shows how to use the Transpose method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Transpose" lang="vbnet" title="The following example shows how to use the Transpose method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Transpose" lang="cs" title="The following example shows how to use the Transpose method."/>
         /// </example>
         public Matrix Transpose()
         {
@@ -524,8 +514,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="IsSymmetric" lang="cs" title="The following example shows how to use the IsSymmetric property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="IsSymmetric" lang="vbnet" title="The following example shows how to use the IsSymmetric property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="IsSymmetric" lang="cs" title="The following example shows how to use the IsSymmetric property."/>
         /// </example>
         public bool IsSymmetric
         {
@@ -553,8 +542,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="IsSingular" lang="cs" title="The following example shows how to use the IsSingular property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="IsSingular" lang="vbnet" title="The following example shows how to use the IsSingular property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="IsSingular" lang="cs" title="The following example shows how to use the IsSingular property."/>
         /// </example>
         public bool IsSingular
         {
@@ -646,8 +634,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <returns>An inverted representation of the current matrix.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Inverse" lang="cs" title="The following example shows how to use the Inverse method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Inverse" lang="vbnet" title="The following example shows how to use the Inverse method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Inverse" lang="cs" title="The following example shows how to use the Inverse method."/>
         /// </example>
         public Matrix Inverse()
         {
@@ -815,8 +802,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="MultiplyRow" lang="cs" title="The following example shows how to use the MultiplyRow method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="MultiplyRow" lang="vbnet" title="The following example shows how to use the MultiplyRow method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="MultiplyRow" lang="cs" title="The following example shows how to use the MultiplyRow method."/>
         /// </example>
         public void MultiplyRow(int row, double number)
         {
@@ -838,8 +824,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="MultiplyColumn" lang="cs" title="The following example shows how to use the MultiplyColumn method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="MultiplyColumn" lang="vbnet" title="The following example shows how to use the MultiplyColumn method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="MultiplyColumn" lang="cs" title="The following example shows how to use the MultiplyColumn method."/>
         /// </example>
         public void MultiplyColumn(int column, double number)
         {
@@ -867,8 +852,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="rightMatrix"/> is null.</exception>
         /// <exception cref="ArgumentException"><paramref name="rightMatrix"/> does not have the same amount of rows as this matrix.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Concatenate" lang="cs" title="The following example shows how to use the Concatenate method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Concatenate" lang="vbnet" title="The following example shows how to use the Concatenate method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Concatenate" lang="cs" title="The following example shows how to use the Concatenate method."/>
         /// </example>
         public Matrix Concatenate(Matrix rightMatrix)
         {
@@ -883,8 +867,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// A new object that is a copy of this instance.
         /// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Clone" lang="cs" title="The following example shows how to use the Clone method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Clone" lang="vbnet" title="The following example shows how to use the Clone method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Clone" lang="cs" title="The following example shows how to use the Clone method."/>
         /// </example>
         public Matrix Clone()
         {
@@ -1067,8 +1050,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="OperatorPlus" lang="cs" title="The following example shows how to use the plus operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="OperatorPlus" lang="vbnet" title="The following example shows how to use the plus operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="OperatorPlus" lang="cs" title="The following example shows how to use the plus operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         public static Matrix operator +(Matrix left, Matrix right)
@@ -1087,8 +1069,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="OperatorMinus" lang="cs" title="The following example shows how to use the minus operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="OperatorMinus" lang="vbnet" title="The following example shows how to use the minus operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="OperatorMinus" lang="cs" title="The following example shows how to use the minus operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         public static Matrix operator -(Matrix left, Matrix right)
@@ -1107,8 +1088,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>   
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="OperatorMultiplyMatrixMatrix" lang="cs" title="The following example shows how to use the multiply operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="OperatorMultiplyMatrixMatrix" lang="vbnet" title="The following example shows how to use the multiply operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="OperatorMultiplyMatrixMatrix" lang="cs" title="The following example shows how to use the multiply operator."/>
         /// </example>
         public static Matrix operator *(Matrix left, Matrix right)
         {
@@ -1131,8 +1111,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the multiplication.</returns> 
         /// <exception cref="ArgumentNullException"><paramref name="matrix"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="OperatorMultiplyMatrixDouble" lang="cs" title="The following example shows how to use the multiply operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="OperatorMultiplyMatrixDouble" lang="vbnet" title="The following example shows how to use the multiply operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="OperatorMultiplyMatrixDouble" lang="cs" title="The following example shows how to use the multiply operator."/>
         /// </example>
         public static Matrix operator *(double number, Matrix matrix)
         {
@@ -1149,8 +1128,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the multiplication.</returns>  
         /// <exception cref="ArgumentNullException"><paramref name="matrix"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="OperatorMultiplyMatrixDouble" lang="cs" title="The following example shows how to use the multiply operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="OperatorMultiplyMatrixDouble" lang="vbnet" title="The following example shows how to use the multiply operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="OperatorMultiplyMatrixDouble" lang="cs" title="The following example shows how to use the multiply operator."/>
         /// </example>
         public static Matrix operator *(Matrix matrix, double number)
         {
@@ -1194,8 +1172,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="columnCount">The column count.</param>
         /// <returns>The sub matrix of the current matrix.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="GetSubMatrix" lang="cs" title="The following example shows how to use the GetSubMatrix method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="GetSubMatrix" lang="vbnet" title="The following example shows how to use the GetSubMatrix method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="GetSubMatrix" lang="cs" title="The following example shows how to use the GetSubMatrix method."/>
         /// </example>           
         public new Matrix GetSubMatrix(int rowStart, int columnStart, int rowCount, int columnCount)
         {
@@ -1220,8 +1197,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Equals" lang="cs" title="The following example shows how to use the Equals method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Equals" lang="vbnet" title="The following example shows how to use the Equals method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Equals" lang="cs" title="The following example shows how to use the Equals method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
         public bool Equals(IMathematicalMatrix other)
@@ -1263,8 +1239,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="precision">The precision with which to compare.</param>
         /// <returns></returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\MatrixExamples.cs" region="Equals" lang="cs" title="The following example shows how to use the Equals method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\MatrixExamples.vb" region="Equals" lang="vbnet" title="The following example shows how to use the Equals method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Mathematical\MatrixExamples.cs" region="Equals" lang="cs" title="The following example shows how to use the Equals method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
         public bool Equals(IMathematicalMatrix other, double precision)

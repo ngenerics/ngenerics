@@ -36,8 +36,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="toVertex">To <see cref="Vertex{T}"/>.</param>
 		/// <param name="isDirected">if set to <c>true</c> [is directed].</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\EdgeExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\EdgeExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
         /// </example>
 		public Edge(Vertex<T> fromVertex, Vertex<T> toVertex, bool isDirected) : this(fromVertex, toVertex, 0, isDirected)
 		{
@@ -52,8 +51,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="fromVertex"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="toVertex"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\EdgeExamples.cs" region="WeightedConstructor" lang="cs" title="The following example shows how to use the constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\EdgeExamples.vb" region="WeightedConstructor" lang="vbnet" title="The following example shows how to use the constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="WeightedConstructor" lang="cs" title="The following example shows how to use the constructor."/>
         /// </example>
 		public Edge(Vertex<T> fromVertex, Vertex<T> toVertex, double weight, bool isDirected)
         {
@@ -76,8 +74,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <value>The from <see cref="Vertex{T}"/>.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\EdgeExamples.cs" region="FromVertex" lang="cs" title="The following example shows how to use the FromVertex property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\EdgeExamples.vb" region="FromVertex" lang="vbnet" title="The following example shows how to use the FromVertex property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="FromVertex" lang="cs" title="The following example shows how to use the FromVertex property."/>
         /// </example>
 		public Vertex<T> FromVertex
 		{
@@ -92,8 +89,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <value>The to <see cref="Vertex{T}"/>.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\EdgeExamples.cs" region="ToVertex" lang="cs" title="The following example shows how to use the ToVertex property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\EdgeExamples.vb" region="ToVertex" lang="vbnet" title="The following example shows how to use the ToVertex property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="ToVertex" lang="cs" title="The following example shows how to use the ToVertex property."/>
         /// </example>
 		public Vertex<T> ToVertex
 		{
@@ -110,8 +106,7 @@ namespace NGenerics.DataStructures.General
 		/// 	<c>true</c> if this edge is directed; otherwise, <c>false</c>.
 		/// </value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\EdgeExamples.cs" region="IsDirected" lang="cs" title="The following example shows how to use the IsDirected property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\EdgeExamples.vb" region="IsDirected" lang="vbnet" title="The following example shows how to use the IsDirected property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="IsDirected" lang="cs" title="The following example shows how to use the IsDirected property."/>
         /// </example>
 		public bool IsDirected
 		{
@@ -126,8 +121,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <value>The weight associated with this <see cref="Edge{T}"/>.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\EdgeExamples.cs" region="Weight" lang="cs" title="The following example shows how to use the Weight property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\EdgeExamples.vb" region="Weight" lang="vbnet" title="The following example shows how to use the Weight property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="Weight" lang="cs" title="The following example shows how to use the Weight property."/>
         /// </example>
 		public double Weight
 		{
@@ -143,8 +137,7 @@ namespace NGenerics.DataStructures.General
 		/// <returns>The partner of the <see cref="Vertex{T}"/> specified in this <see cref="Edge{T}"/> relationship.</returns>
 		/// <exception cref="ArgumentException"><paramref name="vertex"/> does not equal <see cref="FromVertex"/> or <see cref="ToVertex"/>.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\EdgeExamples.cs" region="GetPartnerVertex" lang="cs" title="The following example shows how to use the GetPartnerVertex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\EdgeExamples.vb" region="GetPartnerVertex" lang="vbnet" title="The following example shows how to use the GetPartnerVertex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="GetPartnerVertex" lang="cs" title="The following example shows how to use the GetPartnerVertex method."/>
         /// </example>
 		public Vertex<T> GetPartnerVertex(Vertex<T> vertex)
 		{
@@ -167,8 +160,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <value>The tag object.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\EdgeExamples.cs" region="Tag" lang="cs" title="The following example shows how to use the Tag property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\EdgeExamples.vb" region="Tag" lang="vbnet" title="The following example shows how to use the Tag property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\EdgeExamples.cs" region="Tag" lang="cs" title="The following example shows how to use the Tag property."/>
         /// </example>
 		public object Tag
 		{

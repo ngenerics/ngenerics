@@ -137,8 +137,7 @@ namespace NGenerics.DataStructures.Trees
 		/// </summary>
 		/// <value></value>
 		/// <example>
-		/// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Keys" lang="cs" title="The following example shows how to use the Keys property."/>
-		/// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Keys" lang="vbnet" title="The following example shows how to use the Keys property."/>
+		/// 	<code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Keys" lang="cs" title="The following example shows how to use the Keys property."/>
 		/// </example>
 		public ICollection<TKey> Keys
 		{
@@ -155,8 +154,7 @@ namespace NGenerics.DataStructures.Trees
 		
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="TryGetValue" lang="cs" title="The following example shows how to use the TryGetValue method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="TryGetValue" lang="vbnet" title="The following example shows how to use the TryGetValue method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="TryGetValue" lang="cs" title="The following example shows how to use the TryGetValue method."/>
 		/// </example>
 		public bool TryGetValue(TKey key, out TValue value)
 		{
@@ -177,8 +175,7 @@ namespace NGenerics.DataStructures.Trees
 		/// </summary>
 		/// <value></value>
 		/// <example>
-		/// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Values" lang="cs" title="The following example shows how to use the Values property."/>
-		/// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Values" lang="vbnet" title="The following example shows how to use the Values property."/>
+		/// 	<code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Values" lang="cs" title="The following example shows how to use the Values property."/>
 		/// </example>
 		public ICollection<TValue> Values
 		{
@@ -230,8 +227,7 @@ namespace NGenerics.DataStructures.Trees
 		
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
 		/// </example>
 		public override bool Contains(KeyValuePair<TKey, TValue> item) {
 			return Contains(item, true);

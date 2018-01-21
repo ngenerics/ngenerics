@@ -61,8 +61,7 @@ namespace NGenerics.DataStructures.Trees
 
         /// <inheritdoc/>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Maximum" lang="cs" title="The following example shows how to use the Maximum property."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Maximum" lang="vbnet" title="The following example shows how to use the Maximum property."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Maximum" lang="cs" title="The following example shows how to use the Maximum property."/>
         /// </example>
         public override KeyValuePair<TKey, TValue> Maximum
         {
@@ -77,8 +76,7 @@ namespace NGenerics.DataStructures.Trees
 
         /// <inheritdoc/>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Minimum" lang="cs" title="The following example shows how to use the Minimum property."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Minimum" lang="vbnet" title="The following example shows how to use the Minimum property."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Minimum" lang="cs" title="The following example shows how to use the Minimum property."/>
         /// </example>
         public override KeyValuePair<TKey, TValue> Minimum
         {

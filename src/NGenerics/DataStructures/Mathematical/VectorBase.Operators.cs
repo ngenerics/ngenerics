@@ -31,10 +31,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="left">The left hand side.</param>
         /// <param name="right">The right hand side.</param>
         /// <returns><c>true</c> is <paramref name="left"/> is equal to <paramref name="right"/>; otherwise <c>false</c>.</returns>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorEquals" lang="cs" title="The following example shows how to use the equals operator overload."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorEquals" lang="vbnet" title="The following example shows how to use the equals operator overload."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorEquals" lang="cs" title="The following example shows how to use the equals operator overload."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static bool operator ==(VectorBase<T> left, IVector<T> right)
         {
@@ -60,10 +59,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="left">The left hand side.</param>
         /// <param name="right">The right hand side.</param>
         /// <returns><c>true</c> is <paramref name="left"/> is not equal to <paramref name="right"/>; otherwise <c>false</c>.</returns>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorNotEquals" lang="cs" title="The following example shows how to use the not equals operator overload."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorNotEquals" lang="vbnet" title="The following example shows how to use the not equals operator overload."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorNotEquals" lang="cs" title="The following example shows how to use the not equals operator overload."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static bool operator !=(VectorBase<T> left, IVector<T> right)
         {
@@ -80,10 +78,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentException">The <see cref="IVector{T}.DimensionCount"/> of <paramref name="left"/> does not equal the <see cref="IVector{T}.DimensionCount"/> of <paramref name="right"/>.</exception>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorDivideVector" lang="cs" title="The following example shows how to use the divide operator overload."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorDivideVector" lang="vbnet" title="The following example shows how to use the divide operator overload."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorDivideVector" lang="cs" title="The following example shows how to use the divide operator overload."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static VectorBase<T> operator /(VectorBase<T> left, IVector<T> right)
         {
@@ -103,10 +100,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand side.</param>
         /// <returns>The result of the division.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorDivideDouble" lang="cs" title="The following example shows how to use the divide operator overload."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorDivideDouble" lang="vbnet" title="The following example shows how to use the divide operator overload."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorDivideDouble" lang="cs" title="The following example shows how to use the divide operator overload."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static VectorBase<T> operator /(VectorBase<T> left, T right)
         {
@@ -126,10 +122,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentException">The <see cref="IVector{T}.DimensionCount"/> of the current instance does not equal the <see cref="IVector{T}.DimensionCount"/> of <paramref name="right"/>.</exception>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorMultiplyVector" lang="cs" title="The following example shows how to use the multiply operator overload."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorMultiplyVector" lang="vbnet" title="The following example shows how to use the multiply operator overload."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorMultiplyVector" lang="cs" title="The following example shows how to use the multiply operator overload."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static IMatrix<T> operator *(VectorBase<T> left, IVector<T> right)
         {
@@ -149,10 +144,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand side.</param>
         /// <returns>The result of the multiplication.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorMultiplyDouble" lang="cs" title="The following example shows how to use the multiply operator overload."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorMultiplyDouble" lang="vbnet" title="The following example shows how to use the multiply operator overload."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorMultiplyDouble" lang="cs" title="The following example shows how to use the multiply operator overload."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static VectorBase<T> operator *(VectorBase<T> left, T right)
         {
@@ -172,10 +166,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentException">The <see cref="IVector{T}.DimensionCount"/> of the current instance does not equal the <see cref="IVector{T}.DimensionCount"/> of <paramref name="right"/>.</exception>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorPlus" lang="cs" title="The following example shows how to use the plus operator."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorPlus" lang="vbnet" title="The following example shows how to use the plus operator."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorPlus" lang="cs" title="The following example shows how to use the plus operator."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static VectorBase<T> operator +(VectorBase<T> left, IVector<T> right)
         {
@@ -195,10 +188,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the addition.</returns>
         /// <exception cref="ArgumentException">The <see cref="IVector{T}.DimensionCount"/> of the current instance does not equal the <see cref="IVector{T}.DimensionCount"/> of <paramref name="right"/>.</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorIncrement" lang="cs" title="The following example shows how to use the increment operator."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorIncrement" lang="vbnet" title="The following example shows how to use the increment operator."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorIncrement" lang="cs" title="The following example shows how to use the increment operator."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static VectorBase<T> operator ++(VectorBase<T> right)
         {
@@ -215,10 +207,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand side.</param>
         /// <returns>The result of the addition.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorPlusDouble" lang="cs" title="The following example shows how to use the plus operator."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorPlusDouble" lang="vbnet" title="The following example shows how to use the plus operator."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorPlusDouble" lang="cs" title="The following example shows how to use the plus operator."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static VectorBase<T> operator +(VectorBase<T> left, T right)
         {
@@ -238,10 +229,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentException">The <see cref="IVector{T}.DimensionCount"/> of the current instance does not equal the <see cref="IVector{T}.DimensionCount"/> of <paramref name="right"/>.</exception>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorSubtractVector" lang="cs" title="The following example shows how to use the minus operator."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorSubtractVector" lang="vbnet" title="The following example shows how to use the minus operator."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorSubtractVector" lang="cs" title="The following example shows how to use the minus operator."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static VectorBase<T> operator -(VectorBase<T> left, IVector<T> right)
         {
@@ -261,10 +251,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand side.</param>
         /// <returns>The result of the subtraction.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorSubtractDouble" lang="cs" title="The following example shows how to use the minus operator."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorSubtractDouble" lang="vbnet" title="The following example shows how to use the minus operator."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorSubtractDouble" lang="cs" title="The following example shows how to use the minus operator."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static VectorBase<T> operator -(VectorBase<T> left, T right)
         {
@@ -281,10 +270,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand side.</param>
         /// <returns>The result of the negation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorNegate" lang="cs" title="The following example shows how to use the negate operator."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorNegate" lang="vbnet" title="The following example shows how to use the negate operator."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorNegate" lang="cs" title="The following example shows how to use the negate operator."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static VectorBase<T> operator -(VectorBase<T> right)
         {
@@ -302,10 +290,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the addition.</returns>
         /// <exception cref="ArgumentException">The <see cref="IVector{T}.DimensionCount"/> of the current instance does not equal the <see cref="IVector{T}.DimensionCount"/> of <paramref name="right"/>.</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorIncrement" lang="cs" title="The following example shows how to use the decrement operator."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="OperatorIncrement" lang="vbnet" title="The following example shows how to use the decrement operator."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="OperatorIncrement" lang="cs" title="The following example shows how to use the decrement operator."/>
+        /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static VectorBase<T> operator --(VectorBase<T> right)
         {
@@ -314,10 +301,6 @@ namespace NGenerics.DataStructures.Mathematical
             clone.Decrement();
             return clone;
         }
-
-    
-
-
 
         #endregion
     }

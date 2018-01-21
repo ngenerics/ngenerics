@@ -21,8 +21,7 @@ namespace NGenerics.Sorting
     /// </summary>
     /// <typeparam name="T">The type of the elements to be sorted.</typeparam>
     /// <example>
-    /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\SorterExamples.cs" region="SortList" lang="cs" title="The following example shows how to use the Sort method."/>
-    /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\SorterExamples.vb" region="SortList" lang="vbnet" title="The following example shows how to use the Sort method."/>
+    /// <code source="..\..\NGenerics.Examples\Sorting\SorterExamples.cs" region="SortList" lang="cs" title="The following example shows how to use the Sort method."/>
     /// </example>
     public abstract class ComparisonSorter<T> : Sorter<T>, IComparisonSorter<T>
     {
@@ -30,8 +29,7 @@ namespace NGenerics.Sorting
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\SorterExamples.cs" region="SortListComparer" lang="cs" title="The following example shows how to use the Sort method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\SorterExamples.vb" region="SortListComparer" lang="vbnet" title="The following example shows how to use the Sort method."/>
+        /// <code source="..\..\NGenerics.Examples\Sorting\SorterExamples.cs" region="SortListComparer" lang="cs" title="The following example shows how to use the Sort method."/>
         /// </example>
         public void Sort(IList<T> list, IComparer<T> comparer)
         {
@@ -53,8 +51,7 @@ namespace NGenerics.Sorting
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\SorterExamples.cs" region="SortListDelegate" lang="cs" title="The following example shows how to use the Sort method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\SorterExamples.vb" region="SortListDelegate" lang="vbnet" title="The following example shows how to use the Sort method."/>
+        /// <code source="..\..\NGenerics.Examples\Sorting\SorterExamples.cs" region="SortListDelegate" lang="cs" title="The following example shows how to use the Sort method."/>
         /// </example>
         public void Sort(IList<T> list, Comparison<T> comparison)
         {
@@ -70,8 +67,7 @@ namespace NGenerics.Sorting
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\SorterExamples.cs" region="SortListDelegate" lang="cs" title="The following example shows how to use the Sort method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\SorterExamples.vb" region="SortListDelegate" lang="vbnet" title="The following example shows how to use the Sort method."/>
+        /// <code source="..\..\NGenerics.Examples\Sorting\SorterExamples.cs" region="SortListDelegate" lang="cs" title="The following example shows how to use the Sort method."/>
         /// </example>
         public void Sort(IList<T> list, Comparison<T> comparison, SortOrder sortOrder)
         {
@@ -98,8 +94,7 @@ namespace NGenerics.Sorting
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\SorterExamples.cs" region="SortListOrder" lang="cs" title="The following example shows how to use the Sort method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\SorterExamples.vb" region="SortListOrder" lang="vbnet" title="The following example shows how to use the Sort method."/>
+        /// <code source="..\..\NGenerics.Examples\Sorting\SorterExamples.cs" region="SortListOrder" lang="cs" title="The following example shows how to use the Sort method."/>
         /// </example>
         public override void Sort(IList<T> list, SortOrder sortOrder)
         {

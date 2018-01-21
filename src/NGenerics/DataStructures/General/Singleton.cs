@@ -20,8 +20,7 @@ namespace NGenerics.DataStructures.General
     /// </summary>
     /// <typeparam name="T">The type of object to create a single instance of.</typeparam>
     /// <example>
-    /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SingletonExamples.cs" region="Singleton" lang="cs" title="The following example shows how to use the Instance method."/>
-    /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SingletonExamples.vb" region="Singleton" lang="vbnet" title="The following example shows how to use the Instance method."/>
+    /// <code source="..\..\NGenerics.Examples\DataStructures\General\SingletonExamples.cs" region="Singleton" lang="cs" title="The following example shows how to use the Instance method."/>
     /// </example>
     public static class Singleton<T>
     {
@@ -47,8 +46,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The construct with.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SingletonExamples.cs" region="ConstructWith" lang="cs" title="The following example shows how to use the ConstructWith property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SingletonExamples.vb" region="ConstructWith" lang="vbnet" title="The following example shows how to use the ConstructWith property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SingletonExamples.cs" region="ConstructWith" lang="cs" title="The following example shows how to use the ConstructWith property."/>
         /// </example>
         public static FactoryDelegate ConstructWith
         {
@@ -68,8 +66,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The instance.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SingletonExamples.cs" region="Singleton" lang="cs" title="The following example shows how to use the Instance method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SingletonExamples.vb" region="Singleton" lang="vbnet" title="The following example shows how to use the Instance method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SingletonExamples.cs" region="Singleton" lang="cs" title="The following example shows how to use the Instance method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         public static T Instance

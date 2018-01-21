@@ -44,8 +44,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="type">The type of Heap to create.</param>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="type"/> is not either <see cref="HeapType.Maximum"/> or <see cref="HeapType.Minimum"/> .</exception>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example>
         public Heap(HeapType type) : this(type, Comparer<T>.Default) { }
 
@@ -59,8 +58,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="capacity"/> is less than 0.</exception>
         /// .
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="ConstructorCapacity" lang="cs" title="The following example shows how to use the capacity constructor."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="ConstructorCapacity" lang="vbnet" title="The following example shows how to use the capacity constructor."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="ConstructorCapacity" lang="cs" title="The following example shows how to use the capacity constructor."/>
         /// </example>
         public Heap(HeapType type, int capacity) : this(type, capacity, Comparer<T>.Default) { }
 
@@ -91,8 +89,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="comparer"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="type"/> is not either <see cref="HeapType.Maximum"/> or <see cref="HeapType.Minimum"/> .</exception>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the comparer constructor."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="ConstructorComparer" lang="vbnet" title="The following example shows how to use the comparer constructor."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the comparer constructor."/>
         /// </example>
         public Heap(HeapType type, IComparer<T> comparer)
         {
@@ -139,8 +136,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="Root" lang="cs" title="The following example shows how to use the Root property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="Root" lang="vbnet" title="The following example shows how to use the Root property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Root" lang="cs" title="The following example shows how to use the Root property."/>
         /// </example>
         public T Root
         {
@@ -162,8 +158,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="RemoveRoot" lang="cs" title="The following example shows how to use the RemoveRoot method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="RemoveRoot" lang="vbnet" title="The following example shows how to use the RemoveRoot method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="RemoveRoot" lang="cs" title="The following example shows how to use the RemoveRoot method."/>
         /// </example>
         public T RemoveRoot()
         {
@@ -235,8 +230,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The type of heap.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="Type" lang="cs" title="The following example shows how to use the Type property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="Type" lang="vbnet" title="The following example shows how to use the Type property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Type" lang="cs" title="The following example shows how to use the Type property."/>
         /// </example>
         [SuppressMessage("Microsoft.Naming", "CA1721:PropertyNamesShouldNotMatchGetMethods")]
         public HeapType Type
@@ -255,8 +249,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="IsEmpty" lang="vbnet" title="The following example shows how to use the IsEmpty property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
         public bool IsEmpty
         {
@@ -270,8 +263,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
         /// </example>
         public bool Contains(T item)
         {
@@ -280,8 +272,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
         /// </example>
         public void CopyTo(T[] array, int arrayIndex)
         {
@@ -304,8 +295,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         public int Count
         {
@@ -317,8 +307,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public void Add(T item)
         {
@@ -366,8 +355,7 @@ namespace NGenerics.DataStructures.General
         /// A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
         /// </returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
         public IEnumerator<T> GetEnumerator()
         {
@@ -379,8 +367,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
         public void Clear()
         {
@@ -404,8 +391,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HeapExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HeapExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
         public bool IsReadOnly
         {

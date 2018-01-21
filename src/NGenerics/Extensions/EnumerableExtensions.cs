@@ -28,7 +28,7 @@ namespace NGenerics.Extensions
         /// <param name="enumerable">The collection to enumerate over.</param>
         /// <param name="action">The action to perform on each item..</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Extensions\IEnumerableExtensionsExamples.cs" region="ForEach" lang="cs" title="The following example shows how to use the ForEach method."/>
+        /// <code source="..\..\NGenerics.Examples\Extensions\IEnumerableExtensionsExamples.cs" region="ForEach" lang="cs" title="The following example shows how to use the ForEach method."/>
         /// </example>
         public static void ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
         {

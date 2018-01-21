@@ -298,6 +298,5 @@ namespace NGenerics.DataStructures.Mathematical
       }
 
       #endregion
-
    }
 }

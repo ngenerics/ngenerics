@@ -37,8 +37,7 @@ namespace NGenerics.DataStructures.General
 
 
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
 		/// </example>
 		public SortedList()
 		{
@@ -49,8 +48,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <param name="comparer">The comparer to use.</param>
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the Comparer constructor."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="ConstructorComparer" lang="vbnet" title="The following example shows how to use the Comparer constructor."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the Comparer constructor."/>
 		/// </example>
 		public SortedList(IComparer<T> comparer)
 		{
@@ -61,8 +59,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="capacity">The initial capacity of the sorted list.</param>
 		/// <exception cref="ArgumentOutOfRangeException"><paramref name="capacity"/> is less than 0.</exception>.
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="ConstructorCapacity" lang="cs" title="The following example shows how to use the constructor with an initial capacity."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="ConstructorCapacity" lang="vbnet" title="The following example shows how to use the constructor with an initial capacity."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="ConstructorCapacity" lang="cs" title="The following example shows how to use the constructor with an initial capacity."/>
 		/// </example>
 		public SortedList(int capacity)
 		{
@@ -82,8 +79,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <param name="collection">The collection to copy into the sorted list.</param>
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="ConstructorCollection" lang="cs" title="The following example shows how to use the collections constructor."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="ConstructorCollection" lang="vbnet" title="The following example shows how to use the collections constructor."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="ConstructorCollection" lang="cs" title="The following example shows how to use the collections constructor."/>
 		/// </example>
 		public SortedList(IEnumerable<T> collection)
 		{
@@ -108,8 +104,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="RemoveAt" lang="cs" title="The following example shows how to use the RemoveAt method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="RemoveAt" lang="vbnet" title="The following example shows how to use the RemoveAt method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="RemoveAt" lang="cs" title="The following example shows how to use the RemoveAt method."/>
 		/// </example>
 		public virtual void RemoveAt(int index)
 		{
@@ -141,8 +136,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="IsEmpty" lang="vbnet" title="The following example shows how to use the IsEmpty property."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
 		/// </example>
 		public bool IsEmpty
 		{
@@ -155,8 +149,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
 		/// </example>
 		public void CopyTo(T[] array, int arrayIndex)
 		{
@@ -181,8 +174,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Add method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
 		/// </example>
 		public void Add(T item)
 		{
@@ -222,8 +214,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
 		/// </example>
 		public bool Contains(T item)
 		{
@@ -237,8 +228,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count method."/>
 		/// </example>
 		public int Count
 		{
@@ -265,8 +255,7 @@ namespace NGenerics.DataStructures.General
 		/// A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
 		/// </returns>
 		/// <example>
-		/// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-		/// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+		/// 	<code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
 		/// </example>
 		public IEnumerator<T> GetEnumerator()
 		{
@@ -298,8 +287,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
 		/// </example>
 		public virtual void Clear()
 		{
@@ -343,8 +331,7 @@ namespace NGenerics.DataStructures.General
 		/// 	<c>false</c>.
 		/// </value>
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
 		/// </example>
 		public bool IsReadOnly
 		{
@@ -374,8 +361,7 @@ namespace NGenerics.DataStructures.General
 		#region IList<T> Members
 		/// <inheritdoc />  
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SortedListExamples.cs" region="IndexOf" lang="cs" title="The following example shows how to use the IndexOf method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SortedListExamples.vb" region="IndexOf" lang="vbnet" title="The following example shows how to use the IndexOf method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="IndexOf" lang="cs" title="The following example shows how to use the IndexOf method."/>
 		/// </example>
 		public int IndexOf(T item)
 		{

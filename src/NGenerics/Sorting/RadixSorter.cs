@@ -20,8 +20,7 @@ namespace NGenerics.Sorting
     /// Adapted from Wikipedia : see http://en.wikipedia.org/wiki/Radix_sort.
     /// </summary>    
     /// <example>
-    /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\RadixSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
-    /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\RadixSorterExamples.vb" region="Sort" lang="vbnet" title="The following example shows how to use the Sort method."/>
+    /// <code source="..\..\NGenerics.Examples\Sorting\RadixSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
     /// </example>
     public sealed class RadixSorter : Sorter<int>
     {     

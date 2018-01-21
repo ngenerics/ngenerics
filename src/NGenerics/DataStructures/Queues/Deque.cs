@@ -36,8 +36,7 @@ namespace NGenerics.DataStructures.Queues
 		#region Construction
 
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example>
 		public Deque()
 		{
@@ -46,8 +45,7 @@ namespace NGenerics.DataStructures.Queues
 
         /// <param name="collection">A collection implementing the <see cref="IEnumerable{T}"/> interface.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="ConstructorCollection" lang="cs" title="The following example shows how to use the collection constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="ConstructorCollection" lang="vbnet" title="The following example shows how to use the collection constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="ConstructorCollection" lang="cs" title="The following example shows how to use the collection constructor."/>
         /// </example>
 		public Deque(IEnumerable<T> collection)
 		{
@@ -61,8 +59,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="EnqueueHead" lang="cs" title="The following example shows how to use the EnqueueHead method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="EnqueueHead" lang="vbnet" title="The following example shows how to use the EnqueueHead method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="EnqueueHead" lang="cs" title="The following example shows how to use the EnqueueHead method."/>
         /// </example>
 		public void EnqueueHead(T item)
 		{
@@ -83,8 +80,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="DequeueHead" lang="cs" title="The following example shows how to use the DequeueHead method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="DequeueHead" lang="vbnet" title="The following example shows how to use the DequeueHead method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="DequeueHead" lang="cs" title="The following example shows how to use the DequeueHead method."/>
         /// </example>
 		public T DequeueHead()
         {
@@ -118,8 +114,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="EnqueueTail" lang="cs" title="The following example shows how to use the EnqueueTail method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="EnqueueTail" lang="vbnet" title="The following example shows how to use the EnqueueTail method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="EnqueueTail" lang="cs" title="The following example shows how to use the EnqueueTail method."/>
         /// </example>
 		public void EnqueueTail(T item)
 		{
@@ -141,8 +136,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="DequeueTail" lang="cs" title="The following example shows how to use the DequeueTail method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="DequeueTail" lang="vbnet" title="The following example shows how to use the DequeueTail method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="DequeueTail" lang="cs" title="The following example shows how to use the DequeueTail method."/>
         /// </example>
 		public T DequeueTail()
         {
@@ -176,8 +170,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="Head" lang="cs" title="The following example shows how to use the Head property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="Head" lang="vbnet" title="The following example shows how to use the Head property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="Head" lang="cs" title="The following example shows how to use the Head property."/>
         /// </example>
 		public T Head
 		{
@@ -198,8 +191,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="Tail" lang="cs" title="The following example shows how to use the Tail property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="Tail" lang="vbnet" title="The following example shows how to use the Tail property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="Tail" lang="cs" title="The following example shows how to use the Tail property."/>
         /// </example>
 		public T Tail
 		{
@@ -225,8 +217,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
         /// </example>
 		public bool Contains(T item)
 		{
@@ -235,8 +226,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
         /// </example>
 		public void CopyTo(T[] array, int arrayIndex)
 		{
@@ -245,8 +235,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
 		public int Count
 		{
@@ -258,8 +247,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
 		public void Clear()
 		{
@@ -301,8 +289,7 @@ namespace NGenerics.DataStructures.Queues
         /// A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
         /// </returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
 		public IEnumerator<T> GetEnumerator()
 		{
@@ -311,8 +298,7 @@ namespace NGenerics.DataStructures.Queues
         
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="IsEmpty" lang="vbnet" title="The following example shows how to use the IsEmpty property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
 		public bool IsEmpty
 		{
@@ -330,8 +316,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\DequeExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\DequeExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
         public bool IsReadOnly
         {

@@ -75,10 +75,9 @@ namespace NGenerics.DataStructures.Mathematical
 
 
 		/// <inheritdoc />
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="AddVector" lang="cs" title="The following example shows how to use the Add method."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="AddVector" lang="vbnet" title="The following example shows how to use the Add method."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="AddVector" lang="cs" title="The following example shows how to use the Add method."/>
+        /// </example>
         public void Add(IVector<T> vector)
         {
             Guard.ArgumentNotNull(vector, "vector");
@@ -98,10 +97,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// Adds a <typeparamref name="T"/> to each dimension.
         /// </summary>
         /// <param name="number">The <typeparamref name="T"/> to add to this <see cref="IVector{T}"/>.</param>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="AddT" lang="cs" title="The following example shows how to use the Add method."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="AddT" lang="vbnet" title="The following example shows how to use the Add method."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="AddT" lang="cs" title="The following example shows how to use the Add method."/>
+        /// </example>
         public abstract void Add(T number);
         
         /// <summary>
@@ -131,7 +129,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 
         ///<summary>
-        ///Creates a new object that is a copy of the current instance.
+        /// Creates a new object that is a copy of the current instance.
         ///</summary>
         ///<returns>
         ///A new object that is a copy of this instance.
@@ -192,10 +190,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// Divide by a <see cref="IVector{T}"/>.
         /// </summary>
         /// <param name="vector">The <see cref="IVector{T}"/> to divide by.</param>
-        // <example>
-        // 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="DivideVector" lang="cs" title="The following example shows how to use the Divide method."/>
-        // 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="DivideVector" lang="vbnet" title="The following example shows how to use the Divide method."/>
-        // </example>
+        /// <example>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="DivideVector" lang="cs" title="The following example shows how to use the Divide method."/>
+        /// </example>
         public void Divide(IVector<T> vector)
         {
             Guard.ArgumentNotNull(vector, "vector");
@@ -212,18 +209,16 @@ namespace NGenerics.DataStructures.Mathematical
 
 
 		/// <inheritdoc />
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="DivideT" lang="cs" title="The following example shows how to use the Divide method."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="DivideT" lang="vbnet" title="The following example shows how to use the Divide method."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="DivideT" lang="cs" title="The following example shows how to use the Divide method."/>
+        /// </example>
         public abstract void Divide(T number);
 
 
 		/// <inheritdoc />
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="DotProduct" lang="cs" title="The following example shows how to use the DotProduct method."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="DotProduct" lang="vbnet" title="The following example shows how to use the DotProduct method."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="DotProduct" lang="cs" title="The following example shows how to use the DotProduct method."/>
+        /// </example>
         public T DotProduct(IVector<T> vector)
         {
             Guard.ArgumentNotNull(vector, "vector");
@@ -241,10 +236,9 @@ namespace NGenerics.DataStructures.Mathematical
 
 
 		/// <inheritdoc />
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="EqualsObject" lang="cs" title="The following example shows how to use the object.Equals overload."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="EqualsObject" lang="vbnet" title="The following example shows how to use the object.Equals overload."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="EqualsObject" lang="cs" title="The following example shows how to use the object.Equals overload."/>
+        /// </example>
         public override bool Equals(object obj)
         {
 
@@ -259,10 +253,9 @@ namespace NGenerics.DataStructures.Mathematical
 
 
 		/// <inheritdoc />
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="EqualsVector" lang="cs" title="The following example shows how to use the Equals method."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="EqualsVector" lang="vbnet" title="The following example shows how to use the Equals method."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="EqualsVector" lang="cs" title="The following example shows how to use the Equals method."/>
+        /// </example>
         public bool Equals(IVector<T> other)
 		{
 		    return other != null && EqualsInternal(other);
@@ -345,10 +338,9 @@ namespace NGenerics.DataStructures.Mathematical
 
 
 		/// <inheritdoc />
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Multiply method."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Multiply method."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Multiply method."/>
+        /// </example>
         public IMatrix<T> Multiply(IVector<T> vector)
         {
             Guard.ArgumentNotNull(vector, "vector");
@@ -368,10 +360,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// Multiply the current <see cref="IVector{T}"/> with a <typeparamref name="T"/>.
         /// </summary>
         /// <param name="number">The <typeparamref name="T"/> to multiply by.</param>
-        // <example>
-        // 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="MultiplyT" lang="cs" title="The following example shows how to use the Multiply method."/>
-        // 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="MultiplyT" lang="vbnet" title="The following example shows how to use the Multiply method."/>
-        // </example>
+        /// <example>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="MultiplyT" lang="cs" title="The following example shows how to use the Multiply method."/>
+        /// </example>
             public abstract void Multiply(T number);
 
 		/// <inheritdoc />
@@ -417,10 +408,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// Subtracts a <see cref="IVector{T}"/> from the current instance.
         /// </summary>
         /// <param name="vector">The <see cref="IVector{T}"/> to subtract from this <see cref="IVector{T}"/>.</param>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="SubtractVector" lang="cs" title="The following example shows how to use the Subtract method."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="SubtractVector" lang="vbnet" title="The following example shows how to use the Subtract method."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="SubtractVector" lang="cs" title="The following example shows how to use the Subtract method."/>
+        /// </example>
         public void Subtract(IVector<T> vector)
         {
             Guard.ArgumentNotNull(vector, "vector");
@@ -442,10 +432,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <param name="number">The <typeparamref name="T"/> to subtract from this <see cref="IVector{T}"/>.</param>
         /// <returns>The result of the subtraction.</returns>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="SubtractT" lang="cs" title="The following example shows how to use the Subtract method."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="SubtractT" lang="vbnet" title="The following example shows how to use the Subtract method."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="SubtractT" lang="cs" title="The following example shows how to use the Subtract method."/>
+        /// </example>
         public abstract void Subtract(T number);
 
 
@@ -512,10 +501,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>
         /// A string representation of the <see cref="IVector{T}"/>.
         /// </returns>
-        // <example>
-        // <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorBaseExamples.cs" region="ToString" lang="cs" title="The following example shows how to use the ToString method."/>
-        // <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorBaseExamples.vb" region="ToString" lang="vbnet" title="The following example shows how to use the ToString method."/>
-        // </example>
+        /// <example>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorBaseExamples.cs" region="ToString" lang="cs" title="The following example shows how to use the ToString method."/>
+        /// </example>
         public override string ToString()
         {
             var stringBuilder = new StringBuilder();

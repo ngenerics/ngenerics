@@ -37,8 +37,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="real">The real part of the number.</param>
         /// <param name="imaginary">The imaginary part of the number.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example>
         public ComplexNumber(double real, double imaginary)
         {
@@ -58,8 +57,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <c>true</c> if the current object is equal to the other parameter; otherwise, <c>false</c>.
         /// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Equals" lang="cs" title="The following example shows how to use the Equals method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="Equals" lang="vbnet" title="The following example shows how to use the Equals method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Equals" lang="cs" title="The following example shows how to use the Equals method."/>
         /// </example>
         public bool Equals(ComplexNumber other)
         {
@@ -75,8 +73,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <returns>The same number with imaginary part negated.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Conjugate" lang="cs" title="The following example shows how to use the Conjugate property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="Conjugate" lang="vbnet" title="The following example shows how to use the Conjugate property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Conjugate" lang="cs" title="The following example shows how to use the Conjugate property."/>
         /// </example>
         public ComplexNumber Conjugate
         {
@@ -93,8 +90,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="complex">The matrix to multiply this matrix with.</param>
         /// <returns>The result of the times operation.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="MultiplyComplexNumber" lang="cs" title="The following example shows how to use the Multiply method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="MultiplyComplexNumber" lang="vbnet" title="The following example shows how to use the Multiply method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="MultiplyComplexNumber" lang="cs" title="The following example shows how to use the Multiply method."/>
         /// </example>
         public ComplexNumber Multiply(ComplexNumber complex)
         {
@@ -108,8 +104,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="number">The number to multiply this number with.</param>
         /// <returns>The result of the times operation.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="MultiplyDouble" lang="cs" title="The following example shows how to use the Multiply method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="MultiplyDouble" lang="vbnet" title="The following example shows how to use the Multiply method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="MultiplyDouble" lang="cs" title="The following example shows how to use the Multiply method."/>
         /// </example>
         public ComplexNumber Multiply(double number)
         {
@@ -123,8 +118,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="number">The number to divide this number with.</param>
         /// <returns>The result of the divide operation.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="DivideComplexNumber" lang="cs" title="The following example shows how to use the Divide method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="DivideComplexNumber" lang="vbnet" title="The following example shows how to use the Divide method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="DivideComplexNumber" lang="cs" title="The following example shows how to use the Divide method."/>
         /// </example>
         public ComplexNumber Divide(ComplexNumber number)
         {
@@ -138,8 +132,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="number">The number to divide this number with.</param>
         /// <returns>The result of the divide operation.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="DivideDouble" lang="cs" title="The following example shows how to use the Divide method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="DivideDouble" lang="vbnet" title="The following example shows how to use the Divide method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="DivideDouble" lang="cs" title="The following example shows how to use the Divide method."/>
         /// </example>
         public ComplexNumber Divide(double number)
         {
@@ -153,8 +146,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="number">The number to add to this number.</param>
         /// <returns>The result of the addition operation.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public ComplexNumber Add(ComplexNumber number)
         {
@@ -168,8 +160,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="complex">The matrix to subtract from this matrix.</param>
         /// <returns>The result of the subtraction.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Subtract" lang="cs" title="The following example shows how to use the Subtract method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="Subtract" lang="vbnet" title="The following example shows how to use the Subtract method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Subtract" lang="cs" title="The following example shows how to use the Subtract method."/>
         /// </example>
         public ComplexNumber Subtract(ComplexNumber complex)
         {
@@ -182,8 +173,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <returns>The <see cref="IMathematicalMatrix"/> representation of the <see cref="ComplexNumber"/>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="ToMatrix" lang="cs" title="The following example shows how to use the ToMatrix method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="ToMatrix" lang="vbnet" title="The following example shows how to use the ToMatrix method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="ToMatrix" lang="cs" title="The following example shows how to use the ToMatrix method."/>
         /// </example>
         public IMathematicalMatrix ToMatrix()
         {
@@ -209,8 +199,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <value>The modulus.</value>
         /// <returns>The result of the Abs operation.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Modulus" lang="cs" title="The following example shows how to use the Modulus property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="Modulus" lang="vbnet" title="The following example shows how to use the Modulus property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Modulus" lang="cs" title="The following example shows how to use the Modulus property."/>
         /// </example>
         public double Modulus
         {
@@ -228,8 +217,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <value>The real part.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Real" lang="cs" title="The following example shows how to use the Real property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="Real" lang="vbnet" title="The following example shows how to use the Real property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Real" lang="cs" title="The following example shows how to use the Real property."/>
         /// </example>
         public double Real
         {
@@ -249,8 +237,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <value>The imaginary part.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Imaginary" lang="cs" title="The following example shows how to use the Imaginary property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="Imaginary" lang="vbnet" title="The following example shows how to use the Imaginary property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Imaginary" lang="cs" title="The following example shows how to use the Imaginary property."/>
         /// </example>
         public double Imaginary
         {
@@ -269,8 +256,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <returns>The additive inverse of the current complex number.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="AdditiveInverse" lang="cs" title="The following example shows how to use the AdditiveInverse property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="AdditiveInverse" lang="vbnet" title="The following example shows how to use the AdditiveInverse property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="AdditiveInverse" lang="cs" title="The following example shows how to use the AdditiveInverse property."/>
         /// </example>
         public ComplexNumber AdditiveInverse
         {
@@ -284,8 +270,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// Computes the absolute value of the current complex number.
         /// </summary>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="AbsoluteValue" lang="cs" title="The following example shows how to use the AbsoluteValue property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="AbsoluteValue" lang="vbnet" title="The following example shows how to use the AbsoluteValue property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="AbsoluteValue" lang="cs" title="The following example shows how to use the AbsoluteValue property."/>
         /// </example>
         public double AbsoluteValue
         {
@@ -302,8 +287,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <value>The reciprocal.</value>
         /// <exception cref="InvalidOperationException"><see cref="Real"/> and <see cref="Imaginary"/> are 0.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Reciprocal" lang="cs" title="The following example shows how to use the Reciprocal property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="Reciprocal" lang="vbnet" title="The following example shows how to use the Reciprocal property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Reciprocal" lang="cs" title="The following example shows how to use the Reciprocal property."/>
         /// </example>
         public ComplexNumber Reciprocal
         {
@@ -330,8 +314,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <value>The additive identity.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="AdditiveIdentity" lang="cs" title="The following example shows how to use the AdditiveIdentity property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="AdditiveIdentity" lang="vbnet" title="The following example shows how to use the AdditiveIdentity property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="AdditiveIdentity" lang="cs" title="The following example shows how to use the AdditiveIdentity property."/>
         /// </example>
         public static ComplexNumber AdditiveIdentity
         {
@@ -347,8 +330,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <value>The multiplicative identity.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="MultiplicativeIdentity" lang="cs" title="The following example shows how to use the MultiplicativeIdentity property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="MultiplicativeIdentity" lang="vbnet" title="The following example shows how to use the MultiplicativeIdentity property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="MultiplicativeIdentity" lang="cs" title="The following example shows how to use the MultiplicativeIdentity property."/>
         /// </example>
         public static ComplexNumber MultiplicativeIdentity
         {
@@ -370,8 +352,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand number.</param>
         /// <returns>The result of the addition.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorPlus" lang="cs" title="The following example shows how to use the plus operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="OperatorPlus" lang="vbnet" title="The following example shows how to use the plus operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorPlus" lang="cs" title="The following example shows how to use the plus operator."/>
         /// </example>
         public static ComplexNumber operator +(ComplexNumber left, ComplexNumber right)
         {
@@ -386,8 +367,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand number.</param>
         /// <returns>The result of the subtraction.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorMinus" lang="cs" title="The following example shows how to use the minus operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="OperatorMinus" lang="vbnet" title="The following example shows how to use the minus operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorMinus" lang="cs" title="The following example shows how to use the minus operator."/>
         /// </example>
         public static ComplexNumber operator -(ComplexNumber left, ComplexNumber right)
         {
@@ -402,8 +382,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand number.</param>
         /// <returns>The result of the multiplication.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorMultiplyComplexNumberComplexNumber" lang="cs" title="The following example shows how to use the multiply operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="OperatorMultiplyComplexNumberComplexNumber" lang="vbnet" title="The following example shows how to use the multiply operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorMultiplyComplexNumberComplexNumber" lang="cs" title="The following example shows how to use the multiply operator."/>
         /// </example>
         public static ComplexNumber operator *(ComplexNumber left, ComplexNumber right)
         {
@@ -419,8 +398,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand number.</param>
         /// <returns>The result of the division.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorDivideComplexNumberComplexNumber" lang="cs" title="The following example shows how to use the divide operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="OperatorDivideComplexNumberComplexNumber" lang="vbnet" title="The following example shows how to use the divide operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorDivideComplexNumberComplexNumber" lang="cs" title="The following example shows how to use the divide operator."/>
         /// </example>
         public static ComplexNumber operator /(ComplexNumber left, ComplexNumber right)
         {
@@ -434,8 +412,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="number">The right hand number.</param>
         /// <returns>The result of the division.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorDivideComplexNumberDouble" lang="cs" title="The following example shows how to use the divide operator overload."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="OperatorDivideComplexNumberDouble" lang="vbnet" title="The following example shows how to use the divide operator overload."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorDivideComplexNumberDouble" lang="cs" title="The following example shows how to use the divide operator overload."/>
         /// </example>
         public static ComplexNumber operator /(ComplexNumber complexNumber, double number)
         {
@@ -450,8 +427,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="number">The number.</param>
         /// <returns>The result of the multiplication.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorMultiplyComplexNumberDouble" lang="cs" title="The following example shows how to use the multiply operator overload."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="OperatorMultiplyComplexNumberDouble" lang="vbnet" title="The following example shows how to use the multiply operator overload."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorMultiplyComplexNumberDouble" lang="cs" title="The following example shows how to use the multiply operator overload."/>
         /// </example>
         public static ComplexNumber operator *(ComplexNumber complexNumber, double number)
         {
@@ -466,8 +442,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="number">The number.</param>
         /// <returns>The result of the multiplication.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorMultiplyDoubleComplexNumber" lang="cs" title="The following example shows how to use the multiply operator overload."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="OperatorMultiplyDoubleComplexNumber" lang="vbnet" title="The following example shows how to use the multiply operator overload."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorMultiplyDoubleComplexNumber" lang="cs" title="The following example shows how to use the multiply operator overload."/>
         /// </example>
         public static ComplexNumber operator *(double number, ComplexNumber complexNumber)
         {
@@ -482,8 +457,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand side.</param>
         /// <returns><c>true</c> is <paramref name="left"/> is equal to <paramref name="right"/>; otherwise <c>false</c>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorEquals" lang="cs" title="The following example shows how to use the equals operator overload."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="OperatorEquals" lang="vbnet" title="The following example shows how to use the equals operator overload."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorEquals" lang="cs" title="The following example shows how to use the equals operator overload."/>
         /// </example>
         public static bool operator ==(ComplexNumber left, ComplexNumber right)
         {
@@ -498,8 +472,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="right">The right hand side.</param>
         /// <returns><c>true</c> is <paramref name="left"/> is not equal to <paramref name="right"/>; otherwise <c>false</c>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorNotEquals" lang="cs" title="The following example shows how to use the not equals operator overload."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="OperatorNotEquals" lang="vbnet" title="The following example shows how to use the not equals operator overload."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="OperatorNotEquals" lang="cs" title="The following example shows how to use the not equals operator overload."/>
         /// </example>
         public static bool operator !=(ComplexNumber left, ComplexNumber right)
         {
@@ -603,8 +576,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="ToString" lang="cs" title="The following example shows how to use the ToString method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="ToString" lang="vbnet" title="The following example shows how to use the ToString method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="ToString" lang="cs" title="The following example shows how to use the ToString method."/>
         /// </example>
         public override string ToString()
         {
@@ -614,8 +586,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\ComplexNumberExamples.cs" region="EqualsObject" lang="cs" title="The following example shows how to use the object.Equals overload."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\ComplexNumberExamples.vb" region="EqualsObject" lang="vbnet" title="The following example shows how to use the object.Equals overload."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="EqualsObject" lang="cs" title="The following example shows how to use the object.Equals overload."/>
         /// </example>
         public override bool Equals(object obj)
 		{

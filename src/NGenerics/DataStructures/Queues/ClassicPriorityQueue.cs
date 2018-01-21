@@ -23,8 +23,7 @@ namespace NGenerics.DataStructures.Queues
         /// </summary>
         /// <param name="queueType">Type of the queue.</param>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example>
         public ClassicPriorityQueue(PriorityQueueType queueType) : base(queueType)
         {

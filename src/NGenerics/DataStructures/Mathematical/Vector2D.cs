@@ -30,8 +30,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc/>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example> 
         public Vector2D()
             : base(2)
@@ -43,8 +42,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="x">The X dimension.</param>
         /// <param name="y">The Y dimension.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="ConstructorInitValues" lang="cs" title="The following example shows how to use the initialize values constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="ConstructorInitValues" lang="vbnet" title="The following example shows how to use the initialize values constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="ConstructorInitValues" lang="cs" title="The following example shows how to use the initialize values constructor."/>
         /// </example> 
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "x")]
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "y")]
@@ -61,8 +59,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Index" lang="cs" title="The following example shows how to use the index property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Index" lang="vbnet" title="The following example shows how to use the index property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Index" lang="cs" title="The following example shows how to use the index property."/>
         /// </example> 
         public override double this[int index]
         {
@@ -99,8 +96,7 @@ namespace NGenerics.DataStructures.Mathematical
     	/// Gets or sets the x dimension
     	/// </summary>
     	/// <example>
-    	/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="NamedDimensions" lang="cs" title="The following example shows how to use the X property."/>
-    	/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="NamedDimensions" lang="vbnet" title="The following example shows how to use the X property."/>
+    	/// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="NamedDimensions" lang="cs" title="The following example shows how to use the X property."/>
     	/// </example> 
     	[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "X")]
     	public double X { get; set; }
@@ -110,8 +106,7 @@ namespace NGenerics.DataStructures.Mathematical
     	/// Gets or sets the y dimension
     	/// </summary>
     	/// <example>
-    	/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="NamedDimensions" lang="cs" title="The following example shows how to use the Y property."/>
-    	/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="NamedDimensions" lang="vbnet" title="The following example shows how to use the Y property."/>
+    	/// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="NamedDimensions" lang="cs" title="The following example shows how to use the Y property."/>
     	/// </example> 
     	[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Y")]
     	public double Y { get; set; }
@@ -122,8 +117,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="AbsoluteMaximum" lang="cs" title="The following example shows how to use the AbsoluteMaximum method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="AbsoluteMaximum" lang="vbnet" title="The following example shows how to use the AbsoluteMaximum method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="AbsoluteMaximum" lang="cs" title="The following example shows how to use the AbsoluteMaximum method."/>
         /// </example> 
         public override double AbsoluteMaximum()
         {
@@ -135,8 +129,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="AbsoluteMaximumIndex" lang="cs" title="The following example shows how to use the AbsoluteMaximumIndex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="AbsoluteMaximumIndex" lang="vbnet" title="The following example shows how to use the AbsoluteMaximumIndex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="AbsoluteMaximumIndex" lang="cs" title="The following example shows how to use the AbsoluteMaximumIndex method."/>
         /// </example> 
         public override int AbsoluteMaximumIndex()
         {
@@ -149,8 +142,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="AbsoluteMinimum" lang="cs" title="The following example shows how to use the AbsoluteMinimum method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="AbsoluteMinimum" lang="vbnet" title="The following example shows how to use the AbsoluteMinimum method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="AbsoluteMinimum" lang="cs" title="The following example shows how to use the AbsoluteMinimum method."/>
         /// </example> 
         public override double AbsoluteMinimum()
         {
@@ -175,8 +167,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="AddDouble" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="AddDouble" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="AddDouble" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public override void Add(double number)
         {
@@ -190,8 +181,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="vector">The <see cref="Vector2D"/> to add to this <see cref="Vector2D"/>.</param>
         /// <exception cref="ArgumentNullException"><paramref name="vector"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="AddVector" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="AddVector" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="AddVector" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public void Add(Vector2D vector)
         {
@@ -224,8 +214,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
         public override void Clear()
         {
@@ -254,8 +243,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The cross product of this <see cref="Vector2D"/> and <paramref name="vector"/>.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="vector"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="CrossProduct3D" lang="cs" title="The following example shows how to use the CrossProduct method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="CrossProduct3D" lang="vbnet" title="The following example shows how to use the CrossProduct method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="CrossProduct3D" lang="cs" title="The following example shows how to use the CrossProduct method."/>
         /// </example>
         public Vector3D CrossProduct(Vector3D vector)
         {
@@ -273,8 +261,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The cross product of this <see cref="Vector2D"/> and <paramref name="vector"/>.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="vector"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="CrossProduct2D" lang="cs" title="The following example shows how to use the CrossProduct method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="CrossProduct2D" lang="vbnet" title="The following example shows how to use the CrossProduct method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="CrossProduct2D" lang="cs" title="The following example shows how to use the CrossProduct method."/>
         /// </example>
         public Vector3D CrossProduct(Vector2D vector)
         {
@@ -304,8 +291,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Decrement" lang="cs" title="The following example shows how to use the Decrement method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Decrement" lang="vbnet" title="The following example shows how to use the Decrement method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Decrement" lang="cs" title="The following example shows how to use the Decrement method."/>
         /// </example>
         public override void Decrement()
         {
@@ -314,8 +300,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="DivideDouble" lang="cs" title="The following example shows how to use the Divide method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="DivideDouble" lang="vbnet" title="The following example shows how to use the Divide method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="DivideDouble" lang="cs" title="The following example shows how to use the Divide method."/>
         /// </example>
         public override void Divide(double number)
         {
@@ -329,8 +314,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="vector">The <see cref="Vector2D"/> to divide by.</param>
         /// <exception cref="ArgumentNullException"><paramref name="vector"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="DivideVector" lang="cs" title="The following example shows how to use the Divide method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="DivideVector" lang="vbnet" title="The following example shows how to use the Divide method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="DivideVector" lang="cs" title="The following example shows how to use the Divide method."/>
         /// </example>
         public void Divide(Vector2D vector)
         {
@@ -368,8 +352,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The dot product of the current instance and <paramref name="vector"/>.</returns>
         ///<exception cref="ArgumentNullException"><paramref name="vector"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="DotProduct" lang="cs" title="The following example shows how to use the DotProduct method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="DotProduct" lang="vbnet" title="The following example shows how to use the DotProduct method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="DotProduct" lang="cs" title="The following example shows how to use the DotProduct method."/>
         /// </example>
         public double DotProduct(Vector2D vector)
         {
@@ -419,8 +402,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <returns>A unit <see cref="Vector2D"/>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="GetUnitVector" lang="cs" title="The following example shows how to use the UnitVector property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="GetUnitVector" lang="vbnet" title="The following example shows how to use the UnitVector property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="GetUnitVector" lang="cs" title="The following example shows how to use the UnitVector property."/>
         /// </example>
         public static Vector2D UnitVector
         {
@@ -434,8 +416,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </summary>
         /// <returns>A zeroed <see cref="Vector2D"/>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="GetZeroVector" lang="cs" title="The following example shows how to use the ZeroVector property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="GetZeroVector" lang="vbnet" title="The following example shows how to use the ZeroVector property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="GetZeroVector" lang="cs" title="The following example shows how to use the ZeroVector property."/>
         /// </example>
         public static Vector2D ZeroVector
         {
@@ -446,8 +427,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Increment" lang="cs" title="The following example shows how to use the Increment method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Increment" lang="vbnet" title="The following example shows how to use the Increment method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Increment" lang="cs" title="The following example shows how to use the Increment method."/>
         /// </example>
         public override void Increment()
         {
@@ -457,8 +437,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Magnitude" lang="cs" title="The following example shows how to use the Magnitude method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Magnitude" lang="vbnet" title="The following example shows how to use the Magnitude method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Magnitude" lang="cs" title="The following example shows how to use the Magnitude method."/>
         /// </example>
         public override double Magnitude()
         {
@@ -469,8 +448,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Maximum" lang="cs" title="The following example shows how to use the Maximum method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Maximum" lang="vbnet" title="The following example shows how to use the Maximum method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Maximum" lang="cs" title="The following example shows how to use the Maximum method."/>
         /// </example>
         public override double Maximum()
         {
@@ -480,8 +458,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="MinimumIndex" lang="cs" title="The following example shows how to use the MinimumIndex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="MinimumIndex" lang="vbnet" title="The following example shows how to use the MinimumIndex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="MinimumIndex" lang="cs" title="The following example shows how to use the MinimumIndex method."/>
         /// </example>
         public override int MaximumIndex()
 		{
@@ -491,8 +468,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Minimum" lang="cs" title="The following example shows how to use the Minimum method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Minimum" lang="vbnet" title="The following example shows how to use the Minimum method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Minimum" lang="cs" title="The following example shows how to use the Minimum method."/>
         /// </example>
         public override double Minimum()
         {
@@ -502,8 +478,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="MinimumIndex" lang="cs" title="The following example shows how to use the MinimumIndex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="MinimumIndex" lang="vbnet" title="The following example shows how to use the MinimumIndex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="MinimumIndex" lang="cs" title="The following example shows how to use the MinimumIndex method."/>
         /// </example>
         public override int MinimumIndex()
 		{
@@ -513,8 +488,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="MultiplyDouble" lang="cs" title="The following example shows how to use the Multiply method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="MultiplyDouble" lang="vbnet" title="The following example shows how to use the Multiply method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="MultiplyDouble" lang="cs" title="The following example shows how to use the Multiply method."/>
         /// </example>
         public override void Multiply(double number)
         {
@@ -529,8 +503,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the multiply operation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="vector"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="MultiplyVector" lang="cs" title="The following example shows how to use the Multiple method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="MultiplyVector" lang="vbnet" title="The following example shows how to use the Multiple method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="MultiplyVector" lang="cs" title="The following example shows how to use the Multiple method."/>
         /// </example>
         public Matrix Multiply(Vector2D vector)
         {
@@ -572,8 +545,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Negate" lang="cs" title="The following example shows how to use the Negate method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Negate" lang="vbnet" title="The following example shows how to use the Negate method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Negate" lang="cs" title="The following example shows how to use the Negate method."/>
         /// </example>
         public override void Negate()
         {
@@ -584,8 +556,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Normalize" lang="cs" title="The following example shows how to use the Normalize method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Normalize" lang="vbnet" title="The following example shows how to use the Normalize method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Normalize" lang="cs" title="The following example shows how to use the Normalize method."/>
         /// </example>
         public override void Normalize()
         {
@@ -605,8 +576,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Product" lang="cs" title="The following example shows how to use the Product method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Product" lang="vbnet" title="The following example shows how to use the Product method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Product" lang="cs" title="The following example shows how to use the Product method."/>
         /// </example>
         public override double Product()
         {
@@ -616,8 +586,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="SubtractDouble" lang="cs" title="The following example shows how to use the Subtract method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="SubtractDouble" lang="vbnet" title="The following example shows how to use the Subtract method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="SubtractDouble" lang="cs" title="The following example shows how to use the Subtract method."/>
         /// </example>
         public override void Subtract(double number)
         {
@@ -630,8 +599,7 @@ namespace NGenerics.DataStructures.Mathematical
 		/// <param name="vector">The <see cref="Vector2D"/> to subtract from this <see cref="IVector{T}"/>.</param>
         /// <exception cref="ArgumentNullException"><paramref name="vector"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="SubtractVector" lang="cs" title="The following example shows how to use the Subtract method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="SubtractVector" lang="vbnet" title="The following example shows how to use the Subtract method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="SubtractVector" lang="cs" title="The following example shows how to use the Subtract method."/>
         /// </example>
         public void Subtract(Vector2D vector)
         {
@@ -657,8 +625,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Sum" lang="cs" title="The following example shows how to use the Sum method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Sum" lang="vbnet" title="The following example shows how to use the Sum method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Sum" lang="cs" title="The following example shows how to use the Sum method."/>
         /// </example>
         public override double Sum()
         {
@@ -685,8 +652,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <param name="other">The <see cref="Vector2D"/> to swap values with.</param>
         /// <exception cref="ArgumentNullException"><paramref name="other"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="Swap" lang="cs" title="The following example shows how to use the Swap method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="Swap" lang="vbnet" title="The following example shows how to use the Swap method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="Swap" lang="cs" title="The following example shows how to use the Swap method."/>
         /// </example>
         public void Swap(Vector2D other)
         {
@@ -704,8 +670,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="ToArray" lang="cs" title="The following example shows how to use the ToArray method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="ToArray" lang="vbnet" title="The following example shows how to use the ToArray method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="ToArray" lang="cs" title="The following example shows how to use the ToArray method."/>
         /// </example>
         public override double[] ToArray()
         {
@@ -715,8 +680,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector2DExamples.cs" region="ToMatrix" lang="cs" title="The following example shows how to use the ToMatrix method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector2DExamples.vb" region="ToMatrix" lang="vbnet" title="The following example shows how to use the ToMatrix method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector2DExamples.cs" region="ToMatrix" lang="cs" title="The following example shows how to use the ToMatrix method."/>
         /// </example>
         public override IMatrix<double> ToMatrix()
         {

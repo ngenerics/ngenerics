@@ -29,8 +29,7 @@ namespace NGenerics.DataStructures.General
 		#region Construction
 
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example>     
 		public HashList()
 		{
@@ -48,8 +47,7 @@ namespace NGenerics.DataStructures.General
 
         /// <param name="comparer">The comparer.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the comparer constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="ConstructorComparer" lang="vbnet" title="The following example shows how to use the comparer constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the comparer constructor."/>
         /// </example> 
 		public HashList(IEqualityComparer<TKey> comparer) : base(comparer)
 		{
@@ -59,8 +57,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="capacity">The capacity.</param>
 		/// <exception cref="ArgumentOutOfRangeException"><paramref name="capacity"/> is less than 0.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="ConstructorCapacity" lang="cs" title="The following example shows how to use the capacity constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="ConstructorCapacity" lang="vbnet" title="The following example shows how to use the capacity constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="ConstructorCapacity" lang="cs" title="The following example shows how to use the capacity constructor."/>
         /// </example> 
 		public HashList(int capacity) : base(capacity)
 		{
@@ -89,8 +86,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <value>The count of values.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="ValueCount" lang="cs" title="The following example shows how to use the ValueCount property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="ValueCount" lang="vbnet" title="The following example shows how to use the ValueCount property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="ValueCount" lang="cs" title="The following example shows how to use the ValueCount property."/>
         /// </example>
 		public int ValueCount
 		{
@@ -115,8 +111,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
         /// <value>The count of values.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="KeyCount" lang="cs" title="The following example shows how to use the KeyCount property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="KeyCount" lang="vbnet" title="The following example shows how to use the KeyCount property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="KeyCount" lang="cs" title="The following example shows how to use the KeyCount property."/>
         /// </example>
 		public int KeyCount
 		{
@@ -132,8 +127,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
         /// <returns>A enumerator for enumerating through values in the <see cref="HashList{TKey,TValue}"/>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="GetValueEnumerator" lang="cs" title="The following example shows how to use the GetValueEnumerator method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="GetValueEnumerator" lang="vbnet" title="The following example shows how to use the GetValueEnumerator method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="GetValueEnumerator" lang="cs" title="The following example shows how to use the GetValueEnumerator method."/>
         /// </example>
 		[SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
 		public IEnumerator<TValue> GetValueEnumerator()
@@ -164,8 +158,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
 		public void Add(TKey key, TValue value)
 		{
@@ -195,8 +188,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="key">The key.</param>
         /// <param name="values">The values.</param>   
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="AddParams" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="AddParams" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="AddParams" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>     
         public void Add(TKey key, params TValue[] values)
 		{
@@ -231,8 +223,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="item">The item.</param>
 		/// <returns>A indication of whether the item has been found (and removed) in the Hash IList.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="RemoveValue" lang="cs" title="The following example shows how to use the RemoveValue method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="RemoveValue" lang="vbnet" title="The following example shows how to use the RemoveValue method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="RemoveValue" lang="cs" title="The following example shows how to use the RemoveValue method."/>
         /// </example>     
 		public bool RemoveValue(TValue item)
 		{
@@ -270,8 +261,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
         /// <param name="item">The item.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="RemoveAll" lang="cs" title="The following example shows how to use the RemoveAll method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="RemoveAll" lang="vbnet" title="The following example shows how to use the RemoveAll method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="RemoveAll" lang="cs" title="The following example shows how to use the RemoveAll method."/>
         /// </example>     
 		public void RemoveAll(TValue item)
 		{
@@ -316,8 +306,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="item">The item.</param>
         /// <returns>An indication of whether the key and value pair has been found (and removed).</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\HashListExamples.cs" region="RemoveKeyValue" lang="cs" title="The following example shows how to use the RemoveAll method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\HashListExamples.vb" region="RemoveKeyValue" lang="vbnet" title="The following example shows how to use the RemoveAll method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="RemoveKeyValue" lang="cs" title="The following example shows how to use the RemoveAll method."/>
         /// </example>     
 		public bool Remove(TKey key, TValue item)
 		{

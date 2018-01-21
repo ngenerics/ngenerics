@@ -43,8 +43,7 @@ namespace NGenerics.DataStructures.Trees
         /// <param name="visitor">The visitor to use.</param>
         /// <exception cref="ArgumentNullException"><paramref name="visitor"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="DepthFirstTraversal" lang="cs" title="The following example shows how to use the DepthFirstTraversal method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="DepthFirstTraversal" lang="vbnet" title="The following example shows how to use the DepthFirstTraversal method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="DepthFirstTraversal" lang="cs" title="The following example shows how to use the DepthFirstTraversal method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         void DepthFirstTraversal(OrderedVisitor<T> visitor);
@@ -56,8 +55,7 @@ namespace NGenerics.DataStructures.Trees
         /// A <see cref="IEnumerator{T}"/> that can be used to iterate through the collection.
         /// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="GetOrderedEnumerator" lang="cs" title="The following example shows how to use the GetOrderedEnumerator method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="GetOrderedEnumerator" lang="vbnet" title="The following example shows how to use the GetOrderedEnumerator method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="GetOrderedEnumerator" lang="cs" title="The following example shows how to use the GetOrderedEnumerator method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]

@@ -305,8 +305,7 @@ namespace NGenerics.DataStructures.Trees
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Minimum" lang="cs" title="The following example shows how to use the Minimum property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Minimum" lang="vbnet" title="The following example shows how to use the Minimum property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Minimum" lang="cs" title="The following example shows how to use the Minimum property."/>
         /// </example>
         public virtual T Minimum
         {
@@ -332,8 +331,7 @@ namespace NGenerics.DataStructures.Trees
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Maximum" lang="cs" title="The following example shows how to use the Maximum property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Maximum" lang="vbnet" title="The following example shows how to use the Maximum property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Maximum" lang="cs" title="The following example shows how to use the Maximum property."/>
         /// </example>
         public virtual T Maximum
         {
@@ -380,8 +378,7 @@ namespace NGenerics.DataStructures.Trees
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="IsEmpty" lang="vbnet" title="The following example shows how to use the IsEmpty property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
         public bool IsEmpty
         {
@@ -406,8 +403,7 @@ namespace NGenerics.DataStructures.Trees
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
         public void Clear()
         {
@@ -429,8 +425,7 @@ namespace NGenerics.DataStructures.Trees
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         public int Count { get; private set; }
 
@@ -451,8 +446,7 @@ namespace NGenerics.DataStructures.Trees
         /// A <see cref="IEnumerator{T}"/> that can be used to iterate through the collection.
         /// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public IEnumerator<T> GetEnumerator()
@@ -489,8 +483,7 @@ namespace NGenerics.DataStructures.Trees
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="AddKeyValuePair" lang="cs" title="The following example shows how to use the AddKeyValuePair method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="AddKeyValuePair" lang="vbnet" title="The following example shows how to use the AddKeyValuePair method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="AddKeyValuePair" lang="cs" title="The following example shows how to use the AddKeyValuePair method."/>
         /// </example>
         public void Add(T item)
         {
@@ -500,8 +493,7 @@ namespace NGenerics.DataStructures.Trees
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
         /// </example>
         public virtual bool Contains(T item)
         {
@@ -512,8 +504,7 @@ namespace NGenerics.DataStructures.Trees
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
         /// </example>
         public void CopyTo(T[] array, int arrayIndex)
         {
@@ -535,8 +526,7 @@ namespace NGenerics.DataStructures.Trees
         }
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
         public bool IsReadOnly
         {

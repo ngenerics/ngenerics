@@ -20,8 +20,7 @@ namespace NGenerics.Sorting
     /// </summary>
     /// <typeparam name="T">The type of the elements to be sorted.</typeparam>
     /// <example>
-    /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\InsertionSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
-    /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\InsertionSorterExamples.vb" region="Sort" lang="vbnet" title="The following example shows how to use the Sort method."/>
+    /// <code source="..\..\NGenerics.Examples\Sorting\InsertionSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
     /// </example>
     public sealed class InsertionSorter<T> : ComparisonSorter<T>
     {

@@ -31,8 +31,7 @@ namespace NGenerics.Extensions
         /// <returns>The converted value.</returns>
         /// <exception cref="NotSupportedException">When no compatible type converter is found for the operation.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Extensions\ObjectExtensionsExamples.cs" region="ConvertTo" lang="cs" title="The following example shows how to use the ConvertTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Extensions\ObjectExtensionsExamples.vb" region="ConvertTo" lang="vbnet" title="The following example shows how to use the ConvertTo method."/>
+        /// <code source="..\..\NGenerics.Examples\Extensions\ObjectExtensionsExamples.cs" region="ConvertTo" lang="cs" title="The following example shows how to use the ConvertTo method."/>
         /// </example>
         public static T ConvertTo<T>(this object value)
         {

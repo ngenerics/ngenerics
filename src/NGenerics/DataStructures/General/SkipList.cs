@@ -47,16 +47,14 @@ namespace NGenerics.DataStructures.General
         #region Construction
 
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example>
         public SkipList() : this(defaultMaximumLevel, defaultProbability, Comparer<TKey>.Default) { }
 
         /// <param name="comparer">The comparer.</param>
 		/// <exception cref="ArgumentNullException"><paramref name="comparer"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the comparer constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="ConstructorComparer" lang="vbnet" title="The following example shows how to use the comparer constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the comparer constructor."/>
         /// </example>
         public SkipList(IComparer<TKey> comparer) : this(defaultMaximumLevel, defaultProbability, comparer) { }
 
@@ -129,8 +127,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="IsEmpty" lang="vbnet" title="The following example shows how to use the IsEmpty property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
         public bool IsEmpty
         {
@@ -146,23 +143,20 @@ namespace NGenerics.DataStructures.General
 
         /// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         public int Count { get; private set; }
 
 
         /// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
         public bool IsReadOnly => false;
 
         /// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="AddKeyValue" lang="cs" title="The following example shows how to use the AddKeyValue method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="AddKeyValue" lang="vbnet" title="The following example shows how to use the AddKeyValue method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="AddKeyValue" lang="cs" title="The following example shows how to use the AddKeyValue method."/>
         /// </example>
         public void Add(KeyValuePair<TKey, TValue> item)
         {
@@ -171,8 +165,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
         public void Clear()
         {
@@ -199,8 +192,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  	
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="ContainsKeyValue" lang="cs" title="The following example shows how to use the ContainsKeyValue method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="ContainsKeyValue" lang="vbnet" title="The following example shows how to use the ContainsKeyValue method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="ContainsKeyValue" lang="cs" title="The following example shows how to use the ContainsKeyValue method."/>
         /// </example>
         public bool Contains(KeyValuePair<TKey, TValue> item)
         {
@@ -211,8 +203,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
         /// </example>
         public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
         {
@@ -249,8 +240,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value></value>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Keys" lang="cs" title="The following example shows how to use the Keys property."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Keys" lang="vbnet" title="The following example shows how to use the Keys property."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Keys" lang="cs" title="The following example shows how to use the Keys property."/>
         /// </example>
         public ICollection<TKey> Keys
         {
@@ -276,8 +266,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value></value>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Values" lang="cs" title="The following example shows how to use the Values property."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Values" lang="vbnet" title="The following example shows how to use the Values property."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Values" lang="cs" title="The following example shows how to use the Values property."/>
         /// </example>
         public ICollection<TValue> Values
         {
@@ -302,8 +291,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value></value>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Item" lang="cs" title="The following example shows how to use the Item property."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Item" lang="vbnet" title="The following example shows how to use the Item property."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Item" lang="cs" title="The following example shows how to use the Item property."/>
         /// </example>
         public TValue this[TKey key]
         {
@@ -333,8 +321,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public void Add(TKey key, TValue value)
         {
@@ -395,8 +382,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="ContainsKey" lang="cs" title="The following example shows how to use the ContainsKey method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="ContainsKey" lang="vbnet" title="The following example shows how to use the ContainsKey method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="ContainsKey" lang="cs" title="The following example shows how to use the ContainsKey method."/>
         /// </example>
         public bool ContainsKey(TKey key)
         {
@@ -405,8 +391,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Remove" lang="vbnet" title="The following example shows how to use the Remove method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
         /// </example>
         public bool Remove(TKey key)
         {
@@ -452,8 +437,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="TryGetValue" lang="cs" title="The following example shows how to use the TryGetValue method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="TryGetValue" lang="vbnet" title="The following example shows how to use the TryGetValue method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="TryGetValue" lang="cs" title="The following example shows how to use the TryGetValue method."/>
         /// </example>
         public bool TryGetValue(TKey key, out TValue value)
         {
@@ -481,8 +465,7 @@ namespace NGenerics.DataStructures.General
         /// A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
         /// </returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
@@ -515,8 +498,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The comparer.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Comparer" lang="cs" title="The following example shows how to use the Comparer property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Comparer" lang="vbnet" title="The following example shows how to use the Comparer property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Comparer" lang="cs" title="The following example shows how to use the Comparer property."/>
         /// </example>
         public IComparer<TKey> Comparer => comparerToUse;
 
@@ -525,8 +507,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The probability.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Probability" lang="cs" title="The following example shows how to use the Probability property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Probability" lang="vbnet" title="The following example shows how to use the Probability property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Probability" lang="cs" title="The following example shows how to use the Probability property."/>
         /// </example>
         public double Probability => probabilityToUse;
 
@@ -535,8 +516,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The maximum level.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="MaximumListLevel" lang="cs" title="The following example shows how to use the MaximumListLevel property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="MaximumListLevel" lang="vbnet" title="The following example shows how to use the MaximumListLevel property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="MaximumListLevel" lang="cs" title="The following example shows how to use the MaximumListLevel property."/>
         /// </example>
         public int MaximumListLevel => maximumLevelToUse;
 
@@ -545,8 +525,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The current list level.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="CurrentListLevel" lang="cs" title="The following example shows how to use the CurrentListLevel property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="CurrentListLevel" lang="vbnet" title="The following example shows how to use the CurrentListLevel property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="CurrentListLevel" lang="cs" title="The following example shows how to use the CurrentListLevel property."/>
         /// </example>
         public int CurrentListLevel { get; private set; }
 

@@ -36,8 +36,7 @@ namespace NGenerics.DataStructures.General
 		/// <remarks>The weight is 0 by default.</remarks>
 		/// <param name="data">The data contained in the vertex.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
         /// </example>
 		public Vertex(T data)
 		{
@@ -51,8 +50,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="data">The data contained in the vertex</param>
 		/// <param name="weight">The weight of the vertex.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="ConstructorWithWeight" lang="cs" title="The following example shows how to use the constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="ConstructorWithWeight" lang="vbnet" title="The following example shows how to use the constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="ConstructorWithWeight" lang="cs" title="The following example shows how to use the constructor."/>
         /// </example>
 		public Vertex(T data, double weight)
 		{
@@ -71,8 +69,7 @@ namespace NGenerics.DataStructures.General
     	/// </summary>
     	/// <value>The weight.</value>
     	/// <example>
-    	/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="Weight" lang="cs" title="The following example shows how to use the Weight property."/>
-    	/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="Weight" lang="vbnet" title="The following example shows how to use the Weight property."/>
+    	/// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="Weight" lang="cs" title="The following example shows how to use the Weight property."/>
     	/// </example>
     	public double Weight { get; set; }
 
@@ -81,8 +78,7 @@ namespace NGenerics.DataStructures.General
     	/// </summary>
     	/// <value>The data contained in the vertex.</value>
     	/// <example>
-    	/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="Data" lang="cs" title="The following example shows how to use the Data property."/>
-    	/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="Data" lang="vbnet" title="The following example shows how to use the Data property."/>
+    	/// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="Data" lang="cs" title="The following example shows how to use the Data property."/>
     	/// </example>
     	public T Data { get; set; }
 
@@ -91,8 +87,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <value>The degree.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="Degree" lang="cs" title="The following example shows how to use the Degree property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="Degree" lang="vbnet" title="The following example shows how to use the Degree property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="Degree" lang="cs" title="The following example shows how to use the Degree property."/>
         /// </example>
 		public int Degree
 		{
@@ -107,8 +102,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <value>The edges incident on this vertex.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="IncidentEdges" lang="cs" title="The following example shows how to use the IncidentEdges property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="IncidentEdges" lang="vbnet" title="The following example shows how to use the IncidentEdges property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="IncidentEdges" lang="cs" title="The following example shows how to use the IncidentEdges property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
 		public IList<Edge<T>> IncidentEdges
@@ -124,8 +118,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <value>The emanating edges on this vertex.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="EmanatingEdges" lang="cs" title="The following example shows how to use the EmanatingEdges property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="EmanatingEdges" lang="vbnet" title="The following example shows how to use the EmanatingEdges property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="EmanatingEdges" lang="cs" title="The following example shows how to use the EmanatingEdges property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
 		public IList<Edge<T>> EmanatingEdges
@@ -155,8 +148,7 @@ namespace NGenerics.DataStructures.General
 		/// 	<c>true</c> if this vertex has an emanating edge to the specified vertex; otherwise, <c>false</c>.
 		/// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="HasEmanatingEdgeTo" lang="cs" title="The following example shows how to use the HasEmanatingEdgeTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="HasEmanatingEdgeTo" lang="vbnet" title="The following example shows how to use the HasEmanatingEdgeTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="HasEmanatingEdgeTo" lang="cs" title="The following example shows how to use the HasEmanatingEdgeTo method."/>
         /// </example>
 		public bool HasEmanatingEdgeTo(Vertex<T> toVertex)
 		{
@@ -190,8 +182,7 @@ namespace NGenerics.DataStructures.General
 		/// 	<c>true</c> if [has incident edge with] [the specified from vertex]; otherwise, <c>false</c>.
 		/// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="HasIncidentEdgeWith" lang="cs" title="The following example shows how to use the HasIncidentEdgeWith method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="HasIncidentEdgeWith" lang="vbnet" title="The following example shows how to use the HasIncidentEdgeWith method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="HasIncidentEdgeWith" lang="cs" title="The following example shows how to use the HasIncidentEdgeWith method."/>
         /// </example>
 		public bool HasIncidentEdgeWith(Vertex<T> fromVertex)
 		{
@@ -213,8 +204,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="toVertex">To to vertex.</param>
         /// <returns>The emanating edge to the vertex specified if found, otherwise null.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="GetEmanatingEdgeTo" lang="cs" title="The following example shows how to use the GetEmanatingEdgeTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="GetEmanatingEdgeTo" lang="vbnet" title="The following example shows how to use the GetEmanatingEdgeTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="GetEmanatingEdgeTo" lang="cs" title="The following example shows how to use the GetEmanatingEdgeTo method."/>
         /// </example>
 		public Edge<T> GetEmanatingEdgeTo(Vertex<T> toVertex)
 		{
@@ -246,8 +236,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="toVertex">The to vertex.</param>
 		/// <returns>The incident edge to the vertex specified if found, otherwise null.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\VertexExamples.cs" region="GetIncidentEdgeWith" lang="cs" title="The following example shows how to use the GetIncidentEdgeWith method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\VertexExamples.vb" region="GetIncidentEdgeWith" lang="vbnet" title="The following example shows how to use the GetIncidentEdgeWith method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="GetIncidentEdgeWith" lang="cs" title="The following example shows how to use the GetIncidentEdgeWith method."/>
         /// </example>
 		public Edge<T> GetIncidentEdgeWith(Vertex<T> toVertex)
 		{

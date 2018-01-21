@@ -135,8 +135,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The lower bound.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="LowerBound" lang="cs" title="The following example shows how to use the LowerBound property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="LowerBound" lang="vbnet" title="The following example shows how to use the LowerBound property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="LowerBound" lang="cs" title="The following example shows how to use the LowerBound property."/>
         /// </example>
         public int LowerBound
         {
@@ -151,8 +150,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The upper bound.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="UpperBound" lang="cs" title="The following example shows how to use the UpperBound property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="UpperBound" lang="vbnet" title="The following example shows how to use the UpperBound property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="UpperBound" lang="cs" title="The following example shows how to use the UpperBound property."/>
         /// </example>
         public int UpperBound
         {
@@ -167,8 +165,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The capacity of the set.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="Capacity" lang="cs" title="The following example shows how to use the Capacity property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="Capacity" lang="vbnet" title="The following example shows how to use the Capacity property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Capacity" lang="cs" title="The following example shows how to use the Capacity property."/>
         /// </example>
         public int Capacity
         {
@@ -185,8 +182,7 @@ namespace NGenerics.DataStructures.General
 		/// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="Union" lang="cs" title="The following example shows how to use the Union method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="Union" lang="vbnet" title="The following example shows how to use the Union method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Union" lang="cs" title="The following example shows how to use the Union method."/>
         /// </example>
         public PascalSet Union(PascalSet set)
         {
@@ -209,8 +205,7 @@ namespace NGenerics.DataStructures.General
 		/// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="Subtract" lang="cs" title="The following example shows how to use the Subtract method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="Subtract" lang="vbnet" title="The following example shows how to use the Subtract method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Subtract" lang="cs" title="The following example shows how to use the Subtract method."/>
         /// </example>
         public PascalSet Subtract(PascalSet set)
         {
@@ -234,8 +229,7 @@ namespace NGenerics.DataStructures.General
 		/// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="Intersection" lang="cs" title="The following example shows how to use the Intersection method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="Intersection" lang="vbnet" title="The following example shows how to use the Intersection method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Intersection" lang="cs" title="The following example shows how to use the Intersection method."/>
         /// </example>
         public PascalSet Intersection(PascalSet set)
         {
@@ -255,8 +249,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>		
         /// <returns>The set with items not included in this set.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="Inverse" lang="cs" title="The following example shows how to use the Inverse method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="Inverse" lang="vbnet" title="The following example shows how to use the Inverse method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Inverse" lang="cs" title="The following example shows how to use the Inverse method."/>
         /// </example>
         public PascalSet Inverse()
         {
@@ -273,8 +266,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="IsSubsetOf" lang="cs" title="The following example shows how to use the IsSubsetOf method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="IsSubsetOf" lang="vbnet" title="The following example shows how to use the IsSubsetOf method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="IsSubsetOf" lang="cs" title="The following example shows how to use the IsSubsetOf method."/>
         /// </example>
         public bool IsSubsetOf(PascalSet set)
         {
@@ -310,8 +302,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 	    /// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="IsProperSubsetOf" lang="cs" title="The following example shows how to use the IsProperSubsetOf method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="IsProperSubsetOf" lang="vbnet" title="The following example shows how to use the IsProperSubsetOf method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="IsProperSubsetOf" lang="cs" title="The following example shows how to use the IsProperSubsetOf method."/>
         /// </example>
         public bool IsProperSubsetOf(PascalSet set)
         {
@@ -371,8 +362,7 @@ namespace NGenerics.DataStructures.General
 		/// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="IsProperSupersetOf" lang="cs" title="The following example shows how to use the IsProperSupersetOf method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="IsProperSupersetOf" lang="vbnet" title="The following example shows how to use the IsProperSupersetOf method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="IsProperSupersetOf" lang="cs" title="The following example shows how to use the IsProperSupersetOf method."/>
         /// </example>
         public bool IsProperSupersetOf(PascalSet set)
         {
@@ -608,8 +598,7 @@ namespace NGenerics.DataStructures.General
 		/// <inheritdoc />  
         /// <exception cref="ArgumentException"><paramref name="item"/> is not in the same universe.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public void Add(int item)
         {
@@ -644,8 +633,7 @@ namespace NGenerics.DataStructures.General
 		/// <inheritdoc />  
 		/// <exception cref="ArgumentException"><paramref name="item"/> is not in the same universe.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="Remove" lang="vbnet" title="The following example shows how to use the Remove method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
         /// </example>
         public bool Remove(int item)
         {
@@ -684,8 +672,7 @@ namespace NGenerics.DataStructures.General
 		/// <inheritdoc />  
 		/// <exception cref="ArgumentException"><paramref name="item"/> is not in the same universe.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
         /// </example>
         public bool Contains(int item)
         {
@@ -700,8 +687,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
         public void Clear()
         {
@@ -723,8 +709,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
         /// </example>
         public void CopyTo(int[] array, int arrayIndex)
         {
@@ -747,16 +732,14 @@ namespace NGenerics.DataStructures.General
 
         /// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         public int Count { get; private set; }
 
         
         /// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="IsEmpty" lang="vbnet" title="The following example shows how to use the IsEmpty property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
         public bool IsEmpty
         {
@@ -768,8 +751,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="IsFull" lang="cs" title="The following example shows how to use the IsFull property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="IsFull" lang="vbnet" title="The following example shows how to use the IsFull property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="IsFull" lang="cs" title="The following example shows how to use the IsFull property."/>
         /// </example>
         public bool IsFull
         {
@@ -785,8 +767,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
         public IEnumerator<int> GetEnumerator()
         {
@@ -808,8 +789,7 @@ namespace NGenerics.DataStructures.General
         /// 	Always <c>false</c>.
         /// </value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
         public bool IsReadOnly
         {
@@ -825,8 +805,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\PascalSetExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\PascalSetExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
         IEnumerator IEnumerable.GetEnumerator()
         {

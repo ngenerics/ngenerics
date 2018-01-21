@@ -127,8 +127,7 @@ namespace NGenerics.Algorithms
         /// <param name="secondNumber">The second number.</param>
         /// <returns>The greatest common divisor between the two integers supplied.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Algorithms\MathExample.cs" region="GreatestCommonDivisor" lang="cs" title="The following example shows how to use the FindGreatestCommonDivisor method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Algorithms\MathExample.vb"  region="GreatestCommonDivisor" lang="vbnet" title="The following example shows how to use the FindGreatestCommonDivisor method."/>
+        /// <code source="..\..\NGenerics.Examples\Algorithms\MathExample.cs" region="GreatestCommonDivisor" lang="cs" title="The following example shows how to use the FindGreatestCommonDivisor method."/>
         /// </example>
         public static int GreatestCommonDivisor(int firstNumber, int secondNumber)
         {
@@ -171,8 +170,7 @@ namespace NGenerics.Algorithms
         /// <param name="nthElement">The value of N.</param>
         /// <returns>The Nth number in the Fibonacci sequence.</returns>    
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Algorithms\MathExample.cs" region="Fibonacci" lang="cs" title="The following example shows how to use the GenerateNthFibonacci method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Algorithms\MathExample.vb"  region="Fibonacci" lang="vbnet" title="The following example shows how to use the GenerateNthFibonacci method."/>
+        /// <code source="..\..\NGenerics.Examples\Algorithms\MathExample.cs" region="Fibonacci" lang="cs" title="The following example shows how to use the GenerateNthFibonacci method."/>
         /// </example>      
         public static long Fibonacci(int nthElement)
         {
@@ -197,8 +195,7 @@ namespace NGenerics.Algorithms
         /// <param name="nthElement">The upper bound N.</param>
         /// <returns>A series of Fibonacci numbers until the <paramref name="nthElement"/>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Algorithms\MathExample.cs" region="GenerateFibonacciSequence" lang="cs" title="The following example shows how to use the GenerateFibonacciSequence method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Algorithms\MathExample.vb"  region="GenerateFibonacciSequence" lang="vbnet" title="The following example shows how to use the GenerateFibonacciSequence method."/>
+        /// <code source="..\..\NGenerics.Examples\Algorithms\MathExample.cs" region="GenerateFibonacciSequence" lang="cs" title="The following example shows how to use the GenerateFibonacciSequence method."/>
         /// </example>      
         public static long[] GenerateFibonacciSequence(int nthElement)
         {
@@ -220,8 +217,7 @@ namespace NGenerics.Algorithms
         /// <param name="b">One of the shorter sides of the triangle.</param>
         /// <returns>The Hypotenuse of a triangle.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Algorithms\MathExample.cs" region="Hypotenuse" lang="cs" title="The following example shows how to use the Hypotenuse method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Algorithms\MathExample.vb"  region="Hypotenuse" lang="vbnet" title="The following example shows how to use the Hypotenuse method."/>
+        /// <code source="..\..\NGenerics.Examples\Algorithms\MathExample.cs" region="Hypotenuse" lang="cs" title="The following example shows how to use the Hypotenuse method."/>
         /// </example>      
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "a")]
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "b")]

@@ -41,8 +41,7 @@ namespace NGenerics.DataStructures.General
 		#region Construction
 
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
 		/// </example>
 		public Bag()
 		{
@@ -51,8 +50,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <param name="capacity">The initial capacity of the bag.</param>
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="ConstructorCapacity" lang="cs" title="The following example shows how to use the capacity constructor."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="ConstructorCapacity" lang="vbnet" title="The following example shows how to use the capacity constructor."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="ConstructorCapacity" lang="cs" title="The following example shows how to use the capacity constructor."/>
 		/// </example>
 		public Bag(int capacity)
 		{
@@ -63,8 +61,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="comparer">The <see cref="IEqualityComparer{T}"/> to use when testing equality of items in the <see cref="Bag{T}"/>.</param>
         /// <exception cref="ArgumentNullException"><paramref name="comparer"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the comparer constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="ConstructorComparer" lang="vbnet" title="The following example shows how to use the comparer constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the comparer constructor."/>
 		/// </example>
 		public Bag(IEqualityComparer<T> comparer)
 		{
@@ -118,8 +115,7 @@ namespace NGenerics.DataStructures.General
 		/// <param name="item">The <paramref name="item"/> to be removed.</param>
         /// <returns>A value indicating if <paramref name="item"/> was found (and removed) from the <see cref="Bag{T}"/>.</returns>
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="RemoveAll" lang="cs" title="The following example shows how to use the RemoveAll method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="RemoveAll" lang="vbnet" title="The following example shows how to use the RemoveAll method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="RemoveAll" lang="cs" title="The following example shows how to use the RemoveAll method."/>
 		/// </example>
 		public bool RemoveAll(T item)
 		{
@@ -136,8 +132,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="RemoveMax" lang="cs" title="The following example shows how to use the Remove method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="RemoveMax" lang="vbnet" title="The following example shows how to use the Remove method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="RemoveMax" lang="cs" title="The following example shows how to use the Remove method."/>
 		/// </example>        
 		public bool Remove(T item, int maximum)
 		{
@@ -189,8 +184,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="AddAmount" lang="cs" title="The following example shows how to use the Add method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="AddAmount" lang="vbnet" title="The following example shows how to use the Add method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="AddAmount" lang="cs" title="The following example shows how to use the Add method."/>
 		/// </example>
 		public void Add(T item, int amount)
 		{
@@ -235,8 +229,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
 		/// </example>
 		[SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
 		[SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
@@ -253,8 +246,7 @@ namespace NGenerics.DataStructures.General
         /// <returns>The union of this <see cref="Bag{T}"/> and <paramref name="bag"/>.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="bag"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Union" lang="cs" title="The following example shows how to use the Union method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Union" lang="vbnet" title="The following example shows how to use the Union method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Union" lang="cs" title="The following example shows how to use the Union method."/>
 		/// </example>
 		public Bag<T> Union(Bag<T> bag)
 		{
@@ -269,8 +261,7 @@ namespace NGenerics.DataStructures.General
         /// <returns>The difference between this bag and <paramref name="bag"/>.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="bag"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Subtract" lang="cs" title="The following example shows how to use the Subtract method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Subtract" lang="vbnet" title="The following example shows how to use the Subtract method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Subtract" lang="cs" title="The following example shows how to use the Subtract method."/>
 		/// </example>
 		public Bag<T> Subtract(Bag<T> bag)
 		{
@@ -285,8 +276,7 @@ namespace NGenerics.DataStructures.General
         /// <returns>The intersection between this <see cref="Bag{T}"/> and <paramref name="bag"/>.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="bag"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Intersection" lang="cs" title="The following example shows how to use the Intersection method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Intersection" lang="vbnet" title="The following example shows how to use the Intersection method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Intersection" lang="cs" title="The following example shows how to use the Intersection method."/>
 		/// </example>
 		public Bag<T> Intersection(Bag<T> bag)
 		{
@@ -408,8 +398,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="right">The right hand <see cref="Bag{T}"/>.</param>
         /// <returns>The union between <paramref name="left"/> and <paramref name="right"/>.</returns>        
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="OperatorAdd" lang="cs" title="The following example shows how to use the + operator overload."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="OperatorAdd" lang="vbnet" title="The following example shows how to use the + operator overload."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="OperatorAdd" lang="cs" title="The following example shows how to use the + operator overload."/>
 		/// </example>
 		[SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
 		[SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
@@ -426,8 +415,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="right">The right hand <see cref="Bag{T}"/>.</param>
         /// <returns>The union between <paramref name="left"/> and <paramref name="right"/>.</returns>         
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="OperatorSubtract" lang="cs" title="The following example shows how to use the - operator overload."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="OperatorSubtract" lang="vbnet" title="The following example shows how to use the - operator overload."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="OperatorSubtract" lang="cs" title="The following example shows how to use the - operator overload."/>
 		/// </example>        
 		[SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
 		[SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
@@ -444,8 +432,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="right">The right hand <see cref="Bag{T}"/>.</param>
         /// <returns>The union between <paramref name="left"/> and <paramref name="right"/>.</returns>         
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="OperatorMultiply" lang="cs" title="The following example shows how to use the * operator overload."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="OperatorMultiply" lang="vbnet" title="The following example shows how to use the * operator overload."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="OperatorMultiply" lang="cs" title="The following example shows how to use the * operator overload."/>
 		/// </example>           
 		[SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
 		[SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
@@ -457,8 +444,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc /> 
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Item" lang="cs" title="The following example shows how to use the indexer method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Item" lang="vbnet" title="The following example shows how to use the indexer method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Item" lang="cs" title="The following example shows how to use the indexer method."/>
 		/// </example>           
 		public int this[T item]
 		{
@@ -482,8 +468,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="IsEmpty" lang="vbnet" title="The following example shows how to use the IsEmpty property."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
 		/// </example>           
 		public bool IsEmpty
 		{
@@ -496,8 +481,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
 		/// </example>   
 		public void CopyTo(T[] array, int arrayIndex)
 		{
@@ -532,16 +516,14 @@ namespace NGenerics.DataStructures.General
 
 	    /// <inheritdoc />
 	    /// <example>
-	    /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Count" lang="cs" title="The following example shows how to use the IsFull property."/>
-	    /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the IsFull property."/>
+	    /// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Count" lang="cs" title="The following example shows how to use the IsFull property."/>
 	    /// </example>           
 	    public int Count { get; private set; }
 
 
 	    /// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Add method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
 		/// </example>
 		public void Add(T item)
 		{
@@ -551,8 +533,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Remove" lang="vbnet" title="The following example shows how to use the Remove method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
 		/// </example>        
 		public bool Remove(T item)
 		{
@@ -570,8 +551,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
 		/// </example>        
 		public bool Contains(T item)
 		{
@@ -581,8 +561,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
 		/// </example>        
 		public IEnumerator<T> GetEnumerator()
 		{
@@ -604,8 +583,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
 		/// </example>         
 		public void Clear()
 		{
@@ -633,8 +611,7 @@ namespace NGenerics.DataStructures.General
 		/// <returns><c>false</c>.</returns>
 		/// <remarks>Always returns <c>false</c> for <see cref="Bag{T}"/>.</remarks>
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
 		/// </example>     
 		public bool IsReadOnly
 		{
@@ -683,8 +660,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-		/// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\BagExamples.cs" region="Equals" lang="cs" title="The following example shows how to use the Equals method."/>
-		/// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\BagExamples.vb" region="Equals" lang="vbnet" title="The following example shows how to use the Equals method."/>
+		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="Equals" lang="cs" title="The following example shows how to use the Equals method."/>
 		/// </example>     
 		public bool Equals(Bag<T> other)
 		{

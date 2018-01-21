@@ -61,8 +61,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentException"><paramref name="columns"/> is less than 0.</exception>
         /// <exception cref="ArgumentException"><paramref name="rows"/> is less than 0.</exception>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example>
         public ObjectMatrix(int rows, int columns) 
         {
@@ -138,8 +137,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="IsSquare" lang="cs" title="The following example shows how to use the IsSquare property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="IsSquare" lang="vbnet" title="The following example shows how to use the IsSquare property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="IsSquare" lang="cs" title="The following example shows how to use the IsSquare property."/>
         /// </example>
         public bool IsSquare
         {
@@ -151,8 +149,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="Index" lang="cs" title="The following example shows how to use the Index property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="Index" lang="vbnet" title="The following example shows how to use the Index property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Index" lang="cs" title="The following example shows how to use the Index property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1023:IndexersShouldNotBeMultidimensional")]
         public T this[int row, int column]
@@ -200,8 +197,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
         public void Clear()
         {
@@ -210,8 +206,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
         /// </example>
         public bool Contains(T item)
         {
@@ -228,8 +223,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
         /// </example>
         public void CopyTo(T[] array, int arrayIndex)
         {
@@ -249,8 +243,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         int ICollection<T>.Count
         {
@@ -262,8 +255,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
         public bool IsReadOnly
         {
@@ -292,8 +284,7 @@ namespace NGenerics.DataStructures.General
         /// A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
         /// </returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
         public IEnumerator<T> GetEnumerator()
         {
@@ -351,8 +342,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="Columns" lang="cs" title="The following example shows how to use the Columns property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="Columns" lang="vbnet" title="The following example shows how to use the Columns property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Columns" lang="cs" title="The following example shows how to use the Columns property."/>
         /// </example>
         public int Columns
         {
@@ -364,8 +354,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="Rows" lang="cs" title="The following example shows how to use the Rows property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="Rows" lang="vbnet" title="The following example shows how to use the Rows property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Rows" lang="cs" title="The following example shows how to use the Rows property."/>
         /// </example>
         public int Rows
         {
@@ -391,8 +380,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="rowStart"/> plus <paramref name="rowCount"/> is greater that <see cref="Rows"/>.</exception>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="columnStart"/> plus <paramref name="columnCount"/> is greater that <see cref="Columns"/>.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="GetSubMatrix" lang="cs" title="The following example shows how to use the GetSubMatrix method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="GetSubMatrix" lang="vbnet" title="The following example shows how to use the GetSubMatrix method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="GetSubMatrix" lang="cs" title="The following example shows how to use the GetSubMatrix method."/>
         /// </example>
         public ObjectMatrix<T> GetSubMatrix(int rowStart, int columnStart, int rowCount, int columnCount)
         {            
@@ -441,8 +429,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="InterchangeRows" lang="cs" title="The following example shows how to use the InterchangeRows method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="InterchangeRows" lang="vbnet" title="The following example shows how to use the InterchangeRows method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="InterchangeRows" lang="cs" title="The following example shows how to use the InterchangeRows method."/>
         /// </example>
         public void InterchangeRows(int firstRow, int secondRow)
         {
@@ -476,8 +463,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />  
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="InterchangeColumns" lang="cs" title="The following example shows how to use the InterchangeColumns method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="InterchangeColumns" lang="vbnet" title="The following example shows how to use the InterchangeColumns method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="InterchangeColumns" lang="cs" title="The following example shows how to use the InterchangeColumns method."/>
         /// </example>
         public void InterchangeColumns(int firstColumn, int secondColumn)
         {            
@@ -512,8 +498,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />   
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="GetRow" lang="cs" title="The following example shows how to use the GetRow method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="GetRow" lang="vbnet" title="The following example shows how to use the GetRow method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="GetRow" lang="cs" title="The following example shows how to use the GetRow method."/>
         /// </example>
         public T[] GetRow(int rowIndex)
         {
@@ -538,8 +523,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />   
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="GetColumn" lang="cs" title="The following example shows how to use the GetColumn method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="GetColumn" lang="vbnet" title="The following example shows how to use the GetColumn method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="GetColumn" lang="cs" title="The following example shows how to use the GetColumn method."/>
         /// </example>
         public T[] GetColumn(int columnIndex)
         {
@@ -564,8 +548,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />    
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="AddRows" lang="cs" title="The following example shows how to use the AddRows method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="AddRows" lang="vbnet" title="The following example shows how to use the AddRows method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="AddRows" lang="cs" title="The following example shows how to use the AddRows method."/>
         /// </example>  
         public void AddRows(int rowCount)
         {
@@ -591,8 +574,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="AddRow" lang="cs" title="The following example shows how to use the AddRow method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="AddRow" lang="vbnet" title="The following example shows how to use the AddRow method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="AddRow" lang="cs" title="The following example shows how to use the AddRow method."/>
         /// </example>  
         public void AddRow()
         {
@@ -601,8 +583,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="AddColumnValues" lang="cs" title="The following example shows how to use the AddColumn method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="AddColumnValues" lang="vbnet" title="The following example shows how to use the AddColumn method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="AddColumnValues" lang="cs" title="The following example shows how to use the AddColumn method."/>
         /// </example>  
         public void AddColumn(params T[] values)
         {
@@ -628,8 +609,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="AddColumns" lang="cs" title="The following example shows how to use the AddColumns method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="AddColumns" lang="vbnet" title="The following example shows how to use the AddColumns method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="AddColumns" lang="cs" title="The following example shows how to use the AddColumns method."/>
         /// </example>      
         public void AddColumns(int columnCount)
         {
@@ -655,8 +635,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc /> 
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="AddColumn" lang="cs" title="The following example shows how to use the AddColumn method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="AddColumn" lang="vbnet" title="The following example shows how to use the AddColumn method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="AddColumn" lang="cs" title="The following example shows how to use the AddColumn method."/>
         /// </example>      
         public void AddColumn()
         {
@@ -665,8 +644,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="AddRowValues" lang="cs" title="The following example shows how to use the AddRow method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="AddRowValues" lang="vbnet" title="The following example shows how to use the AddRow method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="AddRowValues" lang="cs" title="The following example shows how to use the AddRow method."/>
         /// </example> 
         public void AddRow(params T[] values)
         {            
@@ -691,8 +669,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="Resize" lang="cs" title="The following example shows how to use the Resize method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="Resize" lang="vbnet" title="The following example shows how to use the Resize method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Resize" lang="cs" title="The following example shows how to use the Resize method."/>
         /// </example> 
         public void Resize(int newNumberOfRows, int newNumberOfColumns)
         {
@@ -734,8 +711,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="DeleteRow" lang="cs" title="The following example shows how to use the DeleteRow method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="DeleteRow" lang="vbnet" title="The following example shows how to use the DeleteRow method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="DeleteRow" lang="cs" title="The following example shows how to use the DeleteRow method."/>
         /// </example>
         public void DeleteRow(int row)
         {
@@ -770,8 +746,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\ObjectMatrixExamples.cs" region="DeleteColumn" lang="cs" title="The following example shows how to use the DeleteColumn method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\ObjectMatrixExamples.vb" region="DeleteColumn" lang="vbnet" title="The following example shows how to use the DeleteColumn method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="DeleteColumn" lang="cs" title="The following example shows how to use the DeleteColumn method."/>
         /// </example>
         public void DeleteColumn(int column)
         {

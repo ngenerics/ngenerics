@@ -32,8 +32,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the division.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorDivideDouble" lang="cs" title="The following example shows how to use the divide operator overload."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorDivideDouble" lang="vbnet" title="The following example shows how to use the divide operator overload."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorDivideDouble" lang="cs" title="The following example shows how to use the divide operator overload."/>
         /// </example>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Vector3D operator /(Vector3D left, double right)
@@ -54,8 +53,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorDivideVector" lang="cs" title="The following example shows how to use the divide operator overload."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorDivideVector" lang="vbnet" title="The following example shows how to use the divide operator overload."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorDivideVector" lang="cs" title="The following example shows how to use the divide operator overload."/>
         /// </example>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Vector3D operator /(Vector3D left, Vector3D right)
@@ -77,8 +75,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorMultiplyVector" lang="cs" title="The following example shows how to use the multiply operator overload."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorMultiplyVector" lang="vbnet" title="The following example shows how to use the multiply operator overload."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorMultiplyVector" lang="cs" title="The following example shows how to use the multiply operator overload."/>
         /// </example>
         public static Matrix operator *(Vector3D left, Vector3D right)
         {
@@ -96,8 +93,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the multiplication.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorMultiplyDouble" lang="cs" title="The following example shows how to use the multiply operator overload."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorMultiplyDouble" lang="vbnet" title="The following example shows how to use the multiply operator overload."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorMultiplyDouble" lang="cs" title="The following example shows how to use the multiply operator overload."/>
         /// </example>
         public static Vector3D operator *(Vector3D left, double right)
         {
@@ -116,8 +112,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the addition.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorPlusDouble" lang="cs" title="The following example shows how to use the plus operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorPlusDouble" lang="vbnet" title="The following example shows how to use the plus operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorPlusDouble" lang="cs" title="The following example shows how to use the plus operator."/>
         /// </example>
         public static Vector3D operator +(Vector3D left, double right)
         {
@@ -137,8 +132,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorPlusVector" lang="cs" title="The following example shows how to use the plus operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorPlusVector" lang="vbnet" title="The following example shows how to use the plus operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorPlusVector" lang="cs" title="The following example shows how to use the plus operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         public static Vector3D operator +(Vector3D left, Vector3D right)
@@ -158,8 +152,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the addition.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorIncrement" lang="cs" title="The following example shows how to use the increment operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorIncrement" lang="vbnet" title="The following example shows how to use the increment operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorIncrement" lang="cs" title="The following example shows how to use the increment operator."/>
         /// </example>
         public static Vector3D operator ++(Vector3D right)
         {
@@ -179,8 +172,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorSubtractVector" lang="cs" title="The following example shows how to use the minus operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorSubtractVector" lang="vbnet" title="The following example shows how to use the minus operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorSubtractVector" lang="cs" title="The following example shows how to use the minus operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         public static Vector3D operator -(Vector3D left, Vector3D right)
@@ -201,8 +193,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the subtraction.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorSubtractDouble" lang="cs" title="The following example shows how to use the minus operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorSubtractDouble" lang="vbnet" title="The following example shows how to use the minus operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorSubtractDouble" lang="cs" title="The following example shows how to use the minus operator."/>
         /// </example>
         public static Vector3D operator -(Vector3D left, double right)
         {
@@ -220,8 +211,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the negation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorNegate" lang="cs" title="The following example shows how to use the negate operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorNegate" lang="vbnet" title="The following example shows how to use the negate operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorNegate" lang="cs" title="The following example shows how to use the negate operator."/>
         /// </example>
         public static Vector3D operator -(Vector3D right)
         {
@@ -239,8 +229,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>The result of the addition.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorIncrement" lang="cs" title="The following example shows how to use the decrement operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorIncrement" lang="vbnet" title="The following example shows how to use the decrement operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorIncrement" lang="cs" title="The following example shows how to use the decrement operator."/>
         /// </example>
         public static Vector3D operator --(Vector3D right)
         {
@@ -258,8 +247,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>A <see cref="Matrix"/> array containing copies of the elements of the <see cref="Vector3D"/>.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="vector"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorToMatrix" lang="cs" title="The following example shows how to use the convert to matrix operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorToMatrix" lang="vbnet" title="The following example shows how to use the convert to matrix operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorToMatrix" lang="cs" title="The following example shows how to use the convert to matrix operator."/>
         /// </example>
         public static implicit operator Matrix(Vector3D vector)
         {
@@ -277,8 +265,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="InvalidCastException"><paramref name="matrix"/> has more than 1 column.</exception>
         /// <exception cref="InvalidCastException"><paramref name="matrix"/> has more than 3 rows.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorFromMatrix" lang="cs" title="The following example shows how to use the convert from matrix operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorFromMatrix" lang="vbnet" title="The following example shows how to use the convert from matrix operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorFromMatrix" lang="cs" title="The following example shows how to use the convert from matrix operator."/>
         /// </example>
         public static explicit operator Vector3D(ObjectMatrix<double> matrix)
         {
@@ -296,8 +283,7 @@ namespace NGenerics.DataStructures.Mathematical
         ///  <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception> 
         ///  <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorGreaterThan" lang="cs" title="The following example shows how to use the &gt; operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorGreaterThan" lang="vbnet" title="The following example shows how to use the &gt; operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorGreaterThan" lang="cs" title="The following example shows how to use the &gt; operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static bool operator >(Vector3D left, IVector<double> right)
@@ -317,8 +303,7 @@ namespace NGenerics.DataStructures.Mathematical
         ///  <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception> 
         ///  <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorLessThan" lang="cs" title="The following example shows how to use the &lt; operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorLessThan" lang="vbnet" title="The following example shows how to use the &lt; operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorLessThan" lang="cs" title="The following example shows how to use the &lt; operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static bool operator <(Vector3D left, IVector<double> right)
@@ -338,8 +323,7 @@ namespace NGenerics.DataStructures.Mathematical
         ///  <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception> 
         ///  <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorGreaterThanOrEqualTo" lang="cs" title="The following example shows how to use the &gt;= operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorGreaterThanOrEqualTo" lang="vbnet" title="The following example shows how to use the &gt;= operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorGreaterThanOrEqualTo" lang="cs" title="The following example shows how to use the &gt;= operator."/>
         /// </example>
         public static bool operator >=(Vector3D left, IVector<double> right)
         {
@@ -358,8 +342,7 @@ namespace NGenerics.DataStructures.Mathematical
         ///  <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception> 
         ///  <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorLessThanOrEqualTo" lang="cs" title="The following example shows how to use the &lt;= operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\Vector3DExamples.Operators.vb" region="OperatorLessThanOrEqualTo" lang="vbnet" title="The following example shows how to use the &lt;= operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.Operators.cs" region="OperatorLessThanOrEqualTo" lang="cs" title="The following example shows how to use the &lt;= operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static bool operator <=(Vector3D left, IVector<double> right)

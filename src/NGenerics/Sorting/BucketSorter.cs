@@ -19,10 +19,8 @@ namespace NGenerics.Sorting
     /// A sorter that implements the Bucket Sort algorithm.
     /// </summary>
     /// <example>
-    /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\BucketSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
-    /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\BucketSorterExamples.vb" region="Sort" lang="vbnet" title="The following example shows how to use the Sort method."/>
-    /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\BucketSorterExamples.cs" region="SortWithSortOrder" lang="cs" title="The following example shows how to use the Sort method with a SortOrder."/>
-    /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\BucketSorterExamples.vb" region="SortWithSortOrder" lang="vbnet" title="The following example shows how to use the Sort method with a SortOrder."/>
+    /// <code source="..\..\NGenerics.Examples\Sorting\BucketSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
+    /// <code source="..\..\NGenerics.Examples\Sorting\BucketSorterExamples.cs" region="SortWithSortOrder" lang="cs" title="The following example shows how to use the Sort method with a SortOrder."/>
     /// </example>
     public sealed class BucketSorter : Sorter<int>
     {
@@ -38,8 +36,7 @@ namespace NGenerics.Sorting
 
 
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Sorting\BubbleSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Sorting\BubbleSorterExamples.vb" region="Sort" lang="vbnet" title="The following example shows how to use the Sort method."/>
+        /// <code source="..\..\NGenerics.Examples\Sorting\BubbleSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
         /// </example>
         public BucketSorter()
         {

@@ -40,8 +40,7 @@ namespace NGenerics.DataStructures.Queues
         /// <param name="capacity">The initial capacity of the list.</param>
         /// <exception cref="ArgumentException"><paramref name="capacity"/> is less than 1.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example>
         public CircularQueue(int capacity)
         {
@@ -63,8 +62,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="Enqueue" lang="cs" title="The following example shows how to use the Enqueue method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="Enqueue" lang="vbnet" title="The following example shows how to use the Enqueue method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Enqueue" lang="cs" title="The following example shows how to use the Enqueue method."/>
         /// </example>
         public void Enqueue(T item)
         {
@@ -95,8 +93,7 @@ namespace NGenerics.DataStructures.Queues
         /// </summary>
         /// <returns>The item at the front of the queue.</returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="Dequeue" lang="cs" title="The following example shows how to use the Dequeue method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="Dequeue" lang="vbnet" title="The following example shows how to use the Dequeue method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Dequeue" lang="cs" title="The following example shows how to use the Dequeue method."/>
         /// </example>
         public T Dequeue()
 		{
@@ -129,8 +126,7 @@ namespace NGenerics.DataStructures.Queues
         /// </summary>
         /// <returns>The item at the front of the queue.</returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="Peek" lang="cs" title="The following example shows how to use the Peek method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="Peek" lang="vbnet" title="The following example shows how to use the Peek method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Peek" lang="cs" title="The following example shows how to use the Peek method."/>
         /// </example>
         public T Peek()
 		{
@@ -149,8 +145,7 @@ namespace NGenerics.DataStructures.Queues
 	
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="IsEmpty" lang="vbnet" title="The following example shows how to use the IsEmpty property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
         public bool IsEmpty
         {
@@ -162,8 +157,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="IsFull" lang="cs" title="The following example shows how to use the IsFull property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="IsFull" lang="vbnet" title="The following example shows how to use the IsFull property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="IsFull" lang="cs" title="The following example shows how to use the IsFull property."/>
         /// </example>
         public bool IsFull
         {
@@ -186,8 +180,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear property."/>
         /// </example>
         public void Clear()
         {
@@ -208,8 +201,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
         /// </example>
         public bool Contains(T item)
         {
@@ -218,8 +210,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
         /// </example>
         public void CopyTo(T[] array, int arrayIndex)
         {
@@ -235,8 +226,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         public int Count
         {
@@ -248,8 +238,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
         public bool IsReadOnly
         {
@@ -261,8 +250,7 @@ namespace NGenerics.DataStructures.Queues
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="Remove" lang="vbnet" title="The following example shows how to use the Remove method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
         /// </example>
         public bool Remove(T item)
         {
@@ -294,8 +282,7 @@ namespace NGenerics.DataStructures.Queues
         /// A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
         /// </returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
         public IEnumerator<T> GetEnumerator()
         {
@@ -322,8 +309,7 @@ namespace NGenerics.DataStructures.Queues
         /// </summary>
         /// <value>The capacity.</value>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\CircularQueueExamples.cs" region="Capacity" lang="cs" title="The following example shows how to use the Capacity property."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\CircularQueueExamples.vb" region="Capacity" lang="vbnet" title="The following example shows how to use the Capacity property."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Capacity" lang="cs" title="The following example shows how to use the Capacity property."/>
         /// </example>
         public int Capacity
         {

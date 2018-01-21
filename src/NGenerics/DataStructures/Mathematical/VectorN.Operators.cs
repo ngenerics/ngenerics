@@ -29,8 +29,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>A <see cref="Matrix"/> array containing copies of the elements of the <see cref="VectorBase{T}"/>.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="vector"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorToMatrix" lang="cs" title="The following example shows how to use the convert to matrix operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.Operators.vb" region="OperatorToMatrix" lang="vbnet" title="The following example shows how to use the convert to matrix operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorToMatrix" lang="cs" title="The following example shows how to use the convert to matrix operator."/>
         /// </example>
         public static implicit operator Matrix(VectorN vector)
         {
@@ -47,8 +46,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="matrix"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="InvalidCastException"><paramref name="matrix"/> has more than 1 column.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorFromMatrix" lang="cs" title="The following example shows how to use the convert from matrix operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.Operators.vb" region="OperatorFromMatrix" lang="vbnet" title="The following example shows how to use the convert from matrix operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorFromMatrix" lang="cs" title="The following example shows how to use the convert from matrix operator."/>
         /// </example>
         public static explicit operator VectorN(ObjectMatrix<double> matrix)
         {
@@ -66,8 +64,7 @@ namespace NGenerics.DataStructures.Mathematical
         ///  <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception> 
         ///  <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorGreaterThan" lang="cs" title="The following example shows how to use the &gt; operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.Operators.vb" region="OperatorGreaterThan" lang="vbnet" title="The following example shows how to use the &gt; operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorGreaterThan" lang="cs" title="The following example shows how to use the &gt; operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static bool operator >(VectorN left, IVector<double> right)
@@ -87,8 +84,7 @@ namespace NGenerics.DataStructures.Mathematical
         ///  <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception> 
         ///  <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorLessThan" lang="cs" title="The following example shows how to use the &lt; operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.Operators.vb" region="OperatorLessThan" lang="vbnet" title="The following example shows how to use the &lt; operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorLessThan" lang="cs" title="The following example shows how to use the &lt; operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static bool operator <(VectorN left, IVector<double> right)
@@ -108,8 +104,7 @@ namespace NGenerics.DataStructures.Mathematical
         ///  <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception> 
         ///  <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorGreaterThanOrEqualTo" lang="cs" title="The following example shows how to use the &gt;= operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.Operators.vb" region="OperatorGreaterThanOrEqualTo" lang="vbnet" title="The following example shows how to use the &gt;= operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorGreaterThanOrEqualTo" lang="cs" title="The following example shows how to use the &gt;= operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static bool operator >=(VectorN left, IVector<double> right)
@@ -129,8 +124,7 @@ namespace NGenerics.DataStructures.Mathematical
         ///  <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception> 
         ///  <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorLessThanOrEqualTo" lang="cs" title="The following example shows how to use the &lt;= operator."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.Operators.vb" region="OperatorLessThanOrEqualTo" lang="vbnet" title="The following example shows how to use the &lt;= operator."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.Operators.cs" region="OperatorLessThanOrEqualTo" lang="cs" title="The following example shows how to use the &lt;= operator."/>
         /// </example>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static bool operator <=(VectorN left, IVector<double> right)

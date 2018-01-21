@@ -31,8 +31,7 @@ namespace NGenerics.DataStructures.Mathematical
 
         /// <inheritdoc/>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example> 
         public VectorN(int dimensionCount)
             : base(dimensionCount)
@@ -51,8 +50,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Index" lang="cs" title="The following example shows how to use the index property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Index" lang="vbnet" title="The following example shows how to use the index property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Index" lang="cs" title="The following example shows how to use the index property."/>
         /// </example> 
         public override double this[int index]
         {
@@ -73,8 +71,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="AbsoluteMaximum" lang="cs" title="The following example shows how to use the AbsoluteMaximum method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="AbsoluteMaximum" lang="vbnet" title="The following example shows how to use the AbsoluteMaximum method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="AbsoluteMaximum" lang="cs" title="The following example shows how to use the AbsoluteMaximum method."/>
         /// </example> 
         public override double AbsoluteMaximum()
         {
@@ -86,8 +83,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="AbsoluteMaximumIndex" lang="cs" title="The following example shows how to use the AbsoluteMaximumIndex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="AbsoluteMaximumIndex" lang="vbnet" title="The following example shows how to use the AbsoluteMaximumIndex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="AbsoluteMaximumIndex" lang="cs" title="The following example shows how to use the AbsoluteMaximumIndex method."/>
         /// </example> 
         public override int AbsoluteMaximumIndex()
         {
@@ -109,8 +105,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="AbsoluteMinimum" lang="cs" title="The following example shows how to use the AbsoluteMinimum method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="AbsoluteMinimum" lang="vbnet" title="The following example shows how to use the AbsoluteMinimum method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="AbsoluteMinimum" lang="cs" title="The following example shows how to use the AbsoluteMinimum method."/>
         /// </example> 
         public override double AbsoluteMinimum()
         {
@@ -122,8 +117,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="AbsoluteMinimumIndex" lang="cs" title="The following example shows how to use the AbsoluteMinimumIndex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="AbsoluteMinimumIndex" lang="vbnet" title="The following example shows how to use the AbsoluteMinimumIndex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="AbsoluteMinimumIndex" lang="cs" title="The following example shows how to use the AbsoluteMinimumIndex method."/>
         /// </example> 
         public override int AbsoluteMinimumIndex()
         {
@@ -172,8 +166,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="AddDouble" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="AddDouble" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="AddDouble" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public override void Add(double number)
         {
@@ -225,8 +218,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Decrement" lang="cs" title="The following example shows how to use the Decrement method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Decrement" lang="vbnet" title="The following example shows how to use the Decrement method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Decrement" lang="cs" title="The following example shows how to use the Decrement method."/>
         /// </example>
         public override void Decrement()
         {
@@ -253,8 +245,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="DivideDouble" lang="cs" title="The following example shows how to use the Divide method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="DivideDouble" lang="vbnet" title="The following example shows how to use the Divide method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="DivideDouble" lang="cs" title="The following example shows how to use the Divide method."/>
         /// </example>
         public override void Divide(double number)
         {
@@ -306,8 +297,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>A zeroed <see cref="VectorN"/>.</returns>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="dimensionCount"/> is less than 0.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="GetUnitVector" lang="cs" title="The following example shows how to use the GetZeroVector method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="GetUnitVector" lang="vbnet" title="The following example shows how to use the GetZeroVector method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="GetUnitVector" lang="cs" title="The following example shows how to use the GetZeroVector method."/>
         /// </example>
         public static VectorN GetUnitVector(int dimensionCount)
         {
@@ -327,8 +317,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <returns>A zeroed <see cref="VectorN"/>.</returns>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="dimensionCount"/> is less than 0.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="GetZeroVector" lang="cs" title="The following example shows how to use the GetZeroVector method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="GetZeroVector" lang="vbnet" title="The following example shows how to use the GetZeroVector method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="GetZeroVector" lang="cs" title="The following example shows how to use the GetZeroVector method."/>
         /// </example>
         public static VectorN GetZeroVector(int dimensionCount)
         {
@@ -339,8 +328,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Increment" lang="cs" title="The following example shows how to use the Increment method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Increment" lang="vbnet" title="The following example shows how to use the Increment method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Increment" lang="cs" title="The following example shows how to use the Increment method."/>
         /// </example>
         public override void Increment()
         {
@@ -351,8 +339,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Magnitude" lang="cs" title="The following example shows how to use the Magnitude method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Magnitude" lang="vbnet" title="The following example shows how to use the Magnitude method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Magnitude" lang="cs" title="The following example shows how to use the Magnitude method."/>
         /// </example>
         public override double Magnitude()
         {
@@ -369,8 +356,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Maximum" lang="cs" title="The following example shows how to use the Maximum method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Maximum" lang="vbnet" title="The following example shows how to use the Maximum method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Maximum" lang="cs" title="The following example shows how to use the Maximum method."/>
         /// </example>
         public override int MaximumIndex()
         {
@@ -392,8 +378,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="MinimumIndex" lang="cs" title="The following example shows how to use the MinimumIndex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="MinimumIndex" lang="vbnet" title="The following example shows how to use the MinimumIndex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="MinimumIndex" lang="cs" title="The following example shows how to use the MinimumIndex method."/>
         /// </example>
         public override int MinimumIndex()
         {
@@ -423,8 +408,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="MultiplyDouble" lang="cs" title="The following example shows how to use the Multiply method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="MultiplyDouble" lang="vbnet" title="The following example shows how to use the Multiply method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="MultiplyDouble" lang="cs" title="The following example shows how to use the Multiply method."/>
         /// </example>
         public override void Multiply(double number)
         {
@@ -459,8 +443,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Negate" lang="cs" title="The following example shows how to use the Negate method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Negate" lang="vbnet" title="The following example shows how to use the Negate method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Negate" lang="cs" title="The following example shows how to use the Negate method."/>
         /// </example>
         public override void Negate()
         {
@@ -474,8 +457,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Normalize" lang="cs" title="The following example shows how to use the Normalize method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Normalize" lang="vbnet" title="The following example shows how to use the Normalize method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Normalize" lang="cs" title="The following example shows how to use the Normalize method."/>
         /// </example>
         public override void Normalize()
         {
@@ -490,8 +472,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Product" lang="cs" title="The following example shows how to use the Product method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Product" lang="vbnet" title="The following example shows how to use the Product method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Product" lang="cs" title="The following example shows how to use the Product method."/>
         /// </example>
         public override double Product()
         {
@@ -507,8 +488,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Sum" lang="cs" title="The following example shows how to use the Sum method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Sum" lang="vbnet" title="The following example shows how to use the Sum method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Sum" lang="cs" title="The following example shows how to use the Sum method."/>
         /// </example>
         public override double Sum()
         {
@@ -532,8 +512,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="SubtractDouble" lang="cs" title="The following example shows how to use the Subtract method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="SubtractDouble" lang="vbnet" title="The following example shows how to use the Subtract method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="SubtractDouble" lang="cs" title="The following example shows how to use the Subtract method."/>
         /// </example>
         public override void Subtract(double number)
         {
@@ -557,8 +536,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <exception cref="ArgumentNullException"><paramref name="vector"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentException">The <see cref="IVector{T}.DimensionCount"/> of <paramref name="vector"/> does not equal the <see cref="IVector{T}.DimensionCount"/> of the current instance.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="Swap" lang="cs" title="The following example shows how to use the Swap method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="Swap" lang="vbnet" title="The following example shows how to use the Swap method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="Swap" lang="cs" title="The following example shows how to use the Swap method."/>
         /// </example>
         public void Swap(VectorN vector)
         {
@@ -573,8 +551,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="ToArray" lang="cs" title="The following example shows how to use the ToArray method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="ToArray" lang="vbnet" title="The following example shows how to use the ToArray method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="ToArray" lang="cs" title="The following example shows how to use the ToArray method."/>
         /// </example>
         public override double[] ToArray()
         {
@@ -585,8 +562,7 @@ namespace NGenerics.DataStructures.Mathematical
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Mathematical\VectorNExamples.cs" region="ToMatrix" lang="cs" title="The following example shows how to use the ToMatrix method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Mathematical\VectorNExamples.vb" region="ToMatrix" lang="vbnet" title="The following example shows how to use the ToMatrix method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\VectorNExamples.cs" region="ToMatrix" lang="cs" title="The following example shows how to use the ToMatrix method."/>
         /// </example>
         public override IMatrix<double> ToMatrix()
         {

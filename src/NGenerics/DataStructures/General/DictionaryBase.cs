@@ -227,8 +227,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\DictionaryBaseExamples.cs" region="ContainsKey" lang="cs" title="The following example shows how to use the ContainsKey method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\DictionaryBaseExamples.vb" region="ContainsKey" lang="vbnet" title="The following example shows how to use the ContainsKey method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="ContainsKey" lang="cs" title="The following example shows how to use the ContainsKey method."/>
         /// </example>
         public bool ContainsKey(TKey key)
         {
@@ -238,8 +237,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\DictionaryBaseExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\DictionaryBaseExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public void Add(TKey key, TValue value)
         {
@@ -249,8 +247,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\DictionaryBaseExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\DictionaryBaseExamples.vb" region="Remove" lang="vbnet" title="The following example shows how to use the Remove method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
         /// </example>
         public bool Remove(TKey key)
         {
@@ -260,8 +257,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
 		/// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\DictionaryBaseExamples.cs" region="TryGetValue" lang="cs" title="The following example shows how to use the TryGetValue method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\DictionaryBaseExamples.vb" region="TryGetValue" lang="vbnet" title="The following example shows how to use the TryGetValue method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="TryGetValue" lang="cs" title="The following example shows how to use the TryGetValue method."/>
         /// </example>
         public bool TryGetValue(TKey key, out TValue value)
         {
@@ -271,8 +267,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\DictionaryBaseExamples.cs" region="Item" lang="cs" title="The following example shows how to use the Item property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\DictionaryBaseExamples.vb" region="Item" lang="vbnet" title="The following example shows how to use the Item property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Item" lang="cs" title="The following example shows how to use the Item property."/>
         /// </example>
         public TValue this[TKey key]
         {
@@ -290,8 +285,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\DictionaryBaseExamples.cs" region="Keys" lang="cs" title="The following example shows how to use the Keys property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\DictionaryBaseExamples.vb" region="Keys" lang="vbnet" title="The following example shows how to use the Keys property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Keys" lang="cs" title="The following example shows how to use the Keys property."/>
         /// </example>
         public ICollection<TKey> Keys
         {
@@ -304,8 +298,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\DictionaryBaseExamples.cs" region="Values" lang="cs" title="The following example shows how to use the Values property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\DictionaryBaseExamples.vb" region="Values" lang="vbnet" title="The following example shows how to use the Values property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Values" lang="cs" title="The following example shows how to use the Values property."/>
         /// </example>
         public ICollection<TValue> Values
         {
@@ -328,8 +321,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\DictionaryBaseExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\DictionaryBaseExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
         public void Clear()
         {
@@ -373,8 +365,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\DictionaryBaseExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\DictionaryBaseExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         public int Count
         {

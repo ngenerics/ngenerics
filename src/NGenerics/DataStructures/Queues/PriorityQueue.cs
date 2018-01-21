@@ -45,8 +45,7 @@ namespace NGenerics.DataStructures.Queues
 
         /// <param name="queueType">Type of the queue.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the default constructor."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example>
         public PriorityQueue(PriorityQueueType queueType) :
             this(queueType, Comparer<TPriority>.Default) {
@@ -79,8 +78,7 @@ namespace NGenerics.DataStructures.Queues
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="Enqueue" lang="cs" title="The following example shows how to use the Enqueue method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="Enqueue" lang="vbnet" title="The following example shows how to use the Enqueue method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="Enqueue" lang="cs" title="The following example shows how to use the Enqueue method."/>
         /// </example>
         public void Enqueue(TValue item)
         {
@@ -93,8 +91,7 @@ namespace NGenerics.DataStructures.Queues
         /// <param name="item">The item.</param>
         /// <param name="priority">The priority.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="EnqueuePriority" lang="cs" title="The following example shows how to use the Enqueue method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="EnqueuePriority" lang="vbnet" title="The following example shows how to use the Enqueue method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="EnqueuePriority" lang="cs" title="The following example shows how to use the Enqueue method."/>
         /// </example>
         public void Enqueue(TValue item, TPriority priority)
         {
@@ -106,8 +103,7 @@ namespace NGenerics.DataStructures.Queues
         /// </summary>
         /// <returns>The item at the front of the queue.</returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="Dequeue" lang="cs" title="The following example shows how to use the Dequeue method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="Dequeue" lang="vbnet" title="The following example shows how to use the Dequeue method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="Dequeue" lang="cs" title="The following example shows how to use the Dequeue method."/>
         /// </example>
         public TValue Dequeue()
         {
@@ -121,8 +117,7 @@ namespace NGenerics.DataStructures.Queues
         /// </summary>
         /// <returns>The item at the front of the queue.</returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="Peek" lang="cs" title="The following example shows how to use the Peek method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="Peek" lang="vbnet" title="The following example shows how to use the Peek method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="Peek" lang="cs" title="The following example shows how to use the Peek method."/>
         /// </example>
         public TValue Peek()
         {
@@ -139,8 +134,7 @@ namespace NGenerics.DataStructures.Queues
         /// <param name="priority">The priority of the item.</param>
         /// <returns>The item at the front of the queue.</returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="PeekPriority" lang="cs" title="The following example shows how to use the Peek method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="PeekPriority" lang="vbnet" title="The following example shows how to use the Peek method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="PeekPriority" lang="cs" title="The following example shows how to use the Peek method."/>
         /// </example>
         public TValue Peek(out TPriority priority)
         {
@@ -156,8 +150,7 @@ namespace NGenerics.DataStructures.Queues
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
         public bool IsReadOnly
         {
@@ -184,8 +177,7 @@ namespace NGenerics.DataStructures.Queues
         /// A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
         /// </returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
         public IEnumerator<TValue> GetEnumerator()
         {
@@ -198,15 +190,13 @@ namespace NGenerics.DataStructures.Queues
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         public int Count { get; private set; }
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
         /// </example>
         public bool Contains(TValue item)
         {
@@ -215,8 +205,7 @@ namespace NGenerics.DataStructures.Queues
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
         /// </example>
         public void CopyTo(TValue[] array, int arrayIndex)
         {
@@ -245,8 +234,7 @@ namespace NGenerics.DataStructures.Queues
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="Add" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public void Add(TValue item)
         {
@@ -260,8 +248,7 @@ namespace NGenerics.DataStructures.Queues
         /// <param name="priority">The priority of the item.</param>
         /// <exception cref="NotSupportedException">The <see cref="ICollection{T}"/> is read-only.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="AddPriority" lang="cs" title="The following example shows how to use the Add method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="AddPriority" lang="vbnet" title="The following example shows how to use the Add method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="AddPriority" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
         public void Add(TValue item, TPriority priority)
         {
@@ -280,8 +267,7 @@ namespace NGenerics.DataStructures.Queues
         /// </summary>
         /// <returns>A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the keys in the collection.</returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="GetKeyEnumerator" lang="cs" title="The following example shows how to use the GetKeyEnumerator method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="GetKeyEnumerator" lang="vbnet" title="The following example shows how to use the GetKeyEnumerator method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="GetKeyEnumerator" lang="cs" title="The following example shows how to use the GetKeyEnumerator method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
@@ -292,8 +278,7 @@ namespace NGenerics.DataStructures.Queues
 
         /// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
         public void Clear()
         {
@@ -307,8 +292,7 @@ namespace NGenerics.DataStructures.Queues
         /// <returns>The item at the head of the queue.</returns>
         /// <exception cref="InvalidOperationException">The <see cref="PriorityQueue{TValue, TPriority}"/> is empty.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Queues\PriorityQueueExamples.cs" region="DequeueWithPriority" lang="cs" title="The following example shows how to use the Dequeue method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Queues\PriorityQueueExamples.vb" region="DequeueWithPriority" lang="vbnet" title="The following example shows how to use the Dequeue method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="DequeueWithPriority" lang="cs" title="The following example shows how to use the Dequeue method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "0#")]
         public TValue Dequeue(out TPriority priority)

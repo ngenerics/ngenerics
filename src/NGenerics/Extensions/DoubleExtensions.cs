@@ -35,8 +35,7 @@ namespace NGenerics.Extensions
         /// <param name="arg1">The 1st argument value to check.</param>
         /// <param name="arg2">The 1st argument value to check.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Extensions\DoubleExtensionsExamples.cs" region="IsSimilarTo" lang="cs" title="The following example shows how to use the IsSimilarTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Extensions\DoubleExtensionsExamples.vb" region="IsSimilarTo" lang="vbnet" title="The following example shows how to use the IsSimilarTo method."/>
+        /// <code source="..\..\NGenerics.Examples\Extensions\DoubleExtensionsExamples.cs" region="IsSimilarTo" lang="cs" title="The following example shows how to use the IsSimilarTo method."/>
         /// </example>
         public static bool IsSimilarTo(this double arg1, double arg2)
         {
@@ -51,8 +50,7 @@ namespace NGenerics.Extensions
         /// <param name="arg2">The 1st argument value to check.</param>
         /// <param name="precision">The precision.</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\Extensions\DoubleExtensionsExamples.cs" region="IsSimilarWithPrecision" lang="cs" title="The following example shows how to use the IsSimilarTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\Extensions\DoubleExtensionsExamples.vb" region="IsSimilarWithPrecision" lang="vbnet" title="The following example shows how to use the IsSimilarTo method."/>
+        /// <code source="..\..\NGenerics.Examples\Extensions\DoubleExtensionsExamples.cs" region="IsSimilarWithPrecision" lang="cs" title="The following example shows how to use the IsSimilarTo method."/>
         /// </example>
         public static bool IsSimilarTo(this double arg1, double arg2, double precision)
         {

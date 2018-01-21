@@ -52,8 +52,7 @@ namespace NGenerics.DataStructures.General
 
         /// <param name="isDirected">if set to <c>true</c> [is directed].</param>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the Constructor method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the Constructor method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the Constructor method."/>
         /// </example>
         public Graph(bool isDirected)
         {
@@ -68,8 +67,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="IsEmpty" lang="vbnet" title="The following example shows how to use the IsEmpty property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
         public bool IsEmpty
         {
@@ -82,8 +80,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="Count" lang="vbnet" title="The following example shows how to use the Count property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         int ICollection<T>.Count
@@ -98,8 +95,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="AddVertex" lang="cs" title="The following example shows how to use the AddVertex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="AddVertex" lang="vbnet" title="The following example shows how to use the AddVertex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="AddVertex" lang="cs" title="The following example shows how to use the AddVertex method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         void ICollection<T>.Add(T item)
@@ -111,8 +107,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="Contains" lang="vbnet" title="The following example shows how to use the Contains method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         bool ICollection<T>.Contains(T item)
@@ -124,8 +119,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="CopyTo" lang="vbnet" title="The following example shows how to use the CopyTo method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
         /// </example>
         public void CopyTo(T[] array, int arrayIndex)
         {
@@ -152,8 +146,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="Remove" lang="vbnet" title="The following example shows how to use the Remove method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         bool ICollection<T>.Remove(T item)
@@ -170,8 +163,7 @@ namespace NGenerics.DataStructures.General
         /// A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
         /// </returns>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
         public IEnumerator<T> GetEnumerator()
         {
@@ -188,8 +180,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="Clear" lang="vbnet" title="The following example shows how to use the Clear method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
         public void Clear()
         {
@@ -209,8 +200,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="visitor"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="startVertex"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="DepthFirstTraversal" lang="cs" title="The following example shows how to use the DepthFirstTraversal method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="DepthFirstTraversal" lang="vbnet" title="The following example shows how to use the DepthFirstTraversal method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="DepthFirstTraversal" lang="cs" title="The following example shows how to use the DepthFirstTraversal method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public void DepthFirstTraversal(OrderedVisitor<Vertex<T>> visitor, Vertex<T> startVertex)
@@ -233,8 +223,7 @@ namespace NGenerics.DataStructures.General
         /// <remarks>In order to detect cycles, a topological sort of the graph is computed.</remarks>
         /// <exception cref="InvalidOperationException">The graph contains cycles.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="IsCyclic" lang="cs" title="The following example shows how to use the IsCyclic method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="IsCyclic" lang="vbnet" title="The following example shows how to use the IsCyclic method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsCyclic" lang="cs" title="The following example shows how to use the IsCyclic method."/>
         /// </example>
         public bool IsCyclic()
         {
@@ -256,8 +245,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="InvalidOperationException">The graph contains cycles.</exception>
         /// <exception cref="ArgumentException">The graph is not directed.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="TopologicalSort" lang="cs" title="The following example shows how to use the TopologicalSort method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="TopologicalSort" lang="vbnet" title="The following example shows how to use the TopologicalSort method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="TopologicalSort" lang="cs" title="The following example shows how to use the TopologicalSort method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public IList<Vertex<T>> TopologicalSort()
@@ -276,8 +264,7 @@ namespace NGenerics.DataStructures.General
         /// <remarks>The topological sort algorithm is only valid for a directed, acyclic (cycle free) graph.</remarks>
         /// <exception cref="InvalidOperationException">The graph contains cycles.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="TopologicalSortTraversal" lang="cs" title="The following example shows how to use the TopologicalSortTraversal method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="TopologicalSortTraversal" lang="vbnet" title="The following example shows how to use the TopologicalSortTraversal method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="TopologicalSortTraversal" lang="cs" title="The following example shows how to use the TopologicalSortTraversal method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public void TopologicalSortTraversal(IVisitor<Vertex<T>> visitor)
@@ -299,8 +286,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="visitor"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="startVertex"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="BreadthFirstTraversal" lang="cs" title="The following example shows how to use the BreadthFirstTraversal method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="BreadthFirstTraversal" lang="vbnet" title="The following example shows how to use the BreadthFirstTraversal method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="BreadthFirstTraversal" lang="cs" title="The following example shows how to use the BreadthFirstTraversal method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public void BreadthFirstTraversal(IVisitor<Vertex<T>> visitor, Vertex<T> startVertex)
@@ -343,8 +329,7 @@ namespace NGenerics.DataStructures.General
         /// <returns>A value indicating whether the vertex was found (and removed) in the graph.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="vertex"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="RemoveVertex" lang="cs" title="The following example shows how to use the RemoveVertex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="RemoveVertex" lang="vbnet" title="The following example shows how to use the RemoveVertex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="RemoveVertex" lang="cs" title="The following example shows how to use the RemoveVertex method."/>
         /// </example>
         public bool RemoveVertex(Vertex<T> vertex)
         {
@@ -371,8 +356,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="item">The item.</param>
         /// <returns><c>true</c> if a vertex with the value specified was found (and removed) in the graph; otherwise <c>false</c>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="RemoveVertexFromValue" lang="cs" title="The following example shows how to use the RemoveVertex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="RemoveVertexFromValue" lang="vbnet" title="The following example shows how to use the RemoveVertex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="RemoveVertexFromValue" lang="cs" title="The following example shows how to use the RemoveVertex method."/>
         /// </example>
         public bool RemoveVertex(T item)
         {
@@ -397,8 +381,7 @@ namespace NGenerics.DataStructures.General
         /// 	<c>true</c> if this instance contains the specified vertex; otherwise, <c>false</c>.
         /// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="ContainsVertex" lang="cs" title="The following example shows how to use the ContainsVertex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="ContainsVertex" lang="vbnet" title="The following example shows how to use the ContainsVertex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="ContainsVertex" lang="cs" title="The following example shows how to use the ContainsVertex method."/>
         /// </example>
         public bool ContainsVertex(Vertex<T> vertex)
         {
@@ -413,8 +396,7 @@ namespace NGenerics.DataStructures.General
         /// 	<c>true</c> if the specified item contains vertex; otherwise, <c>false</c>.
         /// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="ContainsVertexValue" lang="cs" title="The following example shows how to use the ContainsVertex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="ContainsVertexValue" lang="vbnet" title="The following example shows how to use the ContainsVertex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="ContainsVertexValue" lang="cs" title="The following example shows how to use the ContainsVertex method."/>
         /// </example>
         public bool ContainsVertex(T item)
         {
@@ -436,8 +418,7 @@ namespace NGenerics.DataStructures.General
         /// 	<c>true</c> if this instance is directed; otherwise, <c>false</c>.
         /// </value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="IsDirected" lang="cs" title="The following example shows how to use the IsDirected property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="IsDirected" lang="vbnet" title="The following example shows how to use the IsDirected property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsDirected" lang="cs" title="The following example shows how to use the IsDirected property."/>
         /// </example>
         public bool IsDirected
         {
@@ -454,8 +435,7 @@ namespace NGenerics.DataStructures.General
 		/// <returns>A value indicating whether the edge specified was found (and removed) from the graph.</returns>
 		/// <exception cref="ArgumentNullException"><paramref name="edge"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="RemoveEdge" lang="cs" title="The following example shows how to use the RemoveEdge method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="RemoveEdge" lang="vbnet" title="The following example shows how to use the RemoveEdge method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="RemoveEdge" lang="cs" title="The following example shows how to use the RemoveEdge method."/>
         /// </example>
         public bool RemoveEdge(Edge<T> edge)
         {
@@ -487,8 +467,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="from"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="to"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="RemoveEdgeFromVertices" lang="cs" title="The following example shows how to use the RemoveEdge method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="RemoveEdgeFromVertices" lang="vbnet" title="The following example shows how to use the RemoveEdge method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="RemoveEdgeFromVertices" lang="cs" title="The following example shows how to use the RemoveEdge method."/>
         /// </example>
         public bool RemoveEdge(Vertex<T> from, Vertex<T> to)
         {
@@ -530,8 +509,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentException">Either <see cref="Edge{T}.FromVertex"/> or <see cref="Edge{T}.ToVertex"/> of <paramref name="edge"/> cannot be found the current instance.</exception>
         /// <exception cref="ArgumentException"><see cref="Edge{T}.ToVertex"/> of <paramref name="edge"/> already exists on the current instance.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="AddEdge" lang="cs" title="The following example shows how to use the AddEdge method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="AddEdge" lang="vbnet" title="The following example shows how to use the AddEdge method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="AddEdge" lang="cs" title="The following example shows how to use the AddEdge method."/>
         /// </example>
         public void AddEdge(Edge<T> edge)
         {
@@ -567,8 +545,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentException"><paramref name="vertex"/> already exists in the current instance.</exception>
 		/// <exception cref="ArgumentNullException"><paramref name="vertex"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="AddVertex" lang="cs" title="The following example shows how to use the AddVertex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="AddVertex" lang="vbnet" title="The following example shows how to use the AddVertex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="AddVertex" lang="cs" title="The following example shows how to use the AddVertex method."/>
         /// </example>
         public void AddVertex(Vertex<T> vertex)
         {
@@ -592,8 +569,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="item">The item to store in the vertex.</param>
         /// <returns>The <see cref="Vertex{T}"/> created and added to the graph.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="AddVertexFromValue" lang="cs" title="The following example shows how to use the AddVertex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="AddVertexFromValue" lang="vbnet" title="The following example shows how to use the AddVertex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="AddVertexFromValue" lang="cs" title="The following example shows how to use the AddVertex method."/>
         /// </example>
         public Vertex<T> AddVertex(T item)
         {
@@ -609,8 +585,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="to">The to vertex.</param>
         /// <returns>The newly created <see cref="Edge{T}"/>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="AddEdgeFromVertices" lang="cs" title="The following example shows how to use the AddEdge method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="AddEdgeFromVertices" lang="vbnet" title="The following example shows how to use the AddEdge method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="AddEdgeFromVertices" lang="cs" title="The following example shows how to use the AddEdge method."/>
         /// </example>
         public Edge<T> AddEdge(Vertex<T> from, Vertex<T> to)
         {
@@ -627,8 +602,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="weight">The weight of this edge.</param>
         /// <returns>The newly created <see cref="Edge{T}"/>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="AddWeightedEdgeFromVertices" lang="cs" title="The following example shows how to use the AddEdge method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="AddWeightedEdgeFromVertices" lang="vbnet" title="The following example shows how to use the AddEdge method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="AddWeightedEdgeFromVertices" lang="cs" title="The following example shows how to use the AddEdge method."/>
         /// </example>
         public Edge<T> AddEdge(Vertex<T> from, Vertex<T> to, double weight)
         {
@@ -642,8 +616,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The vertices contained in this graph.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="Vertices" lang="cs" title="The following example shows how to use the Vertices property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="Vertices" lang="vbnet" title="The following example shows how to use the Vertices property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Vertices" lang="cs" title="The following example shows how to use the Vertices property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public ICollection<Vertex<T>> Vertices
@@ -659,8 +632,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <value>The edges contained in this graph.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="Edges" lang="cs" title="The following example shows how to use the Edges property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="Edges" lang="vbnet" title="The following example shows how to use the Edges property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Edges" lang="cs" title="The following example shows how to use the Edges property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public ICollection<Edge<T>> Edges
@@ -678,8 +650,7 @@ namespace NGenerics.DataStructures.General
         /// <returns><c>true</c> if this graph is weakly connected; otherwise, <c>false</c>.</returns>
         /// <exception cref="InvalidOperationException">The <see cref="Graph{T}"/> is empty.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="IsWeaklyConnected" lang="cs" title="The following example shows how to use the IsWeaklyConnected method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="IsWeaklyConnected" lang="vbnet" title="The following example shows how to use the IsWeaklyConnected method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsWeaklyConnected" lang="cs" title="The following example shows how to use the IsWeaklyConnected method."/>
         /// </example>
         public bool IsWeaklyConnected()
         {
@@ -702,8 +673,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="InvalidOperationException"><see cref="IsDirected"/> is <c>true</c>.</exception>
         /// <exception cref="InvalidOperationException">The <see cref="Graph{T}"/> is empty.</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="IsStronglyConnected" lang="cs" title="The following example shows how to use the IsStronglyConnected method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="IsStronglyConnected" lang="vbnet" title="The following example shows how to use the IsStronglyConnected method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsStronglyConnected" lang="cs" title="The following example shows how to use the IsStronglyConnected method."/>
         /// </example>
         public bool IsStronglyConnected()
         {
@@ -747,8 +717,7 @@ namespace NGenerics.DataStructures.General
         /// 	<c>true</c> if the vertex with the specified from value has an edge to a vertex with the specified to value; otherwise, <c>false</c>.
         /// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="ContainsEdgeFromVerticeValues" lang="cs" title="The following example shows how to use the ContainsEdge method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="ContainsEdgeFromVerticeValues" lang="vbnet" title="The following example shows how to use the ContainsEdge method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="ContainsEdgeFromVerticeValues" lang="cs" title="The following example shows how to use the ContainsEdge method."/>
         /// </example>
         public bool ContainsEdge(T fromValue, T toValue)
         {
@@ -789,8 +758,7 @@ namespace NGenerics.DataStructures.General
         /// 	<c>true</c> if the specified from vertex has an edge to the to vertex; otherwise, <c>false</c>.
         /// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="ContainsEdgeFromVertices" lang="cs" title="The following example shows how to use the ContainsEdge method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="ContainsEdgeFromVertices" lang="vbnet" title="The following example shows how to use the ContainsEdge method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="ContainsEdgeFromVertices" lang="cs" title="The following example shows how to use the ContainsEdge method."/>
         /// </example>
         public bool ContainsEdge(Vertex<T> from, Vertex<T> to)
         {
@@ -805,8 +773,7 @@ namespace NGenerics.DataStructures.General
         /// 	<c>true</c> if the specified edge is contained in the graph; otherwise, <c>false</c>.
         /// </returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="ContainsEdge" lang="cs" title="The following example shows how to use the ContainsEdge method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="ContainsEdge" lang="vbnet" title="The following example shows how to use the ContainsEdge method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="ContainsEdge" lang="cs" title="The following example shows how to use the ContainsEdge method."/>
         /// </example>
         public bool ContainsEdge(Edge<T> edge)
         {
@@ -820,8 +787,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="to">The two vertex.</param>
         /// <returns>The <see cref="Edge{T}"/> between the two specified vertices if found; otherwise a null reference.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="GetEdge" lang="cs" title="The following example shows how to use the GetEdge method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="GetEdge" lang="vbnet" title="The following example shows how to use the GetEdge method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="GetEdge" lang="cs" title="The following example shows how to use the GetEdge method."/>
         /// </example>
         public Edge<T> GetEdge(Vertex<T> from, Vertex<T> to)
         {
@@ -835,8 +801,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="toVertexValue">The to vertex value.</param>
 		/// <returns>The <see cref="Edge{T}"/> formed by vertices with the specified values if found, otherwise a null reference.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="GetEdgeFromVertexValue" lang="cs" title="The following example shows how to use the GetEdge method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="GetEdgeFromVertexValue" lang="vbnet" title="The following example shows how to use the GetEdge method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="GetEdgeFromVertexValue" lang="cs" title="The following example shows how to use the GetEdge method."/>
         /// </example>
         public Edge<T> GetEdge(T fromVertexValue, T toVertexValue)
         {
@@ -866,8 +831,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="vertexValue">The vertex value to look for.</param>
         /// <returns>The <see cref="Vertex{T}"/> with the specified value.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="GetVertex" lang="cs" title="The following example shows how to use the GetVertex method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="GetVertex" lang="vbnet" title="The following example shows how to use the GetVertex method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="GetVertex" lang="cs" title="The following example shows how to use the GetVertex method."/>
         /// </example>
         public Vertex<T> GetVertex(T vertexValue)
         {
@@ -889,8 +853,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="predicate">The predicate (condition) to use.</param>
         /// <exception cref="ArgumentNullException"><paramref name="predicate"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="FindVertices" lang="cs" title="The following example shows how to use the FindVertices method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="FindVertices" lang="vbnet" title="The following example shows how to use the FindVertices method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="FindVertices" lang="cs" title="The following example shows how to use the FindVertices method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public IList<Vertex<T>> FindVertices(Predicate<T> predicate)
@@ -1194,8 +1157,7 @@ namespace NGenerics.DataStructures.General
         /// 	Always <c>false</c>.
         /// </value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
         public bool IsReadOnly
         {
@@ -1212,8 +1174,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\GraphExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\GraphExamples.vb" region="GetEnumerator" lang="vbnet" title="The following example shows how to use the GetEnumerator method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="GetEnumerator" lang="cs" title="The following example shows how to use the GetEnumerator method."/>
         /// </example>
         IEnumerator IEnumerable.GetEnumerator()
         {

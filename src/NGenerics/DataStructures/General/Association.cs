@@ -28,8 +28,7 @@ namespace NGenerics.DataStructures.General
         /// Initializes a new instance of the <see cref="Association{TKey,TValue}"/> class.
         /// </summary>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\AssociationExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\AssociationExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the constructor."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\AssociationExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
         /// </example>
         public Association() 
         {
@@ -42,8 +41,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\AssociationExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\AssociationExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the constructor."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\AssociationExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
         /// </example>
 		public Association(TKey key, TValue value)
 		{
@@ -56,8 +54,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <param name="value">The value.</param>
         /// <example>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\AssociationExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
-        /// 	<code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\AssociationExamples.vb" region="Constructor" lang="vbnet" title="The following example shows how to use the constructor."/>
+        /// 	<code source="..\..\NGenerics.Examples\DataStructures\General\AssociationExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the constructor."/>
         /// </example>
         public Association(KeyValuePair<TKey,TValue> value)
         {
@@ -74,8 +71,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <value>The key.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\AssociationExamples.cs" region="Key" lang="cs" title="The following example shows how to use the Key property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\AssociationExamples.vb" region="Key" lang="vbnet" title="The following example shows how to use the Key property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\AssociationExamples.cs" region="Key" lang="cs" title="The following example shows how to use the Key property."/>
         /// </example>
 		public TKey Key{get;set;}
 
@@ -84,8 +80,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <value>The value.</value>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\AssociationExamples.cs" region="Value" lang="cs" title="The following example shows how to use the Value property."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\AssociationExamples.vb" region="Value" lang="vbnet" title="The following example shows how to use the Value property."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\AssociationExamples.cs" region="Value" lang="cs" title="The following example shows how to use the Value property."/>
         /// </example>
 		public TValue Value{get;set;}
 
@@ -94,8 +89,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <returns>A key value pair representation of this <see cref="Association{TKey,TValue}"/>.</returns>
         /// <example>
-        /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\AssociationExamples.cs" region="ToKeyValuePair" lang="cs" title="The following example shows how to use the ToKeyValuePair method."/>
-        /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\AssociationExamples.vb" region="ToKeyValuePair" lang="vbnet" title="The following example shows how to use the ToKeyValuePair method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\AssociationExamples.cs" region="ToKeyValuePair" lang="cs" title="The following example shows how to use the ToKeyValuePair method."/>
         /// </example>
         public KeyValuePair<TKey, TValue> ToKeyValuePair()
         {
