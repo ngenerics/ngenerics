@@ -9,9 +9,9 @@
 
 using System.Collections.Generic;
 using System.Threading;
+using Moq;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace NGenerics.Tests.DataStructures.General.SingletonTests
 {
@@ -26,13 +26,10 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
         [Test]
         public void Construction_Delegate_Should_Only_Be_Called_Once()
         {
-            var mocks = new MockRepository();
-            var factory = mocks.StrictMock<ISimpleFactory<int>>();
-            Expect.Call(factory.Construct()).Return(43);
+            var factory = new Mock<ISimpleFactory<int>>();
+            factory.Setup(x => x.Construct()).Returns(43);
 
-            mocks.ReplayAll();
-
-            Singleton<int>.ConstructWith = factory.Construct;
+            Singleton<int>.ConstructWith = factory.Object.Construct;
 
             var threads = new List<Thread>();
 
@@ -48,7 +45,7 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
                 threads[i].Join();
             }
 
-            mocks.VerifyAll();
+            factory.Verify(x => x.Construct(), Times.Once);
         }
     }
 }
