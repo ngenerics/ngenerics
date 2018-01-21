@@ -30,7 +30,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinaryTreeTests
         {
             var binaryTree = GetTestTree();
             int i;
-            Assert.Throws<ArgumentNullException>(() => i = binaryTree[2].Data);
+            Assert.Throws<ArgumentOutOfRangeException>(() => i = binaryTree[2].Data);
         }
     }
 }

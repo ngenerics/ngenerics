@@ -21,10 +21,9 @@ namespace NGenerics.Tests.Infrastructure
         public void All_Code_Files_Should_Start_With_The_Copyright_Header()
         {
             var files = GetNonCompliantFiles(
-                @"..\..\..\NGenerics",
-                @"..\..\..\NGenericsTests",
-                @"..\..\..\Examples\ExampleLibraryCSharp",
-                @"..\..\..\Examples\ExampleLibraryVB");
+                @"..\..\..\..\NGenerics",
+                @"..\..\..\..\NGenerics.Tests",
+                @"..\..\..\..\NGenerics.Examples");
 
             var message = string.Format("Non compliant files found : {0}{1}", Environment.NewLine, string.Join(Environment.NewLine, files.ToArray()));
             Assert.AreEqual(files.Count, 0, message);

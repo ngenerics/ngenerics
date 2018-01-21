@@ -55,7 +55,7 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         {
             var generalTree = GetTestTree();
             var array = new int[7];
-            Assert.Throws<ArgumentNullException>(() => generalTree.CopyTo(array, 1));
+            Assert.Throws<ArgumentException>(() => generalTree.CopyTo(array, 1));
         }
     }
 }

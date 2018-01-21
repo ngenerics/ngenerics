@@ -39,7 +39,8 @@ namespace NGenerics.DataStructures.General
         internal const double defaultProbability = 0.5;
 
         // Initialise the random number generator with the current time.
-        private readonly Random rand = new Random(Convert.ToInt32(DateTime.Now.Ticks % Int32.MaxValue));
+        // Random is marked as not serializable in .NET core - we re-instantiate it if the value ends up being null.
+        [NonSerialized] private Random rand;
 
         #endregion
 
@@ -107,6 +108,7 @@ namespace NGenerics.DataStructures.General
             comparerToUse = comparer;
             maximumLevelToUse = maximumLevel;
             probabilityToUse = probability;
+            rand = GetRandomGenerator();
 
             // Initialise the skip list to empty nodes, and link the heads and the tails
             headNodes = new SkipListNode<TKey, TValue>[maximumLevel];
@@ -155,15 +157,9 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="IsReadOnly" lang="vbnet" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
-		/// <inheritdoc />  
+        /// <inheritdoc />  
         /// <example>
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="AddKeyValue" lang="cs" title="The following example shows how to use the AddKeyValue method."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="AddKeyValue" lang="vbnet" title="The following example shows how to use the AddKeyValue method."/>
@@ -522,13 +518,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Comparer" lang="cs" title="The following example shows how to use the Comparer property."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Comparer" lang="vbnet" title="The following example shows how to use the Comparer property."/>
         /// </example>
-        public IComparer<TKey> Comparer
-        {
-            get
-            {
-                return comparerToUse;
-            }
-        }
+        public IComparer<TKey> Comparer => comparerToUse;
 
         /// <summary>
         /// Gets the probability.
@@ -538,13 +528,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="Probability" lang="cs" title="The following example shows how to use the Probability property."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="Probability" lang="vbnet" title="The following example shows how to use the Probability property."/>
         /// </example>
-        public double Probability
-        {
-            get
-            {
-                return probabilityToUse;
-            }
-        }
+        public double Probability => probabilityToUse;
 
         /// <summary>
         /// Gets the maximum level.
@@ -554,13 +538,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\General\SkipListExamples.cs" region="MaximumListLevel" lang="cs" title="The following example shows how to use the MaximumListLevel property."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\General\SkipListExamples.vb" region="MaximumListLevel" lang="vbnet" title="The following example shows how to use the MaximumListLevel property."/>
         /// </example>
-        public int MaximumListLevel
-        {
-            get
-            {
-                return maximumLevelToUse;
-            }
-        }
+        public int MaximumListLevel => maximumLevelToUse;
 
         /// <summary>
         /// Gets the current list level.
@@ -575,6 +553,11 @@ namespace NGenerics.DataStructures.General
         #endregion
 
         #region Private Members
+
+        private Random GetRandomGenerator()
+        {
+            return new Random(Convert.ToInt32(DateTime.Now.Ticks % Int32.MaxValue));
+        }
 
         private SkipListNode<TKey, TValue> Find(TKey key)
         {
@@ -614,6 +597,11 @@ namespace NGenerics.DataStructures.General
         private int PickRandomLevel()
         {
             var randomLevel = 0;
+
+            if (rand == null)
+            {
+                rand = GetRandomGenerator();
+            }
 
             while ((rand.NextDouble() < probabilityToUse) && (randomLevel <= CurrentListLevel + 1) && (randomLevel < maximumLevelToUse))
             {

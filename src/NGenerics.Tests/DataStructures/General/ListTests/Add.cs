@@ -42,7 +42,7 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
         public void InterfaceEnsureInsertItemCall()
         {
             var listBase = new Mock<Add>();
-            ((IList)listBase).Add(5);
+            ((IList)listBase.Object).Add(5);
             listBase.Verify(x => x.InsertItem(0, 5));
         }
     }

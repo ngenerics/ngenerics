@@ -66,18 +66,6 @@ namespace ExampleLibraryCSharp.DataStructures.General
         #endregion
 
 
-        #region Comparer
-        [Test]
-        public void ComparerExample()
-        {
-            DictionaryBase<string, int> dictionary = new MyDictionary();
-
-            // If no comparer is specified, the default comparer is used.
-            Assert.AreSame(dictionary.Comparer, EqualityComparer<string>.Default);
-        }
-        #endregion
-
-
         #region ContainsKey
         [Test]
         public void ContainsKeyExample()

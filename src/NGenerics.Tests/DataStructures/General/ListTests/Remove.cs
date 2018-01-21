@@ -46,17 +46,19 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
         [Test]
         public void EnsureRemoveItem()
         {
-            var listBase = new Mock<Remove>();
-            listBase.Object.Add(4);
-            listBase.Object.Add(7);
-            listBase.Object.Add(8);
-            listBase.Object.Remove(7);
+            var listBase = new Mock<Remove>() { CallBase = true};
+            var l = listBase.Object;
+            l.Add(4);
+            l.Add(7);
+            l.Add(8);
+            l.Remove(7);
             listBase.Verify(x => x.RemoveItem(1, 7));
         }
+
         [Test]
         public void InterfaceEnsureRemoveItem()
         {
-            var listBase = new Mock<Remove>();
+            var listBase = new Mock<Remove>() {CallBase = true};
             listBase.Object.Add(4);
             listBase.Object.Add(7);
             listBase.Object.Add(8);

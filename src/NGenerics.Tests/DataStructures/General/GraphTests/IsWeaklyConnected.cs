@@ -27,7 +27,7 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
         public void ExceptionEmptyUndirected()
         {
             var graph = new Graph<int>(false);
-            Assert.Throws<ArgumentNullException>(() => graph.IsWeaklyConnected());
+            Assert.Throws<InvalidOperationException>(() => graph.IsWeaklyConnected());
         }
 
         [Test]

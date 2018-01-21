@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
@@ -37,7 +38,7 @@ namespace NGenerics.Extensions
         {
             return (T) TypeDescriptor
                         .GetConverter(typeof(T))
-                        .ConvertFrom(value);
+                        .ConvertFrom(null, CultureInfo.InvariantCulture, value);
         }
         
         /// <summary>

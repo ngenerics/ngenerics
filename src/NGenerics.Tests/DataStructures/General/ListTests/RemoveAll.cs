@@ -25,21 +25,6 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
             Assert.AreEqual(1, listBase.Count);
         }
 
-
-        [Test]
-        public void EnsureRemoveItem()
-        {
-            var listBase = new Mock<RemoveAll>();
-
-            listBase.Object.Add("as");
-            listBase.Object.Add("bs");
-            listBase.Object.Add("c");
-            listBase.Object.RemoveAll(EndsWiths);
-
-            listBase.Verify(x => x.RemoveItem(0, "as"));
-            listBase.Verify(x => RemoveItem(0, "bs"));
-        }
-
         private static bool EndsWiths(string s)
         {
             return s.EndsWith("s");

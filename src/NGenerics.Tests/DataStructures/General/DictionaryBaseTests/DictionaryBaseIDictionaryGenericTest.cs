@@ -32,7 +32,7 @@ namespace NGenerics.Tests.DataStructures.General.DictionaryBaseTests
         public void ClearTest()
         {
             var target = new MockExceptionDictionary();
-            Assert.Throws<ArgumentNullException>(() => target.Clear(), "ClearItems");
+            Assert.Throws<Exception>(() => target.Clear(), "ClearItems");
         }
 
 

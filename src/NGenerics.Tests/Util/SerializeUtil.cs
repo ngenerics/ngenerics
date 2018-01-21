@@ -30,10 +30,6 @@ namespace NGenerics.Tests.Util
 
                 ms.Position = 0;
                 return (T)formatter.Deserialize(ms);
-                //using (var readStream = new MemoryStream(ms.ToArray()))
-                //{
-                //    return (T) formatter.Deserialize(readStream);
-                //}
             }
         }
     }

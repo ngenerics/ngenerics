@@ -55,9 +55,9 @@ namespace NGenerics.Tests.DataStructures.General.ListTests
         [Test]
         public void InterfaceEnsureInsertItemCall()
         {
-            var listBase = new Mock<Indexer>();
+            var listBase = new Mock<Indexer>() { CallBase = true };
             listBase.Object.Add(3);
-            ((IList)listBase)[0] = 4;
+            ((IList)listBase.Object)[0] = 4;
             listBase.Verify(x => x.SetItem(0, 4));
         }
     }
