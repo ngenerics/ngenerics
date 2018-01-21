@@ -5,4 +5,6 @@ dotnet: 2.0.3
 script:
   - cd src
   - dotnet restore
-  - dotnet test
+  - dotnet build
+  - dotnet test NGenerics.Tests
+  - dotnet test NGenerics.Examples
