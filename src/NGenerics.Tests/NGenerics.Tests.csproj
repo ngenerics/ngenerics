@@ -1,5 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <ProjectGuid>{B3E31EFC-9751-47E7-B3C2-6B0DB1CA766D}</ProjectGuid>
+  <PropertyGroup>
+    <ProjectGuid>{B3E31EFC-9751-47E7-B3C2-6B0DB1CA766D}</ProjectGuid>
+  </PropertyGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\NGenerics\NGenerics.csproj" />
   </ItemGroup>
