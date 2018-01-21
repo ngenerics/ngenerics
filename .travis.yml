@@ -23,7 +23,7 @@ script:
   - dotnet test NGenerics.Examples
   - sonar-scanner
   - |
-    mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe begin /k:ConsoleApplication1
+    mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe begin
     dotnet restore
     dotnet build
     dotnet test NGenerics.Tests
