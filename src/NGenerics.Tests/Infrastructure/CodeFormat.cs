@@ -7,6 +7,8 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
+using System.Reflection;
+
 namespace NGenerics.Tests.Infrastructure
 {
     using System;
@@ -20,10 +22,13 @@ namespace NGenerics.Tests.Infrastructure
         [Test]
         public void All_Code_Files_Should_Start_With_The_Copyright_Header()
         {
+            string currentPath = Directory.GetCurrentDirectory();
+            string rootPath = Path.Combine(currentPath, @"..\..\..\..");
+
             var files = GetNonCompliantFiles(
-                @"..\..\..\..\NGenerics",
-                @"..\..\..\..\NGenerics.Tests",
-                @"..\..\..\..\NGenerics.Examples");
+                Path.Combine(rootPath, "NGenerics"),
+                Path.Combine(rootPath, "NGenerics.Tests"),
+                Path.Combine(rootPath, "NGenerics.Examples"));
 
             var message = string.Format("Non compliant files found : {0}{1}", Environment.NewLine, string.Join(Environment.NewLine, files.ToArray()));
             Assert.AreEqual(files.Count, 0, message);
