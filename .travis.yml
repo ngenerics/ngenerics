@@ -23,5 +23,4 @@ script:
   - mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe begin /n:NGenerics /k:ngenerics-github /d:sonar.login=${SONAR_TOKEN} /d:sonar.host.url="https://sonarcloud.io" /v:"2.0" 
   - dotnet build
   - dotnet test NGenerics.Tests --logger:trx 
-  - dotnet test NGenerics.Examples --logger:trx
   - mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe end /d:sonar.login=${SONAR_TOKEN}
