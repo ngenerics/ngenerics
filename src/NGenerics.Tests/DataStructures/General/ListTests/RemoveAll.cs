@@ -7,7 +7,6 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-using Moq;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 

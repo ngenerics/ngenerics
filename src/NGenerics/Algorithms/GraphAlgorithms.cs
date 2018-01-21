@@ -87,9 +87,8 @@ namespace NGenerics.Algorithms
                     vertexStatus[item.Value].IsFinalised = true;
 
                     // Enumerate through all the edges emanating from this node					
-                    for (var i = 0; i < edges.Count; i++)
+                    foreach (var edge in edges)
                     {
-                        var edge = edges[i];
                         var partnerVertex = edge.GetPartnerVertex(item.Value);
 
                         // Calculate the new distance to this distance
@@ -167,10 +166,8 @@ namespace NGenerics.Algorithms
                 vertexStatus[item.Value].IsFinalised = true;
 
                 // Enumerate through all the edges emanating from this node					
-                for (var i = 0; i < edges.Count; i++)
+                foreach (var edge in edges)
                 {
-                    var edge = edges[i];
-
                     var partnerVertex = edge.GetPartnerVertex(item.Value);
 
                     var newVertexInfo = vertexStatus[partnerVertex];
