@@ -9,6 +9,7 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y mono-complete unzip wget
   - wget -O sonar.zip https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
+  - pwd
   - unzip sonar.zip -d tools/sonar
   - ls tools/sonar
 
