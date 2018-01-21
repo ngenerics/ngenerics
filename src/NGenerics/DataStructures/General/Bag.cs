@@ -119,9 +119,7 @@ namespace NGenerics.DataStructures.General
 		/// </example>
 		public bool RemoveAll(T item)
 		{
-			int itemCount;
-
-			if (data.TryGetValue(item, out itemCount))
+		    if (data.TryGetValue(item, out var itemCount))
 			{
 				RemoveItem(item, itemCount, itemCount);
 				return true;
@@ -145,10 +143,7 @@ namespace NGenerics.DataStructures.General
 
 			#endregion
 
-
-			int itemCount;
-
-			if (data.TryGetValue(item, out itemCount))
+		    if (data.TryGetValue(item, out var itemCount))
 			{
 				RemoveItem(item, maximum, itemCount);
 				return true;
@@ -212,9 +207,7 @@ namespace NGenerics.DataStructures.General
 		/// </remarks>
 		protected virtual void AddItem(T item, int amount)
 		{
-			int itemCount;
-
-			if (data.TryGetValue(item, out itemCount))
+		    if (data.TryGetValue(item, out var itemCount))
 			{
 				data[item] = itemCount + amount;
 			}
@@ -308,9 +301,7 @@ namespace NGenerics.DataStructures.General
                 {
                     var item = enumerator.Current;
 
-                    int itemCount;
-
-                    if (data.TryGetValue(item.Key, out itemCount))
+                    if (data.TryGetValue(item.Key, out var itemCount))
                     {
                         resultBag.Add(item.Key,
                                    Math.Min(item.Value, itemCount)
@@ -368,9 +359,7 @@ namespace NGenerics.DataStructures.General
                 {
                     var item = enumerator.Current;
 
-                    int itemCount;
-
-                    if (resultBag.data.TryGetValue(item.Key, out itemCount))
+                    if (resultBag.data.TryGetValue(item.Key, out var itemCount))
                     {
                         if (itemCount - item.Value <= 0)
                         {
@@ -450,9 +439,7 @@ namespace NGenerics.DataStructures.General
 		{
 			get
 			{
-			    int itemCount;
-
-			    if (data.TryGetValue(item, out itemCount))
+			    if (data.TryGetValue(item, out var itemCount))
 			    {
 			        return itemCount;
 			    }
@@ -470,16 +457,10 @@ namespace NGenerics.DataStructures.General
 		/// <example>
 		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
 		/// </example>           
-		public bool IsEmpty
-		{
-			get
-			{
-				return Count == 0;
-			}
-		}
+		public bool IsEmpty => Count == 0;
 
 
-		/// <inheritdoc />
+	    /// <inheritdoc />
 		/// <example>
 		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>
 		/// </example>   
@@ -537,9 +518,7 @@ namespace NGenerics.DataStructures.General
 		/// </example>        
 		public bool Remove(T item)
 		{
-			int itemCount;
-
-			if (data.TryGetValue(item, out itemCount))
+		    if (data.TryGetValue(item, out var itemCount))
 			{
                 RemoveItem(item, 1, itemCount);
 				return true;
@@ -613,15 +592,9 @@ namespace NGenerics.DataStructures.General
 		/// <example>
 		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
 		/// </example>     
-		public bool IsReadOnly
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public bool IsReadOnly => false;
 
-		#endregion
+	    #endregion
 
 		#region IEnumerable Members
 
@@ -664,17 +637,7 @@ namespace NGenerics.DataStructures.General
 		/// </example>     
 		public bool Equals(Bag<T> other)
 		{
-			#region Validation
-
-			if (other == null)
-			{
-				return false;
-			}
-
-			#endregion
-
-
-			if (Count != other.Count)
+			if (Count != other?.Count)
 			{
 				return false;
 			}

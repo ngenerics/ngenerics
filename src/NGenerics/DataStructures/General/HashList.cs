@@ -113,16 +113,10 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\HashListExamples.cs" region="KeyCount" lang="cs" title="The following example shows how to use the KeyCount property."/>
         /// </example>
-		public int KeyCount
-		{
-			get
-			{
-				return Count;
-			}
-		}
+		public int KeyCount => Count;
 
 
-		/// <summary>
+	    /// <summary>
 		/// Gets an enumerator for enumerating though values.
 		/// </summary>
         /// <returns>A enumerator for enumerating through values in the <see cref="HashList{TKey,TValue}"/>.</returns>
@@ -143,10 +137,10 @@ namespace NGenerics.DataStructures.General
 				var value = keyValuePair.Value;
 				if (value != null)
 				{
-					for (var i = 0; i < value.Count; i++)
-					{
-						yield return value[i];
-					}
+				    foreach (var v in value)
+				    {
+				        yield return v;
+				    }
 				}
 			}
 		}
@@ -171,9 +165,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="item">The item.</param>
 		public virtual void AddItem(KeyValuePair<TKey, TValue>  item)
 		{
-			IList<TValue> list;
-
-			if (!TryGetValue(item.Key, out list))
+		    if (!TryGetValue(item.Key, out var list))
 			{
 				list = new List<TValue>();
 				this[item.Key] = list;
@@ -205,9 +197,8 @@ namespace NGenerics.DataStructures.General
 			
             Guard.ArgumentNotNull(value, "value");
             //no need to check key for null ContainsKey will do that.
-			IList<TValue> list;
 
-			if (!TryGetValue(key, out list))
+            if (!TryGetValue(key, out var list))
 			{
 				list = new List<TValue>();
 				this[key] = list;
@@ -243,9 +234,9 @@ namespace NGenerics.DataStructures.General
 	    {
 	        IList<TKey> keys = new List<TKey>(Keys);
 
-	        for (var i = 0; i < keys.Count; i++)
+	        foreach (var k in keys)
 	        {
-	            var values = this[keys[i]];
+	            var values = this[k];
 
 	            if (values.Remove(item))
 	            {
@@ -277,26 +268,26 @@ namespace NGenerics.DataStructures.General
         /// Derived classes can override this method to change the behavior of the <see cref="RemoveAll"/> method.
         /// </remarks>
 		protected virtual void RemoveAllItems(TValue item)
-		{
-			IList<TKey> keys = new List<TKey>(Keys);
+        {
+            IList<TKey> keys = new List<TKey>(Keys);
 
-			for (var i = 0; i < keys.Count; i++)
-			{
-				var values = this[keys[i]];
+            foreach (var key in keys)
+            {
+                var values = this[key];
 
-				if (values != null)
-				{
-					for (var j = 0; j < values.Count; j++)
-					{
-						if (values[j].Equals(item))
-						{
-							values.RemoveAt(j);
-							j--;
-						}
-					}
-				}
-			}
-		}
+                if (values != null)
+                {
+                    for (var j = 0; j < values.Count; j++)
+                    {
+                        if (values[j].Equals(item))
+                        {
+                            values.RemoveAt(j);
+                            j--;
+                        }
+                    }
+                }
+            }
+        }
 
 
 		/// <summary>
@@ -325,8 +316,7 @@ namespace NGenerics.DataStructures.General
         /// </remarks>
         protected virtual bool RemoveItem(TKey key, TValue item)
         {
-            IList<TValue> values;
-            return TryGetValue(key, out values) && values.Remove(item);
+            return TryGetValue(key, out var values) && values.Remove(item);
         }
 
 	    #endregion

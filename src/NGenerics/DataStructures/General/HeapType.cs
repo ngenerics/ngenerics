@@ -7,9 +7,6 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-
-
-
 namespace NGenerics.DataStructures.General
 {
     /// <summary>

@@ -72,13 +72,7 @@ namespace NGenerics.DataStructures.General
         /// </returns>
         /// <param name="index">A character position in the current <see cref="String"/> object.</param>
         /// <exception cref="IndexOutOfRangeException"><paramref name="index"/> is greater than or equal to the length of this object or less than zero.</exception>
-        public char this[int index]
-        {
-            get
-            {
-                return Value[index];
-            }
-        }
+        public char this[int index] => Value[index];
 
         /// <summary>
         /// Gets the number of characters in the current <see cref="String"/> object.
@@ -86,13 +80,7 @@ namespace NGenerics.DataStructures.General
         /// <returns>
         /// The number of characters in this instance.
         /// </returns>
-        public int Length
-        {
-            get
-            {
-                return Value.Length;
-            }
-        }
+        public int Length => Value.Length;
 
         /// <summary>
         /// Returns substring after <paramref name="after"/>
@@ -228,7 +216,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="strB">A <see cref="String"/>.</param>
         public int CompareTo(string strB)
         {
-            return Value.CompareTo(strB);
+            return String.Compare(Value, strB, StringComparison.Ordinal);
         }
 
         #endregion
@@ -588,8 +576,7 @@ namespace NGenerics.DataStructures.General
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
         public override bool Equals(object obj)
         {
-            var strB = obj as string;
-            if (strB == null)
+            if (!(obj is string strB))
             {
                 return false;
             }

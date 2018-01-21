@@ -7,8 +7,6 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,7 +28,7 @@ namespace NGenerics.DataStructures.General
     {
         #region Globals
 
-        const string rowsOrColumnsInvalid = "Rows and columns must be nonnegative values.";
+        const string RowsOrColumnsInvalid = "Rows and columns must be nonnegative values.";
         /// <summary>
         /// The number of columns in the matrix.
         /// </summary>
@@ -69,12 +67,12 @@ namespace NGenerics.DataStructures.General
 
             if (rows <= 0)
             {
-                throw new ArgumentException(rowsOrColumnsInvalid, "rows");
+                throw new ArgumentException(RowsOrColumnsInvalid, "rows");
             }
 
             if (columns <= 0)
             {
-                throw new ArgumentException(rowsOrColumnsInvalid, "columns");
+                throw new ArgumentException(RowsOrColumnsInvalid, "columns");
             }
 
             #endregion
@@ -139,15 +137,9 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="IsSquare" lang="cs" title="The following example shows how to use the IsSquare property."/>
         /// </example>
-        public bool IsSquare
-        {
-            get
-            {
-                return noOfRows == noOfColumns;
-            }
-        }
+        public bool IsSquare => noOfRows == noOfColumns;
 
-		/// <inheritdoc />  
+        /// <inheritdoc />  
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Index" lang="cs" title="The following example shows how to use the Index property."/>
         /// </example>
@@ -209,17 +201,17 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
         /// </example>
         public bool Contains(T item)
-        {
-            for (var i = 0; i < data.Length; i++)
-            {
-                if (data[i].Equals(item))
-                {
-                    return true;
-                }
-            }
+		{
+		    foreach (var t in data)
+		    {
+		        if (t.Equals(item))
+		        {
+		            return true;
+		        }
+		    }
 
-            return false;
-        }
+		    return false;
+		}
 
 		/// <inheritdoc />  
         /// <example>
@@ -245,27 +237,15 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
-        int ICollection<T>.Count
-        {
-            get
-            {
-                return data.Length;
-            }
-        }
+        int ICollection<T>.Count => data.Length;
 
-		/// <inheritdoc />  
+        /// <inheritdoc />  
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
-		/// <inheritdoc />  
+        /// <inheritdoc />  
         /// <exception cref="NotSupportedException">Always.</exception>
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         bool ICollection<T>.Remove(T item)
@@ -288,9 +268,9 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public IEnumerator<T> GetEnumerator()
         {
-            for (var i = 0; i < data.Length; i++)
+            foreach (var d in data)
             {
-                yield return data[i];
+                yield return d;
             }
         }
 
@@ -344,25 +324,13 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Columns" lang="cs" title="The following example shows how to use the Columns property."/>
         /// </example>
-        public int Columns
-        {
-            get
-            {
-                return noOfColumns;
-            }
-        }
+        public int Columns => noOfColumns;
 
-		/// <inheritdoc />  
+        /// <inheritdoc />  
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\ObjectMatrixExamples.cs" region="Rows" lang="cs" title="The following example shows how to use the Rows property."/>
         /// </example>
-        public int Rows
-        {
-            get
-            {
-                return noOfRows;
-            }
-        }
+        public int Rows => noOfRows;
 
 
         /// <summary>
@@ -677,12 +645,12 @@ namespace NGenerics.DataStructures.General
 
             if (newNumberOfRows <= 0) 
             {
-                throw new ArgumentException(rowsOrColumnsInvalid, "newNumberOfRows");
+                throw new ArgumentException(RowsOrColumnsInvalid, "newNumberOfRows");
             }
 		    
             if (newNumberOfColumns <= 0)
 		    {
-                throw new ArgumentException(rowsOrColumnsInvalid, "newNumberOfColumns");
+                throw new ArgumentException(RowsOrColumnsInvalid, "newNumberOfColumns");
 		    }
 
 		    #endregion
@@ -834,13 +802,7 @@ namespace NGenerics.DataStructures.General
         /// Gets the data.
         /// </summary>
         /// <value>The data.</value>
-        internal T[] Data
-        {
-            get
-            {
-                return data;
-            }
-        }
+        internal T[] Data => data;
 
         #endregion
 
@@ -907,15 +869,7 @@ namespace NGenerics.DataStructures.General
             #endregion
 
             // Copy the smaller of the sizes
-            int copyBlockSize;
-            if (noOfColumns < newColumnCount)
-            {
-                copyBlockSize = noOfColumns;
-            }
-            else
-            {
-                copyBlockSize = newColumnCount;
-            }
+            var copyBlockSize = noOfColumns < newColumnCount ? noOfColumns : newColumnCount;
 
             // Copy in blocks row by row
             for (var row = 0; row < noOfRows; row++)

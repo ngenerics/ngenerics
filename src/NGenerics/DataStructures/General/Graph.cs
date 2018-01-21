@@ -40,8 +40,8 @@ namespace NGenerics.DataStructures.General
     {
         #region Globals
 
-        internal const string couldNotBeFoundInTheGraph = "The vertex specified could not be found in the graph.";
-        const string graphIsEmpty = "The graph is empty.";
+        internal const string CouldNotBeFoundInTheGraph = "The vertex specified could not be found in the graph.";
+        private const string GraphIsEmpty = "The graph is empty.";
         private readonly Dictionary<Vertex<T>, object> graphVertices;
         private readonly Dictionary<Edge<T>, object> graphEdges;
         private readonly bool graphIsDirected;
@@ -69,31 +69,18 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
-        public bool IsEmpty
-        {
-            get
-            {
-                return graphVertices.Count == 0;
-            }
-        }
+        public bool IsEmpty => graphVertices.Count == 0;
 
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        int ICollection<T>.Count
-        {
-            get
-            {
-                return graphVertices.Count;
-            }
-        }
+        int ICollection<T>.Count => graphVertices.Count;
 
 
-
-		/// <inheritdoc />
+        /// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="AddVertex" lang="cs" title="The following example shows how to use the AddVertex method."/>
         /// </example>
@@ -170,9 +157,9 @@ namespace NGenerics.DataStructures.General
             var vertexList = new List<Vertex<T>>(graphVertices.Count);
             vertexList.AddRange(graphVertices.Keys);
 
-            for (var i = 0; i < vertexList.Count; i++)
+            foreach (var v in vertexList)
             {
-                yield return vertexList[i].Data;
+                yield return v.Data;
             }
         }
 
@@ -309,9 +296,9 @@ namespace NGenerics.DataStructures.General
 
                 var edges = vertex.EmanatingEdges;
 
-                for (var i = 0; i < edges.Count; i++)
+                foreach (var e in edges)
                 {
-                    var vertexToVisit = edges[i].GetPartnerVertex(vertex);
+                    var vertexToVisit = e.GetPartnerVertex(vertex);
 
                     if (!visitedVertices.Contains(vertexToVisit))
                     {
@@ -420,13 +407,7 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsDirected" lang="cs" title="The following example shows how to use the IsDirected property."/>
         /// </example>
-        public bool IsDirected
-        {
-            get
-            {
-                return graphIsDirected;
-            }
-        }
+        public bool IsDirected => graphIsDirected;
 
         /// <summary>
         /// Removes the edge specified from the graph.
@@ -524,7 +505,7 @@ namespace NGenerics.DataStructures.General
 
             if ((!graphVertices.ContainsKey(edge.FromVertex)) || (!graphVertices.ContainsKey(edge.ToVertex)))
             {
-                throw new ArgumentException(couldNotBeFoundInTheGraph, "edge");
+                throw new ArgumentException(CouldNotBeFoundInTheGraph, "edge");
             }
 
             if (edge.FromVertex.HasEmanatingEdgeTo(edge.ToVertex))
@@ -619,13 +600,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Vertices" lang="cs" title="The following example shows how to use the Vertices property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-        public ICollection<Vertex<T>> Vertices
-        {
-            get
-            {
-                return graphVertices.Keys;
-            }
-        }
+        public ICollection<Vertex<T>> Vertices => graphVertices.Keys;
 
         /// <summary>
         /// Gets the edges contained in this graph.
@@ -635,13 +610,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Edges" lang="cs" title="The following example shows how to use the Edges property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-        public ICollection<Edge<T>> Edges
-        {
-            get
-            {
-                return graphEdges.Keys;
-            }
-        }
+        public ICollection<Edge<T>> Edges => graphEdges.Keys;
 
 
         /// <summary>
@@ -656,7 +625,7 @@ namespace NGenerics.DataStructures.General
         {
             if (graphVertices.Count == 0)
             {
-                throw new InvalidOperationException(graphIsEmpty);
+                throw new InvalidOperationException(GraphIsEmpty);
             }
 
             var countingVisitor = new CountingVisitor<Vertex<T>>();
@@ -686,7 +655,7 @@ namespace NGenerics.DataStructures.General
 
             if (graphVertices.Count == 0)
             {
-                throw new InvalidOperationException(graphIsEmpty);
+                throw new InvalidOperationException(GraphIsEmpty);
             }
 
             #endregion
@@ -809,9 +778,8 @@ namespace NGenerics.DataStructures.General
             {
                 if (vertex.Data.Equals(fromVertexValue))
                 {
-                    for (var i = 0; i < vertex.EmanatingEdges.Count; i++)
+                    foreach (var edge in vertex.EmanatingEdges)
                     {
-                        var edge = vertex.EmanatingEdges[i];
                         var partner = edge.GetPartnerVertex(vertex);
 
                         if (partner.Data.Equals(toVertexValue))
@@ -1010,10 +978,10 @@ namespace NGenerics.DataStructures.General
             // Get the list of emanating edges from the vertex
             var edges = startVertex.EmanatingEdges;
 
-            for (var i = 0; i < edges.Count; i++)
+            foreach (var e in edges)
             {
-                // Get the partner vertex of the start vertex
-                var vertexToVisit = edges[i].GetPartnerVertex(startVertex);
+// Get the partner vertex of the start vertex
+                var vertexToVisit = e.GetPartnerVertex(startVertex);
 
                 // If the vertex hasn't been visited before, do a depth-first
                 // traversal starting at that vertex
@@ -1159,13 +1127,7 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         #endregion
 

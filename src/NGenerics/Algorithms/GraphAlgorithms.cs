@@ -50,7 +50,7 @@ namespace NGenerics.Algorithms
 
             if (!weightedGraph.ContainsVertex(fromVertex))
             {
-                throw new ArgumentException(Graph<T>.couldNotBeFoundInTheGraph, "fromVertex");
+                throw new ArgumentException(Graph<T>.CouldNotBeFoundInTheGraph, "fromVertex");
             }
 
             #endregion
@@ -133,7 +133,7 @@ namespace NGenerics.Algorithms
 
             if (!weightedGraph.ContainsVertex(fromVertex))
             {
-                throw new ArgumentException(Graph<T>.couldNotBeFoundInTheGraph, "fromVertex");
+                throw new ArgumentException(Graph<T>.CouldNotBeFoundInTheGraph, "fromVertex");
             }
 
             #endregion

@@ -29,7 +29,7 @@ namespace NGenerics.DataStructures.General
     {
         #region Globals
 
-        const string heapIsEmpty = "The heap is empty.";
+        private const string HeapIsEmpty = "The heap is empty.";
         private readonly List<T> data;
         private readonly IComparer<T> comparerToUse;
         private readonly HeapType thisType;
@@ -146,7 +146,7 @@ namespace NGenerics.DataStructures.General
 
                 if (Count == 0)
                 {
-                    throw new InvalidOperationException(heapIsEmpty);
+                    throw new InvalidOperationException(HeapIsEmpty);
                 }
 
                 #endregion
@@ -166,7 +166,7 @@ namespace NGenerics.DataStructures.General
 
             if (Count == 0)
             {
-                throw new InvalidOperationException(heapIsEmpty);
+                throw new InvalidOperationException(HeapIsEmpty);
             }
 
             #endregion
@@ -233,13 +233,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Type" lang="cs" title="The following example shows how to use the Type property."/>
         /// </example>
         [SuppressMessage("Microsoft.Naming", "CA1721:PropertyNamesShouldNotMatchGetMethods")]
-        public HeapType Type
-        {
-            get
-            {
-                return thisType;
-            }
-        }
+        public HeapType Type => thisType;
 
         #endregion
 
@@ -251,17 +245,10 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
-        public bool IsEmpty
-        {
-            get
-            {
-                return Count == 0;
-            }
-        }
+        public bool IsEmpty => Count == 0;
 
-		
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Contains" lang="cs" title="The following example shows how to use the Contains method."/>
         /// </example>
@@ -297,15 +284,9 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
-        public int Count
-        {
-            get
-            {
-                return data.Count - 1;
-            }
-        }
+        public int Count => data.Count - 1;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Add" lang="cs" title="The following example shows how to use the Add method."/>
         /// </example>
@@ -393,13 +374,7 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         #endregion
 
