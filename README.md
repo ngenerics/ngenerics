@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ngenerics/ngenerics.svg?branch=master)](https://travis-ci.org/ngenerics/ngenerics)
+
 A class library providing generic data structures and algorithms not
 implemented in the standard .NET framework.
 
