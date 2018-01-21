@@ -26,4 +26,4 @@ script:
     dotnet build
     dotnet test NGenerics.Tests
     dotnet test NGenerics.Examples
-    mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe end /d:sonar.login=$SONAR_TOKEN /d:sonar.host.url="https://sonarcloud.io"
+    mono ../tools/sonar/SonarQube.Scanner.MSBuild.exe end /d:sonar.login=$SONAR_TOKEN
