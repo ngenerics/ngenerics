@@ -31,23 +31,12 @@ namespace NGenerics.Tests.DataStructures.Mathematical.ComplexNumberTests
             Assert.IsFalse(complexNumber1.Equals(complexNumber4));
             Assert.IsFalse(complexNumber1.Equals(complexNumber5));
 
-            // Disable warning C1718 : Testing equality of same variable
-#pragma warning disable 1718
-
-            Assert.IsTrue(complexNumber1 == complexNumber1);
-
-#pragma warning restore 1718
 
             Assert.IsTrue(complexNumber1 == complexNumber2);
             Assert.IsFalse(complexNumber1 == complexNumber3);
             Assert.IsFalse(complexNumber1 == complexNumber4);
             Assert.IsFalse(complexNumber1 == complexNumber5);
 
-#pragma warning disable 1718
-
-            Assert.IsFalse(complexNumber1 != complexNumber1);
-
-#pragma warning restore 1718
 
             Assert.IsFalse(complexNumber1 != complexNumber2);
             Assert.IsTrue(complexNumber1 != complexNumber3);
@@ -64,7 +53,6 @@ namespace NGenerics.Tests.DataStructures.Mathematical.ComplexNumberTests
             object complexNumber4 = new ComplexNumber(2, 2);
             object complexNumber5 = new ComplexNumber(3, 3);
 
-            Assert.IsTrue(complexNumber1.Equals(complexNumber1));
             Assert.IsTrue(complexNumber1.Equals(complexNumber2));
             Assert.IsFalse(complexNumber1.Equals(complexNumber3));
             Assert.IsFalse(complexNumber1.Equals(complexNumber4));

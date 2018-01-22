@@ -34,7 +34,7 @@ namespace NGenerics.DataStructures.General
 	{
 		#region Globals
 
-		private readonly Dictionary<T, int> data;
+		private readonly Dictionary<T, int> _data;
 
 	    #endregion
 
@@ -45,7 +45,7 @@ namespace NGenerics.DataStructures.General
 		/// </example>
 		public Bag()
 		{
-            data = new Dictionary<T, int>();
+            _data = new Dictionary<T, int>();
 		}
 
 		/// <param name="capacity">The initial capacity of the bag.</param>
@@ -54,7 +54,7 @@ namespace NGenerics.DataStructures.General
 		/// </example>
 		public Bag(int capacity)
 		{
-            data = new Dictionary<T, int>(capacity);
+            _data = new Dictionary<T, int>(capacity);
 		}
 
 
@@ -65,11 +65,8 @@ namespace NGenerics.DataStructures.General
 		/// </example>
 		public Bag(IEqualityComparer<T> comparer)
 		{
-
-            Guard.ArgumentNotNull(comparer, "comparer");
-
-
-            data = new Dictionary<T, int>(comparer);
+            Guard.ArgumentNotNull(comparer, nameof(comparer));
+            _data = new Dictionary<T, int>(comparer);
 		}
 
 
@@ -79,27 +76,20 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="comparer"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		public Bag(int capacity, IEqualityComparer<T> comparer)
         {
-            Guard.ArgumentNotNull(comparer, "comparer");
-
-
-            data = new Dictionary<T, int>(capacity, comparer);
+            Guard.ArgumentNotNull(comparer, nameof(comparer));
+            _data = new Dictionary<T, int>(capacity, comparer);
 		}
 
 
 		/// <param name="dictionary">The <see cref="IDictionary{TKey,TValue}"/> to copy values from.</param>
 		private Bag(IDictionary<T, int> dictionary)
 		{
-			#region Asserts
-
 			Debug.Assert(dictionary != null);
 
-			#endregion
-
-
-            data = new Dictionary<T, int>(dictionary);
+            _data = new Dictionary<T, int>(dictionary);
 
 			// Update the count
-			foreach (var item in data)
+			foreach (var item in _data)
 			{
 				Count += item.Value;
 			}
@@ -119,7 +109,7 @@ namespace NGenerics.DataStructures.General
 		/// </example>
 		public bool RemoveAll(T item)
 		{
-		    if (data.TryGetValue(item, out var itemCount))
+		    if (_data.TryGetValue(item, out var itemCount))
 			{
 				RemoveItem(item, itemCount, itemCount);
 				return true;
@@ -128,22 +118,19 @@ namespace NGenerics.DataStructures.General
 		}
 
 
+		/// <exception cref="ArgumentOutOfRangeException">Maximum is smaller or equal to 0.</exception>
 		/// <inheritdoc />
 		/// <example>
 		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="RemoveMax" lang="cs" title="The following example shows how to use the Remove method."/>
 		/// </example>        
 		public bool Remove(T item, int maximum)
 		{
-			#region Validation
-
 			if (maximum <= 0)
 			{
-				throw new ArgumentOutOfRangeException("maximum");
+				throw new ArgumentOutOfRangeException(nameof(maximum));
 			}
 
-			#endregion
-
-		    if (data.TryGetValue(item, out var itemCount))
+		    if (_data.TryGetValue(item, out var itemCount))
 			{
 				RemoveItem(item, maximum, itemCount);
 				return true;
@@ -167,16 +154,17 @@ namespace NGenerics.DataStructures.General
 			if (maximum >= itemCount)
 			{
 				Count -= itemCount;
-				data.Remove(item);
+				_data.Remove(item);
 			}
 			else
 			{
 				Count -= maximum;
-				data[item] = itemCount - maximum;
+				_data[item] = itemCount - maximum;
 			}
 		}
 
 
+		/// <exception cref="ArgumentOutOfRangeException">The amount of items to b added can only be 1 or more.</exception>
 		/// <inheritdoc />
 		/// <example>
 		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="AddAmount" lang="cs" title="The following example shows how to use the Add method."/>
@@ -187,7 +175,7 @@ namespace NGenerics.DataStructures.General
 
 			if (amount <= 0)
 			{
-                throw new ArgumentOutOfRangeException("amount", "You can only add 1 or more items.");
+                throw new ArgumentOutOfRangeException(nameof(amount), "You can only add 1 or more items.");
 			}
 
 			#endregion
@@ -207,13 +195,13 @@ namespace NGenerics.DataStructures.General
 		/// </remarks>
 		protected virtual void AddItem(T item, int amount)
 		{
-		    if (data.TryGetValue(item, out var itemCount))
+		    if (_data.TryGetValue(item, out var itemCount))
 			{
-				data[item] = itemCount + amount;
+				_data[item] = itemCount + amount;
 			}
 			else
 			{
-				data.Add(item, amount);
+				_data.Add(item, amount);
 			}
 
 			Count += amount;
@@ -228,7 +216,7 @@ namespace NGenerics.DataStructures.General
 		[SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
 		public IEnumerator<KeyValuePair<T, int>> GetCountEnumerator()
 		{
-			return data.GetEnumerator();
+			return _data.GetEnumerator();
 		}
 
 
@@ -301,7 +289,7 @@ namespace NGenerics.DataStructures.General
                 {
                     var item = enumerator.Current;
 
-                    if (data.TryGetValue(item.Key, out var itemCount))
+                    if (_data.TryGetValue(item.Key, out var itemCount))
                     {
                         resultBag.Add(item.Key,
                                    Math.Min(item.Value, itemCount)
@@ -324,7 +312,7 @@ namespace NGenerics.DataStructures.General
 
             var resultBag = new Bag<T>();
 
-            foreach (var item in data)
+            foreach (var item in _data)
             {
                 resultBag.Add(item.Key, item.Value);
             }
@@ -351,7 +339,7 @@ namespace NGenerics.DataStructures.General
         {
             Guard.ArgumentNotNull(bag, "bag");
 
-            var resultBag = new Bag<T>(data);
+            var resultBag = new Bag<T>(_data);
             
             using (var enumerator = bag.GetCountEnumerator())
             {
@@ -359,7 +347,7 @@ namespace NGenerics.DataStructures.General
                 {
                     var item = enumerator.Current;
 
-                    if (resultBag.data.TryGetValue(item.Key, out var itemCount))
+                    if (resultBag._data.TryGetValue(item.Key, out var itemCount))
                     {
                         if (itemCount - item.Value <= 0)
                         {
@@ -439,7 +427,7 @@ namespace NGenerics.DataStructures.General
 		{
 			get
 			{
-			    if (data.TryGetValue(item, out var itemCount))
+			    if (_data.TryGetValue(item, out var itemCount))
 			    {
 			        return itemCount;
 			    }
@@ -453,7 +441,7 @@ namespace NGenerics.DataStructures.General
 		#region ICollection<T> Members
 
 
-		/// <inheritdoc />
+		
 		/// <example>
 		/// <code source="..\..\NGenerics.Examples\DataStructures\General\BagExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
 		/// </example>           
@@ -481,7 +469,7 @@ namespace NGenerics.DataStructures.General
 
 			var counter = arrayIndex;
 
-			foreach (var keyValuePair in data)
+			foreach (var keyValuePair in _data)
 			{
 				var itemCount = keyValuePair.Value;
 				var obj = keyValuePair.Key;
@@ -518,7 +506,7 @@ namespace NGenerics.DataStructures.General
 		/// </example>        
 		public bool Remove(T item)
 		{
-		    if (data.TryGetValue(item, out var itemCount))
+		    if (_data.TryGetValue(item, out var itemCount))
 			{
                 RemoveItem(item, 1, itemCount);
 				return true;
@@ -534,7 +522,7 @@ namespace NGenerics.DataStructures.General
 		/// </example>        
 		public bool Contains(T item)
 		{
-			return data.ContainsKey(item);
+			return _data.ContainsKey(item);
 		}
 
 
@@ -544,7 +532,7 @@ namespace NGenerics.DataStructures.General
 		/// </example>        
 		public IEnumerator<T> GetEnumerator()
 		{
-            foreach (var item in data)
+            foreach (var item in _data)
             {
                 yield return item.Key;
             }
@@ -553,7 +541,7 @@ namespace NGenerics.DataStructures.General
 
         IEnumerator<KeyValuePair<T, int>> IEnumerable<KeyValuePair<T, int>>.GetEnumerator()
         {
-            foreach (var item in data)
+            foreach (var item in _data)
             {
                 yield return item;
             }
@@ -578,7 +566,7 @@ namespace NGenerics.DataStructures.General
 		/// </remarks>
 		protected virtual void ClearItems()
 		{
-			data.Clear();
+			_data.Clear();
 			Count = 0;
 		}
 
@@ -642,7 +630,7 @@ namespace NGenerics.DataStructures.General
 				return false;
 			}
 		    
-            foreach (var item in data)
+            foreach (var item in _data)
             {
                 if (!other.Contains(item.Key))
 		        {

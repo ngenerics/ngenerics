@@ -42,9 +42,9 @@ namespace NGenerics.DataStructures.General
 
         internal const string CouldNotBeFoundInTheGraph = "The vertex specified could not be found in the graph.";
         private const string GraphIsEmpty = "The graph is empty.";
-        private readonly Dictionary<Vertex<T>, object> graphVertices;
-        private readonly Dictionary<Edge<T>, object> graphEdges;
-        private readonly bool graphIsDirected;
+        private readonly Dictionary<Vertex<T>, object> _graphVertices;
+        private readonly Dictionary<Edge<T>, object> _graphEdges;
+        private readonly bool _graphIsDirected;
 
         #endregion
 
@@ -56,9 +56,9 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public Graph(bool isDirected)
         {
-            graphIsDirected = isDirected;
-            graphVertices = new Dictionary<Vertex<T>, object>();
-            graphEdges = new Dictionary<Edge<T>, object>();
+            _graphIsDirected = isDirected;
+            _graphVertices = new Dictionary<Vertex<T>, object>();
+            _graphEdges = new Dictionary<Edge<T>, object>();
         }
 
         #endregion
@@ -69,7 +69,7 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
-        public bool IsEmpty => graphVertices.Count == 0;
+        public bool IsEmpty => _graphVertices.Count == 0;
 
 
         /// <inheritdoc />
@@ -77,7 +77,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        int ICollection<T>.Count => graphVertices.Count;
+        int ICollection<T>.Count => _graphVertices.Count;
 
 
         /// <inheritdoc />
@@ -113,7 +113,7 @@ namespace NGenerics.DataStructures.General
             #region Validation
 
             Guard.ArgumentNotNull(array, "array");
-            if ((array.Length - arrayIndex) < graphVertices.Count)
+            if ((array.Length - arrayIndex) < _graphVertices.Count)
             {
                 throw new ArgumentException(Constants.NotEnoughSpaceInTheTargetArray, "array");
             }
@@ -122,7 +122,7 @@ namespace NGenerics.DataStructures.General
 
             var counter = arrayIndex;
 
-            foreach (var vertex in graphVertices.Keys)
+            foreach (var vertex in _graphVertices.Keys)
             {
                 array.SetValue(vertex.Data, counter);
                 counter++;
@@ -154,8 +154,8 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public IEnumerator<T> GetEnumerator()
         {
-            var vertexList = new List<Vertex<T>>(graphVertices.Count);
-            vertexList.AddRange(graphVertices.Keys);
+            var vertexList = new List<Vertex<T>>(_graphVertices.Count);
+            vertexList.AddRange(_graphVertices.Keys);
 
             foreach (var v in vertexList)
             {
@@ -171,8 +171,8 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public void Clear()
         {
-            graphVertices.Clear();
-            graphEdges.Clear();
+            _graphVertices.Clear();
+            _graphEdges.Clear();
         }
 
         #endregion
@@ -195,7 +195,7 @@ namespace NGenerics.DataStructures.General
             Guard.ArgumentNotNull(visitor, "visitor");
             Guard.ArgumentNotNull(startVertex, "startVertex");
 
-            var visitedVertices = new List<Vertex<T>>(graphVertices.Count);
+            var visitedVertices = new List<Vertex<T>>(_graphVertices.Count);
 
             DepthFirstTraversal(visitor, startVertex, ref visitedVertices);
         }
@@ -220,7 +220,7 @@ namespace NGenerics.DataStructures.General
 
             // If the visitor has not visited each and every vertex in the 
             // graph, it has cycles in it.
-            return count < graphVertices.Count;
+            return count < _graphVertices.Count;
         }
 
         /// <summary>
@@ -258,7 +258,7 @@ namespace NGenerics.DataStructures.General
         {
             var count = TopologicalSortTraversalInternal(visitor);
 
-            if (count < graphVertices.Count)
+            if (count < _graphVertices.Count)
             {
                 throw new InvalidOperationException("A cycle was found in the graph.");
             }
@@ -281,7 +281,7 @@ namespace NGenerics.DataStructures.General
             Guard.ArgumentNotNull(visitor, "visitor");
             Guard.ArgumentNotNull(startVertex, "startVertex");
 
-            var visitedVertices = new List<Vertex<T>>(graphVertices.Count);
+            var visitedVertices = new List<Vertex<T>>(_graphVertices.Count);
 
             var visitableQueue = new Queue<Vertex<T>>();
 
@@ -321,7 +321,7 @@ namespace NGenerics.DataStructures.General
         public bool RemoveVertex(Vertex<T> vertex)
         {
             //no need to check vertex for null as graphVertices.Remove will do this
-            if (!graphVertices.Remove(vertex))
+            if (!_graphVertices.Remove(vertex))
             {
                 return false;
             }
@@ -347,7 +347,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public bool RemoveVertex(T item)
         {
-            foreach (var vertex in graphVertices.Keys)
+            foreach (var vertex in _graphVertices.Keys)
             {
                 if (vertex.Data.Equals(item))
                 {
@@ -372,7 +372,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public bool ContainsVertex(Vertex<T> vertex)
         {
-            return graphVertices.ContainsKey(vertex);
+            return _graphVertices.ContainsKey(vertex);
         }
 
         /// <summary>
@@ -387,7 +387,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public bool ContainsVertex(T item)
         {
-            foreach (var vertex in graphVertices.Keys)
+            foreach (var vertex in _graphVertices.Keys)
             {
                 if (vertex.Data.Equals(item))
                 {
@@ -407,7 +407,7 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsDirected" lang="cs" title="The following example shows how to use the IsDirected property."/>
         /// </example>
-        public bool IsDirected => graphIsDirected;
+        public bool IsDirected => _graphIsDirected;
 
         /// <summary>
         /// Removes the edge specified from the graph.
@@ -426,7 +426,7 @@ namespace NGenerics.DataStructures.General
 
             #endregion
 
-            if (!graphEdges.Remove(edge))
+            if (!_graphEdges.Remove(edge))
             {
                 return false;
             }
@@ -454,9 +454,9 @@ namespace NGenerics.DataStructures.General
         {
             Guard.ArgumentNotNull(from, "from");
             Guard.ArgumentNotNull(to, "to");
-            if (graphIsDirected)
+            if (_graphIsDirected)
             {
-                foreach (var edge in graphEdges.Keys)
+                foreach (var edge in _graphEdges.Keys)
                 {
                     if ((edge.FromVertex == from) && (edge.ToVertex == to))
                     {
@@ -467,7 +467,7 @@ namespace NGenerics.DataStructures.General
             }
             else
             {
-                foreach (var edge in graphEdges.Keys)
+                foreach (var edge in _graphEdges.Keys)
                 {
                     if (((edge.FromVertex == from) && (edge.ToVertex == to)) ||
                         ((edge.FromVertex == to) && (edge.ToVertex == from)))
@@ -498,12 +498,12 @@ namespace NGenerics.DataStructures.General
 
             CheckEdgeNotNull(edge);
 
-            if (edge.IsDirected != graphIsDirected)
+            if (edge.IsDirected != _graphIsDirected)
             {
                 throw new ArgumentException("The type of edge must be the same as the type of graph (Undirected / Directed)", "edge");
             }
 
-            if ((!graphVertices.ContainsKey(edge.FromVertex)) || (!graphVertices.ContainsKey(edge.ToVertex)))
+            if ((!_graphVertices.ContainsKey(edge.FromVertex)) || (!_graphVertices.ContainsKey(edge.ToVertex)))
             {
                 throw new ArgumentException(CouldNotBeFoundInTheGraph, "edge");
             }
@@ -515,7 +515,7 @@ namespace NGenerics.DataStructures.General
 
             #endregion
 
-            graphEdges.Add(edge, null);
+            _graphEdges.Add(edge, null);
             AddEdgeToVertices(edge);
         }
 
@@ -534,14 +534,14 @@ namespace NGenerics.DataStructures.General
 
 			Guard.ArgumentNotNull(vertex,"vertex");
             
-			if (graphVertices.ContainsKey(vertex))
+			if (_graphVertices.ContainsKey(vertex))
             {
                 throw new ArgumentException("The vertex already exists in the graph.", "vertex");
             }
 
             #endregion
 
-            graphVertices.Add(vertex, null);
+            _graphVertices.Add(vertex, null);
         }
 
         /// <summary>
@@ -555,7 +555,7 @@ namespace NGenerics.DataStructures.General
         public Vertex<T> AddVertex(T item)
         {
             var vertex = new Vertex<T>(item);
-            graphVertices.Add(vertex, null);
+            _graphVertices.Add(vertex, null);
             return vertex;
         }
 
@@ -570,7 +570,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public Edge<T> AddEdge(Vertex<T> from, Vertex<T> to)
         {
-            var edge = new Edge<T>(from, to, graphIsDirected);
+            var edge = new Edge<T>(from, to, _graphIsDirected);
             AddEdge(edge);
             return edge;
         }
@@ -587,7 +587,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public Edge<T> AddEdge(Vertex<T> from, Vertex<T> to, double weight)
         {
-            var edge = new Edge<T>(from, to, weight, graphIsDirected);
+            var edge = new Edge<T>(from, to, weight, _graphIsDirected);
             AddEdge(edge);
             return edge;
         }
@@ -600,7 +600,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Vertices" lang="cs" title="The following example shows how to use the Vertices property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-        public ICollection<Vertex<T>> Vertices => graphVertices.Keys;
+        public ICollection<Vertex<T>> Vertices => _graphVertices.Keys;
 
         /// <summary>
         /// Gets the edges contained in this graph.
@@ -610,7 +610,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="Edges" lang="cs" title="The following example shows how to use the Edges property."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-        public ICollection<Edge<T>> Edges => graphEdges.Keys;
+        public ICollection<Edge<T>> Edges => _graphEdges.Keys;
 
 
         /// <summary>
@@ -623,7 +623,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public bool IsWeaklyConnected()
         {
-            if (graphVertices.Count == 0)
+            if (_graphVertices.Count == 0)
             {
                 throw new InvalidOperationException(GraphIsEmpty);
             }
@@ -632,7 +632,7 @@ namespace NGenerics.DataStructures.General
 
             BreadthFirstTraversal(countingVisitor, GetAnyVertex());
 
-            return (countingVisitor.Count == graphVertices.Count);
+            return (countingVisitor.Count == _graphVertices.Count);
         }
 
         /// <summary>
@@ -648,12 +648,12 @@ namespace NGenerics.DataStructures.General
         {
             #region Validation
 
-            if (graphIsDirected)
+            if (_graphIsDirected)
             {
                 throw new InvalidOperationException("This operation is only valid on a directed graph. For undirected graphs, rather test for weak connectedness.");
             }
 
-            if (graphVertices.Count == 0)
+            if (_graphVertices.Count == 0)
             {
                 throw new InvalidOperationException(GraphIsEmpty);
             }
@@ -662,11 +662,11 @@ namespace NGenerics.DataStructures.General
 
             var countingVisitor = new CountingVisitor<Vertex<T>>();
 
-            foreach (var vertex in graphVertices.Keys)
+            foreach (var vertex in _graphVertices.Keys)
             {
                 BreadthFirstTraversal(countingVisitor, vertex);
 
-                if (countingVisitor.Count != graphVertices.Count)
+                if (countingVisitor.Count != _graphVertices.Count)
                 {
                     return false;
                 }
@@ -690,9 +690,9 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public bool ContainsEdge(T fromValue, T toValue)
         {
-            if (graphIsDirected)
+            if (_graphIsDirected)
             {
-                foreach (var edge in graphEdges.Keys)
+                foreach (var edge in _graphEdges.Keys)
                 {
                     if ((edge.FromVertex.Data.Equals(fromValue) &&
                         (edge.ToVertex.Data.Equals(toValue))))
@@ -703,7 +703,7 @@ namespace NGenerics.DataStructures.General
             }
             else
             {
-                foreach (var edge in graphEdges.Keys)
+                foreach (var edge in _graphEdges.Keys)
                 {
                     if (((edge.FromVertex.Data.Equals(fromValue) &&
                         (edge.ToVertex.Data.Equals(toValue)))) ||
@@ -731,7 +731,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public bool ContainsEdge(Vertex<T> from, Vertex<T> to)
         {
-            return graphIsDirected ? from.HasEmanatingEdgeTo(to) : from.HasIncidentEdgeWith(to);
+            return _graphIsDirected ? from.HasEmanatingEdgeTo(to) : from.HasIncidentEdgeWith(to);
         }
 
         /// <summary>
@@ -746,7 +746,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public bool ContainsEdge(Edge<T> edge)
         {
-            return graphEdges.ContainsKey(edge);
+            return _graphEdges.ContainsKey(edge);
         }
 
         /// <summary>
@@ -774,7 +774,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public Edge<T> GetEdge(T fromVertexValue, T toVertexValue)
         {
-            foreach (var vertex in graphVertices.Keys)
+            foreach (var vertex in _graphVertices.Keys)
             {
                 if (vertex.Data.Equals(fromVertexValue))
                 {
@@ -803,7 +803,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public Vertex<T> GetVertex(T vertexValue)
         {
-            foreach (var vertex in graphVertices.Keys)
+            foreach (var vertex in _graphVertices.Keys)
             {
                 if (vertex.Data.Equals(vertexValue))
                 {
@@ -830,7 +830,7 @@ namespace NGenerics.DataStructures.General
             
             var list = new List<Vertex<T>>();
 
-            foreach (var vertex in graphVertices.Keys)
+            foreach (var vertex in _graphVertices.Keys)
             {
                 if (predicate(vertex.Data))
                 {
@@ -901,7 +901,7 @@ namespace NGenerics.DataStructures.General
 
             if (!IsEmpty)
             {
-                var depth = new Dictionary<Vertex<T>, int>(graphVertices.Count);
+                var depth = new Dictionary<Vertex<T>, int>(_graphVertices.Count);
 
                 // Create a new queue to store the vertices to visit.
                 var queue = new Queue<Vertex<T>>();
@@ -1046,11 +1046,11 @@ namespace NGenerics.DataStructures.General
         {
             #region Asserts
 
-            Debug.Assert(graphVertices.Count > 0);
+            Debug.Assert(_graphVertices.Count > 0);
 
             #endregion
 
-			foreach (var key in graphVertices.Keys)
+			foreach (var key in _graphVertices.Keys)
         	{
 				return key;
         	}

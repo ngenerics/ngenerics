@@ -121,13 +121,7 @@ namespace NGenerics.DataStructures.General
 		/// Gets the comparer.
 		/// </summary>
 		/// <value>The comparer.</value>
-		public IComparer<T> Comparer
-		{
-			get
-			{
-				return comparerToUse;
-			}
-		}
+		public IComparer<T> Comparer => comparerToUse;
 
 		#endregion
 
@@ -138,13 +132,7 @@ namespace NGenerics.DataStructures.General
 		/// <example>
 		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
 		/// </example>
-		public bool IsEmpty
-		{
-			get
-			{
-				return Count == 0;
-			}
-		}
+		public bool IsEmpty => Count == 0;
 
 
 		/// <inheritdoc />  
@@ -230,23 +218,11 @@ namespace NGenerics.DataStructures.General
 		/// <example>
 		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count method."/>
 		/// </example>
-		public int Count
-		{
-			get
-			{
-				return data.Count;
-			}
-		}
+		public int Count => data.Count;
 
-		object ICollection.SyncRoot
-		{
-			get { return data; }
-		}
+		object ICollection.SyncRoot => data;
 
-		bool ICollection.IsSynchronized
-		{
-			get { return false; }
-		}
+		bool ICollection.IsSynchronized => false;
 
 		/// <summary>
 		/// Returns an enumerator that iterates through the collection.
@@ -269,7 +245,8 @@ namespace NGenerics.DataStructures.General
 		/// <exception cref="ArgumentNullException"><paramref name="collection"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		public void AddRange(IEnumerable<T> collection)
 		{
-			Guard.ArgumentNotNull(collection, "collection");
+			Guard.ArgumentNotNull(collection, nameof(collection));
+			
 			foreach (var item in collection)
 			{
 				AddItem(item);
@@ -313,13 +290,7 @@ namespace NGenerics.DataStructures.General
 		/// </summary>
 		/// <returns>The element at the specified index.</returns>
 		/// <exception cref="ArgumentOutOfRangeException"><paramref name="index"/> is less than 0.-or-<paramref name="index"/> is equal to or greater than <see cref="Count"/>.</exception>
-		public T this[int index]
-		{
-			get
-			{
-				return data[index];
-			}
-		}
+		public T this[int index] => data[index];
 
 		#endregion
 
@@ -333,18 +304,9 @@ namespace NGenerics.DataStructures.General
 		/// <example>
 		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
 		/// </example>
-		public bool IsReadOnly
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public bool IsReadOnly => false;
 
-		bool IList.IsFixedSize
-		{
-			get { return false; }
-		}
+		bool IList.IsFixedSize => false;
 
 		#endregion
 
@@ -381,14 +343,8 @@ namespace NGenerics.DataStructures.General
 		[SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
 		T IList<T>.this[int index]
 		{
-			get
-			{
-				return this[index];
-			}
-			set
-			{
-				throw new NotSupportedException();
-			}
+			get => this[index];
+			set => throw new NotSupportedException();
 		}
 
 		#endregion

@@ -41,7 +41,7 @@ namespace NGenerics.Tests.Algorithms.Graph.DjikstraTests
 
             var resultGraph = GraphAlgorithms.DijkstrasAlgorithm(graph, vertex1);
 
-            Assert.AreEqual(resultGraph.Edges.Count, 2);
+            Assert.AreEqual(2, resultGraph.Edges.Count);
 
             var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 

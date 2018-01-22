@@ -35,9 +35,9 @@ namespace NGenerics.DataStructures.Queues
     {
         #region Globals
 
-        private readonly RedBlackTreeList<TPriority, TValue> tree;
-        private TPriority defaultPriority;
-        private readonly PriorityQueueType queueType;
+        private readonly RedBlackTreeList<TPriority, TValue> _tree;
+        private TPriority _defaultPriority;
+        private readonly PriorityQueueType _queueType;
 
         #endregion
 
@@ -57,8 +57,8 @@ namespace NGenerics.DataStructures.Queues
             if ((queueType != PriorityQueueType.Minimum) && (queueType != PriorityQueueType.Maximum)) {
                 throw new ArgumentOutOfRangeException("queueType");
             }
-            this.queueType = queueType;
-            tree = new RedBlackTreeList<TPriority, TValue>(comparer);
+            _queueType = queueType;
+            _tree = new RedBlackTreeList<TPriority, TValue>(comparer);
         }
 
         /// <summary>
@@ -107,8 +107,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
         public TValue Dequeue()
         {
-            TPriority priority;
-            return Dequeue(out priority);
+            return Dequeue(out _);
         }
 
 
@@ -152,13 +151,7 @@ namespace NGenerics.DataStructures.Queues
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\PriorityQueueExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         #endregion
 
@@ -181,7 +174,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
         public IEnumerator<TValue> GetEnumerator()
         {
-            return tree.GetValueEnumerator();
+            return _tree.GetValueEnumerator();
         }
 
         #endregion
@@ -200,7 +193,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
         public bool Contains(TValue item)
         {
-            return tree.ContainsValue(item);
+            return _tree.ContainsValue(item);
         }
 
         /// <inheritdoc />
@@ -221,7 +214,7 @@ namespace NGenerics.DataStructures.Queues
             #endregion
 
 
-            foreach (var association in tree)
+            foreach (var association in _tree)
             {
                 var items = association.Value;
 
@@ -238,7 +231,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
         public void Add(TValue item)
         {
-            Add(item, defaultPriority);
+            Add(item, _defaultPriority);
         }
 
         /// <summary>
@@ -258,8 +251,7 @@ namespace NGenerics.DataStructures.Queues
         /// <inheritdoc />
         public bool Remove(TValue item)
         {
-            TPriority priority;
-            return Remove(item, out priority);
+            return Remove(item, out _);
         }
 
         /// <summary>
@@ -273,7 +265,7 @@ namespace NGenerics.DataStructures.Queues
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         public IEnumerator<KeyValuePair<TPriority, TValue>> GetKeyEnumerator()
         {
-            return tree.GetKeyEnumerator();
+            return _tree.GetKeyEnumerator();
         }
 
         /// <inheritdoc />
@@ -320,7 +312,7 @@ namespace NGenerics.DataStructures.Queues
 
             if (association.Value.Count == 0)
             {
-                tree.Remove(association.Key);
+                _tree.Remove(association.Key);
             }
 
             Count--;
@@ -335,14 +327,8 @@ namespace NGenerics.DataStructures.Queues
         /// <value>The default priority.</value>
         public TPriority DefaultPriority
         {
-            get
-            {
-                return defaultPriority;
-            }
-            set
-            {
-                defaultPriority = value;
-            }
+            get => _defaultPriority;
+            set => _defaultPriority = value;
         }
 
         /// <summary>
@@ -369,7 +355,7 @@ namespace NGenerics.DataStructures.Queues
         [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#")]
         protected virtual bool RemoveItem(TValue item, out TPriority priority)
         {
-            var removed = tree.Remove(item, out priority);
+            var removed = _tree.Remove(item, out priority);
 
             if (removed)
             {
@@ -396,11 +382,9 @@ namespace NGenerics.DataStructures.Queues
         /// <returns>An indication of whether items were found having the specified priority.</returns>
 		protected virtual bool RemoveItems(TPriority priority)
 		{
-			LinkedList<TValue> items;
-			
-            if (tree.TryGetValue(priority, out items))
+		    if (_tree.TryGetValue(priority, out var items))
 			{
-				tree.Remove(priority);
+				_tree.Remove(priority);
 				Count -= items.Count;
 				return true;
 			}
@@ -415,9 +399,7 @@ namespace NGenerics.DataStructures.Queues
         /// <returns>The items with the specified priority.</returns>
         public IList<TValue> GetPriorityGroup(TPriority priority)
     	{
-    	    LinkedList<TValue> items;
-
-    	    return tree.TryGetValue(priority, out items) ? new List<TValue>(items) : new List<TValue>();
+	        return _tree.TryGetValue(priority, out var items) ? new List<TValue>(items) : new List<TValue>();
     	}
 
 
@@ -449,9 +431,7 @@ namespace NGenerics.DataStructures.Queues
         /// </remarks>
         protected virtual void AddPriorityGroupItem(IList<TValue> items, TPriority priority)
         {
-            LinkedList<TValue> currentValues;
-
-            if (tree.TryGetValue(priority, out currentValues))
+            if (_tree.TryGetValue(priority, out var currentValues))
             {
                 for (var i = 0; i < items.Count; i++)
                 {
@@ -461,7 +441,7 @@ namespace NGenerics.DataStructures.Queues
             else
             {
                 currentValues = new LinkedList<TValue>(items);
-                tree.Add(priority, currentValues);
+                _tree.Add(priority, currentValues);
             }
         }
 
@@ -482,7 +462,7 @@ namespace NGenerics.DataStructures.Queues
         {
             LinkedList<TValue> list;
 
-            if (tree.TryGetValue(priority, out list))
+            if (_tree.TryGetValue(priority, out list))
             {
                 list.AddLast(item);
             }
@@ -490,7 +470,7 @@ namespace NGenerics.DataStructures.Queues
             {
                 list = new LinkedList<TValue>();
                 list.AddLast(item);
-                tree.Add(priority, list);
+                _tree.Add(priority, list);
             }
 
             Count++;
@@ -505,7 +485,7 @@ namespace NGenerics.DataStructures.Queues
         /// </remarks>
         protected virtual void ClearItems()
         {
-            tree.Clear();
+            _tree.Clear();
             Count = 0;
         }
 
@@ -518,7 +498,7 @@ namespace NGenerics.DataStructures.Queues
         /// </summary>
         private void CheckTreeNotEmpty()
         {
-            if (tree.Count == 0)
+            if (_tree.Count == 0)
             {
                 throw new InvalidOperationException("The Priority Queue is empty.");
             }
@@ -535,7 +515,7 @@ namespace NGenerics.DataStructures.Queues
 
             #endregion
 
-            return queueType == PriorityQueueType.Maximum ? tree.Maximum : tree.Minimum;
+            return _queueType == PriorityQueueType.Maximum ? _tree.Maximum : _tree.Minimum;
         }
 
         #endregion

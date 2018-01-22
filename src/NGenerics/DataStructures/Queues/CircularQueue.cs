@@ -29,9 +29,9 @@ namespace NGenerics.DataStructures.Queues
     {
         #region Globals
 
-        const string queueIsEmpty = "The Queue is empty.";
-        private readonly LinkedList<T> data = new LinkedList<T>();
-        private readonly int capacity;
+        private const string QueueIsEmpty = "The Queue is empty.";
+        private readonly LinkedList<T> _data = new LinkedList<T>();
+        private readonly int _capacity;
 
         #endregion
 
@@ -51,7 +51,7 @@ namespace NGenerics.DataStructures.Queues
                 throw new ArgumentException("Capacity can not be less than 1.", "capacity");
             }
 
-            this.capacity = capacity;
+            _capacity = capacity;
 
             #endregion
         }
@@ -80,12 +80,12 @@ namespace NGenerics.DataStructures.Queues
         /// </remarks>
 		protected virtual void  EnqueueItem(T item)
 		{
-            if (data.Count == capacity)
+            if (_data.Count == _capacity)
             {
-                data.RemoveFirst();
+                _data.RemoveFirst();
             }
 
-            data.AddLast(item);
+            _data.AddLast(item);
 		}
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace NGenerics.DataStructures.Queues
 		{
 		    if (IsEmpty)
 		    {
-		        throw new InvalidOperationException(queueIsEmpty);
+		        throw new InvalidOperationException(QueueIsEmpty);
 		    }
 
             return DequeueItem();
@@ -116,8 +116,8 @@ namespace NGenerics.DataStructures.Queues
 		protected virtual T DequeueItem()
 		{
 
-			var value = data.First.Value;
-			data.RemoveFirst();
+			var value = _data.First.Value;
+			_data.RemoveFirst();
 			return value;
 		}
 
@@ -132,10 +132,10 @@ namespace NGenerics.DataStructures.Queues
 		{
 		    if (IsEmpty)
             {
-                throw new InvalidOperationException(queueIsEmpty);
+                throw new InvalidOperationException(QueueIsEmpty);
             }
 		    
-            return data.First.Value;
+            return _data.First.Value;
 		}
 
         #endregion
@@ -147,25 +147,13 @@ namespace NGenerics.DataStructures.Queues
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
-        public bool IsEmpty
-        {
-            get
-            {
-                return data.Count == 0;
-            }
-        }
+        public bool IsEmpty => _data.Count == 0;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="IsFull" lang="cs" title="The following example shows how to use the IsFull property."/>
         /// </example>
-        public bool IsFull
-        {
-            get
-            {
-                return data.Count == capacity;
-            }
-        }
+        public bool IsFull => _data.Count == _capacity;
 
         #endregion
 
@@ -196,7 +184,7 @@ namespace NGenerics.DataStructures.Queues
 		/// </remarks>
         protected virtual void ClearItems()
         {
-            data.Clear();
+            _data.Clear();
         }
 
 		/// <inheritdoc />
@@ -205,7 +193,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
         public bool Contains(T item)
         {
-            return !IsEmpty && data.Contains(item);
+            return !IsEmpty && _data.Contains(item);
         }
 
 		/// <inheritdoc />
@@ -221,34 +209,22 @@ namespace NGenerics.DataStructures.Queues
                 return;
             }
 		    
-            data.CopyTo(array, arrayIndex);
+            _data.CopyTo(array, arrayIndex);
         }
 
 		/// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
-        public int Count
-        {
-            get
-            {
-                return data.Count;
-            }
-        }
+        public int Count => _data.Count;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
-		/// <inheritdoc />
+	    /// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Remove" lang="cs" title="The following example shows how to use the Remove method."/>
         /// </example>
@@ -268,7 +244,7 @@ namespace NGenerics.DataStructures.Queues
         /// </remarks>
         protected virtual bool RemoveItem(T item)
         {
-            return data.Remove(item);
+            return _data.Remove(item);
         }
 
         #endregion
@@ -286,7 +262,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
         public IEnumerator<T> GetEnumerator()
         {
-            return data.GetEnumerator();
+            return _data.GetEnumerator();
         }
 
         #endregion
@@ -311,14 +287,8 @@ namespace NGenerics.DataStructures.Queues
         /// <example>
         /// 	<code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="Capacity" lang="cs" title="The following example shows how to use the Capacity property."/>
         /// </example>
-        public int Capacity
-        {
-            get
-            {
-                return capacity;
-            }
-        }
+        public int Capacity => _capacity;
 
-        #endregion
+	    #endregion
     }
 }

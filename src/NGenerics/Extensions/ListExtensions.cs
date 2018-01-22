@@ -217,24 +217,6 @@ namespace NGenerics.Extensions
         }
 
 
-        /// <summary>
-        /// Performs the specified action on each item in the list.
-        /// </summary>
-        /// <typeparam name="T">The type of item in the list.</typeparam>
-        /// <param name="list">The list to enumerate over.</param>
-        /// <param name="action">The action to execute.</param>
-        public static void ForEach<T>(this IList<T> list, Action<T> action)
-		{
-			Guard.ArgumentNotNull(list, "list");
-            Guard.ArgumentNotNull(action, "action");
-
-            foreach (var item in list)
-            {
-                action(item);
-            }
-		}
-
-
         /// <inheritdoc cref="List{T}.InsertRange"/>
         public static void InsertRange<T>(this IList<T> list, int index, IEnumerable<T> collection)
 		{

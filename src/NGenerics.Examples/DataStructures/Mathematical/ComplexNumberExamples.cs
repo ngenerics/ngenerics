@@ -172,7 +172,6 @@ namespace ExampleLibraryCSharp.DataStructures.Mathematical
             object complexNumber1 = new ComplexNumber(1, 2);
             object complexNumber2 = new ComplexNumber(1, 2);
 
-            Assert.IsTrue(complexNumber1.Equals(complexNumber1));
             Assert.IsTrue(complexNumber1.Equals(complexNumber2));
         }
 

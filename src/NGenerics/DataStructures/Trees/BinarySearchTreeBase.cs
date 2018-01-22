@@ -29,9 +29,10 @@ namespace NGenerics.DataStructures.Trees
 
         #region Globals
 
-        internal const string alreadyContainedInTheTree = "The item is already contained in the tree.";
-        private BinaryTree<T> tree;
-        private readonly IComparer<T> comparer;
+        internal const string AlreadyContainedInTheTree = "The item is already contained in the tree.";
+        
+        private BinaryTree<T> _tree;
+        private readonly IComparer<T> _comparer;
 
         #endregion
 
@@ -52,7 +53,7 @@ namespace NGenerics.DataStructures.Trees
         /// </summary>
         protected BinarySearchTreeBase()
         {
-            comparer = Comparer<T>.Default;
+            _comparer = Comparer<T>.Default;
         }
 
         /// <summary>
@@ -63,7 +64,7 @@ namespace NGenerics.DataStructures.Trees
         protected BinarySearchTreeBase(IComparer<T> comparer)
         {
             Guard.ArgumentNotNull(comparer, "comparer");
-            this.comparer = comparer;
+            _comparer = comparer;
         }
 
         /// <summary>
@@ -73,7 +74,7 @@ namespace NGenerics.DataStructures.Trees
         protected BinarySearchTreeBase(Comparison<T> comparison)
         {
             Guard.ArgumentNotNull(comparison, "comparison");
-            comparer = new ComparisonComparer<T>(comparison);
+            _comparer = new ComparisonComparer<T>(comparison);
         }
 
         #endregion
@@ -88,7 +89,7 @@ namespace NGenerics.DataStructures.Trees
         {
             get
             {
-                return comparer;
+                return _comparer;
             }
         }
 
@@ -106,16 +107,16 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         protected virtual BinaryTree<T> FindNode(T item)
         {
-            if (tree == null)
+            if (_tree == null)
             {
                 return null;
             }
 
-            var currentNode = tree;
+            var currentNode = _tree;
 
             while (currentNode != null)
             {
-                var nodeResult = comparer.Compare(item, currentNode.Data);
+                var nodeResult = _comparer.Compare(item, currentNode.Data);
 
                 if (nodeResult == 0)
                 {
@@ -137,12 +138,12 @@ namespace NGenerics.DataStructures.Trees
         /// <returns>The item if  found, else null.</returns>
         protected virtual BinaryTree<T> FindNode<TSearch>(TSearch value, CustomComparison<TSearch> customComparison)
         {
-            if (tree == null)
+            if (_tree == null)
             {
                 return null;
             }
 
-            var currentNode = tree;
+            var currentNode = _tree;
 
             while (currentNode != null)
             {
@@ -182,11 +183,11 @@ namespace NGenerics.DataStructures.Trees
         {
             #region Debug
 
-            Debug.Assert(tree != null);
+            Debug.Assert(_tree != null);
 
             #endregion
 
-            return FindMaximumNode(tree);
+            return FindMaximumNode(_tree);
         }
 
 
@@ -199,11 +200,11 @@ namespace NGenerics.DataStructures.Trees
         {
             #region Debug
 
-            Debug.Assert(tree != null);
+            Debug.Assert(_tree != null);
 
             #endregion
 
-            return FindMinimumNode(tree);
+            return FindMinimumNode(_tree);
         }
 
         /// <summary>
@@ -262,14 +263,8 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         protected BinaryTree<T> Tree
         {
-            get
-            {
-                return tree;
-            }
-            set
-            {
-                tree = value;
-            }
+            get => _tree;
+            set => _tree = value;
         }
 
         #endregion
@@ -283,20 +278,19 @@ namespace NGenerics.DataStructures.Trees
         /// <param name="visitor">The visitor.</param>
         private static void VisitNode(BinaryTree<T> node, OrderedVisitor<T> visitor)
         {
-            if (node != null)
-            {
-                var pair = node.Data;
+            if (node == null) return;
+            
+            var pair = node.Data;
 
-                visitor.VisitPreOrder(pair);
+            visitor.VisitPreOrder(pair);
 
-                VisitNode(node.Left, visitor);
+            VisitNode(node.Left, visitor);
 
-                visitor.VisitInOrder(pair);
+            visitor.VisitInOrder(pair);
 
-                VisitNode(node.Right, visitor);
+            VisitNode(node.Right, visitor);
 
-                visitor.VisitPostOrder(pair);
-            }
+            visitor.VisitPostOrder(pair);
         }
 
         #endregion
@@ -311,12 +305,7 @@ namespace NGenerics.DataStructures.Trees
         {
             get
             {
-                #region Validation
-
                 ValidateEmpty();
-
-                #endregion
-
                 return FindMinimumNode().Data;
             }
         }
@@ -338,12 +327,9 @@ namespace NGenerics.DataStructures.Trees
             get
             {
                 ValidateEmpty();
-
                 return FindMaximumNode().Data;
             }
         }
-
-
 
 
         /// <inheritdoc/>
@@ -352,7 +338,7 @@ namespace NGenerics.DataStructures.Trees
         {
             Guard.ArgumentNotNull(visitor, "visitor");
 
-            VisitNode(tree, visitor);
+            VisitNode(_tree, visitor);
         }
 
         /// <inheritdoc/>
@@ -360,12 +346,12 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         public IEnumerator<T> GetOrderedEnumerator()
         {
-            if (tree != null)
+            if (_tree != null)
             {
                 var trackingVisitor = new TrackingVisitor<T>();
                 var inOrderVisitor = new InOrderVisitor<T>(trackingVisitor);
 
-                tree.DepthFirstTraversal(inOrderVisitor);
+                _tree.DepthFirstTraversal(inOrderVisitor);
 
                 var trackingList = trackingVisitor.TrackingList;
 
@@ -380,13 +366,7 @@ namespace NGenerics.DataStructures.Trees
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
         /// </example>
-        public bool IsEmpty
-        {
-            get
-            {
-                return Count == 0;
-            }
-        }
+        public bool IsEmpty => Count == 0;
 
         /// <inheritdoc />
         public bool Remove(T item)
@@ -419,7 +399,7 @@ namespace NGenerics.DataStructures.Trees
         /// </remarks>
         protected virtual void ClearItems()
         {
-            tree = null;
+            _tree = null;
             Count = 0;
         }
 
@@ -451,27 +431,26 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public IEnumerator<T> GetEnumerator()
         {
-            if (tree != null)
+            if (_tree == null) yield break;
+            
+            var stack = new Stack<BinaryTree<T>>();
+
+            stack.Push(_tree);
+
+            while (stack.Count > 0)
             {
-                var stack = new Stack<BinaryTree<T>>();
+                var binaryTree = stack.Pop();
 
-                stack.Push(tree);
+                yield return binaryTree.Data;
 
-                while (stack.Count > 0)
+                if (binaryTree.Left != null)
                 {
-                    var binaryTree = stack.Pop();
+                    stack.Push(binaryTree.Left);
+                }
 
-                    yield return binaryTree.Data;
-
-                    if (binaryTree.Left != null)
-                    {
-                        stack.Push(binaryTree.Left);
-                    }
-
-                    if (binaryTree.Right != null)
-                    {
-                        stack.Push(binaryTree.Right);
-                    }
+                if (binaryTree.Right != null)
+                {
+                    stack.Push(binaryTree.Right);
                 }
             }
         }
@@ -519,7 +498,7 @@ namespace NGenerics.DataStructures.Trees
 
             #endregion
 
-            foreach (var association in tree)
+            foreach (var association in _tree)
             {
                 array[arrayIndex++] = association;
             }
@@ -528,13 +507,7 @@ namespace NGenerics.DataStructures.Trees
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="IsReadOnly" lang="cs" title="The following example shows how to use the IsReadOnly property."/>
         /// </example>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         #endregion
     }

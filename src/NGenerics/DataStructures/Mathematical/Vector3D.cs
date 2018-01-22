@@ -483,10 +483,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.cs" region="GetZeroVector" lang="cs" title="The following example shows how to use the ZeroVector property."/>
         /// </example>
-        public static Vector3D ZeroVector
-        {
-            get { return new Vector3D(); }
-        }
+        public static Vector3D ZeroVector => new Vector3D();
 
 
         /// <summary>
@@ -496,13 +493,10 @@ namespace NGenerics.DataStructures.Mathematical
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.cs" region="GetUnitVector" lang="cs" title="The following example shows how to use the ZeroVector property."/>
         /// </example>
-        public static Vector3D UnitVector
-        {
-            get { return new Vector3D(1, 1, 1); }
-        }
+        public static Vector3D UnitVector => new Vector3D(1, 1, 1);
 
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\Vector3DExamples.cs" region="Increment" lang="cs" title="The following example shows how to use the Increment method."/>
         /// </example>

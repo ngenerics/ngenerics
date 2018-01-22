@@ -23,7 +23,7 @@ namespace NGenerics.DataStructures.Mathematical
     {
         #region Globals
 
-        private double[] dimensions;
+        private double[] _dimensions;
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace NGenerics.DataStructures.Mathematical
             {
                 throw new ArgumentOutOfRangeException("dimensionCount");
             }
-            dimensions = new double[dimensionCount];
+            _dimensions = new double[dimensionCount];
         }
 
         #endregion
@@ -54,15 +54,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example> 
         public override double this[int index]
         {
-            get
-            {
-                return dimensions[index];
-            }
-            set
-            {
-                dimensions[index] = value;
-            }
-        }
+            get => _dimensions[index];
+		    set => _dimensions[index] = value;
+		}
 
         #endregion
 
@@ -230,7 +224,7 @@ namespace NGenerics.DataStructures.Mathematical
 		/// <inheritdoc />
         protected override IVector<double> DeepClone()
         {
-            return new VectorN(DimensionCount) {dimensions = ((double[]) dimensions.Clone())};
+            return new VectorN(DimensionCount) {_dimensions = ((double[]) _dimensions.Clone())};
         }
 
 
@@ -542,9 +536,9 @@ namespace NGenerics.DataStructures.Mathematical
         {
             Guard.ArgumentNotNull(vector, "vector");
             CheckDimensionsEqual(this, vector);
-            var temp = dimensions;
-            dimensions = vector.dimensions;
-            vector.dimensions = temp;
+            var temp = _dimensions;
+            _dimensions = vector._dimensions;
+            vector._dimensions = temp;
         }
 
 
@@ -555,7 +549,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example>
         public override double[] ToArray()
         {
-            return (double[]) dimensions.Clone();
+            return (double[]) _dimensions.Clone();
         }
 
 

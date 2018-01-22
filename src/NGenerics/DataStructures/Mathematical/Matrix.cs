@@ -31,8 +31,8 @@ namespace NGenerics.DataStructures.Mathematical
 	public class Matrix : ObjectMatrix<double>, IMathematicalMatrix, IEquatable<IMathematicalMatrix>, ICollection<double>, ICloneable
     {
 
-        const string incompatibleMatrices = "Incompatible matrices.  For this operation the matrices should be of the same size.";
-        const string incompatibleMatricesTimes = "Incompatible matrices for this operation.  The rows of the input matrix must be equal to the columns of this matrix.";
+        private const string IncompatibleMatrices = "Incompatible matrices.  For this operation the matrices should be of the same size.";
+        private const string IncompatibleMatricesTimes = "Incompatible matrices for this operation.  The rows of the input matrix must be equal to the columns of this matrix.";
 
         #region Construction
 
@@ -95,7 +95,7 @@ namespace NGenerics.DataStructures.Mathematical
             // Check the dimensions to make sure the operation is a valid one.
             if (noOfColumns != matrix.Rows)
             {
-                throw new ArgumentException(incompatibleMatricesTimes, "matrix");
+                throw new ArgumentException(IncompatibleMatricesTimes, "matrix");
             }
 
             #endregion
@@ -172,7 +172,7 @@ namespace NGenerics.DataStructures.Mathematical
 
             if ((noOfRows != matrix.Rows) || (noOfColumns != matrix.Columns))
             {
-                throw new ArgumentException(incompatibleMatrices, "matrix");
+                throw new ArgumentException(IncompatibleMatrices, "matrix");
             }
 
             #endregion
@@ -348,7 +348,7 @@ namespace NGenerics.DataStructures.Mathematical
             // Check the dimensions to make sure the operation is a valid one.
             if (noOfColumns != matrix.noOfRows)
             {
-                throw new ArgumentException(incompatibleMatricesTimes, "matrix");
+                throw new ArgumentException(IncompatibleMatricesTimes, "matrix");
             }
 
             #endregion
@@ -443,7 +443,7 @@ namespace NGenerics.DataStructures.Mathematical
 
             if ((noOfRows != matrix.noOfRows) || (noOfColumns != matrix.noOfColumns))
             {
-                throw new ArgumentException(incompatibleMatrices, "matrix");
+                throw new ArgumentException(IncompatibleMatrices, "matrix");
             }
 
             #endregion
@@ -546,10 +546,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example>
         public bool IsSingular
         {
-            get
-            {
-                return Determinant() == 0;
-            }
+            get => Determinant() == 0;
         }
 
         /// <summary>
@@ -973,7 +970,7 @@ namespace NGenerics.DataStructures.Mathematical
 
             if ((leftMatrix.Rows != rightMatrix.Rows) || (leftMatrix.Columns != rightMatrix.Columns))
             {
-                throw new ArgumentException(incompatibleMatrices, "rightMatrix");
+                throw new ArgumentException(IncompatibleMatrices, "rightMatrix");
             }
 
             #endregion
