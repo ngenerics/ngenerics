@@ -247,7 +247,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example>
         public Vector3D CrossProduct(Vector3D vector)
         {
-            Guard.ArgumentNotNull(vector, "vector");
+            Guard.ArgumentNotNull(vector, nameof(vector));
             return new Vector3D(Y * vector.Z,
                                 -X * vector.Z,
                                 X * vector.Y - Y * vector.X);
@@ -265,8 +265,8 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example>
         public Vector3D CrossProduct(Vector2D vector)
         {
-            Guard.ArgumentNotNull(vector, "vector");
-            return new Vector3D(0, 0, X * vector.Y - Y * vector.Y);
+            Guard.ArgumentNotNull(vector, nameof(vector));
+            return new Vector3D(0, 0, X * vector.Y - Y * vector.X);
         }
 
 

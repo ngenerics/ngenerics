@@ -844,14 +844,14 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="j"/> is greater than <see cref="Columns"/>.</exception>
         private void CheckIndexValid(int i, int j)
         {
-            if ((i < 0) || (i > noOfRows - 1))
+            if (i < 0 || i > noOfRows - 1)
             {
-                throw new ArgumentOutOfRangeException("i");
+                throw new ArgumentOutOfRangeException(nameof(i));
             }
 
-            if ((j < 0) || (j > noOfColumns - 1))
+            if (j < 0 || j > noOfColumns - 1)
             {
-                throw new ArgumentOutOfRangeException("j");
+                throw new ArgumentOutOfRangeException(nameof(j));
             }
         }        
 

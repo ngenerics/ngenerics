@@ -169,15 +169,14 @@ namespace ExampleLibraryCSharp.DataStructures.Mathematical
         [Test]
         public void CrossProduct2DExample()
         {
-            var vector1 = new Vector2D(2, 3);
-
+            var vector1 = new Vector2D(6, 3);
             var vector2 = new Vector2D(4, 5);
 
             IVector<double> vector = vector1.CrossProduct(vector2);
 
             Assert.AreEqual(0, vector[0]);
             Assert.AreEqual(0, vector[1]);
-            Assert.AreEqual(-5, vector[2]);
+            Assert.AreEqual(18, vector[2]);
         }
 
         #endregion
