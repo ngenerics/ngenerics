@@ -14,7 +14,7 @@ using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 using NGenerics.DataStructures.Trees;
 
-namespace ExampleLibraryCSharp.DataStructures.Trees
+namespace NGenerics.Examples.DataStructures.Trees
 {
     [TestFixture]
     public class RedBlackTreeExamples

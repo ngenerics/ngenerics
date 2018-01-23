@@ -10,7 +10,7 @@
 using NGenerics.Patterns.Specification;
 using NUnit.Framework;
 
-namespace ExampleLibraryCSharp.Patterns.Specification
+namespace NGenerics.Examples.Patterns.Specification
 {
     [TestFixture]
     public class XorSpecificationExamples

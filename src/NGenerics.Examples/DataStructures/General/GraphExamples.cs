@@ -14,7 +14,7 @@ using NGenerics.DataStructures.General;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 
-namespace ExampleLibraryCSharp.DataStructures.General
+namespace NGenerics.Examples.DataStructures.General
 {
     [TestFixture]
     public class GraphExamples

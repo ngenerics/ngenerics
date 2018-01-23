@@ -12,7 +12,7 @@
 using NUnit.Framework;
 using NGenerics.DataStructures.Mathematical;
 
-namespace ExampleLibraryCSharp.DataStructures.Mathematical
+namespace NGenerics.Examples.DataStructures.Mathematical
 {
     [TestFixture]
     public class ComplexNumberExamples
