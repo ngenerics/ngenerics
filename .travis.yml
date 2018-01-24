@@ -7,8 +7,8 @@ addons:
     organization: "ngenerics-github"
 
 before_install:
-  - bash ./scripts/travis-install-dependencies.sh
+  - bash ./tools/travis-install-dependencies.sh
 
 script:
   - git fetch --unshallow || true
-  - bash ./scripts/travis-build.sh
+  - bash ./tools/travis-build.sh
