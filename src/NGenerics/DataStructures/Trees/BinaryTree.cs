@@ -93,12 +93,6 @@ namespace NGenerics.DataStructures.Trees
 
         #region ICollection<T> Members
 
-		/// <inheritdoc />
-        public bool IsEmpty => Count == 0;
-
-        /// <inheritdoc />
-        public bool IsFull => (_leftSubtree != null) && (_rightSubtree != null);
-
         /// <inheritdoc />
         public bool Contains(T item)
         {
@@ -116,18 +110,14 @@ namespace NGenerics.DataStructures.Trees
 		/// <inheritdoc />
         public void CopyTo(T[] array, int arrayIndex)
         {
-            Guard.ArgumentNotNull(array, "array");
+            Guard.ArgumentNotNull(array, nameof(array));
 
             foreach (var item in this)
             {
-                #region Validation
-
                 if (arrayIndex >= array.Length)
                 {
-                    throw new ArgumentException(Constants.NotEnoughSpaceInTheTargetArray, "array");
+                    throw new ArgumentException(Constants.NotEnoughSpaceInTheTargetArray, nameof(array));
                 }
-
-                #endregion
 
                 array[arrayIndex++] = item;
             }
@@ -163,22 +153,16 @@ namespace NGenerics.DataStructures.Trees
 		/// <inheritdoc />
         public bool Remove(T item)
         {
-            if (_leftSubtree != null)
+            if (_leftSubtree != null && _leftSubtree._data.Equals(item))
             {
-                if (_leftSubtree._data.Equals(item))
-                {
-                    RemoveLeft();
-                    return true;
-                }
+                RemoveLeft();
+                return true;
             }
 
-            if (_rightSubtree != null)
+            if (_rightSubtree != null && _rightSubtree._data.Equals(item))
             {
-                if (_rightSubtree._data.Equals(item))
-                {
-                    RemoveRight();
-                    return true;
-                }
+                RemoveRight();
+                return true;
             }
 
             return false;
@@ -191,22 +175,16 @@ namespace NGenerics.DataStructures.Trees
         /// <returns>A value indicating whether the child was found (and removed) from this tree.</returns>
         public bool Remove(BinaryTree<T> child)
         {
-            if (_leftSubtree != null)
+            if (_leftSubtree != null && _leftSubtree == child)
             {
-                if (_leftSubtree == child)
-                {
-                    RemoveLeft();
-                    return true;
-                }
+                RemoveLeft();
+                return true;
             }
 
-            if (_rightSubtree != null)
+            if (_rightSubtree != null && _rightSubtree == child)
             {
-                if (_rightSubtree == child)
-                {
-                    RemoveRight();
-                    return true;
-                }
+                RemoveRight();
+                return true;
             }
 
             return false;

@@ -22,7 +22,7 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
             var redBlackTree = GetTestTree(20);
             var keys = redBlackTree.Keys;
 
-            Assert.AreEqual(keys.Count, 20);
+            Assert.AreEqual(20, keys.Count);
 
             var counter = 0;
 
@@ -39,7 +39,7 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
             keys = redBlackTree.Keys;
 
             Assert.IsNotNull(keys);
-            Assert.AreEqual(keys.Count, 0);
+            Assert.AreEqual(0, keys.Count);
         }
 
     }

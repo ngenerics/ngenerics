@@ -97,7 +97,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
         public T Dequeue()
 		{
-		    if (IsEmpty)
+		    if (Count == 0)
 		    {
 		        throw new InvalidOperationException(QueueIsEmpty);
 		    }
@@ -130,7 +130,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
         public T Peek()
 		{
-		    if (IsEmpty)
+		    if (Count == 0)
             {
                 throw new InvalidOperationException(QueueIsEmpty);
             }
@@ -141,13 +141,6 @@ namespace NGenerics.DataStructures.Queues
         #endregion
 
         #region ICollection<T> Members
-
-	
-		/// <inheritdoc />
-        /// <example>
-        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\CircularQueueExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// </example>
-        public bool IsEmpty => _data.Count == 0;
 
         /// <inheritdoc />
         /// <example>
@@ -193,7 +186,7 @@ namespace NGenerics.DataStructures.Queues
         /// </example>
         public bool Contains(T item)
         {
-            return !IsEmpty && _data.Contains(item);
+            return _data.Contains(item);
         }
 
 		/// <inheritdoc />
@@ -204,7 +197,7 @@ namespace NGenerics.DataStructures.Queues
         {
             Guard.ArgumentNotNull(array, "array");
 
-            if (IsEmpty)
+            if (Count == 0)
             {
                 return;
             }
@@ -276,7 +269,6 @@ namespace NGenerics.DataStructures.Queues
         }
 
         #endregion
-
 
         #region Public Members
 

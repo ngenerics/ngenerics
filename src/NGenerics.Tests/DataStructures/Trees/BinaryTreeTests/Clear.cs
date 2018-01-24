@@ -15,22 +15,18 @@ namespace NGenerics.Tests.DataStructures.Trees.BinaryTreeTests
     [TestFixture]
     public class Clear : BinaryTreeTest
     {
-
         [Test]
         public void Simple()
         {
             var binaryTree = new BinaryTree<int>(5);
             binaryTree.Clear();
 
-            Assert.AreEqual(binaryTree.Count, 0);
-            Assert.IsTrue(binaryTree.IsEmpty);
+            Assert.AreEqual(0, binaryTree.Count);
 
             binaryTree = GetTestTree();
             binaryTree.Clear();
 
-            Assert.AreEqual(binaryTree.Count, 0);
-            Assert.IsTrue(binaryTree.IsEmpty);
+            Assert.AreEqual(0, binaryTree.Count);
         }
-
     }
 }

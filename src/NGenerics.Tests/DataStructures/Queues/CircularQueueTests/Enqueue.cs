@@ -9,6 +9,7 @@
 
 using System;
 using NGenerics.DataStructures.Queues;
+using NGenerics.Extensions;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
@@ -23,52 +24,51 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
             var circularQueue = new CircularQueue<int>(4);
 
             circularQueue.Enqueue(1);
-            Assert.AreEqual(circularQueue.Dequeue(), 1);
+            Assert.AreEqual(1, circularQueue.Dequeue());
 
             circularQueue.Enqueue(2);
             circularQueue.Enqueue(3);
-            Assert.AreEqual(circularQueue.Dequeue(), 2);
-            Assert.AreEqual(circularQueue.Dequeue(), 3);
+            Assert.AreEqual(2, circularQueue.Dequeue());
+            Assert.AreEqual(3, circularQueue.Dequeue());
 
             circularQueue.Enqueue(4);
             circularQueue.Enqueue(5);
             circularQueue.Enqueue(6);
             circularQueue.Enqueue(7);
 
-            Assert.AreEqual(circularQueue.Dequeue(), 4);
-            Assert.AreEqual(circularQueue.Dequeue(), 5);
-            Assert.AreEqual(circularQueue.Dequeue(), 6);
-            Assert.AreEqual(circularQueue.Dequeue(), 7);
+            Assert.AreEqual(4, circularQueue.Dequeue());
+            Assert.AreEqual(5, circularQueue.Dequeue());
+            Assert.AreEqual(6, circularQueue.Dequeue());
+            Assert.AreEqual(7, circularQueue.Dequeue());
 
 
             circularQueue.Enqueue(8);
             circularQueue.Enqueue(9);
-            Assert.AreEqual(circularQueue.Dequeue(), 8);
+            Assert.AreEqual(8, circularQueue.Dequeue());
             circularQueue.Enqueue(10);
-            Assert.IsFalse(circularQueue.IsEmpty);
+            Assert.IsFalse(circularQueue.IsEmpty());
             Assert.IsFalse(circularQueue.IsFull);
             circularQueue.Enqueue(11);
             circularQueue.Enqueue(12);
 
-            Assert.IsFalse(circularQueue.IsEmpty);
+            Assert.IsFalse(circularQueue.IsEmpty());
 
             Assert.IsTrue(circularQueue.IsFull);
-            Assert.AreEqual(circularQueue.Count, 4);
+            Assert.AreEqual(4, circularQueue.Count);
 
-            Assert.AreEqual(circularQueue.Dequeue(), 9);
-            Assert.AreEqual(circularQueue.Count, 3);
+            Assert.AreEqual(9, circularQueue.Dequeue());
+            Assert.AreEqual(3, circularQueue.Count);
 
-            Assert.AreEqual(circularQueue.Dequeue(), 10);
-            Assert.AreEqual(circularQueue.Count, 2);
+            Assert.AreEqual(10, circularQueue.Dequeue());
+            Assert.AreEqual(2, circularQueue.Count);
 
-            Assert.AreEqual(circularQueue.Dequeue(), 11);
-            Assert.AreEqual(circularQueue.Count, 1);
+            Assert.AreEqual(11, circularQueue.Dequeue());
+            Assert.AreEqual(1, circularQueue.Count);
 
-            Assert.AreEqual(circularQueue.Dequeue(), 12);
+            Assert.AreEqual(12, circularQueue.Dequeue());
 
             Assert.IsFalse(circularQueue.IsFull);
-            Assert.IsTrue(circularQueue.IsEmpty);
-            Assert.AreEqual(circularQueue.Count, 0);
+            Assert.AreEqual(0, circularQueue.Count);
         }
 
         [Test]
@@ -81,13 +81,13 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
                 circularQueue.Enqueue(i);
             }
 
-            Assert.AreEqual(circularQueue.Count, 5);
+            Assert.AreEqual(5, circularQueue.Count);
 
             for (var i = 0; i < 5; i++)
             {
-                Assert.AreEqual(circularQueue.Count, 5 - i);
-                Assert.AreEqual(circularQueue.Dequeue(), i + 5);
-                Assert.AreEqual(circularQueue.Count, 4 - i);
+                Assert.AreEqual(5 - i, circularQueue.Count);
+                Assert.AreEqual(i + 5, circularQueue.Dequeue());
+                Assert.AreEqual(4 - i, circularQueue.Count);
             }
 
             circularQueue = new CircularQueue<int>(100);

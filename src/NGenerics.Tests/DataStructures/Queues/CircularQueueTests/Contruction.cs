@@ -21,8 +21,7 @@ namespace NGenerics.Tests.DataStructures.Queues.CircularQueueTests
         public void Simple()
         {
             var circularQueue = new CircularQueue<int>(4);
-            Assert.AreEqual(circularQueue.Count, 0);
-            Assert.IsTrue(circularQueue.IsEmpty);
+            Assert.AreEqual(0, circularQueue.Count);
             Assert.IsFalse(circularQueue.IsFull);
         }
 

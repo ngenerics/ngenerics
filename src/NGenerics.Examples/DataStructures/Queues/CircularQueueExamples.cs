@@ -45,7 +45,6 @@ namespace NGenerics.Examples.DataStructures.Queues
 
         #endregion
 
-
         #region Enqueue
 
         [Test]
@@ -61,7 +60,6 @@ namespace NGenerics.Examples.DataStructures.Queues
         }
 
         #endregion
-
 
         #region Dequeue
 
@@ -85,7 +83,6 @@ namespace NGenerics.Examples.DataStructures.Queues
         }
 
         #endregion
-
 
         #region Clear
 
@@ -112,7 +109,6 @@ namespace NGenerics.Examples.DataStructures.Queues
 
         #endregion
 
-
         #region Constructor
 
         [Test]
@@ -125,7 +121,6 @@ namespace NGenerics.Examples.DataStructures.Queues
         }
 
         #endregion
-
 
         #region Capacity
 
@@ -149,8 +144,7 @@ namespace NGenerics.Examples.DataStructures.Queues
 
         #endregion
 
-
- #region Contains
+        #region Contains
 
         [Test]
         public void ContainsExample()
@@ -169,7 +163,6 @@ namespace NGenerics.Examples.DataStructures.Queues
         }
 
         #endregion
-
 
         #region CopyTo
 
@@ -190,7 +183,6 @@ namespace NGenerics.Examples.DataStructures.Queues
 
         #endregion
 
-
         #region Count
 
         [Test]
@@ -207,7 +199,6 @@ namespace NGenerics.Examples.DataStructures.Queues
         }
 
         #endregion
-
 
         #region GetEnumerator
 
@@ -229,33 +220,6 @@ namespace NGenerics.Examples.DataStructures.Queues
         }
 
         #endregion
-
-
-        #region IsEmpty
-
-        [Test]
-        public void IsEmptyExample()
-        {
-            var circularQueue = new CircularQueue<string>(10);
-
-            // CircularQueue will be empty initially
-            Assert.IsTrue(circularQueue.IsEmpty);
-
-            circularQueue.Enqueue("cat");
-
-            // CircularQueue will be not be empty when an item is added
-            Assert.IsFalse(circularQueue.IsEmpty);
-
-            circularQueue.Clear();
-
-            // CircularQueue will be empty when items are cleared
-            Assert.IsTrue(circularQueue.IsEmpty);
-        }
-
-        #endregion
-
-
-
 
         #region IsFull
 
@@ -279,7 +243,6 @@ namespace NGenerics.Examples.DataStructures.Queues
 
         #endregion
 
-
         #region IsReadOnly
 
         [Test]
@@ -295,7 +258,6 @@ namespace NGenerics.Examples.DataStructures.Queues
         }
 
         #endregion
-
 
         #region Remove
 
@@ -319,7 +281,6 @@ namespace NGenerics.Examples.DataStructures.Queues
 
         #endregion
 
-
         #region Peek
 
         [Test]
@@ -341,7 +302,5 @@ namespace NGenerics.Examples.DataStructures.Queues
         }
 
         #endregion
-
-
      }
 }
