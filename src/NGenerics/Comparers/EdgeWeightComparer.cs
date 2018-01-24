@@ -21,7 +21,6 @@ namespace NGenerics.Comparers
     [Serializable]
     public sealed class EdgeWeightComparer<T> : IComparer<Edge<T>>
     {
-
         #region IComparer<Edge<T>> Members
 
 		/// <inheritdoc />

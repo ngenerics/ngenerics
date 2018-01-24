@@ -58,7 +58,7 @@ namespace NGenerics.Algorithms
             var heap =
                 new Heap<KeyValuePair<double, Vertex<T>>>(
                     HeapType.Minimum,
-                    new KeyComparer<double, Vertex<T>>());
+                    new KeyValuePairComparer<double, Vertex<T>>());
 
             var vertexStatus = new Dictionary<Vertex<T>, VertexInfo<T>>();
 
@@ -141,7 +141,7 @@ namespace NGenerics.Algorithms
             var heap =
                 new Heap<KeyValuePair<double, Vertex<T>>>(
                     HeapType.Minimum,
-                    new KeyComparer<double, Vertex<T>>());
+                    new KeyValuePairComparer<double, Vertex<T>>());
 
             var vertexStatus = new Dictionary<Vertex<T>, VertexInfo<T>>();
 
@@ -209,7 +209,7 @@ namespace NGenerics.Algorithms
             var edgeQueue =
                 new Heap<KeyValuePair<double, Edge<T>>>(
                 HeapType.Minimum,
-                new KeyComparer<double, Edge<T>>());
+                new KeyValuePairComparer<double, Edge<T>>());
 
 
             // Now build the return graph, always return non directed.

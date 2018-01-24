@@ -33,7 +33,7 @@ namespace NGenerics.DataStructures.General
 
         #region Globals
 
-        private readonly Dictionary<TKey, TItem> dictionary;
+        private readonly Dictionary<TKey, TItem> _dictionary;
       
         #endregion
 
@@ -61,7 +61,7 @@ namespace NGenerics.DataStructures.General
         {
             Guard.ArgumentNotNull(getKeyForItem, "getKeyForItem");
             GetKeyForItem = getKeyForItem;
-            dictionary = new Dictionary<TKey, TItem>(capacity);
+            _dictionary = new Dictionary<TKey, TItem>(capacity);
         }
 
         /// <summary>
@@ -74,14 +74,14 @@ namespace NGenerics.DataStructures.General
         {
             Guard.ArgumentNotNull(getKeyForItem, "getKeyForItem");
             GetKeyForItem = getKeyForItem;
-            dictionary = new Dictionary<TKey, TItem>(capacity, comparer);
+            _dictionary = new Dictionary<TKey, TItem>(capacity, comparer);
         }
 
 		/// <inheritdoc cref="Dictionary{TKey,TValue}(SerializationInfo, StreamingContext)"/>
         protected AutoKeyDictionary(SerializationInfo info, StreamingContext context)
         {
             var constructor = typeof(Dictionary<TKey, TItem>).GetConstructor(BindingFlags.NonPublic | BindingFlags.CreateInstance | BindingFlags.Instance, null, new[] { typeof(SerializationInfo), typeof(StreamingContext) }, null);
-            dictionary = (Dictionary<TKey, TItem>)constructor.Invoke(BindingFlags.NonPublic, null, new object[] { info, context }, null);
+            _dictionary = (Dictionary<TKey, TItem>)constructor.Invoke(BindingFlags.NonPublic, null, new object[] { info, context }, null);
         }
 
         #endregion
@@ -98,9 +98,9 @@ namespace NGenerics.DataStructures.General
             Guard.ArgumentNotNull(item, "item");
 
             var key = GetKeyForItem(item);
-            if (!dictionary.ContainsKey(key))
+            if (!_dictionary.ContainsKey(key))
             {
-                dictionary.Add(key, item);
+                _dictionary.Add(key, item);
                 return true;
             }
             return false;
@@ -116,9 +116,9 @@ namespace NGenerics.DataStructures.General
             Guard.ArgumentNotNull(item, "item");
 
             var key = GetKeyForItem(item);
-            if (!dictionary.ContainsKey(key))
+            if (!_dictionary.ContainsKey(key))
             {
-                dictionary.Remove(key);
+                _dictionary.Remove(key);
                 return true;
             }
             return false;
@@ -130,14 +130,14 @@ namespace NGenerics.DataStructures.General
         public virtual void Add(TItem item)
         {
             Guard.ArgumentNotNull(item, "item");
-            dictionary.Add(GetKeyForItem(item), item);
+            _dictionary.Add(GetKeyForItem(item), item);
         }
 
 
 		/// <inheritdoc />
         public void Clear()
         {
-            dictionary.Clear();
+            _dictionary.Clear();
         }
 
 
@@ -146,14 +146,14 @@ namespace NGenerics.DataStructures.General
         {
             Guard.ArgumentNotNull(item, "item");
             var key = GetKeyForItem(item);
-            return dictionary.ContainsKey(key);
+            return _dictionary.ContainsKey(key);
         }
 
 
 		/// <inheritdoc />
         public virtual void CopyTo(TItem[] array, int arrayIndex)
         {
-            dictionary.Values.CopyTo(array, arrayIndex);
+            _dictionary.Values.CopyTo(array, arrayIndex);
         }
 
 
@@ -162,7 +162,7 @@ namespace NGenerics.DataStructures.General
         {
             Guard.ArgumentNotNull(item, "item");
             var key = GetKeyForItem(item);
-            return dictionary.Remove(key);
+            return _dictionary.Remove(key);
         }
 
         #endregion
@@ -171,13 +171,13 @@ namespace NGenerics.DataStructures.General
 		/// <inheritdoc />
         public virtual IEnumerator<TItem> GetEnumerator()
         {
-            return dictionary.Values.GetEnumerator();
+            return _dictionary.Values.GetEnumerator();
         }
 
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return dictionary.Values.GetEnumerator();
+            return _dictionary.Values.GetEnumerator();
         }
 
         #endregion
@@ -197,7 +197,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"> if <paramref name="key"/> is null.</exception>
         public virtual bool ContainsKey(TKey key)
         {
-            return dictionary.ContainsKey(key);
+            return _dictionary.ContainsKey(key);
         }
 
 
@@ -209,7 +209,7 @@ namespace NGenerics.DataStructures.General
         /// <seealso cref="IsReadOnly"/> 
         public virtual bool RemoveKey(TKey key)
         {
-            return dictionary.Remove(key);
+            return _dictionary.Remove(key);
         }
 
 
@@ -221,7 +221,7 @@ namespace NGenerics.DataStructures.General
         /// <seealso cref="IsReadOnly"/> 
         internal bool InternalRemove(TKey key)
         {
-            return dictionary.Remove(key);
+            return _dictionary.Remove(key);
         }
 
 
@@ -234,7 +234,7 @@ namespace NGenerics.DataStructures.General
         /// <exception cref="ArgumentNullException"><paramref name="key"/> is a null reference </exception>
         public virtual bool TryGetValue(TKey key, out TItem item)
         {
-            return dictionary.TryGetValue(key, out item);
+            return _dictionary.TryGetValue(key, out item);
         }
 
 		#region ISerializable, IDeserializationCallback
@@ -244,7 +244,7 @@ namespace NGenerics.DataStructures.General
 		/// <inheritdoc />
         public virtual void OnDeserialization(object sender)
         {
-            dictionary.OnDeserialization(sender);
+            _dictionary.OnDeserialization(sender);
         }
 
         #endregion
@@ -256,7 +256,7 @@ namespace NGenerics.DataStructures.General
 		[SecurityCritical]
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            dictionary.GetObjectData(info, context);
+            _dictionary.GetObjectData(info, context);
         }
 
         #endregion
@@ -269,13 +269,7 @@ namespace NGenerics.DataStructures.General
 
         /// <summary>Gets the <see cref="IEqualityComparer{T}"/> that is used to determine equality of keys for the dictionary. </summary>
         /// <returns>The <see cref="IEqualityComparer{T}"/> generic interface implementation that is used to determine equality of keys for the current <see cref="AutoKeyDictionary{TKey,TItem}"/> and to provide hash values for the keys.</returns>
-        public virtual IEqualityComparer<TKey> Comparer
-        {
-            get
-            {
-                return dictionary.Comparer;
-            }
-        }
+        public virtual IEqualityComparer<TKey> Comparer => _dictionary.Comparer;
 
 
         /// <summary>Gets the value associated with the specified key.</summary>
@@ -283,13 +277,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="key">The key of the value to get or set.</param>
         /// <exception cref="ArgumentNullException"><paramref name="key"/> is null.</exception>
         /// <exception cref="KeyNotFoundException">An item with the <paramref name="key"/> does not exist in the collection.</exception>
-        public virtual TItem this[TKey key]
-        {
-            get
-            {
-                return dictionary[key];
-            }
-        }
+        public virtual TItem this[TKey key] => _dictionary[key];
 
 
         /// <summary>
@@ -300,13 +288,7 @@ namespace NGenerics.DataStructures.General
         /// The returned <see cref="Dictionary{TKey,TValue}.KeyCollection"/> is not a static copy; instead, the <see cref="Dictionary{TKey,TValue}.KeyCollection"/> refers back to the keys in the original <see cref="AutoKeyDictionary{TKey,TItem}"/>. Therefore, changes to the <see cref="AutoKeyDictionary{TKey,TItem}"/> continue to be reflected in the <see cref="Dictionary{TKey,TValue}.KeyCollection"/>.
         /// Getting the value of this property is an O(1) operation.
         /// </remarks>
-        public virtual Dictionary<TKey, TItem>.KeyCollection Keys
-        {
-            get
-            {
-                return dictionary.Keys;
-            }
-        }
+        public virtual Dictionary<TKey, TItem>.KeyCollection Keys => _dictionary.Keys;
 
         /// <summary>
         /// Gets a collection containing the values in the <see cref="AutoKeyDictionary{TKey,TItem}"/>. 
@@ -316,31 +298,13 @@ namespace NGenerics.DataStructures.General
         /// The returned <see cref="Dictionary{TKey,TValue}.ValueCollection"/> is not a static copy; instead, the <see cref="Dictionary{TKey,TValue}.ValueCollection"/> refers back to the values in the original <see cref="AutoKeyDictionary{TKey,TItem}"/>. Therefore, changes to the <see cref="AutoKeyDictionary{TKey,TItem}"/> continue to be reflected in the <see cref="Dictionary{TKey,TValue}.ValueCollection"/>.
         /// Getting the value of this property is an O(1) operation.
         /// </remarks>
-        public virtual Dictionary<TKey, TItem>.ValueCollection Values
-        {
-            get
-            {
-                return dictionary.Values;
-            }
-        }
+        public virtual Dictionary<TKey, TItem>.ValueCollection Values => _dictionary.Values;
 
-		/// <inheritdoc />
-        public virtual int Count
-        {
-            get
-            {
-                return dictionary.Count;
-            }
-        }
+        /// <inheritdoc />
+        public virtual int Count => _dictionary.Count;
 
-		/// <inheritdoc />
-        public virtual bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        /// <inheritdoc />
+        public virtual bool IsReadOnly => false;
 
         #endregion
     }

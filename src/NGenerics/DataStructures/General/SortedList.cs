@@ -133,24 +133,18 @@ namespace NGenerics.DataStructures.General
 		/// </example>
 		public void CopyTo(T[] array, int arrayIndex)
 		{
-			#region Validation
-
-
-			Guard.ArgumentNotNull(array, "array");
+			Guard.ArgumentNotNull(array, nameof(array));
 
 			if ((array.Length - arrayIndex) < Count)
 			{
-				throw new ArgumentException(Constants.NotEnoughSpaceInTheTargetArray, "array");
+				throw new ArgumentException(Constants.NotEnoughSpaceInTheTargetArray, nameof(array));
 			}
 
-			#endregion
-
-			for (var i = 0; i < data.Count; i++)
+			foreach (var item in data)
 			{
-				array.SetValue(data[i], arrayIndex++);
+			    array.SetValue(item, arrayIndex++);
 			}
 		}
-
 
 		/// <inheritdoc />  
 		/// <example>
@@ -183,7 +177,6 @@ namespace NGenerics.DataStructures.General
 
 			data.Insert(index, item);
 			return index;
-
 		}
 
 		/// <inheritdoc />  
@@ -206,11 +199,11 @@ namespace NGenerics.DataStructures.General
 			CopyTo((T[])array, index);
 		}
 
-		/// <inheritdoc />  
-		/// <example>
-		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count method."/>
-		/// </example>
-		public int Count => data.Count;
+	    /// <inheritdoc cref="ICollection" />  
+	    /// <example>
+	    /// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count method."/>
+	    /// </example>
+	    public int Count => data.Count;
 
 		object ICollection.SyncRoot => data;
 

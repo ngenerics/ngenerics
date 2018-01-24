@@ -23,7 +23,7 @@ namespace NGenerics.Comparers {
 
         #region Globals
 
-        private readonly IComparer<TKey> comparer;
+        private readonly IComparer<TKey> _comparer;
 
         #endregion
 
@@ -33,7 +33,7 @@ namespace NGenerics.Comparers {
         /// Initializes a new instance of the <see cref="KeyValuePairComparer&lt;TKey, TValue&gt;"/> class.
         /// </summary>
         public KeyValuePairComparer() {
-            comparer = Comparer<TKey>.Default;
+            _comparer = Comparer<TKey>.Default;
         }
 
         /// <summary>
@@ -41,13 +41,7 @@ namespace NGenerics.Comparers {
         /// </summary>
         /// <param name="comparer">The comparer.</param>
         public KeyValuePairComparer(IComparer<TKey> comparer) {
-
-            if (comparer == null)
-            {
-                throw new ArgumentNullException("comparer");
-            }
-
-            this.comparer = comparer;
+            this._comparer = comparer ?? throw new ArgumentNullException("comparer");
         }
 
         /// <summary>
@@ -60,7 +54,7 @@ namespace NGenerics.Comparers {
                 throw new ArgumentNullException("comparison");
             }
 
-            comparer = new ComparisonComparer<TKey>(comparison);
+            _comparer = new ComparisonComparer<TKey>(comparison);
         }
 
         #endregion
@@ -69,7 +63,7 @@ namespace NGenerics.Comparers {
 
         /// <inheritdoc />
         public int Compare(KeyValuePair<TKey, TValue> x, KeyValuePair<TKey, TValue> y) {
-            return comparer.Compare(x.Key, y.Key);
+            return _comparer.Compare(x.Key, y.Key);
         }
 
         #endregion
@@ -78,7 +72,7 @@ namespace NGenerics.Comparers {
 
         /// <inheritdoc />
         public int Compare(TKey x, TKey y) {
-            return comparer.Compare(x, y);
+            return _comparer.Compare(x, y);
         }
 
         #endregion

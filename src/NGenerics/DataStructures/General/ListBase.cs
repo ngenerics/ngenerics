@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using NGenerics.Util;
-using NGenerics.Extensions;
 using System.Diagnostics.CodeAnalysis;
 
 namespace NGenerics.DataStructures.General
@@ -60,7 +59,7 @@ namespace NGenerics.DataStructures.General
         /// Inserts an element into the <see cref="ListBase{T}"/> at the specified index.
         /// </summary>
         /// <param name="index">The object to insert. The value can be null for reference types.</param>
-        /// <param name="item">The zero-based index at which item should be inserted.</param>
+        /// <param name="item">The zero-based index at which value should be inserted.</param>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="index"/> is less than zero.-or-<paramref name="index"/> is equal to or greater than <see cref="Count"/>.</exception>
         /// <remarks>
         /// <b>Notes to Inheritors: </b>
@@ -105,7 +104,7 @@ namespace NGenerics.DataStructures.General
 
         /// <summary>
         /// Searches the entire sorted <see cref="ListBase{T}"></see> for an element using the default comparer and returns the zero-based index of the element.</summary>
-        /// <returns>The zero-based index of item in the sorted <see cref="ListBase{T}"></see>, if item is found; otherwise, a negative number that is the bitwise complement of the index of the next element that is larger than item or, if there is no larger element, the bitwise complement of <see cref="ListBase{T}.Count"></see>.</returns>
+        /// <returns>The zero-based index of value in the sorted <see cref="ListBase{T}"></see>, if value is found; otherwise, a negative number that is the bitwise complement of the index of the next element that is larger than value or, if there is no larger element, the bitwise complement of <see cref="ListBase{T}.Count"></see>.</returns>
         /// <param name="item">The object to locate. The value can be null for reference types.</param>
         /// <exception cref="InvalidOperationException">The default comparer <see cref="Comparer{T}.Default"></see> cannot find an implementation of the <see cref="IComparable{T}"></see> generic interface or the <see cref="IComparable"></see> interface for type T.</exception>
         public int BinarySearch(T item)
@@ -115,7 +114,7 @@ namespace NGenerics.DataStructures.General
 
         /// <summary>
         /// Searches the entire sorted <see cref="ListBase{T}"></see> for an element using the specified comparer and returns the zero-based index of the element.</summary>
-        /// <returns>The zero-based index of item in the sorted <see cref="ListBase{T}"></see>, if item is found; otherwise, a negative number that is the bitwise complement of the index of the next element that is larger than item or, if there is no larger element, the bitwise complement of <see cref="ListBase{T}.Count"></see>.</returns>
+        /// <returns>The zero-based index of value in the sorted <see cref="ListBase{T}"></see>, if value is found; otherwise, a negative number that is the bitwise complement of the index of the next element that is larger than value or, if there is no larger element, the bitwise complement of <see cref="ListBase{T}.Count"></see>.</returns>
         /// <param name="item">The object to locate. The value can be null for reference types.</param>
         /// <param name="comparer">The <see cref="IComparer{T}"></see> implementation to use when comparing elements.-or-null to use the default comparer <see cref="Comparer{T}.Default"></see>.</param>
         /// <exception cref="InvalidOperationException">comparer is null, and the default comparer <see cref="Comparer{T}.Default"></see> cannot find an implementation of the <see cref="IComparable{T}"></see> generic interface or the <see cref="IComparable"></see> interface for type T.</exception>
@@ -127,7 +126,7 @@ namespace NGenerics.DataStructures.General
         /// <summary>
         /// Searches a range of elements in the sorted <see cref="ListBase{T}"></see> for an element using the specified comparer and returns the zero-based index of the element.
         /// </summary>
-        /// <returns>The zero-based index of item in the sorted <see cref="ListBase{T}"></see>, if item is found; otherwise, a negative number that is the bitwise complement of the index of the next element that is larger than item or, if there is no larger element, the bitwise complement of <see cref="ListBase{T}.Count"></see>.</returns>
+        /// <returns>The zero-based index of value in the sorted <see cref="ListBase{T}"></see>, if value is found; otherwise, a negative number that is the bitwise complement of the index of the next element that is larger than value or, if there is no larger element, the bitwise complement of <see cref="ListBase{T}.Count"></see>.</returns>
         /// <param name="count">The length of the range to search.</param>
         /// <param name="item">The object to locate. The value can be null for reference types.</param>
         /// <param name="index">The zero-based starting index of the range to search.</param>
@@ -440,9 +439,9 @@ namespace NGenerics.DataStructures.General
 
 
         /// <inheritdoc />
-        void ICollection.CopyTo(Array array, int arrayIndex)
+        void ICollection.CopyTo(Array array, int index)
         {
-            ((ICollection)innerList).CopyTo(array, arrayIndex);
+            ((ICollection)innerList).CopyTo(array, index);
         }
 
         /// <inheritdoc />
@@ -452,44 +451,44 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <inheritdoc />
-        int IList.Add(object item)
+        int IList.Add(object value)
         {
-            VerifyValueType(item);
-            Add((T)item);
+            VerifyValueType(value);
+            Add((T)value);
             return (Count - 1);
 
         }
 
         /// <inheritdoc />
-        bool IList.Contains(object item)
+        bool IList.Contains(object value)
         {
-            return ((IList)innerList).Contains(item);
+            return ((IList)innerList).Contains(value);
         }
 
         /// <inheritdoc />
-        int IList.IndexOf(object item)
+        int IList.IndexOf(object value)
         {
-            if (IsCompatibleObject(item))
+            if (IsCompatibleObject(value))
             {
-                return IndexOf((T)item);
+                return IndexOf((T)value);
             }
             return -1;
 
         }
 
         /// <inheritdoc />
-        void IList.Insert(int index, object item)
+        void IList.Insert(int index, object value)
         {
-            VerifyValueType(item);
-            InsertItem(index, (T)item);
+            VerifyValueType(value);
+            InsertItem(index, (T)value);
         }
 
         /// <inheritdoc />
-        void IList.Remove(object item)
+        void IList.Remove(object value)
         {
-            if (IsCompatibleObject(item))
+            if (IsCompatibleObject(value))
             {
-                Remove((T)item);
+                Remove((T)value);
             }
         }
 

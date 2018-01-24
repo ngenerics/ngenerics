@@ -7,8 +7,6 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-
-
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
@@ -35,7 +33,7 @@ namespace NGenerics.DataStructures.General
 
         #region Globals
 
-        private static FactoryDelegate createInstance = Activator.CreateInstance<T>;
+        private static FactoryDelegate _createInstance = Activator.CreateInstance<T>;
 
         #endregion
 
@@ -54,7 +52,7 @@ namespace NGenerics.DataStructures.General
             {
                 if (value != null)
                 {
-                    createInstance = value;
+                    _createInstance = value;
                     RuntimeHelpers.RunClassConstructor(typeof(Container).TypeHandle);
                 }
             }
@@ -69,13 +67,7 @@ namespace NGenerics.DataStructures.General
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\SingletonExamples.cs" region="Singleton" lang="cs" title="The following example shows how to use the Instance method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
-        public static T Instance
-        {
-            get
-            {
-                return Container.Instance;
-            }
-        }
+        public static T Instance => Container.Instance;
 
         #endregion
 
@@ -87,10 +79,9 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         private static class Container
         {
-            internal static readonly T Instance = createInstance();
+            internal static readonly T Instance = _createInstance();
         }
 
         #endregion
-
     }
 }

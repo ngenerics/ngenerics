@@ -7,7 +7,6 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -127,20 +126,15 @@ namespace NGenerics.DataStructures.General
 		{
 			foreach (var emanatingEdge in _emanatingEdges)
 			{
-				if (emanatingEdge.IsDirected)
-				{
-					if (emanatingEdge.ToVertex == toVertex)
-					{
+				if (emanatingEdge.IsDirected && emanatingEdge.ToVertex == toVertex)
+                {
 						return true;
-					}
 				}
-				else
-				{
-					if ((emanatingEdge.ToVertex == toVertex) || ((emanatingEdge.FromVertex == toVertex)))
-					{
-						return true;
-					}
-				}
+
+			    if (emanatingEdge.ToVertex == toVertex || (emanatingEdge.FromVertex == toVertex))
+			    {
+			        return true;
+			    }
 			}
 
 			return false;
