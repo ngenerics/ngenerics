@@ -42,7 +42,7 @@ namespace NGenerics.DataStructures.Trees
         /// A custom comparison between some search value and the type of item that is kept in the tree.
         /// </summary>
         /// <typeparam name="TSearch">The type of the search.</typeparam>
-        protected delegate int CustomComparison<TSearch>(TSearch value, T item);
+        protected delegate int CustomComparison<in TSearch>(TSearch value, T item);
 
         #endregion
 
@@ -361,12 +361,6 @@ namespace NGenerics.DataStructures.Trees
                 }
             }
         }
-
-        /// <inheritdoc />
-        /// <example>
-        /// <code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// </example>
-        public bool IsEmpty => Count == 0;
 
         /// <inheritdoc />
         public bool Remove(T item)

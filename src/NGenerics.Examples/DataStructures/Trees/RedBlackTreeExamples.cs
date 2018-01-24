@@ -252,29 +252,6 @@ namespace NGenerics.Examples.DataStructures.Trees
         }
         #endregion
 
-        #region IsEmpty
-        [Test]
-        public void IsEmptyExample()
-        {
-            var tree = new RedBlackTree<string, int>();
-
-            // Tree is empty.
-            Assert.IsTrue(tree.IsEmpty);
-
-            // Add a cat.
-            tree.Add(new KeyValuePair<string, int>("cat", 1));
-
-            // Tree is not empty.
-            Assert.IsFalse(tree.IsEmpty);
-
-            // Clear the tree - thereby removing all items contained.
-            tree.Clear();
-
-            // Tree is empty again with count = 0.
-            Assert.IsTrue(tree.IsEmpty);
-        }
-        #endregion
-
         #region IsReadOnly
         [Test]
         public void IsReadOnlyExample()

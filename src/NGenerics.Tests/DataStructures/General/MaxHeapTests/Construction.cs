@@ -23,26 +23,22 @@ namespace NGenerics.Tests.DataStructures.General.MaxHeapTests
             var heap = new Heap<int>(HeapType.Maximum);
 
             Assert.AreEqual(heap.Type, HeapType.Maximum);
-            Assert.AreEqual(heap.Count, 0);
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.AreEqual(0, heap.Count);
 
             heap = new Heap<int>(HeapType.Maximum, Comparer<int>.Default);
 
             Assert.AreEqual(heap.Type, HeapType.Maximum);
-            Assert.AreEqual(heap.Count, 0);
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.AreEqual(0, heap.Count);
 
             heap = new Heap<int>(HeapType.Maximum, 50);
 
             Assert.AreEqual(heap.Type, HeapType.Maximum);
-            Assert.AreEqual(heap.Count, 0);
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.AreEqual(0, heap.Count);
 
             heap = new Heap<int>(HeapType.Maximum, 50, Comparer<int>.Default);
 
             Assert.AreEqual(heap.Type, HeapType.Maximum);
-            Assert.AreEqual(heap.Count, 0);
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.AreEqual(0, heap.Count);
         }
 
         [Test]

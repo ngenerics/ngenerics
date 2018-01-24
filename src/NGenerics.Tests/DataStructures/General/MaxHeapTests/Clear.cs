@@ -26,13 +26,11 @@ namespace NGenerics.Tests.DataStructures.General.MaxHeapTests
                 Assert.AreEqual(heap.Root, i);
             }
 
-            Assert.IsFalse(heap.IsEmpty);
-            Assert.AreEqual(heap.Count, 20);
+            Assert.AreEqual(20, heap.Count);
 
             heap.Clear();
 
-            Assert.AreEqual(heap.Count, 0);
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.AreEqual(0, heap.Count);
         }
     }
 }

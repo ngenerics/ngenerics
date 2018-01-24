@@ -22,10 +22,9 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         {
             var generalTree = new GeneralTree<int>(5);
 
-            Assert.AreEqual(generalTree.Count, 0);
-            Assert.AreEqual(generalTree.Degree, 0);
-            Assert.AreEqual(generalTree.Height, 0);
-            Assert.IsTrue(generalTree.IsEmpty);
+            Assert.AreEqual(0, generalTree.Count);
+            Assert.AreEqual(0, generalTree.Degree);
+            Assert.AreEqual(0, generalTree.Height);
             Assert.IsTrue(generalTree.IsLeafNode);
             Assert.IsNull(generalTree.Parent);
         }

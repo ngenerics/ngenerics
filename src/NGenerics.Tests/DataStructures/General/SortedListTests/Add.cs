@@ -18,18 +18,14 @@ namespace NGenerics.Tests.DataStructures.General.SortedListTests
         [Test]
         public void Simple()
         {
-            var sortedList = new SortedList<int>
-                                 {
-                                     5
-                                 };
+            var sortedList = new SortedList<int> { 5 };
 
-            Assert.AreEqual(sortedList.Count, 1);
-            Assert.IsFalse(sortedList.IsEmpty);
-            Assert.AreEqual(sortedList[0], 5);
+            Assert.AreEqual(1, sortedList.Count);
+            Assert.AreEqual(5, sortedList[0]);
 
             sortedList = GetTestList();
             sortedList.Add(-5);
-            Assert.AreEqual(sortedList[0], -5);
+            Assert.AreEqual(-5, sortedList[0]);
         }
 
         [Test]

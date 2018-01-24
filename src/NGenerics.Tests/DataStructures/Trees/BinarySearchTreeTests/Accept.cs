@@ -35,7 +35,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
             Assert.IsTrue(visitor.TrackingList.Contains(new KeyValuePair<int, string>(19, "19")));
             Assert.IsTrue(visitor.TrackingList.Contains(new KeyValuePair<int, string>(1, "1")));
 
-            Assert.AreEqual(visitor.TrackingList.Count, 6);
+            Assert.AreEqual(6, visitor.TrackingList.Count);
         }
 
         [Test]

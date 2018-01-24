@@ -11,6 +11,7 @@
 using System;
 using System.Diagnostics;
 using NGenerics.DataStructures.General;
+using NGenerics.Extensions;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 
@@ -87,7 +88,7 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void ConstructorExample()
         {
-            var sortedList = new SortedList<string> {"cat", "dog", "canary"};
+            new SortedList<string> {"cat", "dog", "canary"};
         }
 
         #endregion
@@ -100,7 +101,7 @@ namespace NGenerics.Examples.DataStructures.General
         {
             // If you know how many items will initially be in the list it is 
             // more efficient to set the initial capacity
-            var sortedList = new SortedList<string>(3) {"cat", "dog", "canary"};
+            new SortedList<string>(3) {"cat", "dog", "canary"};
         }
 
         #endregion
@@ -231,30 +232,6 @@ namespace NGenerics.Examples.DataStructures.General
 
             // "dog" is in position 2
             Assert.AreEqual(2, sortedList.IndexOf("dog"));
-        }
-
-        #endregion
-
-
-        #region IsEmpty
-
-        [Test]
-        public void IsEmptyExample()
-        {
-            var sortedList = new SortedList<string>();
-
-            // SortedList will be empty initially
-            Assert.IsTrue(sortedList.IsEmpty);
-
-            sortedList.Add("cat");
-
-            // SortedList will be not be empty when an item is added
-            Assert.IsFalse(sortedList.IsEmpty);
-
-            sortedList.Clear();
-
-            // SortedList will be empty when items are cleared
-            Assert.IsTrue(sortedList.IsEmpty);
         }
 
         #endregion

@@ -110,7 +110,7 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void ConstructorExample()
         {
-            var bag = new Bag<string> {"cat", "dog", "canary"};
+            new Bag<string> {"cat", "dog", "canary"};
         }
 
         #endregion
@@ -122,7 +122,7 @@ namespace NGenerics.Examples.DataStructures.General
         {
             // If you know how many items will initially be in the list it is 
             // more efficient to set the initial capacity
-            var bag = new Bag<string>(3) {"cat", "dog", "canary"};
+            new Bag<string>(3) {"cat", "dog", "canary"};
         }
 
         #endregion
@@ -240,31 +240,6 @@ namespace NGenerics.Examples.DataStructures.General
         }
 
         #endregion
-
-        #region IsEmpty
-
-        [Test]
-        public void IsEmptyExample()
-        {
-            var bag = new Bag<string>();
-
-            // Bag will be empty initially
-            Assert.IsTrue(bag.IsEmpty);
-
-            bag.Add("cat");
-
-            // Bag will be not be empty when an item is added
-            Assert.IsFalse(bag.IsEmpty);
-
-            bag.Clear();
-
-            // Bag will be empty when items are cleared
-            Assert.IsTrue(bag.IsEmpty);
-        }
-
-        #endregion
-
-
 
         #region IsReadOnly
 

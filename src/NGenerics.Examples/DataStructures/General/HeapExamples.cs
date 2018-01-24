@@ -12,6 +12,7 @@
 using System;
 using System.Diagnostics;
 using NGenerics.DataStructures.General;
+using NGenerics.Extensions;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 
@@ -88,7 +89,7 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void ConstructorExample()
         {
-            var heap = new Heap<string>(HeapType.Minimum) {"cat", "dog", "canary"};
+            new Heap<string>(HeapType.Minimum) {"cat", "dog", "canary"};
         }
 
         #endregion
@@ -101,7 +102,7 @@ namespace NGenerics.Examples.DataStructures.General
         {
             // If you know how many items will initially be in the list it is 
             // more efficient to set the initial capacity
-            var heap = new Heap<string>(HeapType.Minimum, 3) {"cat", "dog", "canary"};
+            new Heap<string>(HeapType.Minimum, 3) {"cat", "dog", "canary"};
         }
 
         #endregion
@@ -208,17 +209,17 @@ namespace NGenerics.Examples.DataStructures.General
             var heap = new Heap<string>(HeapType.Minimum);
 
             // Heap will be empty initially
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.IsTrue(heap.IsEmpty());
 
             heap.Add("cat");
 
             // Heap will be not be empty when an item is added
-            Assert.IsFalse(heap.IsEmpty);
+            Assert.IsFalse(heap.IsEmpty());
 
             heap.Clear();
 
             // Heap will be empty when items are cleared
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.IsTrue(heap.IsEmpty());
         }
 
         #endregion
@@ -235,38 +236,6 @@ namespace NGenerics.Examples.DataStructures.General
             heap.Add("dog");
             heap.Add("canary");
             Assert.IsFalse(heap.IsReadOnly);
-        }
-
-        #endregion
-
-        #region RemoveRoot
-
-        [Test]
-        public void RemoveRootExample()
-        {
-            var heap = new Heap<string>(HeapType.Minimum) {"cat", "dog", "canary"};
-
-            //because a heap is sorted the order will be "canary", "cat" and "dog"
-
-            // Root is "canary"
-            Assert.AreEqual("canary", heap.Root);
-
-            // Remove Root
-            heap.RemoveRoot();
-
-            // Root is "cat"
-            Assert.AreEqual("cat", heap.Root);
-
-            // Remove Root
-            heap.RemoveRoot();
-
-            // Root is "dog"
-            Assert.AreEqual("dog", heap.Root);
-
-            // Remove Root
-            heap.RemoveRoot();
-
-            Assert.IsTrue(heap.IsEmpty);
         }
 
         #endregion
@@ -298,7 +267,7 @@ namespace NGenerics.Examples.DataStructures.General
             // Remove Root
             heap.RemoveRoot();
 
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.IsTrue(heap.IsEmpty());
         }
 
         #endregion

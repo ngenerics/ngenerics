@@ -20,13 +20,11 @@ namespace NGenerics.Tests.DataStructures.General.MaxHeapTests
         public void Simple()
         {
             var heap = new Heap<int>(HeapType.Maximum) { 5 };
-            Assert.AreEqual(heap.Root, 5);
-            Assert.AreEqual(heap.Count, 1);
-            Assert.IsFalse(heap.IsEmpty);
+            Assert.AreEqual(5, heap.Root);
+            Assert.AreEqual(1, heap.Count);
 
-            Assert.AreEqual(heap.RemoveRoot(), 5);
-            Assert.AreEqual(heap.Count, 0);
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.AreEqual(5, heap.RemoveRoot());
+            Assert.AreEqual(0, heap.Count);
         }
 
         [Test]
@@ -53,7 +51,7 @@ namespace NGenerics.Tests.DataStructures.General.MaxHeapTests
         public void ExceptionEmpty()
         {
             var heap = new Heap<int>(HeapType.Maximum);
-            Assert.AreEqual(heap.Count, 0);
+            Assert.AreEqual(0, heap.Count);
             Assert.Throws<InvalidOperationException>(() => heap.RemoveRoot());
         }
     }

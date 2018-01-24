@@ -8,6 +8,7 @@
 */
 
 using NGenerics.DataStructures.General;
+using NGenerics.Extensions;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.MaxHeapTests
@@ -18,31 +19,28 @@ namespace NGenerics.Tests.DataStructures.General.MaxHeapTests
         [Test]
         public void Simple()
         {
-            var heap = new Heap<int>(HeapType.Maximum)
-                           {
-                               5
-                           };
+            var heap = new Heap<int>(HeapType.Maximum) { 5 };
 
-            Assert.AreEqual(heap.Count, 1);
-            Assert.IsFalse(heap.IsEmpty);
-            Assert.AreEqual(heap.Root, 5);
+            Assert.AreEqual(1, heap.Count);
+            Assert.IsFalse(heap.IsEmpty());
+            Assert.AreEqual(5, heap.Root);
 
             heap.Add(2);
-            Assert.AreEqual(heap.Count, 2);
-            Assert.IsFalse(heap.IsEmpty);
-            Assert.AreEqual(heap.Root, 5);
+            Assert.AreEqual(2, heap.Count);
+            Assert.IsFalse(heap.IsEmpty());
+            Assert.AreEqual(5, heap.Root);
 
             heap.Add(3);
-            Assert.AreEqual(heap.Count, 3);
-            Assert.IsFalse(heap.IsEmpty);
-            Assert.AreEqual(heap.Root, 5);
+            Assert.AreEqual(3, heap.Count);
+            Assert.IsFalse(heap.IsEmpty());
+            Assert.AreEqual(5, heap.Root);
 
-            Assert.AreEqual(heap.RemoveRoot(), 5);
+            Assert.AreEqual(5, heap.RemoveRoot());
 
             heap.Add(1);
-            Assert.AreEqual(heap.Count, 3);
-            Assert.IsFalse(heap.IsEmpty);
-            Assert.AreEqual(heap.Root, 3);
+            Assert.AreEqual(3, heap.Count);
+            Assert.IsFalse(heap.IsEmpty());
+            Assert.AreEqual(3, heap.Root);
         }
     }
 }

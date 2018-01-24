@@ -7,6 +7,7 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
+using NGenerics.Extensions;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.BagTests
@@ -21,14 +22,14 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
             var bag = GetTestBag();
 
             bag.Clear();
-            Assert.AreEqual(bag.Count, 0);
-            Assert.IsTrue(bag.IsEmpty);
+            Assert.AreEqual(0, bag.Count);
+            Assert.IsTrue(bag.IsEmpty());
 
             bag.Add("aa");
             bag.Clear();
 
-            Assert.AreEqual(bag.Count, 0);
-            Assert.IsTrue(bag.IsEmpty);
+            Assert.AreEqual(0, bag.Count);
+            Assert.IsTrue(bag.IsEmpty());
         }
     }
 }

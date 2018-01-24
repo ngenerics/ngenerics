@@ -21,8 +21,7 @@ namespace NGenerics.Tests.DataStructures.Queues.DequeTests
         public void Simple()
         {
             var deque = new Deque<int>();
-            Assert.AreEqual(deque.Count, 0);
-            Assert.IsTrue(deque.IsEmpty);
+            Assert.AreEqual(0, deque.Count);
 
             var stack = new Stack<int>();
 

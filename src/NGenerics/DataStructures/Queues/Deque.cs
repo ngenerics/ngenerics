@@ -296,12 +296,6 @@ namespace NGenerics.DataStructures.Queues
 			return _list.GetEnumerator();
 		}
         
-		/// <inheritdoc />
-        /// <example>
-        /// <code source="..\..\NGenerics.Examples\DataStructures\Queues\DequeExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// </example>
-		public bool IsEmpty => Count == 0;
-
 		#endregion
      
    			

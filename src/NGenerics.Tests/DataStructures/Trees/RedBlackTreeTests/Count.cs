@@ -8,6 +8,7 @@
 */
 
 using NGenerics.DataStructures.Trees;
+using NGenerics.Extensions;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
@@ -20,13 +21,13 @@ namespace NGenerics.Tests.DataStructures.Trees.RedBlackTreeTests
         public void Simple()
         {
             var redBlackTree = GetTestTree();
-            Assert.IsFalse(redBlackTree.IsEmpty);
+            Assert.IsFalse(redBlackTree.IsEmpty());
 
             redBlackTree.Clear();
-            Assert.IsTrue(redBlackTree.IsEmpty);
+            Assert.IsTrue(redBlackTree.IsEmpty());
 
             redBlackTree = new RedBlackTree<int, string>();
-            Assert.IsTrue(redBlackTree.IsEmpty);
+            Assert.IsTrue(redBlackTree.IsEmpty());
         }
 
     }

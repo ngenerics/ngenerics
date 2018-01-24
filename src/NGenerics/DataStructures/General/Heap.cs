@@ -158,7 +158,7 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         /// <example>
-        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="RemoveRoot" lang="cs" title="The following example shows how to use the RemoveRoot method."/>
+        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="Root" lang="cs" title="The following example shows how to use the RemoveRoot method."/>
         /// </example>
         public T RemoveRoot()
         {
@@ -238,15 +238,6 @@ namespace NGenerics.DataStructures.General
         #endregion
 
         #region ICollection<T> Members
-
-		
-
-		/// <inheritdoc />
-        /// <example>
-        /// <code source="..\..\NGenerics.Examples\DataStructures\General\HeapExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// </example>
-        public bool IsEmpty => Count == 0;
-
 
         /// <inheritdoc />
         /// <example>

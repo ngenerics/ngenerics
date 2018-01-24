@@ -127,14 +127,6 @@ namespace NGenerics.DataStructures.General
 
 		#region ICollection<T> Members
 
-
-		/// <inheritdoc />  
-		/// <example>
-		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-		/// </example>
-		public bool IsEmpty => Count == 0;
-
-
 		/// <inheritdoc />  
 		/// <example>
 		/// <code source="..\..\NGenerics.Examples\DataStructures\General\SortedListExamples.cs" region="CopyTo" lang="cs" title="The following example shows how to use the CopyTo method."/>

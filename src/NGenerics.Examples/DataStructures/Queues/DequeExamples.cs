@@ -268,30 +268,6 @@ namespace NGenerics.Examples.DataStructures.Queues
 
         #endregion
         
-        #region IsEmpty
-
-        [Test]
-        public void IsEmptyExample()
-        {
-            var deque = new Deque<string>();
-
-            // Deque will be empty initially
-            Assert.IsTrue(deque.IsEmpty);
-
-            deque.EnqueueHead("cat");
-
-            // Deque will be not be empty when an item is added
-            Assert.IsFalse(deque.IsEmpty);
-
-            deque.Clear();
-
-            // Deque will be empty when items are cleared
-            Assert.IsTrue(deque.IsEmpty);
-        }
-
-        #endregion
-
-       
         #region IsReadOnly
 
         [Test]

@@ -125,9 +125,6 @@ namespace NGenerics.DataStructures.Trees
         }
 
         /// <inheritdoc />
-        public bool IsEmpty => (Count == 0);
-
-        /// <inheritdoc />
         void ICollection<T>.Add(T item)
         {
             var child = new GeneralTree<T>(item);

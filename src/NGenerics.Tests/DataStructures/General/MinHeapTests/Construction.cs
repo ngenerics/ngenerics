@@ -22,26 +22,22 @@ namespace NGenerics.Tests.DataStructures.General.MinHeapTests
             var heap = new Heap<int>(HeapType.Minimum);
 
             Assert.AreEqual(heap.Type, HeapType.Minimum);
-            Assert.AreEqual(heap.Count, 0);
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.AreEqual(0, heap.Count);
 
             heap = new Heap<int>(HeapType.Minimum, Comparer<int>.Default);
 
             Assert.AreEqual(heap.Type, HeapType.Minimum);
-            Assert.AreEqual(heap.Count, 0);
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.AreEqual(0, heap.Count);
 
             heap = new Heap<int>(HeapType.Minimum, 50);
 
             Assert.AreEqual(heap.Type, HeapType.Minimum);
-            Assert.AreEqual(heap.Count, 0);
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.AreEqual(0, heap.Count);
 
             heap = new Heap<int>(HeapType.Minimum, 50, Comparer<int>.Default);
 
             Assert.AreEqual(heap.Type, HeapType.Minimum);
-            Assert.AreEqual(heap.Count, 0);
-            Assert.IsTrue(heap.IsEmpty);
+            Assert.AreEqual(0, heap.Count);
         }
     }
 }

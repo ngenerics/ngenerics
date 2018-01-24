@@ -25,6 +25,7 @@ using NGenerics.Util;
 using NGenerics.DataStructures.Queues;
 // ReSharper restore RedundantUsingDirective
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace NGenerics.DataStructures.General
 {
@@ -64,13 +65,6 @@ namespace NGenerics.DataStructures.General
         #endregion
 
         #region ICollection<T> Members
-
-		/// <inheritdoc />
-        /// <example>
-        /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// </example>
-        public bool IsEmpty => _graphVertices.Count == 0;
-
 
         /// <inheritdoc />
         /// <example>
@@ -705,10 +699,10 @@ namespace NGenerics.DataStructures.General
             {
                 foreach (var edge in _graphEdges.Keys)
                 {
-                    if (((edge.FromVertex.Data.Equals(fromValue) &&
-                        (edge.ToVertex.Data.Equals(toValue)))) ||
-                        ((edge.FromVertex.Data.Equals(toValue) &&
-                        (edge.ToVertex.Data.Equals(fromValue)))))
+                    if (edge.FromVertex.Data.Equals(fromValue) &&
+                        edge.ToVertex.Data.Equals(toValue) ||
+                        edge.FromVertex.Data.Equals(toValue) &&
+                        edge.ToVertex.Data.Equals(fromValue))
                     {
                         return true;
                     }
@@ -886,20 +880,16 @@ namespace NGenerics.DataStructures.General
         /// <returns>The number of items visited.</returns>
         private int TopologicalSortTraversalInternal(IVisitor<Vertex<T>> visitor)
         {
-            #region Validation
-
-            Guard.ArgumentNotNull(visitor, "visitor");
+            Guard.ArgumentNotNull(visitor, nameof(visitor));
 
             if (!IsDirected)
             {
                 throw new ArgumentException("The current operation is only valid for a directed graph.");
             }
 
-            #endregion
-
             var visitCount = 0;
 
-            if (!IsEmpty)
+            if (Vertices.Count > 0)
             {
                 var depth = new Dictionary<Vertex<T>, int>(_graphVertices.Count);
 
@@ -1044,17 +1034,8 @@ namespace NGenerics.DataStructures.General
         /// <returns>Any vertex.</returns>
         private Vertex<T> GetAnyVertex()
         {
-            #region Asserts
-
             Debug.Assert(_graphVertices.Count > 0);
-
-            #endregion
-
-			foreach (var key in _graphVertices.Keys)
-        	{
-				return key;
-        	}
-        	return default(Vertex<T>);
+            return _graphVertices.First().Key;
         }
 
         /// <summary>

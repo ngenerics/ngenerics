@@ -22,23 +22,21 @@ namespace NGenerics.Tests.DataStructures.Queues.DequeTests
             var deque = new Deque<int>();
             deque.EnqueueHead(6);
 
-            Assert.IsFalse(deque.IsEmpty);
-            Assert.AreEqual(deque.Head, 6);
-            Assert.AreEqual(deque.Tail, 6);
-            Assert.AreEqual(deque.Count, 1);
+            Assert.AreEqual(6, deque.Head);
+            Assert.AreEqual(6, deque.Tail);
+            Assert.AreEqual(1, deque.Count);
 
             deque.EnqueueHead(3);
 
-            Assert.AreEqual(deque.Head, 3);
-            Assert.AreEqual(deque.Tail, 6);
-            Assert.AreEqual(deque.Count, 2);
+            Assert.AreEqual(3, deque.Head);
+            Assert.AreEqual(6, deque.Tail);
+            Assert.AreEqual(2, deque.Count);
 
             deque.EnqueueHead(5);
 
-            Assert.AreEqual(deque.Head, 5);
-            Assert.AreEqual(deque.Tail, 6);
-            Assert.AreEqual(deque.Count, 3);
+            Assert.AreEqual(5, deque.Head);
+            Assert.AreEqual(6, deque.Tail);
+            Assert.AreEqual(3, deque.Count);
         }
-
     }
 }

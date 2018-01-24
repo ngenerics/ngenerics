@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using NGenerics.DataStructures.General;
+using NGenerics.Extensions;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.BagTests
@@ -23,28 +24,28 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
         {
             var bag = new Bag<string>();
 
-            Assert.AreEqual(bag.Count, 0);
-            Assert.IsTrue(bag.IsEmpty);
+            Assert.AreEqual(0, bag.Count);
+            Assert.IsTrue(bag.IsEmpty());
 
             bag = new Bag<string>(EqualityComparer<string>.Default);
 
-            Assert.AreEqual(bag.Count, 0);
-            Assert.IsTrue(bag.IsEmpty);
+            Assert.AreEqual(0, bag.Count);
+            Assert.IsTrue(bag.IsEmpty());
 
             bag = new Bag<string>(50);
 
-            Assert.AreEqual(bag.Count, 0);
-            Assert.IsTrue(bag.IsEmpty);
+            Assert.AreEqual(0, bag.Count);
+            Assert.IsTrue(bag.IsEmpty());
 
             bag = new Bag<string>(50);
 
-            Assert.AreEqual(bag.Count, 0);
-            Assert.IsTrue(bag.IsEmpty);
+            Assert.AreEqual(0, bag.Count);
+            Assert.IsTrue(bag.IsEmpty());
 
             bag = new Bag<string>(50, EqualityComparer<string>.Default);
 
-            Assert.AreEqual(bag.Count, 0);
-            Assert.IsTrue(bag.IsEmpty);
+            Assert.AreEqual(0, bag.Count);
+            Assert.IsTrue(bag.IsEmpty());
         }
 
         [Test]

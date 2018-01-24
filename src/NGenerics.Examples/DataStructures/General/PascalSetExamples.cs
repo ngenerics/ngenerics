@@ -41,7 +41,7 @@ namespace NGenerics.Examples.DataStructures.General
             set.AcceptVisitor(visitor);
 
             // The visitor will have visited 10 items
-            Assert.AreEqual(visitor.Count, 10);
+            Assert.AreEqual(10, visitor.Count);
         }
         #endregion
 
@@ -50,16 +50,10 @@ namespace NGenerics.Examples.DataStructures.General
         public void AddExample()
         {
             // Create a sample PascalSet instance
-            var pascalSet = new PascalSet(100);
-
-            // Add the 10th item to the set
-            pascalSet.Add(10);
-
-            // Add the 57th item to the set
-            pascalSet.Add(57);
+            var pascalSet = new PascalSet(100) {10, 57};
 
             // There will be two items in the set
-            Assert.AreEqual(pascalSet.Count, 2);
+            Assert.AreEqual(2, pascalSet.Count);
 
             // And the set will contain the 10th and 57th item
             Assert.IsTrue(pascalSet.Contains(10));
@@ -75,7 +69,7 @@ namespace NGenerics.Examples.DataStructures.General
             // Create a sample PascalSet instance
             var pascalSet = new PascalSet(10, 100);
 
-            Assert.AreEqual(pascalSet.Capacity, 91);
+            Assert.AreEqual(91, pascalSet.Capacity);
         }
         #endregion
 
@@ -84,22 +78,16 @@ namespace NGenerics.Examples.DataStructures.General
         public void ClearExample()
         {
             // Create a sample PascalSet instance
-            var pascalSet = new PascalSet(100);
-
-            // Add the 10th item to the set
-            pascalSet.Add(10);
-
-            // Add the 57th item to the set
-            pascalSet.Add(57);
+            var pascalSet = new PascalSet(100) {10, 57};
 
             // There will be two items in the set
-            Assert.AreEqual(pascalSet.Count, 2);
+            Assert.AreEqual(2, pascalSet.Count);
 
             // Remove all items from the set
             pascalSet.Clear();
 
             // There will be no items left in the set
-            Assert.AreEqual(pascalSet.Count, 0);
+            Assert.AreEqual(0, pascalSet.Count);
         }
         #endregion
 
@@ -108,16 +96,10 @@ namespace NGenerics.Examples.DataStructures.General
         public void ContainsExample()
         {
             // Create a sample PascalSet instance
-            var pascalSet = new PascalSet(100);
-
-            // Add the 10th item to the set
-            pascalSet.Add(10);
-
-            // Add the 57th item to the set
-            pascalSet.Add(57);
+            var pascalSet = new PascalSet(100) {10, 57};
 
             // There will be two items in the set
-            Assert.AreEqual(pascalSet.Count, 2);
+            Assert.AreEqual(2, pascalSet.Count);
 
             // And the set will contain the 10th and 57th item
             Assert.IsTrue(pascalSet.Contains(10));
@@ -133,25 +115,22 @@ namespace NGenerics.Examples.DataStructures.General
         public void CountExample()
         {
             // Create a sample PascalSet instance
-            var pascalSet = new PascalSet(100);
-
-            // Add the 10th item to the set
-            pascalSet.Add(10);
+            var pascalSet = new PascalSet(100) {10};
 
             // There will be one item in the set
-            Assert.AreEqual(pascalSet.Count, 1);
+            Assert.AreEqual(1, pascalSet.Count);
 
             // Add the 57th item to the set
             pascalSet.Add(57);
 
             // There will be two items in the set
-            Assert.AreEqual(pascalSet.Count, 2);
+            Assert.AreEqual(2, pascalSet.Count);
 
             // Clear the set, thereby removing all items
             pascalSet.Clear();
 
             // There will be no items left in the set
-            Assert.AreEqual(pascalSet.Count, 0);
+            Assert.AreEqual(0, pascalSet.Count);
         }
         #endregion
 
@@ -223,7 +202,7 @@ namespace NGenerics.Examples.DataStructures.General
             // contained in both sets.
             Assert.IsTrue(intersection[10]);
             Assert.IsTrue(intersection[30]);
-            Assert.AreEqual(intersection.Count, 2);
+            Assert.AreEqual(2, intersection.Count);
         }
         #endregion
 
@@ -254,36 +233,9 @@ namespace NGenerics.Examples.DataStructures.General
             }
 
             // We'll have 91 items in the set (101 - 10)
-            Assert.AreEqual(inverse.Count, 91);
+            Assert.AreEqual(91, inverse.Count);
         }
         #endregion
-
-        #region IsEmpty
-        [Test]
-        public void IsEmptyExample()
-        {
-            // Create a sample PascalSet
-            var pascalSet = new PascalSet(100);
-
-            // The PascalSet will initially be empty
-            Assert.IsTrue(pascalSet.IsEmpty);
-
-            // Add a couple of values in the PascalSet
-            for (var i = 0; i < 100; i += 10)
-            {
-                pascalSet.Add(i);
-            }
-
-            // Not empty anymore...
-            Assert.IsFalse(pascalSet.IsEmpty);
-
-            // Clear the PascalSet, making it empty once more.
-            pascalSet.Clear();
-            Assert.IsTrue(pascalSet.IsEmpty);
-        }
-        #endregion
-
-  
 
         #region IsFull
         [Test]
@@ -305,7 +257,7 @@ namespace NGenerics.Examples.DataStructures.General
             }
 
             // The set contains 100 items - thus, it's full
-            Assert.AreEqual(pascalSet.Count, 100);
+            Assert.AreEqual(100, pascalSet.Count);
             Assert.IsTrue(pascalSet.IsFull);
         }
         #endregion
@@ -424,7 +376,7 @@ namespace NGenerics.Examples.DataStructures.General
             var pascalSet = new PascalSet(50, 100);
 
             // The lower bound will be 50
-            Assert.AreEqual(pascalSet.LowerBound, 50);
+            Assert.AreEqual(50, pascalSet.LowerBound);
         }
         #endregion
 
@@ -437,7 +389,7 @@ namespace NGenerics.Examples.DataStructures.General
             var pascalSet = new PascalSet(50, 100);
 
             // The upper bound will be 100
-            Assert.AreEqual(pascalSet.UpperBound, 100);
+            Assert.AreEqual(100, pascalSet.UpperBound);
         }
         #endregion
 
@@ -456,7 +408,7 @@ namespace NGenerics.Examples.DataStructures.General
             }
 
             // There should be 10 items in the set
-            Assert.AreEqual(pascalSet.Count, 10);
+            Assert.AreEqual(10, pascalSet.Count);
 
             // Remove 30 from the set
             var success = pascalSet.Remove(30);
@@ -465,7 +417,7 @@ namespace NGenerics.Examples.DataStructures.General
             Assert.IsTrue(success);
 
             // There should be 9 items in the set now
-            Assert.AreEqual(pascalSet.Count, 9);
+            Assert.AreEqual(9, pascalSet.Count);
 
             // Try and remove an item not in the set
             success = pascalSet.Remove(15);
@@ -487,7 +439,7 @@ namespace NGenerics.Examples.DataStructures.General
 			var result = pascalSet1.Subtract(pascalSet2);
 
             // There will only be two items in the result
-            Assert.AreEqual(result.Count, 2);
+            Assert.AreEqual(2, result.Count);
 
             // And those items will be 40, and 34
             Assert.IsTrue(result[40]);
@@ -506,9 +458,8 @@ namespace NGenerics.Examples.DataStructures.General
             // Compute the union of set s1 and s2
 			var union = pascalSet1.Union(pascalSet2);
 
-            // The union will consist of the following items :
-            // { 3, 4, 15, 20, 30, 50, 34 }
-            Assert.AreEqual(union.Count, 7);
+            // The union will consist of the following items : 3, 4, 15, 20, 30, 50, 34
+            Assert.AreEqual(7, union.Count);
             Assert.IsTrue(union[3]);
             Assert.IsTrue(union[4]);
             Assert.IsTrue(union[15]);

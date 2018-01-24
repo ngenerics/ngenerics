@@ -41,7 +41,7 @@ namespace NGenerics.Examples.DataStructures.General
             graph.AcceptVisitor(visitor);
 
             // The visitor will have visited three vertices.
-            Assert.AreEqual(visitor.Count, 3);
+            Assert.AreEqual(3, visitor.Count);
         }
         #endregion
 
@@ -63,7 +63,7 @@ namespace NGenerics.Examples.DataStructures.General
             graph.AddEdge(edge);
 
             // The edge will be accessible though the edges collection
-            Assert.AreEqual(graph.Edges.Count, 1);
+            Assert.AreEqual(1, graph.Edges.Count);
         }
         #endregion
 
@@ -89,10 +89,10 @@ namespace NGenerics.Examples.DataStructures.General
 
             // Since the graph is directed, the edge will
             // be directed as well
-            Assert.AreEqual(edge.IsDirected, true);
+            Assert.IsTrue(edge.IsDirected);
 
             // The edge will be accessible though the edges collection
-            Assert.AreEqual(graph.Edges.Count, 1);
+            Assert.AreEqual(1, graph.Edges.Count);
         }
         #endregion
 
@@ -118,13 +118,13 @@ namespace NGenerics.Examples.DataStructures.General
 
             // Since the graph is directed, the edge will
             // be directed as well
-            Assert.AreEqual(edge.IsDirected, true);
+            Assert.IsTrue(edge.IsDirected);
 
             // The edge will be accessible though the edges collection
-            Assert.AreEqual(graph.Edges.Count, 1);
+            Assert.AreEqual(1, graph.Edges.Count);
 
             // And finally, the weight of the edge will be 34.5
-            Assert.AreEqual(edge.Weight, 34.5);
+            Assert.AreEqual(34.5, edge.Weight);
         }
         #endregion
 
@@ -143,7 +143,7 @@ namespace NGenerics.Examples.DataStructures.General
 
             // The vertex will be accessible though the
             // vertices collection
-            Assert.AreEqual(graph.Vertices.Count, 1);
+            Assert.AreEqual(1, graph.Vertices.Count);
         }
         #endregion
 
@@ -159,10 +159,10 @@ namespace NGenerics.Examples.DataStructures.General
 
             // The vertex will be accessible though the
             // vertices collection
-            Assert.AreEqual(graph.Vertices.Count, 1);
+            Assert.AreEqual(1, graph.Vertices.Count);
 
             // And the vertex's value will be 5
-            Assert.AreEqual(vertex1.Data, 5);
+            Assert.AreEqual(5, vertex1.Data);
         }
         #endregion
 
@@ -193,7 +193,7 @@ namespace NGenerics.Examples.DataStructures.General
             graph.BreadthFirstTraversal(visitor, vertex1);
 
             // The visitor will have visited three vertices.
-            Assert.AreEqual(visitor.Count, 3);
+            Assert.AreEqual(3, visitor.Count);
         }
         #endregion
 
@@ -214,16 +214,16 @@ namespace NGenerics.Examples.DataStructures.General
             graph.AddEdge(vertex2, vertex3);
 
             // There will be 2 edges and 3 vertices in the graph
-            Assert.AreEqual(graph.Edges.Count, 2);
-            Assert.AreEqual(graph.Vertices.Count, 3);
+            Assert.AreEqual(2, graph.Edges.Count);
+            Assert.AreEqual(3, graph.Vertices.Count);
 
             // Clear the graph - thereby removing all vertices
             // and edges in the graph.
             graph.Clear();
 
             // The graph will be empty
-            Assert.AreEqual(graph.Edges.Count, 0);
-            Assert.AreEqual(graph.Vertices.Count, 0);
+            Assert.AreEqual(0, graph.Edges.Count);
+            Assert.AreEqual(0, graph.Vertices.Count);
         }
         #endregion
 
@@ -235,13 +235,13 @@ namespace NGenerics.Examples.DataStructures.General
             var graph = new Graph<int>(true);
 
             // Initially, the graph will be empty
-            Assert.IsTrue(graph.IsEmpty);
+            Assert.IsTrue(graph.Vertices.Count == 0);
 
             // To create an undirected graph, specify it in the constructor :
             graph = new Graph<int>(false);
 
             // Initially, the graph will be empty
-            Assert.IsTrue(graph.IsEmpty);
+            Assert.IsTrue(graph.Vertices.Count == 0);
         }
 
         #endregion
@@ -390,12 +390,12 @@ namespace NGenerics.Examples.DataStructures.General
             // come to 1 + 2+ 3 = 6.
             var sum = 0;
 
-            for (var i = 0; i < values.Length; i++)
+            foreach (var v in values)
             {
-                sum += values[i];
+                sum += v;
             }
 
-            Assert.AreEqual(sum, 6);
+            Assert.AreEqual(6, sum);
         }
         #endregion
 
@@ -430,7 +430,7 @@ namespace NGenerics.Examples.DataStructures.General
             graph.DepthFirstTraversal(orderedVisitor, vertex1);
 
             // The visitor will have visited 3 items.
-            Assert.AreEqual(countingVisitor.Count, 3);
+            Assert.AreEqual(3, countingVisitor.Count);
         }
         #endregion
 
@@ -455,7 +455,7 @@ namespace NGenerics.Examples.DataStructures.General
             var edges = graph.Edges;
 
             // There will be three edges in the collection
-            Assert.AreEqual(edges.Count, 3);
+            Assert.AreEqual(3, edges.Count);
         }
         #endregion
 
@@ -477,7 +477,7 @@ namespace NGenerics.Examples.DataStructures.General
                 graph.FindVertices(value => value == 3);
 
             // Only one vertex was found
-            Assert.AreEqual(vertexList.Count, 1);
+            Assert.AreEqual(1, vertexList.Count);
 
             // And that vertex was vertex3
             Assert.AreSame(vertexList[0], vertex3);
@@ -640,32 +640,6 @@ namespace NGenerics.Examples.DataStructures.General
         }
         #endregion
 
-        #region IsEmpty
-        [Test]
-        public void IsEmptyExample()
-        {
-            // Initialize a new directed graph instance
-            var graph = new Graph<int>(true);
-
-            // The graph will be empty
-            Assert.IsTrue(graph.IsEmpty);
-
-            // Add a vertex to the graph
-            graph.AddVertex(3);
-
-            // The graph will have one vertex in it (non-empty)
-            Assert.IsFalse(graph.IsEmpty);
-
-            // Clear the graph, thereby making it empty again
-            graph.Clear();
-            Assert.IsTrue(graph.IsEmpty);
-        }
-        #endregion
-
- 
-
-      
-
         #region IsReadOnly
         [Test]
         public void IsReadOnlyExample()
@@ -760,7 +734,7 @@ namespace NGenerics.Examples.DataStructures.General
             var edge4 = new Edge<int>(vertex2, vertex4, true);
 
             // The graph contains 3 edges
-            Assert.AreEqual(graph.Edges.Count, 3);
+            Assert.AreEqual(3, graph.Edges.Count);
 
             // Remove edge edge1 from the graph
             var success = graph.RemoveEdge(edge1);
@@ -769,7 +743,7 @@ namespace NGenerics.Examples.DataStructures.General
             Assert.IsTrue(success);
 
             // The graph contains 2 edges
-            Assert.AreEqual(graph.Edges.Count, 2);
+            Assert.AreEqual(2, graph.Edges.Count);
 
             // Trying to remove an edge not present in
             // the graph will return the value false
@@ -796,7 +770,7 @@ namespace NGenerics.Examples.DataStructures.General
             graph.AddEdge(vertex1, vertex3);
 
             // The graph contains 3 edges
-            Assert.AreEqual(graph.Edges.Count, 3);
+            Assert.AreEqual(3, graph.Edges.Count);
 
             // Remove the edge between vertex1 and vertex2 from the graph
             var success = graph.RemoveEdge(vertex1, vertex2);
@@ -805,7 +779,7 @@ namespace NGenerics.Examples.DataStructures.General
             Assert.IsTrue(success);
 
             // The graph contains 2 edges
-            Assert.AreEqual(graph.Edges.Count, 2);
+            Assert.AreEqual(2, graph.Edges.Count);
 
             // Trying to remove an edge not present in the
             // graph will return the value false
@@ -825,7 +799,7 @@ namespace NGenerics.Examples.DataStructures.General
             graph.AddVertex(2);
 
             // The graph contains 2 vertices
-            Assert.AreEqual(graph.Vertices.Count, 2);
+            Assert.AreEqual(2, graph.Vertices.Count);
 
             // Remove vertex vertex1
             var removeResult = graph.RemoveVertex(vertex1);
@@ -834,7 +808,7 @@ namespace NGenerics.Examples.DataStructures.General
             Assert.IsTrue(removeResult);
 
             // The graph now contains only one vertex
-            Assert.AreEqual(graph.Vertices.Count, 1);
+            Assert.AreEqual(1, graph.Vertices.Count);
         }
         #endregion
 
@@ -850,7 +824,7 @@ namespace NGenerics.Examples.DataStructures.General
             graph.AddVertex(2);
 
             // The graph contains 2 vertices
-            Assert.AreEqual(graph.Vertices.Count, 2);
+            Assert.AreEqual(2, graph.Vertices.Count);
 
             // Remove vertex vertex1
             var removeResult = graph.RemoveVertex(1);
@@ -859,7 +833,7 @@ namespace NGenerics.Examples.DataStructures.General
             Assert.IsTrue(removeResult);
 
             // The graph now contains only one vertex
-            Assert.AreEqual(graph.Vertices.Count, 1);
+            Assert.AreEqual(1, graph.Vertices.Count);
         }
         #endregion
 
@@ -885,7 +859,7 @@ namespace NGenerics.Examples.DataStructures.General
             var vertices = graph.TopologicalSort();
 
             // There will be 4 items in the list
-            Assert.AreEqual(vertices.Count, 4);
+            Assert.AreEqual(4, vertices.Count);
 
             // And the topological order of the sample graph is vertex1, vertex2, vertex3, and vertex4.
             Assert.AreSame(vertices[0], vertex1);
@@ -924,13 +898,13 @@ namespace NGenerics.Examples.DataStructures.General
             var vertices = trackingVisitor.TrackingList;
 
             // There will be 4 items in the list
-            Assert.AreEqual(vertices.Count, 4);
+            Assert.AreEqual(4, vertices.Count);
 
             // And the topological order of the sample graph is vertex1, vertex2, vertex3, and vertex4.
-            Assert.AreSame(vertices[0], vertex1);
-            Assert.AreSame(vertices[1], vertex2);
-            Assert.AreSame(vertices[2], vertex3);
-            Assert.AreSame(vertices[3], vertex4);
+            Assert.AreSame(vertex1, vertices[0]);
+            Assert.AreSame(vertex2, vertices[1]);
+            Assert.AreSame(vertex3, vertices[2]);
+            Assert.AreSame(vertex4, vertices[3]);
         }
 
         #endregion
@@ -951,7 +925,7 @@ namespace NGenerics.Examples.DataStructures.General
             var vertices = graph.Vertices;
 
             // The graph contains 2 vertices
-            Assert.AreEqual(vertices.Count, 2);
+            Assert.AreEqual(2, vertices.Count);
         }
         #endregion
     }

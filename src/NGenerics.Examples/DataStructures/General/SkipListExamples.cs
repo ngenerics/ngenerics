@@ -44,10 +44,7 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void AddExample()
         {
-            var skipList = new SkipList<string, int>();
-            skipList.Add("cat", 1);
-            skipList.Add("dog", 2);
-            skipList.Add("canary", 3);
+            var skipList = new SkipList<string, int> {{"cat", 1}, {"dog", 2}, {"canary", 3}};
 
             // There will be 3 items in the skipList.
             Assert.AreEqual(3, skipList.Count);
@@ -58,10 +55,12 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void AddKeyValuePairExample()
         {
-            var skipList = new SkipList<string, int>();
-            skipList.Add(new KeyValuePair<string, int>("cat", 1));
-            skipList.Add(new KeyValuePair<string, int>("dog", 2));
-            skipList.Add(new KeyValuePair<string, int>("canary", 3));
+            var skipList = new SkipList<string, int>
+            {
+                new KeyValuePair<string, int>("cat", 1),
+                new KeyValuePair<string, int>("dog", 2),
+                new KeyValuePair<string, int>("canary", 3)
+            };
 
             // There should be 3 items in the SkipList.
             Assert.AreEqual(3, skipList.Count);
@@ -143,8 +142,7 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void ConstructorExample()
         {
-
-            var skipList = new SkipList<string, int> {{"cat", 1}, {"dog", 2}, {"canary", 3}};
+            new SkipList<string, int> {{"cat", 1}, {"dog", 2}, {"canary", 3}};
         }
 
         #endregion
@@ -237,20 +235,23 @@ namespace NGenerics.Examples.DataStructures.General
         #endregion
 
         #region GetEnumerator
+        [Test]
         public void GetEnumeratorExample()
         {
             var skipList = new SkipList<string, int> {{"cat", 1}, {"dog", 2}, {"canary", 3}};
 
-            var enumerator = skipList.GetEnumerator();
-
-            // Enumerate through the items in the SkipList, and write the contents
-            // to the standard output.
-            while (enumerator.MoveNext())
+            using (var enumerator = skipList.GetEnumerator())
             {
-                Console.Write("Key : ");
-                Console.WriteLine(enumerator.Current.Key);
-                Console.Write("Value : ");
-                Console.WriteLine(enumerator.Current.Value);
+
+                // Enumerate through the items in the SkipList, and write the contents
+                // to the standard output.
+                while (enumerator.MoveNext())
+                {
+                    Console.Write("Key : ");
+                    Console.WriteLine(enumerator.Current.Key);
+                    Console.Write("Value : ");
+                    Console.WriteLine(enumerator.Current.Value);
+                }
             }
         }
         #endregion
@@ -266,32 +267,6 @@ namespace NGenerics.Examples.DataStructures.General
             Assert.AreEqual(3, skipList["canary"]);
         }
         #endregion
-
-        #region IsEmpty
-        [Test]
-        public void IsEmptyExample()
-        {
-            var skipList = new SkipList<string, int>();
-
-            // SkipList is empty.
-            Assert.IsTrue(skipList.IsEmpty);
-
-            // Add a cat.
-            skipList.Add("cat", 1);
-
-            // SkipList is not empty.
-            Assert.IsFalse(skipList.IsEmpty);
-
-            // Clear the SkipList - thereby removing all items contained.
-            skipList.Clear();
-
-            // SkipList is empty again with count = 0.
-            Assert.IsTrue(skipList.IsEmpty);
-        }
-        #endregion
-
- 
-
 
         #region IsReadOnly
         [Test]
@@ -395,10 +370,8 @@ namespace NGenerics.Examples.DataStructures.General
         {
             var skipList = new SkipList<string, int> {{"cat", 1}, {"dog", 2}, {"canary", 3}};
 
-            int value;
-
             // We'll get the value for cat successfully.
-            Assert.IsTrue(skipList.TryGetValue("cat", out value));
+            Assert.IsTrue(skipList.TryGetValue("cat", out var value));
 
             // And the value should be 1.
             Assert.AreEqual(1, value);

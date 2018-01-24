@@ -35,8 +35,8 @@ namespace NGenerics.DataStructures.General
         private readonly SkipListNode<TKey, TValue>[] headNodes;
         private readonly SkipListNode<TKey, TValue> tail = new SkipListNode<TKey, TValue>();
 
-        internal const int defaultMaximumLevel = 16;
-        internal const double defaultProbability = 0.5;
+        private const int DefaultMaximumLevel = 16;
+        private const double DefaultProbability = 0.5;
 
         // Initialise the random number generator with the current time.
         // Random is marked as not serializable in .NET core - we re-instantiate it if the value ends up being null.
@@ -49,14 +49,14 @@ namespace NGenerics.DataStructures.General
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="Constructor" lang="cs" title="The following example shows how to use the default constructor."/>
         /// </example>
-        public SkipList() : this(defaultMaximumLevel, defaultProbability, Comparer<TKey>.Default) { }
+        public SkipList() : this(DefaultMaximumLevel, DefaultProbability, Comparer<TKey>.Default) { }
 
         /// <param name="comparer">The comparer.</param>
 		/// <exception cref="ArgumentNullException"><paramref name="comparer"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="ConstructorComparer" lang="cs" title="The following example shows how to use the comparer constructor."/>
         /// </example>
-        public SkipList(IComparer<TKey> comparer) : this(defaultMaximumLevel, defaultProbability, comparer) { }
+        public SkipList(IComparer<TKey> comparer) : this(DefaultMaximumLevel, DefaultProbability, comparer) { }
 
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <param name="comparison">The comparison.</param>
         /// <exception cref="ArgumentNullException"><paramref name="comparison"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
-        public SkipList(Comparison<TKey> comparison) : this(defaultMaximumLevel, defaultProbability, new ComparisonComparer<TKey>(comparison)) { }
+        public SkipList(Comparison<TKey> comparison) : this(DefaultMaximumLevel, DefaultProbability, new ComparisonComparer<TKey>(comparison)) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SkipList&lt;TKey, TValue&gt;"/> class.
@@ -116,24 +116,6 @@ namespace NGenerics.DataStructures.General
             for (var i = 1; i < maximumLevel; i++)
             {
                 headNodes[i] = new SkipListNode<TKey, TValue> {Down = headNodes[i - 1], Right = tail};
-                //headNodes[i - 1].Up = headNodes[i];
-            }
-        }
-
-        #endregion
-
-        #region ICollection<T> Members
-
-
-		/// <inheritdoc />  
-        /// <example>
-        /// <code source="..\..\NGenerics.Examples\DataStructures\General\SkipListExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// </example>
-        public bool IsEmpty
-        {
-            get
-            {
-                return Count == 0;
             }
         }
 

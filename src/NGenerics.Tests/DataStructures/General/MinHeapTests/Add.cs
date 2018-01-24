@@ -8,6 +8,7 @@
 */
 
 using NGenerics.DataStructures.General;
+using NGenerics.Extensions;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.MinHeapTests
@@ -23,26 +24,26 @@ namespace NGenerics.Tests.DataStructures.General.MinHeapTests
                                5
                            };
 
-            Assert.AreEqual(heap.Count, 1);
-            Assert.IsFalse(heap.IsEmpty);
-            Assert.AreEqual(heap.Root, 5);
+            Assert.AreEqual(1, heap.Count);
+            Assert.IsFalse(heap.IsEmpty());
+            Assert.AreEqual(5, heap.Root);
 
             heap.Add(2);
-            Assert.AreEqual(heap.Count, 2);
-            Assert.IsFalse(heap.IsEmpty);
-            Assert.AreEqual(heap.Root, 2);
+            Assert.AreEqual(2, heap.Count);
+            Assert.IsFalse(heap.IsEmpty());
+            Assert.AreEqual(2, heap.Root);
 
             heap.Add(3);
-            Assert.AreEqual(heap.Count, 3);
-            Assert.IsFalse(heap.IsEmpty);
-            Assert.AreEqual(heap.Root, 2);
+            Assert.AreEqual(3, heap.Count);
+            Assert.IsFalse(heap.IsEmpty());
+            Assert.AreEqual(2, heap.Root);
 
-            Assert.AreEqual(heap.RemoveRoot(), 2);
+            Assert.AreEqual(2, heap.RemoveRoot());
 
             heap.Add(1);
-            Assert.AreEqual(heap.Count, 3);
-            Assert.IsFalse(heap.IsEmpty);
-            Assert.AreEqual(heap.Root, 1);
+            Assert.AreEqual(3, heap.Count);
+            Assert.IsFalse(heap.IsEmpty());
+            Assert.AreEqual(1, heap.Root);
         }
     }
 }

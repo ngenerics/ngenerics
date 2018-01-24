@@ -20,7 +20,7 @@ using NGenerics.Util;
 namespace NGenerics.DataStructures.General
 {
     /// <summary>
-    /// A data structure for representing a set of objects and common operations performed on sets.
+    /// A data structure for representing a other of objects and common operations performed on sets.
     /// </summary>
 	[SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     [Serializable]
@@ -161,9 +161,9 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Gets the capacity of the set (the amount of items that can be contained).
+        /// Gets the capacity of the other (the amount of items that can be contained).
         /// </summary>
-        /// <value>The capacity of the set.</value>
+        /// <value>The capacity of the other.</value>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Capacity" lang="cs" title="The following example shows how to use the Capacity property."/>
         /// </example>
@@ -175,10 +175,10 @@ namespace NGenerics.DataStructures.General
             }
         }
         /// <summary>
-        /// Computes the union of this set and the specified set.
+        /// Computes the union of this other and the specified other.
         /// </summary>
-        /// <param name="set">The set.</param>
-        /// <returns>The union between this set and the set specified.</returns>
+        /// <param name="set">The other.</param>
+        /// <returns>The union between this other and the other specified.</returns>
 		/// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
         /// <example>
@@ -188,7 +188,7 @@ namespace NGenerics.DataStructures.General
         {
             #region Validation
 
-            Guard.ArgumentNotNull(set, "set");
+            Guard.ArgumentNotNull(set, "other");
 
             CheckIfUniverseTheSame(set);
 
@@ -198,9 +198,9 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Computes the difference between this set and the specified set.
+        /// Computes the difference between this other and the specified other.
         /// </summary>
-        /// <param name="set">The set.</param>
+        /// <param name="set">The other.</param>
         /// <returns>The result of the difference operation.</returns>
 		/// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
@@ -212,7 +212,7 @@ namespace NGenerics.DataStructures.General
             #region Validation
 
 
-            Guard.ArgumentNotNull(set, "set");
+            Guard.ArgumentNotNull(set, "other");
 
             CheckIfUniverseTheSame(set);
 
@@ -222,9 +222,9 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Computes the intersection between this set and the specified set.
+        /// Computes the intersection between this other and the specified other.
         /// </summary>
-        /// <param name="set">The set.</param>
+        /// <param name="set">The other.</param>
         /// <returns>The result of the intersection operation.</returns>
 		/// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
@@ -235,7 +235,7 @@ namespace NGenerics.DataStructures.General
         {
             #region Validation
 
-            Guard.ArgumentNotNull(set, "set");
+            Guard.ArgumentNotNull(set, "other");
 
             CheckIfUniverseTheSame(set);
 
@@ -245,9 +245,9 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Returns a set with items not in this set.
+        /// Returns a other with items not in this other.
         /// </summary>		
-        /// <returns>The set with items not included in this set.</returns>
+        /// <returns>The other with items not included in this other.</returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="Inverse" lang="cs" title="The following example shows how to use the Inverse method."/>
         /// </example>
@@ -257,11 +257,11 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Determines whether this set is a subset of the specified set.
+        /// Determines whether this other is a subset of the specified other.
         /// </summary>
-        /// <param name="set">The set to be compared against.</param>
+        /// <param name="set">The other to be compared against.</param>
         /// <returns>
-        /// 	<c>true</c> if this set is a subset of the specified set]; otherwise, <c>false</c>.
+        /// 	<c>true</c> if this other is a subset of the specified other]; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
@@ -272,7 +272,7 @@ namespace NGenerics.DataStructures.General
         {
             #region Validation
 
-            Guard.ArgumentNotNull(set, "set");
+            Guard.ArgumentNotNull(set, "other");
 
             CheckIfUniverseTheSame(set);
 
@@ -280,24 +280,18 @@ namespace NGenerics.DataStructures.General
 
             for (var i = 0; i < data.Length; i++)
             {
-                if (data[i])
-                {
-                    if (!set.data[i])
-                    {
-                        return false;
-                    }
-                }
+                if (data[i] && !set.data[i]) return false;
             }
 
             return true;
         }
 
         /// <summary>
-        /// Determines whether this set is a proper subset of the specified set.
+        /// Determines whether this other is a proper subset of the specified other.
         /// </summary>
-        /// <param name="set">The set to be compared against.</param>
+        /// <param name="set">The other to be compared against.</param>
         /// <returns>
-        /// 	<c>true</c> if this is a proper subset of the specified set; otherwise, <c>false</c>.
+        /// 	<c>true</c> if this is a proper subset of the specified other; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 	    /// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
@@ -308,7 +302,7 @@ namespace NGenerics.DataStructures.General
         {
             #region Validation
 
-            Guard.ArgumentNotNull(set, "set");
+            Guard.ArgumentNotNull(set, "other");
 
             CheckIfUniverseTheSame(set);
 
@@ -319,11 +313,11 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Determines whether this set is a superset of the specified set.
+        /// Determines whether this other is a superset of the specified other.
         /// </summary>
-        /// <param name="set">The set to be compared against.</param>
+        /// <param name="set">The other to be compared against.</param>
         /// <returns>
-        /// 	<c>true</c> if this set is a superset of the specified set; otherwise, <c>false</c>.
+        /// 	<c>true</c> if this other is a superset of the specified other; otherwise, <c>false</c>.
         /// </returns>
 		/// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
@@ -332,7 +326,7 @@ namespace NGenerics.DataStructures.General
             #region Validation
 
 
-            Guard.ArgumentNotNull(set, "set");
+            Guard.ArgumentNotNull(set, "other");
 
             CheckIfUniverseTheSame(set);
 
@@ -340,24 +334,18 @@ namespace NGenerics.DataStructures.General
 
             for (var i = 0; i < data.Length; i++)
             {
-                if (set.data[i])
-                {
-                    if (!data[i])
-                    {
-                        return false;
-                    }
-                }
+                if (set.data[i] && !data[i]) return false;
             }
 
             return true;
         }
 
         /// <summary>
-        /// Determines whether this set is a proper superset of the specified set.
+        /// Determines whether this other is a proper superset of the specified other.
         /// </summary>
-        /// <param name="set">The set to be compared against.</param>
+        /// <param name="set">The other to be compared against.</param>
         /// <returns>
-        /// 	<c>true</c> if this is a proper superset of the specified set; otherwise, <c>false</c>.
+        /// 	<c>true</c> if this is a proper superset of the specified other; otherwise, <c>false</c>.
         /// </returns>
 		/// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		/// <exception cref="ArgumentException"><paramref name="set"/> is not in the same universe as this instance.</exception>
@@ -369,7 +357,7 @@ namespace NGenerics.DataStructures.General
             #region Validation
 
 
-            Guard.ArgumentNotNull(set, "set");
+            Guard.ArgumentNotNull(set, "other");
 
             CheckIfUniverseTheSame(set);
 
@@ -386,8 +374,8 @@ namespace NGenerics.DataStructures.General
         /// <summary>
         /// Operator + : Performs a union between two sets.
         /// </summary>
-        /// <param name="left">The left hand set.</param>
-        /// <param name="right">The right hand set.</param>
+        /// <param name="left">The left hand other.</param>
+        /// <param name="right">The right hand other.</param>
         /// <returns>The result of the union operation.</returns>    
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>  
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>  
@@ -402,8 +390,8 @@ namespace NGenerics.DataStructures.General
         /// <summary>
         /// Operator - : Performs a difference operation between two sets.
         /// </summary>
-        /// <param name="left">The left hand set.</param>
-        /// <param name="right">The right hand set.</param>
+        /// <param name="left">The left hand other.</param>
+        /// <param name="right">The right hand other.</param>
         /// <returns>The result of the difference operation.</returns>  
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>      
@@ -418,8 +406,8 @@ namespace NGenerics.DataStructures.General
         /// <summary>
         /// Operator * : Performs a intersection between two sets.
         /// </summary>
-        /// <param name="left">The left hand set.</param>
-        /// <param name="right">The right hand set.</param>
+        /// <param name="left">The left hand other.</param>
+        /// <param name="right">The right hand other.</param>
         /// <returns>The result of the intersection operation.</returns> 
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
@@ -432,11 +420,11 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Operator &lt;= : Checks if the left hand set is a subset of the right hand set.
+        /// Operator &lt;= : Checks if the left hand other is a subset of the right hand other.
         /// </summary>
-        /// <param name="left">The left hand set.</param>
-        /// <param name="right">The right hand set.</param>
-        /// <returns>A value indicating whether the left hand set is a subset of the right hand set.</returns>
+        /// <param name="left">The left hand other.</param>
+        /// <param name="right">The right hand other.</param>
+        /// <returns>A value indicating whether the left hand other is a subset of the right hand other.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentException"><paramref name="left"/> and <paramref name="right"/> are not in the same universe as this instance.</exception>
@@ -448,11 +436,11 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Operator &gt;= : Checks if the left hand set is a superset of the right hand set.
+        /// Operator &gt;= : Checks if the left hand other is a superset of the right hand other.
         /// </summary>
-        /// <param name="left">The left hand set.</param>
-        /// <param name="right">The right hand set.</param>
-        /// <returns>A value indicating whether the left hand set is a superset of the right hand set.</returns>
+        /// <param name="left">The left hand other.</param>
+        /// <param name="right">The right hand other.</param>
+        /// <returns>A value indicating whether the left hand other is a superset of the right hand other.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentException"><paramref name="left"/> and <paramref name="right"/> are not in the same universe as this instance.</exception>
@@ -465,11 +453,11 @@ namespace NGenerics.DataStructures.General
 
 
         /// <summary>
-        /// Operator &lt;= : Checks if the left hand set is a proper subset of the right hand set.
+        /// Operator &lt;= : Checks if the left hand other is a proper subset of the right hand other.
         /// </summary>
-        /// <param name="left">The left hand set.</param>
-        /// <param name="right">The right hand set.</param>
-        /// <returns>A value indicating whether the left hand set is a proper subset of the right hand set.</returns>
+        /// <param name="left">The left hand other.</param>
+        /// <param name="right">The right hand other.</param>
+        /// <returns>A value indicating whether the left hand other is a proper subset of the right hand other.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentException"><paramref name="left"/> and <paramref name="right"/> are not in the same universe as this instance.</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
@@ -481,11 +469,11 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Operator &gt;= : Checks if the left hand set is a proper superset of the right hand set.
+        /// Operator &gt;= : Checks if the left hand other is a proper superset of the right hand other.
         /// </summary>
-        /// <param name="left">The left hand set.</param>
-        /// <param name="right">The right hand set.</param>
-        /// <returns>A value indicating whether the left hand set is a proper superset of the right hand set.</returns>
+        /// <param name="left">The left hand other.</param>
+        /// <param name="right">The right hand other.</param>
+        /// <returns>A value indicating whether the left hand other is a proper superset of the right hand other.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="left"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="right"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentException"><paramref name="left"/> and <paramref name="right"/> are not in the same universe as this instance.</exception>
@@ -497,20 +485,20 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Operator ! : Performs the inverse operation on this set.
+        /// Operator ! : Performs the inverse operation on this other.
         /// </summary>
-        /// <param name="set">The inverse of set.</param>
+        /// <param name="set">The inverse of other.</param>
         /// <returns>The result of the inverse operation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="set"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static PascalSet operator !(PascalSet set)
         {
-            Guard.ArgumentNotNull(set, "set");
+            Guard.ArgumentNotNull(set, "other");
             return set.Inverse();
         }
 
         /// <summary>
-        /// Indicates whether an item is present in this set.
+        /// Indicates whether an item is present in this other.
         /// </summary>
         public bool this[int item]
         {
@@ -542,11 +530,11 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Determines whether [is universe the same] [the specified set].
+        /// Determines whether [is universe the same] [the specified other].
         /// </summary>
-        /// <param name="set">The set.</param>
+        /// <param name="set">The other.</param>
         /// <returns>
-        /// 	<c>true</c> if [is universe the same] [the specified set]; otherwise, <c>false</c>.
+        /// 	<c>true</c> if [is universe the same] [the specified other]; otherwise, <c>false</c>.
         /// </returns>
         private bool IsUniverseTheSame(PascalSet set)
         {
@@ -558,12 +546,13 @@ namespace NGenerics.DataStructures.General
         /// <summary>
         /// Checks if the universe is the same.
         /// </summary>
-        /// <param name="set">The set.</param>
-        private void CheckIfUniverseTheSame(PascalSet set)
+        /// <param name="other">The other set to compare against.</param>
+        private void CheckIfUniverseTheSame(PascalSet other)
         {
-            if (!IsUniverseTheSame(set))
+            if (!IsUniverseTheSame(other))
+       
             {
-                throw new ArgumentException("The operation requested can only be done if the sets share the same universe.", "set");
+                throw new ArgumentException("The operation requested can only be done if the sets share the same universe.", nameof(other));
             }
         }
 
@@ -587,7 +576,7 @@ namespace NGenerics.DataStructures.General
         {
             if (!IsIndexValid(index))
             {
-                throw new ArgumentException("The item is not in the universe of the set.", "index");
+                throw new ArgumentException("The item is not in the universe of the other.", "index");
             }
         }
 
@@ -616,7 +605,7 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Adds the item to the set.
+        /// Adds the item to the other.
         /// </summary>
         /// <param name="item">The item to add.</param>
         /// <param name="offset">The offset in which to add the item.</param>
@@ -655,7 +644,7 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Removes the item from the set.
+        /// Removes the item from the other.
         /// </summary>
         /// <param name="item">The item to remove.</param>
         /// <param name="offset">The offset at which to remove the item.</param>
@@ -736,19 +725,6 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public int Count { get; private set; }
 
-        
-        /// <inheritdoc />  
-        /// <example>
-        /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="IsEmpty" lang="cs" title="The following example shows how to use the IsEmpty property."/>
-        /// </example>
-        public bool IsEmpty
-        {
-            get
-            {
-                return Count == 0;
-            }
-        }
-
 		/// <inheritdoc />  
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\PascalSetExamples.cs" region="IsFull" lang="cs" title="The following example shows how to use the IsFull property."/>
@@ -817,15 +793,15 @@ namespace NGenerics.DataStructures.General
         #region ISet Members
 
 		/// <inheritdoc />  
-        ISet ISet.Subtract(ISet set)
+        ISet ISet.Subtract(ISet other)
         {
-            return Subtract((PascalSet)set);
+            return Subtract((PascalSet)other);
         }
 
 		/// <inheritdoc />  
-        ISet ISet.Intersection(ISet set)
+        ISet ISet.Intersection(ISet other)
         {
-            return Intersection((PascalSet)set);
+            return Intersection((PascalSet)other);
         }
 
 		/// <inheritdoc />  
@@ -835,33 +811,33 @@ namespace NGenerics.DataStructures.General
         }
 
 		/// <inheritdoc />  
-        bool ISet.IsProperSubsetOf(ISet set)
+        bool ISet.IsProperSubsetOf(ISet other)
         {
-            return IsProperSubsetOf((PascalSet)set);
+            return IsProperSubsetOf((PascalSet)other);
         }
 
 		/// <inheritdoc />  
-        bool ISet.IsProperSupersetOf(ISet set)
+        bool ISet.IsProperSupersetOf(ISet other)
         {
-            return IsProperSupersetOf((PascalSet)set);
+            return IsProperSupersetOf((PascalSet)other);
         }
 
 		/// <inheritdoc />  
-        bool ISet.IsSubsetOf(ISet set)
+        bool ISet.IsSubsetOf(ISet other)
         {
-            return IsSubsetOf((PascalSet)set);
+            return IsSubsetOf((PascalSet)other);
         }
 
 		/// <inheritdoc />  
-        bool ISet.IsSupersetOf(ISet set)
+        bool ISet.IsSupersetOf(ISet other)
         {
-            return IsSupersetOf((PascalSet)set);
+            return IsSupersetOf((PascalSet)other);
         }
 
 		/// <inheritdoc />  
-        ISet ISet.Union(ISet set)
+        ISet ISet.Union(ISet other)
         {
-            return Union((PascalSet)set);
+            return Union((PascalSet)other);
         }
 
         #endregion
