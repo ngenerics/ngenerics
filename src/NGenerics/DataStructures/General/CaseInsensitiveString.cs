@@ -48,7 +48,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="value"></param>
         public CaseInsensitiveString(string value)
         {
-            Guard.ArgumentNotNull(value, "value");
+            Guard.ArgumentNotNull(value, "other");
             Value = value;
         }
 
@@ -135,6 +135,7 @@ namespace NGenerics.DataStructures.General
             return left.Value.Equals(right.Value, StringComparison.InvariantCultureIgnoreCase);
         }
 
+        /// <inheritdoc />
         [SecurityCritical]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
@@ -173,50 +174,33 @@ namespace NGenerics.DataStructures.General
         /// Compares this instance with a specified <see cref="Object"/> and indicates whether this instance precedes, follows, or appears in the same position in the sort order as the specified <see cref="Object"/>.
         ///  </summary>
         /// <returns>
-        /// A 32-bit signed integer that indicates whether this instance precedes, follows, or appears in the same position in the sort order as the <paramref name="value"/> parameter.
+        /// A 32-bit signed integer that indicates whether this instance precedes, follows, or appears in the same position in the sort order as the <paramref name="obj"/> parameter.
         /// Value
         /// Condition
         /// Less than zero
-        /// This instance precedes <paramref name="value"/>.
+        /// This instance precedes <paramref name="obj"/>.
         /// Zero
-        /// This instance has the same position in the sort order as <paramref name="value"/>.
+        /// This instance has the same position in the sort order as <paramref name="obj"/>.
         /// Greater than zero
-        /// This instance follows <paramref name="value"/>.
+        /// This instance follows <paramref name="obj"/>.
         /// -or-
-        /// <paramref name="value"/> is null.
+        /// <paramref name="obj"/> is null.
         /// </returns>
-        /// <param name="value">An <see cref="Object"/> that evaluates to a String.</param>
-        /// <exception cref="ArgumentException"><paramref name="value"/> is not a <see cref="String"/>.</exception>
-        public int CompareTo(object value)
+        /// <param name="obj">An <see cref="Object"/> that evaluates to a String.</param>
+        /// <exception cref="ArgumentException"><paramref name="obj"/> is not a <see cref="String"/>.</exception>
+        public int CompareTo(object obj)
         {
-            return Value.CompareTo(value);
+            return Value.CompareTo(obj);
         }
 
         #endregion
 
         #region IComparable<string> Members
 
-        /// <summary>
-        /// Compares this instance with a specified <see cref="String"/> object and indicates whether this instance precedes, follows, or appears in the same position in the sort order as the specified <see cref="String"/>.
-        /// </summary>
-        /// <returns>
-        /// A 32-bit signed integer that indicates whether this instance precedes, follows, or appears in the same position in the sort order as the <paramref name="strB"/> parameter.
-        /// Value
-        /// Condition
-        /// Less than zero
-        /// This instance precedes <paramref name="strB"/>.
-        /// Zero
-        /// This instance has the same position in the sort order as <paramref name="strB"/>.
-        /// Greater than zero
-        /// This instance follows <paramref name="strB"/>.
-        /// -or-
-        /// <paramref name="strB"/> is null.
-        /// 
-        /// </returns>
-        /// <param name="strB">A <see cref="String"/>.</param>
-        public int CompareTo(string strB)
+        /// <inheritdoc />
+        public int CompareTo(string other)
         {
-            return String.Compare(Value, strB, StringComparison.Ordinal);
+            return String.Compare(Value, other, StringComparison.Ordinal);
         }
 
         #endregion
@@ -250,10 +234,10 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToBoolean(System.IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// true if the value of the current <see cref="String"/> object is <see cref="Boolean.TrueString"/>, or false if the value of the current <see cref="String"/> object is <see cref="F:System.Boolean.FalseString"/>.
+        /// true if the other of the current <see cref="String"/> object is <see cref="Boolean.TrueString"/>, or false if the other of the current <see cref="String"/> object is <see cref="F:System.Boolean.FalseString"/>.
         /// </returns>
         /// <param name="provider">This parameter is ignored.</param>
-        /// <exception cref="FormatException">The value of the current <see cref="String"/> object is not <see cref="Boolean.TrueString"/> or <see cref="F:System.Boolean.FalseString"/>.</exception>
+        /// <exception cref="FormatException">The other of the current <see cref="String"/> object is not <see cref="Boolean.TrueString"/> or <see cref="F:System.Boolean.FalseString"/>.</exception>
         bool IConvertible.ToBoolean(IFormatProvider provider)
         {
             return ((IConvertible)Value).ToBoolean(provider);
@@ -276,11 +260,11 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToSByte(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
-        /// <exception cref="FormatException">The value of the current <see cref="String"/> object cannot be parsed.</exception>
-        /// <exception cref="OverflowException">The value of the current <see cref="String"/> object is a number greater than <see cref="F:System.SByte.MaxValue"/> or less than <see cref="F:System.SByte.MinValue"/>.</exception>
+        /// <exception cref="FormatException">The other of the current <see cref="String"/> object cannot be parsed.</exception>
+        /// <exception cref="OverflowException">The other of the current <see cref="String"/> object is a number greater than <see cref="F:System.SByte.MaxValue"/> or less than <see cref="F:System.SByte.MinValue"/>.</exception>
         sbyte IConvertible.ToSByte(IFormatProvider provider)
         {
             return ((IConvertible)Value).ToSByte(provider);
@@ -290,11 +274,11 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToByte(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
-        /// <exception cref="FormatException">The value of the current <see cref="String"/> object cannot be parsed.</exception>
-        /// <exception cref="OverflowException">The value of the current <see cref="String"/> object is a number greater than <see cref="F:System.Byte.MaxValue"/> or less than <see cref="F:System.Byte.MinValue"/>.</exception>
+        /// <exception cref="FormatException">The other of the current <see cref="String"/> object cannot be parsed.</exception>
+        /// <exception cref="OverflowException">The other of the current <see cref="String"/> object is a number greater than <see cref="F:System.Byte.MaxValue"/> or less than <see cref="F:System.Byte.MinValue"/>.</exception>
         byte IConvertible.ToByte(IFormatProvider provider)
         {
             return ((IConvertible)Value).ToByte(provider);
@@ -304,11 +288,11 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToInt16(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
-        /// <exception cref="FormatException">The value of the current <see cref="String"/> object cannot be parsed.</exception>
-        /// <exception cref="OverflowException">The value of the current <see cref="String"/> object is a number greater than <see cref="F:System.Int16.MaxValue"/> or less than <see cref="F:System.Int16.MinValue"/>.</exception>
+        /// <exception cref="FormatException">The other of the current <see cref="String"/> object cannot be parsed.</exception>
+        /// <exception cref="OverflowException">The other of the current <see cref="String"/> object is a number greater than <see cref="F:System.Int16.MaxValue"/> or less than <see cref="F:System.Int16.MinValue"/>.</exception>
         short IConvertible.ToInt16(IFormatProvider provider)
         {
             return ((IConvertible)Value).ToInt16(provider);
@@ -318,11 +302,11 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToUInt16(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
-        /// <exception cref="FormatException">The value of the current <see cref="String"/> object cannot be parsed.</exception>
-        /// <exception cref="OverflowException">The value of the current <see cref="String"/> object is a number greater than <see cref="UInt16.MaxValue"/> or less than <see cref="UInt16.MinValue"/>.</exception>
+        /// <exception cref="FormatException">The other of the current <see cref="String"/> object cannot be parsed.</exception>
+        /// <exception cref="OverflowException">The other of the current <see cref="String"/> object is a number greater than <see cref="UInt16.MaxValue"/> or less than <see cref="UInt16.MinValue"/>.</exception>
         ushort IConvertible.ToUInt16(IFormatProvider provider)
         {
             return ((IConvertible)Value).ToUInt16(provider);
@@ -332,7 +316,7 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToInt32(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
         int IConvertible.ToInt32(IFormatProvider provider)
@@ -344,11 +328,11 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToUInt32(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object.</param>
-        /// <exception cref="FormatException">The value of the current <see cref="String"/> object cannot be parsed.</exception>
-        /// <exception cref="OverflowException">The value of the current <see cref="String"/> object is a number greater <see cref="UInt32.MaxValue"/> or less than <see cref="UInt32.MinValue"/></exception>
+        /// <exception cref="FormatException">The other of the current <see cref="String"/> object cannot be parsed.</exception>
+        /// <exception cref="OverflowException">The other of the current <see cref="String"/> object is a number greater <see cref="UInt32.MaxValue"/> or less than <see cref="UInt32.MinValue"/></exception>
         uint IConvertible.ToUInt32(IFormatProvider provider)
         {
             return ((IConvertible)Value).ToUInt32(provider);
@@ -359,7 +343,7 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToInt64(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
         long IConvertible.ToInt64(IFormatProvider provider)
@@ -372,7 +356,7 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToUInt64(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object.</param>
         ulong IConvertible.ToUInt64(IFormatProvider provider)
@@ -384,7 +368,7 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToSingle(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
         float IConvertible.ToSingle(IFormatProvider provider)
@@ -396,11 +380,11 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToDouble(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
-        /// <exception cref="FormatException">The value of the current <see cref="String"/> object cannot be parsed.</exception>
-        /// <exception cref="OverflowException">The value of the current <see cref="String"/> object is a number less than <see cref="Double.MinValue"/> or greater than <see cref="Double.MaxValue"/>.</exception>
+        /// <exception cref="FormatException">The other of the current <see cref="String"/> object cannot be parsed.</exception>
+        /// <exception cref="OverflowException">The other of the current <see cref="String"/> object is a number less than <see cref="Double.MinValue"/> or greater than <see cref="Double.MaxValue"/>.</exception>
         double IConvertible.ToDouble(IFormatProvider provider)
         {
             return ((IConvertible)Value).ToDouble(provider);
@@ -410,11 +394,11 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToDecimal(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
-        /// <exception cref="FormatException">The value of the current <see cref="String"/> object cannot be parsed.</exception>
-        /// <exception cref="OverflowException">The value of the current <see cref="String"/> object is a number less than <see cref="F:System.Decimal.MinValue"/> or than <see cref="F:System.Decimal.MaxValue"/> greater.</exception>
+        /// <exception cref="FormatException">The other of the current <see cref="String"/> object cannot be parsed.</exception>
+        /// <exception cref="OverflowException">The other of the current <see cref="String"/> object is a number less than <see cref="F:System.Decimal.MinValue"/> or than <see cref="F:System.Decimal.MaxValue"/> greater.</exception>
         decimal IConvertible.ToDecimal(IFormatProvider provider)
         {
             return ((IConvertible)Value).ToDecimal(provider);
@@ -425,7 +409,7 @@ namespace NGenerics.DataStructures.General
         /// For a description of this member, see <see cref="IConvertible.ToDateTime(IFormatProvider)"/>.
         /// </summary>
         /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
+        /// The converted other of the current <see cref="String"/> object.
         /// </returns>
         /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
         DateTime IConvertible.ToDateTime(IFormatProvider provider)
@@ -434,20 +418,10 @@ namespace NGenerics.DataStructures.General
         }
 
 
-
-        /// <summary>
-        /// For a description of this member, see <see cref="IConvertible.ToType(Type,IFormatProvider)"/>.
-        /// </summary>
-        /// <returns>
-        /// The converted value of the current <see cref="String"/> object.
-        /// </returns>
-        /// <param name="type">The type of the returned object.</param>
-        /// <param name="provider">An <see cref="IFormatProvider"/> object that provides culture-specific formatting information.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="type"/> is null.</exception>
-        /// <exception cref="InvalidCastException">The value of the current <see cref="String"/> object cannot be converted to the type specified by the <paramref name="type"/> parameter.</exception>
-        object IConvertible.ToType(Type type, IFormatProvider provider)
+        /// <inheritdoc />
+        object IConvertible.ToType(Type conversionType, IFormatProvider provider)
         {
-            return ((IConvertible)Value).ToType(type, provider);
+            return ((IConvertible)Value).ToType(conversionType, provider);
         }
 
         #endregion
@@ -475,43 +449,37 @@ namespace NGenerics.DataStructures.General
         #region IEquatable<string> Members
 
         /// <summary>
-        /// Determines whether this instance and another specified <see cref="String"/> object have the same value.
+        /// Determines whether this instance and another specified <see cref="String"/> object have the same other.
         /// </summary>
         /// <returns>
-        /// true if the value of the <paramref name="value"/> parameter is the same as this instance; otherwise, false.
+        /// true if the other of the <paramref name="other"/> parameter is the same as this instance; otherwise, false.
         /// </returns>
-        /// <param name="value">A <see cref="String"/>.</param>
+        /// <param name="other">A <see cref="String"/>.</param>
         /// <exception cref="NullReferenceException">This instance is null.</exception>
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
-        public bool Equals(string value)
+        public bool Equals(string other)
         {
-            return (this == value);
+            return (this == other);
         }
 
         #endregion
+
         #region IEquatable<CaseInsensitiveString> Members
 
-        /// <summary>
-        /// Determines whether this instance and another specified <see cref="CaseInsensitiveString"/> object have the same value.
-        /// </summary>
-        /// <returns>
-        /// true if the value of the <paramref name="value"/> parameter is the same as this instance; otherwise, false.
-        /// </returns>
-        /// <param name="value">A <see cref="CaseInsensitiveString"/>.</param>
-        /// <exception cref="NullReferenceException">This instance is null.</exception>
+        /// <inheritdoc />
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
-        public bool Equals(CaseInsensitiveString value)
+        public bool Equals(CaseInsensitiveString other)
         {
-            return (this == value);
+            return (this == other);
         }
 
         #endregion
 
         /// <summary>
-        /// Determines whether two specified <see cref="String"/> objects have the same value.
+        /// Determines whether two specified <see cref="String"/> objects have the same other.
         /// </summary>
         /// <returns>
-        /// true if the value of <paramref name="a"/> is the same as the value of <paramref name="b"/>; otherwise, false.
+        /// true if the other of <paramref name="a"/> is the same as the other of <paramref name="b"/>; otherwise, false.
         /// </returns>
         /// <param name="a">A <see cref="String"/> or null.</param>
         /// <param name="b">A <see cref="String"/> or null.</param>
@@ -525,7 +493,7 @@ namespace NGenerics.DataStructures.General
         /// Determines whether two specified <see cref="String"/> objects have different values.
         /// </summary>
         /// <returns>
-        /// true if the value of <paramref name="a"/> is different from the value of <paramref name="b"/>; otherwise, false.
+        /// true if the other of <paramref name="a"/> is different from the other of <paramref name="b"/>; otherwise, false.
         /// </returns>
         /// <param name="a">A String or null.</param>
         /// <param name="b">A String or null.</param>
@@ -557,31 +525,15 @@ namespace NGenerics.DataStructures.General
         /// <returns></returns>
         public static implicit operator CaseInsensitiveString(string value)
         {
-            if (value == null)
-            {
-                return null;
-            }
-            return new CaseInsensitiveString(value);
+            return value == null ? null : new CaseInsensitiveString(value);
         }
 
 
-        /// <summary>
-        /// Determines whether this instance of <see cref="String"/> and a specified object, which must also be a <see cref="String"/> object, have the same value.
-        /// </summary>
-        /// <returns>
-        /// true if <paramref name="obj"/> is a <see cref="String"/> and its value is the same as this instance; otherwise, false.
-        /// </returns>
-        /// <param name="obj">An <see cref="Object"/>.</param>
-        /// <exception cref="NullReferenceException">This instance is null.</exception>
+        /// <inheritdoc />
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
         public override bool Equals(object obj)
         {
-            if (!(obj is string strB))
-            {
-                return false;
-            }
-
-            return Equals(strB);
+            return obj is string s && Equals(s);
         }
 
         /// <summary>
@@ -822,10 +774,10 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Returns a new string whose textual value is the same as this string, but whose binary representation is in Unicode normalization form C.
+        /// Returns a new string whose textual other is the same as this string, but whose binary representation is in Unicode normalization form C.
         /// </summary>
         /// <returns>
-        /// A new, normalized string whose textual value is the same as this string, but whose binary representation is in normalization form C.
+        /// A new, normalized string whose textual other is the same as this string, but whose binary representation is in normalization form C.
         /// </returns>
         /// <PermissionSet><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode"/></PermissionSet>
         public CaseInsensitiveString Normalize()
@@ -834,10 +786,10 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Returns a new string whose textual value is the same as this string, but whose binary representation is in the specified Unicode normalization form.
+        /// Returns a new string whose textual other is the same as this string, but whose binary representation is in the specified Unicode normalization form.
         /// </summary>
         /// <returns>
-        /// A new string whose textual value is the same as this string, but whose binary representation is in the normalization form specified by the <paramref name="normalizationForm"/> parameter.
+        /// A new string whose textual other is the same as this string, but whose binary representation is in the normalization form specified by the <paramref name="normalizationForm"/> parameter.
         /// </returns>
         /// <param name="normalizationForm">A Unicode normalization form.</param>
         /// <PermissionSet><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode"/></PermissionSet>
@@ -847,7 +799,7 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Returns a value indicating whether the specified <see cref="String"/> object occurs within this string.
+        /// Returns a other indicating whether the specified <see cref="String"/> object occurs within this string.
         /// </summary>
         /// <returns>
         /// true if the <paramref name="value"/> parameter occurs within this string, or if <paramref name="value"/> is the empty string (""); otherwise, false.
@@ -882,7 +834,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="value">A <see cref="String"/> object to compare to.</param>
         /// <param name="comparisonType">One of the <see cref="StringComparison"/> values that determines how this string and <paramref name="value"/> are compared.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is null.</exception>
-        /// <exception cref="ArgumentException"><paramref name="comparisonType"/> is not a <see cref="StringComparison"/> value.</exception>
+        /// <exception cref="ArgumentException"><paramref name="comparisonType"/> is not a <see cref="StringComparison"/> other.</exception>
         [ComVisible(false)]
         public bool EndsWith(string value, StringComparison comparisonType)
         {
@@ -1006,7 +958,7 @@ namespace NGenerics.DataStructures.General
         /// Reports the index of the first occurrence of the specified <see cref="String"/> in this instance.
         /// </summary>
         /// <returns>
-        /// The zero-based index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value is 0.
+        /// The zero-based index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return other is 0.
         /// </returns>
         /// <param name="value">The <see cref="String"/> to seek.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is null.</exception>
@@ -1019,7 +971,7 @@ namespace NGenerics.DataStructures.General
         /// Reports the index of the first occurrence of the specified <see cref="String"/> in this instance. The search starts at a specified character position.
         /// </summary>
         /// <returns>
-        /// The zero-based index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value is <paramref name="startIndex"/>.
+        /// The zero-based index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return other is <paramref name="startIndex"/>.
         /// 
         /// </returns>
         /// <param name="value">The <see cref="String"/> to seek.</param>
@@ -1038,7 +990,7 @@ namespace NGenerics.DataStructures.General
         /// Reports the index of the first occurrence of the specified <see cref="String"/> in this instance. The search starts at a specified character position and examines a specified number of character positions.
         /// </summary>
         /// <returns>
-        /// The zero-based index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value is <paramref name="startIndex"/>.
+        /// The zero-based index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return other is <paramref name="startIndex"/>.
         /// </returns>
         /// <param name="value">The <see cref="String"/> to seek.</param>
         /// <param name="startIndex">The search starting position.</param>
@@ -1153,7 +1105,7 @@ namespace NGenerics.DataStructures.General
         /// Reports the index position of the last occurrence of a specified <see cref="String"/> within this instance.
         /// </summary>
         /// <returns>
-        /// The index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value is the last index position in this instance.
+        /// The index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return other is the last index position in this instance.
         /// </returns>
         /// <param name="value">A <see cref="String"/> to seek.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is null.</exception>
@@ -1166,7 +1118,7 @@ namespace NGenerics.DataStructures.General
         /// Reports the index position of the last occurrence of a specified <see cref="String"/> within this instance. The search starts at a specified character position.
         /// </summary>
         /// <returns>
-        /// The index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value is <paramref name="startIndex"/>.
+        /// The index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return other is <paramref name="startIndex"/>.
         /// </returns>
         /// <param name="value">The <see cref="String"/> to seek.</param>
         /// <param name="startIndex">The search starting position.</param>
@@ -1182,7 +1134,7 @@ namespace NGenerics.DataStructures.General
         /// Reports the index position of the last occurrence of a specified <see cref="String"/> within this instance. The search starts at a specified character position and examines a specified number of character positions.
         /// </summary>
         /// <returns>
-        /// The index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value is <paramref name="startIndex"/>.
+        /// The index position of <paramref name="value"/> if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return other is <paramref name="startIndex"/>.
         /// </returns>
         /// <param name="value">The <see cref="String"/> to seek.</param>
         /// <param name="startIndex">The search starting position.</param>
@@ -1203,12 +1155,12 @@ namespace NGenerics.DataStructures.General
         /// Reports the index of the last occurrence of a specified string within the current <see cref="String"/> object. A parameter specifies the type of search to use for the specified string.
         /// </summary>
         /// <returns>
-        /// The index position of the <paramref name="value"/> parameter if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value is the last index position in this instance.
+        /// The index position of the <paramref name="value"/> parameter if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return other is the last index position in this instance.
         /// </returns>
         /// <param name="value">The <see cref="String"/> object to seek.</param>
         /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is null.</exception>
-        /// <exception cref="ArgumentException"><paramref name="comparisonType"/> is not a valid <see cref="StringComparison"/> value.</exception>
+        /// <exception cref="ArgumentException"><paramref name="comparisonType"/> is not a valid <see cref="StringComparison"/> other.</exception>
         public int LastIndexOf(string value, StringComparison comparisonType)
         {
             return Value.LastIndexOf(value, comparisonType);
@@ -1218,14 +1170,14 @@ namespace NGenerics.DataStructures.General
         /// Reports the index of the last occurrence of a specified string within the current <see cref="String"/> object. Parameters specify the starting search position in the current string, and type of search to use for the specified string.
         /// </summary>
         /// <returns>
-        /// The index position of the <paramref name="value"/> parameter if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value is <paramref name="startIndex"/>.
+        /// The index position of the <paramref name="value"/> parameter if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return other is <paramref name="startIndex"/>.
         /// </returns>
         /// <param name="value">The <see cref="String"/> object to seek.</param>
         /// <param name="startIndex">The search starting position.</param>
         /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is null.</exception>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="startIndex"/> is less than zero or specifies a position that is not within this instance.</exception>
-        /// <exception cref="ArgumentException"><paramref name="comparisonType"/> is not a valid <see cref="StringComparison"/> value.</exception>
+        /// <exception cref="ArgumentException"><paramref name="comparisonType"/> is not a valid <see cref="StringComparison"/> other.</exception>
         public int LastIndexOf(string value, int startIndex, StringComparison comparisonType)
         {
             return Value.LastIndexOf(value, startIndex, comparisonType);
@@ -1235,7 +1187,7 @@ namespace NGenerics.DataStructures.General
         /// Reports the index position of the last occurrence of a specified <see cref="String"/> object within this instance. Parameters specify the starting search position in the current string, the number of characters in the current string to search, and the type of search to use for the specified string.
         /// </summary>
         /// <returns>
-        /// The index position of the <paramref name="value"/> parameter if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value is <paramref name="startIndex"/>.
+        /// The index position of the <paramref name="value"/> parameter if that string is found, or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return other is <paramref name="startIndex"/>.
         /// </returns>
         /// <param name="value">The <see cref="String"/> object to seek.</param>
         /// <param name="startIndex">The search starting position.</param>
@@ -1248,7 +1200,7 @@ namespace NGenerics.DataStructures.General
         /// -or-
         /// <paramref name="startIndex"/> + 1 - <paramref name="count"/> specifies a position that is not within this instance.
         /// </exception>
-        /// <exception cref="ArgumentException"><paramref name="comparisonType"/> is not a valid <see cref="StringComparison"/> value.</exception>
+        /// <exception cref="ArgumentException"><paramref name="comparisonType"/> is not a valid <see cref="StringComparison"/> other.</exception>
 
         public int LastIndexOf(string value, int startIndex, int count, StringComparison comparisonType)
         {
@@ -1333,7 +1285,7 @@ namespace NGenerics.DataStructures.General
         /// <param name="value">A <see cref="String"/> object to compare to.</param>
         /// <param name="comparisonType">One of the <see cref="StringComparison"/> values that determines how this string and <paramref name="value"/> are compared.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is null.</exception>
-        /// <exception cref="ArgumentException"><paramref name="comparisonType"/> is not a <see cref="StringComparison"/> value.</exception>
+        /// <exception cref="ArgumentException"><paramref name="comparisonType"/> is not a <see cref="StringComparison"/> other.</exception>
         [ComVisible(false)]
         public bool StartsWith(string value, StringComparison comparisonType)
         {

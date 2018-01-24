@@ -56,9 +56,9 @@ namespace NGenerics.Algorithms
             #endregion
 
             var heap =
-                new Heap<Association<double, Vertex<T>>>(
+                new Heap<KeyValuePair<double, Vertex<T>>>(
                     HeapType.Minimum,
-                    new AssociationKeyComparer<double, Vertex<T>>());
+                    new KeyComparer<double, Vertex<T>>());
 
             var vertexStatus = new Dictionary<Vertex<T>, VertexInfo<T>>();
 
@@ -72,7 +72,7 @@ namespace NGenerics.Algorithms
             vertexStatus[fromVertex].Distance = 0;
 
             // Add the source vertex to the heap - we'll be branching out from it.		
-            heap.Add(new Association<double, Vertex<T>>(0, fromVertex));
+            heap.Add(new KeyValuePair<double, Vertex<T>>(0, fromVertex));
 
             while (heap.Count > 0)
             {
@@ -102,7 +102,7 @@ namespace NGenerics.Algorithms
                         {
                             newVertexInfo.EdgeFollowed = edge;
                             newVertexInfo.Distance = distance;
-                            heap.Add(new Association<double, Vertex<T>>(distance, partnerVertex));
+                            heap.Add(new KeyValuePair<double, Vertex<T>>(distance, partnerVertex));
                         }
                     }
                 }
@@ -139,9 +139,9 @@ namespace NGenerics.Algorithms
             #endregion
 
             var heap =
-                new Heap<Association<double, Vertex<T>>>(
+                new Heap<KeyValuePair<double, Vertex<T>>>(
                     HeapType.Minimum,
-                    new AssociationKeyComparer<double, Vertex<T>>());
+                    new KeyComparer<double, Vertex<T>>());
 
             var vertexStatus = new Dictionary<Vertex<T>, VertexInfo<T>>();
 
@@ -155,7 +155,7 @@ namespace NGenerics.Algorithms
             vertexStatus[fromVertex].Distance = 0;
 
             // Add the source vertex to the heap - we'll be branching out from it.		
-            heap.Add(new Association<double, Vertex<T>>(0, fromVertex));
+            heap.Add(new KeyValuePair<double, Vertex<T>>(0, fromVertex));
 
             while (heap.Count > 0)
             {
@@ -172,15 +172,12 @@ namespace NGenerics.Algorithms
 
                     var newVertexInfo = vertexStatus[partnerVertex];
 
-                    if (!newVertexInfo.IsFinalised)
+                    if (!newVertexInfo.IsFinalised && edge.Weight < newVertexInfo.Distance)
                     {
-                        if (edge.Weight < newVertexInfo.Distance)
-                        {
-                            newVertexInfo.EdgeFollowed = edge;
-                            newVertexInfo.Distance = edge.Weight;
+                        newVertexInfo.EdgeFollowed = edge;
+                        newVertexInfo.Distance = edge.Weight;
 
-                            heap.Add(new Association<double, Vertex<T>>(edge.Weight, partnerVertex));
-                        }
+                        heap.Add(new KeyValuePair<double, Vertex<T>>(edge.Weight, partnerVertex));
                     }
                 }
             }
@@ -210,9 +207,9 @@ namespace NGenerics.Algorithms
             var oldToNew = new Dictionary<Vertex<T>, Vertex<T>>();
 
             var edgeQueue =
-                new Heap<Association<double, Edge<T>>>(
+                new Heap<KeyValuePair<double, Edge<T>>>(
                 HeapType.Minimum,
-                new AssociationKeyComparer<double, Edge<T>>());
+                new KeyComparer<double, Edge<T>>());
 
 
             // Now build the return graph, always return non directed.
@@ -234,7 +231,7 @@ namespace NGenerics.Algorithms
             // and use the weight in the association to sort them.
             foreach (var e in weightedGraph.Edges)
             {
-                edgeQueue.Add(new Association<double, Edge<T>>(e.Weight, e));
+                edgeQueue.Add(new KeyValuePair<double, Edge<T>>(e.Weight, e));
             }
 
             // We know when we are done, when we hit the number of edges
