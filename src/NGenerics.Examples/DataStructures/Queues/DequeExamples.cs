@@ -14,7 +14,7 @@ using NGenerics.DataStructures.Queues;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 
-namespace ExampleLibraryCSharp.DataStructures.Queues
+namespace NGenerics.Examples.DataStructures.Queues
 {
     [TestFixture]
     public class DequeExamples

@@ -13,7 +13,7 @@ using NGenerics.DataStructures.Mathematical;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 
-namespace ExampleLibraryCSharp.DataStructures.Mathematical
+namespace NGenerics.Examples.DataStructures.Mathematical
 {
     [TestFixture]
     public partial class Vector3DExamples

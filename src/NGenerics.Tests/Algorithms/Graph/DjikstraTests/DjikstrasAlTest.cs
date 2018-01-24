@@ -7,8 +7,6 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-
-
 using System;
 using System.Collections.Generic;
 using NGenerics.Algorithms;
@@ -47,21 +45,17 @@ namespace NGenerics.Tests.Algorithms.Graph.DjikstraTests
 
             foreach (var edge in edges)
             {
-                if ((edge.FromVertex.Data == 1) && (edge.ToVertex.Data == 2))
+                switch (edge.FromVertex.Data)
                 {
-                    Assert.AreEqual(edge.Weight, 3);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 3);
-                }
-                else if ((edge.FromVertex.Data == 1) && (edge.ToVertex.Data == 3))
-                {
-                    Assert.AreEqual(edge.Weight, 5);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 5);
-                }
-                else
-                {
-                    throw new Exception("Incorrect edge found for shortest path.");
+                    case 1 when (edge.ToVertex.Data == 2):
+                        edge.AssertWeights(3, 0, 3);
+                        break;
+                    case 1 when (edge.ToVertex.Data == 3):
+                        edge.AssertWeights(5, 0, 5);
+                        break;
+                    default:
+                        Assert.Fail("Incorrect edge found for shortest path.");
+                        break;
                 }
             }
         }
@@ -86,31 +80,26 @@ namespace NGenerics.Tests.Algorithms.Graph.DjikstraTests
 
             var resultGraph = GraphAlgorithms.DijkstrasAlgorithm(graph, vertex2);
 
-            Assert.AreEqual(resultGraph.Edges.Count, 2);
+            Assert.AreEqual(2, resultGraph.Edges.Count);
 
             var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
             foreach (var edge in edges)
             {
-                if ((edge.FromVertex.Data == 2) && (edge.ToVertex.Data == 3))
+                switch (edge.FromVertex.Data)
                 {
-                    Assert.AreEqual(edge.Weight, 4);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 4);
-                }
-                else if ((edge.FromVertex.Data == 3) && (edge.ToVertex.Data == 1))
-                {
-                    Assert.AreEqual(edge.Weight, 3);
-                    Assert.AreEqual(edge.FromVertex.Weight, 4);
-                    Assert.AreEqual(edge.ToVertex.Weight, 7);
-                }
-                else
-                {
-                    throw new Exception("Incorrect edge found for shortest path.");
+                    case 2 when (edge.ToVertex.Data == 3):
+                        edge.AssertWeights(4, 0, 4);
+                        break;
+                    case 3 when (edge.ToVertex.Data == 1):
+                        edge.AssertWeights(3, 4, 7);
+                        break;
+                    default:
+                        Assert.Fail("Incorrect edge found for shortest path.");
+                        break;
                 }
             }
         }
-
 
         [Test]
         public void UndirectedSimple1()
@@ -131,27 +120,23 @@ namespace NGenerics.Tests.Algorithms.Graph.DjikstraTests
 
             var resultGraph = GraphAlgorithms.DijkstrasAlgorithm(graph, vertex1);
 
-            Assert.AreEqual(resultGraph.Edges.Count, 2);
+            Assert.AreEqual(2, resultGraph.Edges.Count);
 
             var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
             foreach (var edge in edges)
             {
-                if ((edge.FromVertex.Data == 1) && (edge.ToVertex.Data == 2))
+                switch (edge.FromVertex.Data)
                 {
-                    Assert.AreEqual(edge.Weight, 3);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 3);
-                }
-                else if ((edge.FromVertex.Data == 1) && (edge.ToVertex.Data == 3))
-                {
-                    Assert.AreEqual(edge.Weight, 1);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 1);
-                }
-                else
-                {
-                    throw new Exception("Incorrect edge found for shortest path.");
+                    case 1 when (edge.ToVertex.Data == 2):
+                        edge.AssertWeights(3, 0, 3);
+                        break;
+                    case 1 when (edge.ToVertex.Data == 3):
+                        edge.AssertWeights(1, 0, 1);
+                        break;
+                    default:
+                        Assert.Fail("Incorrect edge found for shortest path.");
+                        break;
                 }
             }
         }
@@ -175,27 +160,23 @@ namespace NGenerics.Tests.Algorithms.Graph.DjikstraTests
 
             var resultGraph = GraphAlgorithms.DijkstrasAlgorithm(graph, vertex2);
 
-            Assert.AreEqual(resultGraph.Edges.Count, 2);
+            Assert.AreEqual(2, resultGraph.Edges.Count);
 
             var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
             foreach (var edge in edges)
             {
-                if ((edge.FromVertex.Data == 2) && (edge.ToVertex.Data == 1))
+                switch (edge.FromVertex.Data)
                 {
-                    Assert.AreEqual(edge.Weight, 3);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 3);
-                }
-                else if ((edge.FromVertex.Data == 1) && (edge.ToVertex.Data == 3))
-                {
-                    Assert.AreEqual(edge.Weight, 1);
-                    Assert.AreEqual(edge.FromVertex.Weight, 3);
-                    Assert.AreEqual(edge.ToVertex.Weight, 4);
-                }
-                else
-                {
-                    throw new Exception("Incorrect edge found for shortest path.");
+                    case 2 when (edge.ToVertex.Data == 1):
+                        edge.AssertWeights(3, 0, 3);
+                        break;
+                    case 1 when (edge.ToVertex.Data == 3):
+                        edge.AssertWeights(1, 3, 4);
+                        break;
+                    default:
+                        Assert.Fail("Incorrect edge found for shortest path.");
+                        break;
                 }
             }
         }
@@ -236,46 +217,33 @@ namespace NGenerics.Tests.Algorithms.Graph.DjikstraTests
 
             var resultGraph = GraphAlgorithms.DijkstrasAlgorithm(graph, vertex1);
 
-            Assert.AreEqual(resultGraph.Vertices.Count, 6);
-            Assert.AreEqual(resultGraph.Edges.Count, 5);
+            Assert.AreEqual(6, resultGraph.Vertices.Count);
+            Assert.AreEqual(5, resultGraph.Edges.Count);
 
             var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
             foreach (var edge in edges)
             {
-                if ((edge.FromVertex.Data == "a") && (edge.ToVertex.Data == "d"))
+                switch (edge.FromVertex.Data)
                 {
-                    Assert.AreEqual(edge.Weight, 5);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 5);
-                }
-                else if ((edge.FromVertex.Data == "a") && (edge.ToVertex.Data == "f"))
-                {
-                    Assert.AreEqual(edge.Weight, 1);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 1);
-                }
-                else if ((edge.FromVertex.Data == "b") && (edge.ToVertex.Data == "c"))
-                {
-                    Assert.AreEqual(edge.Weight, 1);
-                    Assert.AreEqual(edge.FromVertex.Weight, 3);
-                    Assert.AreEqual(edge.ToVertex.Weight, 4);
-                }
-                else if ((edge.FromVertex.Data == "f") && (edge.ToVertex.Data == "b"))
-                {
-                    Assert.AreEqual(edge.Weight, 2);
-                    Assert.AreEqual(edge.FromVertex.Weight, 1);
-                    Assert.AreEqual(edge.ToVertex.Weight, 3);
-                }
-                else if ((edge.FromVertex.Data == "f") && (edge.ToVertex.Data == "e"))
-                {
-                    Assert.AreEqual(edge.Weight, 2);
-                    Assert.AreEqual(edge.FromVertex.Weight, 1);
-                    Assert.AreEqual(edge.ToVertex.Weight, 3);
-                }
-                else
-                {
-                    throw new Exception("Incorrect edge found for shortest path.");
+                    case "a" when (edge.ToVertex.Data == "d"):
+                        edge.AssertWeights(5, 0, 5);
+                        break;
+                    case "a" when (edge.ToVertex.Data == "f"):
+                        edge.AssertWeights(1, 0, 1);
+                        break;
+                    case "b" when (edge.ToVertex.Data == "c"):
+                        edge.AssertWeights(1, 3, 4);
+                        break;
+                    case "f" when (edge.ToVertex.Data == "b"):
+                        edge.AssertWeights(2, 1, 3);
+                        break;
+                    case "f" when (edge.ToVertex.Data == "e"):
+                        edge.AssertWeights(2, 1, 3);
+                        break;
+                    default:
+                        Assert.Fail("Incorrect edge found for shortest path.");
+                        break;
                 }
             }
         }
@@ -324,52 +292,36 @@ namespace NGenerics.Tests.Algorithms.Graph.DjikstraTests
 
             var resultGraph = GraphAlgorithms.DijkstrasAlgorithm(graph, vertex7);
 
-            Assert.AreEqual(resultGraph.Vertices.Count, 7);
-            Assert.AreEqual(resultGraph.Edges.Count, 6);
+            Assert.AreEqual(7, resultGraph.Vertices.Count);
+            Assert.AreEqual(6, resultGraph.Edges.Count);
 
             var edges = GetEdgeList(resultGraph.Edges.GetEnumerator());
 
             foreach (var edge in edges)
             {
-                if ((edge.FromVertex.Data == "g") && (edge.ToVertex.Data == "a"))
+                switch (edge.FromVertex.Data)
                 {
-                    Assert.AreEqual(edge.Weight, 1);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 1);
-                }
-                else if ((edge.FromVertex.Data == "c") && (edge.ToVertex.Data == "b"))
-                {
-                    Assert.AreEqual(edge.Weight, 3);
-                    Assert.AreEqual(edge.FromVertex.Weight, 4);
-                    Assert.AreEqual(edge.ToVertex.Weight, 7);
-                }
-                else if ((edge.FromVertex.Data == "g") && (edge.ToVertex.Data == "c"))
-                {
-                    Assert.AreEqual(edge.Weight, 4);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 4);
-                }
-                else if ((edge.FromVertex.Data == "g") && (edge.ToVertex.Data == "d"))
-                {
-                    Assert.AreEqual(edge.Weight, 3);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 3);
-                }
-                else if ((edge.FromVertex.Data == "d") && (edge.ToVertex.Data == "e"))
-                {
-                    Assert.AreEqual(edge.Weight, 1);
-                    Assert.AreEqual(edge.FromVertex.Weight, 3);
-                    Assert.AreEqual(edge.ToVertex.Weight, 4);
-                }
-                else if ((edge.FromVertex.Data == "g") && (edge.ToVertex.Data == "f"))
-                {
-                    Assert.AreEqual(edge.Weight, 1);
-                    Assert.AreEqual(edge.FromVertex.Weight, 0);
-                    Assert.AreEqual(edge.ToVertex.Weight, 1);
-                }
-                else
-                {
-                    throw new Exception("Incorrect edge found for shortest path.");
+                    case "g" when (edge.ToVertex.Data == "a"):
+                        edge.AssertWeights(1, 0, 1);
+                        break;
+                    case "c" when (edge.ToVertex.Data == "b"):
+                        edge.AssertWeights(3, 4, 7);
+                        break;
+                    case "g" when (edge.ToVertex.Data == "c"):
+                        edge.AssertWeights(4, 0, 4);
+                        break;
+                    case "g" when (edge.ToVertex.Data == "d"):
+                        edge.AssertWeights(3, 0, 3);
+                        break;
+                    case "d" when (edge.ToVertex.Data == "e"):
+                        edge.AssertWeights(1, 3, 4);
+                        break;
+                    case "g" when (edge.ToVertex.Data == "f"):
+                        edge.AssertWeights(1, 0, 1);
+                        break;
+                    default:
+                        Assert.Fail("Incorrect edge found for shortest path.");
+                        break;
                 }
             }
         }
@@ -377,7 +329,7 @@ namespace NGenerics.Tests.Algorithms.Graph.DjikstraTests
         [Test]
         public void ExceptionNullGraph()
         {
-            Assert.Throws<ArgumentNullException>(() =>  GraphAlgorithms.DijkstrasAlgorithm(null, new Vertex<int>(5)));
+            Assert.Throws<ArgumentNullException>(() => GraphAlgorithms.DijkstrasAlgorithm(null, new Vertex<int>(5)));
         }
 
         [Test]
@@ -407,4 +359,9 @@ namespace NGenerics.Tests.Algorithms.Graph.DjikstraTests
 
         #endregion
     }
+
+
+
+
+
 }

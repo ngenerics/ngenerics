@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using NGenerics.Sorting;
 using NUnit.Framework;
 
-namespace ExampleLibraryCSharp.Sorting
+namespace NGenerics.Examples.Sorting
 {
     [TestFixture]
     public class CocktailSorterExamples

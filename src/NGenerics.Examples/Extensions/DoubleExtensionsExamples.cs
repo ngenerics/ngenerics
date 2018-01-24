@@ -11,7 +11,7 @@
 using NGenerics.Extensions;
 using NUnit.Framework;
 
-namespace ExampleLibraryCSharp.Extensions
+namespace NGenerics.Examples.Extensions
 {
     [TestFixture]
     public class DoubleExtensionsExamples

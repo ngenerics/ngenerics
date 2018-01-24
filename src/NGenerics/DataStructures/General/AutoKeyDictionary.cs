@@ -189,15 +189,6 @@ namespace NGenerics.DataStructures.General
         public virtual Func<TItem, TKey> GetKeyForItem { get; private set; }
 
 
-
-
-        internal void InternalAdd(TItem item)
-        {
-            Guard.ArgumentNotNull(item, "item");
-            dictionary.Add(GetKeyForItem(item), item);
-        }
-
-
         /// <summary>
         /// Determines whether the <see cref="AutoKeyDictionary{TKey,TItem}"/> contains the specified key.
         /// </summary>
@@ -232,22 +223,6 @@ namespace NGenerics.DataStructures.General
         {
             return dictionary.Remove(key);
         }
-
-
-        /// <summary>
-        /// Removes the element from the <see cref="AutoKeyDictionary{TKey,TItem}"/>. 
-        /// </summary>
-        /// <exception cref="InvalidOperationException">The <see cref="AutoKeyDictionary{TKey,TItem}"/> is read-only. </exception>
-        /// <exception cref="ArgumentNullException"><paramref name="item"/> is null.</exception>
-        /// <seealso cref="IsReadOnly"/> 
-        internal bool InternalRemove(TItem item)
-        {
-            Guard.ArgumentNotNull(item, "item");
-            var key = GetKeyForItem(item);
-            return dictionary.Remove(key);
-        }
-
-
 
 
         /// <summary>

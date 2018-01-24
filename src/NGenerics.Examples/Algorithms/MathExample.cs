@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using NGenerics.Algorithms;
 using NUnit.Framework;
 
-namespace ExampleLibraryCSharp.Algorithms
+namespace NGenerics.Examples.Algorithms
 {
     [TestFixture]
     public class MathExample

@@ -8,12 +8,12 @@
 */
 
 
-
+using System.Collections.Generic;
 using NGenerics.Comparers;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.Comparers.AssociationKeyComparerTests
+namespace NGenerics.Tests.Comparers.KeyValuePairKeyComparerTests
 {
     [TestFixture]
     public class Compare
@@ -21,20 +21,20 @@ namespace NGenerics.Tests.Comparers.AssociationKeyComparerTests
         [Test]
         public void Simple()
         {
-            var associationKeyComparer = new AssociationKeyComparer<int, string>();
+            var associationKeyComparer = new KeyComparer<int, string>();
 
-            var association1 = new Association<int, string>(5, "5");
-            var association2 = new Association<int, string>(5, "6");
-            var association3 = new Association<int, string>(3, "5");
-            var association4 = new Association<int, string>(5, "5");
+            var association1 = new KeyValuePair<int, string>(5, "5");
+            var association2 = new KeyValuePair<int, string>(5, "6");
+            var association3 = new KeyValuePair<int, string>(3, "5");
+            var association4 = new KeyValuePair<int, string>(5, "5");
 
-            Assert.AreEqual(associationKeyComparer.Compare(association1, association2), 0);
-            Assert.AreEqual(associationKeyComparer.Compare(association1, association3), 1);
-            Assert.AreEqual(associationKeyComparer.Compare(association1, association4), 0);
+            Assert.AreEqual(0, associationKeyComparer.Compare(association1, association2));
+            Assert.AreEqual(1, associationKeyComparer.Compare(association1, association3));
+            Assert.AreEqual(0, associationKeyComparer.Compare(association1, association4));
 
-            Assert.AreEqual(associationKeyComparer.Compare(association2, association1), 0);
-            Assert.AreEqual(associationKeyComparer.Compare(association3, association1), -1);
-            Assert.AreEqual(associationKeyComparer.Compare(association4, association1), 0);
+            Assert.AreEqual(0, associationKeyComparer.Compare(association2, association1));
+            Assert.AreEqual(-1, associationKeyComparer.Compare(association3, association1));
+            Assert.AreEqual(0, associationKeyComparer.Compare(association4, association1));
         }
     }
 }

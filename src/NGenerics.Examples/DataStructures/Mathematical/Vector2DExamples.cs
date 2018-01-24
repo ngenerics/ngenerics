@@ -12,7 +12,7 @@
 using NGenerics.DataStructures.Mathematical;
 using NUnit.Framework;
 
-namespace ExampleLibraryCSharp.DataStructures.Mathematical
+namespace NGenerics.Examples.DataStructures.Mathematical
 {
 
 
