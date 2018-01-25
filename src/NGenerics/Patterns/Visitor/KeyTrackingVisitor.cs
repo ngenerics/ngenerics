@@ -54,7 +54,6 @@ namespace NGenerics.Patterns.Visitor
 
         #region IVisitor<KeyValuePair<TKey,TValue>> Members
 
-
         /// <inheritdoc />
         public void Visit(KeyValuePair<TKey, TValue> obj)
         {
@@ -62,13 +61,7 @@ namespace NGenerics.Patterns.Visitor
         }
 
         /// <inheritdoc />
-        public bool HasCompleted
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool HasCompleted => false;
 
         #endregion
     }

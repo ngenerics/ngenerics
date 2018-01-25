@@ -50,13 +50,7 @@ namespace NGenerics.Patterns.Visitor
         /// <returns>
         /// 	<c>true</c> if this visitor is done; otherwise, <c>false</c>.
         /// </returns>
-        public bool HasCompleted
-        {
-            get
-            {
-                return visitorToUse.HasCompleted;
-            }
-        }
+        public bool HasCompleted => visitorToUse.HasCompleted;
 
         /// <summary>
         /// Visits the object in pre order.
@@ -99,13 +93,7 @@ namespace NGenerics.Patterns.Visitor
         /// Gets the visitor to use.
         /// </summary>
         /// <value>The visitor to use.</value>
-        public IVisitor<T> VisitorToUse
-        {
-            get
-            {
-                return visitorToUse;
-            }
-        }
+        public IVisitor<T> VisitorToUse => visitorToUse;
 
         #endregion
     }

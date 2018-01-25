@@ -38,8 +38,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
                 Assert.IsTrue(keys.Contains(i));
             }
 
-            Assert.AreEqual(keys.Count, 21);
+            Assert.AreEqual(21, keys.Count);
         }
-
     }
 }

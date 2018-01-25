@@ -85,13 +85,7 @@ namespace NGenerics.DataStructures.Trees
         /// Gets the comparer.
         /// </summary>
         /// <value>The comparer.</value>
-        public IComparer<T> Comparer
-        {
-            get
-            {
-                return _comparer;
-            }
-        }
+        public IComparer<T> Comparer => _comparer;
 
         #endregion
 
@@ -181,12 +175,7 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         protected BinaryTree<T> FindMaximumNode()
         {
-            #region Debug
-
             Debug.Assert(_tree != null);
-
-            #endregion
-
             return FindMaximumNode(_tree);
         }
 
@@ -198,12 +187,7 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         protected BinaryTree<T> FindMinimumNode()
         {
-            #region Debug
-
             Debug.Assert(_tree != null);
-
-            #endregion
-
             return FindMinimumNode(_tree);
         }
 
@@ -215,15 +199,11 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         protected static BinaryTree<T> FindMaximumNode(BinaryTree<T> startNode)
         {
-            #region Asserts
-
             Debug.Assert(startNode != null);
-
-            #endregion
 
             var searchNode = startNode;
 
-            while (searchNode.Right != null)
+            while (searchNode?.Right != null)
             {
                 searchNode = searchNode.Right;
             }
@@ -240,15 +220,11 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
         protected static BinaryTree<T> FindMinimumNode(BinaryTree<T> startNode)
         {
-            #region Asserts
-
             Debug.Assert(startNode != null);
-
-            #endregion
 
             var searchNode = startNode;
 
-            while (searchNode.Left != null)
+            while (searchNode?.Left != null)
             {
                 searchNode = searchNode.Left;
             }
@@ -271,11 +247,6 @@ namespace NGenerics.DataStructures.Trees
 
         #region Private Members
 
-        /// <summary>
-        /// Visits the node in an in-order fashion.
-        /// </summary>
-        /// <param name="node">The node.</param>
-        /// <param name="visitor">The visitor.</param>
         private static void VisitNode(BinaryTree<T> node, OrderedVisitor<T> visitor)
         {
             if (node == null) return;
@@ -291,6 +262,16 @@ namespace NGenerics.DataStructures.Trees
             VisitNode(node.Right, visitor);
 
             visitor.VisitPostOrder(pair);
+        }
+
+        private static bool ConditionalVisit(Action visitAction, IVisitor<T> visitor)
+        {
+            if (!visitor.HasCompleted)
+            {
+                visitAction();
+            }
+
+            return visitor.HasCompleted;
         }
 
         #endregion
@@ -346,19 +327,18 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         public IEnumerator<T> GetOrderedEnumerator()
         {
-            if (_tree != null)
+            if (_tree == null) yield break;
+
+            var trackingVisitor = new TrackingVisitor<T>();
+            var inOrderVisitor = new InOrderVisitor<T>(trackingVisitor);
+
+            _tree.DepthFirstTraversal(inOrderVisitor);
+
+            var trackingList = trackingVisitor.TrackingList;
+
+            foreach (var item in trackingList)
             {
-                var trackingVisitor = new TrackingVisitor<T>();
-                var inOrderVisitor = new InOrderVisitor<T>(trackingVisitor);
-
-                _tree.DepthFirstTraversal(inOrderVisitor);
-
-                var trackingList = trackingVisitor.TrackingList;
-
-                for (var i = 0; i < trackingList.Count; i++)
-                {
-                    yield return trackingList[i];
-                }
+                yield return item;
             }
         }
 
