@@ -59,7 +59,10 @@ namespace NGenerics.Patterns.Visitor
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PreOrder")]
         public virtual void VisitPreOrder(T obj)
         {
-            visitorToUse.Visit(obj);
+            if (!HasCompleted)
+            {
+                visitorToUse.Visit(obj);
+            }
         }
 
         /// <summary>
@@ -68,7 +71,10 @@ namespace NGenerics.Patterns.Visitor
         /// <param name="obj">The obj.</param>        
         public virtual void VisitPostOrder(T obj)
         {
-            visitorToUse.Visit(obj);
+            if (!HasCompleted)
+            {
+                visitorToUse.Visit(obj);
+            }
         }
 
         /// <summary>
@@ -77,7 +83,10 @@ namespace NGenerics.Patterns.Visitor
         /// <param name="obj">The obj.</param>
         public virtual void VisitInOrder(T obj)
         {
-            visitorToUse.Visit(obj);
+            if (!HasCompleted)
+            {
+                visitorToUse.Visit(obj);
+            }
         }
         /// <inheritdoc />
         public void Visit(T obj)

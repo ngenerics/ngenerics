@@ -38,7 +38,7 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
                 Assert.IsTrue(values.Contains(i.ToString()));
             }
 
-            Assert.AreEqual(values.Count, 21);
+            Assert.AreEqual(21, values.Count);
         }
 
     }

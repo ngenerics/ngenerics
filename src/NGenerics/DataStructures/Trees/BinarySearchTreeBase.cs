@@ -249,7 +249,7 @@ namespace NGenerics.DataStructures.Trees
 
         private static void VisitNode(BinaryTree<T> node, OrderedVisitor<T> visitor)
         {
-            if (node == null) return;
+            if (node == null || visitor.HasCompleted) return;
             
             var pair = node.Data;
 
@@ -317,7 +317,7 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public void DepthFirstTraversal(OrderedVisitor<T> visitor)
         {
-            Guard.ArgumentNotNull(visitor, "visitor");
+            Guard.ArgumentNotNull(visitor, nameof(visitor));
 
             VisitNode(_tree, visitor);
         }

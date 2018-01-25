@@ -7,6 +7,7 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
+using System;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 
@@ -16,9 +17,14 @@ namespace NGenerics.Tests.TestObjects
     {
         public void AssertTracked(params T[] items)
         {
+            AssertTracked(x => x, items);
+        }
+
+        public void AssertTracked<TK>(Func<T, TK> map, params TK[] items)
+        {
             for (int i = 0; i < items.Length; i++)
             {
-                Assert.AreEqual(items[i], TrackingList[i]);
+                Assert.AreEqual(items[i], map(TrackingList[i]));
             }
         }
     }

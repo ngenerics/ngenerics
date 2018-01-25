@@ -10,6 +10,7 @@
 using System.Collections.Generic;
 using NGenerics.DataStructures.Trees;
 using NGenerics.Patterns.Visitor;
+using NGenerics.Tests.TestObjects;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
@@ -17,7 +18,6 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
     [TestFixture]
     public class DepthFirstTraversal : SplayTreeTest
     {
-
         [Test]
         public void Simple()
         {
@@ -29,18 +29,13 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
                                     new KeyValuePair<string, int>("canary", 3)
                                 };
 
-            var visitor = new TrackingVisitor<KeyValuePair<string, int>>();
+            var visitor = new AssertionVisitor<KeyValuePair<string, int>>();
 
-            var inOrderVisitor =
-                new InOrderVisitor<KeyValuePair<string, int>>(visitor);
+            var inOrderVisitor = new InOrderVisitor<KeyValuePair<string, int>>(visitor);
 
             splayTree.DepthFirstTraversal(inOrderVisitor);
 
-            Assert.AreEqual(visitor.TrackingList[0].Key, "canary");
-            Assert.AreEqual(visitor.TrackingList[1].Key, "cat");
-            Assert.AreEqual(visitor.TrackingList[2].Key, "dog");
-            Assert.AreEqual(visitor.TrackingList[3].Key, "horse");
+            visitor.AssertTracked(x => x.Key, "canary", "cat", "dog", "horse");
         }
-
     }
 }
