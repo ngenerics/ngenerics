@@ -6,7 +6,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>NGenerics</PackageId>
-    <PackageVersion>1.5.1</PackageVersion>
+    <PackageVersion>1.5.2</PackageVersion>
     <Authors>The NGenerics Team (https://github.com/ngenerics/ngenerics/wiki/Team)</Authors>
     <Description>A class library providing generic data structures and algorithms not implemented in the standard .NET framework.</Description>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
