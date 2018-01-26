@@ -13,6 +13,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Text;
 using NGenerics.DataStructures.General;
 using NGenerics.Util;
@@ -277,14 +278,20 @@ namespace NGenerics.DataStructures.Mathematical
 		/// <inheritdoc />
         public override int GetHashCode()
         {
-            var hashCode = 0;
-            for (var index = 0; index < _dimensionCount; index++)
+            // Ignore overflows
+            unchecked
             {
-                hashCode ^= this[index].GetHashCode();
+                int hashCode = 17;
+                
+                for (var index = 0; index < _dimensionCount; index++)
+                {
+                    hashCode = hashCode * 31 + this[index].GetHashCode();
+                }
+                return hashCode;
             }
-            return hashCode;
         }
-
+        
+        
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

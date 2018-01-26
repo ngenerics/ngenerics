@@ -13,7 +13,7 @@ using NUnit.Framework;
 namespace NGenerics.Tests.DataStructures.Mathematical.Vector2DTests
 {
     [TestFixture]
-    public class CLear
+    public class Clear
     {
 
         [Test]
