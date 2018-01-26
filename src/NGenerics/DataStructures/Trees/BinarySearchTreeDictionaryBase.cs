@@ -146,12 +146,10 @@ namespace NGenerics.DataStructures.Trees
 		}
 
 
-		/// <summary>
-		/// Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
-		/// </summary>
+		/// <inheritdoc />
 		/// <value></value>
 		/// <example>
-		/// 	<code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Keys" lang="cs" title="The following example shows how to use the Keys property."/>
+		/// 	<code source="..\..\NGenerics.Examples\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Keys" lang="cs" title="The following example shows how to use the Keys property." />
 		/// </example>
 		public ICollection<TKey> Keys
 		{
@@ -164,9 +162,6 @@ namespace NGenerics.DataStructures.Trees
 				return new ReadOnlyCollection<TKey>(visitor.TrackingList);
 			}
 		}
-
-
-
 
 		/// <inheritdoc />
 		/// <example>

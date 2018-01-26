@@ -437,7 +437,7 @@ namespace NGenerics.DataStructures.Trees
         /// <exception cref="ArgumentNullException"><paramref name="orderedVisitor"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         public virtual void DepthFirstTraversal(OrderedVisitor<T> orderedVisitor)
         {
-            Guard.ArgumentNotNull(orderedVisitor, "orderedVisitor");
+            Guard.ArgumentNotNull(orderedVisitor, nameof(orderedVisitor));
 
             if (orderedVisitor.HasCompleted)
             {
@@ -447,18 +447,12 @@ namespace NGenerics.DataStructures.Trees
             // Preorder visit
             orderedVisitor.VisitPreOrder(Data);
 
-            if (_leftSubtree != null)
-            {
-                _leftSubtree.DepthFirstTraversal(orderedVisitor);
-            }
+            _leftSubtree?.DepthFirstTraversal(orderedVisitor);
 
             // In-order visit
             orderedVisitor.VisitInOrder(_data);
 
-            if (_rightSubtree != null)
-            {
-                _rightSubtree.DepthFirstTraversal(orderedVisitor);
-            }
+            _rightSubtree?.DepthFirstTraversal(orderedVisitor);
 
             // PostOrder visit
             orderedVisitor.VisitPostOrder(Data);

@@ -16,4 +16,13 @@
     <PackageProjectUrl>https://github.com/ngenerics/ngenerics</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ngenerics/ngenerics/blob/master/LICENSE.txt</PackageLicenseUrl>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet>NGenerics.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CodeAnalysisRuleSet>NGenerics.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.1.4347" />
+  </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-/*  
+﻿/*  
   Copyright 2007-2017 The NGenerics Team
  (https://github.com/ngenerics/ngenerics/wiki/Team)
 
@@ -9,36 +9,29 @@
 
 using System;
 using NGenerics.Patterns.Visitor;
+using NGenerics.Tests.DataStructures.Trees.GeneralTreeTests;
+using NGenerics.Tests.TestObjects;
 using NUnit.Framework;
 
-namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
+namespace NGenerics.Tests.DataStructures.Trees
 {
     [TestFixture]
-    public class DepthFirstTraversal : GeneralTreeTest
+    public class GeneralTreeTestCollection : GeneralTreeTest
     {
 
         [Test]
-        public void VisitPre()
+        public void DepthFirstTraversal_VisitPre()
         {
             var generalTree = GetTestTree();
-            var trackingVisitor = new TrackingVisitor<int>();
+            var trackingVisitor = new AssertionVisitor<int>();
             var preVisitor = new PreOrderVisitor<int>(trackingVisitor);
 
             generalTree.DepthFirstTraversal(preVisitor);
-
-            var tracks = trackingVisitor.TrackingList;
-
-            Assert.AreEqual(tracks[0], 5);
-            Assert.AreEqual(tracks[1], 2);
-            Assert.AreEqual(tracks[2], 9);
-            Assert.AreEqual(tracks[3], 12);
-            Assert.AreEqual(tracks[4], 3);
-            Assert.AreEqual(tracks[5], 13);
-            Assert.AreEqual(tracks[6], 1);
+            trackingVisitor.AssertTracked(5, 2, 9, 12, 3, 13, 1);
         }
 
         [Test]
-        public void TopVisitor()
+        public void DepthFirstTraversal_TopVisitor()
         {
             var generalTree = GetTestTree();
             var visitor = new ComparableFindingVisitor<int>(13);
@@ -57,14 +50,14 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        public void ExceptionNullVisitor()
+        public void DepthFirstTraversal_ExceptionNullVisitor()
         {
             var generalTree = GetTestTree();
             Assert.Throws<ArgumentNullException>(() => generalTree.DepthFirstTraversal(null));
         }
 
         [Test]
-        public void StopVisitor()
+        public void DepthFirstTraversal_StopVisitor()
         {
             var generalTree = GetTestTree();
             var visitor = new ComparableFindingVisitor<int>(13);
@@ -84,24 +77,24 @@ namespace NGenerics.Tests.DataStructures.Trees.GeneralTreeTests
         }
 
         [Test]
-        public void VisitPost()
+        public void DepthFirstTraversal_Stops_Once_Visitor_Completes()
         {
             var generalTree = GetTestTree();
-            var trackingVisitor = new TrackingVisitor<int>();
+            var visitor = new StoppingVisitor<int>();
+            var preVisitor = new PreOrderVisitor<int>(visitor);
+
+            generalTree.DepthFirstTraversal(preVisitor);
+        }
+
+        [Test]
+        public void DepthFirstTraversal_VisitPost()
+        {
+            var generalTree = GetTestTree();
+            var trackingVisitor = new AssertionVisitor<int>();
             var postVisitor = new PostOrderVisitor<int>(trackingVisitor);
 
             generalTree.DepthFirstTraversal(postVisitor);
-
-            var tracks = trackingVisitor.TrackingList;
-
-            Assert.AreEqual(tracks[0], 9);
-            Assert.AreEqual(tracks[1], 12);
-            Assert.AreEqual(tracks[2], 2);
-            Assert.AreEqual(tracks[3], 13);
-            Assert.AreEqual(tracks[4], 3);
-            Assert.AreEqual(tracks[5], 1);
-            Assert.AreEqual(tracks[6], 5);
+            trackingVisitor.AssertTracked(9, 12, 2, 13, 3, 1, 5);
         }
-
     }
 }

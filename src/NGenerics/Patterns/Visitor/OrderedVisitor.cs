@@ -50,13 +50,7 @@ namespace NGenerics.Patterns.Visitor
         /// <returns>
         /// 	<c>true</c> if this visitor is done; otherwise, <c>false</c>.
         /// </returns>
-        public bool HasCompleted
-        {
-            get
-            {
-                return visitorToUse.HasCompleted;
-            }
-        }
+        public bool HasCompleted => visitorToUse.HasCompleted;
 
         /// <summary>
         /// Visits the object in pre order.
@@ -65,7 +59,10 @@ namespace NGenerics.Patterns.Visitor
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PreOrder")]
         public virtual void VisitPreOrder(T obj)
         {
-            visitorToUse.Visit(obj);
+            if (!HasCompleted)
+            {
+                visitorToUse.Visit(obj);
+            }
         }
 
         /// <summary>
@@ -74,7 +71,10 @@ namespace NGenerics.Patterns.Visitor
         /// <param name="obj">The obj.</param>        
         public virtual void VisitPostOrder(T obj)
         {
-            visitorToUse.Visit(obj);
+            if (!HasCompleted)
+            {
+                visitorToUse.Visit(obj);
+            }
         }
 
         /// <summary>
@@ -83,7 +83,10 @@ namespace NGenerics.Patterns.Visitor
         /// <param name="obj">The obj.</param>
         public virtual void VisitInOrder(T obj)
         {
-            visitorToUse.Visit(obj);
+            if (!HasCompleted)
+            {
+                visitorToUse.Visit(obj);
+            }
         }
         /// <inheritdoc />
         public void Visit(T obj)
@@ -99,13 +102,7 @@ namespace NGenerics.Patterns.Visitor
         /// Gets the visitor to use.
         /// </summary>
         /// <value>The visitor to use.</value>
-        public IVisitor<T> VisitorToUse
-        {
-            get
-            {
-                return visitorToUse;
-            }
-        }
+        public IVisitor<T> VisitorToUse => visitorToUse;
 
         #endregion
     }

@@ -19,11 +19,11 @@ namespace NGenerics.Patterns.Visitor
     /// data structures.
     /// </summary>
     /// <typeparam name="T">The type of objects to be visited.</typeparam>
-    public sealed class TrackingVisitor<T> : IVisitor<T>
+    public class TrackingVisitor<T> : IVisitor<T>
     {
         #region Globals
 
-        private readonly List<T> tracks;
+        private readonly List<T> _tracks;
 
         #endregion
 
@@ -33,25 +33,21 @@ namespace NGenerics.Patterns.Visitor
         /// <inheritdoc/>
         public TrackingVisitor()
         {
-            tracks = new List<T>();
+            _tracks = new List<T>();
         }
 
         #endregion		
 
         #region IVisitor<T> Members
+
         /// <inheritdoc />
         public void Visit(T obj)
         {
-            tracks.Add(obj);
+            _tracks.Add(obj);
         }
 
         /// <inheritdoc />
-        public bool HasCompleted {
-            get
-            {
-                return false;
-            }
-        }
+        public bool HasCompleted => false;
 
         #endregion
 
@@ -61,13 +57,7 @@ namespace NGenerics.Patterns.Visitor
         /// Gets the tracking list.
         /// </summary>
         /// <value>The tracking list.</value>        
-        public IList<T> TrackingList
-        {
-            get
-            {
-                return tracks;
-            }
-        }
+        public IList<T> TrackingList => _tracks;
 
         #endregion
     }

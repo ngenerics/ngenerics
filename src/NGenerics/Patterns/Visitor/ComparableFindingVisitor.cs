@@ -59,25 +59,13 @@ namespace NGenerics.Patterns.Visitor
         /// Gets a value indicating whether this <see cref="ComparableFindingVisitor&lt;T&gt;"/> is found.
         /// </summary>
         /// <value><c>true</c> if found; otherwise, <c>false</c>.</value>
-        public bool Found
-        {
-            get
-            {
-                return HasCompleted;
-            }
-        }
+        public bool Found => HasCompleted;
 
         /// <summary>
         /// Gets the search value.
         /// </summary>
         /// <value>The search value.</value>
-        public T SearchValue
-        {
-            get
-            {
-                return searchValue;
-            }
-        }
+        public T SearchValue => searchValue;
 
         #endregion
     }

@@ -12,6 +12,7 @@
     <PackageReference Include="Moq" Version="4.8.1" />
     <PackageReference Include="nunit" Version="3.9.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.1.4347" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet>NGenerics.Tests.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CodeAnalysisRuleSet>NGenerics.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
 </Project>
