@@ -1,0 +1,14 @@
+{
+  "ServerUri": "https://sonarcloud.io",
+  "Organization": {
+    "Key": "ngenerics-github",
+    "Name": "ngenerics"
+  },
+  "ProjectKey": "ngenerics-github",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AWEYkwzUr86VThkHOLaK",
+      "ProfileTimestamp": "2017-12-20T10:41:25+02:00"
+    }
+  }
+}
