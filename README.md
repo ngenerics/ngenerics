@@ -24,6 +24,6 @@ Changelog
 
 * _February 2013_ - Project site moved to Github from [Google Code](https://code.google.com/p/ngenerics/).
 
-Old version history : [Version History](https://github.com/ngenerics/ngenerics/wiki/VersionHistory)
+Detailed version history : [Version History](https://github.com/ngenerics/ngenerics/wiki/VersionHistory)
 
 [The Team](https://github.com/ngenerics/ngenerics/wiki/Team)
