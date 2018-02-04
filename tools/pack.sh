@@ -1,2 +1,2 @@
 #!/bin/sh
-dotnet pack ../src/NGenerics/NGenerics.csproj -c release --include-symbols
+dotnet pack ../src/NGenerics/NGenerics.release.csproj -c release --include-symbols

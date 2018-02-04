@@ -1,20 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-     <ProjectGuid>{9B91AF22-34BC-43C2-9385-2376E8A0AEB5}</ProjectGuid>
-     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>NGenerics</PackageId>
-    <PackageVersion>1.5.2</PackageVersion>
-    <Authors>The NGenerics Team (https://github.com/ngenerics/ngenerics/wiki/Team)</Authors>
-    <Description>A class library providing generic data structures and algorithms not implemented in the standard .NET framework.</Description>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Support for .NET standard, cleanups and bug fixes.</PackageReleaseNotes>
-    <Copyright>Copyright 2018 (c) The NGenerics Team. All rights reserved.</Copyright>
-    <PackageTags>datastructures;algorithms;core;generics;ngenerics</PackageTags>
-    <PackageProjectUrl>https://github.com/ngenerics/ngenerics</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/ngenerics/ngenerics/blob/master/LICENSE.txt</PackageLicenseUrl>
+     <ProjectGuid>{9B91AF22-34BC-43C2-9385-2376E8A0AEB5}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <CodeAnalysisRuleSet>NGenerics.ruleset</CodeAnalysisRuleSet>
