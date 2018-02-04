@@ -51,7 +51,7 @@ namespace NGenerics.Tests.Sorting
 		public void ExceptionComparisonNullList()
         {
             var sorter = new BubbleSorter<int>();
-            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, new Comparison<int>(IntComparison)));
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, IntComparison));
         }
 
         [Test]
@@ -67,7 +67,7 @@ namespace NGenerics.Tests.Sorting
         {
             var sorter = new BubbleSorter<int>();
             var list = GetReverseSequentialTestList();
-            sorter.Sort(list, new Comparison<int>(IntComparison));
+            sorter.Sort(list, IntComparison);
             AssertGeneralTestListSorted(list);
         }
 
@@ -156,7 +156,6 @@ namespace NGenerics.Tests.Sorting
 
         }
 
-
         [Test]
 		public void ExceptionNullList1()
         {
@@ -175,7 +174,7 @@ namespace NGenerics.Tests.Sorting
 		public void ExceptionNullList3()
         {
             var sorter = new RadixSorter();
-            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Descending));
         }
       }
 
@@ -718,8 +717,8 @@ namespace NGenerics.Tests.Sorting
 
         private static void AssertSingleList(List<int> list)
         {
-            Assert.AreEqual(list.Count, 1);
-            Assert.AreEqual(list[0], 5);
+            Assert.AreEqual(1, list.Count);
+            Assert.AreEqual(5, list[0]);
         }
 
         private static List<int> GetSingleItemList()
@@ -859,7 +858,7 @@ namespace NGenerics.Tests.Sorting
 
         #endregion
 
-        public class SorterImplementation : ComparisonSorter<int>
+        private class SorterImplementation : ComparisonSorter<int>
         {
             protected override void SortItems(IList<int> list, IComparer<int> comparer)
             {

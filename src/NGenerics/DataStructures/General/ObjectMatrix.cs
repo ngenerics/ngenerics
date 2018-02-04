@@ -170,9 +170,9 @@ namespace NGenerics.DataStructures.General
 
 
 		/// <inheritdoc />  
-        IMatrix<T> IMatrix<T>.GetSubMatrix(int rowStart, int noOfColumnStart, int rowCount, int columnCount)
+        IMatrix<T> IMatrix<T>.GetSubMatrix(int rowStart, int columnStart, int rowCount, int columnCount)
         {
-            return GetSubMatrix(rowStart, noOfColumnStart, rowCount, columnCount);
+            return GetSubMatrix(rowStart, columnStart, rowCount, columnCount);
         }
 
         #endregion
@@ -806,15 +806,8 @@ namespace NGenerics.DataStructures.General
 
         #endregion
 
-        #region Protected Members
-               
-        /// <summary>
-        /// Gets the offset.
-        /// </summary>
-        /// <param name="row">The row.</param>
-        /// <param name="column">The column.</param>
-        /// <returns>The offset of <paramref name="row"/> and <paramref name="row"/>.</returns>
-        protected int GetOffset(int row, int column)
+        #region Private Members
+        private int GetOffset(int row, int column)
         {
             #region Asserts
 
@@ -829,19 +822,6 @@ namespace NGenerics.DataStructures.General
             return row * noOfColumns + column;
         } 
 
-        #endregion
-
-        #region Private Members
-
-        /// <summary>
-        /// Checks whether the index supplied is valid.
-        /// </summary>
-        /// <param name="i">The i.</param>
-        /// <param name="j">The j.</param>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="i"/> is less than 0.</exception>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="i"/> is greater than <see cref="Rows"/>.</exception>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="j"/> is less than 0.</exception>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="j"/> is greater than <see cref="Columns"/>.</exception>
         private void CheckIndexValid(int i, int j)
         {
             if (i < 0 || i > noOfRows - 1)
@@ -855,18 +835,9 @@ namespace NGenerics.DataStructures.General
             }
         }        
 
-        /// <summary>
-        /// Copies the data.
-        /// </summary>
-        /// <param name="newData">The new data.</param>
-        /// <param name="newColumnCount">The new column count.</param>
         private void CopyData(T[] newData, int newColumnCount)
         {
-            #region Asserts
-
             Debug.Assert(newColumnCount > 0);
-
-            #endregion
 
             // Copy the smaller of the sizes
             var copyBlockSize = noOfColumns < newColumnCount ? noOfColumns : newColumnCount;

@@ -22,11 +22,11 @@ namespace NGenerics.Tests.Util.GuardTests
             try
             {
                 const object tmp = null;
-                Guard.ArgumentNotNull(tmp, "tmp");
+                Guard.ArgumentNotNull(tmp, nameof(tmp));
             }
             catch (ArgumentNullException ex)
             {
-                Assert.AreEqual(ex.ParamName, "tmp");
+                Assert.AreEqual("tmp", ex.ParamName);
             }
         }
 

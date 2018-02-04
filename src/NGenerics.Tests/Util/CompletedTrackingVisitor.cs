@@ -34,7 +34,7 @@ namespace NGenerics.Tests.Util
         /// <param name="obj">The object to visit.</param>
         public void Visit(T obj)
         {
-            throw new Exception("This visitor has already completed.");
+            throw new InvalidOperationException("This visitor has already completed.");
         }
 
     }

@@ -52,7 +52,7 @@ namespace NGenerics.DataStructures.General
     {
         #region Globals
 
-        private readonly Dictionary<TKey, TValue> dictionary;
+        private readonly Dictionary<TKey, TValue> _dictionary;
 
         #endregion 
 
@@ -62,21 +62,21 @@ namespace NGenerics.DataStructures.General
         /// <inheritdoc cref="Dictionary{TKey,TValue}()"/>
         protected DictionaryBase()
         {
-            dictionary = new Dictionary<TKey, TValue>();
+            _dictionary = new Dictionary<TKey, TValue>();
         }
 
 
         /// <inheritdoc cref="Dictionary{TKey,TValue}(IDictionary{TKey,TValue})"/>
         protected DictionaryBase(IDictionary<TKey, TValue> dictionary)
         {
-            this.dictionary = new Dictionary<TKey, TValue>(dictionary);
+            _dictionary = new Dictionary<TKey, TValue>(dictionary);
         }
 
 
         /// <inheritdoc cref="Dictionary{TKey,TValue}(IEqualityComparer{TKey})"/>
         protected DictionaryBase(IEqualityComparer<TKey> comparer)
         {
-            dictionary = new Dictionary<TKey, TValue>(comparer);
+            _dictionary = new Dictionary<TKey, TValue>(comparer);
         }
 
 
@@ -84,7 +84,7 @@ namespace NGenerics.DataStructures.General
         /// <inheritdoc cref="Dictionary{TKey,TValue}(int)"/>
         protected DictionaryBase(int capacity)
         {
-            dictionary = new Dictionary<TKey, TValue>(capacity);
+            _dictionary = new Dictionary<TKey, TValue>(capacity);
         }
 
 
@@ -92,7 +92,7 @@ namespace NGenerics.DataStructures.General
         /// <inheritdoc cref="Dictionary{TKey,TValue}(IDictionary{TKey,TValue}, IEqualityComparer{TKey})"/>
         protected DictionaryBase(IDictionary<TKey, TValue> dictionary, IEqualityComparer<TKey> comparer)
         {
-            this.dictionary = new Dictionary<TKey, TValue>(dictionary, comparer);
+            _dictionary = new Dictionary<TKey, TValue>(dictionary, comparer);
         }
 
 
@@ -100,7 +100,7 @@ namespace NGenerics.DataStructures.General
         /// <inheritdoc cref="Dictionary{TKey,TValue}(int, IEqualityComparer{TKey})"/>
         protected DictionaryBase(int capacity, IEqualityComparer<TKey> comparer)
         {
-            dictionary = new Dictionary<TKey, TValue>(capacity, comparer);
+            _dictionary = new Dictionary<TKey, TValue>(capacity, comparer);
         }
 
 
@@ -108,7 +108,7 @@ namespace NGenerics.DataStructures.General
         protected DictionaryBase(SerializationInfo info, StreamingContext context)
         {
             var constructor = typeof(Dictionary<TKey, TValue>).GetConstructor(BindingFlags.NonPublic | BindingFlags.CreateInstance | BindingFlags.Instance, null, new[] { typeof(SerializationInfo), typeof(StreamingContext) }, null);
-            dictionary = (Dictionary<TKey, TValue>)constructor.Invoke(BindingFlags.NonPublic, null, new object[] { info, context }, null);
+            _dictionary = (Dictionary<TKey, TValue>)constructor.Invoke(BindingFlags.NonPublic, null, new object[] { info, context }, null);
         }
 
         #endregion
@@ -119,7 +119,7 @@ namespace NGenerics.DataStructures.General
         /// <inheritdoc cref="Dictionary{TKey,TValue}.GetEnumerator()"/>
         public Dictionary<TKey, TValue>.Enumerator GetEnumerator()
         {
-            return dictionary.GetEnumerator();
+            return _dictionary.GetEnumerator();
         }
 
 
@@ -131,7 +131,7 @@ namespace NGenerics.DataStructures.General
 		/// </remarks>
 		protected virtual void AddItem(TKey key, TValue value)
         {
-			dictionary.Add(key, value);
+			_dictionary.Add(key, value);
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace NGenerics.DataStructures.General
         /// </remarks>
 		protected virtual void SetItem(TKey key, TValue value)
         {
-            dictionary[key] = value;
+            _dictionary[key] = value;
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace NGenerics.DataStructures.General
         /// </remarks>
 		protected virtual bool RemoveItem(TKey key)
         {
-			return dictionary.Remove(key);
+			return _dictionary.Remove(key);
         }
 
 		/// <summary>
@@ -173,7 +173,7 @@ namespace NGenerics.DataStructures.General
 		/// </remarks>
         protected virtual void ClearItems()
         {
-            dictionary.Clear();
+            _dictionary.Clear();
         }
 
 
@@ -198,7 +198,7 @@ namespace NGenerics.DataStructures.General
         {
             if (!(value is TValue))
             {
-                if ((value != null) || typeof (TValue).IsValueType)
+                if (value != null || typeof (TValue).IsValueType)
                 {
                     throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, "Value is of type {0}.", typeof (TValue)), "value");
                 }
@@ -212,14 +212,7 @@ namespace NGenerics.DataStructures.General
 
 
         /// <inheritdoc cref="Dictionary{TKey,TValue}.Comparer"/>
-        public IEqualityComparer<TKey> Comparer
-        {
-            get
-            {
-                return dictionary.Comparer;
-            }
-        }
-
+        public IEqualityComparer<TKey> Comparer => _dictionary.Comparer;
 
         #endregion
 
@@ -231,7 +224,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public bool ContainsKey(TKey key)
         {
-            return dictionary.ContainsKey(key);
+            return _dictionary.ContainsKey(key);
         }
 
 
@@ -261,7 +254,7 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public bool TryGetValue(TKey key, out TValue value)
         {
-            return dictionary.TryGetValue(key, out value);
+            return _dictionary.TryGetValue(key, out value);
         }
 
 
@@ -271,55 +264,36 @@ namespace NGenerics.DataStructures.General
         /// </example>
         public TValue this[TKey key]
         {
-            get
-            {
-                return dictionary[key];
-            }
-            set
-            {
-
-                SetItem(key, value);
-            }
-        }
+            get => _dictionary[key];
+		    set => SetItem(key, value);
+		}
 
 
 		/// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Keys" lang="cs" title="The following example shows how to use the Keys property."/>
         /// </example>
-        public ICollection<TKey> Keys
-        {
-            get
-            {
-                return dictionary.Keys;
-            }
-        }
+        public ICollection<TKey> Keys => _dictionary.Keys;
 
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Values" lang="cs" title="The following example shows how to use the Values property."/>
         /// </example>
-        public ICollection<TValue> Values
-        {
-            get
-            {
-                return dictionary.Values;
-            }
-        }
+        public ICollection<TValue> Values => _dictionary.Values;
 
         #endregion
 
         #region ICollection<KeyValuePair<TKey,TValue>> Members
 
 		/// <inheritdoc />
-        void ICollection<KeyValuePair<TKey, TValue>>.Add(KeyValuePair<TKey, TValue> keyValuePair)
+        void ICollection<KeyValuePair<TKey, TValue>>.Add(KeyValuePair<TKey, TValue> item)
         {
-            AddItem(keyValuePair.Key, keyValuePair.Value);
+            AddItem(item.Key, item.Value);
         }
 
 
-		/// <inheritdoc />
+        /// <inheritdoc cref="ICollection{T}" />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Clear" lang="cs" title="The following example shows how to use the Clear method."/>
         /// </example>
@@ -331,9 +305,9 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        bool ICollection<KeyValuePair<TKey, TValue>>.Contains(KeyValuePair<TKey, TValue> keyValuePair)
+        bool ICollection<KeyValuePair<TKey, TValue>>.Contains(KeyValuePair<TKey, TValue> item)
         {
-            return ((ICollection<KeyValuePair<TKey, TValue>>)dictionary).Contains(keyValuePair);
+            return ((ICollection<KeyValuePair<TKey, TValue>>)_dictionary).Contains(item);
         }
 
 
@@ -341,42 +315,30 @@ namespace NGenerics.DataStructures.General
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         void ICollection<KeyValuePair<TKey, TValue>>.CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
         {
-            ((ICollection<KeyValuePair<TKey, TValue>>)dictionary).CopyTo(array, arrayIndex);
+            ((ICollection<KeyValuePair<TKey, TValue>>)_dictionary).CopyTo(array, arrayIndex);
         }
 
 
 		/// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        bool ICollection<KeyValuePair<TKey, TValue>>.Remove(KeyValuePair<TKey, TValue> keyValuePair)
-        {
-            TValue value;
-            if (TryGetValue(keyValuePair.Key, out value))
-            {
-                if (EqualityComparer<TValue>.Default.Equals(value, keyValuePair.Value))
-                {
-                    RemoveItem(keyValuePair.Key);
-                    return true;
-                }
-            }
-            return false;
+        bool ICollection<KeyValuePair<TKey, TValue>>.Remove(KeyValuePair<TKey, TValue> item)
+		{
+		    if (TryGetValue(item.Key, out var value) &&
+		        EqualityComparer<TValue>.Default.Equals(value, item.Value))
+		    {
+		        RemoveItem(item.Key);
+		        return true;
+		    }
 
-        }
+		    return false;
+		}
 
 
-		/// <inheritdoc />
+        /// <inheritdoc cref="ICollection{T}" />
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\DictionaryBaseExamples.cs" region="Count" lang="cs" title="The following example shows how to use the Count property."/>
         /// </example>
-        public int Count
-        {
-            get
-            {
-                return dictionary.Count;
-            }
-        }
-
-
-	
+        public int Count => _dictionary.Count;
 
         #endregion
 
@@ -385,7 +347,7 @@ namespace NGenerics.DataStructures.General
 		/// <inheritdoc />
         IEnumerator<KeyValuePair<TKey, TValue>> IEnumerable<KeyValuePair<TKey, TValue>>.GetEnumerator()
         {
-            return dictionary.GetEnumerator();
+            return _dictionary.GetEnumerator();
         }
 
         #endregion
@@ -415,14 +377,14 @@ namespace NGenerics.DataStructures.General
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         bool IDictionary.Contains(object key)
         {
-            return ((IDictionary)dictionary).Contains(key);
+            return ((IDictionary)_dictionary).Contains(key);
         }
 
 
 		/// <inheritdoc />
         IDictionaryEnumerator IDictionary.GetEnumerator()
         {
-            return ((IDictionary)dictionary).GetEnumerator();
+            return ((IDictionary)_dictionary).GetEnumerator();
         }
 
 
@@ -439,11 +401,8 @@ namespace NGenerics.DataStructures.General
 		/// <inheritdoc />
         object IDictionary.this[object key]
         {
-            get
-            {
-                return ((IDictionary)dictionary)[key];
-            }
-            set
+            get => ((IDictionary)_dictionary)[key];
+		    set
             {
                 VerifyKey(key);
                 VerifyValueType(value);
@@ -454,45 +413,21 @@ namespace NGenerics.DataStructures.General
 
 		/// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        ICollection IDictionary.Keys
-        {
-            get
-            {
-                return ((IDictionary)dictionary).Keys;
-            }
-        }
+        ICollection IDictionary.Keys => ((IDictionary)_dictionary).Keys;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        ICollection IDictionary.Values
-        {
-            get
-            {
-                return ((IDictionary)dictionary).Values;
-            }
-        }
+        ICollection IDictionary.Values => ((IDictionary)_dictionary).Values;
 
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        public bool IsFixedSize
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsFixedSize => false;
 
 
-		/// <inheritdoc />
+        /// <inheritdoc cref="ICollection{T}" />
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-       public bool IsReadOnly
-        {
-            get
-            {
-                return ((IDictionary)dictionary).IsReadOnly;
-            }
-        }
+       public bool IsReadOnly => ((IDictionary)_dictionary).IsReadOnly;
 
         #endregion
 
@@ -501,30 +436,18 @@ namespace NGenerics.DataStructures.General
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         void ICollection.CopyTo(Array array, int index)
         {
-            ((ICollection)dictionary).CopyTo(array, index);
+            ((ICollection)_dictionary).CopyTo(array, index);
         }
 
 
 		/// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        object ICollection.SyncRoot
-        {
-            get
-            {
-                return ((ICollection)dictionary).SyncRoot;
-            }
-        }
+        object ICollection.SyncRoot => ((ICollection)_dictionary).SyncRoot;
 
 
-		/// <inheritdoc />
+        /// <inheritdoc />
         [SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        bool ICollection.IsSynchronized
-        {
-            get
-            {
-                return ((ICollection)dictionary).IsSynchronized;
-            }
-        }
+        bool ICollection.IsSynchronized => ((ICollection)_dictionary).IsSynchronized;
 
         #endregion
 
@@ -534,7 +457,7 @@ namespace NGenerics.DataStructures.General
 		[SecurityCritical]
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            dictionary.GetObjectData(info, context);
+            _dictionary.GetObjectData(info, context);
         }
 
         #endregion
@@ -544,7 +467,7 @@ namespace NGenerics.DataStructures.General
         /// <inheritdoc />
         public virtual void OnDeserialization(object sender)
         {
-            dictionary.OnDeserialization(sender);
+            _dictionary.OnDeserialization(sender);
         }
 
         #endregion
