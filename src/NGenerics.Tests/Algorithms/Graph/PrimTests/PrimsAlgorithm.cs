@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NGenerics.Algorithms;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
@@ -68,16 +69,11 @@ namespace NGenerics.Tests.Algorithms.Graph.PrimTests
                 Assert.IsTrue(resultGraph.ContainsEdge(11, 13));
                 Assert.IsTrue(resultGraph.ContainsEdge(13, 14));
 
-                Assert.AreEqual(resultGraph.Edges.Count, 13);
+                Assert.AreEqual(13, resultGraph.Edges.Count);
 
-                double totalCost = 0;
+                double totalCost = resultGraph.Edges.Sum(edge => edge.Weight);
 
-                foreach (var edge in resultGraph.Edges)
-                {
-                    totalCost += edge.Weight;
-                }
-
-                Assert.AreEqual(totalCost, 58);
+                Assert.AreEqual(58, totalCost);
             }
 
             [Test]
@@ -127,16 +123,11 @@ namespace NGenerics.Tests.Algorithms.Graph.PrimTests
                 Assert.IsTrue(resultGraph.ContainsEdge(11, 13));
                 Assert.IsTrue(resultGraph.ContainsEdge(13, 14));
 
-                Assert.AreEqual(resultGraph.Edges.Count, 13);
+                Assert.AreEqual(13, resultGraph.Edges.Count);
 
-                double totalCost = 0;
+                double totalCost = resultGraph.Edges.Sum(edge => edge.Weight);
 
-                foreach (var edge in resultGraph.Edges)
-                {
-                    totalCost += edge.Weight;
-                }
-
-                Assert.AreEqual(totalCost, 58);
+                Assert.AreEqual(58, totalCost);
             }
 
             [Test]

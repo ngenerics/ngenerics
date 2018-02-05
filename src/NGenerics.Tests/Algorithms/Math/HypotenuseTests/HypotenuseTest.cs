@@ -7,8 +7,6 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-
-
 using NGenerics.Algorithms;
 using NUnit.Framework;
 
@@ -25,19 +23,18 @@ namespace NGenerics.Tests.Algorithms.Math.HypotenuseTests
 
             var hyp = MathAlgorithms.Hypotenuse(a, b);
 
-            Assert.AreEqual(hyp, System.Math.Sqrt(80));
+            Assert.AreEqual(System.Math.Sqrt(80), hyp);
 
             a = 8;
             b = 4;
             hyp = MathAlgorithms.Hypotenuse(a, b);
 
-            Assert.AreEqual(hyp, System.Math.Sqrt(80));
+            Assert.AreEqual(System.Math.Sqrt(80), hyp);
 
             a = 0;
             b = 0;
             hyp = MathAlgorithms.Hypotenuse(a, b);
-            Assert.AreEqual(hyp, 0);
+            Assert.AreEqual(0, hyp);
         }
     }
-
 }

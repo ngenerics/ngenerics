@@ -16,47 +16,79 @@ using NUnit.Framework;
 
 namespace NGenerics.Tests.Sorting
 {
-    public partial class TestSort
+    [TestFixture(typeof(RadixSorter))]
+    [TestFixture(typeof(BucketSorter))]
+    public class SorterTests<T> where T : ISorter<int>, new()
     {
-        public class TestSortBase<T> where T : ISorter<int>, new()
+        [Test]
+        public void Simple()
         {
-            [Test]
-            public void Simple()
+            var sorter = new T();
+            TestSorter(sorter);
+        }
+
+        [Test]
+        public void ExceptionNullList1()
+        {
+            var sorter = new T();
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
+        }
+
+        [Test]
+        public void ExceptionNullList2()
+        {
+            var sorter = new T();
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
+        }
+
+        [Test]
+        public void ExceptionNullList3()
+        {
+            var sorter = new T();
+            Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Descending));
+        }
+
+        #region Protected Members
+
+        protected static int IntComparison(int i, int j)
+        {
+            return i.CompareTo(j);
+        }
+
+        protected static List<int> GetReverseSequentialTestList()
+        {
+            var list = new List<int>(500);
+
+            for (var i = 499; i >= 0; i--)
             {
-                var sorter = new T();
-                TestSorter(sorter);
+                list.Add(i);
             }
 
-            [Test]
-            public void ExceptionNullList1()
+            return list;
+        }
+
+        protected static void AssertGeneralTestListSorted(List<int> sortedList)
+        {
+            for (var i = 0; i < sortedList.Count; i++)
             {
-                var sorter = new T();
-                Assert.Throws<ArgumentNullException>(() => sorter.Sort(null));
+                Assert.AreEqual(sortedList[i], i);
             }
+        }
 
-            [Test]
-            public void ExceptionNullList2()
+        #endregion
+
+
+        #region Private Members
+
+        private static void AssertGeneralTestListReverseSorted(List<int> sortedList)
+        {
+            for (var i = 0; i < sortedList.Count; i++)
             {
-                var sorter = new T();
-                Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Ascending));
+                Assert.AreEqual(sortedList[sortedList.Count - i - 1], i);
             }
+        }
 
-            [Test]
-            public void ExceptionNullList3()
-            {
-                var sorter = new T();
-                Assert.Throws<ArgumentNullException>(() => sorter.Sort(null, SortOrder.Descending));
-            }
-
-
-            #region Private Members
-
-            private static int IntComparison(int i, int j)
-            {
-                return i.CompareTo(j);
-            }
-
-            private static void TestSorter(ISorter<int> sorter)
+        private static void TestSorter(ISorter<int> sorter)
             {
                 // Test Reverse sequential list
                 var list = GetReverseSequentialTestList();
@@ -114,21 +146,6 @@ namespace NGenerics.Tests.Sorting
                 return new List<int> { 5 };
             }
 
-            private static void AssertGeneralTestListSorted(List<int> sortedList)
-            {
-                for (var i = 0; i < sortedList.Count; i++)
-                {
-                    Assert.AreEqual(sortedList[i], i);
-                }
-            }
-
-            private static void AssertGeneralTestListReverseSorted(List<int> sortedList)
-            {
-                for (var i = 0; i < sortedList.Count; i++)
-                {
-                    Assert.AreEqual(sortedList[sortedList.Count - i - 1], i);
-                }
-            }
 
             private static void AssertDoubleNumbersList(List<int> sortedList)
             {
@@ -179,18 +196,6 @@ namespace NGenerics.Tests.Sorting
                 return list;
             }
 
-            private static List<int> GetReverseSequentialTestList()
-            {
-                var list = new List<int>(500);
-
-                for (var i = 499; i >= 0; i--)
-                {
-                    list.Add(i);
-                }
-
-                return list;
-            }
-
             private static List<int> GetSequentialTestList()
             {
                 var list = new List<int>(500);
@@ -221,6 +226,5 @@ namespace NGenerics.Tests.Sorting
             }
 
             #endregion
-        }
     }
 }

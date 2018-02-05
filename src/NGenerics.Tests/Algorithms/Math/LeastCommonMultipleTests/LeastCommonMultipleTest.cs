@@ -18,17 +18,17 @@ namespace NGenerics.Tests.Algorithms.Math.LeastCommonMultipleTests
         [Test]
         public void Lease_Common_Multiple_Between_Zero_And_Zero_Should_Be_Zero()
         {
-            Assert.AreEqual(MathAlgorithms.LeastCommonMultiple(0, 0), 0);
+            Assert.AreEqual(0, MathAlgorithms.LeastCommonMultiple(0, 0));
         }
 
         [Test]
         public void Should_Return_Correct_Values_For_Non_Zero_Inputs()
         {
-            Assert.AreEqual(MathAlgorithms.LeastCommonMultiple(34, 12), 204);
-            Assert.AreEqual(MathAlgorithms.LeastCommonMultiple(45, 67), 3015);
-            Assert.AreEqual(MathAlgorithms.LeastCommonMultiple(34, 4192), 71264);
-            Assert.AreEqual(MathAlgorithms.LeastCommonMultiple(12, 65), 780);
-            Assert.AreEqual(MathAlgorithms.LeastCommonMultiple(12, 64), 192);
+            Assert.AreEqual(204, MathAlgorithms.LeastCommonMultiple(34, 12));
+            Assert.AreEqual(3015, MathAlgorithms.LeastCommonMultiple(45, 67));
+            Assert.AreEqual(71264, MathAlgorithms.LeastCommonMultiple(34, 4192));
+            Assert.AreEqual(780, MathAlgorithms.LeastCommonMultiple(12, 65));
+            Assert.AreEqual(192, MathAlgorithms.LeastCommonMultiple(12, 64));
         }
     }
 }

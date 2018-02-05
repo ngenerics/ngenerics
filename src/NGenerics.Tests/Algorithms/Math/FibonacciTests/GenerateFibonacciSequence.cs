@@ -25,19 +25,19 @@ namespace NGenerics.Tests.Algorithms.Math.FibonacciTests
 
             fib.AddRange(MathAlgorithms.GenerateFibonacciSequence(10));
 
-            Assert.AreEqual(fib.Count, 11);
+            Assert.AreEqual(11, fib.Count);
 
-            Assert.AreEqual(fib[0], 0);
-            Assert.AreEqual(fib[1], 1);
-            Assert.AreEqual(fib[2], 1);
-            Assert.AreEqual(fib[3], 2);
-            Assert.AreEqual(fib[4], 3);
-            Assert.AreEqual(fib[5], 5);
-            Assert.AreEqual(fib[6], 8);
-            Assert.AreEqual(fib[7], 13);
-            Assert.AreEqual(fib[8], 21);
-            Assert.AreEqual(fib[9], 34);
-            Assert.AreEqual(fib[10], 55);
+            Assert.AreEqual(0, fib[0]);
+            Assert.AreEqual(1, fib[1]);
+            Assert.AreEqual(1, fib[2]);
+            Assert.AreEqual(2, fib[3]);
+            Assert.AreEqual(3, fib[4]);
+            Assert.AreEqual(5, fib[5]);
+            Assert.AreEqual(8, fib[6]);
+            Assert.AreEqual(13, fib[7]);
+            Assert.AreEqual(21, fib[8]);
+            Assert.AreEqual(34, fib[9]);
+            Assert.AreEqual(55, fib[10]);
         }
 
         [Test]

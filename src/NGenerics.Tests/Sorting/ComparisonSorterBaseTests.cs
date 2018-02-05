@@ -18,7 +18,7 @@ using NUnit.Framework;
 namespace NGenerics.Tests.Sorting
 {
     [TestFixture]
-    public partial class TestSort
+    public class ComparisonSorterBaseTests
     {
 
         [Test]

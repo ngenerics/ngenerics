@@ -19,16 +19,11 @@ namespace NGenerics.Tests.Algorithms.Math.EuclidTests
         [Test]
         public void TestValid()
         {
-            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(8, 4), 4);
-            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(4, 8), 4);
-
-            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(5, 1), 1);
-
-            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(0, 0), 0);
-
-            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(0, 0), 0);
-
-            Assert.AreEqual(MathAlgorithms.GreatestCommonDivisor(180, 640), 20);
+            Assert.AreEqual(4, MathAlgorithms.GreatestCommonDivisor(8, 4));
+            Assert.AreEqual(4, MathAlgorithms.GreatestCommonDivisor(4, 8));
+            Assert.AreEqual(1, MathAlgorithms.GreatestCommonDivisor(5, 1));
+            Assert.AreEqual(0, MathAlgorithms.GreatestCommonDivisor(0, 0));
+            Assert.AreEqual(20, MathAlgorithms.GreatestCommonDivisor(180, 640));
         }
     }
 
