@@ -24,36 +24,12 @@ namespace NGenerics.Sorting
     /// </example>
     public sealed class BucketSorter : Sorter<int>
     {
-
-        #region Construction
-
-        /// <param name="maximumUniverse">The maximum universe.(Obsolete)</param> 
-        [Obsolete]
-        public BucketSorter(int maximumUniverse)
-        {
-
-        }
-
-
-        /// <example>
-        /// <code source="..\..\NGenerics.Examples\Sorting\BubbleSorterExamples.cs" region="Sort" lang="cs" title="The following example shows how to use the Sort method."/>
-        /// </example>
-        public BucketSorter()
-        {
-
-        }
-        #endregion
-
         #region ISorter<int> Members
 
         /// <inheritdoc />
         public override void Sort(IList<int> list, SortOrder order)
         {
-            #region Validation
-
             Guard.ArgumentNotNull(list, "list");
-
-            #endregion
 
             if (list.Count <= 1)
                 return;
@@ -61,18 +37,18 @@ namespace NGenerics.Sorting
 			var max = list[0];
 			var min = list[0];
 
-            for (var i = 0; i < list.Count; i++)
+            foreach (var item in list)
             {
-                if (list[i] > max) max = list[i];
-                else if (list[i] < min) min = list[i];
+                if (item > max) max = item;
+                else if (item < min) min = item;
             }
 
             var maximumIndex = max - min + 1;
             var counters = new int[maximumIndex];
 
-            for (var i = 0; i < list.Count; i++)
+            foreach (var item in list)
             {
-                counters[list[i] - min]++;
+                counters[item - min]++;
             }
 
             if (order == SortOrder.Ascending)

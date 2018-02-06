@@ -41,7 +41,7 @@ namespace NGenerics.Examples.DataStructures.General
             Assert.AreEqual(edge.ToVertex, vertex2);
 
             // The weight of the vertex will default to 0.
-            Assert.AreEqual(edge.Weight, 0);
+            Assert.AreEqual(0, edge.Weight);
         }
         #endregion
 
@@ -68,7 +68,7 @@ namespace NGenerics.Examples.DataStructures.General
             Assert.AreEqual(edge.ToVertex, vertex2);
 
             // The weight of the vertex will be 34.5
-            Assert.AreEqual(edge.Weight, 34.5);
+            Assert.AreEqual(34.5, edge.Weight);
         }
         #endregion
 
@@ -167,16 +167,15 @@ namespace NGenerics.Examples.DataStructures.General
 
             // Add an edge between the two vertice
             var edge = new Edge<int>(
-                vertex1,     // From Vertex
-                vertex2,     // To Vertex
-                false   // Undirected edge
-            );
+                vertex1, // From Vertex
+                vertex2, // To Vertex
+                false // Undirected edge
+            ) {Tag = 20};
 
             // Add a tag object to the edge
-            edge.Tag = 20;
 
             // The tag on the edge will be equal to 20.
-            Assert.AreEqual(edge.Tag, 20);
+            Assert.AreEqual(20, edge.Tag);
         }
         #endregion
 
@@ -199,12 +198,12 @@ namespace NGenerics.Examples.DataStructures.General
 
             // The weight on the edge, set in the constructor
             // is equal to 32.4.  
-            Assert.AreEqual(edge.Weight, 32.4);
+            Assert.AreEqual(32.4, edge.Weight);
 
             // The weight can also be set with the property
             edge.Weight = 3.67;
 
-            Assert.AreEqual(edge.Weight, 3.67);
+            Assert.AreEqual(3.67, edge.Weight);
         }
         #endregion
     }

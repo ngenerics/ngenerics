@@ -37,7 +37,7 @@ namespace NGenerics.Tests.Util.GuardTests
 				}
 				catch (ArgumentException ex)
 				{
-					Assert.AreEqual(ex.ParamName, "tmp1");
+					Assert.AreEqual("tmp1", ex.ParamName);
 				}
 		    }
 
@@ -51,7 +51,7 @@ namespace NGenerics.Tests.Util.GuardTests
 				}
 				catch (ArgumentException ex)
 				{
-					Assert.AreEqual(ex.ParamName, "tmp2");
+					Assert.AreEqual("tmp2", ex.ParamName);
 				}
 			}
 		}

@@ -28,7 +28,7 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             graph.AddEdge(vertex1, vertex2);
             graph.AddEdge(vertex2, vertex3);
 
-            var cycles = graph.FindCycles(true);
+            var cycles = graph.FindCycles();
 
             Assert.AreEqual(0, cycles.Count, "There should not be any cycles");
         }
@@ -45,7 +45,7 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             graph.AddEdge(vertex2, vertex3);
             graph.AddEdge(vertex3, vertex1);
 
-            var cycles = graph.FindCycles(true);
+            var cycles = graph.FindCycles();
 
             Assert.AreEqual(1, cycles.Count, "There is a single cycle");
 
@@ -73,7 +73,7 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             graph.AddEdge(vertex4, vertex2);
 
 
-            var cycles = graph.FindCycles(true);
+            var cycles = graph.FindCycles();
 
             Assert.AreEqual(1, cycles.Count, "There is a single cycle");
 
@@ -102,7 +102,7 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             graph.AddEdge(vertex4, vertex2);
 
 
-            var cycles = graph.FindCycles(true);
+            var cycles = graph.FindCycles();
 
             Assert.AreEqual(1, cycles.Count, "There is a single cycle");
 
@@ -132,21 +132,21 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
             graph.AddEdge(vertex5, vertex4);
 
 
-            var cycles = graph.FindCycles(true);
+            var cycles = graph.FindCycles();
 
             Assert.AreEqual(2, cycles.Count, "There are two cycles");
 
             IList<Vertex<int>> cycle1 = cycles[0];
             IList<Vertex<int>> cycle2 = cycles[1];
 
-            Assert.IsTrue(((cycle1.Count == 3) && (cycle2.Count == 2)) || ((cycle1.Count == 2) && (cycle2.Count == 3)), "Wrong number of items in the cycles");
+            Assert.IsTrue(cycle1.Count == 3 && cycle2.Count == 2 || cycle1.Count == 2 && cycle2.Count == 3, "Wrong number of items in the cycles");
 
-            var index = (cycle1.Count == 3) ? 0 : 1;
+            var index = cycle1.Count == 3 ? 0 : 1;
             Assert.IsTrue(cycles[index].Any(v => v.Data == 1), "Vertex 1 missing from the cycle");
             Assert.IsTrue(cycles[index].Any(v => v.Data == 2), "Vertex 2 missing from the cycle");
             Assert.IsTrue(cycles[index].Any(v => v.Data == 3), "Vertex 3 missing from the cycle");
 
-            index = (cycle1.Count == 2) ? 0 : 1;
+            index = cycle1.Count == 2 ? 0 : 1;
             Assert.IsTrue(cycles[index].Any(v => v.Data == 4), "Vertex 1 missing from the cycle");
             Assert.IsTrue(cycles[index].Any(v => v.Data == 5), "Vertex 2 missing from the cycle");
         }
@@ -167,7 +167,7 @@ namespace NGenerics.Tests.DataStructures.General.GraphTests
 
             graph.AddEdge(vertex4, vertex5);
 
-            var cycles = graph.FindCycles(true);
+            var cycles = graph.FindCycles();
 
             Assert.AreEqual(1, cycles.Count, "There are two cycles");
 

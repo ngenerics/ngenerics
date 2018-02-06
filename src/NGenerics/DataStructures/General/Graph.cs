@@ -41,7 +41,7 @@ namespace NGenerics.DataStructures.General
     {
         #region Globals
 
-        internal const string CouldNotBeFoundInTheGraph = "The vertex specified could not be found in the graph.";
+        internal const string CouldNotBeFoundInTheGraph = "The vertices specified could not be found in the graph.";
         private const string GraphIsEmpty = "The graph is empty.";
         private readonly Dictionary<Vertex<T>, object> _graphVertices;
         private readonly Dictionary<Edge<T>, object> _graphEdges;
@@ -174,10 +174,10 @@ namespace NGenerics.DataStructures.General
         #region Public Members
 
         /// <summary>
-        /// Performs a depth-first traversal, starting at the specified vertex.
+        /// Performs a depth-first traversal, starting at the specified vertices.
         /// </summary>
         /// <param name="visitor">The visitor to use.  In-order traversal is not applicable in a graph.</param>
-        /// <param name="startVertex">The vertex to start from.</param>
+        /// <param name="startVertex">The vertices to start from.</param>
         /// <exception cref="ArgumentNullException"><paramref name="visitor"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="startVertex"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
@@ -212,7 +212,7 @@ namespace NGenerics.DataStructures.General
 
             var count = TopologicalSortTraversalInternal(visitor);
 
-            // If the visitor has not visited each and every vertex in the 
+            // If the visitor has not visited each and every vertices in the 
             // graph, it has cycles in it.
             return count < _graphVertices.Count;
         }
@@ -238,7 +238,7 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Visits very vertex in the graph (provided it doesn't have cycles) in topological order.
+        /// Visits very vertices in the graph (provided it doesn't have cycles) in topological order.
         /// </summary>
         /// <param name="visitor">The visitor.</param>
         /// <exception cref="ArgumentException">The graph is not directed.</exception>
@@ -260,10 +260,10 @@ namespace NGenerics.DataStructures.General
         
 
         /// <summary>
-        /// Performs a breadth-first traversal from the specified vertex.
+        /// Performs a breadth-first traversal from the specified vertices.
         /// </summary>
         /// <param name="visitor">The visitor to use.</param>
-        /// <param name="startVertex">The vertex to start from.</param>
+        /// <param name="startVertex">The vertices to start from.</param>
         /// <exception cref="ArgumentNullException"><paramref name="visitor"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="startVertex"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
@@ -304,23 +304,23 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Removes the specified vertex from the graph.
+        /// Removes the specified vertices from the graph.
         /// </summary>
-        /// <param name="vertex">The vertex to be removed.</param>
-        /// <returns>A value indicating whether the vertex was found (and removed) in the graph.</returns>
+        /// <param name="vertex">The vertices to be removed.</param>
+        /// <returns>A value indicating whether the vertices was found (and removed) in the graph.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="vertex"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="RemoveVertex" lang="cs" title="The following example shows how to use the RemoveVertex method."/>
         /// </example>
         public bool RemoveVertex(Vertex<T> vertex)
         {
-            //no need to check vertex for null as graphVertices.Remove will do this
+            //no need to check vertices for null as graphVertices.Remove will do this
             if (!_graphVertices.Remove(vertex))
             {
                 return false;
             }
             
-            // Delete all the edges in which this vertex forms part of
+            // Delete all the edges in which this vertices forms part of
             var list = vertex.IncidentEdges;
 
             while (list.Count > 0)
@@ -332,10 +332,10 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Removes the vertex with the specified value from the graph.
+        /// Removes the vertices with the specified value from the graph.
         /// </summary>
         /// <param name="item">The item.</param>
-        /// <returns><c>true</c> if a vertex with the value specified was found (and removed) in the graph; otherwise <c>false</c>.</returns>
+        /// <returns><c>true</c> if a vertices with the value specified was found (and removed) in the graph; otherwise <c>false</c>.</returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="RemoveVertexFromValue" lang="cs" title="The following example shows how to use the RemoveVertex method."/>
         /// </example>
@@ -355,11 +355,11 @@ namespace NGenerics.DataStructures.General
         
 
         /// <summary>
-        /// Determines whether this graph contains the specified vertex.
+        /// Determines whether this graph contains the specified vertices.
         /// </summary>
-        /// <param name="vertex">The vertex.</param>
+        /// <param name="vertex">The vertices.</param>
         /// <returns>
-        /// 	<c>true</c> if this instance contains the specified vertex; otherwise, <c>false</c>.
+        /// 	<c>true</c> if this instance contains the specified vertices; otherwise, <c>false</c>.
         /// </returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="ContainsVertex" lang="cs" title="The following example shows how to use the ContainsVertex method."/>
@@ -374,7 +374,7 @@ namespace NGenerics.DataStructures.General
         /// </summary>
         /// <param name="item">The item.</param>
         /// <returns>
-        /// 	<c>true</c> if the specified item contains vertex; otherwise, <c>false</c>.
+        /// 	<c>true</c> if the specified item contains vertices; otherwise, <c>false</c>.
         /// </returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="ContainsVertexValue" lang="cs" title="The following example shows how to use the ContainsVertex method."/>
@@ -436,8 +436,8 @@ namespace NGenerics.DataStructures.General
         /// <summary>
         /// Removes the edge specified from the graph.
         /// </summary>
-        /// <param name="from">The from vertex.</param>
-        /// <param name="to">The to vertex.</param>
+        /// <param name="from">The from vertices.</param>
+        /// <param name="to">The to vertices.</param>
         /// <returns>A value indicating whether the edge between the two vertices supplied was found (and removed) from the graph.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="from"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <exception cref="ArgumentNullException"><paramref name="to"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
@@ -514,34 +514,38 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Adds the vertex specified to the graph.
+        /// Adds the vertices specified to the graph.
         /// </summary>
-        /// <param name="vertex">The vertex to add.</param>
-        /// <exception cref="ArgumentException"><paramref name="vertex"/> already exists in the current instance.</exception>
-		/// <exception cref="ArgumentNullException"><paramref name="vertex"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
+        /// <param name="vertices">The vertices to add.</param>
+        /// <exception cref="ArgumentException"><paramref name="vertices"/> already exists in the current instance.</exception>
+		/// <exception cref="ArgumentNullException"><paramref name="vertices"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="AddVertex" lang="cs" title="The following example shows how to use the AddVertex method."/>
         /// </example>
-        public void AddVertex(Vertex<T> vertex)
+        public void AddVertex(params Vertex<T>[] vertices)
         {
-            #region Validation
+			Guard.ArgumentNotNull(vertices, nameof(vertices));
 
-			Guard.ArgumentNotNull(vertex,"vertex");
-            
-			if (_graphVertices.ContainsKey(vertex))
+            foreach (var vertex in vertices)
             {
-                throw new ArgumentException("The vertex already exists in the graph.", "vertex");
+                if (vertex == null)
+                {
+                    throw new ArgumentException("At least one vertex is null.", nameof(vertices));
+                }
+
+                if (_graphVertices.ContainsKey(vertex))
+                {
+                    throw new ArgumentException("One or more vertices already exist in the graph.", nameof(vertices));
+                }
+
+                _graphVertices.Add(vertex, null);
             }
-
-            #endregion
-
-            _graphVertices.Add(vertex, null);
         }
 
         /// <summary>
-        /// Adds a vertex to the graph with the specified data item.
+        /// Adds a vertices to the graph with the specified data item.
         /// </summary>
-        /// <param name="item">The item to store in the vertex.</param>
+        /// <param name="item">The item to store in the vertices.</param>
         /// <returns>The <see cref="Vertex{T}"/> created and added to the graph.</returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="AddVertexFromValue" lang="cs" title="The following example shows how to use the AddVertex method."/>
@@ -556,8 +560,8 @@ namespace NGenerics.DataStructures.General
         /// <summary>
         /// Adds the edge to the graph.
         /// </summary>
-        /// <param name="from">The from vertex.</param>
-        /// <param name="to">The to vertex.</param>
+        /// <param name="from">The from vertices.</param>
+        /// <param name="to">The to vertices.</param>
         /// <returns>The newly created <see cref="Edge{T}"/>.</returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="AddEdgeFromVertices" lang="cs" title="The following example shows how to use the AddEdge method."/>
@@ -572,8 +576,8 @@ namespace NGenerics.DataStructures.General
         /// <summary>
         /// Adds the edge to the graph.
         /// </summary>
-        /// <param name="from">The from vertex.</param>
-        /// <param name="to">The to vertex.</param>
+        /// <param name="from">The from vertices.</param>
+        /// <param name="to">The to vertices.</param>
         /// <param name="weight">The weight of this edge.</param>
         /// <returns>The newly created <see cref="Edge{T}"/>.</returns>
         /// <example>
@@ -672,12 +676,12 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Determines whether the vertex with the specified from value has an edge to a vertex with the specified to value.
+        /// Determines whether the vertices with the specified from value has an edge to a vertices with the specified to value.
         /// </summary>
-        /// <param name="fromValue">The from vertex value.</param>
-        /// <param name="toValue">The to vertex value.</param>
+        /// <param name="fromValue">The from vertices value.</param>
+        /// <param name="toValue">The to vertices value.</param>
         /// <returns>
-        /// 	<c>true</c> if the vertex with the specified from value has an edge to a vertex with the specified to value; otherwise, <c>false</c>.
+        /// 	<c>true</c> if the vertices with the specified from value has an edge to a vertices with the specified to value; otherwise, <c>false</c>.
         /// </returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="ContainsEdgeFromVerticeValues" lang="cs" title="The following example shows how to use the ContainsEdge method."/>
@@ -713,12 +717,12 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Determines whether the specified vertex has a edge to the to vertex.
+        /// Determines whether the specified vertices has a edge to the to vertices.
         /// </summary>
-        /// <param name="from">The from vertex.</param>
-        /// <param name="to">The to vertex.</param>
+        /// <param name="from">The from vertices.</param>
+        /// <param name="to">The to vertices.</param>
         /// <returns>
-        /// 	<c>true</c> if the specified from vertex has an edge to the to vertex; otherwise, <c>false</c>.
+        /// 	<c>true</c> if the specified from vertices has an edge to the to vertices; otherwise, <c>false</c>.
         /// </returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="ContainsEdgeFromVertices" lang="cs" title="The following example shows how to use the ContainsEdge method."/>
@@ -746,8 +750,8 @@ namespace NGenerics.DataStructures.General
         /// <summary>
         /// Gets the edge specified by the two vertices.
         /// </summary>
-        /// <param name="from">The from vertex.</param>
-        /// <param name="to">The two vertex.</param>
+        /// <param name="from">The from vertices.</param>
+        /// <param name="to">The two vertices.</param>
         /// <returns>The <see cref="Edge{T}"/> between the two specified vertices if found; otherwise a null reference.</returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="GetEdge" lang="cs" title="The following example shows how to use the GetEdge method."/>
@@ -760,8 +764,8 @@ namespace NGenerics.DataStructures.General
         /// <summary>
         /// Gets the edge specified by the two vertices.
         /// </summary>
-        /// <param name="fromVertexValue">The from vertex value.</param>
-        /// <param name="toVertexValue">The to vertex value.</param>
+        /// <param name="fromVertexValue">The from vertices value.</param>
+        /// <param name="toVertexValue">The to vertices value.</param>
 		/// <returns>The <see cref="Edge{T}"/> formed by vertices with the specified values if found, otherwise a null reference.</returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="GetEdgeFromVertexValue" lang="cs" title="The following example shows how to use the GetEdge method."/>
@@ -788,9 +792,9 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Gets the vertex with the specified value.
+        /// Gets the vertices with the specified value.
         /// </summary>
-        /// <param name="vertexValue">The vertex value to look for.</param>
+        /// <param name="vertexValue">The vertices value to look for.</param>
         /// <returns>The <see cref="Vertex{T}"/> with the specified value.</returns>
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\General\GraphExamples.cs" region="GetVertex" lang="cs" title="The following example shows how to use the GetVertex method."/>
@@ -839,19 +843,9 @@ namespace NGenerics.DataStructures.General
         /// Finds cycles in a graph using Tarjan's strongly connected components algorithm.
         /// See http://en.wikipedia.org/wiki/Tarjan's_strongly_connected_components_algorithm
         /// </summary>
-        /// <returns>A list of of vertice arrays (paths) that form cycles in the graph.</returns>
-        public IList<Vertex<T>[]> FindCycles()
-        {
-            return FindCycles( true );
-        }
-
-        /// <summary>
-        /// Finds cycles in a graph using Tarjan's strongly connected components algorithm.
-        /// See http://en.wikipedia.org/wiki/Tarjan's_strongly_connected_components_algorithm
-        /// </summary>
         /// <param name="excludeSingleItems">if set to <c>true</c> nodes with no edges are excluded.</param>
         /// <returns>A list of of vertice arrays (paths) that form cycles in the graph.</returns>
-        public IList<Vertex<T>[]> FindCycles( bool excludeSingleItems )
+        public IList<Vertex<T>[]> FindCycles( bool excludeSingleItems = true)
         {
             var indices = new Dictionary<Vertex<T>, int>();
             var lowlinks = new Dictionary<Vertex<T>, int>();
@@ -874,7 +868,7 @@ namespace NGenerics.DataStructures.General
         #region Private Members
 
         /// <summary>
-        /// Allows a visitor to visit each vertex in topological order.
+        /// Allows a visitor to visit each vertices in topological order.
         /// </summary>
         /// <param name="visitor">The visitor.</param>
         /// <returns>The number of items visited.</returns>
@@ -917,7 +911,7 @@ namespace NGenerics.DataStructures.General
                         var vertex = queue.Dequeue();
                         depth.Remove(vertex);
 
-                        // Visit the vertex in the topological sort order
+                        // Visit the vertices in the topological sort order
                         visitor.Visit(vertex);
 
                         // Keep track of the amount of vertices we visit,
@@ -925,7 +919,7 @@ namespace NGenerics.DataStructures.General
                         visitCount++;
 
                         // Enumerate through all the edges emanating from this node,
-                        // decreasing the depth of the vertex (thereby "removing" it
+                        // decreasing the depth of the vertices (thereby "removing" it
                         // from the graph, and enqueue all those with depth 0.  The
                         // effect is an ordering by incoming edge counts.
                         foreach (var edge in vertex.EmanatingEdges)
@@ -950,7 +944,7 @@ namespace NGenerics.DataStructures.General
         /// Performs a depth-first traversal.
         /// </summary>
         /// <param name="visitor">The visitor.</param>
-        /// <param name="startVertex">The start vertex.</param>
+        /// <param name="startVertex">The start vertices.</param>
         /// <param name="visitedVertices">The visited vertices.</param>
         private static void DepthFirstTraversal(OrderedVisitor<Vertex<T>> visitor, Vertex<T> startVertex, ref List<Vertex<T>> visitedVertices)
         {
@@ -959,29 +953,29 @@ namespace NGenerics.DataStructures.General
                 return;
             }
 
-            // Add the vertex to the "visited" list
+            // Add the vertices to the "visited" list
             visitedVertices.Add(startVertex);
 
-            // Visit the vertex in pre-order
+            // Visit the vertices in pre-order
             visitor.VisitPreOrder(startVertex);
 
-            // Get the list of emanating edges from the vertex
+            // Get the list of emanating edges from the vertices
             var edges = startVertex.EmanatingEdges;
 
             foreach (var e in edges)
             {
-// Get the partner vertex of the start vertex
+// Get the partner vertices of the start vertices
                 var vertexToVisit = e.GetPartnerVertex(startVertex);
 
-                // If the vertex hasn't been visited before, do a depth-first
-                // traversal starting at that vertex
+                // If the vertices hasn't been visited before, do a depth-first
+                // traversal starting at that vertices
                 if (!visitedVertices.Contains(vertexToVisit))
                 {
                     DepthFirstTraversal(visitor, vertexToVisit, ref visitedVertices);
                 }
             }
 
-            // Visit the vertex in post order
+            // Visit the vertices in post order
             visitor.VisitPostOrder(startVertex);
         }
 
@@ -1029,9 +1023,9 @@ namespace NGenerics.DataStructures.General
         }
 
         /// <summary>
-        /// Gets any vertex.
+        /// Gets any vertices.
         /// </summary>
-        /// <returns>Any vertex.</returns>
+        /// <returns>Any vertices.</returns>
         private Vertex<T> GetAnyVertex()
         {
             Debug.Assert(_graphVertices.Count > 0);
@@ -1042,7 +1036,7 @@ namespace NGenerics.DataStructures.General
         /// Executes Tarjan's algorithm on the graph.
         /// </summary>
         /// <param name="excludeSinlgeItems">if set to <c>true</c> [exclude sinlge items].</param>
-        /// <param name="vertex">The vertex to start with.</param>
+        /// <param name="vertex">The vertices to start with.</param>
         /// <param name="indices">The current indices.</param>
         /// <param name="lowlinks">The current lowlinks.</param>
         /// <param name="connected">The connected components.</param>

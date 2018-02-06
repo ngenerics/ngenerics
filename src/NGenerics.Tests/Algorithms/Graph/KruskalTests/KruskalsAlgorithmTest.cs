@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NGenerics.Algorithms;
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
@@ -54,21 +55,21 @@ namespace NGenerics.Tests.Algorithms.Graph.KruskalTests
             var resultGraph = GraphAlgorithms.KruskalsAlgorithm(graph);
 
 
-            Assert.AreEqual(resultGraph.ContainsEdge(1, 2), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(1, 5), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(5, 6), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(6, 8), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(6, 7), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(7, 3), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(3, 4), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(7, 9), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(7, 10), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(9, 12), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(12, 11), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(11, 13), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(13, 14), true);
+            Assert.IsTrue(resultGraph.ContainsEdge(1, 2));
+            Assert.IsTrue(resultGraph.ContainsEdge(1, 5));
+            Assert.IsTrue(resultGraph.ContainsEdge(5, 6));
+            Assert.IsTrue(resultGraph.ContainsEdge(6, 8));
+            Assert.IsTrue(resultGraph.ContainsEdge(6, 7));
+            Assert.IsTrue(resultGraph.ContainsEdge(7, 3));
+            Assert.IsTrue(resultGraph.ContainsEdge(3, 4));
+            Assert.IsTrue(resultGraph.ContainsEdge(7, 9));
+            Assert.IsTrue(resultGraph.ContainsEdge(7, 10));
+            Assert.IsTrue(resultGraph.ContainsEdge(9, 12));
+            Assert.IsTrue(resultGraph.ContainsEdge(12, 11));
+            Assert.IsTrue(resultGraph.ContainsEdge(11, 13));
+            Assert.IsTrue(resultGraph.ContainsEdge(13, 14));
 
-            Assert.AreEqual(resultGraph.Edges.Count, 13);
+            Assert.AreEqual(13, resultGraph.Edges.Count);
 
             double totalCost = 0;
 
@@ -77,7 +78,7 @@ namespace NGenerics.Tests.Algorithms.Graph.KruskalTests
                 totalCost += edge.Weight;
             }
 
-            Assert.AreEqual(totalCost, 58);
+            Assert.AreEqual(58, totalCost);
         }
 
         [Test]
@@ -114,21 +115,21 @@ namespace NGenerics.Tests.Algorithms.Graph.KruskalTests
             var resultGraph = GraphAlgorithms.KruskalsAlgorithm(graph);
 
 
-            Assert.AreEqual(resultGraph.ContainsEdge(1, 2), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(1, 5), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(5, 6), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(6, 8), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(6, 7), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(7, 3), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(3, 4), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(7, 9), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(7, 10), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(9, 12), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(12, 11), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(11, 13), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(13, 14), true);
+            Assert.IsTrue(resultGraph.ContainsEdge(1, 2));
+            Assert.IsTrue(resultGraph.ContainsEdge(1, 5));
+            Assert.IsTrue(resultGraph.ContainsEdge(5, 6));
+            Assert.IsTrue(resultGraph.ContainsEdge(6, 8));
+            Assert.IsTrue(resultGraph.ContainsEdge(6, 7));
+            Assert.IsTrue(resultGraph.ContainsEdge(7, 3));
+            Assert.IsTrue(resultGraph.ContainsEdge(3, 4));
+            Assert.IsTrue(resultGraph.ContainsEdge(7, 9));
+            Assert.IsTrue(resultGraph.ContainsEdge(7, 10));
+            Assert.IsTrue(resultGraph.ContainsEdge(9, 12));
+            Assert.IsTrue(resultGraph.ContainsEdge(12, 11));
+            Assert.IsTrue(resultGraph.ContainsEdge(11, 13));
+            Assert.IsTrue(resultGraph.ContainsEdge(13, 14));
 
-            Assert.AreEqual(resultGraph.Edges.Count, 13);
+            Assert.AreEqual(13, resultGraph.Edges.Count);
 
             double totalCost = 0;
 
@@ -137,7 +138,7 @@ namespace NGenerics.Tests.Algorithms.Graph.KruskalTests
                 totalCost += edge.Weight;
             }
 
-            Assert.AreEqual(totalCost, 58);
+            Assert.AreEqual(58, totalCost);
         }
 
         [Test]
@@ -184,22 +185,17 @@ namespace NGenerics.Tests.Algorithms.Graph.KruskalTests
 
             var resultGraph = GraphAlgorithms.KruskalsAlgorithm(graph);
 
-            Assert.AreEqual(resultGraph.ContainsEdge(1, 2), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(1, 4), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(3, 5), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(4, 5), true);
-            Assert.AreEqual(resultGraph.ContainsEdge(5, 6), true);
+            Assert.IsTrue(resultGraph.ContainsEdge(1, 2));
+            Assert.IsTrue(resultGraph.ContainsEdge(1, 4));
+            Assert.IsTrue(resultGraph.ContainsEdge(3, 5));
+            Assert.IsTrue(resultGraph.ContainsEdge(4, 5));
+            Assert.IsTrue(resultGraph.ContainsEdge(5, 6));
 
-            Assert.AreEqual(resultGraph.Edges.Count, 5);
+            Assert.AreEqual(5, resultGraph.Edges.Count);
 
-            double totalCost = 0;
+            double totalCost = resultGraph.Edges.Sum(edge => edge.Weight);
 
-            foreach (var edge in resultGraph.Edges)
-            {
-                totalCost += edge.Weight;
-            }
-
-            Assert.AreEqual(totalCost, 23);
+            Assert.AreEqual(23, totalCost);
         }
 
 
