@@ -15,7 +15,7 @@ using NUnit.Framework;
 namespace NGenerics.Examples.Extensions
 {
     [TestFixture]
-    public class IEnumerableExtensionsExamples
+    public class EnumerableExtensionsExamples
     {
         #region ForEach
 
@@ -28,7 +28,7 @@ namespace NGenerics.Examples.Extensions
             // For each number in the list, add it to the total.
             numbers.ForEach(x => total += x);
 
-            Assert.AreEqual(total, 26);
+            Assert.AreEqual(26, total);
         }
 
         #endregion

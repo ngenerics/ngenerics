@@ -19,19 +19,19 @@ namespace NGenerics.Examples.DataStructures.General
     [TestFixture]
     public class HashListExamples
     {
-
-
         #region Add
 
         [Test]
         public void AddExample()
         {
-            var whatAnimalEatHashList = new HashList<string, string>();
-            whatAnimalEatHashList.Add("cat", "milk");
-            whatAnimalEatHashList.Add("cat", "fish");
-            whatAnimalEatHashList.Add("dog", "dog food");
-            whatAnimalEatHashList.Add("dog", "bones");
-            whatAnimalEatHashList.Add("tiger", "people");
+            var whatAnimalEatHashList = new HashList<string, string>
+            {
+                {"cat", "milk"},
+                {"cat", "fish"},
+                {"dog", "dog food"},
+                {"dog", "bones"},
+                {"tiger", "people"}
+            };
             // There should be 3 items.
             Assert.AreEqual(3, whatAnimalEatHashList.Count);
         }
@@ -44,10 +44,12 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void AddParamsExample()
         {
-            var whatAnimalEatHashList = new HashList<string, string>();
-            whatAnimalEatHashList.Add("cat", "milk", "fish");
-            whatAnimalEatHashList.Add("dog", "dog food", "bones");
-            whatAnimalEatHashList.Add("tiger", "people");
+            var whatAnimalEatHashList = new HashList<string, string>
+            {
+                {"cat", "milk", "fish"},
+                {"dog", "dog food", "bones"},
+                {"tiger", "people"}
+            };
 
             // There are 3 keys.
             Assert.AreEqual(3, whatAnimalEatHashList.KeyCount);
@@ -58,26 +60,22 @@ namespace NGenerics.Examples.DataStructures.General
 
         #endregion
 
-
-
-
         #region Constructor
 
         [Test]
         public void ConstructorExample()
         {
-        	var whatAnimalEatHashList = new HashList<string, string>
-        	                            	{
-        	                            		{"cat", "milk"},
-        	                            		{"cat", "fish"},
-        	                            		{"dog", "dog food"},
-        	                            		{"dog", "bones"},
-        	                            		{"tiger", "people"}
-        	                            	};
+        	new HashList<string, string>
+                {
+                    {"cat", "milk"},
+                    {"cat", "fish"},
+                    {"dog", "dog food"},
+                    {"dog", "bones"},
+                    {"tiger", "people"}
+                };
         }
 
     	#endregion
-
 
         #region ConstructorCapacity
 
@@ -86,14 +84,14 @@ namespace NGenerics.Examples.DataStructures.General
 		{
 			// If you know how many items will initially be in the HashList it is 
 			// more efficient to set the initial capacity
-			var whatAnimalEatHashList = new HashList<string, string>(3)
-			                            	{
-			                            		{"cat", "milk"},
-			                            		{"cat", "fish"},
-			                            		{"dog", "dog food"},
-			                            		{"dog", "bones"},
-			                            		{"tiger", "people"}
-			                            	};
+			new HashList<string, string>(3)
+                {
+                    {"cat", "milk"},
+                    {"cat", "fish"},
+                    {"dog", "dog food"},
+                    {"dog", "bones"},
+                    {"tiger", "people"}
+                };
 		}
 
     	#endregion
@@ -149,9 +147,6 @@ namespace NGenerics.Examples.DataStructures.General
 		}
 
     	#endregion
-
-
-    
 
         #region KeyCount
 
@@ -213,8 +208,6 @@ namespace NGenerics.Examples.DataStructures.General
 
     	#endregion
 
-
-
         #region RemoveValue
 		[Test]
 		public void RemoveValueExample()
@@ -237,7 +230,6 @@ namespace NGenerics.Examples.DataStructures.General
 		}
 
     	#endregion
-
 
         #region RemoveAll
 
@@ -264,8 +256,6 @@ namespace NGenerics.Examples.DataStructures.General
 		}
 
     	#endregion
-
-
       
         #region ValueCount
 
@@ -285,7 +275,5 @@ namespace NGenerics.Examples.DataStructures.General
         }
 
     	#endregion
-
-
     }
 }

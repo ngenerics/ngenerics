@@ -24,7 +24,7 @@ namespace NGenerics.Comparers
     {
         #region Globals
 
-        private IComparer<T> comparerToUse;
+        private IComparer<T> _comparerToUse;
 
         #endregion
 
@@ -32,7 +32,7 @@ namespace NGenerics.Comparers
         /// <inheritdoc />
         public ReverseComparer()
         {
-            comparerToUse = Comparer<T>.Default;
+            _comparerToUse = Comparer<T>.Default;
         }
 
  
@@ -42,18 +42,15 @@ namespace NGenerics.Comparers
         {
 
             Guard.ArgumentNotNull(comparer, "comparer");
-            comparerToUse = comparer;
+            _comparerToUse = comparer;
         }
 
         #endregion
 
         #region IComparer<T> Members
 
-		/// <inheritdoc />
-        public int Compare(T x, T y)
-        {
-            return (comparerToUse.Compare(y, x));
-        }
+        /// <inheritdoc />
+        public int Compare(T x, T y) => _comparerToUse.Compare(y, x);
 
         #endregion
 
@@ -66,16 +63,11 @@ namespace NGenerics.Comparers
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
         public IComparer<T> Comparer
         {
-            get
-            {
-                return comparerToUse;
-            }
+            get => _comparerToUse;
             set
             {
-
                 Guard.ArgumentNotNull(value, "value");
-
-                comparerToUse = value;
+                _comparerToUse = value;
             }
         }
 

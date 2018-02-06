@@ -96,21 +96,21 @@ namespace NGenerics.Sorting
         /// <example>
         /// <code source="..\..\NGenerics.Examples\Sorting\SorterExamples.cs" region="SortListOrder" lang="cs" title="The following example shows how to use the Sort method."/>
         /// </example>
-        public override void Sort(IList<T> list, SortOrder sortOrder)
+        public override void Sort(IList<T> list, SortOrder order)
         {
             #region Validation
 
             Guard.ArgumentNotNull(list, "list");
 
-            ValidateSortOrder(sortOrder);
+            ValidateSortOrder(order);
 
             #endregion
 
-            if (sortOrder == SortOrder.Ascending)
+            if (order == SortOrder.Ascending)
             {
                 Sort(list, Comparer<T>.Default);
             }
-            else if (sortOrder == SortOrder.Descending)
+            else if (order == SortOrder.Descending)
             {
                 Sort(list, new ReverseComparer<T>(Comparer<T>.Default));
             }

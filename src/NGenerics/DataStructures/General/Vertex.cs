@@ -64,7 +64,7 @@ namespace NGenerics.DataStructures.General
     	/// </summary>
     	/// <value>The weight.</value>
     	/// <example>
-    	/// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="Weight" lang="cs" title="The following example shows how to use the Weight property."/>
+    	/// <code source="..\..\NGenerics.Examples\DataStructures\General\VertexExamples.cs" region="ConstructorWithWeightExample" lang="cs" title="The following example shows how to use the Weight property."/>
     	/// </example>
     	public double Weight { get; set; }
 

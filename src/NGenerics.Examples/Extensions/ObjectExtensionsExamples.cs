@@ -24,7 +24,7 @@ namespace NGenerics.Examples.Extensions
             var from = "23.55";
             var to =  from.ConvertTo<decimal>();
 
-            Assert.AreEqual(to, 23.55);
+            Assert.AreEqual(23.55, to);
         }
         #endregion
     }

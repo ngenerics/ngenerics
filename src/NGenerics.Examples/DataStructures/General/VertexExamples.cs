@@ -17,7 +17,6 @@ namespace NGenerics.Examples.DataStructures.General
     [TestFixture]
     public class VertexExamples
     {
-
         #region Constructor
         [Test]
         public void ConstructorExample()
@@ -26,7 +25,7 @@ namespace NGenerics.Examples.DataStructures.General
             var vertex = new Vertex<int>(5);
 
             // The data property's value will be 5
-            Assert.AreEqual(vertex.Data, 5);
+            Assert.AreEqual(5, vertex.Data);
         }
         #endregion
 
@@ -39,10 +38,10 @@ namespace NGenerics.Examples.DataStructures.General
             var vertex = new Vertex<int>(5, 3.32);
 
             // The data property's value will be 5
-            Assert.AreEqual(vertex.Data, 5);
+            Assert.AreEqual(5, vertex.Data);
 
-            // And the weight 3.34
-            Assert.AreEqual(vertex.Weight, 3.32);
+            // And the weight 3.32
+            Assert.AreEqual(3.32, vertex.Weight);
         }
         #endregion
 
@@ -54,11 +53,11 @@ namespace NGenerics.Examples.DataStructures.General
             var vertex = new Vertex<int>(2);
 
             // Which you can retrieve from the property
-            Assert.AreEqual(vertex.Data, 2);
+            Assert.AreEqual(2, vertex.Data);
 
             // And also set with the property
             vertex.Data = 3;
-            Assert.AreEqual(vertex.Data, 3);
+            Assert.AreEqual(3, vertex.Data);
         }
         #endregion
 
@@ -74,14 +73,13 @@ namespace NGenerics.Examples.DataStructures.General
             // of edges emanating from the vertex.  Thus,
             // a newly created vertex will have a degree
             // of 0.
-            Assert.AreEqual(vertex1.Degree, 0);
-            Assert.AreEqual(vertex2.Degree, 0);
+            Assert.AreEqual(0, vertex1.Degree);
+            Assert.AreEqual(0, vertex2.Degree);
 
             // Create a graph, and add the vertices to 
             // the graph
             var graph = new Graph<int>(true);
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
+            graph.AddVertex(vertex1, vertex2);
 
             // Add an edge from vertex1 to vertex vertex2
             graph.AddEdge(vertex1, vertex2);
@@ -89,8 +87,8 @@ namespace NGenerics.Examples.DataStructures.General
             // Since the edge is emanating from vertex1
             // (and the graph is directed), vertex1's
             // degree will be 1 and vertex2's degree 0.
-            Assert.AreEqual(vertex1.Degree, 1);
-            Assert.AreEqual(vertex2.Degree, 0);
+            Assert.AreEqual(1, vertex1.Degree);
+            Assert.AreEqual(0, vertex2.Degree);
         }
         #endregion
 
@@ -105,8 +103,7 @@ namespace NGenerics.Examples.DataStructures.General
             // Create a graph, and add the vertices to 
             // the graph
             var graph = new Graph<int>(true);
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
+            graph.AddVertex(vertex1, vertex2);
 
             // Add an edge from vertex1 to vertex vertex2
             graph.AddEdge(vertex1, vertex2);
@@ -114,8 +111,8 @@ namespace NGenerics.Examples.DataStructures.General
             // Since the edge is emanating from vertex1
             // (and the graph is directed), vertex1's
             // degree will be 1 and vertex2's degree 0.
-            Assert.AreEqual(vertex1.EmanatingEdges.Count, 1);
-            Assert.AreEqual(vertex2.EmanatingEdges.Count, 0);
+            Assert.AreEqual(1, vertex1.EmanatingEdges.Count);
+            Assert.AreEqual(0, vertex2.EmanatingEdges.Count);
         }
         #endregion
 
@@ -130,8 +127,7 @@ namespace NGenerics.Examples.DataStructures.General
             // Create a graph, and add the vertices to 
             // the graph
             var graph = new Graph<int>(true);
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
+            graph.AddVertex(vertex1, vertex2);
 
             // Add an edge from vertex1 to vertex vertex2
             graph.AddEdge(vertex1, vertex2);
@@ -161,8 +157,7 @@ namespace NGenerics.Examples.DataStructures.General
             // Create a graph, and add the vertices to 
             // the graph
             var graph = new Graph<int>(true);
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
+            graph.AddVertex(vertex1, vertex2);
 
             // Add an edge from vertex1 to vertex vertex2
             graph.AddEdge(vertex1, vertex2);
@@ -193,8 +188,7 @@ namespace NGenerics.Examples.DataStructures.General
             // Create a graph, and add the vertices to 
             // the graph
             var graph = new Graph<int>(true);
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
+            graph.AddVertex(vertex1, vertex2);
 
             // Add an edge from vertex1 to vertex vertex2
             graph.AddEdge(vertex1, vertex2);
@@ -218,8 +212,7 @@ namespace NGenerics.Examples.DataStructures.General
             // Create a graph, and add the vertices to 
             // the graph
             var graph = new Graph<int>(true);
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
+            graph.AddVertex(vertex1, vertex2);
 
             // Add an edge from vertex1 to vertex vertex2
             graph.AddEdge(vertex1, vertex2);
@@ -244,8 +237,7 @@ namespace NGenerics.Examples.DataStructures.General
             // Create a graph, and add the vertices to 
             // the graph
             var graph = new Graph<int>(true);
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
+            graph.AddVertex(vertex1, vertex2);
 
             // Add an edge from vertex1 to vertex vertex2
             graph.AddEdge(vertex1, vertex2);
@@ -256,27 +248,11 @@ namespace NGenerics.Examples.DataStructures.General
 
             // To get the list of incident edges, use the 
             // IncidentEdges property
-            Assert.AreEqual(vertex1.IncidentEdges.Count, 1);
+            Assert.AreEqual(1, vertex1.IncidentEdges.Count);
 
             // And also the other way around.
             Assert.IsTrue(vertex2.HasIncidentEdgeWith(vertex1));
-            Assert.AreEqual(vertex2.IncidentEdges.Count, 1);
-        }
-        #endregion
-
-        #region Weight
-        [Test]
-        public void WeightExample()
-        {
-            // Construct a new vertex with value 5 and
-            // a weight of 3.34
-            var vertex = new Vertex<int>(5, 3.32);
-
-            // The data property's value will be 5
-            Assert.AreEqual(vertex.Data, 5);
-
-            // And the weight 3.34
-            Assert.AreEqual(vertex.Weight, 3.32);
+            Assert.AreEqual(1, vertex2.IncidentEdges.Count);
         }
         #endregion
     }

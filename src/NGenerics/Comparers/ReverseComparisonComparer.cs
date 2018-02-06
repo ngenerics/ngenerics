@@ -24,7 +24,7 @@ namespace NGenerics.Comparers
 	{
 		#region Globals
 
-		private Comparison<T> comparison;
+		private Comparison<T> _comparison;
 
 		#endregion
 
@@ -37,7 +37,7 @@ namespace NGenerics.Comparers
 		{
             Guard.ArgumentNotNull(comparison, "comparison");
 
-			this.comparison = comparison;
+			_comparison = comparison;
 		}
 
 		#endregion
@@ -51,29 +51,21 @@ namespace NGenerics.Comparers
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is a null reference (<c>Nothing</c> in Visual Basic).</exception>
 		public Comparison<T> Comparison
 		{
-			get
+			get => _comparison;
+		    set
 			{
-				return comparison;
-			}
-			set
-			{
-
                 Guard.ArgumentNotNull(value, "value");
-
-				comparison = value;
+				_comparison = value;
 			}
 		}
 
-		#endregion
+        #endregion
 
-		#region IComparer<T> Members
+        #region IComparer<T> Members
 
-		/// <inheritdoc />
-		public int Compare(T x, T y)
-		{
-			return comparison(y, x);
-		}
+        /// <inheritdoc />
+        public int Compare(T x, T y) => _comparison(y, x);
 
-		#endregion
-	}
+        #endregion
+    }
 }

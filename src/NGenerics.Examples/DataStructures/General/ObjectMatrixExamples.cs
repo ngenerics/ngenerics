@@ -72,10 +72,9 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void IndexExample()
         {
-            var matrix = new ObjectMatrix<double>(4, 5);
+            var matrix = new ObjectMatrix<double>(4, 5) {[2, 3] = 5};
 
             // Set the item
-            matrix[2, 3] = 5;
 
             // Item is 5
             Assert.AreEqual(5, matrix[2, 3]);
@@ -86,10 +85,9 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void ClearExample()
         {
-            var matrix = new ObjectMatrix<double>(4, 5);
+            var matrix = new ObjectMatrix<double>(4, 5) {[2, 3] = 5};
 
             // Set the item
-            matrix[2, 3] = 5;
 
             // Item is 5
             Assert.AreEqual(5, matrix[2, 3]);
@@ -102,7 +100,6 @@ namespace NGenerics.Examples.DataStructures.General
 
         }
         #endregion
-
        
         #region IsReadOnly
         [Test]
@@ -118,19 +115,24 @@ namespace NGenerics.Examples.DataStructures.General
         #endregion
 
         #region GetEnumerator
+
         [Test]
         public void GetEnumeratorExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 1] = 3;
-            matrix[1, 0] = 4;
-
-            var enumerator = matrix.GetEnumerator();
-            while (enumerator.MoveNext())
+            var matrix = new ObjectMatrix<double>(2, 2)
             {
-                Console.WriteLine(enumerator.Current);
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 1] = 3,
+                [1, 0] = 4
+            };
+
+            using (var enumerator = matrix.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    Console.WriteLine(enumerator.Current);
+                }
             }
         }
         #endregion
@@ -139,57 +141,29 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void CountExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            ICollection<double> collection = matrix;
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 1] = 3;
-            matrix[1, 0] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 1] = 3,
+                [1, 0] = 4
+            };
             Assert.AreEqual(4, ((ICollection<double>)matrix).Count);
         }
         #endregion
-
-//#region Equals
-//        [Test]
-//        public void EqualsExample()
-//        {
-
-//            ObjectMatrix<double> matrix1 = new ObjectMatrix<double>(2, 2);
-//            matrix1[0, 0] = 1;
-//            matrix1[0, 1] = 2;
-//            matrix1[1, 1] = 3;
-//            matrix1[1, 0] = 4;
-
-
-//            ObjectMatrix<double> matrix2 = new ObjectMatrix<double>(2, 2);
-//            matrix2[0, 0] = 1;
-//            matrix2[0, 1] = 2;
-//            matrix2[1, 1] = 3;
-//            matrix2[1, 0] = 4;
-
-//            Assert.IsTrue(matrix1.Equals(matrix2));
-
-//            ObjectMatrix<double> matrix3 = new ObjectMatrix<double>(2, 2);
-//            matrix3[0, 0] = 1;
-//            matrix3[0, 1] = 2;
-//            matrix3[1, 1] = 3;
-//            matrix3[1, 0] = 5;
-
-//            Assert.IsFalse(matrix1.Equals(matrix3));
-//        }
-//        #endregion
-
 
         #region Accept
         [Test]
         public void AcceptExample()
         {
 
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = -2;
-            matrix[0, 1] = 3;
-            matrix[1, 0] = 4;
-            matrix[1, 1] = 6;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = -2,
+                [0, 1] = 3,
+                [1, 0] = 4,
+                [1, 1] = 6
+            };
             var visitor = new CountingVisitor<double>();
 
             matrix.AcceptVisitor(visitor);
@@ -203,11 +177,13 @@ namespace NGenerics.Examples.DataStructures.General
         public void ContainsExample()
         {
 
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = -2;
-            matrix[0, 1] = 3;
-            matrix[1, 0] = 4;
-            matrix[1, 1] = 6;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = -2,
+                [0, 1] = 3,
+                [1, 0] = 4,
+                [1, 1] = 6
+            };
 
             Assert.IsTrue(matrix.Contains(-2));
             Assert.IsTrue(matrix.Contains(3));
@@ -219,11 +195,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void CopyToExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
             var array = new double[matrix.Rows * matrix.Columns];
 
@@ -239,16 +217,18 @@ namespace NGenerics.Examples.DataStructures.General
         public void GetSubMatrixExample()
         {
 
-            var matrix = new ObjectMatrix<double>(3, 3);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[0, 2] = 3;
-            matrix[1, 0] = 4;
-            matrix[1, 1] = 5;
-            matrix[1, 2] = 6;
-            matrix[2, 0] = 7;
-            matrix[2, 1] = 8;
-            matrix[2, 2] = 9;
+            var matrix = new ObjectMatrix<double>(3, 3)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [0, 2] = 3,
+                [1, 0] = 4,
+                [1, 1] = 5,
+                [1, 2] = 6,
+                [2, 0] = 7,
+                [2, 1] = 8,
+                [2, 2] = 9
+            };
 
 
             var result1 = matrix.GetSubMatrix(0, 0, 1, 1);
@@ -269,11 +249,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void InterchangeRowsExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
             matrix.InterchangeRows(0, 1);
 
@@ -288,11 +270,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void InterchangeColumnsExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
 
             matrix.InterchangeColumns(0, 1);
@@ -309,11 +293,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void GetRowExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
             var row1 = matrix.GetRow(0);
 
@@ -331,11 +317,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void GetColumnExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
             var column1 = matrix.GetColumn(0);
 
@@ -353,11 +341,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void AddRowExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
 
             Assert.AreEqual(2, matrix.Columns);
@@ -374,11 +364,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void AddRowsExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
 
             Assert.AreEqual(2, matrix.Columns);
@@ -395,11 +387,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void AddRowValuesExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
             Assert.AreEqual(2, matrix.Columns);
             Assert.AreEqual(2, matrix.Rows);
@@ -417,11 +411,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void AddColumnExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
             Assert.AreEqual(2, matrix.Columns);
             Assert.AreEqual(2, matrix.Rows);
@@ -438,11 +434,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void AddColumnsExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
             Assert.AreEqual(2, matrix.Columns);
             Assert.AreEqual(2, matrix.Rows);
@@ -459,11 +457,13 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void AddColumnValuesExample()
         {
-            var matrix = new ObjectMatrix<double>(2, 2);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[1, 0] = 3;
-            matrix[1, 1] = 4;
+            var matrix = new ObjectMatrix<double>(2, 2)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [1, 0] = 3,
+                [1, 1] = 4
+            };
 
             Assert.AreEqual(2, matrix.Columns);
             Assert.AreEqual(2, matrix.Rows);
@@ -483,21 +483,23 @@ namespace NGenerics.Examples.DataStructures.General
         [Test]
         public void ResizeExample()
         {
-            var matrix = new ObjectMatrix<double>(3, 3);
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[0, 2] = 3;
-            matrix[1, 0] = 4;
-            matrix[1, 1] = 5;
-            matrix[1, 2] = 6;
-            matrix[2, 0] = 7;
-            matrix[2, 1] = 8;
-            matrix[2, 2] = 9;
+            var matrix = new ObjectMatrix<double>(3, 3)
+            {
+                [0, 0] = 1,
+                [0, 1] = 2,
+                [0, 2] = 3,
+                [1, 0] = 4,
+                [1, 1] = 5,
+                [1, 2] = 6,
+                [2, 0] = 7,
+                [2, 1] = 8,
+                [2, 2] = 9
+            };
 
             matrix.Resize(2, 2);
 
-            Assert.AreEqual(matrix.Columns, 2);
-            Assert.AreEqual(matrix.Rows, 2);
+            Assert.AreEqual(2, matrix.Columns);
+            Assert.AreEqual(2, matrix.Rows);
 
             Assert.AreEqual(1, matrix[0, 0]);
             Assert.AreEqual(2, matrix[0, 1]);
@@ -509,6 +511,7 @@ namespace NGenerics.Examples.DataStructures.General
 
         #region DeleteColumn
                 
+        [Test]
         public void DeleteColumnExample()
         {
             var matrix = new ObjectMatrix<int>(4, 5);
@@ -517,7 +520,7 @@ namespace NGenerics.Examples.DataStructures.General
             matrix.DeleteRow(2);
 
             // Only 3 rows left...
-            Assert.AreEqual(matrix.Rows, 3);
+            Assert.AreEqual(3, matrix.Rows);
         }
 
         #endregion
@@ -533,7 +536,7 @@ namespace NGenerics.Examples.DataStructures.General
             matrix.DeleteColumn(2);
 
             // Only 4 columns left...
-            Assert.AreEqual(matrix.Columns, 4);
+            Assert.AreEqual(4, matrix.Columns);
         }
 
         #endregion

@@ -153,19 +153,19 @@ namespace NGenerics.Examples.DataStructures.Queues
             Assert.AreEqual("canary", priorityQueue.Dequeue(out priority));
 
             // With priority 1
-            Assert.AreEqual(priority, 1);
+            Assert.AreEqual(1, priority);
 
             // Peek gives us "dog"
             Assert.AreEqual("dog", priorityQueue.Dequeue(out priority));
 
             // With priority 2
-            Assert.AreEqual(priority, 2);
+            Assert.AreEqual(2, priority);
 
             // Peek gives us "cat"
             Assert.AreEqual("cat", priorityQueue.Dequeue(out priority));
 
             // With priority 3
-            Assert.AreEqual(priority, 3);
+            Assert.AreEqual(3, priority);
         }
 
         #endregion
@@ -276,10 +276,12 @@ namespace NGenerics.Examples.DataStructures.Queues
             priorityQueue.Enqueue("canary");
 
             // Get the enumerator and iterate through it.
-            var enumerator = priorityQueue.GetEnumerator();
-            while (enumerator.MoveNext())
+            using (var enumerator = priorityQueue.GetEnumerator())
             {
-                Debug.WriteLine(enumerator.Current);
+                while (enumerator.MoveNext())
+                {
+                    Debug.WriteLine(enumerator.Current);
+                }
             }
         }
 
@@ -370,28 +372,26 @@ namespace NGenerics.Examples.DataStructures.Queues
         public void PeekPriorityExample() {
             var priorityQueue = new PriorityQueue<string, int>(PriorityQueueType.Minimum);
 
-            int priority;
-
             priorityQueue.Enqueue("cat", 3);
             
             // Peek is "cat", priority is 3
-            var nextItem = priorityQueue.Peek(out priority);
+            var nextItem = priorityQueue.Peek(out var priority);
             Assert.AreEqual("cat", nextItem);
-            Assert.AreEqual(priority, 3);
+            Assert.AreEqual(3, priority);
 
             priorityQueue.Enqueue("dog", 4);
 
             // Peek gives us "cat" because it is still the first item
             nextItem = priorityQueue.Peek(out priority);
             Assert.AreEqual("cat", nextItem);
-            Assert.AreEqual(priority, 3);
+            Assert.AreEqual(3, priority);
 
             priorityQueue.Enqueue("canary", 2);
             
             // Peek gives us "canary" since the priority is less than that of cat
             nextItem = priorityQueue.Peek(out priority);
             Assert.AreEqual("canary", nextItem);
-            Assert.AreEqual(priority, 2);
+            Assert.AreEqual(2, priority);
         }
 
         #endregion
