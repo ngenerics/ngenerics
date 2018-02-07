@@ -8,7 +8,6 @@
 */
 
 
-
 using System.Collections.Generic;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;

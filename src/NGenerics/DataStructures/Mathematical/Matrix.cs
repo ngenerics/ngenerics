@@ -8,11 +8,11 @@
 */
 
 
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using NGenerics.Algorithms;
 using NGenerics.DataStructures.General;
 using NGenerics.Extensions;
 using NGenerics.Util;
@@ -788,7 +788,7 @@ namespace NGenerics.DataStructures.Mathematical
                 {
                     for (var j = 0; j < noOfColumns; j++)
                     {
-                        f = Algorithms.MathAlgorithms.Hypotenuse(f, GetValue(i, j));
+                        f = MathAlgorithms.Hypotenuse(f, GetValue(i, j));
                     }
                 }
 

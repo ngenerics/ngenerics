@@ -8,12 +8,10 @@
 */
 
 
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
 using System.Text;
 using NGenerics.DataStructures.General;
 using NGenerics.Util;

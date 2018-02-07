@@ -8,7 +8,6 @@
 */
 
 
-
 using System;
 using System.Diagnostics.CodeAnalysis;
 
@@ -22,7 +21,7 @@ namespace NGenerics.Algorithms
         #region Fibonacci Sequence
 
         [SuppressMessage("Microsoft.Usage", "CA2211:NonConstantFieldsShouldNotBeVisible")]
-        internal static readonly long[] FibonacciSequence = new[]{0,
+        internal static readonly long[] FibonacciSequence = {0,
                                                                        1,
                                                                        1,
                                                                        2,

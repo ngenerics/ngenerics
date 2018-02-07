@@ -8,13 +8,12 @@
 */
 
 
-
 using System;
-using System.Collections.Generic;
 using System.Collections;
-using NGenerics.Util;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using NGenerics.Comparers;
+using NGenerics.Util;
 
 namespace NGenerics.DataStructures.General
 {

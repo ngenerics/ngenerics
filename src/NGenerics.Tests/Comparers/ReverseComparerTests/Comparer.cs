@@ -8,15 +8,14 @@
 */
 
 
+using System;
+using System.Collections.Generic;
+using NGenerics.Comparers;
+using NGenerics.Tests.Util;
+using NUnit.Framework;
 
 namespace NGenerics.Tests.Comparers.ReverseComparerTests
 {
-    using System;
-    using System.Collections.Generic;
-    using NGenerics.Comparers;
-    using Util;
-    using NUnit.Framework;
-
     [TestFixture]
     public class Comparer
     {

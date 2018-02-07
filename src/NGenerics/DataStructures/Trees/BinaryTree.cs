@@ -8,13 +8,12 @@
 */
 
 
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using NGenerics.Patterns.Visitor;
 using NGenerics.Util;
-using System.Diagnostics.CodeAnalysis;
 
 namespace NGenerics.DataStructures.Trees
 {

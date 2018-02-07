@@ -8,7 +8,6 @@
 */
 
 
-
 using NGenerics.DataStructures.General;
 using NUnit.Framework;
 

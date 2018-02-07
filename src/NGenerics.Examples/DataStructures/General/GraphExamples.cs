@@ -8,9 +8,8 @@
 */
 
 
-
-
-using NGenerics.DataStructures.General;
+using System;
+using NGenerics.DataStructures.Graphs;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 
@@ -563,7 +562,7 @@ namespace NGenerics.Examples.DataStructures.General
             {
                 while (enumerator.MoveNext())
                 {
-                    System.Console.WriteLine(enumerator.Current);
+                    Console.WriteLine(enumerator.Current);
                 }
             }
         }

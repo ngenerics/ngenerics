@@ -8,7 +8,6 @@
 */
 
 
-
 using System;
 using System.Diagnostics;
 using NGenerics.DataStructures.General;
@@ -40,7 +39,7 @@ namespace NGenerics.Examples.DataStructures.General
             var visitor = new CountingVisitor<string>();
 
             // Make bag call IVisitor<T>.Visit on all items contained.
-            bag.AcceptVisitor<string>(visitor);
+            bag.AcceptVisitor(visitor);
 
             // The counting visitor would have visited 3 items.
             Assert.AreEqual(3, visitor.Count);

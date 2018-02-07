@@ -8,7 +8,6 @@
 */
 
 
-
 using NGenerics.DataStructures.Queues;
 
 namespace NGenerics.Tests.DataStructures.Queues.MaxPriorityQueueHeapTests

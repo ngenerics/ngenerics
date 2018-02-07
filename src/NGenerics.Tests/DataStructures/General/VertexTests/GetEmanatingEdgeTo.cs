@@ -7,7 +7,7 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.VertexTests

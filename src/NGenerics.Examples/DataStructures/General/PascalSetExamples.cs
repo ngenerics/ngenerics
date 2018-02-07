@@ -8,8 +8,6 @@
 */
 
 
-
-
 using System;
 using NGenerics.DataStructures.General;
 using NGenerics.Patterns.Visitor;

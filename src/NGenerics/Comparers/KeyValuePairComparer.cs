@@ -8,7 +8,6 @@
 */
 
 
-
 using System;
 using System.Collections.Generic;
 
@@ -41,7 +40,7 @@ namespace NGenerics.Comparers {
         /// </summary>
         /// <param name="comparer">The comparer.</param>
         public KeyValuePairComparer(IComparer<TKey> comparer) {
-            this._comparer = comparer ?? throw new ArgumentNullException("comparer");
+            _comparer = comparer ?? throw new ArgumentNullException("comparer");
         }
 
         /// <summary>

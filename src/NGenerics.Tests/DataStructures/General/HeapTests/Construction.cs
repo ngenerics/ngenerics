@@ -12,8 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using NGenerics.DataStructures.General;
-using NUnit.Framework;
 using NGenerics.Tests.Util;
+using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.HeapTests
 {

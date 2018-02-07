@@ -8,9 +8,8 @@
 */
 
 
-
 using NGenerics.Comparers;
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.Comparers.EdgeWeightComparerTests
@@ -31,14 +30,13 @@ namespace NGenerics.Tests.Comparers.EdgeWeightComparerTests
             var edge3 = new Edge<int>(vertex1, vertex2, -4, true);
             var edge4 = new Edge<int>(vertex1, vertex2, 12, true);
 
-            Assert.AreEqual(comparer.Compare(edge1, edge2), -1);
-            Assert.AreEqual(comparer.Compare(edge1, edge3), 1);
-            Assert.AreEqual(comparer.Compare(edge1, edge4), 0);
+            Assert.AreEqual(-1, comparer.Compare(edge1, edge2));
+            Assert.AreEqual(1, comparer.Compare(edge1, edge3));
+            Assert.AreEqual(0, comparer.Compare(edge1, edge4));
 
-            Assert.AreEqual(comparer.Compare(edge2, edge1), 1);
-            Assert.AreEqual(comparer.Compare(edge3, edge1), -1);
-            Assert.AreEqual(comparer.Compare(edge4, edge1), 0);
+            Assert.AreEqual(1, comparer.Compare(edge2, edge1));
+            Assert.AreEqual(-1, comparer.Compare(edge3, edge1));
+            Assert.AreEqual(0, comparer.Compare(edge4, edge1));
         }
-
     }
 }

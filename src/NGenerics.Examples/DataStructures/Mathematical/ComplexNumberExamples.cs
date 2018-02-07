@@ -8,9 +8,8 @@
 */
 
 
-
-using NUnit.Framework;
 using NGenerics.DataStructures.Mathematical;
+using NUnit.Framework;
 
 namespace NGenerics.Examples.DataStructures.Mathematical
 {

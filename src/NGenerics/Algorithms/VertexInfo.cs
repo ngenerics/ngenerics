@@ -8,8 +8,7 @@
 */
 
 
-
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 
 namespace NGenerics.Algorithms
 {

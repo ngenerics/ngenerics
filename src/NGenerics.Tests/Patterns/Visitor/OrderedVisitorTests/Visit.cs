@@ -8,7 +8,6 @@
 */
 
 
-
 using Moq;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;

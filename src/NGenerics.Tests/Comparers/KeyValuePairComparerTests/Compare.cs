@@ -8,7 +8,6 @@
 */
 
 
-
 using System.Collections.Generic;
 using NGenerics.Comparers;
 using NUnit.Framework;
@@ -29,13 +28,13 @@ namespace NGenerics.Tests.Comparers.KeyValuePairComparerTests
             var pair3 = new KeyValuePair<int, string>(3, "5");
             var pair4 = new KeyValuePair<int, string>(5, "5");
 
-            Assert.AreEqual(associationKeyComparer.Compare(pair1, pair2), 0);
-            Assert.AreEqual(associationKeyComparer.Compare(pair1, pair3), 1);
-            Assert.AreEqual(associationKeyComparer.Compare(pair1, pair4), 0);
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair1, pair2));
+            Assert.AreEqual(1, associationKeyComparer.Compare(pair1, pair3));
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair1, pair4));
 
-            Assert.AreEqual(associationKeyComparer.Compare(pair2, pair1), 0);
-            Assert.AreEqual(associationKeyComparer.Compare(pair3, pair1), -1);
-            Assert.AreEqual(associationKeyComparer.Compare(pair4, pair1), 0);
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair2, pair1));
+            Assert.AreEqual(-1, associationKeyComparer.Compare(pair3, pair1));
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair4, pair1));
         }
 
         [Test]
@@ -48,13 +47,13 @@ namespace NGenerics.Tests.Comparers.KeyValuePairComparerTests
             var pair3 = new KeyValuePair<int, string>(3, "5");
             var pair4 = new KeyValuePair<int, string>(5, "5");
 
-            Assert.AreEqual(associationKeyComparer.Compare(pair1, pair2), 0);
-            Assert.AreEqual(associationKeyComparer.Compare(pair1, pair3), 1);
-            Assert.AreEqual(associationKeyComparer.Compare(pair1, pair4), 0);
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair1, pair2));
+            Assert.AreEqual(1, associationKeyComparer.Compare(pair1, pair3));
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair1, pair4));
 
-            Assert.AreEqual(associationKeyComparer.Compare(pair2, pair1), 0);
-            Assert.AreEqual(associationKeyComparer.Compare(pair3, pair1), -1);
-            Assert.AreEqual(associationKeyComparer.Compare(pair4, pair1), 0);
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair2, pair1));
+            Assert.AreEqual(-1, associationKeyComparer.Compare(pair3, pair1));
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair4, pair1));
         }
 
         [Test]
@@ -67,17 +66,17 @@ namespace NGenerics.Tests.Comparers.KeyValuePairComparerTests
             var pair3 = new KeyValuePair<int, string>(3, "5");
             var pair4 = new KeyValuePair<int, string>(5, "5");
 
-            Assert.AreEqual(associationKeyComparer.Compare(pair1, pair2), 0);
-            Assert.AreEqual(associationKeyComparer.Compare(pair1, pair3), -1);
-            Assert.AreEqual(associationKeyComparer.Compare(pair1, pair4), 0);
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair1, pair2));
+            Assert.AreEqual(-1, associationKeyComparer.Compare(pair1, pair3));
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair1, pair4));
 
-            Assert.AreEqual(associationKeyComparer.Compare(pair2, pair1), 0);
-            Assert.AreEqual(associationKeyComparer.Compare(pair3, pair1), +1);
-            Assert.AreEqual(associationKeyComparer.Compare(pair4, pair1), 0);
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair2, pair1));
+            Assert.AreEqual(+1, associationKeyComparer.Compare(pair3, pair1));
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair4, pair1));
 
-            Assert.AreEqual(associationKeyComparer.Compare(pair2.Key, pair1.Key), 0);
-            Assert.AreEqual(associationKeyComparer.Compare(pair3.Key, pair1.Key), +1);
-            Assert.AreEqual(associationKeyComparer.Compare(pair4.Key, pair1.Key), 0);
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair2.Key, pair1.Key));
+            Assert.AreEqual(+1, associationKeyComparer.Compare(pair3.Key, pair1.Key));
+            Assert.AreEqual(0, associationKeyComparer.Compare(pair4.Key, pair1.Key));
         }
     }
 }

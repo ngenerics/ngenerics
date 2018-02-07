@@ -8,7 +8,7 @@
 */
 
 using System;
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.VertexTests
@@ -24,23 +24,21 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
             var vertex3 = new Vertex<int>(8);
 
             var graph = new Graph<int>(true);
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
-            graph.AddVertex(vertex3);
+            graph.AddVertex(vertex1, vertex2, vertex3);
 
             graph.AddEdge(vertex1, vertex2);
             graph.AddEdge(vertex3, vertex1);
 
             var edgeList = vertex3.IncidentEdges;
 
-            Assert.AreEqual(edgeList.Count, 1);
+            Assert.AreEqual(1, edgeList.Count);
             AssertContainsEdges(edgeList, true,
                                 vertex3.GetEmanatingEdgeTo(vertex1)
                 );
 
             edgeList = vertex1.IncidentEdges;
 
-            Assert.AreEqual(edgeList.Count, 2);
+            Assert.AreEqual(2, edgeList.Count);
 
             AssertContainsEdges(edgeList, true,
                                 vertex1.GetEmanatingEdgeTo(vertex2),
@@ -56,23 +54,19 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
             var vertex3 = new Vertex<int>(8);
 
             var graph = new Graph<int>(true);
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
-            graph.AddVertex(vertex3);
+            graph.AddVertex(vertex1, vertex2, vertex3);
 
             graph.AddEdge(vertex1, vertex2);
             graph.AddEdge(vertex3, vertex1);
 
             var edgeList = vertex3.IncidentEdges;
 
-            Assert.AreEqual(edgeList.Count, 1);
-            AssertContainsEdges(edgeList, true,
-                                vertex3.GetEmanatingEdgeTo(vertex1)
-                );
+            Assert.AreEqual(1, edgeList.Count);
+            AssertContainsEdges(edgeList, true, vertex3.GetEmanatingEdgeTo(vertex1));
 
             edgeList = vertex1.IncidentEdges;
 
-            Assert.AreEqual(edgeList.Count, 2);
+            Assert.AreEqual(2, edgeList.Count);
 
             AssertContainsEdges(edgeList, true,
                                 vertex1.GetEmanatingEdgeTo(vertex2),
@@ -88,27 +82,20 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
             var vertex3 = new Vertex<int>(8);
 
             var graph = new Graph<int>(false);
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
-            graph.AddVertex(vertex3);
+            graph.AddVertex(vertex1, vertex2, vertex3);
 
             graph.AddEdge(vertex1, vertex2);
             graph.AddEdge(vertex3, vertex1);
 
             var edgeList = vertex3.IncidentEdges;
 
-            Assert.AreEqual(edgeList.Count, 1);
-            AssertContainsEdges(edgeList, true,
-                                vertex3.GetEmanatingEdgeTo(vertex1)
-                );
+            Assert.AreEqual(1, edgeList.Count);
+            AssertContainsEdges(edgeList, true, vertex3.GetEmanatingEdgeTo(vertex1));
 
             edgeList = vertex1.IncidentEdges;
 
-            Assert.AreEqual(edgeList.Count, 2);
-            AssertContainsEdges(edgeList, true,
-                                vertex1.GetEmanatingEdgeTo(vertex2),
-                                vertex3.GetEmanatingEdgeTo(vertex1)
-                );
+            Assert.AreEqual(2, edgeList.Count);
+            AssertContainsEdges(edgeList, true, vertex1.GetEmanatingEdgeTo(vertex2), vertex3.GetEmanatingEdgeTo(vertex1));
         }
 
         [Test]
@@ -118,6 +105,5 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
             var vertex2 = new Vertex<int>(5);
             Assert.Throws<NotSupportedException>(() => vertex1.IncidentEdges.Add(new Edge<int>(vertex1, vertex2, false)));
         }
-
     }
 }

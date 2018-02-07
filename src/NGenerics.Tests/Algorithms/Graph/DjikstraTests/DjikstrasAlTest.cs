@@ -10,7 +10,7 @@
 using System;
 using System.Collections.Generic;
 using NGenerics.Algorithms;
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.Algorithms.Graph.DjikstraTests

@@ -8,6 +8,7 @@
 */
 
 using System.Runtime.CompilerServices;
+
 [assembly:InternalsVisibleTo("NGenerics.Tests")]
 
 namespace NGenerics

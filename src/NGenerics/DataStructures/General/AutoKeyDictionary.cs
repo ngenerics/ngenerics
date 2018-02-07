@@ -11,12 +11,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using NGenerics.Util;
-using System.Security;
-using System.Reflection;
 using System.Diagnostics;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
+using System.Security;
+using NGenerics.Util;
 
 namespace NGenerics.DataStructures.General
 {

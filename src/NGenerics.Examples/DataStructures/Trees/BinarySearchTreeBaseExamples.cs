@@ -10,9 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using NGenerics.DataStructures.Trees;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
-using NGenerics.DataStructures.Trees;
 
 namespace NGenerics.Examples.DataStructures.Trees
 {

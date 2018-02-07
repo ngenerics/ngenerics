@@ -7,9 +7,9 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
+using NGenerics.DataStructures.General;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
-using NGenerics.DataStructures.General;
 
 namespace NGenerics.Tests.DataStructures.General.HashListTests
 {

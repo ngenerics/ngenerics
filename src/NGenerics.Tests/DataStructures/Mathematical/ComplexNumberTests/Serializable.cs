@@ -8,10 +8,9 @@
 */
 
 
-
+using NGenerics.DataStructures.Mathematical;
 using NGenerics.Tests.Util;
 using NUnit.Framework;
-using NGenerics.DataStructures.Mathematical;
 
 namespace NGenerics.Tests.DataStructures.Mathematical.ComplexNumberTests
 

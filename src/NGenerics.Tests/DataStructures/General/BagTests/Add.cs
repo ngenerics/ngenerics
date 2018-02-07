@@ -20,45 +20,39 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
         [Test]
         public void Simple()
         {
-            var bag = new Bag<string>
-                          {
-                              "aa"
-                          };
+            var bag = new Bag<string> {"aa"};
 
-            Assert.AreEqual(bag.Count, 1);
+            Assert.AreEqual(1, bag.Count);
             Assert.IsTrue(bag.Contains("aa"));
-            Assert.AreEqual(bag["aa"], 1);
+            Assert.AreEqual(1, bag["aa"]);
 
             bag.Add("bb");
-            Assert.AreEqual(bag.Count, 2);
+            Assert.AreEqual(2, bag.Count);
             Assert.IsTrue(bag.Contains("bb"));
-            Assert.AreEqual(bag["bb"], 1);
+            Assert.AreEqual(1, bag["bb"]);
 
             bag.Add("aa");
-            Assert.AreEqual(bag.Count, 3);
+            Assert.AreEqual(3, bag.Count);
             Assert.IsTrue(bag.Contains("aa"));
-            Assert.AreEqual(bag["aa"], 2);
+            Assert.AreEqual(2, bag["aa"]);
 
             bag.Add("cc", 3);
-            Assert.AreEqual(bag.Count, 6);
+            Assert.AreEqual(6, bag.Count);
             Assert.IsTrue(bag.Contains("cc"));
-            Assert.AreEqual(bag["cc"], 3);
+            Assert.AreEqual(3, bag["cc"]);
 
             bag.Add("cc", 2);
 
-            Assert.AreEqual(bag.Count, 8);
+            Assert.AreEqual(8, bag.Count);
             Assert.IsTrue(bag.Contains("cc"));
-            Assert.AreEqual(bag["cc"], 5);
+            Assert.AreEqual(5, bag["cc"]);
         }
 
         [Test]
         public void ExceptionZeroAmount()
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => 
-                new Bag<string>
-                    {
-                        {"aa", 0}
-                    }
+                new Bag<string> { {"aa", 0} }
             );
         }
 
@@ -66,12 +60,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
         public void ExceptionNegativeAmount()
         {
             Assert.Throws<ArgumentOutOfRangeException>(() =>  
-                new Bag<string>
-                    {
-                        {
-                            "aa", -1
-                        }
-                    }
+                new Bag<string> { {"aa", -1} }
             );
         }
 

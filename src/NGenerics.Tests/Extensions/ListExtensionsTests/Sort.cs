@@ -42,7 +42,7 @@ namespace NGenerics.Tests.Extensions.ListExtensionsTests
         public void SimpleComparision()
         {
             IList<int> list = new List<int> { 3, 2, 1, 4 };
-            list.Sort(new Comparison<int>((x, y) => y.CompareTo(x)));
+            list.Sort((x, y) => y.CompareTo(x));
             Assert.AreEqual(list[0], 4);
             Assert.AreEqual(list[1], 3);
             Assert.AreEqual(list[2], 2);
@@ -53,7 +53,7 @@ namespace NGenerics.Tests.Extensions.ListExtensionsTests
         public void SimpleComparisionReversed()
         {
             IList<int> list = new List<int> { 3, 2, 1, 4 };
-            list.Sort(new Comparison<int>((x, y) => y.CompareTo(x)), SortOrder.Descending);
+            list.Sort((x, y) => y.CompareTo(x), SortOrder.Descending);
             Assert.AreEqual(list[0], 1);
             Assert.AreEqual(list[1], 2);
             Assert.AreEqual(list[2], 3);

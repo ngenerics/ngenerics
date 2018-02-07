@@ -8,7 +8,6 @@
 */
 
 
-
 using NGenerics.DataStructures.Mathematical;
 
 namespace NGenerics.Tests.DataStructures.Mathematical.QRDecompositionTests

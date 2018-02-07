@@ -22,23 +22,23 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
             var bag = new Bag<string> { "aa" };
 
             Assert.IsTrue(bag.Contains("aa"));
-            Assert.AreEqual(bag["aa"], 1);
+            Assert.AreEqual(1, bag["aa"]);
 
             bag.Add("bb");
             Assert.IsTrue(bag.Contains("bb"));
-            Assert.AreEqual(bag["aa"], 1);
-            Assert.AreEqual(bag["bb"], 1);
+            Assert.AreEqual(1, bag["aa"]);
+            Assert.AreEqual(1, bag["bb"]);
 
             bag.Add("aa");
             Assert.IsTrue(bag.Contains("aa"));
-            Assert.AreEqual(bag["aa"], 2);
-            Assert.AreEqual(bag["bb"], 1);
+            Assert.AreEqual(2, bag["aa"]);
+            Assert.AreEqual(1, bag["bb"]);
 
             bag.Add("cc", 3);
             Assert.IsTrue(bag.Contains("cc"));
-            Assert.AreEqual(bag["aa"], 2);
-            Assert.AreEqual(bag["bb"], 1);
-            Assert.AreEqual(bag["cc"], 3);
+            Assert.AreEqual(2, bag["aa"]);
+            Assert.AreEqual(1, bag["bb"]);
+            Assert.AreEqual(3, bag["cc"]);
         }
     }
 }

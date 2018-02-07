@@ -8,7 +8,6 @@
 */
 
 
-
 using System.Collections.Generic;
 
 namespace NGenerics.Patterns.Visitor

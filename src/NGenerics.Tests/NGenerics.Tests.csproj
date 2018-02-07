@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DataStructures\General\GraphTests\" />
     <Folder Include="Properties\" />
   </ItemGroup>
 

@@ -8,8 +8,8 @@
 */
 
 
-using NUnit.Framework;
 using NGenerics.Extensions;
+using NUnit.Framework;
 
 namespace NGenerics.Tests.Extensions.DoubleExtensionsTests
 {

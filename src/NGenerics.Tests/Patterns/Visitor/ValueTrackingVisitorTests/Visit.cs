@@ -8,7 +8,6 @@
 */
 
 
-
 using System.Collections.Generic;
 using NGenerics.DataStructures.Trees;
 using NGenerics.Patterns.Visitor;

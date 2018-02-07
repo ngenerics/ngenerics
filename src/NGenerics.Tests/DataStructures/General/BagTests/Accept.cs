@@ -26,7 +26,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
             var bag = new Bag<string> { "5", "4", "3", "2" };
 
             var visitor = new TrackingVisitor<string>();
-            bag.AcceptVisitor<string>(visitor);
+            bag.AcceptVisitor(visitor);
 
             Assert.AreEqual(visitor.TrackingList.Count, 4);
             Assert.IsTrue(visitor.TrackingList.Contains("5"));
@@ -41,7 +41,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
             var bag = new Bag<string> { "5", "4", "3", "2" };
 
             var visitor = new CompletedTrackingVisitor<KeyValuePair<string, int>>();
-            bag.AcceptVisitor<KeyValuePair<string, int>>(visitor);
+            bag.AcceptVisitor(visitor);
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
             var bag = new Bag<string> { "5", "4", "3", "2" };
 
             var visitor = new CompletedTrackingVisitor<string>();
-            bag.AcceptVisitor<string>(visitor);
+            bag.AcceptVisitor(visitor);
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace NGenerics.Tests.DataStructures.General.BagTests
             var bag = new Bag<string> { "5", "4", "3", "2" };
 
             var visitor = new TrackingVisitor<KeyValuePair<string, int>>();
-            bag.AcceptVisitor<KeyValuePair<string, int>>(visitor);
+            bag.AcceptVisitor(visitor);
 
             Assert.AreEqual(visitor.TrackingList.Count, 4);
             Assert.IsTrue(visitor.TrackingList.Contains(new KeyValuePair<string, int>("5", 1)));

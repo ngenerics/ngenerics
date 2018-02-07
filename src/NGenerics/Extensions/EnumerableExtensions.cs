@@ -8,14 +8,14 @@
 */
 
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NGenerics.Util;
+
 namespace NGenerics.Extensions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using Util;
-
     /// <summary>
     /// Extensions for the IEnumerable interface.
     /// </summary>

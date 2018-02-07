@@ -30,5 +30,5 @@ namespace NGenerics.DataStructures.Mathematical
         /// Diagonal Matrixes
         /// </summary>
         Diagonal
-    };
+    }
 }

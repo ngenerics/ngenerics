@@ -8,7 +8,7 @@
 */
 
 using System;
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.EdgeTests
@@ -23,19 +23,19 @@ namespace NGenerics.Tests.DataStructures.General.EdgeTests
             var vertex2 = new Vertex<int>(4);
 
             var edge = new Edge<int>(vertex1, vertex2, true);
-            Assert.AreEqual(edge.FromVertex, vertex1);
-            Assert.AreEqual(edge.ToVertex, vertex2);
-            Assert.AreEqual(edge.Weight, 0);
+            Assert.AreEqual(vertex1, edge.FromVertex);
+            Assert.AreEqual(vertex2, edge.ToVertex);
+            Assert.AreEqual(0, edge.Weight);
 
             edge = new Edge<int>(vertex1, vertex2, 55, true);
-            Assert.AreEqual(edge.FromVertex, vertex1);
-            Assert.AreEqual(edge.ToVertex, vertex2);
-            Assert.AreEqual(edge.Weight, 55);
+            Assert.AreEqual(vertex1, edge.FromVertex);
+            Assert.AreEqual(vertex2, edge.ToVertex);
+            Assert.AreEqual(55, edge.Weight);
 
             edge = new Edge<int>(vertex1, vertex2, -2, true);
-            Assert.AreEqual(edge.FromVertex, vertex1);
-            Assert.AreEqual(edge.ToVertex, vertex2);
-            Assert.AreEqual(edge.Weight, -2);
+            Assert.AreEqual(vertex1, edge.FromVertex);
+            Assert.AreEqual(vertex2, edge.ToVertex);
+            Assert.AreEqual(-2, edge.Weight);
         }
 
         [Test]

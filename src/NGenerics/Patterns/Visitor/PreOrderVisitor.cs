@@ -8,7 +8,6 @@
 */
 
 
-
 using System.Diagnostics.CodeAnalysis;
 
 namespace NGenerics.Patterns.Visitor

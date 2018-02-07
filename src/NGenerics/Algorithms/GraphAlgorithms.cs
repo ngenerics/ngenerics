@@ -14,9 +14,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using NGenerics.Comparers;
 using NGenerics.DataStructures.General;
-using System.Diagnostics.CodeAnalysis;
+using NGenerics.DataStructures.Graphs;
 using NGenerics.Util;
 
 namespace NGenerics.Algorithms
@@ -128,30 +130,22 @@ namespace NGenerics.Algorithms
         {
             #region Parameter Checks
 
-            Guard.ArgumentNotNull(weightedGraph, "weightedGraph");
-            Guard.ArgumentNotNull(fromVertex, "fromVertex");
+            Guard.ArgumentNotNull(weightedGraph, nameof(weightedGraph));
+            Guard.ArgumentNotNull(fromVertex, nameof(fromVertex));
 
             if (!weightedGraph.ContainsVertex(fromVertex))
             {
-                throw new ArgumentException(Graph<T>.CouldNotBeFoundInTheGraph, "fromVertex");
+                throw new ArgumentException(Graph<T>.CouldNotBeFoundInTheGraph, nameof(fromVertex));
             }
 
             #endregion
 
-            var heap =
-                new Heap<KeyValuePair<double, Vertex<T>>>(
+            var heap = new Heap<KeyValuePair<double, Vertex<T>>>(
                     HeapType.Minimum,
                     new KeyValuePairComparer<double, Vertex<T>>());
 
-            var vertexStatus = new Dictionary<Vertex<T>, VertexInfo<T>>();
-
-            // Initialise the vertex distances to 
-
-            foreach (var vertex in weightedGraph.Vertices)
-            {
-                vertexStatus.Add(vertex, new VertexInfo<T>(double.MaxValue, null, false));
-            }
-
+            // Initialise the vertex distances to a recognizable value (max in this case)
+            var vertexStatus = weightedGraph.Vertices.ToDictionary(vertex => vertex, vertex => new VertexInfo<T>(double.MaxValue, null, false));
             vertexStatus[fromVertex].Distance = 0;
 
             // Add the source vertex to the heap - we'll be branching out from it.		
@@ -236,7 +230,7 @@ namespace NGenerics.Algorithms
 
             // We know when we are done, when we hit the number of edges
             // or when there is no more edges.
-            while ((edgeQueue.Count > 0) && (edgeCount > 0))
+            while (edgeQueue.Count > 0 && edgeCount > 0)
             {
                 // Pull off the least weight edge that hasn't been added or discarded yet.
                 var association = edgeQueue.RemoveRoot();

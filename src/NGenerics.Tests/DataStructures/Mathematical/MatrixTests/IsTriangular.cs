@@ -7,7 +7,6 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-using System;
 using NGenerics.DataStructures.Mathematical;
 using NUnit.Framework;
 

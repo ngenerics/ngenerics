@@ -7,8 +7,8 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-using NUnit.Framework;
 using NGenerics.Algorithms;
+using NUnit.Framework;
 
 namespace NGenerics.Tests.Algorithms.Math.LeastCommonMultipleTests
 {

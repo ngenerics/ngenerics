@@ -8,7 +8,6 @@
 */
 
 
-
 using System;
 using NGenerics.Util;
 using NUnit.Framework;

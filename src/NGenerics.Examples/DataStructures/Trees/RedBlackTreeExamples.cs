@@ -8,11 +8,11 @@
 */
 
 
-
+using System;
 using System.Collections.Generic;
+using NGenerics.DataStructures.Trees;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
-using NGenerics.DataStructures.Trees;
 
 namespace NGenerics.Examples.DataStructures.Trees
 {
@@ -244,10 +244,10 @@ namespace NGenerics.Examples.DataStructures.Trees
             // to the standard output.
             while (enumerator.MoveNext())
             {
-                System.Console.Write("Key : ");
-                System.Console.WriteLine(enumerator.Current.Key);
-                System.Console.Write("Value : ");
-                System.Console.WriteLine(enumerator.Current.Value);
+                Console.Write("Key : ");
+                Console.WriteLine(enumerator.Current.Key);
+                Console.Write("Value : ");
+                Console.WriteLine(enumerator.Current.Value);
             }
         }
         #endregion

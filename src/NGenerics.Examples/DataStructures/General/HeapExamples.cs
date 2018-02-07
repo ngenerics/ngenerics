@@ -8,7 +8,6 @@
 */
 
 
-
 using System;
 using System.Diagnostics;
 using NGenerics.DataStructures.General;

@@ -8,7 +8,6 @@
 */
 
 
-
 using NGenerics.DataStructures.Mathematical;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;

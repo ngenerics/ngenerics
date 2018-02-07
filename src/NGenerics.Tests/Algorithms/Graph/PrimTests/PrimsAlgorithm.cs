@@ -8,12 +8,11 @@
 */
 
 
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using NGenerics.Algorithms;
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.Algorithms.Graph.PrimTests

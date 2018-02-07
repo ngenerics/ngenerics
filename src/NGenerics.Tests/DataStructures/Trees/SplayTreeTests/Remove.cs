@@ -48,7 +48,7 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
             {
                 while (enumerator.MoveNext())
                 {
-                    Assert.IsTrue(splayTree.Remove(enumerator.Current));
+                    Assert.IsTrue(splayTree.Remove((int) enumerator.Current));
                 }
             }
         }

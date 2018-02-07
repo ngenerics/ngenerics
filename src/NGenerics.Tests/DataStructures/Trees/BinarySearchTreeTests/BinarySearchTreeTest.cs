@@ -8,7 +8,6 @@
 */
 
 
-
 using NGenerics.DataStructures.Trees;
 
 namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests

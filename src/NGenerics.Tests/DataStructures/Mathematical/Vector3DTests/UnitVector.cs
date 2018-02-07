@@ -8,11 +8,11 @@
 */
 
 
+using NGenerics.DataStructures.Mathematical;
+using NUnit.Framework;
+
 namespace NGenerics.Tests.DataStructures.Mathematical.Vector3DTests
 {
-    using NGenerics.DataStructures.Mathematical;
-    using NUnit.Framework;
-
     [TestFixture]
     public class UnitVector
     {

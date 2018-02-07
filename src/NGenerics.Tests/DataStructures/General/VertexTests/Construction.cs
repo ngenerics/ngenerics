@@ -7,7 +7,7 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.VertexTests
@@ -19,32 +19,31 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
         public void Simple()
         {
             var vertex = new Vertex<int>(4);
-            Assert.AreEqual(vertex.Data, 4);
-            Assert.AreEqual(vertex.Degree, 0);
-            Assert.AreEqual(vertex.IncidentEdges.Count, 0);
-            Assert.AreEqual(vertex.Weight, 0);
+            Assert.AreEqual(4, vertex.Data);
+            Assert.AreEqual(0, vertex.Degree);
+            Assert.AreEqual(0, vertex.IncidentEdges.Count);
+            Assert.AreEqual(0, vertex.Weight);
 
             vertex = new Vertex<int>(999);
-            Assert.AreEqual(vertex.Data, 999);
-            Assert.AreEqual(vertex.Degree, 0);
-            Assert.AreEqual(vertex.IncidentEdges.Count, 0);
-            Assert.AreEqual(vertex.Weight, 0);
+            Assert.AreEqual(999, vertex.Data);
+            Assert.AreEqual(0, vertex.Degree);
+            Assert.AreEqual(0, vertex.IncidentEdges.Count);
+            Assert.AreEqual(0, vertex.Weight);
 
             vertex = new Vertex<int>(4, 6.2);
-            Assert.AreEqual(vertex.Data, 4);
-            Assert.AreEqual(vertex.Degree, 0);
-            Assert.AreEqual(vertex.IncidentEdges.Count, 0);
-            Assert.AreEqual(vertex.Weight, 6.2);
+            Assert.AreEqual(4, vertex.Data);
+            Assert.AreEqual(0, vertex.Degree);
+            Assert.AreEqual(0, vertex.IncidentEdges.Count);
+            Assert.AreEqual(6.2, vertex.Weight);
 
             vertex = new Vertex<int>(999, 32.45);
-            Assert.AreEqual(vertex.Data, 999);
-            Assert.AreEqual(vertex.Degree, 0);
-            Assert.AreEqual(vertex.IncidentEdges.Count, 0);
-            Assert.AreEqual(vertex.Weight, 32.45);
+            Assert.AreEqual(999, vertex.Data);
+            Assert.AreEqual(0, vertex.Degree);
+            Assert.AreEqual(0, vertex.IncidentEdges.Count);
+            Assert.AreEqual(32.45, vertex.Weight);
 
             vertex.Weight = 55;
-            Assert.AreEqual(vertex.Weight, 55);
+            Assert.AreEqual(55, vertex.Weight);
         }
-
     }
 }

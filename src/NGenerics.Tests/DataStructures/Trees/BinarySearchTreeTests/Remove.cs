@@ -48,7 +48,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
             {
                 while (enumerator.MoveNext())
                 {
-                    Assert.IsTrue(tree.Remove(enumerator.Current));
+                    Assert.IsTrue(tree.Remove((int) enumerator.Current));
                 }
             }
         }

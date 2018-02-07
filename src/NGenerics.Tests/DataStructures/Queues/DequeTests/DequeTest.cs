@@ -8,7 +8,6 @@
 */
 
 
-
 using NGenerics.DataStructures.Queues;
 using NUnit.Framework;
 

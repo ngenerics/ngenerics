@@ -8,7 +8,6 @@
 */
 
 
-
 using System;
 using NGenerics.DataStructures.Mathematical;
 using NGenerics.Tests.DataStructures.Mathematical.VectorBaseTestObjects;

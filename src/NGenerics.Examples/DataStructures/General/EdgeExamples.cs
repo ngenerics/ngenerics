@@ -8,9 +8,7 @@
 */
 
 
-
-
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 using NUnit.Framework;
 
 namespace NGenerics.Examples.DataStructures.General

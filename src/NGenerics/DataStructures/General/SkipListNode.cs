@@ -8,7 +8,6 @@
 */
 
 
-
 using System;
 
 namespace NGenerics.DataStructures.General

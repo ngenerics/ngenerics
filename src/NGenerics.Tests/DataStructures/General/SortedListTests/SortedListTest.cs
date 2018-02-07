@@ -8,7 +8,6 @@
 */
 
 
-
 using NGenerics.DataStructures.General;
 
 namespace NGenerics.Tests.DataStructures.General.SortedListTests

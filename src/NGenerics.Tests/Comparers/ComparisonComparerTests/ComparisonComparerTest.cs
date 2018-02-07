@@ -8,7 +8,6 @@
 */
 
 
-
 using NGenerics.Comparers;
 using NGenerics.Tests.Util;
 

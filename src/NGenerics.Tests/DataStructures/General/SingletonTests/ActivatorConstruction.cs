@@ -30,7 +30,7 @@ namespace NGenerics.Tests.DataStructures.General.SingletonTests
 
         private static T Construct<T>(int value, int increment)
         {
-            return (T)Activator.CreateInstance(typeof(T), new object[] { value, increment });
+            return (T)Activator.CreateInstance(typeof(T), value, increment);
         }
 
         [OneTimeSetUp]

@@ -8,7 +8,7 @@
 */
 
 using System.Collections.Generic;
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 using NUnit.Framework;
 
 namespace NGenerics.Tests.DataStructures.General.VertexTests

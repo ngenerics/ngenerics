@@ -8,7 +8,6 @@
 */
 
 
-
 using System.Diagnostics;
 using NGenerics.DataStructures.Queues;
 using NGenerics.Patterns.Visitor;

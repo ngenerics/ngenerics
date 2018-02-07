@@ -8,8 +8,8 @@
 */
 
 
-
 using System;
+using NGenerics.DataStructures.Graphs;
 
 namespace NGenerics.DataStructures.General
 {

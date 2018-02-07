@@ -11,7 +11,6 @@
 using System;
 using System.Diagnostics;
 using NGenerics.DataStructures.General;
-using NGenerics.Extensions;
 using NGenerics.Patterns.Visitor;
 using NUnit.Framework;
 

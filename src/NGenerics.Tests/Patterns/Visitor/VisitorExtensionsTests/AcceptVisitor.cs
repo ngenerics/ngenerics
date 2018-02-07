@@ -8,14 +8,14 @@
 */
 
 
+using System;
+using System.Collections.Generic;
+using Moq;
+using NGenerics.Patterns.Visitor;
+using NUnit.Framework;
+
 namespace NGenerics.Tests.Patterns.Visitor.VisitorExtensionsTests
 {
-    using System;
-    using System.Collections.Generic;
-    using Moq;
-    using NGenerics.Patterns.Visitor;
-    using NUnit.Framework;
-
     [TestFixture]
     public class AcceptVisitor
     {

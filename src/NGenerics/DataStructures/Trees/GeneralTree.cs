@@ -8,7 +8,6 @@
 */
 
 
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +16,6 @@ using System.Diagnostics.CodeAnalysis;
 using NGenerics.Patterns.Visitor;
 using NGenerics.Sorting;
 using NGenerics.Util;
-
 
 namespace NGenerics.DataStructures.Trees
 {

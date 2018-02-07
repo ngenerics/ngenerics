@@ -10,7 +10,7 @@
 
 using System;
 using System.Collections.Generic;
-using NGenerics.DataStructures.General;
+using NGenerics.DataStructures.Graphs;
 
 namespace NGenerics.Comparers
 {

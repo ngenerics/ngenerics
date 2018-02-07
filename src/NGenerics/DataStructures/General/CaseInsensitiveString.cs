@@ -12,15 +12,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Security;
 using System.Text;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using NGenerics.Util;
-using System.Runtime.ConstrainedExecution;
-using System.Runtime.Serialization;
-using System.Security;
+
 namespace NGenerics.DataStructures.General
 {
     /// <summary>

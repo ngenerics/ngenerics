@@ -19,7 +19,7 @@ namespace NGenerics.Tests.Extensions
         [Test]
         public void IsEmpty_Returns_False_When_Collection_Has_Items()
         {
-            Assert.IsFalse(new List<int>() { 1 }.IsEmpty());
+            Assert.IsFalse(new List<int> { 1 }.IsEmpty());
         }
 
         [Test]

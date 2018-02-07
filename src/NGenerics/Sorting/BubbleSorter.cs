@@ -8,11 +8,10 @@
 */
 
 
+using System.Collections.Generic;
 
 namespace NGenerics.Sorting
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// A Bubble Sorter.
     /// </summary>

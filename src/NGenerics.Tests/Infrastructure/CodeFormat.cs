@@ -7,15 +7,13 @@
  of the license can be found at https://opensource.org/licenses/MIT.
 */
 
-using System.Reflection;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using NUnit.Framework;
 
 namespace NGenerics.Tests.Infrastructure
 {
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using NUnit.Framework;
-
     [TestFixture]
     public class CodeFormat
     {

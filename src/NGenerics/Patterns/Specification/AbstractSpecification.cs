@@ -9,6 +9,7 @@
 
 
 using System;
+
 namespace NGenerics.Patterns.Specification
 {
     /// <summary>
