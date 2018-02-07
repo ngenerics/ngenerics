@@ -26,10 +26,10 @@ namespace NGenerics.Tests.DataStructures.Graphs
                 var vertex = new Vertex<int>(i);
                 graph.AddVertex(vertex);
 
-                Assert.AreEqual(graph.Vertices.Count, i + 1);
+                Assert.AreEqual(i + 1, graph.Vertices.Count);
                 Assert.IsTrue(graph.ContainsVertex(i));
                 Assert.IsTrue(graph.ContainsVertex(vertex));
-                Assert.AreEqual(graph.Edges.Count, 0);
+                Assert.AreEqual(0, graph.Edges.Count);
             }
         }
 
@@ -43,10 +43,10 @@ namespace NGenerics.Tests.DataStructures.Graphs
                 var vertex = new Vertex<int>(i);
                 graph.AddVertex(vertex);
 
-                Assert.AreEqual(graph.Vertices.Count, i + 1);
+                Assert.AreEqual(i + 1, graph.Vertices.Count);
                 Assert.IsTrue(graph.ContainsVertex(i));
                 Assert.IsTrue(graph.ContainsVertex(vertex));
-                Assert.AreEqual(graph.Edges.Count, 0);
+                Assert.AreEqual(0, graph.Edges.Count);
             }
         }
 
@@ -59,9 +59,9 @@ namespace NGenerics.Tests.DataStructures.Graphs
             {
                 graph.AddVertex(i);
 
-                Assert.AreEqual(graph.Vertices.Count, i + 1);
+                Assert.AreEqual(i + 1, graph.Vertices.Count);
                 Assert.IsTrue(graph.ContainsVertex(i));
-                Assert.AreEqual(graph.Edges.Count, 0);
+                Assert.AreEqual(0, graph.Edges.Count);
             }
         }
 
@@ -74,9 +74,9 @@ namespace NGenerics.Tests.DataStructures.Graphs
             {
                 graph.AddVertex(i);
 
-                Assert.AreEqual(graph.Vertices.Count, i + 1);
+                Assert.AreEqual(i + 1, graph.Vertices.Count);
                 Assert.IsTrue(graph.ContainsVertex(i));
-                Assert.AreEqual(graph.Edges.Count, 0);
+                Assert.AreEqual(0, graph.Edges.Count);
             }
         }
 
