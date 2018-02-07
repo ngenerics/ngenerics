@@ -19,13 +19,13 @@ namespace NGenerics.Tests.DataStructures.General.VertexTests
         public void Simple()
         {
             var vertex = new Vertex<int>(5);
-            Assert.AreEqual(vertex.Data, 5);
+            Assert.AreEqual(5, vertex.Data);
 
             vertex.Data = 2;
-            Assert.AreEqual(vertex.Data, 2);
+            Assert.AreEqual(2, vertex.Data);
 
             vertex.Data = 10;
-            Assert.AreEqual(vertex.Data, 10);
+            Assert.AreEqual(10, vertex.Data);
         }
     }
 }

@@ -75,13 +75,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Conjugate" lang="cs" title="The following example shows how to use the Conjugate property."/>
         /// </example>
-        public ComplexNumber Conjugate
-        {
-            get
-            {
-                return new ComplexNumber(_real, -1 * _imaginary);
-            }
-        }
+        public ComplexNumber Conjugate => new ComplexNumber(_real, -1 * _imaginary);
 
 
         /// <summary>
@@ -182,12 +176,14 @@ namespace NGenerics.DataStructures.Mathematical
              *   [ b,  a ]             
              */
 
-            var matrix = new Matrix(2, 2);
-            matrix[0, 0] = _real;
-            matrix[0, 1] = -1 * _imaginary;
+            var matrix = new Matrix(2, 2)
+            {
+                [0, 0] = _real,
+                [0, 1] = -1 * _imaginary,
+                [1, 0] = _imaginary,
+                [1, 1] = _real
+            };
 
-            matrix[1, 0] = _imaginary;
-            matrix[1, 1] = _real;
 
             return matrix;
         }
@@ -201,15 +197,9 @@ namespace NGenerics.DataStructures.Mathematical
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="Modulus" lang="cs" title="The following example shows how to use the Modulus property."/>
         /// </example>
-        public double Modulus
-        {
-            get
-            {
-                return Math.Sqrt(
-                    (_real * _real) + (_imaginary * _imaginary)
-                );
-            }
-        }
+        public double Modulus => Math.Sqrt(
+            _real * _real + _imaginary * _imaginary
+        );
 
 
         /// <summary>
@@ -221,14 +211,8 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example>
         public double Real
         {
-            get
-            {
-                return _real;
-            }
-            set
-            {
-                _real = value;
-            }
+            get => _real;
+            set => _real = value;
         }
 
 
@@ -241,14 +225,8 @@ namespace NGenerics.DataStructures.Mathematical
         /// </example>
         public double Imaginary
         {
-            get
-            {
-                return _imaginary;
-            }
-            set
-            {
-                _imaginary = value;
-            }
+            get => _imaginary;
+            set => _imaginary = value;
         }
 
         /// <summary>
@@ -258,13 +236,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="AdditiveInverse" lang="cs" title="The following example shows how to use the AdditiveInverse property."/>
         /// </example>
-        public ComplexNumber AdditiveInverse
-        {
-            get
-            {
-                return new ComplexNumber(_real * -1, _imaginary * -1);
-            }
-        }
+        public ComplexNumber AdditiveInverse => new ComplexNumber(_real * -1, _imaginary * -1);
 
         /// <summary>
         /// Computes the absolute value of the current complex number.
@@ -272,13 +244,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="AbsoluteValue" lang="cs" title="The following example shows how to use the AbsoluteValue property."/>
         /// </example>
-        public double AbsoluteValue
-        {
-            get
-            {
-                return Math.Sqrt((_real * _real) + (_imaginary * _imaginary));
-            }
-        }
+        public double AbsoluteValue => Math.Sqrt((_real * _real) + (_imaginary * _imaginary));
 
 
         /// <summary>
@@ -316,13 +282,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="AdditiveIdentity" lang="cs" title="The following example shows how to use the AdditiveIdentity property."/>
         /// </example>
-        public static ComplexNumber AdditiveIdentity
-        {
-            get
-            {
-                return new ComplexNumber(0, 0);
-            }
-        }
+        public static ComplexNumber AdditiveIdentity => new ComplexNumber(0, 0);
 
 
         /// <summary>
@@ -332,14 +292,7 @@ namespace NGenerics.DataStructures.Mathematical
         /// <example>
         /// <code source="..\..\NGenerics.Examples\DataStructures\Mathematical\ComplexNumberExamples.cs" region="MultiplicativeIdentity" lang="cs" title="The following example shows how to use the MultiplicativeIdentity property."/>
         /// </example>
-        public static ComplexNumber MultiplicativeIdentity
-        {
-            get
-            {
-                return new ComplexNumber(1, 0);
-            }
-        }
-
+        public static ComplexNumber MultiplicativeIdentity => new ComplexNumber(1, 0);
 
         #endregion
 

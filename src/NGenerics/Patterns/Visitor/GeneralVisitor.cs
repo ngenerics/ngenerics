@@ -20,8 +20,7 @@ namespace NGenerics.Patterns.Visitor
     {
         #region Globals
 
-        private bool completed;
-        private readonly Predicate<T> predicate;
+        private readonly Predicate<T> _predicate;
 
         #endregion
 
@@ -36,7 +35,7 @@ namespace NGenerics.Patterns.Visitor
 
             #endregion
 
-            predicate = hasCompletedPredicate;
+            _predicate = hasCompletedPredicate;
         }
 
         #endregion
@@ -44,16 +43,12 @@ namespace NGenerics.Patterns.Visitor
         #region IVisitor<T> Members
 
         /// <inheritdoc />
-        public bool HasCompleted
-        {
-            get { return completed; }
-            set { completed = value; }
-        }
+        public bool HasCompleted { get; set; }
 
         /// <inheritdoc />
         public void Visit(T obj)
         {
-            completed = predicate(obj);
+            HasCompleted = _predicate(obj);
         }
 
         #endregion

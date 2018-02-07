@@ -133,7 +133,7 @@ namespace NGenerics.DataStructures.Mathematical
                }
             }
          }
-         // Solve U*X = Y;
+         // Solve U*X = Y
          for (var k = _lu.Columns - 1; k >= 0; k--)
          {
             for (var j = 0; j < nx; j++)

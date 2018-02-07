@@ -20,31 +20,31 @@ namespace NGenerics.Tests.DataStructures.Graphs
         public void Undirected()
         {
             var graph = new Graph<int>(false);
-            var vertex1 = new Vertex<int>(1);
-            var vertex2 = new Vertex<int>(2);
-            var vertex3 = new Vertex<int>(3);
-            var vertex4 = new Vertex<int>(4);
+            var v1 = new Vertex<int>(1);
+            var v2 = new Vertex<int>(2);
+            var v3 = new Vertex<int>(3);
+            var v4 = new Vertex<int>(4);
 
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
-            graph.AddVertex(vertex3);
+            graph.AddVertex(v1, v2, v3);
+            graph.AddVertex(v2);
+            graph.AddVertex(v3);
 
-            graph.AddEdge(vertex1, vertex2);
-            graph.AddEdge(vertex3, vertex2);
-            graph.AddEdge(vertex1, vertex3);
+            graph.AddEdge(v1, v2);
+            graph.AddEdge(v3, v2);
+            graph.AddEdge(v1, v3);
 
-            Assert.AreEqual(graph.Edges.Count, 3);
-            Assert.AreEqual(graph.Vertices.Count, 3);
+            Assert.AreEqual(3, graph.Edges.Count);
+            Assert.AreEqual(3, graph.Vertices.Count);
 
-            Assert.IsTrue(graph.RemoveVertex(vertex1));
+            Assert.IsTrue(graph.RemoveVertex(v1));
 
-            Assert.AreEqual(graph.Edges.Count, 1);
-            Assert.AreEqual(graph.Vertices.Count, 2);
+            Assert.AreEqual(1, graph.Edges.Count);
+            Assert.AreEqual(2, graph.Vertices.Count);
 
-            Assert.IsFalse(graph.RemoveVertex(vertex4));
+            Assert.IsFalse(graph.RemoveVertex(v4));
 
-            Assert.AreEqual(graph.Edges.Count, 1);
-            Assert.AreEqual(graph.Vertices.Count, 2);
+            Assert.AreEqual(1, graph.Edges.Count);
+            Assert.AreEqual(2, graph.Vertices.Count);
 
         }
 
@@ -52,89 +52,83 @@ namespace NGenerics.Tests.DataStructures.Graphs
         public void Directed()
         {
             var graph = new Graph<int>(true);
-            var vertex1 = new Vertex<int>(1);
-            var vertex2 = new Vertex<int>(2);
-            var vertex3 = new Vertex<int>(3);
-            var vertex4 = new Vertex<int>(4);
+            var v1 = new Vertex<int>(1);
+            var v2 = new Vertex<int>(2);
+            var v3 = new Vertex<int>(3);
+            var v4 = new Vertex<int>(4);
 
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
-            graph.AddVertex(vertex3);
+            graph.AddVertex(v1, v2, v3);
 
-            graph.AddEdge(vertex1, vertex2);
-            graph.AddEdge(vertex3, vertex2);
-            graph.AddEdge(vertex1, vertex3);
+            graph.AddEdge(v1, v2);
+            graph.AddEdge(v3, v2);
+            graph.AddEdge(v1, v3);
 
-            Assert.AreEqual(graph.Edges.Count, 3);
-            Assert.AreEqual(graph.Vertices.Count, 3);
+            Assert.AreEqual(3, graph.Edges.Count);
+            Assert.AreEqual(3, graph.Vertices.Count);
 
-            Assert.IsTrue(graph.RemoveVertex(vertex1));
+            Assert.IsTrue(graph.RemoveVertex(v1));
 
-            Assert.AreEqual(graph.Edges.Count, 1);
-            Assert.AreEqual(graph.Vertices.Count, 2);
+            Assert.AreEqual(1, graph.Edges.Count);
+            Assert.AreEqual(2, graph.Vertices.Count);
 
-            Assert.IsFalse(graph.RemoveVertex(vertex4));
+            Assert.IsFalse(graph.RemoveVertex(v4));
 
-            Assert.AreEqual(graph.Edges.Count, 1);
-            Assert.AreEqual(graph.Vertices.Count, 2);
+            Assert.AreEqual(1, graph.Edges.Count);
+            Assert.AreEqual(2, graph.Vertices.Count);
         }
 
         [Test]
         public void UndirectedValue()
         {
             var graph = new Graph<int>(false);
-            var vertex1 = new Vertex<int>(1);
-            var vertex2 = new Vertex<int>(2);
-            var vertex3 = new Vertex<int>(3);
+            var v1 = new Vertex<int>(1);
+            var v2 = new Vertex<int>(2);
+            var v3 = new Vertex<int>(3);
 
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
-            graph.AddVertex(vertex3);
+            graph.AddVertex(v1, v2, v3);
 
-            graph.AddEdge(vertex1, vertex2);
-            graph.AddEdge(vertex3, vertex2);
-            graph.AddEdge(vertex1, vertex3);
+            graph.AddEdge(v1, v2);
+            graph.AddEdge(v3, v2);
+            graph.AddEdge(v1, v3);
 
-            Assert.AreEqual(graph.Edges.Count, 3);
-            Assert.AreEqual(graph.Vertices.Count, 3);
+            Assert.AreEqual(3, graph.Edges.Count);
+            Assert.AreEqual(3, graph.Vertices.Count);
 
             Assert.IsTrue(graph.RemoveVertex(1));
 
-            Assert.AreEqual(graph.Edges.Count, 1);
-            Assert.AreEqual(graph.Vertices.Count, 2);
+            Assert.AreEqual(1, graph.Edges.Count);
+            Assert.AreEqual(2, graph.Vertices.Count);
 
             Assert.IsFalse(graph.RemoveVertex(4));
-            Assert.AreEqual(graph.Edges.Count, 1);
-            Assert.AreEqual(graph.Vertices.Count, 2);
+            Assert.AreEqual(1, graph.Edges.Count);
+            Assert.AreEqual(2, graph.Vertices.Count);
         }
 
         [Test]
         public void DirectedValue()
         {
             var graph = new Graph<int>(true);
-            var vertex1 = new Vertex<int>(1);
-            var vertex2 = new Vertex<int>(2);
-            var vertex3 = new Vertex<int>(3);
+            var v1 = new Vertex<int>(1);
+            var v2 = new Vertex<int>(2);
+            var v3 = new Vertex<int>(3);
 
-            graph.AddVertex(vertex1);
-            graph.AddVertex(vertex2);
-            graph.AddVertex(vertex3);
+            graph.AddVertex(v1, v2, v3);
 
-            graph.AddEdge(vertex1, vertex2);
-            graph.AddEdge(vertex3, vertex2);
-            graph.AddEdge(vertex1, vertex3);
+            graph.AddEdge(v1, v2);
+            graph.AddEdge(v3, v2);
+            graph.AddEdge(v1, v3);
 
-            Assert.AreEqual(graph.Edges.Count, 3);
-            Assert.AreEqual(graph.Vertices.Count, 3);
+            Assert.AreEqual(3, graph.Edges.Count);
+            Assert.AreEqual(3, graph.Vertices.Count);
 
             Assert.IsTrue(graph.RemoveVertex(1));
 
-            Assert.AreEqual(graph.Edges.Count, 1);
-            Assert.AreEqual(graph.Vertices.Count, 2);
+            Assert.AreEqual(1, graph.Edges.Count);
+            Assert.AreEqual(2, graph.Vertices.Count);
 
             Assert.IsFalse(graph.RemoveVertex(4));
-            Assert.AreEqual(graph.Edges.Count, 1);
-            Assert.AreEqual(graph.Vertices.Count, 2);
+            Assert.AreEqual(1, graph.Edges.Count);
+            Assert.AreEqual(2, graph.Vertices.Count);
         }
 
         [Test]
