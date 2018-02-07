@@ -48,7 +48,7 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
             {
                 while (enumerator.MoveNext())
                 {
-                    Assert.IsTrue(splayTree.Remove((int) enumerator.Current));
+                    Assert.IsTrue(splayTree.Remove(enumerator.Current.Key));
                 }
             }
         }
@@ -66,7 +66,7 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
                                     {1, "1"}
                                 };
 
-            Assert.AreEqual(splayTree.Count, 6);
+            Assert.AreEqual(6, splayTree.Count);
 
             Assert.IsTrue(splayTree.ContainsKey(4));
             Assert.IsTrue(splayTree.ContainsKey(6));
@@ -78,7 +78,7 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
             Assert.IsFalse(splayTree.Remove(20));
 
             Assert.IsTrue(splayTree.Remove(4));
-            Assert.AreEqual(splayTree.Count, 5);
+            Assert.AreEqual(5, splayTree.Count);
 
             Assert.IsFalse(splayTree.ContainsKey(4));
             Assert.IsTrue(splayTree.ContainsKey(6));
@@ -88,7 +88,7 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
             Assert.IsTrue(splayTree.ContainsKey(1));
 
             Assert.IsTrue(splayTree.Remove(2));
-            Assert.AreEqual(splayTree.Count, 4);
+            Assert.AreEqual(4, splayTree.Count);
 
             Assert.IsFalse(splayTree.ContainsKey(4));
             Assert.IsTrue(splayTree.ContainsKey(6));
@@ -98,7 +98,7 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
             Assert.IsTrue(splayTree.ContainsKey(1));
 
             Assert.IsTrue(splayTree.Remove(19));
-            Assert.AreEqual(splayTree.Count, 3);
+            Assert.AreEqual(3, splayTree.Count);
 
             Assert.IsFalse(splayTree.ContainsKey(4));
             Assert.IsTrue(splayTree.ContainsKey(6));
@@ -111,7 +111,7 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
 
 
             Assert.IsTrue(splayTree.Remove(1));
-            Assert.AreEqual(splayTree.Count, 2);
+            Assert.AreEqual(2, splayTree.Count);
 
             Assert.IsFalse(splayTree.ContainsKey(4));
             Assert.IsTrue(splayTree.ContainsKey(6));
@@ -121,7 +121,7 @@ namespace NGenerics.Tests.DataStructures.Trees.SplayTreeTests
             Assert.IsFalse(splayTree.ContainsKey(1));
 
             Assert.IsTrue(splayTree.Remove(6));
-            Assert.AreEqual(splayTree.Count, 1);
+            Assert.AreEqual(1, splayTree.Count);
 
             Assert.IsFalse(splayTree.ContainsKey(4));
             Assert.IsFalse(splayTree.ContainsKey(6));

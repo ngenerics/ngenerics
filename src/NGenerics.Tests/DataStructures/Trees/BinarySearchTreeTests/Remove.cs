@@ -48,7 +48,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
             {
                 while (enumerator.MoveNext())
                 {
-                    Assert.IsTrue(tree.Remove((int) enumerator.Current));
+                    Assert.IsTrue(tree.Remove(enumerator.Current.Key));
                 }
             }
         }
@@ -66,7 +66,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
                                {1, "1"}
                            };
 
-            Assert.AreEqual(tree.Count, 6);
+            Assert.AreEqual(6, tree.Count);
 
             Assert.IsTrue(tree.ContainsKey(4));
             Assert.IsTrue(tree.ContainsKey(6));
@@ -78,7 +78,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
             Assert.IsFalse(tree.Remove(20));
 
             Assert.IsTrue(tree.Remove(4));
-            Assert.AreEqual(tree.Count, 5);
+            Assert.AreEqual(5, tree.Count);
 
             Assert.IsFalse(tree.ContainsKey(4));
             Assert.IsTrue(tree.ContainsKey(6));
@@ -88,7 +88,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
             Assert.IsTrue(tree.ContainsKey(1));
 
             Assert.IsTrue(tree.Remove(2));
-            Assert.AreEqual(tree.Count, 4);
+            Assert.AreEqual(4, tree.Count);
 
             Assert.IsFalse(tree.ContainsKey(4));
             Assert.IsTrue(tree.ContainsKey(6));
@@ -98,7 +98,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
             Assert.IsTrue(tree.ContainsKey(1));
 
             Assert.IsTrue(tree.Remove(19));
-            Assert.AreEqual(tree.Count, 3);
+            Assert.AreEqual(3, tree.Count);
 
             Assert.IsFalse(tree.ContainsKey(4));
             Assert.IsTrue(tree.ContainsKey(6));
@@ -111,7 +111,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
 
 
             Assert.IsTrue(tree.Remove(1));
-            Assert.AreEqual(tree.Count, 2);
+            Assert.AreEqual(2, tree.Count);
 
             Assert.IsFalse(tree.ContainsKey(4));
             Assert.IsTrue(tree.ContainsKey(6));
@@ -121,7 +121,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
             Assert.IsFalse(tree.ContainsKey(1));
 
             Assert.IsTrue(tree.Remove(6));
-            Assert.AreEqual(tree.Count, 1);
+            Assert.AreEqual(1, tree.Count);
 
             Assert.IsFalse(tree.ContainsKey(4));
             Assert.IsFalse(tree.ContainsKey(6));
@@ -131,7 +131,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
             Assert.IsFalse(tree.ContainsKey(1));
 
             Assert.IsTrue(tree.Remove(5));
-            Assert.AreEqual(tree.Count, 0);
+            Assert.AreEqual(0, tree.Count);
 
             Assert.IsFalse(tree.ContainsKey(4));
             Assert.IsFalse(tree.ContainsKey(6));
@@ -156,7 +156,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
                                {1, "1"}
                            };
 
-            Assert.AreEqual(tree.Count, 6);
+            Assert.AreEqual(6, tree.Count);
 
             Assert.IsTrue(tree.ContainsKey(4));
             Assert.IsTrue(tree.ContainsKey(6));
@@ -168,7 +168,7 @@ namespace NGenerics.Tests.DataStructures.Trees.BinarySearchTreeTests
             Assert.IsFalse(tree.Remove(new KeyValuePair<int, string>(20, "20")));
 
             Assert.IsTrue(tree.Remove(new KeyValuePair<int, string>(4, "4")));
-            Assert.AreEqual(tree.Count, 5);
+            Assert.AreEqual(5, tree.Count);
 
             Assert.IsFalse(tree.ContainsKey(4));
             Assert.IsTrue(tree.ContainsKey(6));
